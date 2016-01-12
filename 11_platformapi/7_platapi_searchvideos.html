@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1413074-javascript-api-quick-start/edit?select_filter=564475">
+</head>
+
+<body>
+<p>In this article we&#39;ll look at embedding video searching and listing using the JW Platform API.</p>
+
+<div class="article_warning">To ensure fair access for all, usage of api.jwplatform.com is limited to <strong>10 calls per minute.</strong> We reserve the right to block API access to accounts that exceed this rate. This limit does not apply to content.jwplatform.com</div>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Setup</h2>
+
+<p>Setting up a demo on your site is a short and simple process. First, make sure you have PHP5 installed on your server. Now <a href="http://support-static.jwplayer.com/API/php-api-examples-20151013.zip">download our PHP API Examples</a> and unzip it. The <strong>search</strong> example folder contains all examples files, which you can copy to your webserver.</p>
+
+<p>Next, you need to insert your API key and secret in the <em>index.php</em> file. These two strings identify the API calls as belonging to your account. You can find them in the <strong>Account</strong> tab of the dashboard.</p>
+
+<p>The key and secret are also used to sign the calls and secure your account from unauthorized access. For more info on this, read the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/authentication.html">authentication section of the API docs</a>.</p>
+
+<p>When your key and secret are inserted, the search script should work! In order for the searches to actually be useful, you should have filled out the <em>title</em>, <em>description</em> and <em>tags</em> metadata of your videos, since that&#39;s what the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/list.html">script searches for</a>...</p>
+
+<h2>Code Walkthrough</h2>
+
+<p>This section walks through the code of the <em>index.php</em> script, explaining what happens in each of the five sections in this script. Code snippets are shown, please refer to the original script for all code.</p>
+
+<p>The first section of the script will load and instantiate the JW Platform API kit. The xxx&#39;es above should be your API key and the yyy&#39;es should be your API secret. Next, this section will check if there&#39;s a <em>key</em> or <em>search</em> GET parameter attached to the script:</p>
+
+<pre>
+# Instantiate the API.
+require_once(&#39;api.php&#39;);
+....
+$search = (isset($_GET[&#39;search&#39;])) ? $_GET[&#39;search&#39;]: false;
+$key = (isset($_GET[&#39;key&#39;])) ? $_GET[&#39;key&#39;]: false;
+</pre>
+
+<p>The second section contains all logic for displaying the videoplayer and related searches links. It uses the <em>key</em> parameter to print a videoplayer embed code. Next,it makes an array of the <em>tags</em> of a video, which are linked as a search query:</p>
+
+<pre>
+# Printing headers.
+if($key) {
+    $response = $botr_api-&gt;call(&quot;/videos/show&quot;,array(&#39;video_key&#39;=&gt;$key));
+....
+    }
+}
+</pre>
+
+<p>The third section is executed when there&#39;s no video key. It starts by doing a free text video search to the API, using the <em>search</em> parameter as query. If there&#39;s no search (or 0 results), this section requests your top 5 most viewed videos from the API. The results are printed in a list with links to the details page:</p>
+
+<pre>
+# Print search results if there&#39;s no key.
+else {
+if($search) {
+....
+    echo &quot;&lt;/ul&gt;&quot;;
+}
+</pre>
+
+<h2>Modifications</h2>
+
+<p>Adding functionality to this script or copy/pasting parts of it to your own CMS is of course no problem. A couple of pointers:</p>
+
+<ul>
+	<li>The search results only include video titles, but you can also print any other metadata <a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/list.html">the videos/list call returns</a></li>
+	<li>The search results page uses the <em>text</em> parameter of the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/list.html">videos/list call</a> to retrieve searches. If you solidly tag your videos, you can also use the <em>tags</em> parameter to return results. There will be less search results, but the <em>related searches</em> will be more targeted.</li>
+	<li>Adding some JavaScript magic to this search demo should be no problem. For example, search results and videoplayers can be displayed with AJAX instead of page loads. Another example is pagination of search results, which can be inserted b leveraging the <em>pagelimit</em> parameter of the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/list.html">videos/list call</a>.</li>
+</ul>
+
+<p>No attribution to us is needed if you modify and/or redistribute this demo script. Please <a href="/customer/portal/topics/635789-platform-api/questions">refer to the questions section</a> if you encounter specific issues or want to share your code or hints.</p>
+</body>
+</html>

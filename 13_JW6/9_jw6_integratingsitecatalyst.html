@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1417188-combining-jw-player-api-events-with-google-analytics/edit?select_filter=564476">
+</head>
+<body>
+<div class="article_callout">This document applies to users of <strong>JW Player Enterprise</strong>. Don&#39;t have Enterprise? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>This guide explains how to enable and use the built-in Adobe SiteCatalyst integration with JW Player.</p>
+
+<h2>Introduction</h2>
+
+<p>JW Player integrates with the Adobe SiteCatalyst (SC) service for providing video playback, engagement and milestone analytics. These video metrics end up next to the regular site metrics, providing an end-to-end picture of user behavior.</p>
+
+<p>The integration is straightforward, leveraging the SC &lt;script&gt; code embedded on the page. This means Adobe SiteCatalyst (including its Media library) must always be available for JW Player to track video events.</p>
+
+<p>JW Player sends a full set of open/play/stop/close commands to SC, providing data for media playback. JW Player does not yet support openAd/click for providing advertising analytics.<br />
+<img alt="" src="/customer/portal/attachments/234504" style="width: 700px; height: 520px;" /></p>
+
+<h2>SiteCatalyst Setup</h2>
+
+<p>To setup successful video measurements, the bulk of the configuration work required is actually on the Adobe SiteCatalyst side. Here is an outline of the steps involved, with links to more info on the&nbsp;<a href="http://blogs.adobe.com/digitalmarketing/author/marijka-engel/">blog</a>&nbsp;of Marijka Engel, Adobe&#39;s video SME (Subject Matter Expert):</p>
+
+<ol>
+	<li>Determining what media variables to record with which events.<br />
+	See&nbsp;<a href="http://blogs.adobe.com/digitalmarketing/analytics/creating-the-perfect-plan-for-video-measurement/">Creating the Perfect Plan for Video Measurements</a>.</li>
+	<li>Editing your&nbsp;<strong>s_code.js</strong>&nbsp;script to add the Media library and media variables.<br />
+	See&nbsp;<a href="http://blogs.adobe.com/digitalmarketing/analytics/understanding-video-measurement-implementation/">Understanding Video Measurement Implementation</a>.</li>
+	<li>Configuring the structure and contents of the reports inside the SiteCatalyst console.<br />
+	See&nbsp;<a href="http://blogs.adobe.com/digitalmarketing/analytics/initializing-video-measurement-success/">Initializing Video Measurement Success</a>.</li>
+	<li>Navigating, understanding and drilling down into these new video reports.<br />
+	See&nbsp;<a href="http://blogs.adobe.com/digitalmarketing/analytics/navigating-video-measurement-analysis/">Navigating Video Measurement Analytics</a>.</li>
+</ol>
+
+<p>Towards the end of step 2, the JW Player Setup part kicks in. Simply ensure the&nbsp;<strong>s_code.js</strong>&nbsp;is available on your page and it includes the Media library and media variables. JW Player will pro-actively connect to SiteCatalyst, so no specific JavaScript code is needed on your page.</p>
+
+<h2>JW Player Setup</h2>
+
+<p>With the Adobe SiteCatalyst library available on the page, it&#39;s time for the player. Connect JW Player to SC by adding the&nbsp;<em>sitecatalyst</em>&nbsp;block to your JW Player&nbsp;<a href="http://www.longtailvideo.com/support/jw-player/28839/embedding-the-player">embed code</a>:</p>
+
+<pre>
+jwplayer(&quot;myElement&quot;).setup({
+    file: &quot;/uploads/example.mp4&quot;,
+    image: &quot;/uploads/example.jpg&quot;,
+    sitecatalyst: {} 
+});
+</pre>
+
+<p>For a basic setup, this is all that&#39;s needed on the player side. JW Player will automatically start pinging&nbsp;<a href="http://microsite.omniture.com/t2/help/en_US/sc/appmeasurement/video/#Media_Module_Methods">open/play/stop/close&nbsp;</a>commands, and Adobe SiteCatalyst will start reporting on playback, engagement and milestones.</p>
+
+<h3>SETUP ERROR</h3>
+
+<p>If the&nbsp;<strong>s_code.js</strong>&nbsp;script is not embedded on the page, or the s.Media library is not available, JW Player will render a&nbsp;<a href="http://support.jwplayer.com/customer/portal/articles/1403682">setup error</a>:</p>
+
+<pre>
+Adobe SiteCatalyst Error:
+Could not find Media Module
+</pre>
+
+<p>If you encounter this error, ensure your SC script is correctly configured and embedded on the page. One specific common mistake is that JW Player gets setup before the&nbsp;<strong>s_code.js</strong>&nbsp;script is embedded. This should always be the other way around.</p>
+
+<h3>CONFIGURATION OPTIONS</h3>
+
+<p>Two configuration options are available to tune the Adobe SiteCatalyst integration:</p>
+
+<dl>
+	<dt>mediaName</dt>
+	<dd>By default, JW Player always sends the media&nbsp;<a href="http://support.jwplayer.com/customer/portal/articles/1406722-rss-playlist-embedng-with-playlists">title property</a>&nbsp;as mediaName to SiteCatalyst. If the title is not set, JW Player uses the&nbsp;<a href="http://support.jwplayer.com/customer/portal/articles/1406722-rss-playlist-embed">file property</a>, stripped of its filepath and querystring. If you want to use another mediaName, use this option to set it.</dd>
+	<dt>playerName</dt>
+	<dd>By default, JW Player always sends the ID of the player element to siteCatalyst. For the above example setup, the ID would be&nbsp;<strong>myElement</strong>. If you want to use another playerName, use this configuration option to set it.</dd>
+</dl>
+
+<p>Here is an example embed code that sets both configuration options:</p>
+
+<pre>
+jwplayer(&quot;myElement&quot;).setup({
+    file: &quot;/uploads/example.mp4&quot;,
+    image: &quot;/uploads/example.jpg&quot;,
+    sitecatalyst: {
+        mediaName: &quot;Company Showreel&quot;,
+        playerName: &quot;Homepage Showreel Player&quot;
+    }
+});</pre>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1413074-javascript-api-quick-start/edit?select_filter=564475">
+</head>
+
+<body>
+<p>Most JW Platform customers use our convenient single-line codes for embedding video players. However, it&#39;s also possible to write custom embed codes, e.g. when embedding content from outside JW Platform or when rendering highly dynamic player embeds.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Use Cases</h2>
+
+<p>In the majority of use cases, JW Platform&#39;s standard single-line embed codes are the best option for embedding players with a video or playlist. These embed codes can be found <a href="/customer/portal/articles/1469776-uploading-videos">in the dashboard</a> or generated <a href="/customer/portal/articles/1435973-embed-players-with-the-platform-api">using the API</a>.</p>
+
+<p>There are cases where more control over the <a href="/customer/portal/articles/1413113-configuration-options-reference">JW Player configuration</a> is required. For example when:</p>
+
+<ul>
+	<li>Embedding content not managed by JW Platform (e.g. a YouTube video).</li>
+	<li>Rendering highly dynamic player configurations (e.g. user captioning preferences).</li>
+</ul>
+
+<p>These cases can be implemented with JW Platform by using player libraries instead of player embeds.</p>
+
+<h2>Where To Find</h2>
+
+<p>Player libraries contain just the core JW Player JavaScript code, without any of the embed-specific configuration options. Embedding them does nothing yet to your page, but all the plumbing is available to write your own custom JW Player embeds. They are essentially the same as a copy of the self-hosted JW Player.</p>
+
+<p>The player library JavaScripts have the following URL structure:</p>
+
+<pre>
+http://content.jwplatform.com/libraries/PLAYERKEY.js</pre>
+
+<p>The <em>PLAYERKEY</em> is different for every player created in your dashboard. Both this key and the URL to a player&#39;s library can be found in the dashboard details page of every player:</p>
+
+<p><img alt="JW Platform player library URLs" src="/customer/portal/attachments/414957" /></p>
+
+<h2>Example Setups</h2>
+
+<p>Here is an example HTML page for the first case. It uses a player library to embed a YouTube Video. The embed still loads the video from JW Platform (using an RSS feed), but sets a custom sharing link for every pageview:</p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src=&quot;//content.jwplatform.com/libraries/S2xWVQ9r.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+    jwplayer(&quot;container&quot;).setup({
+      file: &quot;http://www.youtube.com/dQw4w9WgXcQ&quot;
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Here is an example HTML page that uses a player library to build an embed with custom captions settings. You could imagine these settings to be user preferences and therefore be different for every viewer:</p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src=&quot;//content.jwplatform.com/libraries/S2xWVQ9r.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+    jwplayer(&quot;container&quot;).setup({
+      playlist: &quot;//content.jwplatform.com/feeds/F2YKWOWd.rss&quot;,
+      captions: {
+        color: &quot;FFCC00&quot;,
+        backgroundColor: &quot;000000&quot;,
+        backgroundOpacity: 50
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Note this embed still loads the video from JW Platform, using an RSS feed to load both video sources, poster image, text tracks and metadata with a single line.</p>
+
+<h2>Advantages over Self-Hosting</h2>
+
+<p>To seasoned JW Player developers, it might look like player libraries are similar to downloading and hosting your own copy of the JW Player library. The workflow is the same, but there are several advantages to using player libraries from JW Platform:</p>
+
+<ul>
+	<li>A player library contains all configuration options from the dashboard as <strong>embedding defaults</strong>. This means it&#39;s still possible to centrally update custom embeds, as long as the option you are setting is not overruled in the custom embed. For example, you could update the skin or advertising tag of a player in the dashboard to have them auto-updated across all your embeds.</li>
+	<li>Another key feature that continues working with player libraries is <strong>engagement analytics</strong>. When embedding a JW Platform video like the example above, engagement analytics (as well as plays and time watched) are still collected and reported for that video. This is not the case with self-hosted libraries.</li>
+	<li>Last, player libraries are delivered from our <strong>high-performance, high-availability</strong> Contentserver. It leverages various global CDNs to deliver over 10 Billion assets per month with over 99.99% availability. HTTPS is supported, as well as DNS masking and URL tokening. There&#39;s nothing to code or maintain; all is ready to go!</li>
+</ul>
+</body>
+</html>

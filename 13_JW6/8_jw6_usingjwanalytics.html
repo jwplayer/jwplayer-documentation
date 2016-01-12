@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<p>This guide explains how to enable and use our integrated&nbsp;JW Player analytics service. The use of this analytics information can be used to gauge general player use, geographic&nbsp;location, and even device use. This free service is&nbsp;available to all users, however advanced video-by-video statistics are reserved for Premium users and higher.&nbsp;</p>
+
+<div class="article_callout">This article applies only to <strong>JW Player 6 and earlier (all editions)</strong></div>
+
+<h2>Reports</h2>
+
+<p>Video analytics reports can be found inside your&nbsp;<a href="https://account.jwplayer.com/#/analytics/overview/" target="_blank">JW Player Account</a>. These reports are enabled by default&nbsp;when a valid player license key&nbsp;is set up on your player&#39;s embedded page. When a cloud-hosted player is used, analytics will be enabled automatically.&nbsp;Please see our guide <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed" target="_blank">here</a> for more information on how to properly utilize your cloud-hosted player.</p>
+<img alt="" src="/customer/portal/attachments/233976" style="opacity: 0.9; width: 700px; height: 309px;" />
+<p>When initially loading your analytics, we display an overview of all of your video content. Here we can see the following information:</p>
+
+<ul>
+	<li><strong>Video Plays:</strong> This graph&nbsp;will display the number of times your videos have been started&nbsp;with our player.&nbsp;When a user begins to&nbsp;play content on&nbsp;your&nbsp;JW Player, we&nbsp;constitute this as a &quot;Video Play&quot;. Additionally, if a video completes and a user replays content, we count this as a play as well.</li>
+	<li><strong>Unique Viewers:</strong>&nbsp;Here, we&nbsp;display&nbsp;the number of unique viewers to your content. Things like replays will not count towards this metric. A unique viewer is defined as a single IP address and user agent within a 24 hour period.</li>
+	<li><strong>Time Watched:</strong>&nbsp;The total amount of time watched across all videos/viewers. For example, if a 30 second video is watched to completion 10 times in a day, we would display 300 seconds here.</li>
+</ul>
+
+<p>The lower portion of the analytics&nbsp;page breaks information down a bit further, providing data on how and where your videos are watched. There are three categories on the right: <strong>Videos</strong>, <strong>Devices</strong>, and <strong>Locations</strong>.<br />
+<img alt="" src="/customer/portal/attachments/234010" style="line-height: 1.6em; opacity: 0.9;" /></p>
+
+<ul>
+	<li><strong>Videos: </strong>A list of videos embedded via your player and player key. This metric is our default display option.</li>
+	<li><strong>Devices:</strong> A count&nbsp;of operating systems and&nbsp;browsers that have viewed your content during the chosen timeframe. For example,&nbsp;Firefox on Windows, Chrome on Mac, Safari on iPad,&nbsp;etc.</li>
+	<li><strong>Locations:&nbsp;</strong>The most popular countries that are viewing your content.</li>
+</ul>
+
+<div class="article_callout">This portion of the document applies to users of <strong>JW Player Premium and Enterprise</strong>. Don&#39;t have Premium or Enterprise? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>For Premium and Enterprise users, it is possible to drill down further to individual videos and view plays, time watched, and performance based on particular embedded pages. To view this information, simply click on the particular video file. &lt;img alt=&quot;&quot; data-cke-saved-src=&quot;/customer/portal/attachments/283329&quot; src=&quot;/customer/portal/attachments/283329&quot; width:=&quot;&quot; 752px;=&quot;&quot; height:=&quot;&quot; 222px;&quot;=&quot;&quot;&gt;</p>
+
+<h2>Setup</h2>
+
+<p>JW Player Analytics is enabled for all accounts, regardless of type. Provided that your license key is set up with your JW Player embeds&nbsp;correctly, we will begin tracking your analytics immediately.<br />
+<br />
+When embedding, your license key&nbsp;needs to be set once per page, as seen in our&nbsp;example here:</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot; src=&quot;/jwplayer/jwplayer.js&quot; &gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;jwplayer.key=&quot;aBcDeFg1234567&quot;;
+</pre>
+
+<p>​Users of the Pro, Premium and Ads editions of the JW Player will already have a key set, since the key is also used to unlock the additional features of each edition.</p>
+
+<p>Note that JW Player does not use cookies for video analytics, but cookies are used to track the current player volume, video quality and captions language.</p>
+
+<h2>Current Limitations</h2>
+
+<p>Due to the way that we track analytics from within the player, it is not possible to keep count of viewed time for live streams. Please keep this in mind when looking to track certain aspects of playback.</p>
+</body>
+</html>

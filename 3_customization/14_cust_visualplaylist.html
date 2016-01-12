@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1428529-display-a-playlist-sidebar/edit?select_filter=601064">
+</head>
+
+<body>
+<p>This article explains how to easily display the contents of your playlist with JW Player 7&#39;s integrated visual playlist feature.</p>
+
+<h2>Introduction</h2>
+
+<p>When using a playlist in any format(setup, xml, RSS) JW Player 7 will automatically include a visual playlist button on its control bar. Mousing over (or touching) this button will display a visual playlist, allowing a user to quickly jump between particular playlist items. Visual playlists are now rendered entirely over the player, without the need for additional vertical or horizontal space.</p>
+
+<p>The visual playlist can be turned off by setting <strong>visualplaylist</strong> to false within the configuration setup. This is true by default.</p>
+
+<h2>Example</h2>
+
+<p>The below is an example of the player&#39;s default handling of a visual playlist. The only thing specified in this case is an RSS playlist. The player will then populate the visual playlist automatically with the specified titles of each item.</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  playlist: "//content.jwplatform.com/feeds/13ShtP5m.rss",
+  width: "70%",
+  aspectratio: "16:9"
+});
+</script>
+
+<h2>Embed code</h2>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+    playerInstance.setup({
+      playlist: &quot;/uploads/myPlaylist.rss&quot;
+    });
+&lt;/script&gt;
+</pre>
+
+<h2>Customizing the Visual Playlist with CSS</h2>
+
+<p>The default style of the visual playlist has a maximum height. This is so it does not take up the entire height of the player. The visual playlist can be easily customized with CSS.</p>
+
+<p>Here is some CSS you can add on your page or adjust directly in your self-hosted seven.css to make the visual playlist wider and as tall as the player.</p>
+
+<pre>
+/*Sets the visual listbar width to 400 px and realigns it above the icon. */
+ .jw-skin-seven .jw-overlay .jw-playlist-container {
+  width:400px;
+  left:-20%;
+ }
+
+/* overrides the player settings for how tall the visualplaylist can be. 195px is the about right for a player that is 270px tall, including the controlbar height, and menus. */
+.jwplayer .jw-playlist {
+min-height: none;
+max-height: none;
+height: 195px;
+
+ }
+
+/* Makes it so the list items are left aligned in the visualplaylist */
+ .jwplayer .jw-playlist .jw-option {
+  padding: 0 15px;
+  margin: auto;
+  text-align: left;
+}
+
+
+</pre>
+
+<div id="container2">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container2");
+playerInstance.setup({
+  playlist: "//content.jwplatform.com/feeds/13ShtP5m.rss",
+  aspectratio: "16:9",
+  skin:{
+    name:"seven-2",
+    url:"//s3.amazonaws.com/demo.jwplayer.com/visualplaylist/seven2.css"
+    },
+});
+</script>
+
+<p>&nbsp;</p>
+
+<h2>Creating Your Own Custom Sidebar</h2>
+
+<p>If you are looking to do some additional customization work on a playlist sidebar, it is possible to create your own with our API and some CSS work. An example of this can be seen <a href="http://support.jwplayer.com/customer/portal/articles/1543546-example-making-your-own-playlist-sidebar" target="_blank">here</a>.</p>
+
+</body>
+</html>

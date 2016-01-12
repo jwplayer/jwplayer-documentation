@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<p>This page enumerates all changes for the various JW Player releases. We typically release a new version&nbsp;every 2 months.</p>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+	<li><a href="#version612">Version 6.12</a> - 2/24/2015</li>
+	<li><a href="#version611">Version 6.11</a> - 11/20/2014</li>
+	<li><a href="#version610">Version 6.10</a> - 08/20/2014</li>
+	<li><a href="#version69">Version 6.9</a> - 06/30/2014</li>
+	<li><a href="#version68">Version 6.8</a> - 02/06/2014</li>
+	<li><a href="#version67">Version 6.7</a> - 11/07/2013</li>
+	<li><a href="#version66">Version 6.6</a> - 08/14/2013</li>
+	<li><a href="#version65">Version 6.5</a> - 06/12/2013</li>
+	<li><a href="#version64">Version 6.4</a> - 04/24/2013</li>
+	<li><a href="#version63">Version 6.3</a> - 03/13/2013</li>
+	<li><a href="#version62">Version 6.2</a> - 02/06/2013</li>
+	<li><a href="#version61">Version 6.1</a> - 12/17/2012</li>
+	<li><a href="#version60">Version 6.0</a> - 11/09/2012</li>
+</ul>
+</nav>
+</div>
+
+<h2>Google IMA Patch</h2>
+
+<p>The following items were fixed on 6/1/2015:</p>
+
+<p>Accounting for Google&#39;s recent IMA SDK <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/history" target="_blank">changes</a>, a patch to our Google IMA advertising plugin was pushed on June 1, 2015. Therefore, JW Player 6.12 or higher&nbsp;<strong>must</strong> be used to serve HTML5 ads with our Google IMA plugin.</p>
+
+<p>In addition to the above changes, the following features and improvements have been added:</p>
+
+<ul>
+	<li>Improved ad scheduling, allowing for the use of &lt;playlist&gt; ad rules and VMAP schedules within Google IMA.</li>
+	<li>Added support for nonlinear creatives in HTML5 mode for non-iPhone devices.</li>
+	<li>Improved timing for video prerolls, preventing content from being played back prior to advertising.</li>
+	<li>playAd() API call will work in HTML5 mode when using Google IMA.</li>
+</ul>
+<a name="version612"></a>
+
+<h2>JW Player 6.12</h2>
+
+<p>The release improves functionality, performance, and UX in a few different ways, with features including:</p>
+
+<ul>
+	<li>Improved adaptive heuristics for HLS.</li>
+	<li>HLS playback now supported on Chromecast.</li>
+	<li>Updated UX in the Chromecast Receiver application.</li>
+	<li>Key-value pair replacement for Google IMA ad requests.</li>
+	<li>Support for Microsoft HLS Azure Clearkey + Playready AES tokenization.</li>
+</ul>
+
+<h3>Chromecast Updates</h3>
+
+<ul>
+	<li>The following HLS v3 streams can now be played on Chromecast -
+	<ul>
+		<li>AES Encrypted streams</li>
+		<li>Live and DVR Streams</li>
+		<li>VOD streams</li>
+	</ul>
+	</li>
+	<li>Control playback and volume directly from the Google Cast extension.</li>
+	<li>The receiver application will disconnect after 20 minutes in an idle state instead of ?.</li>
+</ul>
+
+<h3>General Updates</h3>
+
+<ul>
+	<li>Key value pair variable replacement support in HTML5 and Flash for Google IMA ad requests.</li>
+	<li>The text for advertising cuepoints can now be customized.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+	<li>Fixed a regression with using onReady() to trigger play() in Flash.</li>
+	<li>Fixed an issue for VPAID ad playback that was not sized correctly when using logo position bottom-right.</li>
+	<li>Added support for autostart with a VMAP ad schedule.</li>
+	<li>Fixed the display play button in HTML5 to correctly display hover states.</li>
+	<li>Removed a console error for VPAID ads that was not affecting ad playback.</li>
+	<li>Fixed controlbar fading issue when using SMIL manifests.</li>
+	<li>Fixed an issue with Google IMA tags not refreshing SCOR and COR values between playlist items.</li>
+	<li>Fixed an issue where the player being embedded in a form causes a postback on mobile.</li>
+	<li>Fixed an issue where play() being set onReady() caused infinite buffering on mobile devices.</li>
+	<li>Fixed an issue where some HLS streams would freeze when entering/exiting fullscreen on Windows FireFox.</li>
+	<li>Fixed an issue where IE11 YouTube HTML5 mode would not show any controls.</li>
+</ul>
+
+<h3>6.12.4956 Patch with bug fixes.</h3>
+
+<p>The following items were fixed on 4/6/2015:</p>
+
+<ul>
+	<li>Added support for HLS WebVTT captions with MPEGTS offsets to ensure closed captions appear when they should.</li>
+	<li>Updated the pause behavior during livestreams to be a pause instead of a stop.</li>
+	<li>Fixed a visual stutter in HLS playback due to AAC parsing of multi-audio track streams.</li>
+	<li>Fixed an issue where a failed ad tag was stopping video playback to resume.</li>
+	<li>Fixed an issue where some HLS streams would play in the background while ads were playing.</li>
+	<li>Fixed an issue with players using RTMP as a media source and autostart with prerolls, the RTMP stream did not resume after the ad ended.</li>
+	<li>Fixed an issue with players not rendering correctly when css padding and border were styled inline on the player element.</li>
+</ul>
+<a name="version611"></a>
+
+<h2>JW Player 6.11</h2>
+
+<p>The release improves functionality, performance, and UX in a few different ways, with features including:</p>
+
+<ul>
+	<li>Support for HLS Protocol Version 6 features</li>
+	<li>A new model for sending events to Google Analytics with the built in plugin</li>
+	<li>Casting mp4 videos from a Flash Player via our Chromecast integration</li>
+</ul>
+
+<h3>HLS Changes</h3>
+
+<ul>
+	<li>Support for HLS Protocol 6 Draft version 13 features:
+	<ul>
+		<li>Multiple audio track renditions using #EXT-X-MEDIA with TYPE equal to AUDIO</li>
+		<li>Subtitles in HTTP Live Streaming using WebVTT with #EXT-X-MEDIA with TYPE equal to SUBTITLES</li>
+	</ul>
+	</li>
+	<li>Flash player will detect timed metadata in ID3 format when embedded in the MPEG-2 transport stream and bubble up in the onMeta() API event</li>
+	<li>When the #EXT-X-PROGRAM-DATE-TIME tag is present, onMeta() will fire when the applicable segment plays.</li>
+	<li>The JW Player will automatically select an audio track based on system language</li>
+	<li>Improved delivery of 608 caption payload</li>
+	<li>Ability to seek within the buffer without having to rebuffer</li>
+	<li>Ability to re-seek while media is buffering</li>
+	<li>DVR sliding control bar appears once the available length is 2 minutes instead of 1 minute.</li>
+</ul>
+
+<h3>HLS v5 features not supported</h3>
+
+<ul>
+	<li>Sample-AES decryption</li>
+	<li>iFrame thumbnail tracks</li>
+	<li>byterange requests</li>
+	<li>Any timed metadata that is an image.</li>
+</ul>
+
+<h3>Chromecast</h3>
+
+<ul>
+	<li>Casting controls are now available when JW Player renders in Flash to play mp4 videos.</li>
+	<li>The Cast icon won&rsquo;t show when source is not playable on the receiver application.</li>
+	<li>The Cast icons have been updated for design compliance.</li>
+</ul>
+
+<h3>General Updates</h3>
+
+<ul>
+	<li>IE9 is now only supported in Flash, HTML5 support has been removed.</li>
+	<li>net proxy connection type can be set for rtmps connections</li>
+	<li>Poster image will not be loaded when autostart:true, improving player startup speed.</li>
+	<li>webkit-playsinline was added as an attribute of the video tag that JW Player uses when rendered on iOS devices.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+	<li>Fixed setuperror not firing in certain situations when setting up the player in Flash.</li>
+	<li>Fixed fullscreen button in Internet Explorer.</li>
+	<li>Fixed an issue where failed VPAID were breaking waterfalling to other VAST ads.</li>
+	<li>When an ad is paused in Android Chrome, clicking it no longer opens clickthrough target but resumes playback.</li>
+	<li>Fixed the volume slider for ad playback in Flash.</li>
+	<li>Fixed tag variable replacement item-duration was not getting replaced for mid or post rolls.</li>
+	<li>Fixed using .play() after an ad was watched in Flash.</li>
+	<li>Fixed an issue with autostart being broken for providers.</li>
+	<li>Fixed a crossdomain loading issue with VPAID ads.</li>
+</ul>
+
+<hr /> <a name="version610"></a>
+
+<h2>JW Player 6.10</h2>
+
+<p>This feature release contains brand new functionality specific to JW Player Ads and Enterprise editions of JW Player.</p>
+
+<h3>Chromecast Support</h3>
+
+<ul>
+	<li>Cast videos from Chrome on iOS using built in casting controls.</li>
+	<li>Control closed captions with the JW Player support. Includes FCC caption styling support.</li>
+	<li>Setting up the player for Chromecast requires publishers to configure their application with JW Player Chromecast receiver URL.</li>
+</ul>
+
+<h3>Advertising</h3>
+
+<ul>
+	<li>Schedule ads per playlist item instead of having a global schedule for an entire playlist.</li>
+	<li>Schedule ads in content more accurately using a new format - hh:mm:ss.mmm.</li>
+	<li>The ads control bar no longer blocks content during ad playback. It fades away after the ad starts playing.</li>
+	<li>Waterfalling between ad tags is now even easier with built in support. You can now pass in multiple ads into an advertising block as well as into the playAd() API to fall back to multiple ad tags.</li>
+	<li>Support for the updated Googima IMA API* (HTML5 support dropped in prior versions)</li>
+</ul>
+
+<h3>Fixed</h3>
+
+<ul>
+	<li>Fixed a bug setting up Youtube in HTML5 mode.</li>
+	<li>VMAP should support VASTAdData as well as VASTData.</li>
+	<li>Fixed an issue where VPAID ad creatives were taking up more space than defined.</li>
+</ul>
+
+<hr /> <a name="version69"></a>
+
+<h2>JW Player 6.9</h2>
+
+<p>JW Player 6.9 has many new features and updates that are available in all editions - keyboard shortcuts and YouTube HTML5 support. Google Universal Analytics is now supported while maintaining support for older formats. The Enterprise edition has turnkey integration with Google Chromecast. Along with these updates many of your favorite bugs have been squashed.</p>
+
+<h3>New</h3>
+
+<ul>
+	<li>Support for Google Universal Analytics in the built in GA plugin. Maintains support for older data models.</li>
+	<li>JW Player will now supports YouTube HTML5 chromeless player! This allows HTML5 YouTube videos to played in the JW Player on mobile and desktop!</li>
+	<li>Keyboard shortcuts! JW Player can now be controlled with simple keyboard controls in both Flash and HTML5. Tab into the player and use space to begin playback, arrow keys to seek and adjust volume, and the ability quickly and enter/exit fullscreen.</li>
+	<li>Second precise seeking in HLS. When seeking in an HLS stream, instead of seeking to the beginning of a fragment you can seek directly to a second.</li>
+	<li>On Android Chrome fullscreen video playback is customizable with JW Player skins.</li>
+</ul>
+
+<h3>Updated</h3>
+
+<ul>
+	<li>onMeta returns ID3 metadata for the current fragment playing of an AAC HLS audio stream.</li>
+	<li>JW Player now supports AES decryption of high quality HD HLS streams. The player decrypts and plays encrypted HD content 6x faster than previously, making it possible to stream high quality protected content.</li>
+	<li>JW Player recognizes HLS from Azure without any additional configuration.</li>
+	<li>JW Player would sometimes fail to load if it could not reach the CDN where external plugins were hosted. The player will now start up even if certain plugins can&rsquo;t be loaded.</li>
+	<li>Updated FullScreen usage to comply with deprecated browser API calls.</li>
+	<li>Updated the Twitter logo in the sharing plugin to comply with brand standards.</li>
+</ul>
+
+<h3>Advertising</h3>
+
+<ul>
+	<li>onAdPlay() - API call to determine when ad is played, returns the adtag, the position of the ad if it is in an adpod, and the state it is moving from which would be PLAYING or PAUSED.</li>
+	<li>onAdPause() api event for when an ad is paused.</li>
+	<li>Time slider cues no longer show for non-linear ads.</li>
+	<li>onAdImpression contains AdTitle attribute from VAST.</li>
+	<li>Clicking on a VPAID ad no longer forces a pause of video playback. Pausing of video playback on click is left to the VPAID creative.</li>
+	<li>playAd() for googima in flash</li>
+</ul>
+
+<h3>Beta Support for Chromecast</h3>
+
+<ul>
+	<li>Enterprise and Ads customers can cast mp4 content to a JW Player Chromecast Receiver application with a seamless integration.</li>
+	<li>Supports linear VAST advertising.</li>
+	<li>Has support for basic customization and branding of the receiver application.</li>
+</ul>
+
+<h3>Bugs</h3>
+
+<ul>
+	<li>Fixed 608 captions becoming out of sync after a seek action.</li>
+	<li>Fixed iPad controls appearing after exiting playback when more than one video is played (Playlists, ads).</li>
+	<li>Fixed for VPAID ads taking up the entire player including the visual playlist and not just the player window.</li>
+	<li>Fix seek issue when clicking on time slider marker for ads.</li>
+	<li>Certain VAST calls were being cached for playlists. This caching no longer happens.</li>
+	<li>Fixed an issue where VTT captions were overflowing instead of line breaking.</li>
+	<li>Fixed logos were not showing when autostart:true was set.</li>
+	<li>Fixed an alignment issue with full screen video playback in Safari.</li>
+	<li>Fixed playback alignment in HLS with exact fit in full screen.</li>
+	<li>Fixed advertising playback in HTML5 when a VAST response had no MediaFile.</li>
+	<li>Fixed labels for multiple source files were not formatted correctly.</li>
+	<li>VPAID 1.1 tags that were having issues playing back because of a missing getVPAID method. The player will play these types of VPAID tags.</li>
+</ul>
+
+<hr /> <a name="version68"></a>
+
+<h2>Version 6.8</h2>
+
+<p><strong>02-06-2014:</strong> JW Player 6.8 brings major updates to advertising with support of <strong>VAST 3.0 and VMAP</strong> specifications. Next, the player includes fully <strong>Redesigned Pro Skins</strong> and support for <strong>FCC Compliant</strong> captions styling.</p>
+
+<h3>New Features</h3>
+
+<ul>
+	<li>VAST 3.0 Compliance, including:
+	<ul>
+		<li>Skippable ads</li>
+		<li>Ad Podding</li>
+		<li>Progress &amp; skip trackers</li>
+		<li>Compliant error codes</li>
+		<li>Wrapper parsing updates</li>
+	</ul>
+	</li>
+	<li>VMAP 1.0 compliance: able to parse ad schedules from a VMAP tag.</li>
+	<li>Newly designed and imagined Pro skins (8 in total).</li>
+	<li>FCC Captions Compliance by supporting further customization of caption styling options.</li>
+	<li>HTML5 video renders up to 4x faster.</li>
+	<li>Ability to extract ID3 metadata from RTMP streams.</li>
+</ul>
+
+<h3>Updates and Enhancements</h3>
+
+<ul>
+	<li>Mid-roll ad markers now display on the timeslider.</li>
+	<li>Audio only mp3 creatives play in the JW Player.</li>
+	<li>Volume API calls work with VPAID ads.</li>
+	<li>Improved HLS Adaptive switching algorithm that provides less buffering and more viewing.</li>
+	<li>Customizable ad skip countdown message.</li>
+	<li>Volume slider thumb no longer disappears when at zero volume.</li>
+	<li>Improved click tracking on VAST 1.0 tags to reflect wrapped tags.</li>
+	<li>API updates to determine which ads are currently playing, skipped, and completed.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+	<li>onresize() was not firing correctly in HTML5, this now fires when the player is resized.</li>
+	<li>Removed hd toggle that appeared in the ad playback control bar.</li>
+	<li>Fixed hd/cc toggle in flash mode that made it so a viewer could not tell if the HD was on or off.</li>
+	<li>Fixed playback issues with certain VPAID ad tags that used adparameters.</li>
+	<li>Fixed positioning issues with certain DFP nonlinear overlay takeover ads.</li>
+	<li>Fixed timeslider thumbnails that were not formatted correclty when using multiple sprites in Flash.</li>
+	<li>Fixed an issue with Adobe SiteCatalyst where extra information was being pinged.</li>
+	<li>YouTube iframe fallback on iOS 7 is now formatted correctly.</li>
+</ul>
+
+<hr /> <a name="version67"></a>
+
+<h2>Version 6.7</h2>
+
+<p><strong>11-07-2013:</strong> The 6.7 release introduces <strong>Ad Skipping</strong> for VAST 2.0 ad tags, <strong>nonlinear overlays</strong> in HTML5, and <strong>Chapter Markers</strong> in the player control bar.</p>
+
+<h3>New Features</h3>
+
+<ul>
+	<li>VAST 2.0 and 1.0 ads can now be skipped after preprogramming timed offset.</li>
+	<li>Nonlinear creatives can now be used in the HTML5 player.</li>
+	<li>Chapter markers points can be added with the WebVTT standard track file.</li>
+	<li>Native fullscreen support in HTML5 for IE11.</li>
+</ul>
+
+<h3>Updates and Enhancements</h3>
+
+<ul>
+	<li>Created an API event for when an ad is skipped that will allow publishers to further customize ad interactions.</li>
+	<li>When iFrames are supported, the JW Player can be played in fullscreen.</li>
+	<li>The fontFamily for captions can now be configured to non-latin fonts.</li>
+	<li>When only one language or video quality is present, the player skin shows HD/CC as a toggle instead of an overlay options menu.</li>
+	<li>Advanced HLS features have been moved to the Ads edition of the JW Player.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+	<li>AAC Audio streams with ID3 tags no longer cause errors. Stay tuned for ID3 metadata provided in the API.</li>
+	<li>Removed a flash memory leak that was present during HLS playback.</li>
+	<li>Several fixes to HLS flash provider to allow videos that were either playing audio or were encrypted and not playing.</li>
+	<li>A fix to prevent midrolls from causing playback to buffer indefinitely.</li>
+	<li>Fixed an issue with onDisplayClick for IE10 for ad clickthroughs.</li>
+</ul>
+
+<hr /> <a name="version66"></a>
+
+<h2>Version 6.6</h2>
+
+<p><strong>08-14-2013</strong>: The 6.6 release introduces <strong>Mobile Skinning</strong> and <strong>HLS updates</strong> as well as a number of enhancements and bug fixes.</p>
+
+<h3>New Features</h3>
+
+<ul>
+	<li>Mobile players now use customizable skins instead of the device default controls.</li>
+	<li>Support for 2x retina skins across desktop and mobile.</li>
+	<li>Support for DVR seeking in HLS streams.</li>
+	<li>Support for CEA-608 captions in HLS streams.</li>
+	<li>Support for elementary AAC/MP3 audio streams in HLS.</li>
+</ul>
+
+<h3>Updates and Enhancements</h3>
+
+<ul>
+	<li>Playlist on mobile is now scrollable with one finger.</li>
+	<li>Related sharing tooltips can now be customized.</li>
+	<li>onDisplayClick() works on mobile.</li>
+	<li>Controls API also function during ad playback.</li>
+	<li>Doubleclick on display now toggles fullscreen.</li>
+	<li>Option to add horizontal volume slider in audio mode.</li>
+	<li>New &ldquo;basic&rdquo; listbar layout that only shows titles.</li>
+	<li>Dock buttons are also displayed in the idle state.</li>
+	<li>Proper primary mode and fallback selection for RSS feeds.</li>
+	<li>VAST linear ad interface consolidated into the control bar.</li>
+	<li>Advertising API calls now available for Google IMA (except playAd).</li>
+	<li>Support for VAST 1.0 tags in HTML5 mode.</li>
+	<li>Support for custom HD labels with SMIL/M3U8 manifests.</li>
+	<li>404 on HLS playlist won&rsquo;t error out entire stream.</li>
+	<li>For HLS live streaming only the active playlist is pulled from CDN.</li>
+	<li>For live streaming the redundant time slider is now replaced with the event title.</li>
+	<li>Video aspect ratio is detected for single bit rate HLS streams.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+	<li>Skin divider elements now appear correctly.</li>
+	<li>When removing dock button its tooltip also hides in Flash.</li>
+	<li>Offset issues with seekbar on display relative pages in WebKit.</li>
+	<li>playIcon now hides in HTML5 when removed from skin.</li>
+	<li>More robust hiding of the time slider in skins.</li>
+	<li>Listbar description colors now picked up in HTML5 mode.</li>
+	<li>Built-in IE popup blocker no longer blocks clicks in Flash for VAST ads.</li>
+	<li>VAST playAd and onBeforePlay fixes in Flash mode.</li>
+	<li>More tolerant VAST 2.0 parsing in HTML5 mode.</li>
+	<li>VAST xml parsing on Android.</li>
+	<li>Parsing xml namespace in DFXP captions.</li>
+	<li>Parsing of HLS live streams with program datetime tag.</li>
+	<li>Support for encrypted HLS streams with uppercase initialization vector.</li>
+	<li>HLS playback in Flash with a server-absolute key file path.</li>
+</ul>
+
+<hr /> <a name="version65"></a>
+
+<h2>Version 6.5</h2>
+
+<p><strong>06-12-2013</strong>: The 6.5 release introduces an <strong>Adobe SiteCatalyst integration</strong> and <strong>Advertising JavaScript API</strong>, as well as a number of smaller updates and bug fixes:</p>
+
+<ul>
+	<li>New: The 8 premium skins are now available to Pro users (Pro edition).</li>
+	<li>New: Integration with Adobe SiteCatalyst for easy setup of advanced video analytics (Premium edition).</li>
+	<li>New: JavaScript API for VAST Advertising, for verification, waterfalling, scheduling and companions (Ads edition).</li>
+</ul>
+
+<ul>
+	<li>Update: Hiding the title from the play icon, using the &quot;displaytitle&quot; option.</li>
+	<li>Update: An onSetupError() callback that gets called when the player cannot be setup.</li>
+	<li>Update: A getPlaylistIndex() API call, which returns the index of the active item.</li>
+	<li>Update: Live Closed Captions rendering using RTMP and the Wowza or Adobe media servers.</li>
+	<li>Update: Setting of custom dimensions of the related videos thumbnails (Premium edition).</li>
+	<li>Update: Support for AES128 decryption of HLS fragments (Premium edition).</li>
+	<li>Update: Several new VAST tag replacement variables, including playlistItem options (Ads edition).</li>
+</ul>
+
+<ul>
+	<li>Fix: Smooth scaling of poster and playlist thumbnails in Flash mode.</li>
+	<li>Fix: Picking the high-quality thumbnail from YouTube RSS feeds.</li>
+	<li>Fix: Seeks inside the buffer for Flash pseudo-streaming don&#39;t trigger a re-fetch.</li>
+	<li>Fix: RSS setups now fallback to Flash if the format isn&#39;t supported in HTML5.</li>
+	<li>Fix: Skipping of HLS for a multi-source setup on Android 4.0.</li>
+	<li>Fix: Playback of YouTube videos with non-alphanumeric characters on iOS/Android.</li>
+	<li>Fix: Correct display of YouTube error messages.</li>
+	<li>Fix: Support for VAST creatives without filename extension or with MOV extension.</li>
+	<li>Fix: JW Player inside a form stopped triggering a postback.</li>
+	<li>Fix: The listbar now correctly redraws itself upon resize in a responsive setup.</li>
+	<li>Fix: The video element in HTML5 mode now correctly resizes itself upon player resize.</li>
+	<li>Fix: Controlbar audio-mode now correctly kicks in with a listbar and ignores max-width.</li>
+	<li>Fix: Embedding of JW Player on pages that have a &quot;direction:rtl&quot; CSS rule.</li>
+	<li>Fix: Proper handling of timecode gaps in HLS discontinuities.</li>
+	<li>Fix: Proper handling of comments in RSS feeds in HTML5 mode.</li>
+	<li>Fix: Parsing for certain PMT tables and ADTS headers for HLS in Flash.</li>
+	<li>Fix: Seeks beyond the duration don&#39;t enter an infinite buffer anymore for HLS in Flash.</li>
+	<li>Fix: Inconsistencies in the onSeek(), onPlay() and onResize() event callbacks.</li>
+	<li>Fix: Playback of MP3-only HLS streams in TS now works OK..</li>
+	<li>Fix: Bottom-left and bottom-right logo now placed correctly, just above the controlbar.</li>
+	<li>Fix: Inconsistencies in Complete, Mute and Fullscreen tracking for VAST in Flash.</li>
+	<li>Fix: Triggering of lowest bitrate for RTMP streams with no/partial width attributes.</li>
+</ul>
+
+<hr /> <a name="version64"></a>
+
+<h2>Version 6.4</h2>
+
+<p><strong>04-24-2013</strong>: The 6.4 release introduces support for <strong>VAST advertising in HTML5</strong> and <strong>Responsive Design</strong>, as well as a number of smaller updates and bug fixes:</p>
+
+<ul>
+	<li>New: Added support for VAST 2.0 linear non-interactive ads in the HTML5 player</li>
+	<li>New: Added support embedding the player in a responsive design via a new <i>aspectratio</i> parameter and percentage-based width.</li>
+</ul>
+
+<ul>
+	<li>Update: Option-based disabling of Stage Video acceleration for MP4/FLV, RTMP and HLS in Flash.</li>
+</ul>
+
+<ul>
+	<li>Fix: Issue where multiple subtitle tracks don&rsquo;t always load when using other JavaScript libraries (such as Ember.js).</li>
+	<li>Fix: Issue where the download fallback would not render with multiple sources where the first was RTMP or HLS.</li>
+	<li>Fix: Issue where players would not setup if the Ember.js library was used on the same page.</li>
+	<li>Fix: Issue where tracking requests are not triggered when a VAST tag&rsquo;s duration is set to 0.</li>
+	<li>Fix: Issue where ads sometimes won&rsquo;t play while in fullscreen mode.</li>
+	<li>Fix: Issue where server-absolute links do not work on hosted players.</li>
+	<li>Fix: Issue in Flash where multiple mid-rolls would not play in Chrome.</li>
+	<li>Fix: Issue in Flash where some IMA tags won&rsquo;t load.</li>
+	<li>Fix: Issue in HTML5 where ads don&rsquo;t play when the player falls back from Flash.</li>
+</ul>
+
+<hr /> <a name="version63"></a>
+
+<h2>Version 6.3</h2>
+
+<p><strong>03-13-2013</strong>: The 6.3 release introduces support for <strong>Tooltip Thumbnails</strong> and <strong>VPAID Overlays</strong>, as well as some smaller updates and bug fixes:</p>
+
+<ul>
+	<li>New: Added support for tooltip thumbnails in the time slider.</li>
+	<li>New: Added support for publishers and users to set the default quality level and caption track.</li>
+	<li>New: Added support for VPAID non-linear overlays (Ads edition).</li>
+</ul>
+
+<ul>
+	<li>Update: Introduced Apple Airplay support by setting flag on video element.</li>
+	<li>Update: Introduced support for RTMP 302 redirects</li>
+	<li>Update: Added Envivio HLS stream support (Premium edition).</li>
+	<li>Update: Improved advertising UX by showing a buffering icon while ads load (Ads edition).</li>
+</ul>
+
+<ul>
+	<li>Fix: Issue where some HLS streams don&rsquo;t start with a black screen</li>
+	<li>Fix: Issue where certain VAST XML causes the player to crash</li>
+	<li>Fix: Issue where HLS type detection in HTML5 mode doesn&rsquo;t work</li>
+	<li>Fix: Issue where the time slider tooltip mismatches the actual seek time in Flash mode</li>
+	<li>Fix: Issue where sometimes RTMP application / id were not detected.</li>
+	<li>Fix: Removed buffer icon after seeking is complete in IE10.</li>
+	<li>Fix: Issue where captions don&rsquo;t initially render in the correct position</li>
+	<li>Fix: Issue where captions disappear after switching to fullscreen</li>
+	<li>Fix: Issue where setting controls:false does not hide controls on mobile devices</li>
+	<li>Fix: Issue where VPAID non-linear overlays don&#39;t go away</li>
+	<li>Fix: Issue where VAST ad volume is not changed</li>
+	<li>Fix: Issue where VPAID non-linear overlays toggle the video to play if it&rsquo;s paused</li>
+	<li>Fix: Issue where an onReady event fires even if player fails to set up</li>
+	<li>Fix: Issue with FireFox in Flash mode where the play icon stays highlighted</li>
+	<li>Fix: Issue in HTML5 mode where the controls can still be clicked when disabled</li>
+	<li>Fix: Issue in Flash mode where mouse cursor is not hidden in fullscreen</li>
+	<li>Fix: Issue in Chrome where preview images do not load with a 302 redirect</li>
+	<li>Fix: Issue where clicking on the commercial player&rsquo;s logo would not play/pause the video</li>
+	<li>Fix: Issue where mimetypes are not detected in RSS</li>
+	<li>Fix: Removed undocumented fields from returning via the playlist API</li>
+	<li>Fix: Issue where playlist types are not filtered out based on the player&rsquo;s mode</li>
+	<li>Fix: Issue where poster images are not refreshed when loading a new playlist</li>
+	<li>Fix: Issue where embedding with sources would not load items into the active playlist</li>
+</ul>
+
+<hr /> <a name="version62"></a>
+
+<h2>Version 6.2</h2>
+
+<p><strong>02-06-2013</strong>: The 6.2 release introduces support for Google IMA3 in HTML5 mode, as well as a number of fixes:</p>
+
+<ul>
+	<li>New: Single binary for all player editions, so re-downloads are not needed after upgrading.</li>
+	<li>New: Support for the Google IMA3 SDK in HTML5 mode, in particular iOS/Android (Ads edition).</li>
+</ul>
+
+<ul>
+	<li>Update: Basic mechanism to set global defaults for embeds in player library.</li>
+	<li>Update: Introduced the ability to set custom URLs for html5/flash players.</li>
+	<li>Update: Support for discontinuities in HLS streams (Premium edition).</li>
+</ul>
+
+<ul>
+	<li>Fix: Player not loading in IE7</li>
+	<li>Fix: Fixed an issue which caused certain HLS streams to fail</li>
+	<li>Fix: Added aliases for RTMP (smil) and HLS (m3u8) type values</li>
+	<li>Fix: HLS now always resumes from live head after pause</li>
+	<li>Fix: Disabled analytics plugin no longer gets loaded</li>
+	<li>Fix: Some HLS live streams eventually error out on #1010</li>
+	<li>Fix: Fixed an issue where and HLS stream would fail with error code #2006</li>
+	<li>Fix: When stop() called onComplete, player no longer advances to next playlist item</li>
+	<li>Fix: Fixes an issue where calling seek() on Android devices would restart playback.</li>
+	<li>Fix: HLS should buffer instead of complete when ending live playlist</li>
+	<li>Fix: Certain HLS streams with MP3 don&#39;t have audio</li>
+</ul>
+
+<hr /> <a name="version61"></a>
+
+<h2>Version 6.1</h2>
+
+<p><strong>12-17-2012</strong>: The 6.1 release bundles a few HLS enhancements and a number of bug fixes:</p>
+
+<ul>
+	<li>New: Faster HLS starts and seeks, by starting playback while still downloading (Premium edition).</li>
+	<li>New: Improved, less bandwidth maximizing HLS quality switching (Premium edition).</li>
+	<li>New: Explicit omission of Android from HLS support, due to critical bugs (Premium edition).</li>
+</ul>
+
+<ul>
+	<li>Fix: Player is broken in IE7 due to trailing commas in the JavaScript code.</li>
+	<li>Fix: Centering CSS is not reset inside JW Player, leading to broken player designs.</li>
+	<li>Fix: Cross-origin errors when loading JW Player in cross-domain iFrame.</li>
+	<li>Fix: After interacting with a player, no more text can be selected on a page.</li>
+	<li>Fix: Elapsed and remaining time cannot be hidden in skins.</li>
+	<li>Fix: The combination of RTMP dynamic streaming and live FC Subscribing breaks.</li>
+	<li>Fix: Manual RTMP quality switching is not instant.</li>
+	<li>Fix: Ordering of quality levels is not consistent across modes and formats.</li>
+	<li>Fix: Generation of quality labels is not consistent across modes and formats.</li>
+	<li>Fix: When fallback is disabled, the player still clears the original DIV.</li>
+	<li>Fix: Page scrollbar still visible in IE9 fake-fullscreen.</li>
+	<li>Fix: Returning from fullscreen sometimes results in scaled video on iPad.</li>
+	<li>Fix: In Flash mode in fullscreen, the controls don&#39;t fade out.</li>
+	<li>Fix: Relative paths to MP4 not working on IE8.</li>
+	<li>Fix: Title in display not appearing in Premium player.</li>
+	<li>Fix: API calls in HTML5 mode in onReady() queue not working.</li>
+	<li>Fix: Media errors not exposed to API in HTML5 mode.</li>
+	<li>Fix: Cross-domain loaded captions fail in IE9 in HTML5 mode.</li>
+</ul>
+
+<hr /> <a name="version60"></a>
+
+<h2>Version 6.0</h2>
+
+<p><strong>11-09-2012</strong>: Initial release of JW6.</p>
+
+<p>See <a href="/support/jw-player/28834/migrating-from-jw5-to-jw6">Migrating from JW5 to JW6</a> for an overview of changes from most recent player version, JW5.</p>
+
+</body>
+</html>

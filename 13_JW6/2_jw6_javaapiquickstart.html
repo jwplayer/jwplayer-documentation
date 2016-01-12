@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<p>This article explains how to use the JavaScript API component of JW Player. This API can be used to enhance the functionality of your video embeds and/or to implement rich video-page interactions. It abstracts any differences between Flash and HTML5, so the code you write will work with both technologies.</p>
+
+<h2>Getting Started</h2>
+
+<p>Before it is possible to interact with a player, that player should be setup. Our <a href="/customer/portal/topics/601065-embedding/articles">Embedding Section</a> contains several examples. Here is a quick one:</p>
+
+<pre>
+&lt;div id=&#39;myElement&#39;&gt;Loading the player ...&lt;/div&gt;
+&lt;script type=&#39;text/javascript&#39;&gt;
+  jwplayer(&#39;myElement&#39;).setup({ 
+    file: &#39;/uploads/example.mp4&#39;, 
+    height: 360, 
+    image: &#39;/uploads/example.jpg&#39;,
+    width: 640 
+  });
+&lt;/script&gt;
+</pre>
+
+<p>When the player is setup, API calls can immediately be made. If you have one player on your page, it can always be accessed using the <em>jwplayer()</em> function. For example:</p>
+
+<pre>
+&lt;p&gt;
+  &lt;a onclick=&#39;jwplayer().play()&#39;&gt;Toggle playback&lt;/a&gt; | 
+  &lt;a onclick=&#39;alert(jwplayer().getVolume())&#39;&gt;Report volume&lt;/a&gt;
+&lt;/p&gt;
+</pre>
+
+<p>Here is the combination of setup code and API links in action:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+jwplayer("container").setup({
+    height: 270,
+    width: 640,
+    file: 'http://content.jwplatform.com/videos/C4lp6Dtd-640.mp4',
+    image: '/customer/portal/attachments/268150'
+});
+</script>
+
+<p>&nbsp;</p>
+
+<p><a href="#" onclick="jwplayer().play(); return false;">Toggle playback</a> | <a href="#" onclick="alert(jwplayer().getVolume()); return false;">Report volume</a></p>
+
+<h2>Multiple Players</h2>
+
+<p>When you have multiple players on a page, you must be specific about which player you want to interact with. In that case, there are two ways to select a player:</p>
+
+<ul>
+	<li>With the id of the element you instantiated the player over:
+	<pre>
+jwplayer(&#39;myElement&#39;).play();</pre>
+	</li>
+	<li>With the index in the list of players on the page (top to bottom):
+	<pre>
+jwplayer(2).play();</pre>
+	</li>
+</ul>
+
+<p>Note the selector <em>jwplayer(0)</em> is actually the same as <em>jwplayer()</em>.</p>
+
+<h2>API Calls</h2>
+
+<p>JW Player 6 supports a large number of API calls, grouped by functionality in classes. In each class, three types of API calls are available:</p>
+
+<ol>
+	<li><strong>Getters</strong>, which retrieve variables. For example:
+
+	<pre>
+var volume = jwplayer().getVolume();</pre>
+	</li>
+	<li><strong>Setters</strong>, which control the player. For example:
+	<pre>
+jwplayer().setVolume(80);</pre>
+	</li>
+	<li><strong>Events</strong>, which call a function whenever a variable changes. For example:
+	<pre>
+jwplayer().onVolume( function(event){
+    alert(&#39;the volume is now: &#39; + event.volume);
+});</pre>
+	</li>
+</ol>
+
+<h2>Cheat Sheet</h2>
+
+<p>The table below act as a cheat sheet of all API calls. The separate <a href="/customer/portal/articles/1413089-javascript-api-reference">JavaScript API Reference</a> guide contains an elaborate listing of all parameters for all API calls. Click on the name of a class in the table to jump to the corresponding section in the API Reference.</p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Class</th>
+			<th>Getters</th>
+			<th>Setters</th>
+			<th>Events</th>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#setup">Setup</a></td>
+			<td>getRenderingMode</td>
+			<td>setup<br />
+			remove</td>
+			<td>onReady<br />
+			onSetupError</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#playlist">Playlist</a></td>
+			<td>getPlaylist<br />
+			getPlaylistIndex<br />
+			getPlaylistItem</td>
+			<td>load<br />
+			playlistItem</td>
+			<td>onPlaylist<br />
+			onPlaylistItem<br />
+			onPlaylistComplete</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#buffer">Buffer</a></td>
+			<td>getBuffer</td>
+			<td>&nbsp;</td>
+			<td>onBufferChange</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#playback">Playback</a></td>
+			<td>getState</td>
+			<td>play<br />
+			pause<br />
+			stop</td>
+			<td>onPlay<br />
+			onPause<br />
+			onBuffer<br />
+			onIdle<br />
+			onComplete<br />
+			onError</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#seek">Seek</a></td>
+			<td>getPosition<br />
+			getDuration</td>
+			<td>seek</td>
+			<td>onSeek<br />
+			onTime</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#volume">Volume</a></td>
+			<td>getMute<br />
+			getVolume</td>
+			<td>setMute<br />
+			setVolume</td>
+			<td>onMute<br />
+			onVolume</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#resize">Resize</a></td>
+			<td>getWidth<br />
+			getHeight<br />
+			getFullscreen</td>
+			<td>resize</td>
+			<td>onFullscreen<br />
+			onResize</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#quality">Quality</a></td>
+			<td>getQualityLevels<br />
+			getCurrentQuality</td>
+			<td>setCurrentQuality</td>
+			<td>onQualityLevels<br />
+			onQualityChange</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#captions">Captions</a></td>
+			<td>getCaptionsList<br />
+			getCurrentCaptions</td>
+			<td>setCurrentCaptions</td>
+			<td>onCaptionsList<br />
+			onCaptionsChange</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#controls">Controls</a></td>
+			<td>getControls<br />
+			getSafeRegion</td>
+			<td>addButton<br />
+			removeButton<br />
+			setControls</td>
+			<td>onControls<br />
+			onDisplayClick</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#advertising">Advertising</a></td>
+			<td>&nbsp;</td>
+			<td>playAd</td>
+			<td>onAdClick<br />
+			onAdCompanions<br />
+			onAdComplete<br />
+			onAdError<br />
+			onAdImpression<br />
+			onAdTime<br />
+			onAdSkip<br />
+			onBeforePlay<br />
+			onBeforeComplete</td>
+		</tr>
+		<tr>
+			<td><a href="/customer/portal/articles/1413089-javascript-api-reference#metadata">Metadata</a></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>onMeta</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

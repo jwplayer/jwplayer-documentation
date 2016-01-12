@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1439797-example-mutually-exclusive-playback/edit?select_filter=564475">
+</head>
+
+<body>
+​<p>Here is an example of a setup with multiple players. When one of them starts, the others are automatically paused:</p>
+
+<div id="player1">&nbsp;</div>
+
+<div id="player2">&nbsp;</div>
+
+<div id="player3">&nbsp;</div>
+<script>
+var options = {
+  file: "//content.jwplatform.com/videos/bkaovAYt-I3ZmuSFT.m4a", 
+  width: 480, 
+  height: 40
+};
+var playerInstance1 = jwplayer("player1");
+var playerInstance2 = jwplayer("player2");
+var playerInstance3 = jwplayer("player3");
+
+playerInstance1.setup(options);
+playerInstance2.setup(options);
+playerInstance3.setup(options);
+
+playerInstance1.on('play', function(e){ pausePlayers(1); });
+playerInstance2.on('play', function(e){ pausePlayers(2); });
+playerInstance3.on('play', function(e){ pausePlayers(3); });
+
+  function pausePlayers(playing) { 
+    for (var i=1; i<4; i++) {
+       if(i != playing) { jwplayer("player"+i).pause(true); }
+    }
+  };
+
+</script>
+
+<h3>Embed code</h3>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See the&nbsp;<a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">Quick Start Guide</a>&nbsp;for more info. Next, place the following embed code at the location you want the players to appear:</p>
+
+<pre>
+&lt;div id=&quot;player1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;player2&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;player3&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance1 = jwplayer(&quot;player1&quot;);
+var playerInstance2 = jwplayer(&quot;player2&quot;);
+var playerInstance3 = jwplayer(&quot;player3&quot;);
+playerInstance1.setup({ file: &quot;/uploads/myAudio.aac&quot;, height: 40 });
+playerInstance2.setup({ file: &quot;/uploads/myAudio.aac&quot;, height: 40 });
+playerInstance3.setup({ file: &quot;/uploads/myAudio.aac&quot;, height: 40 });
+&lt;/script&gt;
+</pre>
+
+<p>Second, add the JavaScript to implement the logic for pausing other players when one starts:</p>
+
+<pre>
+
+  playerInstance1.on(&#39;play&#39;,function(){ pausePlayers(1); });
+  playerInstance2.on(&#39;play&#39;,function(){ pausePlayers(2); });
+  playerInstance3.on(&#39;play&#39;,function(){ pausePlayers(3); });
+
+  function pausePlayers(playing) { 
+    for (var i=1; i&lt;4; i++) {
+       if(i != playing) { jwplayer(&quot;player&quot;+i).pause(true); }
+    }
+  };
+</pre>
+
+<p>This script uses the <em>playerInstance.on(&#39;play&#39;);</em> call to find out which player just started. Next, the <em>playerInstance.pause(true)</em> call is used to force all other players to pause. See <a href="http://support.jwplayer.com/customer/portal/articles/1413074">Using the JavaScript API</a> for more info.</p>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1406968-using-jw-player-skins/edit?select_filter=601064">
+</head>
+
+<body>
+<p>This guide explains JW Player&#39;s built-in methods for configuring <a href="http://www.jwplayer.com/products/jwplayer/skins/" target="_blank">skins</a>. If you are looking for information on how to design and create a skin yourself, see <a href="/customer/portal/articles/1412123-building-jw-player-skins">Building JW Player Skins</a>.</p>
+
+<h2>Introduction</h2>
+
+<p>JW Player skins change the appearance of the player, adding a customizable interactive layer to your player embeds. All visual components of the player (the controlbar, display, tooltip, dock and playlist) can be skinned in accordance to our <a href="http://support.jwplayer.com/customer/portal/articles/2067702-skin-css-reference">skin reference page</a>. Skins will be displayed on desktop and mobile browsers, with the exception of Youtube embeds prior to playback.</p>
+
+<p>Compared to JW6&#39;s XML model, JW Player 7 CSS-based skins. Due to this change, skin modifications can be easily made on-the-fly. See our skin-swapping example below for more information. Note that due to the fundamental changes in our skinning model, JW6 skins are <strong>not</strong> compatible with JW7.</p>
+
+<h2>Using JW Player&#39;s built-in skins</h2>
+
+<p>The 8 skins included in JW7 can be chosen by simply inserting the skin name into your player&#39;s <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference#skin"><strong>skin.name</strong></a> config. The available premade skin names include <strong>six</strong>, <strong>five</strong>, <strong>beelden</strong>, <strong>vapor</strong>, <strong>roundster</strong>, <strong>bekle</strong>, <strong>stormtrooper</strong>, and <strong>glow</strong>. Example code, which will load our <strong>bekle</strong> skin, is shown here:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+  file: &quot;/upload/myVideo.mp4&quot;,
+  skin: {
+  name: &quot;bekle&quot;
+  }
+});
+</pre>
+
+<h2>JW7 Skinning Gallery</h2>
+<style type="text/css">.jw-flag-user-inactive.jw-state-playing .jw-controlbar, .jw-flag-user-inactive.jw-state-playing .jw-dock {
+        display: table;
+    }
+</style>
+<p>Because JW7 utilizes CSS for its skinning model, we can easily switch between skins on-the-fly. Below is an example player which allows you to dynamically view our different available skinning options.</p>
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/six.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/five.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/beelden.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/vapor.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/bekle.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/roundster.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/stormtrooper.css" rel="stylesheet" type="text/css" />
+<link href="//ssl.p.jwpcdn.com/player/v/7.2.3/skins/glow.css" rel="stylesheet" type="text/css" />
+<div id="skins" style="width: 640px;">
+<div id="player">&nbsp;</div>
+
+<p style="position: relative; text-align: center; margin-left: 80px;"><a href="javascript:getClass('seven')">Seven</a> | <a href="javascript:getClass('six')">Six</a> | <a href="javascript:getClass('five')">Five</a> | <a href="javascript:getClass('glow')">Glow</a> | <a href="javascript:getClass('beelden')">Beelden</a><br />
+<a href="javascript:getClass('vapor')">Vapor</a> | <a href="javascript:getClass('bekle')">Bekle</a> | <a href="javascript:getClass('roundster')">Roundster</a> | <a href="javascript:getClass('stormtrooper')">Stormtrooper</a></p>
+</div>
+
+<h2>Setting Custom Colors</h2>
+
+<p>Once you&#39;ve chosen a skin to use with your player, it is possible to further customize the skin by setting up to three colors in the JW Player configuration:</p>
+
+<dl>
+  <dt><strong>skin.active</strong></dt>
+  <dd>Active skin elements. This includes active and highlighted labels, as well scrubber time that has elapsed .</dd>
+  <dt><strong>skin.inactive</strong></dt>
+  <dd>Skin elements that are <strong>not</strong> active. This includes scrubber time that has not yet elapsed.</dd>
+  <dt><strong>skin.background</strong></dt>
+  <dd>The background portion of the control bar.</dd>
+</dl>
+
+<p>Fully configuring a player embed with a custom skin, as well as custom skin colors, can be seen below:</p>
+
+<pre>
+playerInstance.setup({
+    file: &quot;/uploads/example.mp4&quot;,
+    height: 360,
+    width: 640,
+    image: &quot;/uploads/example.jpg&quot;,
+    skin: {
+    &nbsp;&nbsp;&nbsp;name: &quot;bekle&quot;,
+    &nbsp;&nbsp;&nbsp;active: &quot;red&quot;,
+    &nbsp;&nbsp;&nbsp;inactive: &quot;white&quot;,
+    &nbsp;&nbsp;&nbsp;background: &quot;black&quot;
+    }
+});
+</pre>
+
+<p>For more information regarding JW Player skin customization, please see the following articles:</p>
+
+<ul>
+  <li><a href="http://support.jwplayer.com/customer/portal/articles/1412123-building-jw-player-skins">Building JW Player Skins</a></li>
+  <li><a href="http://support.jwplayer.com/customer/portal/articles/2067702-skin-xml-reference">JW Player Skin Reference</a></li>
+</ul>
+<script type="text/javascript" language="javascript">
+  var playerInstance = jwplayer("player");
+  playerInstance.setup({
+    image: "//demo.jwplayer.com/homepage/homepage_preroll.jpg",
+    title: "JW Player Skins",
+description: "Click on the different skins below!",
+    file: "//content.jwplatform.com/videos/HkauGhRi-640.mp4",
+    width: 640,
+    height: 360,
+    skin: {
+      //background: 'blue'
+    }
+  });
+function getClass(skin){
+var className =  document.getElementById("player").className;
+var res = className.split(" ");
+var currentSkin;
+var newSkin = "jw-skin-"+skin;
+if ($.inArray('jw-skin-seven', res)>=0) {
+    currentSkin = 'jw-skin-seven';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  } 
+  else if($.inArray('jw-skin-six', res)>=0){
+    currentSkin = 'jw-skin-six';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }
+  else if($.inArray('jw-skin-bekle', res)>=0){
+    currentSkin = 'jw-skin-bekle';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }
+ else if($.inArray('jw-skin-vapor', res)>=0){
+  currentSkin = 'jw-skin-vapor';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }
+  else if($.inArray('jw-skin-roundster', res)>=0){
+    currentSkin = 'jw-skin-roundster';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }  
+  else if($.inArray('jw-skin-five', res)>=0){
+    currentSkin = 'jw-skin-five';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }  
+  else if($.inArray('jw-skin-beelden', res)>=0){
+    currentSkin = 'jw-skin-beelden';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  }
+   else if($.inArray('jw-skin-glow', res)>=0){
+    currentSkin = 'jw-skin-glow';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  } 
+     else if($.inArray('jw-skin-stormtrooper', res)>=0){
+    currentSkin = 'jw-skin-stormtrooper';
+    $("#player").toggleClass(''+ currentSkin + ' '+newSkin+'');
+  } 
+}
+</script>
+</body>
+</html>

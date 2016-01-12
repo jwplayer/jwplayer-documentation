@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1612003-advertising-with-chromecast/edit?select_filter=677400">
+</head>
+
+<body>
+<h2>​​VAST Advertising</h2>
+
+<p>The JW Player receiver application is able to playback Linear VAST prerolls, midrolls, and postrolls. The following VAST 3.0 playback features are supported while <a href="http://www.jwplayer.com/products/jwplayer/chromecast/" target="_blank">casting</a>:</p>
+
+<ul>
+	<li>Ad pods</li>
+	<li>Skippable ads</li>
+	<li>Companion ads</li>
+</ul>
+
+<div class="article_callout">This document applies to users of <strong>JW Player Ads</strong>. Don&#39;t have Advertising? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>VPAID advertising creatives and nonlinear ads are not supported during a casting session because they cannot be played on a Chromecast. When an ad is being played, the countdown message and video click-through link is sent back to the sender application in the Chrome browser.<br />
+<br />
+This image &nbsp;below shows a companion ad, a countdown message, and the skip icon if it is available from either the VAST 3.0 xml or from the configuration.</p>
+<img alt="" src="/customer/portal/attachments/306634" style="width: 454px; height: 267px;" />​
+<p>Clicking anywhere except the controls of the Player will pause the video on the receiver and take the viewer to the VideoClick link provided in the VAST XML. This action does not fire a VAST clickthrough tracker but it does fire the onAdClick API event.</p>
+
+<h3><strong>Advertising API</strong></h3>
+
+<p>There is no support for the Javascript Advertising API at this time.</p>
+</body>
+</html>

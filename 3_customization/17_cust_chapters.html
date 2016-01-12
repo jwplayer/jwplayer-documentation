@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1407454-adding-chapter-markers/edit?select_filter=601064">
+</head>
+
+<body>
+<p>JW Player supports the rendering of chapter markers within the timeslider. These work particularly well for long form video, to segment it into discreet sections. Here is a live example:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
+  file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4",
+  tracks: [{ 
+    file: '//content.jwplatform.com/tracks/XtwSLSdq.txt',
+    kind: 'chapters'
+  }],
+  width: 640,
+  height: 270
+});
+</script>
+
+<p>A viewer can quickly hover over the cue point and can see the title of the chapter or section. Clicking on the cue point navigates you directly to that point of the video. These markers are rendered by the JW Player when a standard WebVTT text track is provided in the player embed code.</p>
+
+<p>Adding chapters to the JW Player is accomplished in two easy steps</p>
+
+<h2>Step 1: Create Chapters VTT File</h2>
+
+<p>To display chapters within the timeslider you first need to have a VTT file with the following information:</p>
+
+<dl>
+  <dt>Cue identifier (optional )</dt>
+  <dd>Used to identify the actual cue point.</dd>
+  <dt>Cue timings (required)</dt>
+  <dd>Specifies the time zone for the cue. The chapter will be displayed on the start of the zone.</dd>
+  <dt>Chapter title(required)</dt>
+  <dd>The actual title you want displayed.</dd>
+</dl>
+
+<p>This format is easy to understand and can be authored with a simple text editor:</p>
+
+<pre>
+WEBVTT
+
+Chapter 1
+00:00:00.000 --&gt; 00:01:42.000
+Opening credits
+
+Chapter 2
+00:01:42.000 --&gt; 00:04:44.000
+A dangerous quest
+
+Chapter 3
+00:04:44.000 --&gt; 00:05:50.000
+The attack
+</pre>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+  <li>The title that gets displayed in the tooltip is the text located beneath the time.</li>
+  <li>VTT files should always be saved in UTF8 encoding to prevent character issues.</li>
+  <li>VTT files are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</li>
+</ul>
+
+<h2>Step 2: Add the track to your embed</h2>
+
+<p>After you have your VTT file with chapter cues, you need to add it to your player embed code. This gets added to the <strong>tracks</strong> configuration block with the <strong>kind</strong> set to <strong>chapters</strong>.</p>
+
+<p>The full player embed code for above live example looks like:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+  file: &quot;/upload/sintel.mp4&quot;,
+  image: &quot;/upload/sintel.jpg&quot;,
+  tracks: [{
+    file:&#39;/upload/chapters.vtt&#39;,
+    kind:&#39;chapters&#39;
+  }],
+  width: 640,
+  height: 270
+});
+</pre>
+
+<p>Note the timeslider skin element can be customized. See the <a href="http://support.jwplayer.com/customer/portal/articles/2067702-skin-css#timeslider">Skin CSS Reference</a> for more info.</p>
+
+<p>Chapters can also be loaded as part of RSS feeds. See the <a href="/customer/portal/articles/1403635-media-format-reference#feeds">RSS Feeds Reference</a> for more info.</p>
+
+</body>
+</html>

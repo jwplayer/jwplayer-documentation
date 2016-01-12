@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1913755-troubleshooting-your-jw-player-setup/edit?select_filter=601065">
+</head>
+
+<body>
+<p>When troubleshooting an issue with our player, it is very helpful for us to have a reproduction page (also referred to as a test page) where we can reproduce the issue you are seeing. Once we can reliably reproduce your issue, we can get to work determining the cause. And then if we have any suggestions or code corrections, for example, we can then send you back a link to an updated page.&nbsp;We can also use this test page to escalate any potential bugs to our Engineering team.<br />
+<br />
+We can usually see what you are trying to do by reading your code, but it is also helpful to know your exact reproduction steps. We would also like to know what it is you are expecting the player to do, as well as as description of what the player is actually doing.</p>
+&nbsp;
+
+<h3><u>What does a reproduction page include?</u></h3>
+
+<ul>
+	<li>The JW Player Javascript library URL you are using to load our player, and if necessary, the self-hosted license key</li>
+	<li>The HTML &lt;div&gt; tag for our player</li>
+	<li>Your jwplayer().setup()</li>
+	<li>List of reproduction steps, expected behavior, and actual outcome</li>
+</ul>
+&nbsp;
+
+<p>We try to be experts when it comes to our player, but we cannot help you debug any code on the page that does not belong to us. Therefore it is also important to note that there are a few things that should not be included in your reproduction page.</p>
+&nbsp;
+
+<h3><u>What does a reproduction page NOT include?</u></h3>
+
+<ul>
+	<li>Any other Javascript code or libraries not required for our player, like jQuery or require.js</li>
+	<li>Extra&nbsp;CSS code or stylesheets&nbsp;</li>
+</ul>
+
+<p>Here is a template for you to use when making a reproduction page:</p>
+
+<pre>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src=&quot;http://your_cloud-hosted_player_URL_or_self-hosted_jwplayer.js&quot;&gt;&lt;/script&gt;
+&lt;!-- if necessary: &lt;script&gt;jwplayer.key=&quot;your_self-hosted_license_key&quot;;&lt;/script&gt; --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&nbsp;&nbsp; &nbsp;&lt;b&gt;Issue:&lt;/b&gt; Please indicate issue here
+&nbsp;   &lt;br&gt;&lt;br&gt;
+&nbsp;&nbsp; &nbsp;&lt;b&gt;Reproduction steps:&lt;/b&gt; Please state the steps necessary to reproduce this issue
+&nbsp;   &lt;br&gt;&lt;br&gt;
+&nbsp;&nbsp; &nbsp;&lt;b&gt;Expected behavior:&lt;/b&gt; Please state your expected behavior here
+&nbsp;   &lt;br&gt;&lt;br&gt;
+&nbsp;&nbsp; &nbsp;&lt;b&gt;Actual outcome:&lt;/b&gt; Please state the actual outcome here
+&nbsp;   &lt;br&gt;&lt;br&gt;&lt;br&gt;
+&nbsp;&nbsp; &nbsp;&lt;div id=player&gt;Loading your player...&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&lt;script&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;jwplayer(&#39;player&#39;).setup({
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;file: &#39;your_video_URL&#39;,
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;});
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//include any of your Javascript API calls here&nbsp;
+&nbsp;&nbsp; &nbsp;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>By using a basic embed of our player, hopefully we can help isolate the part of your code that is causing the problem. We hope you find this to be a helpful and worthwhile troubleshooting step.</p>
+
+</body>
+</html>

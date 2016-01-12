@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1406644-making-jw-player-responsive/edit?select_filter=601064">
+</head>
+
+<body>
+<p>This article explains how to setup JW Player on a responsive site. When responsive, players scale to the width of their container element, maintaining the video aspect ratio.</p>
+
+<h2>Introduction</h2>
+
+<p>By default, JW Player is configured with fixed dimensions, using the static <strong>width</strong> and <strong>height</strong> configuration options. However, JW Player can also be set up in a responsive mode. In that case:</p>
+
+<ul>
+  <li><strong>width</strong> is set to a percentage instead of numerical pixel size.</li>
+  <li><strong>aspectratio</strong> is used instead of <strong>height</strong>. This tells JW Player the aspect ratio of the video in <strong>width</strong>:<strong>height</strong> format. Common values are <em>16:9</em>, <em>24:10</em> or <em>4:3</em>.</li>
+</ul>
+
+<h2>Example</h2>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/HkauGhRi-640.mp4",
+  image: "//content.jwplatform.com/thumbs/HkauGhRi-640.jpg",
+  width: "50%",
+  aspectratio: "16:9"
+});
+</script>
+
+<p>Since we&#39;ve configured our width to be 50%, the above JW Player will automatically resize itself to the 1/2 the width of the <strong>container</strong> div, maintaining an aspect-ratio of 16:9. If this were set at 100%, we would fill the entire size of our div.</p>
+
+<p>Using the configuration mentioned above, a responsive player&#39;s embed code would look similar to:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;)
+playerInstance.setup({
+file: &quot;/uploads/myVideo.mp4&quot;,
+width: &quot;50%&quot;,
+aspectratio: &quot;16:9&quot;
+});
+</pre>
+
+<h2>Responsive iFrames</h2>
+
+<p>When loading JW Player in an iFrame, it&#39;s still possible to create a responsive setup:</p>
+
+<ol>
+  <li>Inside the iFrame, ensure JW Player is setup to be 100% wide, according to the instructions above.</li>
+  <li>Place a wrapper element outside of the iframe that contains the player. Example:
+  <pre>
+&lt;div class=&quot;myWrapper&quot;&gt;
+    &lt;iframe src=&quot;http://example.com/player.html&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</pre>
+  </li>
+  <li>Use the following CSS to have the iframe resize with a <em>16:9</em> aspectratio:
+  <pre>
+.myWrapper {
+  position: relative;
+  padding-bottom: 56%;
+  padding-top: 20px;
+  height: 0;
+}
+.myWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</pre>
+  </li>
+</ol>
+
+<p>The <em>56%</em> part is what defines the aspectratio (16/9). Use <em>75%</em> for a 4:3 video and <em>42%</em> for a 24:10 video.</p>
+
+<p><a href="http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php">See this CSS-Tricks article</a> for more info on this iFrame setup.</p>
+
+</body>
+</html>

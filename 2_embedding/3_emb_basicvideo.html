@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1406723-basic-video-embed/edit?select_filter=601065">
+</head>
+
+<body>
+<p>This article goes over the standard JW Player embedding practices for video files. For more information on JW Player&#39;s video playback capabilities, see our video section in the Media Reference page. If you are interested in streaming technologies such as RTMP, DASH, or HLS, please see our Streaming section for more info.</p>
+
+<h2>JW Player Example</h2>
+
+<div id="myElement">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/HkauGhRi-640.mp4",
+  image: "//content.jwplatform.com/thumbs/HkauGhRi-640.jpg",
+  width: 640,
+  height: 360,
+title: 'A Basic Video Embed',
+description: 'A video with a basic title and description!'
+});
+</script>
+
+<p>The above example uses MP4, since is the most supported format across desktops and mobile devices. For this reason, <strong>we strongly suggest to always use MP4 video rather than FLV</strong>.<br />
+FLV files are typically a larger size and require a Flash installation. <strong>This means that FLV files will not play on mobile devices.</strong></p>
+
+<h1>Three Ways to Embed a JW Player</h1>
+<br />
+<img src="//support-static.jwplayer.com/images/emb_embed.png" />
+<p>There are 3 different ways to embed a JW Player. The first option can be done using the dashboard only, the second option is a combination of dashboard and coding, and the third option is for developers. We&rsquo;ll tell you more about each option below.</p>
+
+<h2>Option 1: The Publish Mode</h2>
+
+<p>The Publish Mode allows you to quickly take a player with pre-built settings and pair it with a video. The main advantage to this mode is that you get a single line of JavaScript that can be added to your page without having to configure any additional html or JavaScript. JW Player Dashboard comes with three pre-built Cloud Player Libraries based off of the most common settings used.</p>
+
+<p>The JavaScript and iframe embed options contain everything needed for JW Player to work on your page, including the div where the player will render.</p>
+
+<ol>
+	<li>Open the publish mode by clicking on the Expand Publish Mode button<br />
+	<img src="https://s3.amazonaws.com/support-static.jwplayer.com/images/emb_pub.png" /></li>
+	<li>Choose a default player or one that you have built. Note: The 480x270 Fixed Width Player is the most basic JW Player.</li>
+	<li>Choose content from your library that you want to embed.</li>
+	<li>Copy either the JavaScript embed or the &lt;iframe&gt; embed and place it where you want the video to be rendered on your page.<br />
+	<img src="//support-static.jwplayer.com/images/emb_build.png" /></li>
+</ol>
+
+<h2 id="option-2-cloud">Option 2: The Cloud Player</h2>
+
+<p>The Cloud Player Library URL calls the JW Player JavaScript library PLUS any unique player settings for that player but is not paired with any content.</p>
+
+<p>You can place this code in the &lt;head&gt; of your site, which gives your organization a player to use as a default site-wide. It&#39;s likely most relevant if you are a developer, since you can add new player settings to any player that setup on your site. Using a cloud library requires two parts.</p>
+
+<h3>Part 1: Adding the JW Player Library to Your Page</h3>
+
+<ol>
+	<li>Navigate to the Players section.</li>
+	<li>Click on the 480x270 Fixed Width Player.</li>
+	<li>Expand the Player Library URL</li>
+	<li>Copy the URL</li>
+	<li>Paste the URL into the &lt;head&gt; of your site.<br />
+	<img src="//support-static.jwplayer.com/images/emb_lib.png" /></li>
+</ol>
+
+<p>NOTE: The 480 x 270 Player is the most basic player library and contains the default settings previously available in the JW6 cloud hosted library.</p>
+
+<h3>Part 2: Creating Your Embed Code</h3>
+
+<p>With the player library set up, it&#39;s time to actually embed the video. You can insert this HTML in your page, at the exact location you want the video to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;Loading the player...&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+    file: &quot;//example.com/uploads/myVideo.mp4&quot;,
+    image: &quot;//example.com/uploads/myPoster.jpg&quot;,
+    width: 640,
+    height: 360,
+    title: &#39;Basic Video Embed&#39;,
+    description: &#39;A video with a basic title and description!&#39;,
+    mediaid: &#39;123456&#39;
+});
+&lt;/script&gt;
+</pre>
+
+<p>In this above code, the &lt;div&gt; element is used as a container to load JW Player into, which must have a unique id attribute. The setup() block then refers to this ID. However, let&#39;s break down each of the configuration options to see what is being affected:</p>
+
+<ul>
+	<li><strong>file (Required) - </strong>Which video we&#39;ll be loading with JW Player</li>
+	<li><strong>image - </strong>The poster image to load</li>
+	<li><strong>width - </strong>The width of the video player in pixels</li>
+	<li><strong>height - </strong>The height of the player, also in pixels</li>
+	<li><strong>title - </strong>The title of the video</li>
+	<li><strong>description - </strong>A description of the video</li>
+	<li><strong>mediaid - </strong>A media identifier string. Required for our <a href="http://support.jwplayer.com/customer/en/portal/articles/2142460-using-jw-player-analytics">video analytics</a>.</li>
+</ul>
+
+<p>Even though the player library you put on the page was set to a width and height of 480 x 270, you were able to override that at the instance level to render it at 640 by 360.</p>
+
+<p>The above configuration options are very basic, but there are many more available to customize JW Player to your liking.</p>
+
+<h2 id="option-3-self-host">Option 3: Self-Hosted Player</h2>
+
+<p>If you want to host your own player library, you can find both your license key and latest JW Player files in your dashboard&#39;s Advanced Account page. Once downloaded, you will need to host jwplayer.js on your own server. When configuring your web page, you will then need to point to your copy of jwplayer.js and also define your self-hosted license key. Here&#39;s a code example:</p>
+
+<pre>
+​&lt;script src=&quot;//mywebsite.com/jwplayer/jwplayer.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;jwplayer.key=&quot;ABCdeFG123456SeVenABCdeFG123456SeVen==&quot;;&lt;/script&gt;
+</pre>
+
+<p>Note: JW Player 7 now requires a license key. Please make sure to include this on your page if you are self-hosting.</p>
+
+<p>The same steps for embedding and creating a JW Player instance described above apply for self-hosting.</p>
+
+<h2>A note on iframes and fullscreen</h2>
+
+<p>If you are utilizing the player inside of an iframe, it is important to ensure that your iframe is configured with <strong>allowfullscreen</strong>. If this is not set, the player will be blocked from expanding to fullscreen.</p>
+
+</body>
+</html>

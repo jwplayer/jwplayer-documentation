@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1403714-wordpress-plugin-reference/edit?select_filter=601065">
+</head>
+
+<body>
+<p>The JW Player WordPress Plugin enables you to configure and embed audio and video content through your WordPress website. This is the official JW Player plugin, developed by the JW Player team itself.</p>
+
+<div class="article_warning"><strong>Please note:</strong> Our wordpress plugin does <strong>not</strong> support JW 7. This article only applies to users of JW Player 6</div>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+  <li><a href="#manager">Media Manager</a></li>
+  <li><a href="#external">External Media</a></li>
+  <li><a href="#playlists">Playlists</a></li>
+  <li><a href="#templates">Player Templates</a></li>
+  <li><a href="#shortcodes">Short Codes</a></li>
+  <li><a href="#settings">Plugin Settings</a></li>
+</ul>
+</nav>
+</div>
+
+<p>This guide explains all functionality available in the plugin. For those eager to get started, there&#39;s a separate <a href="/customer/portal/articles/1403712-wordpress-plugin-quickstart">Getting Started guide</a>, which explains the installation and basic embed process.</p>
+
+<p>The JW Player WordPress Plugin is compatible with WordPress 3.0 and up.</p>
+
+<h2><a name="manager"></a>Media Manager</h2>
+
+<p>The JW Player Plugin for WordPress extends the existing media management capabilities of WordPress. This allows you to embed the player into your post through the <em>Add Media</em> interface.</p>
+
+<p>To insert a JW Player, simply click on the <em>Add Media</em> button while editing your post. This will cause the WordPress media manager popup to appear. Now, go to the <em>Media Library</em> section to select an audio/video file (or upload a new one). The metadata of this item appear to the right:<img alt="The Embed a Playlist Screen of the WordPress JW Player plugin" src="/customer/portal/attachments/229336" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>In addition to the default WordPress meta data, the JW Player Plugin for WordPress provides several fields related to the configuration of the JW Player. These include the following:</p>
+
+<dl>
+  <dt>Thumbnail</dt>
+  <dd>This allows you to specify a poster image for the audio/video file from your Media Library. GIF, JPG and PNG images are supported. Alternatively, you can configure an image from outside WordPress by clicking the <em>Thumbnail URL</em> link.</dd>
+  <dt>JW Player</dt>
+  <dd>This allows you to embed the selected audio/video file into your post with JW Player. You can choose to select a specific <a href="#templates">Player Template</a> or stick with the default one.</dd>
+</dl>
+
+<p>Clicking the button <em>Embed JW Player</em> button will insert its <a href="#shortcodes">Short Code</a> into your post and close the Media Manager.</p>
+
+<h2><a name="external"></a>External Media</h2>
+
+<p>The JW Player plugin adds two new screens to the Media Manager. The first, <em>Add External URL</em>, allows you to add an external media URL to the Media Library. Here&#39;s what the screen looks like:<img alt="The Insert Media button above the post editor" src="/customer/portal/attachments/229333" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>As the help text says, several types of external media can be inserted. The <a href="/customer/portal/articles/1403635-media-format-reference">Media Formats Reference</a> has a full overview.</p>
+
+<p>After inserting external URLs, they can then be managed and embedded just like videos you uploaded to the Media Library. You can also group external URLs together with uploaded media into playlists.</p>
+
+<h2><a name="playlists"></a>Playlists</h2>
+
+<p>The second screen added to the media manager is the one to Embed a Playlist. It allows you to embed a playlist you created with JW Player:<img alt="The JW Player WordPress Plugin Playlist Editor" src="/customer/portal/attachments/229337" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>To build a playlist, navigate to the Playlists page located in the Media section of the WordPress dashboard. There, you will see two table headers. The table on the right displays all audio/video files in your Media Library. The table on the left, initially empty, lists which videos are in your playlist:<img alt="The JW Player WordPress Plugin template overview" src="/customer/portal/attachments/229338" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>To begin creating a playlist, enter the name of the playlist in the <em>New Playlist</em> field and click the <em>Create Playlist</em> button. Next, simply drag items from the right to the left column. To remove an item simply drag it back to the media column on the right. Once you are satisfied click the <em>Save</em> button to save the playlist. If you wish to remove a playlist, simply click the <em>Delete</em> button.</p>
+
+<h3>Template Settings</h3>
+
+<p>Note JW Player has the ability to display the playlist in a sidebar next to the video screen (<a href="/customer/portal/articles/1428529-display-a-playlist-sidebar">here&#39;s an example</a>). You can enable this through the <em>listbar</em> options in your <a href="#templates">Player Templates</a>. The specific options are:</p>
+
+<dl>
+  <dt>listbar position</dt>
+  <dd>Whether the playlist sidebar should be displayed to the <strong>right</strong> or <strong>bottom</strong> of the video screen. The default is <strong>none</strong>.</dd>
+  <dt>listbar size</dt>
+  <dd>The width (position=right) or height (position=bottom) of the playlist sidebar in pixels. The default is <strong>180</strong> pixels.</dd>
+</dl>
+
+<p>Note the listbar <em>steals</em> pixels from the video screen. If, for example, the player is 560 pixels high and a bottom listbar has a size of 200 pixels, that leaves 360 pixels for the video screen.</p>
+
+<h2><a name="templates"></a>Player Templates</h2>
+
+<p>The JW Player WordPress plugin is very flexible in its management of the JW Player. You can begin embedding JW Players immediately after installing the plugin. However, you will be using the default JW Player template, which may not fit with the theme of your site. Therefore, there&#39;s the ability to design your own JW Player templates, under <em>JW Player &raquo; Templates</em>:<img alt="The JW Player WordPress Shortcode Settings" src="/customer/portal/attachments/229341" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>In this section, there&#39;s the ability to create new player templates or to edit, copy and delete existing ones. Clicking an <em>Edit</em> button will display the player template options.</p>
+
+<p>The available player options depend upon which edition of JW Player you licensed. See our <a href="/customer/portal/articles/1403727-what-is-jw-player#editions">JW Player Introduction</a> for an overview of the editions. See the <a href="#settings">Plugin Settings</a> for directions on how to set your player edition and license key.</p>
+
+<h2><a name="shortcodes"></a>Short Codes</h2>
+
+<p>The actual embedding of a JW Player into an article body is controlled by the shortcode system. The shortcode system is quite flexible and allows for varying levels of complexity in your embedding. The basic syntax for the shortcode system is as follows:</p>
+
+<pre>
+[jwplayer param1=&quot;value1&quot; param2=&quot;value2&quot; ...]</pre>
+
+<p>When clicking an <em>Embed JW Player</em> button in the WordPress interface, a basic shortcode is always inserted. Here are a few examples:</p>
+
+<pre>
+[jwplayer mediaid=&quot;22&quot; player=&quot;3&quot;]
+[jwplayer playlistid=&quot;1&quot; player=&quot;3&quot;]
+[jwplayer mediaid=&quot;22&quot;]
+</pre>
+
+<p>The first above shortcode embeds item 22 from your media library, using JW Player template number 3. The second shortcode embeds not a single media, but playlist number 1. The third shortcode contains no player, so the default Player Template is used.</p>
+
+<h3>Custom Options</h3>
+
+<p>In addition to these basic parameters, you can specify one or more <a href="/customer/portal/articles/1413113-configuration-options-reference">Configuration Option</a> to tweak your embeds. This gives you the flexibility to setup specific players without creating a new Player Template. Here are a few examples:</p>
+
+<pre>
+[jwplayer mediaid=&quot;22&quot; player=&quot;3&quot; width=&quot;320&quot; height=&quot;180&quot;]
+[jwplayer playlistid=&quot;1&quot; player=&quot;3&quot; autostart=&quot;true&quot;]
+[jwplayer mediaid=&quot;22&quot; primary=&quot;html5&quot;]
+</pre>
+
+<p>In the first shortcode, the dimensions of the player are set to 320x180, overriding those set in player number 3. In the second shortcode, the player is set to automatically start playback on page load. In the third shortcode, the player is set to prefer the HTML5 rendering mode over Flash.</p>
+
+<h2><a name="settings"></a>Plugin Settings</h2>
+
+<p>The JW Player WordPress Plugin provides settings for inserting your license edition/key, for customising the shortcode behaviour on overview pages and for some other features.</p>
+
+<h3>License Settings</h3>
+
+<p>If you own a <a href="http://www.jwplayer.com/pricing/">commercial JW Player license</a>, you must set your Player Edition and License Key in the <em>JW Player &raquo; Settings</em> screen:<img alt="The Add External Media Screen of the WordPress JW Player plugin" src="/customer/portal/attachments/229335" style="line-height: 20.7999992370605px; opacity: 0.9;" /></p>
+
+<p>Setting these options will un-lock the edition&#39;s additional <a href="#templates">Player Template</a> options, as well as hide the JW Player logo from the player video screen. Note a license key is not required for the <strong>Free</strong> edition, but inserting one will enable the video analytics in your <a href="https://account.jwplayer.com/">JW Player account</a>.</p>
+
+<h3>Shortcode Settings</h3>
+
+<p>Unfortunately, the JW Player plugin does not use the official <a href="http://codex.wordpress.org/Shortcode_API">WordPress Shortcode API</a> due to incompatibility with options that contain a &quot;.&quot;. Therefore, there&#39;s unexpected behaviour on overview pages (home, categories, search, tags) in combination with certain WordPress themes. This can be overridden by these shortcode settings:</p>
+
+<p><img alt="The JW Player WordPress License Settings" src="/customer/portal/attachments/229339" style="line-height: 20.7999992370605px; opacity: 0.9;" />In practice, you should set these options to <em>Use excerpt</em> if you see chunks of JavaScript instead of JW Players on your overviews. If you don&#39;t want players to show up at all in overviews, you should set <em>Strip shortcode</em>.</p>
+
+<h3>Other Settings</h3>
+
+<p>The last section of the settings contains three items:</p>
+
+<dl>
+  <dt>Player Version</dt>
+  <dd>This informs you which version of JW Player is currently active with the WordPress plugin. New versions of JW Player will automatically get pushed along with new versions of the WordPress plugin. There&#39;s no need for any manual upgrades.</dd>
+  <dt>Anonymous Tracking</dt>
+  <dd>This informs us which JW Player plugin features you are using for your site (templates, external media, playlists, shortcodes, etc). It allows us to prioritize development and bug fixing. Un-check the box if you don&#39;t want to share this info.</dd>
+  <dt>Purge Settings</dt>
+  <dd>Checking this option will delete all JW Player plugin data (templates, playlists) the next time you de-activate the plugin. Use this if you intend to stop using the JW Player plugin altogether.</dd>
+</dl>
+</body>
+</html>

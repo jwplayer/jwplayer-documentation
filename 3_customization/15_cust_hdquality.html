@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1428524-hd-quality-toggling/edit?select_filter=601064">
+</head>
+
+<body>
+<p>This article explains how to add an HD quality toggle to your player embeds, allowing users to switch between multiple qualities of your videos. This technology works by swapping between two different static video files manually. For adaptive streaming, <a href="http://support.jwplayer.com/customer/portal/articles/1430189-about-hls-streaming">HLS</a> or <a href="http://support.jwplayer.com/customer/portal/articles/2020482-about-dash-streaming">DASH</a> would be the proper solution.</p>
+
+<h2>Introduction</h2>
+
+<p>JW Player automatically adds an HD button to its controls when it is setup with multiple qualities of a video file:</p>
+
+<ul>
+  <li>If there are 2 file qualities, the HD button acts as a toggle between the HD and SD qualities.</li>
+  <li>If there are 3 or more file qualities, the HD button will display a quality selection menu on rollover (like YouTube).</li>
+  <li>If there are 3 or more file qualities and the viewer is on a mobile device, JW Player will still toggle only between the first 2 qualities. This to keep the interface easy to use with Touch controls.</li>
+</ul>
+
+<p>As a publisher, you can set which quality to use on startup. The first quality in the list is the default and should be the lower quality version of your file. Once a viewer clicks the HD button and overrides the quality, JW Player saves that in a cookie for subsequent videos.</p>
+
+<h3>Quality Toggle vs Multiple Sources</h3>
+
+<p>Quality selection syntax is the same as our <a href="http://support.jwplayer.com/customer/portal/articles/1710454-configuring-multiple-sources">multiple sources</a> fallbacks, however the behavior differs based on the types of files used. Quality toggle will popuate when to of the same file types are used. For example, two MP4 files or two FLV files. If two dissimilar files are used (IE. MP4 with an FLV) fallback behavior will take over.</p>
+
+<h2>Example</h2>
+
+<p>Here is an example, which is using a 360p file and 720p file toggle:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/C4lp6Dtd-640.jpg",
+  sources: [{
+    file: "//content.jwplatform.com/videos/C4lp6Dtd-640.mp4"
+  },{
+    file: "//content.jwplatform.com/videos/C4lp6Dtd-1280.mp4"
+  }],
+  width: 640,
+  height: 270
+});
+</script>
+
+<p>Start the video to see the HD button in the controlbar. Click the HD button to toggle between the 360p and 720p versions of the video. Upon selection, the player will load and play the appropriate quality video at the appropriate time.</p>
+
+<h2>Embed code</h2>
+
+<pre>
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+      image: &quot;/uploads/myPoster.jpg&quot;,
+      sources: [{
+        file: &quot;/uploads/myVideo-360.mp4&quot;
+      },{
+        file: &quot;/uploads/myVideo-720.mp4&quot;
+      }]
+    });
+&lt;/script&gt;
+</pre>
+
+<p>Instead of a single <strong>file</strong> configuration option, this embed has a <strong>sources</strong> options block. This block contains a list (array) of sources. Each source can contain the following properties:</p>
+
+<dl>
+  <dt><strong>file</strong></dt>
+  <dd>URL to the video file, audio file, YouTube video or live stream of this playlist item source.</dd>
+  <dt><strong>label</strong></dt>
+  <dd>Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.</dd>
+  <dt><strong>&quot;default&quot;</strong></dt>
+  <dd>Set this to <em>true</em> for the media source you want to play on startup. If this isn&#39;t set for any source, the first one is used. Note the option should be placed in quotes because &quot;default&quot; is a reserved JavaScript keyword in IE8.</dd>
+  <dt><strong>type</strong></dt>
+  <dd>Media type of the source. Is only needed when the file property does not contain a recognized file extension (like .mp4 for <strong>mp4</strong>). The <a href="/customer/portal/articles/1403635-media-format-reference">Media Formats Reference</a> lists all supported types.</dd>
+</dl>
+
+<h3>Quality Selection via Streaming</h3>
+
+<p>For streaming on desktops (HLS, DASH, and RTMP), JW Player automatically offers the HD selection menu. This is not set up through multiple qualities in the embed code, rather this uses a separate manifest file. See <a href="/customer/portal/articles/1430240-hls-adaptive-streaming">HLS Adaptive Streaming</a> for more info.</p>
+
+<h3>Advanced Example</h3>
+
+<p>Here is a second, more advanced example that contains 3 sources, each with labels. The middle source is the default:</p>
+
+<pre>
+  var playerInstance = jwplayer(&quot;myElement&quot;);
+  playerInstance.setup({
+      image: &quot;/uploads/myPoster.jpg&quot;,
+      sources: [{
+        file: &quot;/uploads/myVideo720mp4&quot;,
+        label: &quot;720p HD&quot;
+      },{
+        file: &quot;/uploads/myVideo360.mp4&quot;,
+        label: &quot;360p SD&quot;,
+        &quot;default&quot;: &quot;true&quot;
+      },{
+        file: &quot;/uploads/myVideo180mp4&quot;,
+        label: &quot;180p Web&quot;
+      }]
+    });
+</pre>
+
+<p>Note that this same mechanism can also be used to display multiple media formats of a single video, like MP4+WebM or RTMP+MP4.</p>
+
+<h2>Multiple Qualities in RSS</h2>
+
+<p>Multiple qualities can also be setup in RSS feeds. This allows for HD toggling of playlists of videos. Here is a basic setup of a feed with 2 items with SD + HD qualities. Note the use of the JWPlayer namespace to set posters and thumbs:</p>
+
+<pre>
+&lt;rss version=&quot;2.0&quot; xmlns:jwplayer=&quot;http://rss.jwpcdn.com/&quot;&gt;
+&lt;channel&gt;
+
+  &lt;item&gt;
+    &lt;title&gt;Sintel Trailer&lt;/title&gt;
+    &lt;description&gt;Sintel is a fantasy CGI movie from the Blender Open Movie Project.&lt;/description&gt;
+    &lt;jwplayer:image&gt;/assets/sintel.jpg&lt;/jwplayer:image&gt;
+    &lt;jwplayer:source file=&quot;/assets/sintel-640.mp4&quot; label=&quot;360p&quot; /&gt;
+    &lt;jwplayer:source file=&quot;/assets/sintel-1280.mp4&quot; label=&quot;720p HD&quot; /&gt;
+  &lt;/item&gt;
+
+  &lt;item&gt;
+    &lt;title&gt;Elephants Dream Trailer&lt;/title&gt;
+    &lt;description&gt;This is the worlds first open movie, made entirely with Blender.&lt;/description&gt;
+    &lt;jwplayer:image&gt;/assets/elephants.jpg&lt;/jwplayer:image&gt;
+    &lt;jwplayer:source file=&quot;/assets/elephants-640.mp4&quot; label=&quot;360p&quot; /&gt;
+    &lt;jwplayer:source file=&quot;/assets/elephants-1280.mp4&quot; label=&quot;720p HD&quot; /&gt;
+  &lt;/item&gt;
+
+&lt;/channel&gt;
+&lt;/rss&gt;
+</pre>
+
+<p><em>Note that RSS feeds are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</em></p>
+
+<p>See the <a href="/customer/portal/articles/1403635-media-format-reference#feeds">Media Formats Reference</a> for more information on RSS support.</p>
+
+</body>
+</html>

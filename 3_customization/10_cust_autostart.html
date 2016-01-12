@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1428525-autostarting-on-page-load/edit?select_filter=601064">
+</head>
+
+<body>
+<p>This article explains how to automatically start playback of your media on page load. Since autostarting can be annoying at times, we&#39;ll also mute the media by default. Here is an example:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  file: "//content.bitsontherun.com/videos/C4lp6Dtd-640.mp4",
+  width: 640,
+  height: 270,
+  autostart: true,
+  mute: true
+});
+</script>
+
+<p><em>Note that autostarting does not work on mobile phones(Android, iOS). This is a system configuration that JW Player does not have control over.</em></p>
+
+<h2>Embed code</h2>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See an embedding guide like <a href="/customer/portal/articles/1406723-mp4-video-embed">Basic Video Embed</a> for more info. Next, place the following embed code at the location you want the player to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+    playerInstance.setup({
+      file: &quot;/uploads/myVideo.mp4&quot;,
+      width: 640,
+      height: 270,
+      autostart: true,
+      mute: true
+    });
+&lt;/script&gt;
+</pre>
+
+</body>
+</html>

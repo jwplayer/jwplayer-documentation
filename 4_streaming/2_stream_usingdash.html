@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/2020483-using-dash-streaming/edit?select_filter=564477">
+</head>
+<body>
+<div class="article_callout">This document applies to users of <strong>JW Player Premium, Enterprise, and Ads</strong>. Want <a href="http://www.jwplayer.com/products/jwplayer/streaming-with-dash/" target="_blank">DASH streaming</a>?<br />
+<a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>With an understanding of the underlying technologies behind MPEG DASH, it&#39;s time to configure JW Player 7 to play DASH streams.</p>
+
+<h2>DASH Configuration Options</h2>
+
+<dl>
+  <dt><strong>dash</strong><sup>1</sup></dt>
+  <dd>In order to use an MPEG DASH stream, <strong>dash</strong> is required to be set inside of your setup block. DASH is enabled by setting this to <strong>true</strong>. JW Player utilizes <a href="https://github.com/google/shaka-player">Google&#39;s Shaka provider</a> for MPEG DASH. This is currently the preferred DASH provider of JW 7.</dd>
+  <dt><strong>drm</strong><sup>2</sup></dt>
+  <dd>If you are utilizing a form of DRM with your MPEG DASH setup, this block is used to configure it. Additional information is found below in the Configuring DRM section.</dd>
+</dl>
+
+<p><span style="font-size:9px;"><sup>1</sup>A Premium license is required to utilize MPEG DASH</span><br />
+<span style="font-size:9px;"><sup>2</sup>An Enterprise license is required to configure DRM</span></p>
+
+<h2>Creating DASH Streams</h2>
+
+<p>To package your content, A DASH packager is required to get your media ready to stream with JW Player. There are a few open-source packagers available for MP4 / ISO BMFF streams, including:</p>
+
+<ul>
+  <li>edash-packager <a href="https://github.com/google/edash-packager/">https://github.com/google/edash-packager/</a></li>
+  <li>MP4Box <a href="http://gpac.wp.mines-telecom.fr/mp4box/">http://gpac.wp.mines-telecom.fr/mp4box/</a></li>
+  <li>DASHEncoder <a href="https://github.com/slederer/DASHEncoder">https://github.com/slederer/DASHEncoder</a></li>
+  <li>DASH.encrypt <a href="https://github.com/castlabs/dashencrypt">https://github.com/castlabs/dashencrypt</a></li>
+</ul>
+
+<p>The DASH packager will convert your content to a valid, segmented ISOBMFF file and generate a DASH manifest (MPD file). Most DASH packagers can not transcode your media into multiple resolutions and bitrates. (DASHEncoder does both.)</p>
+
+<h2>Unsupported DASH Features</h2>
+
+<p>The following features are not supported with JW Player 7.0.0. Potential workarounds are listed:</p>
+
+<ul>
+  <li><strong>Periods - </strong>It is possible to use our <a href="http://support.jwplayer.com/customer/portal/articles/1407454-adding-chapter-markers">chapter markers</a> instead.</li>
+  <li><strong>Multitrack Audio - </strong>Currently supported with our Flash-based <a href="http://support.jwplayer.com/customer/portal/articles/1761348-multiple-audio-renditions">HLS</a> provider.</li>
+  <li><strong>Captions - </strong>If using VOD content, can be sideloaded with external VTT or SRT <a href="http://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions">captions</a>. Embedded <a href="http://support.jwplayer.com/customer/portal/articles/1430278-cea-608-captions">CEA-608</a> captions are supported with HLS.</li>
+</ul>
+
+<h2>Configuring DRM</h2>
+
+<p>The use of DRM can only be configured when a DASH stream is being used. Specific DRM configuration options are then nested inside of the <strong>drm</strong> block.</p>
+
+<pre>
+drm: {
+  widevine:{
+    url: &#39;//www.myDRMserver.com&#39;
+  }
+}
+</pre>
+
+<dl>
+  <dt><strong>widevine</strong></dt>
+  <dd>As of JW 7.0.0, the only supported method of DRM is Google&#39;s <a href="http://www.widevine.com/">Widevine</a>. As such, Widevine DRM will only work on <a href="http://www.google.com/chrome/">Google Chrome</a>. Inside of this configuration block, a <strong>url</strong> pointing to the location of your DRM server is required. An example of a fully nested Widevine DRM block is shown here:
+  <pre>
+var playerInstance = jwplayer(&#39;myElement&#39;);
+playerInstance.setup({
+  file: &#39;//www.website.com/media/videofile.mpd&#39;,
+  dash: true,
+  drm: {
+    widevine: {
+    url: &#39;//widevine-proxy.appspot.com/proxy&#39;
+    }
+  }
+});
+</pre>
+  </dd>
+</dl>
+
+<h2>MPEG DASH Example</h2>
+
+<p>A resultant embed with a DASH stream and DRM can be located below:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+file: '//s3.amazonaws.com/demo.jwplayer.com/assets/tears.mpd',
+dash: true,
+drm:{
+    widevine: {
+      url: "//widevine-proxy.appspot.com/proxy"
+    }
+  }
+});
+</script>
+</html>

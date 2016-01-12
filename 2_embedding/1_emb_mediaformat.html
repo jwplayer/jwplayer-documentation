@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1403635-media-format-reference/edit?select_filter=601065">
+</head>
+
+<body>
+<p>This article lists all file, streaming, and playlist formats JW Player officially supports.</p>
+<a name="introduction"></a>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+	<li><a href="#overview">Overview</a></li>
+	<li><a href="#video">Video Files</a></li>
+	<li><a href="#audio">Audio Files</a></li>
+	<li><a href="#youtube">YouTube Videos</a></li>
+	<li><a href="#streaming">Streaming Protocols</a></li>
+	<li><a href="#feeds">RSS Feeds</a></li>
+</ul>
+</nav>
+</div>
+<a name="overview"></a>
+
+<h2>Overview</h2>
+
+<p>JW Player 7 officially supports 11 distinct media formats:</p>
+
+<ul>
+	<li>3 video file types: <strong>MP4</strong>, <strong>WebM</strong> and <strong>FLV</strong>.</li>
+	<li>3 audio file types: <strong>AAC</strong>, <strong>MP3</strong> and <strong>Vorbis</strong>.</li>
+	<li>3 streaming protocols: <strong>HLS</strong>, <strong>RTMP</strong>, and <strong>DASH</strong>.</li>
+	<li><strong>YouTube</strong> videos, using the official iFrame API.</li>
+	<li><strong>RSS feeds</strong>, using enclosures or the <em>Media</em> or <em>JWPlayer</em> extension.</li>
+</ul>
+
+<p>Under certain circumstances, JW Player may play additional formats (like <em>Ogg</em> videos or <em>ShoutCast</em> streams), but only the above are cross-browser tested and officially supported. JW Player does not decode audio or video itself, but instead relies upon two underlying browser technologies: the HTML5 &lt;video&gt; element and the Adobe Flash plugin. Details are listed below.</p>
+
+<p>The JW Player tries to recognize a file format by its extension (e.g. <em>.mp4</em> for MP4 videos). If the extension of your files is not recognized, the player will display an error. However, if you know your file is in a supported format, you can use the <strong>type</strong> configuration option to force the player to recognize the file as being of that format. See the <a href="/customer/portal/articles/1413113-configuration-options-reference">Configuration Options Reference</a> for more info.</p>
+<a name="video"></a>
+
+<h2>Supported Video Files</h2>
+
+<ul>
+	<li><a href="http://en.wikipedia.org/wiki/MP4">MP4</a> videos using the <a href="http://en.wikipedia.org/wiki/H.264">H.264</a> video codec and the <a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> audio codec. MP4 is of high quality and can be played in all browsers and devices. It is today&#39;s <strong>video format of choice</strong>.</li>
+	<li><a href="http://en.wikipedia.org/wiki/FLV">FLV</a> videos using the <a href="http://en.wikipedia.org/wiki/H.263">H.263</a> video codec and the <a href="http://en.wikipedia.org/wiki/MP3">MP3</a> audio codec. FLV is of lower quality than MP4 and only supported in browsers that run Flash. We highly suggest re-encoding content to MP4 to allow for HTML5 compatibility.</li>
+	<li><a href="http://en.wikipedia.org/wiki/WebM">WebM</a> videos using the <a href="http://en.wikipedia.org/wiki/VP8">VP8</a> video codec and the <a href="http://en.wikipedia.org/wiki/Vorbis">Vorbis</a> audio codec. WebM is royalty free and of comparable quality to MP4. It has limited browser and device support.</li>
+</ul>
+
+<table>
+	<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<th>mp4</th>
+			<th>flv</th>
+			<th>webm</th>
+		</tr>
+		<tr>
+			<th>Extension(s)</th>
+			<td>mp4, m4v, f4v, mov</td>
+			<td>flv</td>
+			<td>webm</td>
+		</tr>
+		<tr>
+			<th>Mimetype</th>
+			<td>video/mp4</td>
+			<td>video/flv</td>
+			<td>video/webm</td>
+		</tr>
+		<tr>
+			<th>Internet Explorer 9+</th>
+			<td>html5, flash <sup>1</sup></td>
+			<td>flash</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Chrome</th>
+			<td>html5, flash</td>
+			<td>flash</td>
+			<td>html5</td>
+		</tr>
+		<tr>
+			<th>Firefox</th>
+			<td>html5, flash <sup>3</sup></td>
+			<td>flash</td>
+			<td>html5</td>
+		</tr>
+		<tr>
+			<th>Safari</th>
+			<td>html5, flash</td>
+			<td>flash</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>iOS</th>
+			<td>html5</td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Android</th>
+			<td>html5</td>
+			<td>-</td>
+			<td>html5 <sup>2</sup></td>
+		</tr>
+	</tbody>
+</table>
+
+<p><sup>1</sup> <span style="font-size:11px;"><strong>Flash</strong> playback will be used in <strong>Internet Explorer 9</strong></span><br />
+<sup>2</sup> <span style="font-size:11px;"><strong>WebM</strong> support as of <strong>Android 4.0 (Ice Cream Sandwich)</strong></span><br />
+<sup>3</sup> <span style="font-size:11px;"><strong>MP4</strong> playback in <strong>HTML5</strong> is not supported in Windows XP</span></p>
+
+<p>For information regarding video file embeds, see our <a href="http://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embed">dedicated video embedding page</a>.</p>
+
+<h2>Supported Audio Files</h2>
+
+<ul>
+	<li><a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a>: AAC is of high quality and supported by all browsers and devices.</li>
+	<li><a href="http://en.wikipedia.org/wiki/MP3">MP3</a>: Though not as good in quality as AAC, MP3 is very widely used. Many existing audio libraries are encoded in MP3.</li>
+	<li><a href="http://en.wikipedia.org/wiki/Vorbis">Vorbis</a>: Vorbis is royalty-free, but has limited browser and device support.</li>
+</ul>
+
+<table>
+	<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<th>aac</th>
+			<th>mp3</th>
+			<th>vorbis</th>
+		</tr>
+		<tr>
+			<th>Extension(s)</th>
+			<td>aac, m4a, f4a</td>
+			<td>mp3</td>
+			<td>ogg, oga</td>
+		</tr>
+		<tr>
+			<th>Mimetype</th>
+			<td>audio/mp4</td>
+			<td>audio/mpeg</td>
+			<td>audio/ogg</td>
+		</tr>
+		<tr>
+			<th>Internet Explorer 9+</th>
+			<td>html5, flash <sup>1</sup></td>
+			<td>html5, flash <sup>1</sup></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Chrome</th>
+			<td>html5, flash</td>
+			<td>html5, flash</td>
+			<td>html5</td>
+		</tr>
+		<tr>
+			<th>Firefox</th>
+			<td>html5, flash <sup>3</sup></td>
+			<td>html5, flash</td>
+			<td>html5</td>
+		</tr>
+		<tr>
+			<th>Safari</th>
+			<td>html5, flash</td>
+			<td>html5, flash</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>iOS</th>
+			<td>html5</td>
+			<td>html5</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Android</th>
+			<td>html5</td>
+			<td>html5</td>
+			<td>html5 <sup>2</sup></td>
+		</tr>
+	</tbody>
+</table>
+
+<p><sup>1</sup> <span style="font-size:11px;">Audio playback in <strong>Internet Explorer 9</strong> will only work via Flash</span><br />
+<sup>2</sup> <span style="font-size:11px;"><strong>Vorbis</strong> support as of <strong>Android 4.0+ (Ice Cream Sandwich)</strong>.</span><br />
+<sup>3</sup> <span style="font-size:11px;"><strong>AAC</strong> playback in <strong>HTML5</strong> only supported on <strong>Windows</strong>.</span></p>
+
+<p>For information regarding audio file embeds, see our <a href="http://support.jwplayer.com/customer/portal/articles/1406724-aac-or-mp3-audio-embed">dedicated audio embedding page</a>.</p>
+<a name="youtube"></a>
+
+<h2>YouTube Videos</h2>
+
+<p>In addition to self-hosted audio and video files, JW Player includes native support for playing YouTube videos. This is possible through built-in support for the <a href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">iFrame API</a> for HTML5 playback.</p>
+
+<p>More information about embedding with Youtube can be found on our <a href="http://support.jwplayer.com/customer/portal/articles/1406725-youtube-video-embed">Youtube Video Embed</a> article.</p>
+<a name="streaming"></a>
+
+<h2>Streaming Protocols</h2>
+
+<p>JW Player supports three types of streaming protocols:</p>
+
+<ul>
+	<li>MPEG&#39;s <a href="https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP">DASH</a> protocol, using XML manifests and split media files. Like HLS, DASH utilizes standard HTTP, making it both easy to deploy, and firewall-resilient. JW7 supports DASH on mobile and desktop browsers, but only for <strong>Premium</strong> licenses or higher. See <a href="http://support.jwplayer.com/customer/portal/articles/2020482-about-dash-streaming">About DASH Streaming</a> for more info.</li>
+	<li>Apple&#39;s <a href="http://en.wikipedia.org/wiki/HTTP_Live_Streaming">HLS</a> protocol, using M3U8 manifest files and TS media files. HLS builds upon standard HTTP, making it easy to deploy and firewall resilient. All JW Player editions support HLS on mobile devices, but only the <strong>Premium</strong> and higher support HLS on desktop browsers. See <a href="/customer/portal/articles/1430218-using-hls-streaming">Using Apple HLS Streaming</a> for more info.</li>
+	<li>Adobe&#39;s <a href="http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol">RTMP</a> protocol, using either a single media file or a SMIL manifest. RTMP requires dedicated server software and is often blocked by firewalls. See <a href="/customer/portal/articles/1430358-using-rtmp-streaming">Using RTMP Streaming</a> for more info.</li>
+</ul>
+
+<p>Here is an overview of the recognized file extensions and mimetypes for these protocols, plus their browser playback support:</p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<th>RTMP (Direct)</th>
+			<th>RTMP (Manifest)</th>
+			<th>HLS (Direct/Manifest)</th>
+			<th>DASH (Direct/Manifest)<span style="font-size:10px;"><sup>4</sup></span></th>
+		</tr>
+		<tr>
+			<th>Extension(s)</th>
+			<td>-</td>
+			<td>SMIL</td>
+			<td>M3U8</td>
+			<td>MPD</td>
+		</tr>
+		<tr>
+			<th>Mimetype</th>
+			<td>application/x-fcs</td>
+			<td>application/smil</td>
+			<td>application/vnd.apple.mpegurl</td>
+			<td>application/dash+xml</td>
+		</tr>
+		<tr>
+			<th>Internet Explorer</th>
+			<td>Flash</td>
+			<td>Flash</td>
+			<td>Flash <span style="font-size:10px;"><sup>1</sup></span></td>
+			<td>HTML5<span style="font-size:10px;"><sup>3</sup></span></td>
+		</tr>
+		<tr>
+			<th>Chrome Desktop</th>
+			<td>Flash</td>
+			<td>Flash</td>
+			<td>Flash <span style="font-size:10px;"><sup>1</sup></span></td>
+			<td>HTML5</td>
+		</tr>
+		<tr>
+			<th>Firefox Desktop</th>
+			<td>Flash</td>
+			<td>Flash</td>
+			<td>Flash <span style="font-size:10px;"><sup>1</sup></span></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Safari Desktop</th>
+			<td>Flash</td>
+			<td>Flash</td>
+			<td>HTML5, Flash <span style="font-size:10px;"><sup>1</sup></span></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Safari iOS</th>
+			<td>-</td>
+			<td>-</td>
+			<td>HTML5</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Android Browser</th>
+			<td>-</td>
+			<td>-</td>
+			<td>HTML5 <span style="font-size:10px;"><sup>2</sup></span></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Android Chrome</th>
+			<td>-</td>
+			<td>-</td>
+			<td>HTML5 <span style="font-size:10px;"><sup>2</sup></span></td>
+			<td>HTML5</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><sup>1</sup> <span style="font-size:11px;">HLS in Flash is only supported by JW <strong>Premium or higher</strong> licenses</span><br />
+<sup>2</sup> <span style="font-size:11px;">Can only be enabled on by setting the option <em>&quot;androidhls: true&quot; within your JW Player embed</em>. HLS will only work on Android 4.1+.</span><br />
+<sup>3</sup> <span style="font-size:11px;">Internet Explorer 11+ only</span><br />
+<sup>4</sup> <span style="font-size:11px;">DASH is only supported by JW <strong>Premium or higher</strong> licenses</span></p>
+<a name="feeds"></a>
+
+<h2>RSS Feeds</h2>
+
+<p>An RSS feed is a basic XML file, used to load a playlist with one or more media items into JW Player. For each entry, JW Player can read metadata, poster image, media sources and text tracks from the feed. Loading of RSS feeds differs slightly from other formats, since they use the playlist option instead of file. More information can be found on our <a href="http://support.jwplayer.com/customer/portal/articles/1406722-rss-playlist-embed">RSS feed article</a>.</p>
+
+</body>
+</html>

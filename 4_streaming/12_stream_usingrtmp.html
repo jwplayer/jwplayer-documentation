@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1430358-using-rtmp-streaming/edit?select_filter=564477">
+</head>
+<body>
+<p>Embedding an RTMP stream into JW Player is simply a matter of providing the full stream URL. Here is a very basic example, playing a single MP4 video:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+	file: &quot;rtmp://example.com/application/mp4:myVideo.mp4&quot;,
+	image: &quot;/assets/myVideo.jpg&quot;,
+	height: 360,
+	width: 640
+});
+</pre>
+
+<p>Above example only works on desktops, since Flash is not available on mobile/HTML5. Below is another example, using an MP4 loaded over both RTMP and HTTP. The RTMP stream will be played on desktops, the HTTP download will be played on devices:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+playlist: [{
+	image: "http://support.jwplayer.com/customer/portal/attachments/238181",
+		sources: [{
+		file: "rtmp://fms.12E5.edgecastcdn.net/0012E5/mp4:videos/8Juv1MVa-485.mp4"
+		},{
+		file: "http://content.jwplatform.com/videos/nhYDGoyh-kNspJqnJ.mp4"
+		}]
+	}],
+primary: "flash",
+width:640,
+height:360
+});
+</script>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+	playlist: [{
+	image: &quot;/assets/myVideo.jpg&quot;,
+		sources: [{ 
+			file: &quot;rtmp://example.com/application/mp4:myVideo.mp4&quot;
+		},{
+			file: &quot;/assets/myVideo.mp4&quot;
+		}]
+	}],
+height: 360,
+primary: &quot;flash&quot;,
+width: 640
+});
+</pre>
+
+<p>Since the <strong>primary</strong> rendering mode is set to <em>Flash</em>, the RTMP stream is picked over the MP4. If this option were not set, the JW Player would play the HTTP download, since many browsers (e.g. Chrome, Internet Explorer) support that in HTML5 (the default mode in JW).</p>
+
+<p>See <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference#playlist" target="_blank">Working with Playlists</a> for more info on loading multiple sources.</p>
+
+<h3>Application and Stream</h3>
+
+<p>Technically, an RTMP stream consists of two pieces:</p>
+
+<ul>
+	<li>The <strong>application</strong> path (e.g. <em>rtmp://example.com/vod/</em>).</li>
+	<li>The <strong>stream</strong> identifier (e.g. <em>mp4:myFolder/video.mp4</em>).</li>
+</ul>
+
+<p>In JW Player, these two pieces are rolled up into a single URL. JW Player determines the split between application and stream based upon the location of the <em>mp4</em>, <em>flv</em> or <em>mp3</em> prefix.</p>
+
+<ol>
+	<li>An <em>mp4:</em> prefix is required for MP4/M4V/MOV/F4V videos:
+
+	<pre>
+rtmp://example.com/vod/mp4:myFolder/myVideo.mp4</pre>
+	</li>
+	<li>An <em>flv:</em> prefix is required for FLV videos or live streams (with FLV container):
+	<pre>
+rtmp://example.com/vod/flv:myFolder/myVideo.flv
+rtmp://example.com/live/flv:myFolder/myLiveStream
+</pre>
+	</li>
+	<li>An <em>mp3:</em> prefix is required for MP3 audio:
+	<pre>
+rtmp://example.com/vod/mp3:myFolder/mySong.mp3
+</pre>
+	</li>
+	<li>An <em>mp4:</em> prefix is also required for M4A/F4A/AAC audio files:
+	<pre>
+rtmp://example.com/vod/mp4:myFolder/mySong.m4a
+</pre>
+	</li>
+</ol>
+
+<p>If no prefix is found, the player splits application/stream after the last <em>/</em> in the filename. The prefix is then automatically added (<em>mp4:</em>, <em>mp3:</em>). Note the <em>flv</em> prefix is not used internally by the Wowza/Adobe server, so JW Player strips that one out before requesting the stream.</p>
+
+<h2>Configuration Options</h2>
+
+<p>RTMP supports a few configuration options to tweak playback of the streams. They are set in a dedicated <em>rtmp</em> options block.</p>
+
+<h3><a name="bufferlength"></a>Buffer Length</h3>
+
+<p>By default, JW Player tries to maintain a buffer length of <em>3 seconds</em> for RTMP video. This means that 3 seconds of video is fetched from the server and ready to play at all times. This can be changed to another value using the RTMP <strong>bufferlength</strong> option:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;); 
+playerInstance.setup({
+	file: &quot;rtmp://example.com/vod/mp4:myVideo.mp4&quot;,
+    image: &quot;/assets/myVideo.jpg&quot;,
+    height: 360,
+	width: 640,
+    rtmp: {
+        bufferlength: 0.1
+    }
+});
+</pre>
+
+<p>Sane values range from <em>0.1</em> (for low latency live streams) to <em>10</em> (to prevent frequent re-buffering).</p>
+
+<h3><a name="fcsubscribe"></a>FC Subscribe</h3>
+
+<p>When streaming RTMP live streams using the Akamai, Edgecast or Limelight CDN, players cannot simply connect to the live stream. Instead, they have to subscribe to it, by sending a so-called <strong>FC Subscribe</strong> call to the server. JW Player includes support for this, using the RTMP <strong>subscribe</strong> option:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+    file: &quot;rtmp://example.com/xxxx/myStream&quot;,
+    height: 360,
+    width: 640,
+    image: &quot;/assets/myLivestream.jpg&quot;,
+    rtmp: {
+        subscribe: true
+    }
+});
+</pre>
+
+<p>Note this functionality only works for single RTMP streams. For multi-bitrate live streaming, the HLS protocol should be used.</p>
+
+<h3><a name="securetoken"></a>Secure Token</h3>
+
+<p>The Wowza Media Server includes a feature called <a href="http://www.wowza.com/forums/content.php?115" target="_blank">Secure Token</a> that is used to protect your streams from downloading. It works by having the player send a token to the server, which is verified before the stream is started. JW Player supports this mechanism, using the RTMP <strong>securetoken</strong> option:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+	file: &quot;rtmp://example.com/vod/mp4:myVideo.mp4&quot;,
+	height: 360,
+	width: 640
+	image: &quot;/assets/myVideo.jpg&quot;,
+	rtmp: {
+		securetoken: &quot;Kosif093n203a&quot;
+	}
+});
+</pre>
+
+<p>Note we do not support the option to <em>compile in</em> the securetoken. SWF provides little incremental security over JS (they&#39;re both client-side), especially when the JS code is slightly obfuscated.</p>
+
+</body>
+</html>

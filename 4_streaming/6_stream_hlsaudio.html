@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1430255-audio-only-streaming/edit?select_filter=564477">
+</head>
+
+<body>
+<div class="article_callout">This document applies to users of <strong>JW Player Premium and Enterprise</strong>. Don&#39;t have Premium? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>The JW Player not only works great with HLS video streaming but for audio only streams. Many radio broadcasters use the JW Player to stream their stations.</p>
+
+<h3>Example</h3>
+
+<p>The following example is an audio only file on demand served from a Wowza Media server.</p>
+
+<p>In order to display just the control bar and view a horizontal volume slider, just set the height of the player to 30px.</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+      file: &quot;//[wowza.server]:1935/vod/mp4:audio/file.m4a/playlist.m3u8&quot;,
+      height: 40
+});
+</pre>
+<style type="text/css">#container{ display: block; margin-left: 110px;  }
+</style>
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+   playerInstance.setup({
+            file: "//dev.wowza.longtailvideo.com:1935/vod/mp4:audio/sint_aac.m4a/playlist.m3u8",
+            height: 40
+});
+</script>
+</body>
+</html>

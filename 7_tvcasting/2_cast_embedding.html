@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1611909-embedding-with-chromecast/edit?select_filter=677400">
+</head>
+
+<body>
+<div class="article_warning"><strong>Important note: Casting is available as of&nbsp;JW Player 7.0.2.&nbsp;</strong></div>
+
+<h2>Embedding</h2>
+
+<p>As of <strong>JW Player 6.12</strong>, HLS content can be <a href="http://www.jwplayer.com/products/jwplayer/chromecast/" target="_blank">cast</a> in Flash mode. MP4 content can be cast in either Flash or HTML5 mode. Please note, the cast configuration block must be included in the embed script in order to detect and begin communication with a Chromecast device. As with all casting implementations, the <a href="https://www.google.com/chrome/">Chrome</a> browser must be used to cast content.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Player Premium</strong>. Don&#39;t have Premium? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h3><strong>Setting up the Cast configuration</strong></h3>
+
+<p>The cast configuration block turns on the mechanism the JW Player uses to interface with a Chromecast device. It also contains the customization options to configure how the Player appears on the TV screen.<br />
+<br />
+The following is a sample configuration block used to enable Chromecast:</p>
+
+<pre>
+cast:{
+    appid:&rdquo;[GOOGLE APP ID]&rdquo;,
+    loadscreen:&rdquo;/img.png&rdquo;,
+    endscreen:&rdquo;/img.png&rdquo;,
+    logo:&rdquo;logo.png&rdquo;,
+    railcolor:&rdquo;#e31e76&rsquo;
+}    </pre>
+
+<h3><strong>Configurable Chromecast options</strong></h3>
+
+<p><strong>appid</strong><br />
+This is the only required field to enable Chromecast. This is the ID obtained from registering your application with Google through the process outlined in the <a href="http://support.jwplayer.com/customer/portal/articles/1611847-introduction-to-casting-beta-" target="_blank">Introduction to Casting support</a> section. Note: If you do not enter a valid App id, a Cast session will not be started.<br />
+<br />
+<strong>loadscreen</strong><br />
+This is an optional image that will display on the TV once the connection between the sending app and receiver app is made. This should be an image file. The JW Player will expand the image to fit the resolution of the screen that is being cast on. If no image is specified, the JW Player provides a default screen. The load screen is visible for a minimum of 3 seconds and then until the media is ready to be played.<br />
+The recommended image size is 1280px x 720px. It is recommended that file sizes be kept smaller to provide quicker load times (jpg, png, gif, etc.).<br />
+<br />
+<strong>endscreen</strong><br />
+This is an optional image that will display on the TV once all videos have completely played. This should be an image file. The JW Player will expand the image to fit the resolution of the screen that is being cast on. If no image is specified, the JW Player provides a default end screen image. The end screen is visible on the TV screen for a minimum of 150 seconds.<br />
+<br />
+<strong>railcolor</strong><br />
+The railcolor field allows you to specify a hex color value to customize the display of the timeslider on the receiver JW Player App.<br />
+<br />
+<strong>logo</strong><br />
+The logo allows you to place your own branded logo in the top right corner of the receiver app.</p>
+
+<h2>A note on HLS and Chromecast CORS</h2>
+
+<p>As mentioned on our helpful crossdomain page <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading">here</a>, accessing resources from a particular domain requires a properly configured crossdomain policy from that domain. In the case of Chromecast HLS, the receiver app URL is the page that will request a manifest.</p>
+
+<p>Because of this, you must allow our <strong>receiver app domain</strong> access to the site hosting your M3U8. The domain to allow is:</p>
+
+<pre>
+https://jwpsrv.com</pre>
+
+<p>Note that this will require <strong>CORS</strong> configuration, and <strong>not</strong> crossdomain.xml, since Chromecast loads manifests via <strong>HTML5</strong>. For more information on configuring CORS, please see the helpful site <a href="http://enable-cors.org/">here</a>.</p>
+
+</body>
+</html>

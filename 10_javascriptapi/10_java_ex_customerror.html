@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1442607-example-a-custom-error-message/edit?select_filter=564475">
+</head>
+
+<body>
+​<p>For users wishing to stream live content at certain times, there may be periods where there is no stream for the player to connect to. In cases such as these, we will display an appropriate error message. However, for end users, this may be a bit confusing. For example, if we mention that an M3U8 file cannot be accessed, this will not mean much to someone wishing to watch a stream.</p>
+
+<p>Thankfully, with our API, we can control player behavior when an error occurs. In some cases, we can replace the player with a picture stating &quot;Our stream is not running!&quot;, or load an alternate video file that states the same.</p>
+<style type="text/css">#container { margin-left:110px; box-shadow: 0 0 4px #999; }
+</style>
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+	file: "rtmp://fms.12E5.edgecastcdn.net/0012E5/videos/Qvxp3Jnv-68183.flv",
+	image: "//s.jwpcdn.com/thumbs/RxiqSWej-640.jpg"
+});
+playerInstance.on('error', function(){
+	playerInstance.load({file:"//content.jwplatform.com/videos/7RtXk3vl-52qL9xLP.mp4",image:"//content.jwplatform.com/thumbs/7RtXk3vl-480.jpg"});
+	playerInstance.play();
+});
+playerInstance.on('complete', function(){
+	window.location = window.location.href;
+});
+playerInstance.on('buffer', function(){
+	theTimeout = setTimeout(function(){
+		playerInstance.load({file:"//content.jwplatform.com/videos/7RtXk3vl-52qL9xLP.mp4",image:"//content.jwplatform.com/thumbs/7RtXk3vl-480.jpg"});
+		playerInstance.play();
+	},5000);
+});
+playerInstance.on('play', function(){
+	clearTimeout(theTimeout);
+});
+</script>
+
+<p>Here we have a player that attempts to connect to a nonexistent stream. Once the player detects an error, the onError() API call gets fired and uses the load() API command&nbsp;to&nbsp;load a new video playlist. We then use the play() API call to play the file.</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;);
+​playerInstance.on(&#39;error&#39;, function(){
+​playerInstance.load({file:&quot;//mysite.com/errorfile.mp4&quot;,image:&quot;//mysite.com/errorfile.jpg&quot;});
+playerInstance.play();
+});</pre>
+
+<p>Using an onComplete() API call with our error video, we can&nbsp;reload the page. Thusly, we attempt to play&nbsp;our original stream again. If this fails, we again claim an error and the errorfile.mp4 playlist will launch again.</p>
+
+<p>​For constant stream monitoring, you can use the following code to load an error video if a stream stops running in the middle of a broadcast​ for more than 5 seconds.​</p>
+
+<pre>
+playerInstance.on(&#39;buffer&#39;, function(){
+theTimeout = setTimeout(function(){
+playerInstance.load({file:&quot;//mysite.com/errorfile.mp4&quot;,image:&quot;//mysite.com/errorfile.jpg&quot;});
+playerInstance.play();
+},5000);
+});</pre>
+
+<p>The above code will check for a buffer every 5 seconds. If no buffering is detected, we will load our error video yet again.</p>
+
+</body>
+</html>

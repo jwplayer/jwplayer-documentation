@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1406724-aac-or-mp3-audio-embed/edit?select_filter=601065">
+</head>
+
+<body>
+<p>This article goes over the standard JW Player embedding practices for audio files. For more specific information on JW Player&#39;s audio playback capabilities, see our <a href="http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference#audio">audio section</a> in the Media Reference page.</p>
+
+<h2>Example</h2>
+
+<p>The below JW Player embed is using an audio file with a minimum height of 40 pixels configured. The player will go into <strong>Audio Mode</strong> which will hide the player&#39;s video display, as well as other non-essential control bar items like fullscreen.</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/WslfBT8g-FKcaGLbx.m4a",
+  width: 640,
+  height: 40
+});
+</script>
+
+<p>Although this example uses an AAC audio file (in MP4 container), MP3 audio is equally well supported across all desktop browsers (Chrome, Firefox, Internet Explorer, Safari) and mobile devices (iOS, Android). Other file formats (like Ogg Vorbis or Shoutcast) do not play everywhere, so you should stick to AAC or MP3.</p>
+
+<h2>Embedding Step-by-Step</h2>
+
+<p>Above, we have embedded a JW Player to show its functions and appearance. However, to embed a player on your own web page, please see the following steps:</p>
+
+<h3>Step 1: Configuring your JW Player Library</h3>
+
+<p>JW Player offers two options for configuring your player&#39;s library on your web page:</p>
+
+<h3>Option A: Add a library to your &lt;head&gt;</h3>
+
+<p>In order to embed media with JW Player, you first have to add the player library to the head of your HTML page(or elsewhere above the actual embed). Player libraries are found in your embedding wizard and will set player defaults according to what is specified in the Wizard. A player&#39;s library will appear similarly to:</p>
+
+<pre>
+&lt;script src=&quot;//content.jwplatform.com/libraries/eX4mp13.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+<p>JW Player libraries are cloud-hosted by us, making them fast, reliable, secure, and always up-to-date with our latest releases. In addition, all configuration is performed with our easy-to-use graphical interface via our Dashboard.</p>
+
+<h3>Option B: Self-hosting</h3>
+
+<p>If you want to host your own player library, you can find both your license key and latest JW Player files in your dashboard&#39;s <a href="https://dashboard.jwplayer.com/#/account/advanced">Advanced Account</a> page. Once downloaded, you will need to host jwplayer.js on your own server. When configuring your web page, you will then need to point to your copy of jwplayer.js <strong>and</strong> also define your self-hosted license key. Here&#39;s a code example:</p>
+
+<pre>
+​&lt;script src=&quot;//mywebsite.com/jwplayer/jwplayer.js&quot; &gt;&lt;/script&gt;
+&lt;script&gt;jwplayer.key=&quot;ABCdeFG123456SeVenABCdeFG123456SeVen==&quot;;&lt;/script&gt;
+</pre>
+
+<p><strong>Note: </strong>JW Player 7 now <strong>requires</strong> a license key. Please make sure to include this on your page if you are self-hosting.</p>
+
+<h3>Step 2: Add the embed code to your &lt;body&gt;</h3>
+
+<p>With the player library set up, it&#39;s time to actually embed the video. You can insert this HTML in your page, at the exact location you want the video to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;Loading the player...&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+	file: &quot;//example.com/uploads/myVideo.m4a&quot;,
+	width: 640,
+	height: 40
+});
+&lt;/script&gt;
+</pre>
+
+<h3>Step 3: Configuration</h3>
+
+<p>In this above code, the &lt;div&gt; element is used as a container to load JW Player into, which must have a unique <strong>id</strong> attribute. The setup() block then refers to this ID. However, let&#39;s break down each of the configuration options to see what is being affected:</p>
+
+<ul>
+	<li><strong>file - </strong>Which video we&#39;ll be loading with JW Player</li>
+	<li><strong>width - </strong>The width of the video player in pixels</li>
+	<li><strong>height - </strong> The height of the player, also in pixels. Setting this to <strong>40</strong> or lower will put the player into <strong>Audio Mode</strong>.</li>
+</ul>
+
+<p>The above configuration options are very basic, but there are <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference"> many more available</a> to customize JW Player to your liking.</p>
+
+<h2>Next Steps</h2>
+
+<p>Now that you have configured a basic player embed, you can start looking into adding further customizations. See the <a href="/customer/portal/topics/601064-customization/articles">Customization section</a> for more information.</p>
+
+<p>If you are still having problems getting things to work, see our <a href="http://support.jwplayer.com/customer/portal/articles/1913755">troubleshooting guide</a> for a walkthrough of common embedding issues.</p>
+
+</body>
+</html>

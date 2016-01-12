@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<p>This article explains how to show a playlist bar with media files next to the video display. Viewers are able to browse the playlist bar and select items. Here is an example:</p>
+<iframe frameborder="0" height="240" scrolling="auto" src="http://demo.jwplayer.com.s3.amazonaws.com/player-demos/playlist-right.html" width="660"></iframe>
+
+<p>The playlist bar can display a title, description and image for every video. It can be rendered at the <em>right</em> or <em>bottom</em> of the video screen.</p>
+
+<h2>Embed code</h2>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See <a href="/customer/portal/articles/1406722-rss-playlist-embed">RSS Playlist Embed</a> for more info. Next, place the following embed code at the location you want the player to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    jwplayer(&quot;myElement&quot;).setup({
+      playlist: &quot;/uploads/myPlaylist.rss&quot;,
+      width: 660,
+      height: 240,
+      listbar: {
+        position: &quot;right&quot;,
+        size: 234
+      }
+    });
+&lt;/script&gt;
+</pre>
+
+<p>Note this embed uses an RSS feed to load the playlist contents. RSS feeds are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</p>
+
+<h2>Basic layout</h2>
+
+<p>In addition to <strong>position</strong> and <strong>size</strong>, the playlist bar has a property called <string>layout. This property has two values: <em>extended</em> (the default) and <em>basic</em>.</string></p>
+
+<p>When setting this option to <em>basic</em>, the player will only show the titles of items in the playlist, discarding the images and descriptions. This is handy in case you have audio playlists, or RSS feeds that don&#39;t contain thumbnails or descriptions.</p>
+
+<h3>Example</h3>
+
+<p>Here is an example of the playlist bar below the controls, in basic mode:</p>
+<iframe frameborder="0" height="600" scrolling="auto" src="http://demo.jwplayer.com.s3.amazonaws.com/player-demos/playlist-bottom.html" width="660"></iframe>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    jwplayer(&quot;myElement&quot;).setup({
+      playlist: &quot;/uploads/myPlaylist.rss&quot;,
+      width: 660,
+      height: 600,
+      listbar: {
+        position: &quot;bottom&quot;,
+        size: 234
+      }
+    });
+&lt;/script&gt;
+</pre>
+
+<p>Since the playlist is using 140 out of the 170 pixels of the player height, the controlbar automatically jumps into <em>audio mode</em>. In this setup, it uses the entire width and has a horizontal volume bar.</p>
+
+<h2>Creating a custom sidebar</h2>
+
+<p>If you are looking to do some additional customization work on a playlist sidebar, it ispossible to create your own with our API and some CSS work. An example of this can be seen <a href="http://support.jwplayer.com/customer/portal/articles/1543546-example-making-your-own-playlist-sidebar" target="_blank">here</a>.</p>
+</body>
+</html>

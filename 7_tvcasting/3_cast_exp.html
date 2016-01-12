@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1611964-user-experience-with-chromecast-and-jw-player/edit?select_filter=677400">
+</head>
+
+<body>
+<div class="article_warning"><strong>Important note: Casting is available as of&nbsp;JW Player 7.0.2.&nbsp;</strong></div>
+
+<h2>Sender Application Experience</h2>
+
+<p>If the JW Player is rendered with the correct options, it will search for the <a href="http://www.jwplayer.com/products/jwplayer/chromecast/" target="_blank">Chromecast</a> plugin and then for an active Chromecast connected on the network.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Player Enterprise</strong>. Don&#39;t have Enterprise? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>If neither of these exist, the sender application experience is the same as it would normally be. If the player does detect a Chromecast, the controlbar appears onReady with the cast icon located to the immediate left of the fullscreen icon.<br />
+<img alt="" src="/customer/portal/attachments/306627" /></p>
+
+<p>This allows viewers to quickly know that they are able to cast so they can either play or choose a Chromecast to connect to.</p>
+
+<p>Once the casting has been chosen, JW Player sends the embed configuration to the JW Player Receiver Application and the browser becomes the remote control.</p>
+
+<h3><strong>Remote Control Display</strong></h3>
+
+<p>​A poster image for the current file playing will display in the center of the JW Player embedded within a TV. This indicates to viewers what is playing on the TV. The sender player also shows the title of the item as well as which Chromecast it is playing on.<br />
+&nbsp;</p>
+
+<p><strong>Playing Content</strong><br />
+When video content is playing, the controls show a Pause icon to indicate the action of pausing is available.<br />
+<img alt="" src="/customer/portal/attachments/306629" style="width: 423px; height: 245px;" /><br />
+<strong>Paused Content</strong><br />
+When content is paused, the sender application shows a Play icon since the action available is to &ldquo;play&rdquo; the content.<br />
+<img alt="" src="/customer/portal/attachments/306632" style="width: 426px; height: 247px;" /><br />
+<strong>Replay the Playlist</strong><br />
+After all playlist items have played, the sender application will display a replay icon to restart the playlist.<br />
+<img alt="" src="/customer/portal/attachments/306633" style="width: 424px; height: 246px;" />​</p>
+
+<h3><strong>Disconnecting from Chromecast</strong></h3>
+
+<p>A viewer can disconnect from a Chromecast two ways:</p>
+
+<ul>
+	<li>Toggling the Cast icon directly in the JW Player controlbar.</li>
+	<li>Choosing &ldquo;Stop Casting&rdquo; from the Chromecast plugin within the Google Chrome navigation bar</li>
+</ul>
+Once disconnected, the JW Player in the browser will begin playing where it last was on the TV.
+
+<h3><strong><span style="line-height: 1.6em;">Restoring Sessions</span></strong></h3>
+
+<p>If a viewer navigates away from the page while the JW Player is casting, the receiver app will continue to play through its playlist. In order to restore the JW Player as a remote control, a viewer must navigate back to the page they started casting from. The Player will automatically reconnect to the Chromecast and sync with where it currently is on the receiver app.</p>
+
+<h2><strong>Receiver Application Experience</strong></h2>
+
+<p>The receiver is designed to be a minimal video player so content can be enjoyed without anything getting in the way. Once the connection is made, you have the ability to show a loading image to start the viewing experience. If no custom image is provided, a JW Player image is used.</p>
+
+<h3><strong>Initial Load</strong></h3>
+While content is initially loading the following information is shown on the receiver application:
+
+<ol>
+	<li>Title of the video/audio file</li>
+	<li>Description</li>
+	<li>Poster image</li>
+	<li>Custom logo</li>
+</ol>
+Once enough content is downloaded, the overlay screen fades and the video starts.
+
+<h3><strong>Pausing the Player</strong></h3>
+
+<p>If the Player is paused from the Sender application, the receiver shows a Pause icon in the center of the screen along with the following:</p>
+
+<ol>
+	<li>Title of the video/audio file</li>
+	<li>Description</li>
+	<li>Poster image</li>
+	<li>Custom logo</li>
+	<li>timeslider rail</li>
+	<li>Current time and total duration</li>
+</ol>
+
+<h3><strong>Adjusting the Volume</strong></h3>
+
+<p>The volume of the Player on the receiver indicates the volume of the Chromecast itself. The volume controls provided on the JW Player sender application will adjust the volume of the Chromecast device. If the volume is not adequate, the volume on the actual connected TV should be adjusted.</p>
+
+<h3><strong>Video Ends&nbsp;</strong></h3>
+
+<p>After a video or playlist ends, the receiver shows shows the endscreen for your Player setup. This image represents an Idle state that you can use to display your brand or upcoming content.</p>
+
+</body>
+</html>

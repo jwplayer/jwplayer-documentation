@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1403653-browser-device-reference/edit?select_filter=601065">
+</head>
+
+<body>
+<p>This article lists which browsers and devices are officially supported by JW Player, including any existing limitations and differences between desktop and mobile.</p>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+  <li><a href="#desktop">Desktop Browsers</a></li>
+  <li><a href="#mobile">Mobile Devices</a></li>
+  <li><a href="#modes">Mode Selection</a></li>
+  <li><a href="#sources">Multiple Sources</a></li>
+</ul>
+</nav>
+</div>
+
+<p>Under the hood, JW Player uses two playback technologies (HTML5 and Flash), with the selection logic executed JavaScript. The selection process is described below.</p>
+
+<p>Nowadays, new versions of browsers are frequently released. We always test the <a href="http://gs.statcounter.com/">most widely distributed one(s).</a></p>
+<a name="desktop"></a>
+
+<h2>Desktop Browsers</h2>
+
+<p>This table lists which desktop browsers are fully supported by JW Player:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Browser</th>
+      <th>HTML5</th>
+      <th>Flash</th>
+    </tr>
+    <tr>
+      <td>Chrome</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Internet Explorer 9+</td>
+      <td>yes<sup>1</sup></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><sup>1</sup>Flash will be used on IE9 for rendering all video</p>
+
+<p>All JW Player features are supported on these browsers, with the exception of media playback. In a nutshell, not all browsers support WebM video and Vorbis audio. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for details.</p>
+<a name="mobile"></a>
+
+<hr /> <a name="mobile"></a>
+
+<h2>Mobile Devices</h2>
+
+<p>Due to the speed of adoption of mobile operating systems, we fully test and support the latest versions on the most popular devices.&nbsp;This table lists which mobile browsers&nbsp;are officially supported by JW Player using HTML5:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Device</th>
+      <th>Operating System</th>
+      <th>Devices</th>
+    </tr>
+    <tr>
+      <td>Safari on iPhone</td>
+      <td><span style="line-height: 20.7999992370605px;">iOS 8+</span></td>
+      <td>iPhone 4s through current</td>
+    </tr>
+    <tr>
+      <td>Safari on iPad</td>
+      <td><span style="line-height: 20.7999992370605px;">iOS 8+</span></td>
+      <td>iPad 2 through current</td>
+    </tr>
+    <tr>
+      <td>Chrome on Android</td>
+      <td><span style="line-height: 20.7999992370605px;">Android 4.0+</span></td>
+      <td>Any running Android 4.0</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+For a list of stats of device and operating system adoption, view these <a href="https://mixpanel.com/trends/" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;">MixPanel</a> trends.
+
+<p>As with desktop browsers, playback support for the various media formats varies. In a nutshell, MP4 video and AAC/MP3 audio are safe formats for mobile. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for more details.</p>
+
+<h3>Mobile Limitations</h3>
+
+<p>There are limitations to video playback on mobile devices compared to desktop browsers:</p>
+
+<ul>
+  <li>Auto-starting a video on page load is <strong>not</strong> possible on mobile.</li>
+  <li>Playing multiple videos at the same time is not possible on mobile.</li>
+  <li>JW Player will not work with Flash for Android.</li>
+  <li>Changing the <em>mute</em> state and <em>volume</em> is not possible on mobile.</li>
+  <li>On iPhone only, video is only played in <em>fullscreen</em> mode. On iPad and Android, video can be played either windowed or in fullscreen.</li>
+</ul>
+
+<hr />
+<h2><a name="modes"></a>JW7 Provider Model</h2>
+
+<p>Previously, with JW6, JW Player would render in either <strong>Flash</strong> or <strong>HTML5</strong> and could not be changed unless it was set up again with the appropriate <strong>primary</strong> rendering mode set.</p>
+
+<p>While JW7&#39;s control bar will always be rendered in HTML5 via CSS, the player will dynamically load an appropriate Flash or HTML provider based on the media that is loaded. This allows JW Player to dynamically change from HTML5 to Flash playback on a per-playlist-item basis. As a result, there is now a more unified and simpler method of API handling, as well as speedier setup and playback.</p>
+
+<p>As with JW6, all features of JW Player (playlists, skinning, scripting, API, etc.) are available in both provider modes. Whether JW Player uses a Flash or HTML5-based provider is therefore dependent upon the media that is loaded. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for details. Here&#39;s a quick overview:</p>
+
+<ul>
+  <li>DASH can only be played in HTML5. See <a href="http://support.jwplayer.com/customer/portal/articles/2020482-about-dash-streaming">About Dash Streaming</a> for more info.</li>
+  <li>MP4, AAC, MP3, and HLS can be played in both HTML5 and Flash.</li>
+  <li>WebM and Vorbis can only be played in HTML5 in some browsers.</li>
+  <li>FLV and RTMP can only be played in Flash.</li>
+</ul>
+
+<p>At large, the market is moving away from Flash towards HTML5. Therefore, JW Player will always attempt to use HTML5 over Flash if a piece of content can be played in both modes on a certain browser. This behavior can be changed however, by setting the configuration option <strong>primary</strong> to <em>flash</em>. In this case, JW Player&#39;s Flash provider will attempt to be used for all content.See the <a href="/customer/portal/articles/1413113-configuration-options-reference">Configuration Options Reference</a> for more info.</p>
+
+<hr />
+<h2><a name="sources"></a>Multiple Sources</h2>
+
+<p>If an embed contains multiple media sources, at the time of playback, JW Player will determine if it is playable in HTML5 or playable in Flash. The appropriate provider will then load. As an example:</p>
+
+<ul>
+  <li>With a setup containing DASH + HLS sources and HTML5 primary, JW Player plays DASH in HTML5 on Chrome/IE 11+, and the HLS stream in Flash on Firefox.</li>
+  <li>With a setup containing HLS + DASH sources and HTML5 primary, JW Player plays HLS in HTML5 on Safari and DASH in HTML5 on Chrome/IE 11+ and HLS in Flash on Firefox.</li>
+  <li>With a setup containing HLS + DASH sources and Flash primary, JW Player plays HLS in Flash on Chrome, Firefox and Safari. DASH will only be used if a user&#39;s computer does not have Flash installed and if the browser supports it.</li>
+</ul>
+
+<p>See the <a href="http://support.jwplayer.com/customer/portal/articles/1710454-configuring-multiple-sources">Configuring Multiple Sources</a> article to learn how to set up multiple sources.</p>
+
+</body>
+</html>

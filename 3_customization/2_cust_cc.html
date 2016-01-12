@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1407438-adding-closed-captions/edit?select_filter=601064">
+</head>
+
+<body>
+<p>JW Player 7 supports the rendering of closed captions or subtitles in the video display. These captions can be selected by viewers through the <em>CC</em> button. Here is an example, using a single language. The CC button then acts as a toggle:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "https://content.jwplatform.com/thumbs/3XnJSIm4-640.jpg",
+  file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+  tracks: [{ 
+    file: '//support-static.jwplayer.com/content/misc/2UEDrDhv.vtt', 
+    label: 'English', 
+    kind: 'captions' 
+  }],
+  width: 640,
+  height: 270
+});
+
+var languages = [{
+  label:'English',file:'//support-static.jwplayer.com/content/misc/2UEDrDhv.vtt'
+},{
+  label:'Japanese',file:'//support-static.jwplayer.com/content/misc/6aaGiPcs.vtt'
+},{
+  label:'Russian',file:'//support-static.jwplayer.com/content/misc/2nxzdRca.vtt'
+},{
+  label:'Spanish',file:'//support-static.jwplayer.com/content/misc/BMjSl0KC.vtt'
+}];
+var single = true;
+
+function toggle() {
+  var t = [];
+  if(single) {
+    single = false;
+    for (var i=0; i<languages.length; i++) {
+      t.push({
+        file: languages[i].file,
+        kind: 'captions',
+        label: languages[i].label,
+      });
+    }
+  } else {
+    single = true;
+    t.push({
+      file: languages[0].file,
+      kind:'captions',
+      label: languages[0].label
+    });
+  }
+ playerInstance.load({
+    file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+    tracks: t
+  });
+  playerInstance.play();
+  return false;
+};
+</script>
+
+<p>For multiple languages, the CC button will show a language selection menu. <a href="#" onclick="return toggle()">Click here</a> to load multiple languages for above example video (or toggle back to single CC).</p>
+
+<h2>Supported Formats</h2>
+
+<p>JW Player 7 supports captions in two formats:</p>
+
+<ul>
+  <li><a href="http://dev.w3.org/html5/webvtt/">WebVTT</a>, a plain text format that&#39;s part of the HTML5 standard.</li>
+  <li><a href="http://en.wikipedia.org/wiki/SubRip">SRT</a>, a plain text format that&#39;s popular amongst file sharers.</li>
+</ul>
+
+<p>VTT captions are preferred, since they are part of the HTML5 standard. JW Player supports both formats across all browsers though, in both Flash and HTML5 mode. The only exception is playback in fullscreen on iOS, since the native fullscreen mode does not allow JW Player to print captions over the video. Since the iPhone can only display video in full screen, this means that sideloaded captions will <strong>not</strong> function on this device.</p>
+
+<p><em>Note JW Player also supports captions embedded in the stream for HTTP Live Streaming. See <a href="/customer/portal/articles/1430278-cea-608-captions">CEA-608 Closed Captions in HLS</a> for more info.</em></p>
+
+<h3>VTT Example</h3>
+
+<p>Here is an example VTT file containing three caption cues. As you can see, this format is easy to understand and can be authored with a simple text editor:</p>
+
+<pre>
+WEBVTT
+
+00:00:12,000 --&gt; 00:00:15.000
+What brings you to the land
+of the gatekeepers?
+
+00:00:18,500 --&gt; 00:00:20.500
+I&#39;m searching for someone.
+
+00:00:36,500 --&gt; 00:00:39.000
+A dangerous quest for a lone hunter.
+
+00:00:41,500 --&gt; 00:00:44.000
+I&#39;ve been alone for as long
+as I can remember.
+</pre>
+
+<p><em>Note your VTT files should be saved using <strong>UTF8</strong> encoding in order to correctly display special characters (accents, but also e.g. Arab, Chinese, Russian). If these files are not stored and served using UTF8 encoding, rendering issues will likely occur.</em></p>
+
+<h2>Embedding Captions</h2>
+
+<p>WebVTT captions can be embedded in a player by adding a <strong>tracks</strong> object inside the <strong>playlist</strong> object. Every entry has 4 properties:</p>
+
+<dl>
+  <dt>file (required)</dt>
+  <dd>URL to the WebVTT (or SRT/DFXP) file to display (e.g. <strong>/assets/myCaptions.vtt</strong>). Note these captions are subject to <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain Security Restrictions</a>, in both Flash and HTML5 mode.</dd>
+  <dt>label</dt>
+  <dd>A human-readable name of the captions track (e.g. <strong>English Captions</strong>). This is displayed in the captions selection menu if more than one track is provided.</dd>
+  <dt>&quot;default&quot;</dt>
+  <dd>Set this to <strong>true</strong> if you want these captions to display on startup. If you don&#39;t set it, the captions are Off by default and users have to enable them using the CC menu. Note the option should be placed in quotes because <strong>default</strong> is a reserved JavaScript keyword in IE8.</dd>
+  <dt>kind</dt>
+  <dd>The kind of text track this is: <strong>captions</strong>. Since captions are the default, this option isn&#39;t required. It&#39;s good to add this property for readability though, since JW Player supports VTT files which reference thumbnails.</dd>
+</dl>
+
+<p>Here is an example setup, using one video and two VTT files. The English captions will render by default:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;)
+playerInstance.setup({
+    playlist: [{
+        file: &quot;/assets/sintel.mp4&quot;,
+        image: &quot;/assets/sintel.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/captions-en.vtt&quot;, 
+            label: &quot;English&quot;,
+            kind: &quot;captions&quot;,
+            &quot;default&quot;: true 
+        },{ 
+            file: &quot;/assets/captions-fr.vtt&quot;, 
+            kind: &quot;captions&quot;,
+            label: &quot;French&quot;
+        }]
+    }]
+});
+</pre>
+
+<p>Note that VTT files are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</p>
+
+<h3>Captions in Feeds</h3>
+
+<p>When <a href="/customer/portal/articles/1406722-rss-playlist-embed">loading RSS Feeds</a> into a player, captions can be included using a <strong>&lt;jwplayer:track&gt;</strong> or a <strong>&lt;media:subtitle&gt;</strong> element. Here is an example feed, containing the same video and two VTT tracks as above:</p>
+
+<pre>
+&lt;rss version=&quot;2.0&quot; xmlns:media=&quot;http://rss.jwpcdn.com/&quot; &gt; 
+  &lt;channel&gt; 
+
+    &lt;item&gt; 
+      &lt;title&gt;Sintel&lt;/title&gt;
+      &lt;description&gt;Sintel is a fantasy CGI from the Blender Open Movie Project.&lt;/description&gt;
+      &lt;jwplayer:image&gt;/assets/sintel.jpg&lt;/jwplayer:image&gt;
+      &lt;jwplayer:source file=&quot;/assets/sintel.mp4&quot; /&gt;
+      &lt;jwplayer:track file=&quot;/assets/sintel-en.vtt&quot; label=&quot;English&quot; kind=&quot;captions&quot; default=&quot;true&quot; /&gt;
+      &lt;jwplayer:track file=&quot;/assets/sintel-fr.vtt&quot; label=&quot;French&quot; kind=&quot;captions&quot; /&gt;
+    &lt;/item&gt;
+
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</pre>
+
+</body>
+</html>

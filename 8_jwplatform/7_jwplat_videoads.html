@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1611847-introduction-to-casting/edit?select_filter=677400">
+</head>
+
+<body>
+<p>Advertising is a key component of online video and a core strength of JW Player. That&#39;s why <a href="http://www.jwplayer.com/products/jwplatform/" target="_blank">JW Platform</a> includes full support for setting Video Ads in your players. Here is a live example, playing a pre-roll VAST ad:</p>
+
+<div id="myElement">&nbsp;</div>
+<script type="text/javascript">
+jwplayer("myElement").setup({
+  advertising: {"companiondiv": {"width": 300, "id": "companion", "height": 250}, "client": "vast", "tag": "http://demo.jwplayer.com/static-tag/preroll.xml", "admessage": "Ad: your video starts in xx seconds"},
+  displaytitle: false,
+  height: 270,
+  playlist: "http://content.jwplatform.com/jw6/bkaovAYt.xml",
+  plugins: {"http://assets-jpcust.jwpsrv.com/player/6/6124956/ping.js": {"pixel": "http://content.jwplatform.com/ping.gif"}},
+  primary: "flash",
+  stretching: "uniform",
+  width: 480
+});
+</script>
+
+<p>This article explains what formats are supported and how ads are setup. Note that advertising in JW Platform is only available for publishers who also purchased <strong>JW Ads</strong>. Please contact us if you are interested in advertising, but don&#39;t have a JW Ads license yet.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform and Ads</strong>. Don&#39;t have Hosting or Ads? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Supported Ad Formats</h2>
+
+<p>JW Platform offers support for 4 different ad configurations:</p>
+
+<dl>
+	<dt>VAST/VPAID Pre-roll</dt>
+	<dd>This sets a single pre-roll ad, served by a VAST-compliant video ad server (nearly any ad server today). See our <a href="/blog/26790/vast-vpaid-standardizing-online-video-ads/">VAST/VPAID blog post</a> for some background info.</dd>
+	<dt>Google IMA Pre-roll</dt>
+	<dd>This sets a single pre-roll ad, served through the <a href="http://developers.google.com/interactive-media-ads/">Interactive Media Ads</a> (IMA) SDK version 3. LongTail Video is one of Google&#39;s official video technology partners.</dd>
+	<dt>VMAP Ad Schedule</dt>
+	<dd>This sets a full ad schedule, which can consist of multiple pre-, mid- and post-roll ad breaks. Since VMAP is a fairly new standard, not many video ad servers yet support it. Google&#39;s Dart For Publishers (DFP) is one of the adservers that does support VMAP.</dd>
+	<dt>VAST Tag with Fallbacks(Waterfall)</dt>
+	<dd>This option allows for the configuration of up to three VAST ad tags. JW Platform will then attempt to play each of these tags, in order, until an impression is delivered. If all three tags fail to deliver an impression, your video content will begin. For more information regarding VAST tag waterfalling, see our document <a href="http://support.jwplayer.com/customer/portal/articles/1665150-ad-tag-waterfalling" target="_blank">here</a>.</dd>
+</dl>
+
+<p>See the <a href="/customer/portal/articles/1431638-supported-ad-formats">Supported Ad Formats</a> article for more details, a list of verified VAST ad servers and a list of supported VAST tag variables.</p>
+
+<h2>Advertising Setup</h2>
+
+<p>All advertising options are set in the <strong>Advertising</strong> tab of the player setup pages in the dashboard:</p>
+
+<p><img alt="the Dashboard player advertising options." src="/customer/portal/attachments/257547" /></p>
+
+<p>In addition to providing the URL to your VAST, IMA or VMAP tag, you can set the following properties:</p>
+
+<ul>
+	<li>A custom <strong>Ad Message</strong>, displayed in the controlbar during ad playback.</li>
+	<li>The ability to <strong>Skip Ads</strong> after a certain amount of seconds. This enables you to balance the interests of advertisers and viewers.</li>
+	<li>The location to insert a <strong>Companion Ad</strong> into. Companions are only inserted when the ad tag has a creative that matches the provided dimensions.</li>
+</ul>
+
+<p>For VMAP schedules, JW Player will automatically render <strong>Ad Markers</strong> on the controlbar, to signal to viewers where mid-roll ad breaks are located.</p>
+
+<div id="keyvalues">&nbsp;</div>
+
+<h2>Key Value Pairs with VAST or Googima Tags</h2>
+
+<p>Key Value pairs within JW Platform require two pieces to be configured within our platform. These are:</p>
+
+<ol>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1469776-uploading-videos#custom">Metadata for video objects</a>&nbsp;to associate key words with videos</li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1434340-ad-tag-variables#playlist">Custom ad tag variables</a>&nbsp;to reference the metadata in item 1</li>
+</ol>
+
+<p>Once properly configured, we are able to extract custom playlist information from video objects in the platform, and append this to an ad tag request. In the below example, we&#39;ve gone into our video object and edited our custom metadata as follows:<br />
+​</p>
+<img src="http://support-static.jwplayer.com/images/meta.png" />
+<p>Now, when inputting our ad tag into the advertising section of a player configuration, we can&nbsp;use variables to reference this data:</p>
+
+<pre>
+http://mysite.com/adtag.xml/?sport=__item-sport__&amp;age=__item-age__
+</pre>
+
+<p>When our video is played, will replace the variables which we&#39;ve specified above with our inputted playlist information:</p>
+
+<pre>
+http://mysite.com/adtag.xml/?sport=soccer&amp;age=kids
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1430349-about-rtmp-streaming/edit?select_filter=564477">
+</head>
+
+<body>
+<p>RTMP (<a href="http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol" target="_blank">Real Time Messaging Protocol</a>) is a system for delivering on-demand and live media to Adobe Flash applications (like the JW Player). RTMP supports video in MP4 and FLV and audio in AAC and MP3. RTMP offers several advantages over regular HTTP video downloads:</p>
+
+<ul>
+	<li>RTMP can do <strong>live</strong> streaming, so people can watch your video while it is being recorded.</li>
+	<li>RTMP can do <strong>dynamic</strong> streaming, where the video quality automatically adjusts to changes in bandwidth.</li>
+	<li>Players can <strong>seek</strong> to later parts in a video, which is particularly useful for files &gt; 10 minutes.</li>
+	<li>Players maintains a tiny <strong>buffer</strong>, instead of downloading a video during playback, saving bandwidth.</li>
+</ul>
+
+<h3>Disadvantages</h3>
+
+<p>However, do note that RTMP has its disadvantages too. The most important ones are:</p>
+
+<ul>
+	<li>RTMP uses different protocols and ports than HTTP, which makes it vulnerable to getting blocked by (corporate) firewalls. This issue can be prevented by streaming in RTMPT (tunneling over HTTP), which comes at a server performance cost.</li>
+	<li>RTMP data is streamed to the player, which means the bandwidth of the connection must be larger than the data-rate of the video. If the connection drops for a couple of seconds, the stream will stutter. This issue can largely be prevented by using <strong>dynamic</strong> streams that include a low-quality file.</li>
+</ul>
+
+<p>The biggest drawback is that RTMP only works in Flash and not in HTML5. New HTTP streaming protocols, like Apple&#39;s HTTP Live Streaming (HLS), have wider device support (e.g. iOS) and will likely replace RTMP over the coming years. JW Player <a href="http://support.jwplayer.com/customer/portal/articles/1430218-using-hls-streaming" target="_blank">supports Apple HLS</a> in both Flash and HTML5 mode.</p>
+
+<h2>Server Support</h2>
+
+<p>In order to use RTMP, your host or CDN needs to have a dedicated RTMP server installed. There are two major offerings, both supported by JW Player:</p>
+
+<ul>
+	<li>The <a href="http://www.wowza.com/">Wowza Media Server</a> is today&#39;s most widely used solution. It includes support for almost any streaming protocol, including RTMP. Wowza 3 introduced dedicated support for SMIL manifests (see below)</li>
+	<li>The <a href="http://www.adobe.com/products/flash-media-server-family.html">Adobe Media Server</a> is another great option. Since Flash is developed by Adobe, new RTMP functionalities find their way in FMS first.</li>
+</ul>
+
+<h3>CDNs</h3>
+
+<p>The following CDNs (Content Delivery Networks) support RTMP and are tested to work great with JW Player. They all support <strong>dynamic</strong> streaming and, with the exception of CloudFront, <strong>live</strong> streaming too:</p>
+
+<ul>
+	<li><a href="http://www.akamai.com/">Akamai</a></li>
+	<li><a href="http://www.cdnetworks.com/">CDNetworks</a></li>
+	<li><a href="http://aws.amazon.com/cloudfront/">CloudFront</a> (Amazon Web Services)</li>
+	<li><a href="http://www.edgecast.com/">Edgecast</a></li>
+	<li><a href="http://www.limelight.com/">Limelight</a></li>
+</ul>
+
+<h3>Live Streaming</h3>
+
+<p>A key feature of RTMP is the ability to do live streaming, e.g. of presentations, concerts or sports events. Next to JW Player and an RTMP server, one then also needs a small tool to ingest the live video into the server. There are a bunch of tools available. <a href="http://www.adobe.com/products/flash-media-encoder.html">Flash Live Media Encoder</a> is free and available for Windows and Mac.</p>
+
+<p>With both FMS and Wowza, a live stream is embedded in exactly the same way as an on-demand stream. However, the Akamai, Edgecast and Limelight CDNs require a player to <em>subscribe</em> to a live stream. JW Player <a href="http://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming" target="_blank">supports this mechanism</a>.</p>
+
+<p>JW Player will embed and play a live stream like an on-demand file, with one exception: instead of displaying a slider to scrub through the timeline, the player will display the <em>title</em> of the event in the controlbar.</p>
+
+<h3>Load Balancing</h3>
+
+<p>For large-scale deployments, JW Player supports 3 mechanism for server load balancing:</p>
+
+<ul>
+	<li><strong>DNS</strong> load balancing, working independent of JW Player.</li>
+	<li><strong>RTMP 302</strong> redirects, as used by Wowza for load balancing. See their user guide for more info.</li>
+	<li><strong>SMIL</strong> load balancing, where an initial SMIL file contains the RTMP links to edge nodes. See the section on dynamic streaming below for an example SMIL file.</li>
+</ul>
+
+<h3>Closed Captioning</h3>
+
+<p>JW Player supports Closed Captioning with RTMP, for both live and on-demand streaming. Only a single CC track is supported and this track must be in TX3G format. Both the Wowza and Adobe media servers are capable of sending TX3G captions over RTMP.</p>
+
+<p>The first time JW Player encounters a TX3G <em>onTextData</em> cue, it places a CC button in the controlbar. If the user chooses to enable CC, this preference will be saved in a cookie and CC will be enabled for any subsequent videos the user watches.</p>
+
+</body>
+</html>

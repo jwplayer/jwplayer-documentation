@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+	<li><a href="#ads">Video Advertising Basics</a></li>
+	<li><a href="#api">Using the JW Player API</a></li>
+	<li><a href="#track">Tracking Use</a></li>
+	<li><a href="#drm">Protecting Content</a></li>
+	<li><a href="#more">Additional Information</a></li>
+</ul>
+</nav>
+</div>
+
+<p>This section is for users who are looking to extend JW Player&#39;s functionality beyond simple embeds. This includes video ads, player APIs, and enterprise features. If you are reading this section, it is highly suggested that you be familiar with how to both <a href="http://support.jwplayer.com/customer/portal/articles/1406723">Embed</a> and <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference">Configure</a> JW Player.</p>
+<a name="ads"></a>
+
+<h2>Advertising</h2>
+
+<h3>How do I monetize my videos?</h3>
+
+<p>If you&#39;re interested in using advertisements with your video content, you can do this by utilizing a JW Player <strong>Ads license</strong>. Using VAST or Google IMA with JW Player allows for things like:</p>
+
+<ul>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1433722-vast3-ad-pods">VAST 3 Ad Pods</a></li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-">Ad Scheduling</a></li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1665150-ad-tag-waterfalling">Tag Waterfalling</a></li>
+</ul>
+
+<p>Additional configuration info can be found in our <a href="http://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles">Advertising Support Articles</a>.</p>
+
+<h3>Where do I get my ad tags from?</h3>
+
+<p>You&#39;ll need an ad network or server to supply your tags. Some additional information can be found in our <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference">Ad Reference</a> article.</p>
+
+<h3>How do ads work?</h3>
+
+<p>Video advertisements are XML-based files, which essentially tell a video player how to behave during ad playback. For more information about the basics of VAST:</p>
+
+<ul>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1482127-static-vast-xml-tag">Static VAST</a> - A quick runthrough of how a VAST file works and is interpreted by JW Player</li>
+	<li><a href="http://www.iab.net/vast">The IAB VAST 3.0 Spec</a> - A full listing of the VAST 3.0 spec and its full features.</li>
+</ul>
+<a name="api"></a>
+
+<h2>Working with the JW Player API</h2>
+
+<p>The JW Player API allows a developer to control and customize their video player behavior via external Javascript. This allows for things like external playback control, dynamic ad insertion, custom visual playlists, or even slides that play alongside video content.</p>
+
+<h3>What are some things that I can do with the API?</h3>
+
+<p>We have an extensive list of examples available in our <a href="http://support.jwplayer.com/customer/portal/topics/564475-javascript-api/articles">API section</a>. Some good areas to get started include:</p>
+
+<h3>Standard API Examples</h3>
+
+<ul>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1436999-example-adding-a-download-button">Adding a Download Button</a> - Allow your users to download the video file that is currently playing.</li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1439411-example-a-chromeless-player">Creating a Chromeless Player</a> - Allows you to use your own external controls for playback.</li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1439570-example-loading-new-playlists">Loading New Playlists</a> - Dynamically load your own playlists into JW Player.</li>
+</ul>
+
+<h3>Advertising API Examples</h3>
+
+<ul>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1480795-example-ad-impression-verification">Ad Impression Tracking</a> - Useful for tracking ads on a page or via custom analytics.</li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1480844-example-custom-ad-scheduling">Dynamic Ad Schedules</a> - Can be used for ad insertion during live streams or at choice points during VOD content.</li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1434336-example-multiple-companion-ads">Multiple Companion Ads</a> - How to extract and display companion ads from VAST tags.</li>
+</ul>
+<a name="track"></a>
+
+<h2>How do I use analytics to track my player&#39;s use?</h2>
+
+<p>We have an article about <a href="http://support.jwplayer.com/customer/portal/articles/1417188">Tracking Player Behavior with Analytics</a>. As long as you are able to send pings to your desired analytics platform via Javascript, any system can be easily tied into the JW Player API.</p>
+<a name="drm"></a>
+
+<h2>Privacy and Security</h2>
+
+<h3>How do I protect my video content?</h3>
+
+<p>JW Player currently offers two methods of content protection via the <strong>Enterprise</strong> edition:</p>
+
+<ul>
+	<li><strong>AES 128 Encryption</strong> - Used with HLS streaming. <a href="http://support.jwplayer.com/customer/portal/articles/1430261-aes-content-protection">Read more...</a></li>
+	<li><strong>DRM using HTML5 EME</strong> - Used with DASH streaming. <a href="http://support.jwplayer.com/customer/portal/articles/2020483-using-dash-streaming">Read more...</a></li>
+</ul>
+<a name="more"></a>
+
+<h2>Additional Information</h2>
+
+<ul>
+	<li><a href="http://support.jwplayer.com/customer/portal/topics/564475-javascript-api/articles">JW Player Javascript API</a></li>
+	<li><a href="http://support.jwplayer.com/customer/portal/articles/1417188">Custom Analytics Tracking with JW Player</a></li>
+	<li><a href="http://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles">Articles related to video advertising</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1439330-example-autostart-only-once/edit?select_filter=564475">
+</head>
+
+<body>
+<p>Here is an example of a setup of JW Player that autostarts the video - but only for the first time a user visits the page:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/bkaovAYt-640.jpg",
+  file: "//content.jwplatform.com/videos/bkaovAYt-kNspJqnJ.mp4"
+});
+
+playerInstance.on('ready', function(){
+  if(document.cookie.indexOf("jwplayerAutoStart") == -1) {
+    document.cookie = "jwplayerAutoStart=1";
+    playerInstance.play();
+  }
+});
+</script>​
+
+<p>This feature is built using the <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">JW Player JavaScript API</a>, with just a few lines of JavaScript code.</p>
+
+<h3>Embed code</h3>
+
+<p>Assuming that you have a functional JW Player setup as mentioned <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">here</a>, you&#39;ll need to add the following code to your page:</p>
+
+<pre>
+&lt;script&gt;
+  if(document.cookie.indexOf(&quot;jwplayerAutoStart&quot;) == -1) {
+    document.cookie = &quot;jwplayerAutoStart=1&quot;;
+    playerInstance.play();
+  }
+&lt;/script&gt;</pre>
+
+<p>This script uses a cookie to store that a viewer was autostarted before. If that&#39;s not the case, the playerInstance.play() function is called. However, please be aware that autostart does not work on mobile devices.</p>
+
+</body>
+</html>

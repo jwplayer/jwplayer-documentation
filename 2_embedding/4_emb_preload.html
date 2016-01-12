@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1403714-wordpress-plugin-reference/edit?select_filter=601065">
+</head>
+
+<body>
+<p>Introduced in JW 7.2, preloading allows JW Player to fetch media information prior to playback as soon as a page loads. As such, preload will only affect the first item in a playlist. This configuration utilizes the HTML5 video preload specification, but also applies to our Flash provider for HLS. <strong>Note:</strong> Preload does not function when serving content via the RTMP streaming protocol.</p>
+
+<h2>Using Preload</h2>
+
+<p>Preloading is configured by setting the preload option in your player setup, but is set to none by default. Preload has the following configuration options:</p>
+
+<h3>none (default)</h3>
+
+<p>No media information or files will be accessed prior to play. This was our default behavior prior to 7.2.</p>
+
+<h3>metadata</h3>
+
+<p>The player will load metadata from the file to derive playback information. (Duration, dimensions, file size) This allows our API to return information that was previously only available once playback was initiated. Speed to play may also increase, since a small amount of the file is automatically loaded.</p>
+
+<h3>auto</h3>
+
+<p>The player expects that the video will be fully loaded and played. When using HLS and Flash, we will begin loading the video file in order to speed up an initial play event. Auto is similar to metadata, with additional content data being loaded.<br />
+<strong>Note:</strong> Exact amount downloaded may vary from browser-to-browser. (See table below)</p>
+
+<h2>Preloading Across Browsers</h2>
+
+<p>As mentioned in our introduction paragraph, preload is a spec for HTML5 video playback. Customizations have been made to our Flash video providers to also respect preload configuration, however exact HTML5 preload behavior may vary based on the browser itself. The table below shows the amount of content loaded into browsers, depending on the preload option chosen. (Flash HLS vs HTML5 video files)</p>
+
+<table style="width:75%">
+  <tbody>
+    <tr>
+      <th>Browser</th>
+      <th>Metadata</th>
+      <th>Auto</th>
+    </tr>
+    <tr>
+      <td>Chrome (HTML5)</td>
+      <td>&lt; 1 Second</td>
+      <td>20-25 seconds</td>
+    </tr>
+    <tr>
+      <td>Firefox (HTML5)</td>
+      <td>&lt; 1 Second</td>
+      <td>Entire Video</td>
+    </tr>
+    <tr>
+      <td>Safari OSX (HTML5)</td>
+      <td>N/A</td>
+      <td>Entire Video</td>
+    </tr>
+    <tr>
+      <td>Safari iOS (Mobile data)</td>
+      <td>Playback Metadata</td>
+      <td>Playback Metadata</td>
+    </tr>
+    <tr>
+      <td>Safari iOS (Wifi)</td>
+      <td>Playback Metadata</td>
+      <td>Playback Metadata</td>
+    </tr>
+    <tr>
+      <td>IE 9-11 (HTML5)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Edge (HTML5)</td>
+      <td>&lt;1 Second</td>
+      <td>Entire Video</td>
+    </tr>
+    <tr>
+      <td>Chrome Android (Mobile Data)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Chrome Android (WiFi)</td>
+      <td>Playback Metadata</td>
+      <td>Playback Metadata</td>
+    </tr>
+    <tr>
+      <td>HLS (Flash)</td>
+      <td>First TS segment</td>
+      <td>30 seconds</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note: </strong>Exact preload behavior on mobile devices may vary depending on browser version and the use of mobile data (3G, 4G, etc.) or WiFi.</p>
+
+</body>
+</html>
