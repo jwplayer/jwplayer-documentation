@@ -1,0 +1,64 @@
+<!-- This article should not go live until Properties are released.
+
+This article will need up-to-date screenshots before being set live.
+
+FOR REVIEW BY: Allison
+
+TITLE: "Managing Properties" 
+
+KEYWORDS:
+Properties, account, property, new property, admin,
+
+-->
+
+<p>This article is an introduction to the concept of "Properties" within JW Player accounts.</p>
+<p>Properties enable users to maintain completely separate buckets of players, content, and analytics, within a single JW Player account. Each JW Player account, by default, begins with one all-encompassing Property. If you would like to keep all of your players, content, and analytics together, there is no need to use the Properties feature.</p>
+<p>&nbsp;</p>
+<h2>Creating Properties </h2>
+<p>You may find, however, that you'd like to maintain more than one complete separate repository of players, content, and analytics. Your organization might have completely independent teams that are all using a single JW Player account, or you might work with clients and would like to divide your account that way. Additionally, your organization may once have operated under separate JW Player accounts &mdash; this will allow you to consolidate those. </p>
+<p>Whatever your reason, dividing up a JW Player account into Properties is straightforward. </p>
+<ol>
+  <li>Navigate to <a href="http://dashboard.jwplayer.com/#/account/properties">Account &gt; Properties</a> in your JW Player dashboard. </li>
+  <li>Name your new Property, and click "create". </li>
+</ol>
+<p>And that's it!</p>
+<p>[screenshot of creating a new property] </p>
+<p>Please note that all <strong>Admin</strong> users will immediately have access to any new Properties created. By default, Manager users will not have access to any additional Properties. To give access to Manager users, navigate to the <a href="http://dashboard.jwplayer.com/#/account/users">Account &gt; Users</a> section, and allow access from the Existing Users table there. </p>
+<p><em>Read more about User Management <a href="user-management-article">here</a>. </em></p>
+<p>&nbsp;</p>
+<h2>Managing Properties </h2>
+<p>You will see your new Property in the "Existing Properties" table, also on this page. Once they're being used, here you will also see information about the number of videos within each Property, streaming usage, and number of users entitled to access it. </p>
+<p>From this table, you may:</p>
+<ul>
+  <li><strong>Rename a Property</strong> &mdash; do this by hovering over its title and clicking on the "edit" icon that appears there. </li>
+  <li><strong>Copy the API Key and Secret</strong> for each Property </li>
+  <li><strong>Jump</strong> to Content, Users, or Usage for each Property &mdash; do this by clicking on the links in each of those columns in the table. </li>
+  <li><strong>Delete</strong> a Property<br>
+    <em><strong>Be careful!</strong> Deleting a Property will also delete all content, players, and analytics from that Property. This action cannot be undone.</em></li>
+</ul>
+<p>[screenshot of existing properties table] </p>
+<p>&nbsp;</p>
+<h2>Using Properties</h2>
+<p>When multiple Properties are associated with an Account, Admin users and Manager users who have access to more than one Property will be able to switch between Property dashboard views from the blue Property label in the top navigation bar. </p>
+<p>Manager Users who only have access to one Property will not see any sign of this feature. </p>
+<p>[insert screenshot of property name, then property dropdown] </p>
+<p>As you will see, Players, Content, and Analytics are unique to each Property, and therefore can only be viewed one Property at a time. When coming back to the dashboard to edit or create players, or to upload or modify content, be sure to first make certain you are viewing the intended Property. </p>
+<p>The Account section of the dashboard (Profile, Properties, Users, Usage and Billing) is a global section, however, so Property views do not apply when Admin users are in this section. </p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
