@@ -1,0 +1,95 @@
+<!-- Woot! 
+
+
+FOR REVIEW BY: Ryan 
+
+TITLE: "Using JW Player Analytics"
+
+KEYWORDS:
+jwGetStarted, analytics, new analytics, using analytics, data capture, media ids, analytics embed, 
+
+
+-->
+<p><span>Your&nbsp;JW Player Dashboard comes complete with an analytics section, where you can monitor your content performance, and look at activity by device, geography, engagement, and more.&nbsp;Player activity is associated&nbsp;with a unique&nbsp;media ID, to ensure&nbsp;that everything is attributed accurately. <a href="http://support.jwplayer.com/customer/portal/articles/2083166-using-media-ids" target="_blank">Click here</a> to learn more about Media IDs.</span></p>
+
+<h2 dir="ltr" id="metric-definitions"><br />
+What are the metrics shown?&nbsp;</h2>
+
+<p><strong>&nbsp;<br />
+Content:</strong> Any video or audio content&nbsp;object with a unique Media ID</p>
+
+<p><strong>Embeds:</strong> Players that have loaded on a webpage</p>
+
+<p><strong>Plays: </strong>Video starts across all embedded players</p>
+
+<p><strong>Completes:</strong> Videos watched to completion</p>
+
+<p><strong>Daily Unique Viewers: </strong>Unique users who have played at least one video</p>
+
+<p><strong>Plays per Unique: </strong>The number of plays divided by the number of unique viewers on specific day</p>
+
+<p><strong>Complete Rate: </strong>The number of plays divided by the number of completes, as a percentage</p>
+
+<p><strong>Time Watched: </strong>Total time watched across all your players</p>
+
+<p><strong>Engagement: </strong>Use this data to track the performance of your video (where do viewers drop off? which sections do they replay?)</p>
+
+
+<h2 id="how-to-apply-media-IDs"><br />
+<span>How to Ensure Data Capture</span></h2>
+
+
+<h3>Dashboard Setup</h3>
+<p><em>Note: If you already use the dashboard to add content and generate embed code as part of your workflow, your setup work is already done.</em></p>
+
+<p>When you add externally-hosted URLs, or upload content via the dashboard, they are automatically assigned Media IDs. (For reference, these Media IDs are visible on the Content Detail page on the left side of the page.) </p>
+<p>[screenshot of media ID]</p>
+<p>Embedding this content using the dashboard's Publish Mode code will ensure that the Media ID is being tracked.</p>
+<p>[screenshot of publish mode]</p>
+
+<h3>Code Setup</h3>
+<p>If you use custom player embeds, or if you self-host your content, your embeds might not be passing Media IDs through for tracking. </p>
+<p>If you host your content with JW Player but are building custom embeds, here's what to do:
+<ol>
+<li>Either through the dashboard or <a href="http://apidocs.jwplayer.com/methods/videos/create.html" target="_blank">through the API</a>, find out which Media IDs are associated with which pieces of content.</li>
+<li>Make sure the Media ID parameter makes it into your embeds, as in the below example: 
+<pre>
+playlist:[{
+file:&quot;&quot;,
+mediaid:&quot;eXaMPlE1&quot;
+}]</pre>
+</li>
+</ol>
+</p>
+
+<p></p>
+<!-- OLD
+<ol>
+	<li>Get Media IDs for your content via the <strong>Dashboard</strong> or the <strong>API </strong>
+
+	<ul>
+		<li><strong>Dashboard:</strong> Add externally-hosted URLs or upload your content via the dashboard, and find the Media ID on each piece of content&rsquo;s detail page
+
+		<ul>
+			<li><em>Go to your Content section, and select &ldquo;upload&rdquo; or &ldquo;add via URL&rdquo; on the big action button on the top left</em></li>
+		</ul>
+		</li>
+		<li><strong>API:</strong> The <a href="http://apidocs.jwplayer.com/methods/videos/create.html" target="_blank">/videos/create method</a> supports externally-hosted URLs</li>
+	</ul>
+	</li>
+	<br />
+	<li>Embed all content using Media IDs
+	<ul>
+		<li><strong>Dashboard:</strong> Once your content is added, click &ldquo;embed&rdquo; on a video from the detail page or list page. (Publish Mode generates single-line embed codes that contain a reference to your content&rsquo;s Media ID.)</li>
+		<li><strong>API:</strong> Include the Media ID parameter in your player embeds, as in the below code example:
+		<pre>
+playlist:[{
+file:&quot;&quot;,
+mediaid:&quot;eXaMPlE1&quot;
+}]</pre>
+		</li>
+	</ul>
+	</li>
+</ol>
+
+END OLD --> 
