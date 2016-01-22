@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1482127-static-vast-xml-tag/edit?select_filter=605644">
+</head>
+
+<body>
+<p>VPAID ads are interactive ad creatives served within a VAST xml document. The main difference between standard static VAST and VPAID are that VPAID ad creatives are able to be interacted with. Depending on the version of VPAID being used, either Flash-based SWFs or Javascript files can be used for interactive ad experiences. In addition to interactive advertisements, additional advertising logic or even live auctioning can be implemented at the creative-level. JW Player&#39;s handling of VPAID files is explained below.</p>
+
+<h3>Note: The use of VPAID2 creatives requires JW Player version 7.1.0 or higher</h3>
+
+<p>Note that VAST/VPAID advertising is only available in the <strong>Advertising</strong> editions of JW Player. See our <a href="http://www.jwplayer.com/pricing/">pricing page</a> for more info.</p>
+
+<h2>Configuration of VPAID files</h2>
+
+<p>Utilizing a VPAID ad tag in your JW Player config is accomplished in the same way that you would utilize a VAST file. You&#39;ll need to specify your <strong>client</strong>, and place the ad tag inside of the <strong>tag</strong> field. A further explanation of ad tag configuration can be found in our article about <a href="http://support.jwplayer.com/customer/portal/articles/1431665-basic-preroll-video-ads">basic preroll ads</a>.</p>
+
+<p>Because VPAID 1 ads are reliant on Flash creatives, the JW Player must be rendering in Flash mode to display these ads. Likewise, if a VPAID 2 Javascript creative is being used, the player must be rendering in HTML5 mode. These rendering modes can be forced by specifying <strong>flash</strong> or <strong>html5</strong> as the player&#39;s <strong>primary</strong> rendering mode. More information about player configuration options are located on our support article <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference#basic">here</a>.</p>
+
+<p>Here is an example of a setup of JW Player with an interactive VPAID1 pre-roll advertisement. The interactive ad is skip-able and places a leave-behind on top of the video display:</p>
+
+<div id="myElement">&nbsp;</div>
+&nbsp;
+
+<div id="myElement2">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+image: "/customer/portal/attachments/268189",
+file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+title: 'VPAID 1 Ad (Flash)',
+width: '80%',
+aspectratio:'16:9',
+primary: 'flash',
+advertising: {
+    client: "vast",
+    tag: "//www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+  }
+});
+
+var playerInstance2 = jwplayer("myElement2");
+playerInstance2.setup({
+image: "/customer/portal/attachments/268189",
+file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+title: 'VPAID 2 Ad (HTML5)',
+width: '80%',
+aspectratio:'16:9',
+advertising: {
+    client: "vast",
+    tag: "//support-static.jwplayer.com/content/advertising/vpaid-2-test.xml"
+  }
+});
+</script>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+image: &quot;/uploads/myPoster.jpg&quot;,
+file: &quot;/uploads/myVideo.mp4&quot;,
+primary: &#39;flash&#39;,
+  advertising: {
+  client: &quot;vast&quot;,
+  tag: &quot;//adserver.com/vpaidTag.xml&quot;
+  }
+});
+</pre>
+
+</body>
+</html>

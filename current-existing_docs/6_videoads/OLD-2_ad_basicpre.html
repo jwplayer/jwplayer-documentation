@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1431665-basic-preroll-video-ads/edit?select_filter=605644">
+</head>
+
+<body>
+<p>The <strong>Ads</strong> edition of JW Player has built-in support for the two leading video ad frameworks: <em>VAST/VPAID</em> and <em>Google IMA</em>. Not every VAST feature is supported at present. See <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference" target="_blank">Supported Ad Formats</a> for more information.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Player Ads</strong>. Don&#39;t have <a href="http://www.jwplayer.com/products/jwplayer-ads/" target="_blank">Ads</a>? &nbsp;<a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h3>Requirements</h3>
+
+<p>In order to start running video ads in JW Player, you need the following three things:</p>
+
+<ul>
+  <li>A valid license for the <strong>Advertising</strong> edition of JW Player. The Free, Premium, and Enterprise editions <strong>do not</strong> support advertising. See our <a href="http://www.jwplayer.com/pricing/" target="_blank">Pricing page</a> if you are interested in running ads with JW Player.</li>
+  <li>A working embed of the <em>Ads</em> player on your website. Please refer to <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">Embedding JW Player</a> to get learn how to embed a basic player.</li>
+  <li>A working ad tag from an ad server, in either VAST/VPAID or Google IMA format. Again, see <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference" target="_blank">Supported Ad Formats</a> for details.</li>
+</ul>
+
+<h2>Setup</h2>
+
+<p>Once your player is configured with desired options and playback behavior, it&#39;s time to set up your advertising. Ads are specified in the <strong>advertising</strong> configuration block. Inside, two options are required for a basic preroll ad to appear:</p>
+
+<dl>
+  <dt><strong>client</strong></dt>
+  <dd>Set this to <strong>vast</strong> if you are running VAST/VPAID ads, or to <strong>googima</strong> if you are running Google IMA ads. Note you cannot mix both ad formats in a single player embed. Choosing a client will maintain the same client until the player is set up again.<br />
+  Example: <strong>&#39;client&#39;: &#39;googima&#39;</strong> or <strong>&#39;client&#39;: &#39;vast&#39;</strong></dd>
+  <dt><strong>tag</strong></dt>
+  <dd>Set this to the URL of the ad tag that contains the pre-roll ad. Only linear ads can be run as pre-rolls; if you want to run e.g. an overlay you need to set a schedule (more info below).</dd>
+  <dt><strong>skipoffset</strong></dt>
+  <dd>Set this to a numerical amount of time you want an ad to be watched before it can be skipped. More information on ad skipping is located <a href="http://support.jwplayer.com/customer/portal/articles/1433818-configuring-ad-skipping">here</a>.</dd>
+</dl>
+
+<p>In addition to these two options, the <strong>schedule</strong>, <strong>companiondiv</strong> and <strong>admessage</strong> options are available for more elaborate setups which are discussed later on.</p>
+<a name="vast"></a>
+
+<h3>VAST Example</h3>
+
+<p>First, here is a basic advertising setup using a VAST/VPAID pre-roll:</p>
+
+<pre>
+var playerInstance = jwplayer(&#39;myElement&#39;);
+playerInstance.setup({
+  file: &#39;assets/myVideo.mp4&#39;,
+  primary: &#39;flash&#39;,
+  advertising: {
+    client: &#39;vast&#39;,
+    tag: &#39;//adserver.com/vastResponse.xml&#39;
+  }
+});
+</pre>
+
+<h3>Demo</h3>
+
+<div class="cont" id="vastContainer">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("vastContainer");
+playerInstance.setup({
+  image: "//s1-www.ltvimg.com/cdn/farfuture/A4Ot5zIiiX6I0zhJTvqF9xyAg6frFcAuXu3YpmtQUzc/mtime:1388777784/sites/default/files/vast-preoll.png",
+  file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+width: '75%',
+aspectratio: '16:9',
+  advertising: {
+    client: "vast",
+    tag: "//s3.amazonaws.com/demo.jwplayer.com/player-demos/assets/preroll.xml"
+  }
+});
+</script> <a name="googima"></a>
+
+<h2>Google IMA Preroll</h2>
+
+<p>Here is an example of a setup of JW Player with a TrueView pre-roll advertisement served by Google IMA:</p>
+
+<pre>
+var playerInstance = jwplayer(&#39;myElement&#39;);
+playerInstance.setup({
+  file: &#39;assets/myVideo.mp4&#39;,
+  primary: &#39;flash&#39;,
+  advertising: {
+    client: &#39;googima&#39;,
+    tag: &#39;//ad.doubleclick.net/pfadx/ABCDEFGH&#39;
+  }
+});
+</pre>
+
+<h3>Demo</h3>
+
+<div class="cont" id="GoogimaContainer">&nbsp;</div>
+<script>
+var playerInstance2 = jwplayer("GoogimaContainer");
+playerInstance2.setup({
+  image: "/customer/portal/attachments/268082",
+  file: "//content.jwplatform.com/videos/bkaovAYt-kNspJqnJ.mp4",
+width: '75%',
+aspectratio: '16:9',
+  advertising: {
+    client: "googima",
+    tag: "//pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+  }
+});
+</script>
+
+<p>Note that VAST and IMA ads don&#39;t require Flash, but we strongly recommend to set it as the <strong>primary</strong> rendering mode. Many ad servers (CORS) and creatives (FLV) are not yet compatible with HTML5. In addition,&nbsp;JW Player only supports VPAID ads in Flash. This ensures that a user viewing with Flash installed will receive the advertisement.</p>
+
+<h2>A note on Google IMA and iPhones</h2>
+
+<p>As per Google IMA guidelines, if ad skipping is configured for a particular ad, Google will not display this advertisement on iPhone devices. Since fullscreen video is utilized for video ads, and there is no way to instantiate an ad skip, the advertisement will be omitted.</p>
+
+</body>
+</html>
