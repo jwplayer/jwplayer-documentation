@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1413074-javascript-api-quick-start/edit?select_filter=564475">
+</head>
+
+<body>
+<p>JW Platform hosted content now supports geo-blocking by country. Using the Platform API, developers can set a list of either allowed or restricted countries. When content or players are requested from countries that do not meet the geo-blocking criteria, that content will not be served and content.jwplatform.com will return a 403 response.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform&nbsp;</strong>with an Enterprise or Ads edition player license. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Getting Started With the API</h2>
+
+<p>At this time, setting protection rules is only available via the API. This functionality will be added to the account portal website in the near future. If you are unfamiliar&nbsp;with how to use the API kits, please see the <a href="http://support.jwplayer.com/customer/portal/articles/1489902-jw-platform-api-reference">Platform API Reference</a> support document.</p>
+
+<h2>URL Scheme</h2>
+
+<p>Geo-blocking is done by creating or updating your account&#39;s rules at&nbsp;<a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/protectionrules/index.html">/accounts/protectionrules</a>&nbsp;<span style="line-height: 1.6;">The parameters of interest are:</span></p>
+<br />
+<strong>geo_rule_type</strong> which can be set to:
+
+<ul>
+	<li>&#39;none&#39; meaning no geo-blocking is done</li>
+	<li>&#39;whitelist&#39; meaning only requests from the specified list of countries should be returned content</li>
+	<li>&#39;blacklist&#39; meaning only requests from the specified list of countries should be returned a 403 response</li>
+</ul>
+<strong>geo_countries_list</strong> which is a comma separated list of 2 letter country codes specified by <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+
+<ul>
+	<li>example: &#39;CA,US,MX&#39; includes North American countries.</li>
+</ul>
+
+<h2>Creating or updating your geo-blocking rules</h2>
+Here is an example python script that works with the python API kit to update an account&#39;s protection rules to only allow users from Canada, the United States and Mexico. Note that at this time an account is only allowed to have, at most, one protection rule set. Once created, the rule needs to be referenced by protectionrule_key for updating
+
+<pre>
+​import pprint
+import time
+
+from botr.api import API
+
+pp = pprint.PrettyPrinter()
+
+# Please update kkkk with your key and ssss with your secret
+api = API(&#39;kkkk&#39;, &#39;ssss&#39;)
+params = dict(
+&nbsp; &nbsp; geo_rule_type = &#39;whitelist&#39;, # whitelist | blacklist | none
+&nbsp; &nbsp; geo_country_list = &#39;CA,US,MX&#39; # comma separated list of two-letter country codes
+)
+pp.pprint(&quot;initial list of protectionrules&quot;)
+list_response = api.call(&#39;/accounts/protectionrules/list&#39;)
+pp.pprint(list_response)
+
+
+if (len(list_response.get(&#39;protectionrules&#39;)) == 0): # if a protectionrule doesn&#39;t exist, create one
+&nbsp; &nbsp; pp.pprint(&quot;creating a new protection rule&quot;)
+&nbsp; &nbsp; response = api.call(&#39;/accounts/protectionrules/create&#39;,params=params)
+&nbsp; &nbsp; pp.pprint(response)
+else: # if a protectionrule does exist, update it
+&nbsp; &nbsp; params_with_key = dict(
+&nbsp; &nbsp; &nbsp; &nbsp; geo_rule_type = params.get(&#39;geo_rule_type&#39;),
+&nbsp; &nbsp; &nbsp; &nbsp; geo_country_list = params.get(&#39;geo_country_list&#39;),
+&nbsp; &nbsp; &nbsp; &nbsp; protectionrule_key = list_response.get(&#39;protectionrules&#39;)[0].get(&#39;key&#39;)
+&nbsp; &nbsp; )
+&nbsp; &nbsp; pp.pprint(&quot;updating existing protection rule&quot;)
+&nbsp; &nbsp; response = api.call(&#39;/accounts/protectionrules/update&#39;,params=params_with_key)
+&nbsp; &nbsp; pp.pprint(response)
+
+pp.pprint(&quot;listing protectionrules again after create or update&quot;)
+list_response = api.call(&#39;/accounts/protectionrules/list&#39;)
+pp.pprint(list_response)</pre>
+</body>
+</html>
