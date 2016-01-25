@@ -1,0 +1,163 @@
+<!-- When New Sharing is in the dashboard, un-comment the section with that and lose the old stuff! 
+
+This article is a combination of: 
+https://support.jwplayer.com/customer/portal/articles/1483088-social-sharing-with-jw-platform
+and 
+https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay
+
+ALSO: This needs a Developer Site page to put some of the existing content on. 
+
+NOTE: There is a Dashboard/Code tab structure that needs to be implemented here. Ask Shannon for help when you get to this. 
+
+FOR REVIEW BY: Franklin (Andrew, Allison?)
+
+KEYWORDS:
+version:jw6, example:code, example:embed, license:pro, social, sharing, facebook, twitter, iframe, embed, blogging, email, social sharing, jwAdvancedSetup, share, social sharing plugin,
+
+
+-->
+
+<p>This article provides an overview of JW Player's Social Sharing plugin as well as instructions for implementation.</p>
+<p>Sharing of videos through Facebook, Twitter, blogs and email can dramatically increase reach across the web. See <a href="http://www.longtailvideo.com/support/blog/22445/social-sharing-publish-your-videos-to-facebook-twitter-youtube">this blog post on sharing</a> for more info and some hints.</p>
+
+<h2>About Social Sharing</h2>
+
+<p>The JW Player Sharing Overlay displays a customizable layer over the player that allows viewers to do any of the following:
+
+<ul>
+<li>Copy the video's embed code</li>
+<li>Copy a link to the page where the video lives</li>
+<li>Click to share the video to social networks</li>
+<li>Complete another action specified by your own custom icon implementation</li>
+</ul>
+</p>
+
+<p>Users activate the overlay by clicking the Sharing button which, when the Sharing plugin is enabled, appears at the top right of the player when a video is playing.</p>
+
+<p>Here is the overlay in action: </p>
+
+<p>[video goes here]</p>
+
+<p>If the Sharing Overlay is activated while the video is playing, playback is automatically paused. Users can then return to the video by clicking the top right "X", or anywhere else outside the overlay.</p>
+
+<p>When users "share" the video using this overlay, the "link" URL you define (either in the setup block upon embed, or in the content's metadata in the dashboard) is what gets shared.</p>
+
+
+<hr>
+
+<h2>Dashboard Setup</h2>
+
+<p>Go to your JW Player dashboard's <a href="http://dashboard.jwplayer.com/#/players" target="_blank">Players section</a> and click on the player you would like to edit (or create a new player). In the left-hand accordion menu, you will see a "Sharing" section.</p>
+
+<!-- UNTIL NEW SHARING IS IN THE PLAYER BUILDER --> 
+<p>Here, you can turn the Sharing overlay "on" or "off", and set a custom title.</p>
+<!-- END OLD SHARING --> 
+
+<!-- FOR WHEN NEW SHARING IS IN THE PLAYER BUILDER
+
+<p>There are several Sharing options you can configure in the dashboard:
+<ol type="A">
+  <li>Turn the Sharing overlay "on" or "off"</li>
+  <li>Customize the title of the overlay (and what is shown when hovering over the "sharing" icon during playback)</li>
+  <li>Select whether the iFrame embed code will be shared in addition to the URL</li>
+  <li>Select which social networks will be displayed in the overlay. Currently, out-of-the-box networks include:<br>
+  <ul>
+  <li>Facebook</li>
+  <li>Twitter</li>
+  <li>LinkedIn</li>
+  <li>Pinterest</li>
+  <li>Tumblr</li>
+  <li>Google+</li>
+  <li>Reddit</li>
+  <li>Email</li>
+  </ul>
+  It is also possible to set up a custom site or action. To do this, jump to our section on implementing the Sharing Overlay via <a href="code-half">code</a>.
+  </li>
+</ol>
+</p>
+
+END NEW SHARING -->
+ 
+<p>[screenshot of "sharing" in player builder here]</p>
+
+<h2>Facebook &amp; Twitter</h2>
+
+<p>For players embedded with the dashboard's single-line embed, videos shared onto Facebook &amp; Twitter will play right inside the Facebook wall and Twitter feed, minimizing friction and maximizing playback. Here is an example of how your video will look inside the Facebook wall:</p>
+<p><img alt="Facebook wall post with video" src="https://support.jwplayer.com/customer/portal/attachments/257544"></p>
+<p>Technically, playback is enabled through the <em>Facebook OpenGraph</em> and <em>Twitter Cards</em> headers we place inside a video's <a href="http://content.jwplatform.com/players/HkauGhRi.html">iframe embed page</a>. No configuration is needed on your website.</p>
+
+
+<hr>
+
+
+<h2>Code Setup</h2>
+<p>The sharing functionality is activated by setting up the player using the Sharing configuration block. Inside this block, the following <em>optional</em> parameters can be set:</p>
+<ul>
+  <li><strong>link</strong><br>
+    URL to display in the video link field. If no link is set, the URL of the current page is used.<br>
+    <strong>Example:</strong>
+    <pre>link: "http://example.com/videos/12345"</pre>
+  </li>
+  <li><strong>code</strong><br>
+    Embed code to display in the embed code field. If no code is set, the field is not displayed whatsoever. For this, you will need to use an iframe. Example:
+    <pre>code: '&lt;iframe src="http://example.com/12345.html"  width="480"  height="270"  frameborder="0"  scrolling="auto" /&gt;'</pre>
+  </li>
+  <li><strong>heading</strong><br>
+    Short, instructive text to display at the top of the sharing screen. The default is Share Video. This is also is displayed as a tooltip for the sharing icon.<br>
+    <strong>Example:</strong>
+    <pre>heading: "Custom Sharing Text"</pre>
+    <strong>Note:</strong> Since the embed code may contain special characters like &lt;, " or &amp;, you should encodeURI the string in the embed code of your player. The JW Player will automatically decode your string when it is loaded.</li>
+  <li><strong>sites</strong><br>
+    New in JW Player 7.2.0, this setting allows for the customization of social icons. By default, we display Facebook, Twitter, and email. However, sites can be added, removed, or reordered based on your preference. Within the sites block, you can specify any number of our built-in sharing options, including:
+    <ul>
+      <li>Facebook (facebook)</li>
+      <li>Twitter (twitter)</li>
+      <li>Pinterest (pinterest)</li>
+      <li>Email (email)</li>
+      <li>Tumblr (tumblr)</li>
+      <li>Google Plus (googleplus)</li>
+      <li>Reddit (reddit)</li>
+      <li>LinkedIn (linkedin)</li>
+    </ul>
+    <strong>Example:</strong>
+    <pre>sites: ['reddit','facebook','twitter']</pre>
+  </li>
+</ul>
+<h2>Custom Sites</h2>
+<p>If you'd like to create an additional site or action for viewers to access in the Sharing Overlay, specify the following in your sites array: </p>
+<ul>
+  <li><strong>icon</strong><br>
+    A URL to the social media icon that you wish to use. Can be in svg or png format.</li>
+  <li><strong>src</strong><br>
+    The javascript or URL that you will execute by selecting the particular button.</li>
+  <li><strong>label</strong><br>
+    The label that you wish to associate with this sharing method. This will be returned via our API when selected.</li>
+</ul>
+<strong>Example:</strong>
+<pre>sites: [&#39;reddit&#39;, {icon: &#39;customicon.png&#39;, src: function() {  //some custom javascript  }, label:&#39;mysite&#39;}, &#39;linkedin&#39;]
+</pre>
+
+<h2>Media ID Replacement</h2>
+
+<p>When using a playlist containing multiple videos, it is possible to set distinct sharing links per item. Therefore, use the string <strong>MEDIAID</strong> in the <em>code</em> and/or <em>link</em> configuration options. JW Player will, for each video in the playlist, automatically replace the MEDIAID string with the actual <em>mediaid</em> of the video. Here is an example embed:</p>
+
+<pre>
+  var playerInstance = jwplayer(&quot;container&quot;);
+  playerInstance.setup({
+    playlist: [{ 
+       file: &quot;/videos/12345.mp4&quot;,
+       mediaid: &quot;12345&quot;
+    },{
+       file: &quot;/videos/67890.mp4&quot;,
+       mediaid: &quot;67890&quot;
+    }],
+    sharing: {
+      code: encodeURI(&quot;&lt;iframe src=&#39;http://example.com/embed/MEDIAID.html&#39; /&gt;&quot;),
+      link: &quot;http://example.com/page/MEDIAID/&quot;
+   }
+ });</pre>
+
+
+
+<h2>Sharing API</h2>
+<p>We've also added an API to our Sharing plugin. To learn about the calls and how to use them, head on over to the Sharing plugin documentation on the <a href="dev-portal-page" target="_blank">JW Player Developer Portal</a>.</p>
