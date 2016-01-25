@@ -1,0 +1,108 @@
+<!-- 
+
+Updated version of article formerly called "AES Content Protection" at http://support.jwplayer.com/customer/portal/articles/1430261-aes-content-protection 
+
+FOR REVIEW BY: Greg
+
+TITLE: "AES Content Protection" 
+
+KEYWORDS: AES, AES-128, AES Encryption, AES protection, content protection, jw platform, jwAdvancedSetup, EntArticle
+
+NOTES: De-techify & link to dev portal article as appropriate (move appropriate content over to Dev Portal article as well).
+
+
+Include Dashboard/Code How-tos as necessary (ask Shannon for details). 
+
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1430261-aes-content-protection/edit?select_filter=564477">
+</head>
+
+<body>
+<div class="article_callout">This document applies to users of <strong>JW Player Enterprise</strong>. Don&#39;t have Enterprise? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p>The <strong>Enterprise</strong> edition has the ability to decrypt stream segments that are encrypted with AES-128. When encryption is used, the m3u8 playlist file needs to reference the corresponding key file so that the JW Player can retrieve the keys for decryption. The using the aestoken configuration, the player can also pass a token to the key request URI, enhancing the security of AES.</p>
+
+<p><strong>JW Player supports three modes for decoding encrypted segments:</strong></p>
+
+<ol>
+	<li>The key can rotate per fragment or be the same.</li>
+	<li>The key can be hosted externally or be embedded within the index file.</li>
+	<li>Custom initialization vectors (IVs) can be used.</li>
+</ol>
+
+<p><strong>Note:&nbsp;</strong>JW Player does not support SAMPLE-AES.</p>
+
+<h2>Example</h2>
+
+<p>Here is an example of a playlist file with a custom IV.</p>
+
+<pre>
+#EXTM3U
+#EXT-X-TARGETDURATION:10
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:10,	
+#EXT-X-KEY:METHOD=AES-128,URI=&quot;key&quot;,IV=0x1c341b1db8ff5399501511a99c8c7d14
+fileSequence0.ts
+#EXTINF:10,	
+fileSequence1.ts
+#EXT-X-ENDLIST
+</pre>
+
+<p>When this is used in a basic embed, you get the following:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+	file: '//playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes.m3u8',
+	androidhls:"true",
+});
+</script>
+
+<p>Note: The video will take a little longer to play because the player needs to decrypt each individual ts fragment. Note that decryption time may vary depending on the resolution of video files.</p>
+
+<h2>Secure Token</h2>
+
+<p>On embed of the JW Player, a token can be set in the configuration value <strong>aestoken</strong>. When the JW Player requests the key, the token is appended as a url parameter called <strong>token</strong>. This allows the key server that is providing the AES decryption key to authenticate whether or not the request is valid. JW Player will check to make sure the <em>?</em> is present on the key uri and add one if necessary.</p>
+
+<h3>An example of how this setup would look:</h3>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+	file: &#39;sample_aes_stream.m3u8&#39;,
+	aestoken: &#39;EXAMPLE_AES_TOKEN&#39;
+});
+</pre>
+
+<p><strong>Note:&nbsp;</strong> aestoken is only supported on desktop browsers in Flash rendering mode. It is not supported on iOS, Safari and Android in HTML5 mode.</p>
+
+<h3>Sample Video with Microsoft Clear Key</h3>
+
+<p>The following video player uses Microsoft Clear Key for HLS.</p>
+
+<div id="container2">&nbsp;</div>
+<script>
+var playerInstance2 =  jwplayer("container2");
+playerInstance2.setup({
+file: '//ams-samplescdn.streaming.mediaservices.windows.net/c1275bed-9977-40ca-bb27-91bc783c040b/sintel_trailer-1080p.ism/manifest(format=m3u8-aapl)',
+androidhls:"true",
+aestoken:"Bearer%3durn%253amicrosoft%253aazure%253amediaservices%253acontentkeyidentifier%3d8ca714da-5404-4617-9fc2-3ea58d88667f%26Audience%3durn%253atest%26ExpiresOn%3d2281559228%26Issuer%3dhttp%253a%252f%252ftestacs.com%252f%26HMACSHA256%3dpimqYZll8uFqSYYFX6AOxAbHH6epEgsn1Y%252f%252bJnOdCLc%253d"});
+</script>
+</body>
+</html>
