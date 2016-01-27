@@ -1,0 +1,121 @@
+<!-- 
+
+FOR REVIEW BY: Shannon
+
+TITLE: Migration from JW6 to JW7
+https://support.jwplayer.com/customer/en/portal/articles/2037989
+
+KEYWORDS: Migration, JW6 to 7, Migrating, Changes, JW6, JW7
+
+NOTES: 
+
+
+
+
+
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+</head>
+
+<body>
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+	<li><a href="#general">General Changes</a></li>
+	<li><a href="#removed">Removed Features</a></li>
+	<li><a href="#license">License Key Changes</a></li>
+	<li><a href="#api">API Changes</a></li>
+	<li><a href="#skinning">Skinning Changes</a></li>
+	<li><a href="#provider">New Provider Model</a></li>
+</ul>
+</nav>
+</div>
+<a name="general"></a>
+
+<p>The JW Player you know and love has taken a giant leap forward! We&rsquo;ve carefully re-designed and re-engineered the entire player &mdash; from the core API through the visual interface &mdash; to build the fastest, most powerful way to deliver your videos to your viewers. The following document should be quite useful if you are planning on migrating your JW6 players to use JW7, as it goes over settings that have been changed or removed.</p>
+
+<p>For a list of features that have been added, please see our <a href="http://support.jwplayer.com/customer/portal/articles/1403726-jw-player-7-release-notes">JW7 release notes</a>.</p>
+<img src="http://jw7beta.jwplayer.com/img/jw-player-7.gif" />
+<h2>General Changes</h2>
+
+<ul>
+	<li>JW 7&#39;s interface is rendered in HTML regardless of media provider. Flash media playback will get HTML controls.</li>
+	<li>Analytics.js is the only supported method of Google Analytics usage.</li>
+	<li>The player will produce a setup error if it takes longer than 10 seconds to load.</li>
+	<li>Minimum version of <a href="get.adobe.com/flashplayer/">Adobe Flash Player</a> required for JW Player is now <strong>11.2</strong></li>
+	<li>YouTube will only render via iFrame API in HTML5.</li>
+	<li>Semantic naming of player versions and plugins.</li>
+</ul>
+<a name="removed"></a>
+
+<h2>Removed Features</h2>
+
+<p>Compared to JW6, the following functionality has been removed entirely from JW Player 7:</p>
+
+<ul>
+	<li>XML-based skinning model - This has been replaced with <a href="http://support.jwplayer.com/customer/portal/articles/1412123-building-jw-player-skins">CSS skinning</a></li>
+	<li>Integrated Adobe Sitecatalyst support - Removed in favor of <a href="http://support.jwplayer.com/customer/portal/articles/1417188-combining-jw-player-api-events-with-custom-analytics">Custom API tracking</a></li>
+	<li>The JW6 listbar - Replaced by JW7&#39;s <a href="http://support.jwplayer.com/customer/portal/articles/1428529-using-the-visual-playlist">Visual Playlist</a></li>
+	<li>Support for Internet Explorer 8 - Microsoft has announced that it is <a href="http://blogs.msdn.com/b/ie/archive/2014/08/07/stay-up-to-date-with-internet-explorer.aspx">ending IE8 support</a> on <strong>January 12, 2016</strong></li>
+	<li>Flash cookies - No longer used for storing user settings</li>
+	<li>Pseudostreaming for Flash-based media playback</li>
+	<li>Download fallback and the <strong>fallback</strong> configuration option</li>
+	<li>The JW Player Wordpress Plugin does <strong>not</strong> support JW Player 7 at this time</li>
+</ul>
+<a name="license"></a>
+
+<h2>License Key Changes</h2>
+
+<p>With the introduction of JW7&#39;s new <strong>Free</strong> features, there have been some changes made to our existing license key structure.</p>
+
+<ul>
+	<li>JW7 <strong>requires</strong> a license key, regardless of using a free or paid version. You will receive a setup error if you fail to configure a jwplayer.key on your page.</li>
+	<li>JW Player 7 will not work with a JW6 license key. You can find your new JW7 license key on your account page.</li>
+	<li>With JW7, <strong>Pro</strong> features have been moved to <strong>Free</strong>. As a &quot;Thank You!&quot; to existing Pro users, the use of JW7 Pro keys will unlock <strong>Premium</strong> features in JW7.</li>
+</ul>
+
+<p>For any additional licensing concerns, please see our <a href="http://support.jwplayer.com/customer/portal/articles/1494809-licensing-and-payments-faq">License and Payments FAQ</a>.</p>
+<a name="api"></a>
+
+<h2>API Changes</h2>
+
+<p>The API is core to JW Player extensibility, and JW Player 7 makes it even easier and friendlier to use. By converting to an interface based on the model&ndash;view&ndash;controller (MVC) application design paradigm. All up-to-date API documentation can be found in our <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">Javascript API Reference</a>.</p>
+
+<ul>
+	<li>All <strong>onEvent()</strong> methods have been deprecated in JW7 and should be replaced with <strong>on(&lsquo;event&rsquo;)</strong>.</li>
+	<li><strong>.container</strong> was removed. <strong>getContainer()</strong> should be used instead.</li>
+	<li>dispatchEvent should no longer be used, it is replaced with <strong>trigger(&lsquo;event&rsquo;)</strong></li>
+	<li><strong>removeEventListener</strong> should no longer be used, it is replaced with <strong>off(&lsquo;event&rsquo;)</strong></li>
+	<li>All player states will be returned in lower case.</li>
+</ul>
+
+<p>For more information regarding core changes to our API, visit our <a href="http://support.jwplayer.com/customer/portal/articles/1413074-javascript-api-quick-start">API Quickstart Guide</a>.</p>
+<a name="skinning"></a>
+
+<h2>Skinning Changes</h2>
+
+<p>Now you can craft robust, branded video player designs with CSS, the standard web styling language! It&rsquo;s straightforward, looks stunning on retina screens, and even makes the player load faster.</p>
+
+<ul>
+	<li>XML skins are no longer supported in JW7 and should be remade in CSS.</li>
+	<li>If an XML file is specified as a skin, we will load our <strong>seven</strong> skin will load instead.</li>
+</ul>
+
+<p>All JW6 Premium skins have been remade into CSS and are packaged as part of the core player. If you had an embed with a JW6 Premium skin name, the player will automatically switch that that skins css. See CSS Skinning and Styling for a full guide on how to get up and running.</p>
+<a name="provider"></a>
+
+<h2>Flash as a Video Provider</h2>
+
+<p>To provide the most flexibility with skinning and playback, Flash is only used as a means to play media. This means that when the player renders in Flash, it is no longer an entirely separate video player. This allows JW7 to intelligently switch between Flash and HTML5 rendering modes within a single playlist. All plugin work needs to only be done in HTML. Setting <strong>primary</strong> to either <strong>Flash</strong> or <strong>HTML5</strong> will still cause playlist items to render consistently when possible. Note that even when displaying media via Flash, the control bar and icon overlays will continue to render in HTML5.</p>
+
+</body>
+</html>

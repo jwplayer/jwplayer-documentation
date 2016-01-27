@@ -1,0 +1,842 @@
+<!-- 
+
+FOR REVIEW BY: JEROEN
+
+TITLE: What Works Where? 
+
+KEYWORDS: browsers, devices, ios, android, iphone, ipad, chrome, internet explorer, safari, firefox, jwTroubleShoot, 
+
+NOTES: This article is to replace the former "Browser & Device Reference" article (formerly in the Embedding section), and will still remain at http://support.jwplayer.com/customer/portal/articles/1403653 but will live in the FAQ section.
+
+
+-->
+
+
+<!-- NEW ARTICLE (started by Shannon) BELOW -->
+
+
+
+<p>This article is a reference for the functionality that JW Player officially supports across browsers &amp; devices.</p>
+
+<!-- INSERT TABLE REFERENCE HERE, image or <table> -->
+
+<!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
+<table cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
+  <tbody>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"></td>
+      <td><strong>HTML5</strong></td>
+      <td><strong>Flash</strong></td>
+      <td><strong>Android</strong></td>
+      <td><strong>iOS</strong></td>
+      <td></td>
+      <td><strong>Dashboard</strong></td>
+      <td><strong>API</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Devices</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1403653-browser-device-reference" target="_blank">Playback Devices</a></td>
+      <td>Chrome, Safari, Firefox, IE/Edge</td>
+      <td>Chrome, Safari, Firefox, IE/Edge</td>
+      <td>Native apps, OS 4.1+</td>
+      <td>Native apps, iOS 7+</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/topics/677400-tv-casting/articles" target="_blank">Casting Devices</a></td>
+      <td>Chromecast <span style="color:#AAB4C8;">[2]</span></td>
+      <td>Chromecast <span style="color:#AAB4C8;">[2]</span></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1406724-aac-or-mp3-audio-embed" target="_blank">Progressive Formats</a></td>
+      <td>MP4, WebM, AAC, MP3</td>
+      <td>MP4, FLV, AAC, MP3</td>
+      <td>MP4, WebM, AAC, MP3</td>
+      <td>MP4, AAC, MP3</td>
+      <td></td>
+      <td>MP4, AAC</td>
+      <td>MP4, AAC</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference" target="_blank">Streaming Formats</a></td>
+      <td>HLS [1], DASH</td>
+      <td>HLS, RTMP</td>
+      <td>HLS, DASH</td>
+      <td>HLS</td>
+      <td></td>
+      <td>HLS</td>
+      <td>HLS</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions" target="_blank">Captioning Formats</a></td>
+      <td>VTT,TTML</td>
+      <td>VTT,TTML</td>
+      <td>VTT,TTML</td>
+      <td>VTT,TTML</td>
+      <td></td>
+      <td>VTT,TTML</td>
+      <td>VTT,TTML</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1406722-rss-playlist-embed" target="_blank">Playlist Formats</a></td>
+      <td data-sheets-value="[null,2,'RSS, JSON']">RSS, JSON</td>
+      <td data-sheets-value="[null,2,'RSS, JSON']">RSS, JSON</td>
+      <td data-sheets-value="[null,2,'JSON']">JSON</td>
+      <td data-sheets-value="[null,2,'JSON']">JSON</td>
+      <td></td>
+      <td data-sheets-value="[null,2,'RSS, JSON']">RSS, JSON</td>
+      <td data-sheets-value="[null,2,'RSS, JSON']">RSS, JSON</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-" target="_blank">Ad Schedule Formats</a></td>
+      <td>JSON, VMAP</td>
+      <td>JSON, VMAP</td>
+      <td>JSON, VMAP</td>
+      <td>JSON, VMAP</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference" target="_blank">Ad Tag Formats</a></td>
+      <td>VAST, VPAID</td>
+      <td>VAST, VPAID</td>
+      <td>VAST</td>
+      <td>VAST</td>
+      <td></td>
+      <td>VAST, VPAID</td>
+      <td>VAST, VPAID</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Customization</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1406644-making-jw-player-responsive" target="_blank">Responsive Design</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins" target="_blank">Customizable Skins</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1439411-example-a-chromeless-player" target="_blank">Chromeless Player</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1428524-hd-quality-toggling" target="_blank">HD Toggling</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance" target="_blank">Captions Styling</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1407439-adding-preview-thumbnails" target="_blank">Preview Thumbnails</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="https://support.jwplayer.com/customer/portal/articles/1407454-adding-chapter-markers" target="_blank">Chapter Markers</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player" target="_blank">Logo Overlay</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay" target="_blank">Sharing Overlay</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Playback</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1430240-hls-adaptive-streaming" target="_blank">Adaptive Switching</a></td>
+      <td style="color:#ff0046;">&#x2718; <span style="color:#AAB4C8;">[1]</span></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1430255-audio-only-streaming" target="_blank">Audio-only Streaming</a></td>
+      <td style="color:#ff0046;">&#x2718; <span style="color:#AAB4C8;">[1]</span></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/2200669-video-preloading" target="_blank">Stream Preloading</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1761348-multiple-audio-renditions" target="_blank">Multitrack Audio</a></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1761348-multiple-audio-renditions" target="_blank">Multitrack Captions</a></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1430265-dvr-live-streaming" target="_blank">Live DVR Seeking</a></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1430261-aes-content-protection" target="_blank">AES Decryption</a></td>
+      <td style="color:#ff0046;">&#x2718; <span style="color:#AAB4C8;">[1]</span></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/2020483-using-dash-streaming" target="_blank">DRM Protection</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Advertising</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1433818-configuring-ad-skipping" target="_blank">Ad Skipping</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1433722-vast3-ad-pods" target="_blank">Ad Podding</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1665150-ad-tag-waterfalling" target="_blank">Ad Waterfalling</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;">Ad Preloading</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1510784-non-linear-overlay-ads" target="_blank">Overlay Ads</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1433869-companion-ads" target="_blank">Companion Ads</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1434340-ad-tag-variables" target="_blank">Targeting Macros</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1431638-ad-formats-reference" target="_blank">Google IMA</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Hosting</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1758770-batch-video-migration-in-jw-platform" target="_blank">HTTP Fetches</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1433634-preparing-videos-for-upload" target="_blank">FTP Uploading</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1483133-streaming-your-original-videos" target="_blank">External URLs</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;">Multiple Properties</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos" target="_blank">Recommendations</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1433702-dns-masking-the-jw-platform" target="_blank">DNS Masking</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1433647-token-signing-with-jw-platform" target="_blank">Token Signing</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Analytics</strong></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/2142460-using-jw-player-analytics" target="_blank">Video Engagement</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;">Ads Engagement</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;">Video QoE</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;">Ads QoE</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#ff0046;">&#x2718;</td>
+      <td style="color:#ff0046;">&#x2718;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/en/portal/articles/1682391-jw-platform-analytics" target="_blank">Account Usage</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><strong>Developers</strong></td>
+      <td style="text-align:left;"><a href="http://developer.jwplayer.com/jw-player/css-skinning-reference.html" target="_blank">CSS Skinning</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference" target="_blank">Player APIs</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics" target="_blank">Google Analytics</a></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://developer.jwplayer.com/android-sdk/" target="_blank">Android SDK docs</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://developer.jwplayer.com/ios-sdk/" target="_blank">iOS SDK docs</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://developer.jwplayer.com/jw-platform/" target="_blank">Platform APIs</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="http://apidocs.jwplayer.com/index.html#url-scheme" target="_blank">Content URLs</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align:left;"><a href="https://wordpress.org/plugins/bits-on-the-run/" target="_blank">WordPress VIP</a></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td></td>
+      <td style="color:#D9DDE6;">n/a</td>
+      <td style="color:#00C569;">&#x2714;</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- END NEW ARTICLE (started by Shannon) -->
+
+
+
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+
+<!-- OLD BROWSER & DEVICE REFERENCE ARTICLE BELOW -->
+
+<p>This article lists which browsers and devices are officially supported by JW Player, including any existing limitations and differences between desktop and mobile.</p>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+  <li><a href="#desktop">Desktop Browsers</a></li>
+  <li><a href="#mobile">Mobile Devices</a></li>
+  <li><a href="#modes">Mode Selection</a></li>
+  <li><a href="#sources">Multiple Sources</a></li>
+</ul>
+</nav>
+</div>
+
+<p>Under the hood, JW Player uses two playback technologies (HTML5 and Flash), with the selection logic executed JavaScript. The selection process is described below.</p>
+
+<p>Nowadays, new versions of browsers are frequently released. We always test the <a href="http://gs.statcounter.com/">most widely distributed one(s).</a></p>
+<a name="desktop"></a>
+
+<h2>Desktop Browsers</h2>
+
+<p>This table lists which desktop browsers are fully supported by JW Player:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Browser</th>
+      <th>HTML5</th>
+      <th>Flash</th>
+    </tr>
+    <tr>
+      <td>Chrome</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Internet Explorer 9+</td>
+      <td>yes<sup>1</sup></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><sup>1</sup>Flash will be used on IE9 for rendering all video</p>
+
+<p>All JW Player features are supported on these browsers, with the exception of media playback. In a nutshell, not all browsers support WebM video and Vorbis audio. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for details.</p>
+<a name="mobile"></a>
+
+<hr /> <a name="mobile"></a>
+
+<h2>Mobile Devices</h2>
+
+<p>Due to the speed of adoption of mobile operating systems, we fully test and support the latest versions on the most popular devices.&nbsp;This table lists which mobile browsers&nbsp;are officially supported by JW Player using HTML5:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Device</th>
+      <th>Operating System</th>
+      <th>Devices</th>
+    </tr>
+    <tr>
+      <td>Safari on iPhone</td>
+      <td><span style="line-height: 20.7999992370605px;">iOS 8+</span></td>
+      <td>iPhone 4s through current</td>
+    </tr>
+    <tr>
+      <td>Safari on iPad</td>
+      <td><span style="line-height: 20.7999992370605px;">iOS 8+</span></td>
+      <td>iPad 2 through current</td>
+    </tr>
+    <tr>
+      <td>Chrome on Android</td>
+      <td><span style="line-height: 20.7999992370605px;">Android 4.0+</span></td>
+      <td>Any running Android 4.0</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+For a list of stats of device and operating system adoption, view these <a href="https://mixpanel.com/trends/" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;">MixPanel</a> trends.
+
+<p>As with desktop browsers, playback support for the various media formats varies. In a nutshell, MP4 video and AAC/MP3 audio are safe formats for mobile. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for more details.</p>
+
+<h3>Mobile Limitations</h3>
+
+<p>There are limitations to video playback on mobile devices compared to desktop browsers:</p>
+
+<ul>
+  <li>Auto-starting a video on page load is <strong>not</strong> possible on mobile.</li>
+  <li>Playing multiple videos at the same time is not possible on mobile.</li>
+  <li>JW Player will not work with Flash for Android.</li>
+  <li>Changing the <em>mute</em> state and <em>volume</em> is not possible on mobile.</li>
+  <li>On iPhone only, video is only played in <em>fullscreen</em> mode. On iPad and Android, video can be played either windowed or in fullscreen.</li>
+</ul>
+
+<hr />
+<h2><a name="modes"></a>JW7 Provider Model</h2>
+
+<p>Previously, with JW6, JW Player would render in either <strong>Flash</strong> or <strong>HTML5</strong> and could not be changed unless it was set up again with the appropriate <strong>primary</strong> rendering mode set.</p>
+
+<p>While JW7&#39;s control bar will always be rendered in HTML5 via CSS, the player will dynamically load an appropriate Flash or HTML provider based on the media that is loaded. This allows JW Player to dynamically change from HTML5 to Flash playback on a per-playlist-item basis. As a result, there is now a more unified and simpler method of API handling, as well as speedier setup and playback.</p>
+
+<p>As with JW6, all features of JW Player (playlists, skinning, scripting, API, etc.) are available in both provider modes. Whether JW Player uses a Flash or HTML5-based provider is therefore dependent upon the media that is loaded. See <a href="/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for details. Here&#39;s a quick overview:</p>
+
+<ul>
+  <li>DASH can only be played in HTML5. See <a href="http://support.jwplayer.com/customer/portal/articles/2020482-about-dash-streaming">About Dash Streaming</a> for more info.</li>
+  <li>MP4, AAC, MP3, and HLS can be played in both HTML5 and Flash.</li>
+  <li>WebM and Vorbis can only be played in HTML5 in some browsers.</li>
+  <li>FLV and RTMP can only be played in Flash.</li>
+</ul>
+
+<p>At large, the market is moving away from Flash towards HTML5. Therefore, JW Player will always attempt to use HTML5 over Flash if a piece of content can be played in both modes on a certain browser. This behavior can be changed however, by setting the configuration option <strong>primary</strong> to <em>flash</em>. In this case, JW Player&#39;s Flash provider will attempt to be used for all content.See the <a href="/customer/portal/articles/1413113-configuration-options-reference">Configuration Options Reference</a> for more info.</p>
+
+<hr />
+<h2><a name="sources"></a>Multiple Sources</h2>
+
+<p>If an embed contains multiple media sources, at the time of playback, JW Player will determine if it is playable in HTML5 or playable in Flash. The appropriate provider will then load. As an example:</p>
+
+<ul>
+  <li>With a setup containing DASH + HLS sources and HTML5 primary, JW Player plays DASH in HTML5 on Chrome/IE 11+, and the HLS stream in Flash on Firefox.</li>
+  <li>With a setup containing HLS + DASH sources and HTML5 primary, JW Player plays HLS in HTML5 on Safari and DASH in HTML5 on Chrome/IE 11+ and HLS in Flash on Firefox.</li>
+  <li>With a setup containing HLS + DASH sources and Flash primary, JW Player plays HLS in Flash on Chrome, Firefox and Safari. DASH will only be used if a user&#39;s computer does not have Flash installed and if the browser supports it.</li>
+</ul>
+
+<p>See the <a href="http://support.jwplayer.com/customer/portal/articles/1710454-configuring-multiple-sources">Configuring Multiple Sources</a> article to learn how to set up multiple sources.</p>
+
+
+<!-- END OLD BROWSER & DEVICE REFERENCE ARTICLE -->
+
+
+

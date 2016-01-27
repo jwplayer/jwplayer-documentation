@@ -1,0 +1,179 @@
+<!-- 
+
+FOR REVIEW BY: Shannon (Jeroen?)
+
+TITLE: Common Error Messages 
+(This is an update of the former article of the same name, located at: http://support.jwplayer.com/customer/portal/articles/1403682)
+
+KEYWORDS: player not showing, setup error, media error, playback error, playback issue, error message, player error, media error, playlist error, skinning error, Error loading player, Could not load player Configuration, Flash version must be 11.2 or greater, No media sources found, Offline playback not supported, Error loading playlist, File not found, Crossdomain loading denied, Error loading file, Not a valid RSS feed, No playable sources found, File not found, File could not be played, File crossdomain access denied, Video ID is invalid, Error loading YouTube, Error loading media, Video ID is invalid, Video removed or private, Embedding not allowed, API connection error, Error loading stream, Could not connect to server, ID not found on server, Manifest not found or invalid, playback issue, stuttering, black bars, too fast, too slow, mp3 playback, flv seeking, mp4 seeking, version:jw6, example:image, troubleshooting, errors, common issues, encoding, jwTroubleShoot, content hosting,  
+
+NOTES: Will remain at the same URL (above) but be placed in the FAQ category (instead of Embedding).
+
+ 
+
+--> 
+
+
+<p>This common errors guide is designed to help publishers and developers resolve common problems associated with embedding and configuring a JW Player setup. Below you will find a list of common issues, and our proposed solution.</p>
+<p>If you would like to try an in-depth, step-by-step troubleshooting guide, check out <a href="https://support.jwplayer.com/customer/portal/articles/1913755-troubleshooting-your-jw-player-setup">this article</a>. </p>
+<p>If you are simply attempting to <strong>view</strong> videos in a JW Player and are seeing errors, there are also a few things you can check, which we detail in <a href="https://support.jwplayer.com/customer/portal/articles/1403727-what-is-jw-player-">another article</a>.</p>
+<p>If, after reading through this document, you are still unable to solve your issue, please <a href="http://support.jwplayer.com/customer/portal/questions/new">post a community question</a> on this site. Include an example URL with your forum post, so we can take a look at your issue.</p>
+
+<hr />
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+  <li><a href="#before">Before You Start</a></li>
+  <li><a href="#noshow">Player Not Showing</a></li>
+  <li><a href="#setup">Setup Errors</a></li>
+  <li><a href="#media">Media Errors</a></li>
+  <li><a href="#playback">Playback issues</a></li>
+</ul>
+</nav>
+</div>
+<a name="before"></a>
+
+<h2>Before You Start</h2>
+
+<p>Before looking into specific errors, we recommend you try the following simple steps, which may instantly fix your issue:</p>
+
+<ol>
+  <li>Reload the web page. If this doesn&#39;t resolve your issue, move on to step 2.</li>
+  <li>Clear your browser&#39;s <em>cache</em>, then reload the web page. Didn&#39;t work? Proceed to step 3.</li>
+  <li>Clear your browser&#39;s <em>cache</em> and <em>cookies</em>, restart your browser (or reboot your device), then navigate back to the page you were on.</li>
+</ol>
+
+<p>If none of these actions fix your problem, identify the type of issue and read through the appropriate section below. We have sections on:</p>
+
+<ol>
+  <li>The player not showing up on the page at all.</li>
+  <li>The player displaying a (bare bone) setup error on page load.</li>
+  <li>The player loading, but displaying a media error when starting playback.</li>
+  <li>The media playing incorrectly. For example, the audio may sound weird, the video may look stretched or seeking may not work.</li>
+</ol>
+
+<p>More advanced developers should also take a look at their browser console. The browser may display error messages (e.g. around files not found or CORS errors) that are helpful in tracking down the problem.</p>
+<a name="noshow"></a>
+
+<h2>Player Not Showing</h2>
+
+<p>If your player does not appear at all, please check if you:</p>
+
+<ul>
+  <li>Uploaded <strong>jwplayer.js</strong> and included the &lt;script&gt; tag for loading <strong>jwplayer.js</strong> in the head of your page.</li>
+  <li>Included a container &lt;div&gt; with an <strong>id</strong> attribute and referred to that <strong>id</strong> in the <em>jwplayer(id).setup()</em> call.</li>
+  <li>Correctly formatted all options in the <em>jwplayer(id).setup()</em> call. We often see issues with commas, brackets or curly braces.</li>
+</ul>
+
+<p>See <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed" target="_blank">Embedding the Player</a> for an explanation of the correct embed syntax. Note this is also the <strong>only</strong> embed syntax JW Player supports. Setups using a &lt;video&gt;, an &lt;embed&gt; tag or SWFObject will not work with JW Player.</p>
+
+<p>Also ensure your webpage itself is correctly formatted and encoded. If there are errors in your page HTML, CSS or JavaScript code, rendering of the page may have broken off before JW Player has had the chance to setup itself. You can rule out page errors by first testing out your player setup in a very simple HTML page that only contains the player setup snippets and checking your browser&#39;s console log.</p>
+<a name="setup"></a>
+
+<h2>Setup Errors</h2>
+
+<p>The player may be showing on your page, but only display a setup error like this one:</p>
+
+<p><img alt="JW Player Setup Error Screenshot" src="//support-static.jwplayer.com/images/error.png" />​</p>
+
+<p>Luckily, the setup error already pinpoints the area in which the issue is present. Here is a list of all possible setup errors:</p>
+
+<h2>Loading Errors</h2>
+
+<dl>
+  <dt><strong>Error loading player: Could not load player configuration</strong></dt>
+  <dd>A generic error that appears when JW Player fails to set up correctly. This can be related to a javascript problem, timing issue with code, missing parameters or configuration options.</dd>
+  <dt><strong>Error loading player: Flash version must be 11.2 or greater</strong></dt>
+  <dd>This means the version of the Flash plugin on your computer is too outdated for JW Player to use. Please visit <a href="http://get.adobe.com/flashplayer/">the Adobe site</a> to update your Flash player. Note this error will not occur if you do not have Flash at all (e.g. on an iPad).</dd>
+  <dt><strong>Error loading player: No media sources found</strong></dt>
+  <dd>This means you either did not specify a media source to play, or your setup block is incorrect. Please see <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">Embedding the Player</a> for info on the <strong>file</strong> and <strong>playlist</strong> configuration options. You may also have provided a file that&#39;s not supported by JW Player (like <strong>.wmv</strong> video). See <a href="http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a> for the list of formats the player does support.</dd>
+  <dt><strong>Error loading player: Offline playback not supported</strong></dt>
+  <dd>This means the page with JW Player embedded is not loaded from a webserver. Due to various online-offline security restrictions, such a setup is not supported in the Flash rendering mode. Either upload your page to a webserver or run a local webserver to circumvent this.</dd>
+</dl>
+
+<h2>Skinning Errors</h2>
+
+<p>Due to JW7&#39;s skinning model, if there are any issues loading a referenced skin file, the player will revert to its default <strong>core</strong> skin, which is largely unstyled. An example of our <strong>core</strong> skin can be seen below:</p>
+<img src="//support-static.jwplayer.com/images/core.png" />​
+<p>If you are indeed seeing a player that appears here, please check and confirm that your skins are referenced and loading properly.</p>
+
+<h2>Playlist Errors</h2>
+
+<dl>
+  <dt><strong>Error loading playlist: File not found</strong></dt>
+  <dd>This means you have setup an RSS feed using the <strong>playlist</strong> option of the player, but the RSS feed was not found at the URL you set. See <a href="/support/jw-player/28843/loading-rss-feeds">Loading RSS Feeds</a> for more info.</dd>
+  <dt><strong>Error loading playlist: Crossdomain loading denied</strong></dt>
+  <dd>This means the Flash player fails loading your RSS feed from another domain than the one you embedded the player on. It must be explicitly allowed for Flash by setting a <strong>crossdomain XML</strong>. See <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading" target="_blank">Crossdomain File Loading</a> for more info.</dd>
+  <dt><strong>Error loading playlist: Error loading file</strong></dt>
+  <dd>This likely means the HTML5 player fails loading your RSS feed from another domain than the one you embedded the player on. It must be explicitly allowed for HTML5 by setting a <strong>CORS header</strong>. See <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading" target="_blank">Crossdomain File Loading</a> for more info.</dd>
+  <dt><strong>Error loading playlist: Not a valid RSS feed</strong></dt>
+  <dd>JW Player only supports feeds in the <a href="/support/jw-player/28843/loading-rss-feeds">Media RSS format</a>. This error means you either load a feed in another format (e.g. XSPF), or there are XML formatting errors in your RSS feed (e.g. the <em>xmlns:media</em> declaration is forgotten).</dd>
+  <dt><strong>Error loading playlist: No playable sources found</strong></dt>
+  <dd>Your playlist was loaded and parsed correctly, but the player could not find any acceptable media sources in your feed. This probably means your playlist did not contain media in one of the 9 <a href="http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference">Supported Media Formats</a>.</dd>
+</dl>
+<a name="media"></a>
+
+<h2>Media Errors</h2>
+
+<p>A media error appears after the player is successfully setup, but then fails to play your media. Here is an example:</p>
+
+<p><img alt="JW Player Media Error Screenshot" src="//support-static.jwplayer.com/images/mediaerror.png" /></p>
+
+<p>And here are descriptions of all possible media errors:</p>
+
+<h2>File Errors</h2>
+
+<dl>
+  <dt><strong>Error loading media: File not found</strong></dt>
+  <dd>This means the URL to your audio/video file could not be found. Please make sure the file is available at the location you provided (did you set relative paths correctly?) and available for loading in the player (are the access rights set correctly?).<br />
+  Last, check if your webserver sends out the correct mimetype header along with the file. HTML5 browsers are very picky at times, while newer formats (WebM, MP4) may not have an associated mimetype in your webserver.</dd>
+  <dt><strong>Error loading media: File could not be played</strong></dt>
+  <dd>This usually means you are trying to load a file in a nonsupported format in JW Player. A common case is the loading of a <strong>.wmv</strong> video, or a <strong>.mov</strong> video that doesn&#39;t use the H264 video codec. See <a href="/support/jw-player/28836/media-format-support">Supported Media Formats</a> for the list of formats the player supports.</dd>
+  <dt><strong>Cannot load M3U8: File crossdomain access denied</strong></dt>
+  <dd>Displayed when a player cannot access an HLS manifest due to a missing or misconfigured crossdomain.xml. See our article <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading">here</a> for more information.</dd>
+</dl>
+
+<h2>Youtube Errors</h2>
+
+<dl>
+  <dt><strong>Error loading YouTube: Video ID is invalid</strong></dt>
+  <dd>This means the YouTube video ID you provided does not have 11 characters, or the video ID contains invalid characters, such as exclamation points or asterisks.</dd>
+  <dt><strong>Error loading YouTube: Video removed or private</strong></dt>
+  <dd>This means the YouTube video has been removed (for any reason), or it has been marked as private by the owner of the video.</dd>
+  <dt><strong>Error loading YouTube: Embedding not allowed</strong></dt>
+  <dd>This means the original owner of this video does not allow playback in embedded players. This is usually for reasons of branding or advertising.</dd>
+  <dt><strong>Error loading YouTube: API connection error</strong></dt>
+  <dd>This error occurs when the player, for some reason, is unable to connect to the YouTube API. It sometimes happens when YouTube is doing maintenance on its API, or the connection is interrupted.</dd>
+</dl>
+
+<h2>RTMP Errors</h2>
+
+<dl>
+  <dt><strong>Error loading stream: Could not connect to server</strong></dt>
+  <dd>This means that your RTMP server could not be reached. Ensure you inserted the right domain and the right application path. Also ensure port 1935 and/or RTMP traffic is not blocked by your proxy or firewall.</dd>
+  <dt><strong>Error loading stream: ID not found on server</strong></dt>
+  <dd>This means the player successfully connected to your RTMP server, but the server failed to return the requested stream. Ensure your stream is indeed available at the correct location and any security mechanism (like Wowza <em>securetoken</em> or Cloudfront signing) is correctly set. If the stream is a live stream, ensure the encoder is connected and streaming video too.</dd>
+  <dt><strong>Error loading stream: Manifest not found or invalid</strong></dt>
+  <dd>This means your RTMP/HLS manifest could not be found or not be parsed. Please make sure it is available at the location you provided (did you set relative paths correctly?), available for loading in the player (are there any crossdomain issues?) and correctly formatted (is it correct SMIL or M3U8 data?)</dd>
+</dl>
+<a name="playback"></a>
+
+<h2>Playback Issues</h2>
+
+<p>Both the player and the media may load fine, but a playback issue may be present. Unfortunately, JW Player cannot detect such issues automatically. Here are the most common issues we encounter:</p>
+
+<dl>
+  <dt><strong>Video stutters frequently</strong></dt>
+  <dd>It looks like the bitrate of your video is too high for your connection. If your connection is not terrible (i.e. anything above some 500kbps), you should consider re-encoding your videos into a format that is more web friendly. See <a href="http://www.jwplayer.com/blog/transcoding-best-practices/" target="_blank">MP4 Video Encoding</a> for a complete overview.</dd>
+  <dt><strong>Video is stretched or has black bars</strong></dt>
+  <dd>Your video dimensions may not match your player dimensions, or the video may contain incorrect metadata. The first one is easily solved by setting the <strong>width</strong> and <strong>height</strong> of your player to match your video aspect ratio. The second one can be fixed by setting the <strong>stretching</strong> option to correct for the wrong metadata. See <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">Embedding the Player</a> for more info on the <strong>stretching</strong> option.</dd>
+  <dt><strong>MP3 playback is too fast or too slow</strong></dt>
+  <dd>Your MP3 file likely contains variable bitrate encoding or unsupported sample frequencies (e.g. 48Khz). Please stick to constant bitrate encoding and 11, 22, 33 or 44 kHz.</dd>
+  <dt><strong>FLV video seeking is not working</strong></dt>
+  <dd>Most likely, this occurs when your file doesn&#39;t have metadata or the Flash Player doesn&#39;t understand your metadata. You can fix this by running your FLV files through the <a href="http://www.buraks.com/flvmdi/">FLV MetaData Injector</a>.</dd>
+  <dt><strong>MP4 video seeking is not working</strong></dt>
+  <dd>If your MP4 files cannot be seeked before they are completely downloaded, you will have to move your MP4 metadata from the end to the beginning of your MP4 file. Use <a href="http://renaun.com/blog/2010/06/qtindexswapper-2/">this little application</a> to do that.</dd>
+</dl>
+
