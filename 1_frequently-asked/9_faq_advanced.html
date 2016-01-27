@@ -1,88 +1,56 @@
 <!-- 
 
-FOR REVIEW BY: Shannon (Jeroen?)
+FOR REVIEW BY: Shannon (Jeroen? Andrew?)
 
 TITLE: Advanced FAQ
 
-KEYWORDS: advanced, jw player api, tracking, protection, version:jw6, example:code, crossdomain, cors, security, crossdomain.xml, Access-Control-Allow-Origin, CORS, cloud hosted crossdomain, youtube, facebook, live streaming, HDS, Editions, download JW Player, configure, remove logo, licensed version, configure, versions, right click, bugs, right click, 
+KEYWORDS: advanced, jw player api, tracking, protection, version:jw6, example:code, crossdomain, cors, security, crossdomain.xml, Access-Control-Allow-Origin, CORS, cloud hosted crossdomain, youtube, facebook, live streaming, HDS, Editions, download JW Player, configure, remove logo, licensed version, configure, versions, right click, bugs, right click, jwAdvancedSetup, license, upgrade, enterprise, ads, tracking, analytics, third-party ads, custom analytics, custom, customization
 
 NOTES —
-This article contains content from the following former articles: 
+This article contains some content from the following former articles: 
 
 
-Advanced FAQ
+Advanced FAQ (rated 36% by 25 votes)
 http://support.jwplayer.com/customer/portal/articles/1494835
 
-Crossdomain File Loading (Embedding Article) 
-http://support.jwplayer.com/customer/portal/articles/1403679 
-
-Publisher FAQ
+Publisher FAQ (rated 19% by 43 votes)
 http://support.jwplayer.com/customer/portal/articles/1494746 
 
+License & Payments FAQ (rated 20% by 41 votes)
+http://support.jwplayer.com/customer/portal/articles/1494809 
 
 WHEN FINISHED, this article should live at whichever domain of the above articles had the most traffic. 
 
 
-
-
 --> 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-
-<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
-
-</head>
-
-<body>
 <div class="article_toc">
-<h2>Table Of Contents</h2>
+<h2>Table Of Contents: ADVANCED FAQ</h2>
 
 <nav>
 <ul>
-	<li><a href="#ads">Video Advertising Basics</a></li>
-	<li><a href="#api">Using the JW Player API</a></li>
-	<li><a href="#track">Tracking Use</a></li>
+	<li><a href="#api">About the JW Player API</a></li>
+	<li><a href="#custom-analytics">Analytics &amp; Tracking</a></li>
 	<li><a href="#drm">Protecting Content</a></li>
-	<li><a href="#more">Additional Information</a></li>
+    <li><a href="#ads">Third-Party Ads</a></li>
+	<li><a href="#youtube">YouTube Support</a></li>
+	<li><a href="#customize">Customizing and Branding</a></li>
+	<li><a href="#upgrading">License Info and Upgrades</a></li>
+	<li><a href="#reseller">Reselling JW Player</a></li>
 </ul>
 </nav>
 </div>
 
-<p>This section is for users who are looking to extend JW Player&#39;s functionality beyond simple embeds. This includes video ads, player APIs, and enterprise features. If you are reading this section, it is highly suggested that you be familiar with how to both <a href="http://support.jwplayer.com/customer/portal/articles/1406723">Embed</a> and <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference">Configure</a> JW Player.</p>
-<a name="ads"></a>
+<p>
+This article is for JW Player video publisher customers looking to extend JW Player's functionality beyond simple embeds. If this describes you, it is highly suggested that you be familiar with how to both <a href="http://support.jwplayer.com/customer/portal/articles/1406723">Embed</a> and <a href="http://support.jwplayer.com/customer/portal/articles/1413113">Configure</a> JW Player before continuing. </p>
+<p><strong>If you&#39;re having problems watching video in a JW Player</strong>, please see our article <a href="http://support.jwplayer.com/customer/portal/articles/1403727-what-is-jw-player-">here.</a></strong> </p>
+<p>If you are looking to put video on a website and don't yet have a JW Player account, <a href="http://www.jwplayer.com/sign-up/">start here</a>.</p>
 
-<h2>Advertising</h2>
+<p>&nbsp;</p>
 
-<h3>How do I monetize my videos?</h3>
-
-<p>If you&#39;re interested in using advertisements with your video content, you can do this by utilizing a JW Player <strong>Ads license</strong>. Using VAST or Google IMA with JW Player allows for things like:</p>
-
-<ul>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1433722-vast3-ad-pods">VAST 3 Ad Pods</a></li>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-">Ad Scheduling</a></li>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1665150-ad-tag-waterfalling">Tag Waterfalling</a></li>
-</ul>
-
-<p>Additional configuration info can be found in our <a href="http://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles">Advertising Support Articles</a>.</p>
-
-<h3>Where do I get my ad tags from?</h3>
-
-<p>You&#39;ll need an ad network or server to supply your tags. Some additional information can be found in our <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference">Ad Reference</a> article.</p>
-
-<h3>How do ads work?</h3>
-
-<p>Video advertisements are XML-based files, which essentially tell a video player how to behave during ad playback. For more information about the basics of VAST:</p>
-
-<ul>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1482127-static-vast-xml-tag">Static VAST</a> - A quick runthrough of how a VAST file works and is interpreted by JW Player</li>
-	<li><a href="http://www.iab.net/vast">The IAB VAST 3.0 Spec</a> - A full listing of the VAST 3.0 spec and its full features.</li>
-</ul>
 <a name="api"></a>
 
-<h2>Working with the JW Player API</h2>
+<h2>About the JW Player API</h2>
 
 <p>The JW Player API allows a developer to control and customize their video player behavior via external Javascript. This allows for things like external playback control, dynamic ad insertion, custom visual playlists, or even slides that play alongside video content.</p>
 
@@ -105,282 +73,36 @@ WHEN FINISHED, this article should live at whichever domain of the above article
 	<li><a href="http://support.jwplayer.com/customer/portal/articles/1480844-example-custom-ad-scheduling">Dynamic Ad Schedules</a> - Can be used for ad insertion during live streams or at choice points during VOD content.</li>
 	<li><a href="http://support.jwplayer.com/customer/portal/articles/1434336-example-multiple-companion-ads">Multiple Companion Ads</a> - How to extract and display companion ads from VAST tags.</li>
 </ul>
-<a name="track"></a>
+<p>&nbsp;</p>
+<a name="custom-analytics"></a>
 
-<h2>How do I use analytics to track my player&#39;s use?</h2>
+<h2>How do I use custom analytics to track my player&#39;s use?</h2>
 
 <p>We have an article about <a href="http://support.jwplayer.com/customer/portal/articles/1417188">Tracking Player Behavior with Analytics</a>. As long as you are able to send pings to your desired analytics platform via Javascript, any system can be easily tied into the JW Player API.</p>
+<p>&nbsp;</p>
 <a name="drm"></a>
 
-<h2>Privacy and Security</h2>
-
-<h3>How do I protect my video content?</h3>
+<h2>How do I protect my video content?</h2>
 
 <p>JW Player currently offers two methods of content protection via the <strong>Enterprise</strong> edition:</p>
 
 <ul>
-	<li><strong>AES 128 Encryption</strong> - Used with HLS streaming. <a href="http://support.jwplayer.com/customer/portal/articles/1430261-aes-content-protection">Read more...</a></li>
-	<li><strong>DRM using HTML5 EME</strong> - Used with DASH streaming. <a href="http://support.jwplayer.com/customer/portal/articles/2020483-using-dash-streaming">Read more...</a></li>
+	<li><strong>AES 128 Encryption</strong> - Used with HLS streaming. <a href="http://support.jwplayer.com/customer/portal/articles/1430261">Read more...</a></li>
+	<li><strong>DRM using HTML5 EME</strong> - Used with DASH streaming. <a href="http://support.jwplayer.com/customer/portal/articles/2020483">Read more...</a></li>
 </ul>
-<a name="more"></a>
-
-<h2>Additional Information</h2>
-
-<ul>
-	<li><a href="http://support.jwplayer.com/customer/portal/topics/564475-javascript-api/articles">JW Player Javascript API</a></li>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1417188">Custom Analytics Tracking with JW Player</a></li>
-	<li><a href="http://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles">Articles related to video advertising</a></li>
-</ul>
-
 
 <p>&nbsp;</p>
-<hr>
+<a name="ads"></a>
+
+<h2>If I wish to run ads via a third party plugin, do I still need an Ads license?</h2>
+
+<p>To run video ads in any form, you <strong>must</strong> be properly licensed with an Ad version.</p>
 <p>&nbsp;</p>
-
-<!-- CROSSDOMAIN FILE LOADING CONTENT BELOW -->
-
-
-<p>This guide describes the cross-domain file loading (security) restrictions associated with the Adobe Flash plugin and JavaScript in HTML5 browsers/devices.</p>
-
-<p>The act of disallowing domains from accessing content is a security measure that prevents users from basically leeching your files and using them elsewhere. This functionally works as a whitelist, in that all domains are inherently blocked unless specified. A basic walkthrough of the process is as follows:</p>
-
-<ol>
-	<li>A JW Player hosted on DomainA wishes to access a VTT file that is hosted on DomainB.</li>
-	<li>DomainB sees this request and confirms that DomainA should have access.</li>
-	<li>If DomainA is allowed access, the file is served.</li>
-</ol>
-
-<p>Each version, Flash and HTML5, has a distinct method of allowing/denying access across domains. Let&#39;s explore the differences.</p>
-
-<h2><a name="flash"></a>Crossdomain in Flash</h2>
-
-<p>The Adobe Flash Player contains a <a href="http://www.adobe.com/devnet/flashplayer/security.html">crossdomain security mechanism</a>, similar to JavaScript&rsquo;s <a href="#javascript">Cross-Site Scripting</a> restrictions. It impacts publishers using JW Player on Flash capable browsers and devices, denying to load the following files across from another domain:</p>
-
-<ul>
-	<li>RSS feeds</li>
-	<li>XML skins</li>
-	<li>VTT, SRT &amp; DFXP files</li>
-	<li>M3U8 manifests &amp; TS fragments</li>
-	<li>SMIL manifests</li>
-</ul>
-
-<h3>Crossdomain XML</h3>
-
-<p>Crossdomain security restrictions can be lifted by hosting a <a href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">crossdomain.xml</a> file on the server that contains the files.</p>
-
-<p>For example, if DomainA.com is requesting a file from DomainB.com, you will need to configure crossdomain.xml on DomainB.com to grant access.&nbsp;This crossdomain file must be placed in the root of your domain or subdomain. For example:</p>
-
-<pre>
-http://www.myserver.com/crossdomain.xml
-http://videos.myserver.com/crossdomain.xml
-</pre>
-
-<p>Before the Flash Player attempts to load XML files, SWF files or raw data from any domain other than the one hosting your player, it checks the remote site for the existence of such a <em>crossdomain.xml</em> file. If Flash finds it, and if the configuration permits external access of its data, then the data is loaded. If not, the operation will not be allowed.</p>
-
-<h3>Allow All Example</h3>
-
-<p>Here&rsquo;s an example of a <em>crossdomain.xml</em> that allows access to the domain&rsquo;s data from SWF files on any site:</p>
-
-<pre>
-&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.adobe.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;
-&lt;cross-domain-policy&gt;
-   &lt;allow-access-from domain=&quot;*&quot; /&gt;
-&lt;/cross-domain-policy&gt;
-</pre>
-
-<p>Note that this example sets your server wide open. Any SWF file can load any data from your site, which might lead to security issues.</p>
-
-<h3>Restrict Access Example</h3>
-
-<p>Here is another example <em>crossdomain.xml</em>, this time permitting Flash file access from only a number of domains:</p>
-
-<pre>
-&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.adobe.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;
-&lt;cross-domain-policy&gt;
-   &lt;allow-access-from domain=&quot;*.domain1.com&quot;/&gt;
-   &lt;allow-access-from domain=&quot;www.domain2.com&quot;/&gt;
-&lt;/cross-domain-policy&gt;
-</pre>
-
-<p>Note the use of the wildcard symbol: any subdomain from domain1 can load data, whereas domain2 is restricted to only the www subdomain.</p>
-
-<p>Crossdomain policy files can even further finegrain access, e.g. to certain ports or HTTP headers. For a detailed overview, see <a href="http://kb2.adobe.com/cps/142/tn_14213.html">Adobe&rsquo;s Crossdomain documentation</a>.</p>
-
-<div id="html5">&nbsp;</div>
-
-<h2><a name="javascript"></a>Crossdomain in JavaScript</h2>
-
-<p>In JavaScript, a <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Cross-Site Scripting</a> mechanism similar to <a href="#flash">that in Flash</a> exists. It impacts publishers using JW Player on HTML5 capable browsers and devices, denying to load the following files from another domain:</p>
-
-<ul>
-	<li>RSS feeds</li>
-	<li>XML skins</li>
-	<li>VTT, SRT &amp; DFXP files</li>
-</ul>
-
-<p>Generally, these file loads will fail if there&rsquo;s no crossdomain access. Most browsers will display an error in their debug console.</p>
-
-<h3>Cross-Origin Resource Sharing</h3>
-
-<p>Crossdomain access can be enabled in JavaScript with a mechanism similar to that in Flash. Instead of hosting a <em>crossdomain.xml</em> file, crossdomain access is enabled per file, through an additional HTTP response header (the <a href="http://www.w3.org/TR/cors/">CORS</a> header). Here&#39;s what the header looks like:</p>
-
-<pre>
-Access-Control-Allow-Origin: *
-</pre>
-
-<p>Note that this example sets your file wide open. Any script from any site can load the file and do whatever it wants.</p>
-
-<h3>Restrict Access Example</h3>
-
-<p>Here is another example <em>CORS header</em>, this time permitting the JavaScript file from only a number of domains:</p>
-
-<pre>
-Access-Control-Allow-Origin: *.domain1.com www.domain2.com
-</pre>
-
-<p>Note the use of the wildcard symbol: any subdomain from domain1 can load data, whereas domain2 is restricted to only the www subdomain.</p>
-
-<p>Options to limit protocols and ports can be added. <a href="http://enable-cors.org/">See the enabled-cors.org site</a> for more info. The site lists how to enable CORS headers for various popular webservers, frameworks and serverside languages.</p>
-
-<h2>Cloud-hosted players and Crossdomain restrictions</h2>
-
-<p>When using our cloud-hosted player and hosting external files on your own site (captions, playlists, etc.) you will need to give our CDN crossdomain access. This ensures that the external files can be properly accessed and loaded by our player. The crossdomain.xml file on a personal domain should have the following line added to ensure this:</p>
-
-<pre>
-allow-access-from domain=&quot;*.jwpcdn.com&quot;
-</pre>
-
-<p>Likewise, the domain&#39;s CORS headers should be adjusted to allow this access as well.</p>
-
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-
-<!-- PUBLISHER FAQ CONTENT BELOW -->
-
-<div class="article_toc">
-<h2>Table Of Contents</h2>
-
-<nav>
-<ul>
-	<li><a href="#media">Media Format and Browser Support</a></li>
-	<li><a href="#embed">Embedding JW Player</a></li>
-	<li><a href="#youtube">YouTube Support</a></li>
-	<li><a href="#stream">Streaming to JW Player</a></li>
-	<li><a href="#custom">Customizing and Branding</a></li>
-	<li><a href="#upgrading">License Info and Upgrades</a></li>
-	<li><a href="#next">Additional Information</a></li>
-</ul>
-</nav>
-</div>
-
-<p>This section assumes that you have an account with <a href="http://www.jwplayer.com/sign-up/">JW Player</a>. A JW Player account is intended for video publishers and is <strong>not</strong> required to view video content online.<br />
-<br />
-<strong>This article relates to users looking to implement JW Player on their own website. If you&#39;re having problems viewing JW Player, please see our article <a href="http://support.jwplayer.com/customer/portal/articles/1403727-what-is-jw-player-">here.</a></strong></p>
-<a name="media"></a>
-
-<h2>What media formats work with JW Player?</h2>
-
-<p>JW Player leverages both native HTML5 browser video and Adobe Flash Player. This allows the player to support a wider range of browsers/devices and media formats than is possible with HTML5 alone. Below is an overview of which formats and browsers function with JW Player:</p>
-
-<h3>Desktop Browser Support</h3>
-
-<table>
-	<tbody>
-		<tr>
-			<th>Browser</th>
-			<th>Video</th>
-			<th>Audio</th>
-			<th>Flash Streaming</th>
-			<th>HTML 5 Streaming</th>
-		</tr>
-		<tr>
-			<td>Chrome</td>
-			<td>MP4, FLV<sup>4</sup>, WebM</td>
-			<td>AAC, MP3, Vorbis</td>
-			<td>HLS<sup>1, 4</sup>, RTMP<sup>4</sup></td>
-			<td>DASH<sup>2</sup></td>
-		</tr>
-		<tr>
-			<td>Internet Explorer<sup>3</sup></td>
-			<td>MP4, FLV<sup>4</sup></td>
-			<td>AAC, MP3</td>
-			<td>HLS<sup>1, 4</sup>, RTMP<sup>4</sup></td>
-			<td>DASH<sup>2</sup></td>
-		</tr>
-		<tr>
-			<td>Firefox</td>
-			<td>MP4, FLV<sup>4</sup>, WebM</td>
-			<td>AAC, MP3, Vorbis</td>
-			<td>HLS<sup>1, 4</sup>, RTMP<sup>4</sup></td>
-			<td>-</td>
-		</tr>
-		<tr>
-			<td>Safari</td>
-			<td>MP4, FLV<sup>4</sup></td>
-			<td>AAC, MP3</td>
-			<td>HLS<sup>1</sup>, RTMP<sup>4</sup></td>
-			<td>DASH<sup>2</sup>, HLS</td>
-		</tr>
-	</tbody>
-</table>
-
-<ol class="sup_notes">
-	<li>HLS on desktops requires <strong>JW Player Premium</strong></li>
-	<li>DASH supported on Chrome 23+, Internet Explorer 11+, Safari 8+</li>
-	<li>Requires Internet Explorer 9 or higher</li>
-	<li>Flash 11.2 or higher required</li>
-</ol>
-
-<h3>Mobile Browser Support</h3>
-
-<table>
-	<tbody>
-		<tr>
-			<th>Browser</th>
-			<th>Video</th>
-			<th>Audio</th>
-			<th>Streaming</th>
-		</tr>
-		<tr>
-			<td>Android Chrome</td>
-			<td>MP4, WebM</td>
-			<td>AAC, MP3, Vorbis</td>
-			<td>HLS<sup>1</sup>, DASH<sup>2</sup></td>
-		</tr>
-		<tr>
-			<td>Android Native Browser</td>
-			<td>MP4, WebM</td>
-			<td>AAC, MP3, Vorbis</td>
-			<td>HLS<sup>1</sup></td>
-		</tr>
-		<tr>
-			<td>iOS Safari</td>
-			<td>MP4</td>
-			<td>AAC, MP3</td>
-			<td>HLS</td>
-		</tr>
-	</tbody>
-</table>
-
-<ol class="sup_notes">
-	<li>Due to playback inconsistencies, HLS is disabled on Android by default. Enable this by setting <a href="http://support.jwplayer.com/customer/portal/articles/1430218-using-hls-streaming#androidhls">androidhls</a> to true.</li>
-	<li>DASH playback on mobile is supported on Chrome 34+</li>
-</ol>
-
-<p>A more in-depth listing of supported formats can be found on our <a href="http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference">Media Format</a> article.</p>
-<a name="embed"></a>
-
-<h2>How do I embed JW Player?</h2>
-
-<p>JW Player 7 relies on Javascript for its video playing functionality, regardless of rendering in Flash or HTML5. Both our <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">API</a> and <a href="support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference">configuration</a> require Javascript. A basic JW Player embedding walkthrough can be found on our <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">Embedding JW Player</a> article.</p>
 <a name="youtube"></a>
 
 <h2>How do I use YouTube videos with JW Player?</h2>
 
-<p>We have an article detailing the process available <a href="http://support.jwplayer.com/customer/portal/articles/1406725-youtube-video-embed">here</a>. As the article mentions, the following is <strong>not</strong> supported when using JW Player with Youtube content:</p>
+<p>We have an article detailing the process available <a href="http://support.jwplayer.com/customer/portal/articles/1406725">here</a>. As the article mentions, the following is <strong>not</strong> supported when using JW Player with Youtube content:</p>
 
 <ul>
 	<li>Monetizing Youtube content with JW Player Advertising</li>
@@ -391,50 +113,29 @@ allow-access-from domain=&quot;*.jwpcdn.com&quot;
 <p>If more flexibility is required, JW Player also offers its own integrated video hosting, <a href="http://www.jwplayer.com/products/jwplatform/">JW Platform</a>.</p>
 
 <p>&nbsp;</p>
-<a name="stream"></a>
 
-<h2>How do I stream content to my JW Player?</h2>
+<a name="customize"></a>
 
-<p>JW Player currently supports three main streaming methods. These can be used for either Live or pre-recorded Video on Demand(VOD) content:</p>
-
-<ul>
-	<li><strong>RTMP - </strong>A Flash-based protocol used for streaming content. <strong>RTMP does not work on mobile devices.</strong> <a href="http://support.jwplayer.com/customer/portal/articles/1430349-about-rtmp-streaming">Read more...</a></li>
-	<li><strong>HLS - </strong>An HTTP-based method of streaming created by Apple. Supported on some mobile devices, but requires Flash for Desktop browsers. <a href="http://support.jwplayer.com/customer/portal/articles/1430189-about-hls-streaming">Read more...</a></li>
-	<li><strong>DASH - </strong>An emerging standard that streams content via HTTP. Provides more flexibility than HLS, but is not yet as widely used. <a href="http://support.jwplayer.com/customer/portal/articles/2020482-about-dash-streaming">Read more...</a></li>
-</ul>
-More information on creating and serving these streams can be found in the following Wowza articles:
-
-<ul>
-	<li><a href="http://www.wowza.com/forums/content.php?484-How-to-use-JW-Player-with-Wowza-Streaming-Engine">How to use JW Player with Wowza Streaming Engine</a></li>
-	<li><a href="http://www.wowza.com/news/jw-player-and-wowza-5-steps-to-live-streaming">Wowza + JW Player: 5 Steps to Live Streaming</a></li>
-</ul>
-
-<p>&nbsp;</p>
-<a name="custom"></a>
-
-<h2>How can I customize the look of my player?</h2>
+<h2>How can I customize my player?</h2>
 
 <p>JW Player&#39;s appearance is fully customizable thanks to its <a href="http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins">CSS-based skinning model</a>. In addition, JW Player can be further branded via a custom <a href="http://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player">logo</a>, and <a href="http://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player">right-click</a> menu.</p>
+
+<p>In addition to its appearance, JW Player's functionality is also highly cusomizable. Check out the Branding &amp; UX Topic articles, or if you're a developer, the <a href="http://support.jwplayer.com/customer/portal/articles/1413113">Configuration Reference</a> on our Developer Portal.
+</p>
 <a name="upgrading"></a>
+<p>&nbsp;</p>
+<h2>Which JW Player license am I using? How can I upgrade?</h2>
 
-<h2>What does my current license support? How can I upgrade my player&#39;s license?</h2>
+<p>Find your license details on the <a href="https://dashboard.jwplayer.com/#/account/billing" target="_blank">Billing page</a> of your JW Player dashboard. (You must be logged in to see this page).</p>
+<p>Upgrades from Free to Premium are handled via our <a href="http://www.jwplayer.com/pricing">Pricing Page</a>. If you are interested in Enterprise, Ads, or High-Volume hosting *amp; streaming, <a href="http://www.jwplayer.com/contact-us/">contact us</a>.</p>
+<p>&nbsp;</p>
 
-<p>For information about our different license types, see our <a href="">Licensing and Payments FAQ</a>. All license upgrades are handled via our <a href="http://www.jwplayer.com/pricing">Pricing Page</a>.</p>
-<a name="next"></a>
+<h2>I&#39;ve just upgraded my license. Why is my player not reflecting this change?</h2>
 
-<h2>Additional Information</h2>
+<p>After upgrading your license, the key found on your <a href="https://account.jwplayer.com/#/account" target="_blank">account page</a> will change to reflect this. As a result, you will need to manually update your self-hosted key on your website. If a cloud-hosted library was utilized, this change will happen automatically.</p>
 
-<p>Now that you are familiar with how to embed your JW Player, the following articles will provide some additional information for customizing your setup:</p>
+<p>&nbsp;</p>
+<h2>I am interested in reselling JW Player, how do I find more information?</h2>
 
-<ul>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1908212">Using Playlists</a> - A guide showing how to create a playlist of different media items.</li>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1413113">Configuration Reference</a> - A full list of configuration options available with JW Player.</li>
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1494809">License and Payments FAQ</a> - A guide detailing our available license types and payment information.</li>
-	<!--<li>Dashboard FAQ - A walkthrough of your JW Player Dashboard, showing how to publish videos, configure players, and more.</li>-->
-	<li><a href="http://support.jwplayer.com/customer/portal/articles/1494835">Advanced Features FAQ</a> - A guide intended for advanced users. Provides information pertaining to our API and enterprise-only features.</li>
-</ul>
+<p>If you are interested in becoming a reseller for JW Player, please <a href="http://www.jwplayer.com/contact-us">Contact Us</a> directly.</p>
 
-
-
-</body>
-</html>
