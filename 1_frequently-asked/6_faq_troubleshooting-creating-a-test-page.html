@@ -2,7 +2,7 @@
 
 FOR REVIEW BY: Shannon (Todd?) 
 
-TITLE: Troubleshooting: Creating a Reproduction Page
+TITLE: Troubleshooting: Creating a Test Page
 
 KEYWORDS: jwTroubleShoot, test page, reproduction page, support ticket, support team, contact support
 
@@ -13,24 +13,26 @@ http://support.jwplayer.com/customer/en/portal/articles/2186238
 -->
 
 
+<p>When we are helping you troubleshoot a JW Player issue, it helps us a great deal to have a reproduction page (also known as a test page). This test page allows us to do a few things: 
+<ul>
+<li><strong>Reproduce the issue you are seeing</strong> (this helps us rule out browser, device, or firewall issues).</li>
+<li><strong>Cleanly determine the cause of your issue</strong>, with no extra code in the way</li>
+<li><strong>Send you back a link</strong> to an updated page, if we have a code suggestion or correction</li>
+<li><strong>Escalate the issue</strong> internally, if necessary</li>
+</ul>
+ <!-- where we can reproduce the issue you are seeing. Once we can reliably reproduce your issue, we can get to work determining the cause.<strong> </strong>And then if we have any suggestions or code corrections, for example, we can then send you back a link to an updated page. We also use this test page to escalate any potential bugs internally, if necessary.<br> --> 
+  We can usually see what you are trying to do by reading your code, but it is also helpful to know:
+ <ul>
+ <li>Your exact reproduction steps</li>
+ <li>What you are expecting the player to do</li>
+ <li>What the player is actually doing</li>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
+ </ul> 
+</p>
+<p>By using a basic embed of our player, we can help isolate the part of your code that is causing the problem. Completing this step properly will save time for you and for our support team, getting your videos back up and running as soon as possible.</p>
+<p>&nbsp;</p>
 
-<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
-
-<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1913755-troubleshooting-your-jw-player-setup/edit?select_filter=601065">
-</head>
-
-<body>
-<p>When troubleshooting an issue with our player, it is very helpful for us to have a reproduction page (also referred to as a test page) where we can reproduce the issue you are seeing. Once we can reliably reproduce your issue, we can get to work determining the cause. And then if we have any suggestions or code corrections, for example, we can then send you back a link to an updated page.&nbsp;We can also use this test page to escalate any potential bugs to our Engineering team.<br />
-<br />
-We can usually see what you are trying to do by reading your code, but it is also helpful to know your exact reproduction steps. We would also like to know what it is you are expecting the player to do, as well as as description of what the player is actually doing.</p>
-&nbsp;
-
-<h3><u>What does a reproduction page include?</u></h3>
+<h3>What does a good test page include?</h3>
 
 <ul>
 	<li>The JW Player Javascript library URL you are using to load our player, and if necessary, the self-hosted license key</li>
@@ -38,18 +40,19 @@ We can usually see what you are trying to do by reading your code, but it is als
 	<li>Your jwplayer().setup()</li>
 	<li>List of reproduction steps, expected behavior, and actual outcome</li>
 </ul>
-&nbsp;
+<p>&nbsp;</p>
+<p>While we are experts when it comes to our player,  <strong>we cannot help you debug any code on the page that does not belong to us</strong>. Therefore, it is also important to note that there are a few things that should not be included in your reproduction page.</p>
 
-<p>We try to be experts when it comes to our player, but we cannot help you debug any code on the page that does not belong to us. Therefore it is also important to note that there are a few things that should not be included in your reproduction page.</p>
-&nbsp;
+<p>&nbsp;</p>
 
-<h3><u>What does a reproduction page NOT include?</u></h3>
+<h3>What does a good test page NOT include?</h3>
 
 <ul>
 	<li>Any other Javascript code or libraries not required for our player, like jQuery or require.js</li>
 	<li>Extra&nbsp;CSS code or stylesheets&nbsp;</li>
 </ul>
-
+<p>&nbsp;</p>
+<h2>Test Page Template</h2>
 <p>Here is a template for you to use when making a reproduction page:</p>
 
 <pre>
@@ -80,7 +83,4 @@ We can usually see what you are trying to do by reading your code, but it is als
 &lt;/html&gt;
 </pre>
 
-<p>By using a basic embed of our player, hopefully we can help isolate the part of your code that is causing the problem. We hope you find this to be a helpful and worthwhile troubleshooting step.</p>
 
-</body>
-</html>
