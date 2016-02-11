@@ -1,0 +1,52 @@
+
+<h2>Customizing the Visual Playlist with CSS</h2>
+
+<p>The default style of the visual playlist has a maximum height. This is so it does not take up the entire height of the player. The visual playlist can be easily customized with CSS.</p>
+
+<p>Here is some CSS you can add on your page or adjust directly in your self-hosted seven.css to make the visual playlist wider and as tall as the player.</p>
+
+<pre>
+/*Sets the visual listbar width to 400 px and realigns it above the icon. */
+ .jw-skin-seven .jw-overlay .jw-playlist-container {
+  width:400px;
+  left:-20%;
+ }
+
+/* overrides the player settings for how tall the visualplaylist can be. 195px is the about right for a player that is 270px tall, including the controlbar height, and menus. */
+.jwplayer .jw-playlist {
+min-height: none;
+max-height: none;
+height: 195px;
+
+ }
+
+/* Makes it so the list items are left aligned in the visualplaylist */
+ .jwplayer .jw-playlist .jw-option {
+  padding: 0 15px;
+  margin: auto;
+  text-align: left;
+}
+
+</pre>
+
+<div id="container2">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container2");
+playerInstance.setup({
+  playlist: "//content.jwplatform.com/feeds/13ShtP5m.rss",
+  aspectratio: "16:9",
+  skin:{
+    name:"seven-2",
+    url:"//s3.amazonaws.com/demo.jwplayer.com/visualplaylist/seven2.css"
+    },
+});
+</script>
+
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+
+<h2>Creating Your Own Custom Sidebar</h2>
+
+<p>If you are looking to do some additional customization work on a playlist sidebar, it is possible to create your own with our API and some CSS work. An example of this can be seen <a href="http://support.jwplayer.com/customer/portal/articles/1543546-example-making-your-own-playlist-sidebar" target="_blank">here</a>.</p> <!-- NEEDS NEW LINK TO DEV PORTAL-->

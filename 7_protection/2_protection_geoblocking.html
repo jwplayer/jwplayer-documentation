@@ -1,49 +1,63 @@
 <!-- 
 
-Updated version of article formerly called "Geoblocking with the Platform API" at http://support.jwplayer.com/customer/en/portal/articles/1995777-geo-blocking-with-the-platform-api
+Updated version of article formerly called "Geoblocking with the Platform API" at http://support.jwplayer.com/customer/en/portal/articles/1995777
 
 FOR REVIEW BY: Allison 
-(and then Greg, who can add any additional clarification needed from the Media Services point of view). 
 
 TITLE: "Geoblocking" 
 
-KEYWORDS: geoblocking, content protection, jw platform, jwAdvancedSetup, 
+KEYWORDS: geoblocking, content protection, jw platform, jwAdvancedSetup, EntArticle
 
 NOTES: Mainly needs to be re-considered from the point of view of a publisher user: 
-— What is Geoblocking? 
-— How does JW Player handle it? 
-— How do users use it in the dashboard?
-— What are the rules and implications of using it? 
+- What is Geoblocking? 
+- How does JW Player handle it? 
+- How do users use it in the dashboard?
+- What are the rules and implications of using it? 
 
-So, the whole thing needs to be de-techified, and the developer-focused pieces (API stuff etc.) need  to be moved to the developer portal. 
+Developer-focused portion (API stuff etc.) needs to be moved to the developer portal. 
 
+<title>Geo-Blocking Settings for API and Dashboard</title>
 
 -->
 
+<p>The JW Player dashboard now has a feature to set geo-blocking by
+country. Users can set a list of either allowed or restricted countries
+for the entire property. When content or players are requested from
+countries that do not meet the geo-blocking criteria, that content will
+not be served to the end user.<br>
+</p>
+<h2>Geo-Blocking in the Dashboard</h2>
+<h3>Geo-Blocking by Country / Region</h3>
+<p>Users can enable Geo-blocking for the account (per property if you
+have multiple properties set up) within the Account &gt; Properties
+section settings.&nbsp; At this time, geo-blocking is not configurable
+for a specific player or specific content. </p>
+<h3>Types of Restrictions</h3>
 
+<p>The default for geo-blocking is OFF.</p>
+<p>To <span style="font-weight: bold;">allow </span>only a certain list
+of regions, set Geo-Blocking to "Allowed List" and add regions to your
+allowed list. Requests from the allowed regions will be returned
+content. <br>
+</p>
+<p>To <strong>block</strong> only a certain list
+of regions, set Geo-Blocking to "Blocked List" and add regions to your
+blocked list. Requests from blocked regions will be returned at
+403 response and will not be able to view your content.</p>
+<p>Note: at this time you may configure <strong>either</strong> an allowed list or a blocked list. These options are mutually exclusive.</p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<h2>Geo-Blocking In the API</h2>
 
+<p>Using the Platform API, developers can set a list of either allowed or restricted countries. When content or players are requested from countries that do not meet the geo-blocking criteria, that content will not be served and content.jwplatform.com will return a 403 response.</p>
 
+<h3>Getting Started With the API</h3>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
+<p>At this time, setting protection rules is only available via the API. This functionality will be added to the account portal website in the near future. If you are unfamiliar&nbsp;with how to use the API kits, please see the <a href="http://support.jwplayer.com/customer/portal/articles/1489902-jw-platform-api-reference">Platform API Reference</a> support document.<br />
+&nbsp;</p>
 
-<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
-
-<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1413074-javascript-api-quick-start/edit?select_filter=564475">
-</head>
-
-<body>
-<p>JW Platform hosted content now supports geo-blocking by country. Using the Platform API, developers can set a list of either allowed or restricted countries. When content or players are requested from countries that do not meet the geo-blocking criteria, that content will not be served and content.jwplatform.com will return a 403 response.</p>
-
-<div class="article_callout">This document applies to users of <strong>JW Platform&nbsp;</strong>with an Enterprise or Ads edition player license. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
-
-<h2>Getting Started With the API</h2>
-
-<p>At this time, setting protection rules is only available via the API. This functionality will be added to the account portal website in the near future. If you are unfamiliar&nbsp;with how to use the API kits, please see the <a href="http://support.jwplayer.com/customer/portal/articles/1489902-jw-platform-api-reference">Platform API Reference</a> support document.</p>
-
-<h2>URL Scheme</h2>
+<h3>URL Scheme</h3>
 
 <p>Geo-blocking is done by creating or updating your account&#39;s rules at&nbsp;<a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/protectionrules/index.html">/accounts/protectionrules</a>&nbsp;<span style="line-height: 1.6;">The parameters of interest are:</span></p>
 <br />
@@ -59,12 +73,13 @@ So, the whole thing needs to be de-techified, and the developer-focused pieces (
 <ul>
 	<li>example: &#39;CA,US,MX&#39; includes North American countries.</li>
 </ul>
+&nbsp;
 
-<h2>Creating or updating your geo-blocking rules</h2>
+<h3>Creating or updating your geo-blocking rules</h3>
 Here is an example python script that works with the python API kit to update an account&#39;s protection rules to only allow users from Canada, the United States and Mexico. Note that at this time an account is only allowed to have, at most, one protection rule set. Once created, the rule needs to be referenced by protectionrule_key for updating
 
 <pre>
-​import pprint
+?import pprint
 import time
 
 from botr.api import API
@@ -99,5 +114,3 @@ else: # if a protectionrule does exist, update it
 pp.pprint(&quot;listing protectionrules again after create or update&quot;)
 list_response = api.call(&#39;/accounts/protectionrules/list&#39;)
 pp.pprint(list_response)</pre>
-</body>
-</html>

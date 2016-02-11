@@ -3,81 +3,75 @@
 Updated version of article formerly called "DNS Masking the JW Platform" at http://support.jwplayer.com/customer/en/portal/articles/1433702-dns-masking-the-jw-platform
 
 FOR REVIEW BY: Allison 
-(and then Greg, who can add any additional clarification needed from the Media Services point of view). 
 
 TITLE: "DNS Masking" 
 
 KEYWORDS: DNS Masking, content protection, jw platform, jwAdvancedSetup, 
 
 NOTES: Mainly needs to be re-considered from the point of view of a publisher user: 
-— What is DNS Masking? 
-— How does JW Player handle it? 
-— How do users use it in the dashboard?
-— What are the rules and implications of using it? 
+- What is DNS Masking? 
+- How does JW Player handle it? 
+- How do users use it in the dashboard?
+- What are the rules and implications of using it? 
 
-So, the whole thing needs to be de-techified, and the developer-focused pieces (API stuff etc.) need  to be moved to the developer portal. 
+Developer-focused pieces (API stuff etc.) need  to be moved to the developer portal. 
 
-
+<title>DNS Masking with JW Player</title>
 
 -->
 
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-
-<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
-
-<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1413074-javascript-api-quick-start/edit?select_filter=564475">
-</head>
-
-<body>
 <p>This article explains what DNS masking is and how to DNS mask the JW Platform content servers (<em>content.jwplatform.com</em>)</p>
 
-<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
 
 <h2>What is DNS masking?</h2>
 
-<p>With DNS masking you can make it look like the JW Platform embed codes are part of your domain instead of hosted on a third party service. People looking in your HTML code will see e.g. <em>cdn.example.com</em> instead of <em>content.jwplatform.com</em>.</p>
+<p>With DNS masking you can make it look like the JW Platform embed
+codes are part of your domain instead of hosted on a third party
+service. People looking in your HTML code will see e.g. <em>cdn.example.com</em> instead of <em>content.jwplatform.com</em>.</p>
 
-<p>It also means that, if you have enabled the sharing plugin, the shared embed codes will contain your own domain name. This looks more professional towards your customers.</p>
+<p>It also means that, if you have enabled the sharing plugin, the
+shared embed codes will contain your own domain name. This looks more
+professional towards your customers.</p>
 
-<p><img alt="DNS Masked embed code" src="/customer/portal/attachments/239120" /></p>
+<p><img alt="DNS Masked embed code" src="/customer/portal/attachments/239120"></p>
 
-<p>Player embeds (script, iframe, embed), preview thumbnails, RSS feeds and video downloads all benefit from DNS Masking.</p>
+<p>Player embeds (script, iframe, embed), preview thumbnails, RSS feeds
+and video downloads all benefit from DNS Masking.&nbsp; NOTE: If you're
+using HTTPS, DNS masking will not work for you becausewe cannot host your SSL certificate.&nbsp;  <br>
+</p>
 
-<h2>1: Setup a DNS Mask</h2>
+<h2>1: Setup a DNS Mask with your Domain Provider<br>
+</h2>
 
 <p>Technically, DNS masking is accomplished by setting up a <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME record</a>. <strong>You have to do this yourself</strong> with the company that manages your domain name. We cannot do this for you.</p>
 
 <ul>
 	<li>Note you do not have to use a subdomain called <em>content</em>. You can use any string (e.g. <em>video</em> or <em>cdn</em>).</li>
 	<li>Also note the record type should be <strong>CNAME</strong>.</li>
-	<li>Last, the <em>dot</em> after content.jwplatform.com. is <strong>required</strong>. Don&#39;t forget it!</li>
+	<li>Last, the <em>dot</em> after content.jwplatform.com. is <strong>required</strong>. Don't forget it!</li>
 </ul>
 
-<p>It can take up to a couple of hours for the new CNAME record to propagate. Once it has completed you should see your data load if you replace our domain name with yours. <a href="http://content.jwplatform.com/thumbs/nPripu9l-120.jpg">Here&#39;s a simple example image to test</a>.</p>
+<p>It can take up to a couple of hours for the new CNAME record to
+propagate. Once it has completed you should see your data load if you
+replace our domain name with yours. <a href="http://content.jwplatform.com/thumbs/nPripu9l-120.jpg">Here's a simple example image to test</a>.</p>
 
 <p>&nbsp;</p>
 
-<h2>2: Register a DNS Mask</h2>
+<h2>2: Add the CNAME in your Dashboard<br>
+</h2>
 
-<p>Once the DNS mask is active, you should submit it to our dashboard, so we can start using the mask for your account. The DNS Mask option can be found in the <strong>Account</strong> section of the dashboard:</p>
+<p>Once the DNS mask is active, you should add the CNAME to your
+dashboard, under the Account &gt; Properties settings section, so we
+can start using the mask for your account.&nbsp;</p>
 
-<p><img alt="DNS Mask Account Property" src="/customer/portal/attachments/239119" /></p>
+<p><img alt="DNS Mask Account Property" src="/customer/portal/attachments/239119"></p>
 
 <p>With the DNS mask registered with us:</p>
 
 <ul>
-	<li>The embed codes in all publish dialogs in the dashboard (players, downloads, feeds) will then use your domain.</li>
+	<li>The embed codes and source URLs in the dashboard (players, downloads, playlists) will then use your domain.</li>
 	<li>The embed codes in the <em>sharing</em> dialog in your players will then use your domain.</li>
 </ul>
 
-<p>After having entered the DNS mask in the Dashboard, you&#39;re all set!</p>
-</body>
-</html>
+<p>After having entered the DNS mask in the Dashboard, you're all set!</p>
+
