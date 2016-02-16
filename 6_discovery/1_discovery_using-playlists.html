@@ -1,5 +1,5 @@
 <!-- 
-FOR REVIEW BY: Andrew (Allison?)
+FOR REVIEW BY: Andrew (Allison? Franklin?)
 
 TITLE: "Using Playlists"
 
@@ -7,22 +7,15 @@ KEYWORDS: playlists, playlist, visual playlist, embedding playlists, embed playl
 
 
 NOTES: 
-When finished, this article should REPLACE the older "RSS Playlist Embed" article at this URL:
-http://support.jwplayer.com/customer/portal/articles/1406722 (content from that older article should be moved to "Basic Embed" with a new RSS feed section). 
-
-Re-write to take out mentions of JW Platform; update screenshots for Unified. (Shannon can help with this).
-
-NOTE: There is a Dashboard/Code tab code block (split between Dashboard and Code instructions) that needs to be implemented here. Ask Shannon for help when you get to this. 
-
+To replace whichever of the below URLs had the most traffic.
 
 -- CONTENT REPLACEMENT NOTE -- 
 
-The below is a combination of three previous articles, "Creating Playlists (Platform)" and "Using Playlists (Embedding)", and "Using the Visual Playlist (Customization). Currently each article is separate and they are separated by HRs.  
+The below is a combination of three previous articles, "Creating Playlists (Platform)" and "Using Playlists (Embedding)", and "Using the Visual Playlist (Customization). 
 
 Old "Using Playlists" URL: http://support.jwplayer.com/customer/portal/articles/1908212-using-embedded-playlists
 
 Old "Creating Playlists" URL: http://support.jwplayer.com/customer/en/portal/articles/1481963-creating-playlists
-— This section should be re-written to take out mentions of JW Platform; update screenshots for Unified. (Shannon can help with this).
 
 Old "Using the Visual Playlist" URL: http://support.jwplayer.com/customer/en/portal/articles/1428529-using-the-visual-playlist
 
@@ -33,10 +26,9 @@ Old "Using the Visual Playlist" URL: http://support.jwplayer.com/customer/en/por
 <p>For more information about the types of content can be used in a JW Player embed, read about <a href="https://support.jwplayer.com/customer/portal/articles/1403635">supported formats</a> and <a href="https://support.jwplayer.com/customer/portal/articles/1406723">basic embedding</a>. </p>
 
 <h2>About Playlists</h2>
-<p>Playlists are content that gets played in a JW Player&mdash;just like a video, but with more flexibility. Most often, playlists consist of multiple pieces of content linked together by a Playlist object either created in the Dashboard, coded by hand in a player setup block, or within an RSS feed, JSON feed, or XML file.</p>
+<p>Playlists are lists of one or more pieces of content that can be played, in order, in a JW Player. Playlist objects can either be created <a href="#dash">in the dashboard</a>, coded <a href="#code">by hand</a> in a player setup block, or referenced <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">externally</a> via an RSS feed, XML file, or JSON feed.</p>
 
-<p>When using a Playlist of any kind, JW Player 7 will automatically include a visual playlist button on the player's control bar. Mousing over (or touching) this button will display the Playlist items in a scrollable overlay (the "Visual Playlist"). This Visual Playlist allows a user to quickly jump between particular playlist items. Visual Playlists are now rendered entirely on top of the player, without the need for additional space next to or below the player.</p>
-<p>The Visual Playlist is enabled automatically, but it can also be hidden <a href="http://developer.jwplayer.com/jw-player/css-skinning-reference.html" target="_blank">with CSS</a>.</p>
+<p>When using a Playlist, JW Player 7 automatically includes a visual playlist button on the player's control bar. Mousing over (or touching) this button will display the Playlist items in a scrollable overlay (the "Visual Playlist"). This allows a user to quickly jump between various playlist items. Visual Playlists are rendered entirely on top of the player, without the need for additional space next to (or below) the player.</p>
 
 <h3>Visual Playlist Example</h3>
 
@@ -69,41 +61,45 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 
 <p>&nbsp;</p>
 
+<p>The Visual Playlist is enabled automatically, but it can also be hidden. For more about hiding the Visual Playlist controls, skip to the corresponding Dashboard or Code sections below. </p>
+<p>For more information about customizing the Visual Playlist, check out our <a href="http://developer.jwplayer.com/jw-player/css-skinning-reference.html" target="_blank">CSS Skinning Reference</a>.</p>
 
-
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <hr>
 <p>&nbsp;</p>
+<a name="dash">
 <h2>DASHBOARD</h2>
-
-<p>In the JW Player dashboard, playlist creation &amp; management happens in the <em>Playlists</em> section:</p>
-
-<!-- NEEDS NEW UNIFIED IMAGE -->
-<p><img alt="playlists section overview page" src="/customer/portal/attachments/257236" /></p>
-
-<a name="Creating a Playlist in the Dashboard">
-<h2>Creating a Playlist</h2>
 </a>
 
-<p>There are two types of playlists. They each behave differently, so make sure you understand the differences between them:
+<p>In the JW Player dashboard, playlist creation &amp; management happens in the <em>Playlists</em> <a href="https://dashboard.jwplayer.com/#/content/playlists" target="_blank">section</a>:</p>
+
+<p><img src="/images/playlist-management-list.png" alt="playlists section overview page" /></p>
+
+
+</a>
+<a name="Manual-vs-Dynamic">
+<h2>Manual vs. Dynamic Playlists</h2>
+</a>
+<p>There are two types of playlists that can be created in the dashboard. They each behave differently, and the differences between them are important. 
 <ul>
-	<li><strong>Manual</strong> playlists are populated by hand. You literally drag &amp; drop videos into the playlist, just like you would with a tool like iTunes. Manual playlists don&#39;t change after they're created unless you change them, and they do not automatically get updated.</li>
-	<li><strong>Dynamic</strong> playlists are automatically populated based upon rules. For example, you can create a playlist that follows: <em>Include all videos that are tagged with <strong>Cat</strong></em>. If you tag another video with <strong>Cat</strong>, it would automatically be added to this playlist.</li>
+	<li><strong>Manual</strong> playlists are populated by dragging &amp; dropping videos into the playlist. Manual playlists don&#39;t change after they're created unless you change them, and they do not automatically get updated.</li>
+	<li><strong>Dynamic</strong> playlists are automatically populated based upon rules. For example, you can create a playlist that follows this rules: <em>Include all videos that are tagged with <strong>Cat</strong></em>. If you tag another video with <strong>Cat</strong>, it would automatically be added to this playlist.</li>
 </ul>
 </p>
+<a name="Creating-Playlist-Dashboard">
+<h2>Creating a Playlist</h2>
+<p>Click the blue <em>New Playlist</em> button to create a new playlist. The dropdown arrow on the right side of this button will allow you to select between the two types of playlists. </p>
 
-<p>Hit the blue <em>New Playlist</em> button to create a new playlist. The dropdown arrow on the right side of this button will allow you to select between the two types of playlists. </p>
 
 
 
-
-<p>Note: make sure you have a couple of videos in your account already, otherwise there&#39;s no content to put inside your playlist.</p>
+<p>Note: make sure you have a couple of videos in your account already, otherwise there will be no content to put inside your playlist.</p>
 
 <h2>Managing Playlists</h2>
 
 <p>Once a playlist is created, you can view the detail page of that playlist. Here is a screenshot of the detail page for a <em>dynamic</em> playlist (the <em>manual</em> playlist detail page has a similar layout):</p>
-<!-- NEEDS UNIIFIED IMAGE --> 
-<p><img alt="playlists properties page" src="/customer/portal/attachments/257237" /></p>
+ <p><img alt="dynamic playlist detail page" src="/images/playlist-detail-dynamic.png" /></p>
 
 <p>On this page, you can manage all aspects of a playlist, including:</p>
 
@@ -119,48 +115,28 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 </a>
 
 <p>There are two ways to publish playlists from the dashboard. The simplest one is by publishing it in an existing JW Player from your account. Do this by hitting the <em>Embed</em> button in the left sidebar of the Playlist detail page. This will expand Publish Mode:</p>
-<!-- NEEDS UNIIFIED IMAGE --> 
-<p><img alt="playlists publishing overlay" src="/customer/portal/attachments/257238" /></p>
+
+<p><img alt="playlist in publish mode" src="/images/playlist-publish-mode.png" /></p>
 
 <p>Here, you'll see the last player used to publish a video. If you'd like, select a different player you want to use. (Note: this is the same publishing flow outlined in our <a href="https://support.jwplayer.com/customer/portal/articles/1406723">Basic Embedding</a> article). Preview your playlist in the selected player before embedding by clicking the "preview" button.</p>
 
 
-<a name="rss"></a>
-<a name="json"></a>
+
 <h3>Feeds</h3>
-<p>The other way to publish your playlist is through a Feed. Feeds are valuable for syndication of your video content to partners for use or publication elsewhere. Feeds contain all the metadata and media links needed to play your videos.</p>
+<p>The other way to publish or your playlist is through a Feed. Feeds are valuable for syndication of your video content to partners for use or publication elsewhere. Feeds contain all the metadata and media links needed to play your videos.</p>
 <p>Both RSS and JSON feed URLs can be found in the "sources" tab of a playlist detail page.</p>
-<img src="" alt="The Sources Tab of a Playlist Detail Page"/>
+<img src="/images/playlist-detail-sources-tab.png" alt="Playlist Detail Sources Tab"/>
 
-<!-- NEEDS IMAGE! Unified Playlist Detail -->
-
-<h4>RSS Feed</h4>
-
-<p>RSS Feeds are useful for syndicating your content to podcasting services like iTunes. Our feeds are standard RSS and compliant with many such services. Learn more about RSS <a href="https://en.wikipedia.org/wiki/RSS" target="_blank">here</a>. </p>
-
-<h4>JSON Feed</h4>
-
-<p>Compared to RSS feeds, JSON feeds allow for the inclusion of information related to:</p>
-
-<ul>
-	<li>Available Transcodes</li>
-	<li>Transcode labels</li>
-	<li>Media dimensions</li>
-	<li>Video type</li>
-	<li>Content Duration</li>
-	<li>Passthrough files</li>
-	<li>Available Caption/Thumbnail Tracks</li>
-</ul>
-
-<p>With the above information, the JW Player dashboard&#39;s JSON feeds can be used to verify the completion/quantity of transcodes, as well as to populate meta information for social media sites like Facebook or Twitter. Previously, this information was only accessible via the JW Platform API, but it can now be pinged on a production site, which does not apply to JW Platform&#39;s 10 API calls/minute limit.</p>
-
+<p>For more about RSS and JSON Feeds, and how to embed them, read our article on <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">external feeds</a>.  
 
 <p>&nbsp;</p>
 <hr>
 <p>&nbsp;</p>
-
+<a name="code">
 <h2>CODE</h2>
-<p>Above, we included an example of what happens when an RSS feed is used as playlist content in an embed. It's also possible to use single items of content and configure a playlist with them, directly inside a JW Player embed.</p>
+</a>
+<p>Above, we included an example of what happens when an RSS feed is used as playlist content in an embed. (For more about embedding external feeds, read our <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">article on the topic</a>).</p>  
+<p>It's also possible to use single items of content and configure a playlist with them, directly inside a JW Player embed.</p>
 <a name="Building a Playlist in the Embed Block">
 <h2>Building a Playlist Directly in the Embed Block</h2>
 </a>
@@ -336,42 +312,11 @@ playlist: [{
 
 </pre>
 
-<!-- Already Used 
-
-<p>This article explains how to easily display the contents of your playlist with JW Player 7&#39;s integrated visual playlist feature.</p>
-
-<h2>Introduction</h2>
-
-<p>When using a playlist in any format(setup, xml, RSS) JW Player 7 will automatically include a visual playlist button on its control bar. Mousing over (or touching) this button will display a visual playlist, allowing a user to quickly jump between particular playlist items. Visual playlists are now rendered entirely over the player, without the need for additional vertical or horizontal space.</p>
-
-<p>The visual playlist can be turned off by setting <strong>visualplaylist</strong> to false within the configuration setup. This is true by default.</p>
-
-<h2>Example</h2>
-
-<p>The below is an example of the player&#39;s default handling of a visual playlist. The only thing specified in this case is an RSS playlist. The player will then populate the visual playlist automatically with the specified titles of each item.</p>
-
-<div id="container">&nbsp;</div>
-<script>
-var playerInstance = jwplayer("container");
-playerInstance.setup({
-  playlist: "//content.jwplatform.com/feeds/13ShtP5m.rss",
-  width: "70%",
-  aspectratio: "16:9"
-});
-</script>
-
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<a name="rss"></a>
+<a name="json"></a>
 <p>&nbsp;</p>
 
-<h2>Embed code</h2>
 
-<pre>
-&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
-var playerInstance = jwplayer(&quot;myElement&quot;);
-    playerInstance.setup({
-      playlist: &quot;/uploads/myPlaylist.rss&quot;
-    });
-&lt;/script&gt;
-</pre>
---> 
