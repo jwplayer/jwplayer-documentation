@@ -1,4 +1,6 @@
 <!-- 
+IMAGES ON AWS, IMAGE URLS UPDATED 
+
 FOR REVIEW BY: Andrew (Allison? Franklin?)
 
 TITLE: "Using Playlists"
@@ -61,7 +63,7 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 
 <p>&nbsp;</p>
 
-<p>The Visual Playlist is enabled automatically, but it can also be hidden. For more about hiding the Visual Playlist controls, skip to the corresponding Dashboard or Code sections below. </p>
+<p>The Visual Playlist is enabled automatically, but it can also be hidden. For more about hiding the Visual Playlist controls, skip to the corresponding <a href="#hide-in-dash">Dashboard</a> or <a href="#hide-in-code">Code</a> sections below. </p>
 <p>For more information about customizing the Visual Playlist, check out our <a href="http://developer.jwplayer.com/jw-player/css-skinning-reference.html" target="_blank">CSS Skinning Reference</a>.</p>
 
 <p>&nbsp;</p>
@@ -74,7 +76,7 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 
 <p>In the JW Player dashboard, playlist creation &amp; management happens in the <em>Playlists</em> <a href="https://dashboard.jwplayer.com/#/content/playlists" target="_blank">section</a>:</p>
 
-<p><img src="://images/playlist-management-list.png" alt="playlists section overview page" /></p>
+<p><img src="//support-static.jwplayer.com/images/discovery/playlist-management-list.png" alt="playlists section overview page" /></p>
 
 
 </a>
@@ -99,7 +101,7 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 <h2>Managing Playlists</h2>
 
 <p>Once a playlist is created, you can view the detail page of that playlist. Here is a screenshot of the detail page for a <em>dynamic</em> playlist (the <em>manual</em> playlist detail page has a similar layout):</p>
- <p><img alt="dynamic playlist detail page" src="://images/playlist-detail-dynamic.png" /></p>
+ <p><img alt="dynamic playlist detail page" src="//support-static.jwplayer.com/images/discovery/playlist-detail-dynamic.png" /></p>
 
 <p>On this page, you can manage all aspects of a playlist, including:</p>
 
@@ -116,19 +118,19 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
 
 <p>There are two ways to publish playlists from the dashboard. The simplest one is by publishing it in an existing JW Player from your account. Do this by hitting the <em>Embed</em> button in the left sidebar of the Playlist detail page. This will expand Publish Mode:</p>
 
-<p><img alt="playlist in publish mode" src="://images/playlist-publish-mode.png" /></p>
+<p><img alt="playlist in publish mode" src="//support-static.jwplayer.com/images/discovery/playlist-publish-mode.png" /></p>
 
 <p>Here, you'll see the last player used to publish a video. If you'd like, select a different player you want to use. (Note: this is the same publishing flow outlined in our <a href="https://support.jwplayer.com/customer/portal/articles/1406723">Basic Embedding</a> article). Preview your playlist in the selected player before embedding by clicking the "preview" button.</p>
-
+<a name="hide-in-dash">
 <h2>Show or Hide the Visual Playlist</h2>
 <p><p>While the Visual Playlist is enabled by default, it can also be hidden. When you're setting up your player in the Player Builder page of the dashboard, you'll want to make sure the "Show visual playlist tools" button is un-checked. Click "Save", and you'll see your changes reflected if the player is already embedded.</p>
  </p>
-<p><img src="://images/playlist-settings-player-builder.png" alt="Hide or Show Visual Playlist in the Player Builder"/></p>
+<p><img src="//support-static.jwplayer.com/images/discovery/playlist-settings-player-builder.png" alt="Hide or Show Visual Playlist in the Player Builder"/></p>
 <p>&nbsp; </p>
 <h3>Feeds</h3>
 <p>The other way to publish or your playlist is through a Feed. Feeds are valuable for syndication of your video content to partners for use or publication elsewhere. Feeds contain all the metadata and media links needed to play your videos.</p>
 <p>Both RSS and JSON feed URLs can be found in the "sources" tab of a playlist detail page.</p>
-<img src="://images/playlist-detail-sources-tab.png" alt="Playlist Detail Sources Tab"/>
+<img src="//support-static.jwplayer.com/images/discovery/playlist-detail-sources-tab.png" alt="Playlist Detail Sources Tab"/>
 
 <p>For more about RSS and JSON Feeds, and how to embed them, read our article on <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">external feeds</a>.  
 
@@ -316,10 +318,13 @@ playlist: [{
 </pre>
 
 <p>&nbsp;</p>
+<a name="hide-in-code">
+<h2>Hide the Playlist in the Embed Block</h2>
+<p>
+The visual playlist can be turned off by setting visualplaylist to false within the configuration setup. (This is true by default).
+</p>
+<p>
+&nbsp;
+</p>
 <hr>
 <p>&nbsp;</p>
-<a name="rss"></a>
-<a name="json"></a>
-<p>&nbsp;</p>
-
-
