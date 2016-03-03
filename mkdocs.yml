@@ -1,12 +1,12 @@
 site_name: JW Player Skinning
 theme: readthedocs
-site_favicon: http://www.jwplayer.com/wp-content/themes/jwplayer-20/assets/images/favicon.ico
-markdown_extensions:
-- markdown.extensions.toc:
-title: "THIS IS A CUSTOM TOC"
+site_favicon: favicon.ico
 pages:
-- Home: index.md
+- Introduction: index.md
 - Creating Skins: skins_creating.md
 - Custom Icons and Fonts: skins_fonts.md
 - CSS Reference List: skins_ref.md
+- DOM Structure Visual Reference: dom-structure.md
 - Example CSS File: skins_example.md
+- Design Resources: designer-kit.md
+
