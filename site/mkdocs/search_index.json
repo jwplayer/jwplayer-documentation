@@ -2,13 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "JW Player Skin Basics", 
+            "text": "Getting Started with JW Player", 
             "title": "Introduction"
         }, 
         {
-            "location": "/#jw-player-skin-basics", 
+            "location": "/#getting-started-with-jw-player", 
             "text": "", 
-            "title": "JW Player Skin Basics"
+            "title": "Getting Started with JW Player"
         }, 
         {
             "location": "/customization/skins_creating/", 
