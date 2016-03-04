@@ -10,51 +10,43 @@
     
 
     
+        
     <url>
-     <loc>None/skins_creating/</loc>
+     <loc>None/customization/skins_creating/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>None/skins_fonts/</loc>
+     <loc>None/customization/skins_fonts/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>None/skins_ref/</loc>
+     <loc>None/customization/skins_ref/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>None/dom-structure/</loc>
+     <loc>None/customization/dom-structure/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>None/skins_example/</loc>
+     <loc>None/customization/skins_example/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>None/designer-kit/</loc>
+     <loc>None/customization/designer-kit/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     
 
 </urlset>

@@ -1,2 +1,1 @@
-#JW Player Skin Basics
-
+#Getting Started with JW Player
