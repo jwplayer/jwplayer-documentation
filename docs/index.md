@@ -8,7 +8,7 @@ Our goal is to provide you with documentation on more advanced uses of JW Player
 This site specifically caters to developers and designers who are using JW Player in their projects. For standard configuration settings or assistance embedding a player, please see our [support site](https://support.jwplayer.com). If you are visiting the developer site, a basic level of Javascript is required to use our API and a knowledge of CSS is necessary in order to customize our skinning model.
 
 ##Structure
-Our Developer Guide is split into two sections: Javascript API and Visual Customization.  Within each section you will find guides to get started, documentation, code samples, links to demos, and additional resources.
+Our Developer Guide is split into two sections: Javascript API (Coming Soon) and Visual Customization.  Within each section you will find guides to get started, documentation, code samples, links to demos, and additional resources.
 
 ##Contact
 If you’re unable to find the resources you need on our developer site: 
