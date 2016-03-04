@@ -1,4 +1,8 @@
-#Creating your Style
+# Introduction
+
+Customizing JW Player is made easier with JW Player 7's updated CSS-based skinnng model. Gone are the days of JW6's XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding [our own complimentary skins](http://www.jwplayer.com/products/jwplayer/skins/), please see [Using JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins). For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.
+
+## Creating your Style
 
 First you will need to give your custom skin a name, which will be used to enable it within a player. The given name will be added into the jwplayer element and can be used to overwrite styles. The actual skin name should be appeneded to the **.jw-skin-** prefix. Our below example is altering our display icon container, and is going to be called **myskin**:
 
@@ -21,7 +25,8 @@ There are currently **two** options to implement the above CSS modifications wit
 Directly embedding your CSS allows for your styles to load at the same time as your page. If we've placed the above CSS into a file (Which we'll call **myskinfile.css**), we can reference our .css file by placing the following in our HTML page's head:
 
 <pre>
-&lt;link rel="stylesheet" type="text/css" href="//yoursite.com/yourstyles/myskinfile.css>&lt;/link>
+&lt;link rel="stylesheet" type="text/css" href="//yoursite.com/yourstyles/
+myskinfile.css>&lt;/link>
 </pre>
 
 Once the above is loaded, your player configuration will still need to reference the style appended to **.jw-skin-** within the **skin.name** configuration. In this case, we've called this **myskin**
@@ -59,4 +64,4 @@ For advanced skin customization, we suggest editing a premade skin and then rebu
 lessc jwplayer.less > output.css
 </pre>
 
-For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our [CSS Skin Reference](http://support.jwplayer.com/customer/portal/articles/2067702-skin-css).
+For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our [CSS Skin Reference](/skins_ref.md).
