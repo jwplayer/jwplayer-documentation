@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Custom Icons and Fonts - JW Player Developer Guide</title>
+  
+
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Custom Icons and Fonts";
+    var mkdocs_page_input_path = "customization/skins_fonts.md";
+    var mkdocs_page_url = "/customization/skins_fonts/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> JW Player Developer Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_creating/">Creating Skins</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Custom Icons and Fonts</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#creating-the-font">Creating the Font</a></li>
+                
+                    <li><a class="toctree-l4" href="#editing-icons">Editing Icons</a></li>
+                
+                    <li><a class="toctree-l4" href="#exporting-the-font">Exporting the Font</a></li>
+                
+                    <li><a class="toctree-l4" href="#applying-the-font">Applying the Font</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_ref/">CSS Reference List</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dom-structure/">DOM Structure Visual Reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_example/">Example CSS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../designer-kit/">Design Resources</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">JW Player Developer Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Customization &raquo;</li>
+        
+      
+    
+    <li>Custom Icons and Fonts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <script src='//content.jwplatform.com/libraries/XeGdlzmk.js'></script>
+
+<p>In order to make the JW Player scaleable and adaptive to high resolution screens, JW7 no longer utilizes bitmap-based graphics. Instead, our skinning model relies on custom vector-based fonts and CSS. This ensures that all player elements will be at their sharpest when zoomed or scaled at higher resolutions. The article below explains how to make a custom icon set based on <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG files</a> and fonts.</p>
+<h1 id="creating-the-font">Creating the Font</h1>
+<p>In order to get our icon fonts to work in all our target browsers, we need an icon font. All necessary font formats can be generated by using the <a href="https://icomoon.io/app/#/select">IcoMoon Web Font Generator</a> and then applying the resultant fonts into the JW Player via CSS. Below is a step-by-step process of how this is accomplished:</p>
+<p><strong>1 -</strong> Download the IcoMoon project file from our <a href="https://github.com/jwplayer/jwplayer/blob/master/assets/fonts/svg/jw7-icomoon-icon-setup.json">JW Player github project</a>. This JSON file contains our current icons and their related settings.</p>
+<p><strong>2 -</strong> On the IcoMoon web page, import the aforementioned project file using the <strong>Import Icons</strong> button in the top left corner of the page:  </p>
+<p><img alt="" src="https://support-static.jwplayer.com/images/ico-import.png" />  </p>
+<p>Upon importing, the player icons should appear at the top of the page. A successful import should display the following:<br />
+<img alt="" src="https://support-static.jwplayer.com/images/ico-fonts.png" /></p>
+<p>Now that we've imported our icons, it's time to make some modifications.</p>
+<h2 id="editing-icons">Editing Icons</h2>
+<ol>
+<li>Highlight the icon that you wish to modify by clicking on it. A highlighted icon will appear with a gold border.</li>
+<li>Select the Pencil icon at the top of the page to initiate the editing.</li>
+<li>Make any changes to the icon that you wish.</li>
+</ol>
+<p>For this example, I've simply mirrored all of our icons. The results are reflected below:</p>
+<p><img alt="" src="https://support-static.jwplayer.com/images/ico-reverse.png" /></p>
+<h2 id="exporting-the-font">Exporting the Font</h2>
+<p>Once you are happy with your modified/added icons, it's time to export the result:</p>
+<ol>
+<li><strong>Save a copy -</strong> Click the three-lined option menu again and select the "Download JSON" button. This JSON file will act as a backup, allowing you to edit your completed icon set in the future.</li>
+<li>
+<p><strong>Download the Font -</strong> Export the font itself by clicking the <strong>Generate Font</strong> button at the bottom right:<br />
+<img alt="" src="https://support-static.jwplayer.com/images/ico-gen.png" /><br />
+    You'll now see the button change to a <strong>Download</strong> button with a settings gear.<br />
+<img alt="" src="https://support-static.jwplayer.com/images/ico-pref.png" /><br />
+    Click this <strong>Settings</strong> gear. Here you should make sure that <strong>Class Prefix</strong> is set to <strong>jw-icon-</strong>. The font name will be inherrited as the file name.<br />
+<img alt="" src="https://support-static.jwplayer.com/images/ico-prefs.png" /></p>
+<p>Ensuring that the correct values are set here will configure a lot of the CSS classes for you. It's now safe to close the options pane.</p>
+</li>
+<li>
+<p>Click the <strong>Download</strong> link to download a zip file that contains your new font.</p>
+</li>
+</ol>
+<h2 id="applying-the-font">Applying the Font</h2>
+<p>With the fonts created and downloaded, we can now replace existing JW7 icons. The step-by-step process below will explain how:</p>
+<h3 id="step-1-unpack-your-zip">Step 1 - Unpack your zip</h3>
+<p>Unpack your zip to view the included font files. These are conveniently located in the <strong>font</strong> folder.</p>
+<h3 id="step-2-relocate-the-fonts">Step 2 - Relocate the fonts</h3>
+<p>Copy the .eot, .svg, .ttf, and .woff files into a desired font directory. If this is an online directory, ensure that all files are able to be accessed from your domain of choice.</p>
+<h3 id="step-3-load-your-font">Step 3 - Load your font</h3>
+<p>We'll need to load our font via CSS using <strong>@font-face</strong>, as well as provide a <strong>font-family</strong> name. In this case, the <strong>jw-custom-icons.woff</strong> file has been relocated to a <strong>font</strong> subdirectory. I will also be naming this font-family <strong>custom</strong>.</p>
+<pre>
+&lt;style&gt;
+@font-face {
+    font-family: 'custom';
+    src: url('fonts/jw-custom-icons.woff');
+}
+&lt;/style&gt;
+</pre>
+
+<p>Note that this example will be using <strong>only</strong> a .woff file. For more extensive browser compatibility, please see the <a href="https://css-tricks.com/snippets/css/using-font-face/">css-tricks article</a> which details the loading of multiple fonts.</p>
+<h3 id="apply-the-font">Apply the Font</h3>
+<p>Finally, we need to apply the new font to our player. This is accomplished with one line of CSS to apply the <strong>custom</strong> font-family name.</p>
+<pre>.jw-icon{font-family:'custom'};
+</pre>
+
+<p>Note, the font-family is referred to as <strong>custom</strong> due to our naming in step 3.</p>
+<h3 id="the-results">The Results</h3>
+<p>Our inverted icons are now applied to our control bar and we have a backwards, bizarro JW Player! (Or perhaps a WJ Player?)
+<div id='container'></div>
+<style type="text/css">@font-face { font-family: 'custom'; src: url('//support-static.jwplayer.com/fonts/jw-custom-icons.woff'); } .jw-icon{font-family:'custom'};</style><script>var playerInstance = jwplayer("container"); playerInstance.setup({ file: '//content.jwplatform.com/videos/HkauGhRi-640.mp4' });</script></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../skins_ref/" class="btn btn-neutral float-right" title="CSS Reference List">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../skins_creating/" class="btn btn-neutral" title="Creating Skins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../skins_creating/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../skins_ref/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

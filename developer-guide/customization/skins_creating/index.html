@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Creating Skins - JW Player Developer Guide</title>
+  
+
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Creating Skins";
+    var mkdocs_page_input_path = "customization/skins_creating.md";
+    var mkdocs_page_url = "/customization/skins_creating/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> JW Player Developer Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Creating Skins</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-your-style">Creating your Style</a></li>
+                
+                    <li><a class="toctree-l4" href="#implementing-your-css">Implementing your CSS</a></li>
+                
+                    <li><a class="toctree-l4" href="#advanced-skinning">Advanced Skinning</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_fonts/">Custom Icons and Fonts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_ref/">CSS Reference List</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dom-structure/">DOM Structure Visual Reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_example/">Example CSS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../designer-kit/">Design Resources</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">JW Player Developer Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Customization &raquo;</li>
+        
+      
+    
+    <li>Creating Skins</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>Customizing JW Player is made easier with JW Player 7's updated CSS-based skinnng model. Gone are the days of JW6's XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding <a href="http://www.jwplayer.com/products/jwplayer/skins/">our own complimentary skins</a>, please see <a href="http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins">Using JW Player Skins</a>. For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.</p>
+<h2 id="creating-your-style">Creating your Style</h2>
+<p>First you will need to give your custom skin a name, which will be used to enable it within a player. The given name will be added into the jwplayer element and can be used to overwrite styles. The actual skin name should be appeneded to the <strong>.jw-skin-</strong> prefix. Our below example is altering our display icon container, and is going to be called <strong>myskin</strong>:</p>
+<pre>.jwplayer .jw-skin-myskin .jw-display-icon-container {
+    border-style: solid;
+    border-width: medium;
+    border-radius: 50%;
+    padding:1em; 
+}
+</pre>
+
+<p>Loading a custom skin will replace all elements with our basic <strong>core</strong> skin unless they are explicitly styled. Because of this, we suggest using an existing skin as a starting point for your CSS skinning needs.</p>
+<h2 id="implementing-your-css">Implementing your CSS</h2>
+<p>There are currently <strong>two</strong> options to implement the above CSS modifications with JW7. One of these methods is <strong>much</strong> preferred to maintain optimal rendering performance:</p>
+<h3 id="option-1-referencing-the-css-on-the-page-itself-best-practice">Option 1: Referencing the CSS on the page itself (Best Practice)</h3>
+<p>Directly embedding your CSS allows for your styles to load at the same time as your page. If we've placed the above CSS into a file (Which we'll call <strong>myskinfile.css</strong>), we can reference our .css file by placing the following in our HTML page's head:</p>
+<pre>
+&lt;link rel="stylesheet" type="text/css" href="//yoursite.com/yourstyles/
+myskinfile.css>&lt;/link>
+</pre>
+
+<p>Once the above is loaded, your player configuration will still need to reference the style appended to <strong>.jw-skin-</strong> within the <strong>skin.name</strong> configuration. In this case, we've called this <strong>myskin</strong></p>
+<pre>
+var playerInstance = jwplayer('myElement');
+playerInstance.setup({
+    skin : {
+    name:"myskin"
+    }
+});
+</pre>
+
+<h3 id="option-2-configuring-the-css-url-within-skinurl">Option 2: Configuring the CSS URL within <strong>skin.url</strong></h3>
+<p>It is possible to reference your CSS file's <strong>url</strong> within the <strong>skin</strong> block of your JW Player embed. This is less preferred, as it requires the player to load your CSS file during setup. Because of this, the rendering of your player may slow down.</p>
+<pre>
+var playerInstance = jwplayer('myElement');
+playerInstance.setup({
+    skin : {
+    url:"//yoursite.com/yourstyles/myskinfile.css",
+    name:"myskin"
+    }
+});
+</pre>
+
+<p>Due to possibly impacting rendering speed, option 2 should only be used if you do not have access to the HTML on the page where your player will be rendered.</p>
+<h2 id="advanced-skinning">Advanced Skinning</h2>
+<p>For advanced skin customization, we suggest editing a premade skin and then rebuilding it. The first time you do this, you will need to install <a href="http://lesscss.org/">LESS</a>. Afterwards you will be able to build a skin by navigating to jwplayer/src/css and running the command:</p>
+<pre>
+lessc jwplayer.less > output.css
+</pre>
+
+<p>For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our <a href="../skins_ref/">CSS Skin Reference</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../skins_fonts/" class="btn btn-neutral float-right" title="Custom Icons and Fonts">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../skins_fonts/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
