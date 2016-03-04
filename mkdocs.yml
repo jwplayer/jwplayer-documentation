@@ -10,3 +10,4 @@ pages:
     - DOM Structure Visual Reference: customization/dom-structure.md
     - Example CSS File: customization/skins_example.md
     - Design Resources: customization/designer-kit.md
+site_dir: developer-guide
