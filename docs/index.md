@@ -11,7 +11,8 @@ This site specifically caters to developers and designers who are using JW Playe
 Our Developer Guide is split into two sections: Javascript API (Coming Soon) and Visual Customization.  Within each section you will find guides to get started, documentation, code samples, links to demos, and additional resources.
 
 ##Contact
-If you’re unable to find the resources you need on our developer site: 
+If you’re unable to find the resources you need on our developer site:
+
 - We regularly monitor [StackOverflow](https://stackoverflow.com/questions/tagged/jwplayer) for questions.
 - We welcome contributions to our open source Player code on [GitHub](https://github.com/jwplayer/jwplayer).
 - Stay connected on Twitter [@JWDevelopers](https://twitter.com/JWDevelopers).
