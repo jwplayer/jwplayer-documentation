@@ -6,7 +6,7 @@ This PSD includes well organized and labeled layers that correspond to css selec
 
 You may also find our [CSS Skinning Reference](http://developer.jwplayer.com/jw-player/css-skinning-reference.html) documentation useful as you get started designing your new skin.
 
-[Download the JW Player Designer Kit](http://)
+[Download the JW Player Designer Kit](http://developer.jwplayer.com/downloads/kits/jw-player/jw7-designers-kit-v7-3-0.zip)
 
 ***
 
