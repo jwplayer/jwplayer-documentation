@@ -12,41 +12,43 @@
     
         
     <url>
-     <loc>None/customization/skins_creating/</loc>
+     <loc>None/customization/css-skinning/skins_creating/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/customization/skins_fonts/</loc>
+     <loc>None/customization/css-skinning/skins_fonts/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/customization/skins_ref/</loc>
+     <loc>None/customization/css-skinning/skins_reference/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/customization/dom-structure/</loc>
+     <loc>None/customization/css-skinning/dom-structure/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/customization/skins_example/</loc>
+     <loc>None/customization/css-skinning/skins_example/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
     <url>
      <loc>None/customization/designer-kit/</loc>
      <lastmod>2016-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     
 
 </urlset>

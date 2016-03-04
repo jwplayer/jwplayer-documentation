@@ -64,4 +64,4 @@ For advanced skin customization, we suggest editing a premade skin and then rebu
 lessc jwplayer.less > output.css
 </pre>
 
-For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our [CSS Skin Reference](/customization/skins_ref.md).
+For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our [CSS Skin Reference](/customization/css-skinning/skins_reference.md).
