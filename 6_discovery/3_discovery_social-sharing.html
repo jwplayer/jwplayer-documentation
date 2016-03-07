@@ -32,28 +32,28 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
 </ul>
 </p>
 
-<p>Users activate the overlay by clicking the Sharing button which, when the Sharing plugin is enabled, appears at the top right of the player when a video is playing.</p>
+<p>If Sharing is enabled, viewers can activate the overlay by clicking the Sharing button at the top right of the player when a video is playing.</p>
 
 <p>Here is the overlay in action: </p>
 
-<p>[video goes here]</p>
+<p><script src="//content.jwplatform.com/players/BLZfMjbK-zUOz0EEv.js"></script></p>
 
 <p>If the Sharing Overlay is activated while the video is playing, playback is automatically paused. Users can then return to the video by clicking the top right "X", or anywhere else outside the overlay.</p>
 
-<p>When users "share" the video using this overlay, the "link" URL you define (either in the setup block upon embed, or in the content's metadata in the dashboard) is what gets shared.</p>
+<p>When users "share" the video using this overlay, the "link" URL gets shared (this is defined either in the setup block upon embed, or in the content's metadata in the dashboard).</p>
 
 
 <hr>
 
-<h2>Dashboard Setup</h2>
+<h2>DASHBOARD </h2>
 
 <p>Go to your JW Player dashboard's <a href="http://dashboard.jwplayer.com/#/players" target="_blank">Players section</a> and click on the player you would like to edit (or create a new player). In the left-hand accordion menu, you will see a "Sharing" section.</p>
 
-<!-- UNTIL NEW SHARING IS IN THE PLAYER BUILDER --> 
+<!-- UNTIL NEW SHARING IS IN THE PLAYER BUILDER 
 <p>Here, you can turn the Sharing overlay "on" or "off", and set a custom title.</p>
-<!-- END OLD SHARING --> 
+ END OLD SHARING --> 
 
-<!-- FOR WHEN NEW SHARING IS IN THE PLAYER BUILDER
+<!-- FOR WHEN NEW SHARING IS IN THE PLAYER BUILDER --> 
 
 <p>There are several Sharing options you can configure in the dashboard:
 <ol type="A">
@@ -71,26 +71,26 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
   <li>Reddit</li>
   <li>Email</li>
   </ul>
-  It is also possible to set up a custom site or action. To do this, jump to our section on implementing the Sharing Overlay via <a href="code-half">code</a>.
+  It is also possible to set up a custom site or action. To do this, jump to our section on implementing the Sharing Overlay via <a href="#code-half">code</a>.
   </li>
 </ol>
 </p>
 
-END NEW SHARING -->
+<!--END NEW SHARING -->
  
-<p>[screenshot of "sharing" in player builder here]</p>
+<p><img alt="Sharing Options in the Player Builder" src="//support-static.jwplayer.com/images/discovery/social-sharing-player-builder.png" style="max-width:100%;"/></p>
 
 <h2>Facebook &amp; Twitter</h2>
 
 <p>For players embedded with the dashboard's single-line embed, videos shared onto Facebook &amp; Twitter will play right inside the Facebook wall and Twitter feed, minimizing friction and maximizing playback. Here is an example of how your video will look inside the Facebook wall:</p>
 <p><img alt="Facebook wall post with video" src="https://support.jwplayer.com/customer/portal/attachments/257544"></p>
 <p>Technically, playback is enabled through the <em>Facebook OpenGraph</em> and <em>Twitter Cards</em> headers we place inside a video's <a href="http://content.jwplatform.com/players/HkauGhRi.html">iframe embed page</a>. No configuration is needed on your website.</p>
-
+<p>&nbsp;</p>
 
 <hr>
 
-
-<h2>Code Setup</h2>
+<a name="code-half"></a>
+<h2>CODE</h2>
 <p>The sharing functionality is activated by setting up the player using the Sharing configuration block. Inside this block, the following <em>optional</em> parameters can be set:</p>
 <ul>
   <li><strong>link</strong><br>
@@ -156,7 +156,7 @@ END NEW SHARING -->
       link: &quot;http://example.com/page/MEDIAID/&quot;
    }
  });</pre>
-
+<p>Read "<a href="https://support.jwplayer.com/customer/en/portal/articles/2083166">About the Media ID</a>" for more about Media IDs.</p>
 
 
 <h2>Sharing API</h2>
