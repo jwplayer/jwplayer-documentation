@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>None/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/customization/css-skinning/skins_creating/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/customization/css-skinning/skins_fonts/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/customization/css-skinning/skins_reference/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/customization/css-skinning/dom-structure/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/customization/css-skinning/skins_example/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>None/customization/designer-kit/</loc>
+     <lastmod>2016-03-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>

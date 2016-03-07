@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>CSS Reference List - JW Player Developer Guide</title>
+  
+
+  <link rel="shortcut icon" href="../../../favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+  <link href="../../../extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CSS Reference List";
+    var mkdocs_page_input_path = "customization/css-skinning/skins_reference.md";
+    var mkdocs_page_url = "/customization/css-skinning/skins_reference/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> JW Player Developer Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_creating/">Creating Skins</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_fonts/">Custom Icons and Fonts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">CSS Reference List</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#main-div">Main Div</a></li>
+                
+                    <li><a class="toctree-l4" href="#skinning-namespace">Skinning Namespace</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#player-states">Player States</a></li>
+                
+                    <li><a class="toctree-l4" href="#flags">Flags</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#colors">Colors</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#poster-images">Poster Images</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#icons">Icons</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#controls">Controls</a></li>
+                
+                    <li><a class="toctree-l4" href="#display">Display</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#controlbar">Controlbar</a></li>
+                
+                    <li><a class="toctree-l4" href="#left-group">Left Group</a></li>
+                
+                    <li><a class="toctree-l4" href="#center-group">Center Group</a></li>
+                
+                    <li><a class="toctree-l4" href="#right-group">Right Group</a></li>
+                
+                    <li><a class="toctree-l4" href="#dock">Dock</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#menus-and-overlays">Menus and Overlays</a></li>
+                
+                    <li><a class="toctree-l4" href="#icon-tooltips">Icon Tooltips</a></li>
+                
+                    <li><a class="toctree-l4" href="#title-and-preview-image">Title and Preview Image</a></li>
+                
+                    <li><a class="toctree-l4" href="#visual-playlist-overlay">Visual Playlist Overlay</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dom-structure/">DOM Structure Visual Reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../skins_example/">Example CSS File</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../designer-kit/">Design Resources</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">JW Player Developer Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Customization &raquo;</li>
+        
+      
+    
+    <li>CSS Reference List</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>This article acts as a reference for styling all interface components of JW Player 7. A major change between between JW Player 6 and 7 is that the skinning model uses CSS and web fonts. Regardless of rendering mode, all controls are overlaid on top of the player with HTML. When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with <strong>jw-</strong> in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div here on out.</p>
+<p>A <a href="http://www.jwplayer.com/products/jwplayer/skins/">JW Player skin</a> CSS file contains classes that are grouped into functional elements. This reference provides an elaborate overview the classes used. For additional information, check out a reference css file.</p>
+<p><a name="main"></a></p>
+<h1 id="main-div">Main Div</h1>
+<p>The main div will be given a class <strong>jwplayer</strong>. It is strongly advised to <strong>not</strong> add any additional inline styling on this div besides what is included in your skin css file.</p>
+<h2 id="skinning-namespace">Skinning Namespace</h2>
+<p>All skin related styles should be namespaced with a class on the main div, of the form <strong>jw-skin-SKINNAME</strong>. If none are present on initialization we will add <strong>jw-skin-seven</strong>, which uses the seven skin.</p>
+<p><a name="states"></a></p>
+<h1 id="player-states">Player States</h1>
+<p>The state of the player is reflected in the DOM by a class on the main div. It will always contain one of the following:</p>
+<ul>
+<li><strong>jw-state-playing</strong></li>
+<li><strong>jw-state-paused</strong></li>
+<li><strong>jw-state-buffering</strong></li>
+<li><strong>jw-state-idle -</strong> before pressing play</li>
+<li><strong>jw-state-complete -</strong> after playlist completes</li>
+</ul>
+<h2 id="flags">Flags</h2>
+<p>Sometimes the player needs to signify certain modes of the playback. These flags will be present on the main div and can be:</p>
+<ul>
+<li><strong>jw-flag-fullscreen -</strong> when the player is in fullscreen</li>
+<li><strong>jw-flag-live -</strong> when the player is playing back live video</li>
+<li><strong>jw-flag-user-inactive -</strong> added after a few minutes of inactivity</li>
+<li><strong>jw-flag-controlbar-only -</strong> player is less than 30 pixels tall</li>
+<li><strong>jw-flag-media-audio -</strong> content being played is an audio file</li>
+<li><strong>jw-flag-dragging -</strong> mouse down with cursor over control bar</li>
+<li><strong>jw-flag-aspect-mode -</strong> enable a padding to create an aspect ratio</li>
+<li><strong>jw-flag-compact-player -</strong> when the player is rendering in small UI mode</li>
+</ul>
+<p><a name="colors"></a></p>
+<h1 id="colors">Colors</h1>
+<p><strong>.jw-background-color -</strong> This is a class that will add a set of style to all interface elements without having to change it for each individual class. We advise only using jw-background-color for color and not other CSS properties. The player will add this class to the following elements:</p>
+<ul>
+<li><strong>jw-dock-button</strong></li>
+<li><strong>jw-icon-display-container</strong></li>
+<li><strong>jw-controlbar</strong></li>
+<li><strong>jw-menu</strong></li>
+<li><strong>jw-slider-volume</strong></li>
+</ul>
+<p><strong>.jw-button-color -</strong> This is a class that player will add to specific elements when color is overridden from within the player configuration setup. You can also use this to easily change all button colors in your skin. The player will add this class all icons.</p>
+<p><strong>.jw-button-color:hover -</strong> This will adjust the color of all buttons when they are hovered on.</p>
+<p><a name="posters"></a></p>
+<h1 id="poster-images">Poster Images</h1>
+<p>These define how the poster image will be stretched to fill the space given. Internally this state is used to stretch the player using JS.</p>
+<ul>
+<li><strong>jw-stretch-none</strong></li>
+<li><strong>jw-stretch-uniform</strong></li>
+<li><strong>jw-stretch-fill</strong></li>
+<li><strong>jw-stretch-exactfit</strong></li>
+</ul>
+<p><a name="icons"></a></p>
+<h1 id="icons">Icons</h1>
+<p>All JW Player icons are rendered using the font <strong>jw-six-icons.eot</strong>. Each icon has a character code that is mapped to a corresponding interface element.</p>
+<table style="width:50%">
+
+<tbody>
+
+<tr>
+
+<th>Icon</th>
+
+<th>Character Code</th>
+
+</tr>
+
+<tr>
+
+<td>Play</td>
+
+<td>\e60e</td>
+
+</tr>
+
+<tr>
+
+<td>Replay</td>
+
+<td>\e610</td>
+
+</tr>
+
+<tr>
+
+<td>Pause</td>
+
+<td>\e60d</td>
+
+</tr>
+
+<tr>
+
+<td>Previous</td>
+
+<td>\e60f</td>
+
+</tr>
+
+<tr>
+
+<td>Next</td>
+
+<td>\e60c</td>
+
+</tr>
+
+<tr>
+
+<td>Cuepoint</td>
+
+<td>\e606</td>
+
+</tr>
+
+<tr>
+
+<td>Buffering</td>
+
+<td>\e601</td>
+
+</tr>
+
+<tr>
+
+<td>HD Off</td>
+
+<td>\e60a</td>
+
+</tr>
+
+<tr>
+
+<td>HD On</td>
+
+<td>\e609</td>
+
+</tr>
+
+<tr>
+
+<td>CC Off</td>
+
+<td>\e605</td>
+
+</tr>
+
+<tr>
+
+<td>CC On</td>
+
+<td>\e604</td>
+
+</tr>
+
+<tr>
+
+<td>Fullscreen</td>
+
+<td>\e608</td>
+
+</tr>
+
+<tr>
+
+<td>Menu Bullet</td>
+
+<td>\e606</td>
+
+</tr>
+
+<tr>
+
+<td>Audio Tracks</td>
+
+<td>\e600</td>
+
+</tr>
+
+<tr>
+
+<td>Volume On</td>
+
+<td>\e612</td>
+
+</tr>
+
+<tr>
+
+<td>Volume Off</td>
+
+<td>\e611</td>
+
+</tr>
+
+<tr>
+
+<td>More</td>
+
+<td>\e614</td>
+
+</tr>
+
+<tr>
+
+<td>Close</td>
+
+<td>\e615</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>The easiest way to modify the default icons is to create a new font based on these character mappings. See Creating Web Font for more information.</p>
+<p><a name="controls"></a></p>
+<h1 id="controls">Controls</h1>
+<p>All player controls are within the <strong>.jw-controls</strong> class. When JW Player is set to <strong>controls: false</strong>, this entire class has a visibility of hidden. To not include a specific item in your skin, you will need to override the style with a visibility or display of none. The controls section is split into Display, Controlbar, and Dock.</p>
+<ul>
+<li><strong>Display -</strong> The set of icons in the center of the player</li>
+<li><strong>Controlbar -</strong> Home to the controls for the player</li>
+<li><strong>Menus -</strong> These are part of the controlbar but deserve their own section</li>
+<li><strong>Dock -</strong> buttons overlaid on the player for plugins</li>
+<li><strong>Logo -</strong> a brands logo</li>
+<li><strong>Preview -</strong> the poster image</li>
+</ul>
+<h2 id="display">Display</h2>
+<p>The display component contains the main element container for the (re)play, buffer and error icons in the middle of the screen. To add styles to these containers based on states you will need to add the state classes in your stylesheet.</p>
+<dl>
+
+<dt>.jw-display-icon-container</dt>
+
+<dd>Used to style the container in which the display icons are.</dd>
+
+<dt>.jw-icon-display</dt>
+
+<dd>Used to style icons that appear in the display container. The icon that is rendered depends on the state the player is in.</dd>
+
+</dl>
+
+<h1 id="controlbar">Controlbar</h1>
+<p>The controlbar component contains all elements for the video controls at the bottom of the player. It is built using three functional groups within the .jw-controlbar parent class. This diagram presents an overview:</p>
+<p><img alt="" src="//support-static.jwplayer.com/images/controlbar.png" /></p>
+<dl>
+
+<dt>.jw-group</dt>
+
+<dd>Used to vertically align the timeslider and all icons in the center of the controlbar.</dd>
+
+</dl>
+
+<h2 id="left-group">Left Group</h2>
+<p>The left group contains playback controls, the visual playlist, and elapsed time:</p>
+<dl>
+
+<dt>.jw-controlbar-left-group</dt>
+
+<dd>The main container that holds the play/pause elements as well as the previous/next and elapsed duration.</dd>
+
+<dt>.jw-icon-playback</dt>
+
+<dd>The container that holds the play/pause icons. The icon is switched depending on the state the player is in.</dd>
+
+<dt>.jw-icon-prev</dt>
+
+<dd>The control to toggle to the previous playlist item.</dd>
+
+<dt>.jw-icon-next</dt>
+
+<dd>The control to toggle to the next playlist item.</dd>
+
+<dt>.jw-text-elapsed</dt>
+
+<dd>The container for the elapsed video duration.</dd>
+
+<dt>.jw-icon-playlist</dt>
+
+<dd>The container for the visual playlist icon. The player will add the visual playlist overlay automatically when this element is hovered over.</dd>
+
+</dl>
+
+<h2 id="center-group">Center Group</h2>
+<p>The center group contains the elements that make up the timeslider.</p>
+<dl>
+
+<dt>.jw-slider-horizontal .jw-slider-container</dt>
+
+<dd>The containers that hold the timeslider elements.</dd>
+
+<dt>.jw-rail</dt>
+
+<dd>Sets the style for the base layer of the slider.</dd>
+
+<dt>.jw-buffer</dt>
+
+<dd>Sets the style for the how much of video has been buffered, which is layered on top of **.jw-rail**.</dd>
+
+<dt>.jw-progress</dt>
+
+<dd>Sets the style for the elapsed video, which is layered on top of **.jw-buffer**.</dd>
+
+<dt>.jw-knob</dt>
+
+<dd>This marks the tip of the progress rail, used to indicate where playback is currently.</dd>
+
+<dt>.jw-slider-horizontal .jw-cue</dt>
+
+<dd>This class is used for timeslider cuepoints, like chapters and ad breaks.</dd>
+
+</dl>
+
+<h2 id="right-group">Right Group</h2>
+<dl>
+
+<dt>.jw-text-duration</dt>
+
+<dd>Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.</dd>
+
+<dt>.jw-icon-hd</dt>
+
+<dd>This is the class assigned to the div contains the HD icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.</dd>
+
+<dt>.jw-icon-cc</dt>
+
+<dd>This is class assigned to the div contains the closed-caption CC icon. The player will automatically add a menu to the hover state of this div if there are more than 2 caption tracks per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.</dd>
+
+<dt>.jw-icon-audio-tracks</dt>
+
+<dd>This is class assigned to the div contains the multiple audiotracks icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item.</dd>
+
+<dt>.jw-icon-volume</dt>
+
+<dd>This is class assigned to the div contains the volume icon. The player will automatically add a menu to the hover state of this div that contains the slider volume.</dd>
+
+<dt>.jw-icon-volume .jw-off</dt>
+
+<dd>When the player is muted the .jw-off class gets added to toggle the volume off icon.</dd>
+
+<dt>.jw-icon-fullscreen</dt>
+
+<dd>This is class assigned to the div contains the fullscreen icons. The player will add .jw-off class to toggle between fullscreen and exit fullscreen icons.</dd>
+
+<dt>.jw-icon-cast</dt>
+
+<dd>This class is used to display the Chromecast icon.</dd>
+
+</dl>
+
+<h2 id="dock">Dock</h2>
+<dl>
+
+<dt>.jw-controls-right</dt>
+
+<dd>This is the parent container that positions the dock elements. In JW 7 the dock elements are on the upper right corner of the player.</dd>
+
+<dt>.jw-dock</dt>
+
+<dd>This is the container that houses all of the dock buttons.</dd>
+
+<dt>.jw-dock-button</dt>
+
+<dd>This is the class assigned to the div to style the interface button for dock elements.</dd>
+
+<dt>.jw-overlay</dt>
+
+<dd>This is the overlay tooltip that appears on hover of the dock buttons.</dd>
+
+</dl>
+
+<p><a name="menus"></a></p>
+<h1 id="menus-and-overlays">Menus and Overlays</h1>
+<p>JW Player will automatically populate overlay divs on mouseover/touch of certain interface elements. These overlays are for the timeslider tooltip, closed-captions, video qualities, multiple audio-tracks, and the volume slider. There is also a new special menu for the visual playlist.</p>
+<dl>
+
+<dt>.jw-overlay</dt>
+
+<dd>All overlays are wrapped in this class. It is not advised to modify this class but rather the containers within this class. This class when appended to the parent controlbar class will position the overlays.</dd>
+
+</dl>
+
+<h2 id="icon-tooltips">Icon Tooltips</h2>
+<p>Icon tooltips are menus that appear when hovering over an one of the icon interface elements.</p>
+<dl>
+
+<dt>.jw-icon-tooltip</dt>
+
+<dd>This class is added to icons that open menus.</dd>
+
+<dt>.jw-menu</dt>
+
+<dd>This class is added to an unordered list for HD, CC, and audio-tracks menus.</dd>
+
+<dt>.jw-text .jw-option .item-x .jw-active-option</dt>
+
+<dd>This sets the font color and background color for the active item in HD, CC and audio-track menus.</dd>
+
+</dl>
+
+<h2 id="title-and-preview-image">Title and Preview Image</h2>
+<p>The title and description configuration options are displayed in their own classes overlaid on the player.</p>
+<dl>
+
+<dt>.jw-title</dt>
+
+<dd>This is the wrapper class the text overlays.</dd>
+
+<dt>.jw-title-primary</dt>
+
+<dd>This class is populated with content from the title configuration option from the player setup.</dd>
+
+<dt>.jw-title-secondary</dt>
+
+<dd>This class is populated with content from the description configuration option in the player setup per-playlist item.</dd>
+
+<dt>.jw-preview</dt>
+
+<dd>This class styles the preview image from the image configuration option in the player setup per-playlist item.</dd>
+
+</dl>
+
+<h2 id="visual-playlist-overlay">Visual Playlist Overlay</h2>
+<p>The visual playlist is added by the player for all setups that have more than one playlist item. These are the elements used to build a visual playlist.</p>
+<dl>
+
+<dt>.jw-playlist</dt>
+
+<dd>Sets the background color for the entire wrapper of the the visual playlist.</dd>
+
+<dt>.jw-playlist-container</dt>
+
+<dd>This is used to position the entire container over the playlist icon.</dd>
+
+<dt>.jw-playlist-container .jw-option</dt>
+
+<dd>Sets the style for the visual playlist items.</dd>
+
+<dt>.jw-playlist-container .jw-option .jw-active-option</dt>
+
+<dd>Allows you to adjust the color of the playlist item when hovering and has a different active style.</dd>
+
+<dt>.jw-playlist-container .jw-option:hover .jw-label</dt>
+
+<dd>Changes the color of the label when hovering.</dd>
+
+<dt>.jw-icon-playlist</dt>
+
+<dd>Aligns the playlist header icon with the items in the playlist.</dd>
+
+<dt>.jw-label .jw-icon-play</dt>
+
+<dd>Sets the color of the play icon of the currently playing playlist item.</dd>
+
+<dt>.jw-label .jw-icon-play:before</dt>
+
+<dd>Aligns the playlist play icon with the items in the playlist.</dd>
+
+<dt>.jw-tooltip-title</dt>
+
+<dd>Sets the style for the the playlist title div.</dd>
+
+</dl>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dom-structure/" class="btn btn-neutral float-right" title="DOM Structure Visual Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../skins_fonts/" class="btn btn-neutral" title="Custom Icons and Fonts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../skins_fonts/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../dom-structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

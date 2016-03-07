@@ -1,0 +1,14 @@
+site_name: JW Player Developer Guide
+theme: readthedocs
+site_favicon: favicon.ico
+pages:
+  - Home: index.md
+  - Customization:
+    - Creating Skins: customization/css-skinning/skins_creating.md
+    - Custom Icons and Fonts: customization/css-skinning/skins_fonts.md
+    - CSS Reference List: customization/css-skinning/skins_reference.md
+    - DOM Structure Visual Reference: customization/css-skinning/dom-structure.md
+    - Example CSS File: customization/css-skinning/skins_example.md
+  - Design Resources: customization/designer-kit.md
+site_dir: developer-guide
+extra_css: [extra.css]

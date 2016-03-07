@@ -22,9 +22,100 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 </head>
 
 <body>
-<div class="article_callout">This document applies to users of <strong>JW Player Ads</strong>. Don&#39;t have <a href="http://www.jwplayer.com/products/jwplayer-ads/" target="_blank">Ads</a>? &nbsp;<a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+<p>Use the new JW Player interface to create cloud-hosted ad schedules.</p>
+<img alt="Ad Schedule Overview" src="//support-static.jwplayer.com/images/advertising/schedule-overview.png" title="Ad Schedule" width="700px" />
+<p>With JW Player you can schedule an ad to appear anytime during playback. You can use JW Player Ad Scheduling to create a TV-style viewing experience by inserting ads at opportune moments in your long-form content. An intuitive dashboard interface allows you to create and manage ad schedules that can be easily paired with your content and your cloud-hosted players. You can also easily use a schedule to add non-linear ads to overlay on top of the video during playback.</p>
 
-<p>The JW Player supports three mechanisms for scheduling ads throughout the timeline of a video.</p>
+<h2>Creating an Ad Schedule</h2>
+
+<p>To create an ad schedule all you need is a set of tags from your ad partner. You can use the same tag for each ad break.</p>
+
+<ol>
+	<li>Navigate to the Ads page.</li>
+	<li>Create a New Ad Schedule or edit an existing one.</li>
+	<li>Choose an Ad Manager - VAST or Google IMA.
+	<ol style="list-style-type: lower-alpha;">
+		<li>If you are using DFP it is better to select Google IMA.</li>
+	</ol>
+	</li>
+	<li>Enter a friendly name for your schedule.</li>
+	<li>Press <img src="//support-static.jwplayer.com/images/advertising/plus.png" width="20px" /> at your desired ad break
+	<ol style="list-style-type: lower-alpha;">
+		<li>Preroll</li>
+		<li>Midroll</li>
+		<li>Postroll</li>
+	</ol>
+	</li>
+	<li>In the drop down menu underneath Tag Name choose Add New Tag or select an existing tag.
+	<ol style="list-style-type: lower-alpha;">
+		<li>If you add a new tag, it will automatically be saved to your Ad Tag manager and you can choose it for later break or a different schedule</li>
+	</ol>
+	</li>
+	<li>Enter in a friendly name for your tag.
+	<ol style="list-style-type: lower-alpha;">
+		<li>Example: AdX Preroll</li>
+	</ol>
+	</li>
+	<li>Enter in the url to the ad tag.
+	<ol style="list-style-type: lower-alpha;">
+		<li>Use Ad Tag Targeting Macros to get better fill on your ads.</li>
+	</ol>
+	</li>
+	<li>Press Save within the Ad Break</li>
+	<li>Add as many breaks as needed.</li>
+	<li>Make sure to give your schedule a friendly name and Save.
+	<ol style="list-style-type: lower-alpha;">
+		<li><img src="//support-static.jwplayer.com/images/advertising/save-arrow.png" width="400px" /></li>
+	</ol>
+	</li>
+</ol>
+
+<h3>Notes and Tips</h3>
+
+<ul>
+	<li>Apply skip offsets with each ad break to increase engagement.</li>
+	<li>You can create as many ad schedules that you need.</li>
+	<li>Use percentage time offsets for midrolls for a generic schedule.</li>
+	<li>Only midroll ads can be forced to fill with a non-linear overlay.</li>
+</ul>
+
+<h2>Associating a Schedule with a Player</h2>
+
+<p>Now that you have created an ad schedule, you need to associate with a Player. Note that if you do not have any schedules created, the option for JW Player Schedule will not appear.&nbsp;Navigate to the Player section in your Dashboard.</p>
+
+<ol>
+	<li>Click <strong>New Player</strong> or <strong>edit</strong> an existing Player.</li>
+	<li>Set your desired playback settings and other customizations.</li>
+	<li>Open the <strong>Advertising</strong> pane on the left-hand-side.</li>
+	<li>Turn Advertising on.</li>
+	<li>Choose <strong>JW Player Schedule</strong>
+	<ol style="list-style-type: lower-alpha;">
+		<li><img src="//support-static.jwplayer.com/images/advertising/schedule-builder.png" width="300px" /></li>
+	</ol>
+	</li>
+	<li>Select your schedule from the drop down menu.</li>
+	<li>Set the text for the user interface elements that you desire.</li>
+	<li>Save your Player</li>
+	<li>Publish your player with content to begin using the ad schedule.</li>
+</ol>
+
+<h2>Managing your Ad Tags</h2>
+
+<p>All of your ad tags are automatically saved so you can use them later. To manage the tags navigate to the ads section and click on Manage Tags.</p>
+<img src="//support-static.jwplayer.com/images/advertising/manage-tags.png" width="400px" />
+<p>On this page you can do the following actions:</p>
+
+<ol>
+	<li>add new ad tags,</li>
+	<li>edit existing tag names and tag urls,</li>
+	<li>and delete tags.</li>
+</ol>
+
+<p>To add a new ad tag, press Create New Tag. Enter the name and tag url and press Save. To edit an existing tag, hover over the name or tag url and click to edit. Make sure to save changes.</p>
+
+<p>To delete tags, select the tags you want to delete by clicking on the checkbox. Once you have selected at least one tag, you can delete it by pressing the Delete button.</p>
+
+<h1>Using the API and Code</h1>
 
 <ol>
 	<li>JW Player Advertising schedule configuration block.(Google IMA and VAST) Schedules can also also be set on a <a href="#playlist">per-playlist item basis</a> with the <strong>VAST</strong> plugin.</li>
@@ -171,9 +262,9 @@ playerInstance2.setup({
 	title: "Default Ad Schedule"
   }],
   advertising: {
-    admessage: "Your video won't play for xx seconds"
-    client: "vast",
-    schedule: {
+    admessage: "Your video won't play for xx seconds",
+    "client": "vast",
+    "schedule": {
       adbreak1: {
       	offset: "pre",
         tag: "//s3.amazonaws.com/demo.jwplayer.com/player-demos/assets/preroll.xml",
@@ -216,6 +307,4 @@ playerInstance.setup({
 	}
 });
 </pre>
-
-</body>
 </html>

@@ -43,9 +43,68 @@ WHEN FINISHED, this will be located at /customer/en/portal/articles/1431665 (rep
   <li>A working ad tag from an ad server, in either VAST/VPAID or Google IMA format. Again, see <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference" target="_blank">Supported Ad Formats</a> for details.</li>
 </ul>
 
-<h2>Setup</h2>
+<h2>VAST Advertising</h2>
+<p>Using an Ads edition of JW Player unlocks the ability to monetize your content with video ads. JW Player supports ads that are compliant with two of the leading ad frameworks - IAB’s VAST 3.0 and VPAID 2.0 as well as ads that are managed with Google’s Interactive Media Ads SDK.</p>
+<p>To begin monetizing content all that is needed is a valid ad tag from your ad partner and a Player that has advertising turned on. With JW Player’s Dashboard you associate an ad tag to a particular player. This allows you publish the same ad tag with specific player settings alongside any number of videos. You can easily create a side-rail ads player as well as main content ads player.</p>
 
+<h2>Creating an Ads Player</h2>
+<img src="//support-static.jwplayer.com/images/advertising/ads-pane.png" width="300px"/>
+<ol>
+<li>Navigate to the Players section in your Dashboard.</li>
+<li>Click New Player or edit an existing Player.</li>
+<li>Set your desired playback settings and other customizations.</li>
+<li>Open the Advertising pane on the left-hand-side.</li>
+<li>Turn Advertising on.</li>
+
+<li>Choose the type of ad tag that you would like to associate with this player.
+<ol style= "list-style-type: lower-alpha;">
+<li>VAST uses JW Player's own ad tag parser</li>
+<li>Google IMA uses Google's IMA SDK</li>
+<li>VMAP is an external ad schedule</li>
+<li>JW Player schedule is an advanced schedule that allows you to associate pre, mid, and post rolls with this player.</li>
+</ol>
+
+</li>
+<li>Enter the tag URL or URL to your VMAP file in the URL field. </li>
+<li>
+  
+Set the text for the user interface elements that you desire.
+  <ol style= "list-style-type: lower-alpha;">
+<li>Message for while the ad is playing.
+</li>
+<li>Cue text - the tooltip over the controlbar cuepoint.
+</li>
+</ol>
+</li>
+</ol>
+
+<h2>Publishing Your Ads Player</h2>
+<p>Now that you have an ads player, all you need to do is publish it with content. Choose your content and your ads player in publish mode. You can also take the cloud-hosted player url for the player and place it on the page where you need an ads player.</p>
+
+<ol>
+<li>Navigate to Content.</li>
+<li>Press the <img src="//support-static.jwplayer.com/images/advertising/embed.png" width="40px" />button for the video you want to publish.</li>
+<li>Make sure your Ads player is chosen. If not click CHANGE and select a new player.</li>
+<li>You can preview your ads on the Preview Page.</li>
+<li>Choose JavaScript or iFrame embed and copy the code to place on your page.</li>
+</ol>
+<img src="//support-static.jwplayer.com/images/advertising/publish-ads.png" width="500px"/>
+
+<h3>Skipping</h3>
+<p>You can enable a ‘Skip Ad’ interface element during ad playback and even customize the countdown message as well as the skip text. Enabling skipping provides better engagement for your viewers. Note that ads that have VAST 3.0 skipoffset in the response use the skip offset from the tag and not from your player settings. Enable skipping to provide better engagement.</p>
+
+<h3>Companion Ads</h3>
+<p>JW Player supports the insertion of companion ads into the page. HTML/IFRAME and GIF/JPG/PNG ads are supported for both VAST and IMA.</p>
+<img src="//support-static.jwplayer.com/images/advertising/companion.png" width="300px"/>
+
+<p>In order to render a companion, you must set the id, width and height of the DOM element the companion should be placed into. JW Player will then insert a companion if the ad tag contains one that exactly matches the width and height provided in the configuration. If the dimensions do not match up, JW Player will not display an ad. (which could lead to broken page designs)</p>
+
+
+
+
+<h1>Using the API and Code</h1>
 <p>Once your player is configured with desired options and playback behavior, it&#39;s time to set up your advertising. Ads are specified in the <strong>advertising</strong> configuration block. Inside, two options are required for a basic preroll ad to appear:</p>
+
 
 <dl>
   <dt><strong>client</strong></dt>
