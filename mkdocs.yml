@@ -11,4 +11,3 @@ pages:
     - Example CSS File: customization/css-skinning/skins_example.md
   - Design Resources: customization/designer-kit.md
 site_dir: developer-guide
-extra_css: [extra.css]
