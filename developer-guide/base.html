@@ -1,8 +1,14 @@
 <!DOCTYPE html>
     <head>
-
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
-
+        {% if site_description %}
+            <meta name="description" content="{{ site_description }}" />
+        {% else %}
+            <meta name="description" content="default desc" />
+        {% endif %}
         {% if favicon %}
             <link rel="shortcut icon" href="{{ favicon }}">
         {% else %}
@@ -32,11 +38,9 @@
                 <div class="page-header">
                     <div class="page-label">
                         {% if page_title %}
-                            <!-- {{ page_title }} -->
-                            page title
+                            {{ page_title }}
                         {% else %}
-                            <!-- {{ site_title }} -->
-                            site title
+                            {{ site_name }}
                         {% endif %}
                     </div>
                     <form class="search" action="{{ base_url }}/search.html" method="get">
