@@ -21,9 +21,11 @@
 
         <link rel="stylesheet" href="/css/developer.min.css">
 
-        {% for path in extra_css %}
-            <link href="{{ path }}" rel="stylesheet">
-        {% endfor %}
+        {% if extra_css %}
+            {% for path in extra_css %}
+                <link href="{{ path }}" rel="stylesheet">
+            {% endfor %}
+        {% endif %}
 
         {% block extrahead %}
         {% endblock %}
