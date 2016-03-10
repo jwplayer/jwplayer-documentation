@@ -1,12 +1,16 @@
 <!DOCTYPE html>
     <head>
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>Creating Skins - JW Player Developer Guide</title>
+
         
-            <meta name="description" content="default desc" />
+            <meta name="description" content="JW Developers provides tools and resources for developers using JW Player, JW Platform and the Android and iOS SDKs." />
         
+
         
             <link rel="shortcut icon" href="../../../favicon.ico">
         
@@ -21,12 +25,10 @@
         
 
     </head>
+    <body>
+        <div class="site">
 
-<body>
-
-    <div class="site">
-
-        <div class="site-header">
+            <div class="site-header">
     <div class="container">
         <a class="logo" href="/">
             <img src="/img/jw-logo-mark-white.svg">
@@ -45,30 +47,29 @@
     </div>
 </div>
 
-        <div class="site-body">
-            <div class="page">
-
-                <div class="page-header">
-                    <div class="page-label">
-                        
-                            Creating Skins
-                        
-                    </div>
-                    <form class="search" action="../../../search.html" method="get">
-                        <input type="search" name="q" placeholder="Search documentation..." />
-                    </form>
-                </div>
-                <div class="page-body">
-                    <div class="aside">
-                        <ul>
+            <div class="site-body">
+                <div class="page">
+                    <div class="page-header">
+                        <div class="page-label">
                             
+                                Creating Skins
+                            
+                        </div>
+                        <form class="search" action="../../../search.html" method="get">
+                            <input type="search" name="q" placeholder="Search documentation..." />
+                        </form>
+                    </div>
+                    <div class="page-body">
+                        <div class="aside">
+                            <ul>
                                 
+                                    
     <li >
         <a href="../../..">Home</a>
     </li>
 
-                            
                                 
+                                    
     <li>
         <a href="">Customization</a>
         <ul>
@@ -106,19 +107,19 @@
         </ul>
     </li>
 
-                            
                                 
+                                    
     <li >
         <a href="../../designer-kit/">Design Resources</a>
     </li>
 
-                            
-                        </ul>
-                    </div>
-                    <div class="main">
+                                
+                            </ul>
+                        </div>
+                        <div class="main">
 
-                        
-                            <h1 id="introduction">Introduction</h1>
+                            
+                                <h1 id="introduction">Introduction</h1>
 <p>Customizing JW Player is made easier with JW Player 7's updated CSS-based skinnng model. Gone are the days of JW6's XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding <a href="http://www.jwplayer.com/products/jwplayer/skins/">our own complimentary skins</a>, please see <a href="http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins">Using JW Player Skins</a>. For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.</p>
 <h2 id="creating-your-style">Creating your Style</h2>
 <p>First you will need to give your custom skin a name, which will be used to enable it within a player. The given name will be added into the jwplayer element and can be used to overwrite styles. The actual skin name should be appeneded to the <strong>.jw-skin-</strong> prefix. Our below example is altering our display icon container, and is going to be called <strong>myskin</strong>:</p>
@@ -170,26 +171,25 @@ lessc jwplayer.less > output.css
 </pre>
 
 <p>For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our <a href="../skins_reference/">CSS Skin Reference</a>.</p>
-                        
+                            
 
-                        
-                            <div class="pagination">
-                                
-                                    <a class="btn md" href="../../.." title="Home">Previous Page</a>
-                                
-                                
-                                    <a class="btn md" href="../skins_fonts/" title="Custom Icons and Fonts"/>Next Page</a>
-                                
-                            </div>
-                        
+                            
+                                <div class="pagination">
+                                    
+                                        <a class="btn md" href="../../.." title="Home">Previous Page</a>
+                                    
+                                    
+                                        <a class="btn md" href="../skins_fonts/" title="Custom Icons and Fonts"/>Next Page</a>
+                                    
+                                </div>
+                            
 
+                        </div>
                     </div>
                 </div>
-
             </div>
-        </div>
 
-        <div class="site-footer">
+            <div class="site-footer">
     <div class="container">
         <ul>
             <li><a href="//www.jwplayer.com/tos/">terms of service</a></li>
@@ -206,13 +206,13 @@ lessc jwplayer.less > output.css
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <script src="../../../js/theme.js"></script>
+        <script src="../../../js/theme.js"></script>
 
-    
+        
 
-    
+        
 
-</body>
+    </body>
 </html>
