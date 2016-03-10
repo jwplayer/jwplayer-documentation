@@ -31,7 +31,11 @@
 
                 <div class="page-header">
                     <div class="page-label">
-                        {{ page_title }}
+                        {% if page_title %}
+                            {{ page_title }}
+                        {% else %}
+                            {{ site_title }}
+                        {% endif %}
                     </div>
                     <form class="search" action="{{ base_url }}/search.html" method="get">
                         <input type="search" name="q" placeholder="Search documentation..." />
