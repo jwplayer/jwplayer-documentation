@@ -1,5 +1,5 @@
 site_name: JW Player Developer Guide
-theme: readthedocs
+theme: jwplayer
 site_favicon: favicon.ico
 pages:
   - Home: index.md
@@ -11,4 +11,3 @@ pages:
     - Example CSS File: customization/css-skinning/skins_example.md
   - Design Resources: customization/designer-kit.md
 site_dir: developer-guide
-extra_css: [extra.css]
