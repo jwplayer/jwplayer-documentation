@@ -8,5 +8,111 @@ KEYWORDS: hosting, streaming, gb streamed, gb stored, storage, usage, measuring 
 
 NOTES: Greg is going to write this article (it's totally new, as far as I'm aware) and we can create it in Desk when it's ready. It will live in the Account & Billing section.
 
+CAN WE USE THIS URL:  (It's the old "Uploading Videos" article from the old Platform dashboard)
+http://support.jwplayer.com/customer/en/portal/articles/1469776-uploading-videos
+
 
 --> 
+
+<p>&nbsp;</p>
+<p>GREG'S NEW ARTICLE GOES HERE</p>
+<p>&nbsp;</p>
+
+<!-- 
+
+FOR REVIEW BY: Greg, Allison
+
+KEYWORDS:
+platform, jwplatform, uploading, tags, metadata, captions, sunrising, jwGetStarted
+
+--> 
+
+<p>This article introduces the video upload &amp; management capabilities of the JW Player dashboard, powered by JW Platform.</p> 
+<p>We&#39;ll also cover different settings that correspond to custom ad insertion, publish dates, and general media organization. All of these options can be found in the <a href="https://dashboard.jwplayer.com/#/content/list" target="_blank">Content List</a> section of the dashboard.</p>
+
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+
+<nav>
+<ul>
+	<li><a href="#upload">Uploading your content</a></li>
+	<li><a href="#metadata">Setting Metadata</a></li>
+	<li><a href="#custom">Custom Video Properties</a></li>
+	<li><a href="#sunrising">Media Sunrising</a></li>
+	<li><a href="#publishing">Publishing your Video</a></li>
+</ul>
+</nav>
+</div>
+
+<p><img alt="videos section overview page" src="content-list.png" style="height: 250px; width: 450px;" /></p>
+
+<h2>Uploading your content</h2>
+<p>Start the upload process by clicking the big <em>Add Uploads</em> button at the left side of the <a href="https://dashboard.jwplayer.com/#/content/list" target="_blank">Content List</a> page in the dashboard. Then, select your file (or files):</p>
+<p><img alt="videos upload overlay" src="/customer/portal/attachments/257189" /></p>
+
+<p>In terms of <strong>supported formats</strong>, we accept nearly any audio or video filetypes. This includes video in MP4, MOV, FLV, MPG, AVI and DV format, or audio in MP3, AAC, WAV, ASF, PCM, M4A or AIFF format. Notable exceptions include content that use the Apple Intermediate, Apple ProRes or GoToMeeting video codecs. We also don&#39;t support content that is encrypted with DRM. See our <a href="transcode-reference-article">Transcodes Reference</a> for more detail.</p>
+
+<p><strong>Tip:</strong> Do not close your browser while video upload is in progress&mdash; that will cancel the upload!</p>
+<a name="metadata"></a>
+<h2>Editing Video Details &amp; Setting Metadata</h2>
+<p>Every video uploaded to the JW Player Dashboard has its own details page:</p>
+
+<p><img alt="videos details page" src="content-detail-tags.png" /></p>
+
+<p>On this page, you can:</p>
+
+<ol>
+  <li><strong>Edit video title and tags</strong>. Tags are used to segment your video library.</li>
+  <li><strong>Set a preview thumbnail</strong>, either by uploading your own image or selecting a frame from the video.</li>
+  <li><strong>Add metadata</strong> like description and <a href="#custom">custom properties</a> (via the <em>Metadata</em> tab). </li>
+	<li><strong>Upload text tracks</strong>, like captions or chapters (via the <em>Tracks</em> tab). These uploads should be in <a href="#">WebVTT or SRT/DFXP format</a>.</li>
+    <li><strong>Upload a new version of the video</strong> and <strong>grab direct links</strong> to your video transcodes (via the <em>Sources</em> tab). This is great for when the video is already live, and you do not want to change your embeds. (Please note that it usually takes a while after uploading before these files are ready).</li>
+	<li><strong>Grab embed codes</strong> to publish the video to your site.</li>
+</ol>
+<a name="custom"></a>
+
+<h2>Custom Video Properties</h2>
+
+<p>Using custom metadata can be very useful when keeping track of, or displaying, pertinent video information. For example, when loading episodes of a show, you can use this to track things like season number, episode number, featured actors, or production date. This information is then stored inside of a playlist object and can be utilized with JW Player&#39;s <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#playlist" target="_blank">Playlist API</a>.</p> <!-- This will also need a dev portal link-->
+
+<p>Custom properties can be accessed by clicking on the <strong>METADATA</strong> tab within a video object&#39;s detail page.</p>
+<img src="content-detail-metadata.png" alt="the metadata tab of the video detail page" style="height: 516px; width: 600px;" />
+<p>The above variables will then be stored within a playlist as:</p>
+
+<pre>&lt;jwplayer:keywords&gt;trailer, superhero, movie&lt;/jwplayer:keywords&gt;
+&lt;jwplayer:VideoNumber&gt;0012&lt;/jwplayer:VideoNumber&gt;
+</pre>
+
+<p>In addition to media organization, such playlist information can also be used as values for targeted ads with our VAST client. This method requires the use of <strong>custom ad tag variables</strong>, which are mentioned <a href="http://support.jwplayer.com/customer/portal/articles/1434340-ad-tag-variables#playlist" target="_blank">here</a>.</p>
+
+<!-- 
+<a name="sunrising"></a>
+
+<h2>Content Sunrising</h2>
+
+<p>Content sunrising is a feature that allows a publisher to choose a particular date and time that they would like to have a piece of media publicly available. This feature works in conjunction with the &#39;publish date&#39; metadata field within a particular video object.</p>
+<img src="http://support-static.jwplayer.com/images/mediasunrise.png" style="width: 600px;" />
+<p>Due to different time zones, dates configured for media are centered around UTC. Specifying a time in UTC will localize publish time based on the utilized computer&#39;s own timezone settings and show this updated information below.</p>
+
+<p>If a future publish date is specified, this means:</p>
+
+<ul>
+	<li>Content (Meaning transcoded files, images, etc.) will not be accessible publicly</li>
+	<li>Content will not appear in playlists, either dynamically or statically</li>
+	<li>Media will continue to be privately accessible/modifiable via API and dashboard</li>
+</ul>
+
+<p>Once a publish date/time is reached, media can be accessed by public viewers.</p>
+-->
+<a name="publishing"></a>
+
+<h2>Publishing Videos</h2>
+
+<p>Hitting the <em>Embed</em> button will open the Publish Mode tool at the top of the page:</p>
+
+<p><img alt="video details page publish mode" src="content-details-embedding.png" /></p>
+<p>Here, select which player you want to use to publish your video by selecting the "change" button, if you'd like. Next, copy/paste the resulting embed code into your own website or blog. A preview of your video+player is shown at the right.</p>
+<p>Use the small link at the bottom to quickly view in a preview page.</p>
+
+<!--
+<p>Use the small links at the bottom to quickly publish the video to Facebook, to Twitter, or to Email in a preview page.</p> -->
