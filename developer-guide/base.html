@@ -68,13 +68,9 @@
                                 <div class="pagination prev-next">
                                     {% if previous_page %}
                                         <a class="btn md" href="{{ previous_page.url }}" title="{{ previous_page.title }}">Previous Page</a>
-                                    {% else %}
-                                        <span>Previous Page</span>
                                     {% endif %}
                                     {% if next_page %}
                                         <a class="btn md" href="{{ next_page.url }}" title="{{ next_page.title }}"/>Next Page</a>
-                                    {% else %}
-                                        <span>Next Page</span>
                                     {% endif %}
                                 </div>
                             {% endif %}
