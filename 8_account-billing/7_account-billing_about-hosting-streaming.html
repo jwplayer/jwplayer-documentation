@@ -2,117 +2,64 @@
 
 FOR REVIEW BY: Greg
 
-TITLE: About Hosting & Streaming 
+TITLE: Hosting, Storage, Streaming, and JW Platform 
 
-KEYWORDS: hosting, streaming, gb streamed, gb stored, storage, usage, measuring usage 
+KEYWORDS: hosting, streaming, gb streamed, gb stored, storage, usage, measuring usage,  platform, jwplatform, uploading, tags, metadata, captions, sunrising, jwGetStarted
+
 
 NOTES: Greg is going to write this article (it's totally new, as far as I'm aware) and we can create it in Desk when it's ready. It will live in the Account & Billing section.
 
-CAN WE USE THIS URL:  (It's the old "Uploading Videos" article from the old Platform dashboard)
-http://support.jwplayer.com/customer/en/portal/articles/1469776-uploading-videos
-
+CAN WE USE THIS URL:  (It's the old "Preparing Videos for Upload" article from the old Platform dashboard)
+https://support.jwplayer.com/customer/en/portal/articles/1433634 
 
 --> 
 
 <p>&nbsp;</p>
-<p>GREG'S NEW ARTICLE GOES HERE</p>
-<p>&nbsp;</p>
+<h2>Hosting, Storage &amp; Streaming</h2>
+<p>While JW Player is best-known for our javascript video player product of the same name, we have also offered a solution for hosting and delivering content since 2011. In fact, every JW Player account comes with some hosting and streaming already included. 
+</p><p>
+Our intelligent and efficient JW Platform powers JW Player's Hosting, Storage, and Streaming. Hosting your videos with the JW Platform means you'll get the highest performance out of your JW Player. Our content service is made to show off the intelligence and speed of JW Player, and our all-in-one solution means that with one click, you can upload and publish your videos anywhere. 
+</p><p>
+JW Platform offers transcoding, storage and delivery services that scale to support millions of videos and billions of streams a month. Beyond that, JW Platform provides analytics, data, discovery, and content protection tools that can be used in any combination, empowering you to make the most of your JW Player. JW Platform can be accessed via the <a href="https://support.jwplayer.com/customer/portal/articles/2160275">JW Player Dashboard</a>, or via the <a href="http://developer.jwplayer.com/jw-platform/">JW Platform API</a>. </p>
+<p>
+We measure JW Platform usage in terms of "<strong>storage</strong>" and "<strong>streaming</strong>". Both together are sometimes referred to as "<strong>hosting</strong>".
+</p>
+<a name="storage"></a>
+<h3>What is "Storage"? </h3>
+When you <a href="https://support.jwplayer.com/customer/en/portal/articles/1469776">upload</a> your videos to the JW Platform, that counts towards your account's Storage limit. JW Player Free accounts have a complimentary <strong>5</strong>GB of Storage while paid editions start with <strong>50</strong>GB. This means that Free accounts may store (including original &amp; transcoded files) up to 5GB of video &mdash; whether many small videos, or fewer larger videos.
+</p><p> 
+Storage is a limit that does not reset; if you exceed your account's storage limit, you will not be able to add more content until you <strong>(A)</strong> remove content that is already there, or <strong>(B)</strong> <a href="https://www.jwplayer.com/pricing/">upgrade</a> for more storage.  
+</p><p>
+Click <a href="https://support.jwplayer.com/customer/en/portal/articles/1469776">here</a> to read about uploading content. 
+</p>
+<a name="streaming"></a>
+<h3>What is "Streaming"?</h3> 
+<p>In the context of JW Platform, we use "Streaming" to mean "gigabytes delivered" to viewers. When a video is embedded on a page, it is streamed when it is downloaded by your users (this is also what happens when the video loads inside the player).</p>
+<p> JW Player Free accounts come with a complimentary <strong>25</strong>GB of streaming per month, while paid accounts start from <strong>250</strong>GB per month. A <strong>25</strong>GB streaming allowance means that a <strong>5</strong>MB video file could be streamed (or "played") 5000 times.</p>
+<p>If you exceed your account's streaming limit, <strong>streams will stop</strong> until (A) the end of the month, when streaming count resets, or (B) you <a href="https://www.jwplayer.com/pricing/">upgrade</a> for more streaming. Streaming limits do reset monthly, so if your account hits its limit just before the end of the month, and streams have stopped, as soon as the next month starts those streams will work again.  
+</p><p>
+"Streaming" sometimes also refers to "livestreaming", but it can also refer to video-on-demand. The JW Player &amp; Platform support many different streaming <a href="https://support.jwplayer.com/customer/portal/articles/1403635">formats</a>. For more articles about Streaming, visit our <a href="https://support.jwplayer.com/customer/portal/topics/564477">Streaming section</a>. 
+</p>
 
 <!-- 
-
-FOR REVIEW BY: Greg, Allison
-
-KEYWORDS:
-platform, jwplatform, uploading, tags, metadata, captions, sunrising, jwGetStarted
-
+<p>
+We could also add text about CDN integration, monitoring, etc.
+What else does the JW Platform do? 
+</p><p>
+Transcoding 
+Text here
+</p><p>
+Protection 
+Text here
+</p><p>
+Integration 
+API Stuff Text here
+</p><p>
+Data & Recommendations
+Text here
+</p><p>
+What should I put here ?  
+Text here
+</p>
 --> 
 
-<p>This article introduces the video upload &amp; management capabilities of the JW Player dashboard, powered by JW Platform.</p> 
-<p>We&#39;ll also cover different settings that correspond to custom ad insertion, publish dates, and general media organization. All of these options can be found in the <a href="https://dashboard.jwplayer.com/#/content/list" target="_blank">Content List</a> section of the dashboard.</p>
-
-<div class="article_toc">
-<h2>Table Of Contents</h2>
-
-<nav>
-<ul>
-	<li><a href="#upload">Uploading your content</a></li>
-	<li><a href="#metadata">Setting Metadata</a></li>
-	<li><a href="#custom">Custom Video Properties</a></li>
-	<li><a href="#sunrising">Media Sunrising</a></li>
-	<li><a href="#publishing">Publishing your Video</a></li>
-</ul>
-</nav>
-</div>
-
-<p><img alt="videos section overview page" src="content-list.png" style="height: 250px; width: 450px;" /></p>
-
-<h2>Uploading your content</h2>
-<p>Start the upload process by clicking the big <em>Add Uploads</em> button at the left side of the <a href="https://dashboard.jwplayer.com/#/content/list" target="_blank">Content List</a> page in the dashboard. Then, select your file (or files):</p>
-<p><img alt="videos upload overlay" src="/customer/portal/attachments/257189" /></p>
-
-<p>In terms of <strong>supported formats</strong>, we accept nearly any audio or video filetypes. This includes video in MP4, MOV, FLV, MPG, AVI and DV format, or audio in MP3, AAC, WAV, ASF, PCM, M4A or AIFF format. Notable exceptions include content that use the Apple Intermediate, Apple ProRes or GoToMeeting video codecs. We also don&#39;t support content that is encrypted with DRM. See our <a href="transcode-reference-article">Transcodes Reference</a> for more detail.</p>
-
-<p><strong>Tip:</strong> Do not close your browser while video upload is in progress&mdash; that will cancel the upload!</p>
-<a name="metadata"></a>
-<h2>Editing Video Details &amp; Setting Metadata</h2>
-<p>Every video uploaded to the JW Player Dashboard has its own details page:</p>
-
-<p><img alt="videos details page" src="content-detail-tags.png" /></p>
-
-<p>On this page, you can:</p>
-
-<ol>
-  <li><strong>Edit video title and tags</strong>. Tags are used to segment your video library.</li>
-  <li><strong>Set a preview thumbnail</strong>, either by uploading your own image or selecting a frame from the video.</li>
-  <li><strong>Add metadata</strong> like description and <a href="#custom">custom properties</a> (via the <em>Metadata</em> tab). </li>
-	<li><strong>Upload text tracks</strong>, like captions or chapters (via the <em>Tracks</em> tab). These uploads should be in <a href="#">WebVTT or SRT/DFXP format</a>.</li>
-    <li><strong>Upload a new version of the video</strong> and <strong>grab direct links</strong> to your video transcodes (via the <em>Sources</em> tab). This is great for when the video is already live, and you do not want to change your embeds. (Please note that it usually takes a while after uploading before these files are ready).</li>
-	<li><strong>Grab embed codes</strong> to publish the video to your site.</li>
-</ol>
-<a name="custom"></a>
-
-<h2>Custom Video Properties</h2>
-
-<p>Using custom metadata can be very useful when keeping track of, or displaying, pertinent video information. For example, when loading episodes of a show, you can use this to track things like season number, episode number, featured actors, or production date. This information is then stored inside of a playlist object and can be utilized with JW Player&#39;s <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#playlist" target="_blank">Playlist API</a>.</p> <!-- This will also need a dev portal link-->
-
-<p>Custom properties can be accessed by clicking on the <strong>METADATA</strong> tab within a video object&#39;s detail page.</p>
-<img src="content-detail-metadata.png" alt="the metadata tab of the video detail page" style="height: 516px; width: 600px;" />
-<p>The above variables will then be stored within a playlist as:</p>
-
-<pre>&lt;jwplayer:keywords&gt;trailer, superhero, movie&lt;/jwplayer:keywords&gt;
-&lt;jwplayer:VideoNumber&gt;0012&lt;/jwplayer:VideoNumber&gt;
-</pre>
-
-<p>In addition to media organization, such playlist information can also be used as values for targeted ads with our VAST client. This method requires the use of <strong>custom ad tag variables</strong>, which are mentioned <a href="http://support.jwplayer.com/customer/portal/articles/1434340-ad-tag-variables#playlist" target="_blank">here</a>.</p>
-
-<!-- 
-<a name="sunrising"></a>
-
-<h2>Content Sunrising</h2>
-
-<p>Content sunrising is a feature that allows a publisher to choose a particular date and time that they would like to have a piece of media publicly available. This feature works in conjunction with the &#39;publish date&#39; metadata field within a particular video object.</p>
-<img src="http://support-static.jwplayer.com/images/mediasunrise.png" style="width: 600px;" />
-<p>Due to different time zones, dates configured for media are centered around UTC. Specifying a time in UTC will localize publish time based on the utilized computer&#39;s own timezone settings and show this updated information below.</p>
-
-<p>If a future publish date is specified, this means:</p>
-
-<ul>
-	<li>Content (Meaning transcoded files, images, etc.) will not be accessible publicly</li>
-	<li>Content will not appear in playlists, either dynamically or statically</li>
-	<li>Media will continue to be privately accessible/modifiable via API and dashboard</li>
-</ul>
-
-<p>Once a publish date/time is reached, media can be accessed by public viewers.</p>
--->
-<a name="publishing"></a>
-
-<h2>Publishing Videos</h2>
-
-<p>Hitting the <em>Embed</em> button will open the Publish Mode tool at the top of the page:</p>
-
-<p><img alt="video details page publish mode" src="content-details-embedding.png" /></p>
-<p>Here, select which player you want to use to publish your video by selecting the "change" button, if you'd like. Next, copy/paste the resulting embed code into your own website or blog. A preview of your video+player is shown at the right.</p>
-<p>Use the small link at the bottom to quickly view in a preview page.</p>
-
-<!--
-<p>Use the small links at the bottom to quickly publish the video to Facebook, to Twitter, or to Email in a preview page.</p> -->
