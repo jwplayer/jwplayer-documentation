@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,31 +13,31 @@
         
     <url>
      <loc>None/customization/css-skinning/skins_creating/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/customization/css-skinning/skins_fonts/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/customization/css-skinning/skins_reference/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/customization/css-skinning/dom-structure/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/customization/css-skinning/skins_example/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -46,9 +46,19 @@
     
     <url>
      <loc>None/customization/designer-kit/</loc>
-     <lastmod>2016-03-16</lastmod>
+     <lastmod>2016-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>None/beta/html5_hls_beta/</loc>
+     <lastmod>2016-03-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

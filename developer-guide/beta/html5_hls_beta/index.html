@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+    <head>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>HLS in HTML5 - JW Player Developer Guide</title>
+
+        
+            <meta name="description" content="JW Developers provides tools and resources for developers using JW Player, JW Platform and the Android and iOS SDKs." />
+        
+
+        
+            <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <link rel="stylesheet" href="css/theme.css">
+
+        
+
+        
+        
+
+    </head>
+    <body>
+        <div class="site">
+
+            <div class="site-header">
+    <div class="container">
+        <a class="logo" href="/">
+            <img src="/img/jw-logo-mark-white.svg">
+            <img src="/img/jw-logo-text-white.svg">
+            <span class="developer">Developer</span>
+        </a>
+        <a class="menu-toggle" href="#">Menu</a>
+        <ul class="menu">
+            <li><a class="link" href="//support.jwplayer.com">Support</a></li>
+            <li><a class="link" href="//github.com/jwplayer/jwplayer">GitHub</a></li>
+            <li><a class="link" href="//stackoverflow.com/questions/tagged/jwplayer">Stack Overflow</a></li>
+            <li><a class="link" href="//www.jwplayer.com/blog/">Blog</a></li>
+            <li><a class="link" href="//www.jwplayer.com/company/careers/">Careers</a></li>
+            <li><a class="btn md red" href="/sign-up">Join the Community</a></li>
+        </ul>
+    </div>
+</div>
+
+            <div class="site-body">
+                <div class="page mkdocs-jwplayer">
+                    <div class="page-header">
+                        <div class="page-label">
+                            
+                                HLS in HTML5
+                            
+                        </div>
+                        <form class="search" action="../../search.html" method="get">
+                            <input type="search" name="q" placeholder="Search documentation..." />
+                        </form>
+                    </div>
+                    <div class="page-body">
+                        <div class="aside">
+                            <ul>
+                                
+                                    
+    <li >
+        <a href="../..">Home</a>
+    </li>
+
+                                
+                                    
+    <li>
+        <a href="">Customization</a>
+        <ul>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_creating/">Creating Skins</a>
+    </li>
+
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_fonts/">Custom Icons and Fonts</a>
+    </li>
+
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_reference/">CSS Reference List</a>
+    </li>
+
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/dom-structure/">DOM Structure Visual Reference</a>
+    </li>
+
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_example/">Example CSS File</a>
+    </li>
+
+            
+        </ul>
+    </li>
+
+                                
+                                    
+    <li >
+        <a href="../../customization/designer-kit/">Design Resources</a>
+    </li>
+
+                                
+                                    
+    <li>
+        <a href="">Current Beta Program</a>
+        <ul>
+            
+                
+    <li class="active">
+        <a href="./">HLS in HTML5</a>
+    </li>
+
+            
+        </ul>
+    </li>
+
+                                
+                            </ul>
+                        </div>
+                        <div class="main">
+
+                            
+                                <h1 id="jw-player-hls-html5-beta">JW Player HLS HTML5 Beta</h1>
+<p>Welcome to our beta program for JW Player 7.4! The goal of this program is to gather feedback and ensure that we launch our HLS HTML5 product with the best possible HLS support.</p>
+<h2 id="supported-and-upcoming-features">Supported and Upcoming Features</h2>
+<p>With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified. </p>
+<h2 id="current-beta-features">Current Beta Features</h2>
+<table>
+<thead>
+<tr>
+<th>7.4 Beta Release (Now)</th>
+<th>Full 7.4 Release (April)</th>
+<th>Future Enhancement (Q2 - Q3 2016)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VOD streams</td>
+<td>Full error message support</td>
+<td>Choosing audio track based on system language</td>
+</tr>
+<tr>
+<td>Live/DVR streams</td>
+<td>M3U8 WebVTT captions</td>
+<td>Custom quality labels</td>
+</tr>
+<tr>
+<td>Desktop Google Chrome only</td>
+<td></td>
+<td>708 captioning</td>
+</tr>
+<tr>
+<td>Basic error message support</td>
+<td></td>
+<td>AES decryption via HTTP</td>
+</tr>
+<tr>
+<td>608 caption support</td>
+<td></td>
+<td>Mozilla Firefox support</td>
+</tr>
+<tr>
+<td>AES 128 decryption over HTTPS only</td>
+<td></td>
+<td>Byte-range requests</td>
+</tr>
+<tr>
+<td>AAC/MP3 audio fragment support</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Timed ID3 MetaData</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AAC/MP3 audio support</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Timed ID3 MetaData</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="current-limitations">Current Limitations</h2>
+<p>HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">Chromium Project</a>.</p>
+<h1 id="faq">FAQ</h1>
+<h4 id="q-why-is-my-hls-stream-still-rendering-in-flash">Q: Why is my HLS stream still rendering in Flash?</h4>
+<p>In order to enable HLS HTML5, set your default rendering mode to html5 in player setup or via your dashboard. If your player is still using Flash, please ensure that you are testing on the latest version of Google Chrome.</p>
+<h4 id="q-does-this-require-any-additional-configuration-for-my-m3u8-files">Q: Does this require any additional configuration for my M3U8 files?</h4>
+<p>No, your existing M3U8 files will work between Flash and HTML5, provided that they follow our guidelines above. However, please ensure that your CORS and crossdomain.xml are both set correctly to allow interoperability between Flash and HTML5.</p>
+<h4 id="q-why-doesnt-my-hls-stream-play">Q: Why doesn’t my HLS stream play?</h4>
+<p>As mentioned above, this beta is only supporting specific VOD and Live streams. If your streams meet our criteria, and still fail to play, we highly encourage you to fill out our form and send us a bug report.</p>
+<h4 id="q-will-hls-feature-ever-be-supported-i-dont-see-it-in-your-roadmap">Q: Will [HLS feature] ever be supported? I don’t see it in your roadmap.</h4>
+<p>If you see a feature missing from our timeline above, let us know! Much like our Flash HLS provider, we will always be adding new functionality to keep up with both trends and specs.</p>
+<h4 id="q-why-is-this-not-supported-in-browser-its-my-favorite-browser">Q: Why is this not supported in [browser]? It’s my favorite browser!</h4>
+<p>We are currently developing and troubleshooting on Google Chrome due to its market share and stable MSE implementation. Firefox is the next planned browser to work with HLS HTML5.</p>
+<h4 id="q-will-my-flash-vpaid-ads-work-with-html5-hls-when-its-launched">Q: Will my Flash VPAID ads work with HTML5 HLS when it’s launched?</h4>
+<p>No, Flash ads will only render when the player is in Flash mode. We suggest using VPAID 2 Javascript ads or HTML5 compatible VAST.</p>
+<h1 id="reporting-issues">Reporting Issues</h1>
+<p>If you are experiencing issues while testing your HLS streams, please follow the steps below to submit your feedback:</p>
+<h2 id="1-confirm-that-your-hls-stream-is-currently-compatible">1 - Confirm that your HLS stream is currently compatible</h2>
+<p>We are currently beta testing standard VOD and Live streams. Many features, such as multitrack audio and advertising are not yet available. Please see our compatibility list above for our current support. If there is a missing feature that you would like supported, please let us know.</p>
+<h2 id="2-if-your-stream-should-be-compatible-use-our-feedback-form">2 - If your stream should be compatible, use our feedback form</h2>
+<p>Click here to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.</p>
+                            
+
+                            
+                                <div class="pagination prev-next">
+                                    
+                                        <a class="btn md" href="../../customization/designer-kit/" title="Design Resources">Previous Page</a>
+                                    
+                                    
+                                </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer">
+    <div class="container">
+        <ul>
+            <li><a href="//www.jwplayer.com/tos/">terms of service</a></li>
+            <li><a href="//www.jwplayer.com/privacy/">privacy policy</a></li>
+            <li><a href="//www.jwplayer.com/privacy/">ad choices</a></li>
+            <li><a href="//www.jwplayer.com/dmca/">dmca</a></li>
+            <li><a href="//www.jwplayer.com/contact-us/">contact us</a></li>
+            <li><a href="//www.jwplayer.com/company/careers/">careers</a></li>
+        </ul>
+        <p>&copy; 2015 Longtail Ad Solutions, Inc. All Rights Reserved. JW Player is a registered trademark.</p>
+        <a href="//www.jwplayer.com" target="_blank">
+            <img src="//icons.jwplayer.com/social/jw-logo-white.svg">
+        </a>
+    </div>
+</div>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="/js/developer.min.js"></script>
+
+        
+
+        
+
+    </body>
+</html>
