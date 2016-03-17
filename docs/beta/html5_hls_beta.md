@@ -8,7 +8,7 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 |Adaptive VOD streams               |Robust error messaging    |Choosing audio track based on system language|
 |Single quality Live/DVR streams    |M3U8 WebVTT captions          |Custom quality labels                                |
 |Desktop Google Chrome only        |Adaptive quality in Live     |708 captioning                    |
-|Basic error message support       |                              |AES decryption via HTTP   |
+|Basic error message support       | 608 Captions                             |AES decryption via HTTP   |
 |608 caption support               |                              |Mozilla Firefox support   |
 |AES 128 decryption over HTTPS only|                              |Byte-range requests       |
 |AAC/MP3 audio fragment support    |                              |                                  |
@@ -22,15 +22,15 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 * Midrolls when played with Google IMA ad manager are not currently pausing the main video content.
 * Midrolls after replaying the current item are not working correctly.
 * Video only streams, streams without any audio, stall.
-* 608 caption timing is slightly off.
+* 608 captions are in progress.
 
 ## Verified Encoders and CDNs
 * Akamai
 * Edgecast
 * Fastly
 * Zencoder
-* Wowza
 * Amazon
+* Wowza - some adaptive VOD streams are having issues with quality switching.
 
 # FAQ
 #### Q: Why is my HLS stream still rendering in Flash?
