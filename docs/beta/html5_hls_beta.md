@@ -21,7 +21,11 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 
 
 ## Current Limitations
-HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the [Chromium Project](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
+* HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the [Chromium Project](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
+* Midrolls when played with Google IMA ad manager are not currently pausing the main video content.
+* Midrolls after replaying the current item are not working correctly.
+* Video only streams, streams without any audio, stall.
+* 608 caption timing is slightly off.
 
 # FAQ
 #### Q: Why is my HLS stream still rendering in Flash?
