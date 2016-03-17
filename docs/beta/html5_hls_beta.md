@@ -8,9 +8,9 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 
 |7.4 Beta Release (Now)            | Full 7.4 Release (April)    | Future Enhancement (Q2 - Q3 2016)                   |
 |----------------------------------|-----------------------------|-----------------------------------------------------|
-|VOD streams                       |Full error message support    |Choosing audio track based on system language|
-|Live/DVR streams                  |M3U8 WebVTT captions          |Custom quality labels                                |
-|Desktop Google Chrome only        |                              |708 captioning                    |
+|Adaptive VOD streams               |Robust error messaging    |Choosing audio track based on system language|
+|Single quality Live/DVR streams    |M3U8 WebVTT captions          |Custom quality labels                                |
+|Desktop Google Chrome only        |Adaptive quality in Live     |708 captioning                    |
 |Basic error message support       |                              |AES decryption via HTTP   |
 |608 caption support               |                              |Mozilla Firefox support   |
 |AES 128 decryption over HTTPS only|                              |Byte-range requests       |
