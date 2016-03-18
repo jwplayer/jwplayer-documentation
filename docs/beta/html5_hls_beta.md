@@ -8,13 +8,12 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 |Adaptive VOD streams               |Robust error messaging    |Choosing audio track based on system language|
 |Single quality Live/DVR streams    |M3U8 WebVTT captions          |Custom quality labels                                |
 |Desktop Google Chrome only        |Adaptive quality in Live     |708 captioning                    |
-|Basic error message support       | 608 Captions                             |AES decryption via HTTP   |
+|Basic error message support       | 608 caption fixes                             |AES decryption via HTTP   |
 |608 caption support               |                              |Mozilla Firefox support   |
 |AES 128 decryption over HTTPS only|                              |Byte-range requests       |
 |AAC/MP3 audio fragment support    |                              |                                  |
 |Timed ID3 MetaData                |                              |                                  |
 |AAC/MP3 audio support             |                              |                                  |
-|Timed ID3 MetaData                |                              |                                  |
 
 
 ## Current Limitations
