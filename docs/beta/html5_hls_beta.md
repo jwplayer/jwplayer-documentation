@@ -60,5 +60,5 @@ We are currently beta testing standard VOD and Live streams. Many features, such
 
 **2 - If your stream should be compatible, use our feedback form**
 
-Click here to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.
+[Click here](https://docs.google.com/a/jwplayer.com/forms/d/15G39urrGd7QEQEbjfyRYeEM5-G31tFaRj0OARZfricA/viewform) to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.
 
