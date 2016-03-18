@@ -62,73 +62,69 @@
                             <ul>
                                 
                                     
-  <li >
-    <a href="../..">Home</a>
-  </li>
+    <li >
+        <a href="../..">Home</a>
+    </li>
 
                                 
                                     
-  <li>
-    
-      <span>Customization</span>
-    
-    <ul>
-      
-        
-  <li >
-    <a href="../../customization/css-skinning/skins_creating/">Creating Skins</a>
-  </li>
+    <li>
+        <a href="">Customization</a>
+        <ul>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_creating/">Creating Skins</a>
+    </li>
 
-      
-        
-  <li >
-    <a href="../../customization/css-skinning/skins_fonts/">Custom Icons and Fonts</a>
-  </li>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_fonts/">Custom Icons and Fonts</a>
+    </li>
 
-      
-        
-  <li >
-    <a href="../../customization/css-skinning/skins_reference/">CSS Reference List</a>
-  </li>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_reference/">CSS Reference List</a>
+    </li>
 
-      
-        
-  <li >
-    <a href="../../customization/css-skinning/dom-structure/">DOM Structure Visual Reference</a>
-  </li>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/dom-structure/">DOM Structure Visual Reference</a>
+    </li>
 
-      
-        
-  <li >
-    <a href="../../customization/css-skinning/skins_example/">Example CSS File</a>
-  </li>
+            
+                
+    <li >
+        <a href="../../customization/css-skinning/skins_example/">Example CSS File</a>
+    </li>
 
-      
-    </ul>
-  </li>
+            
+        </ul>
+    </li>
 
                                 
                                     
-  <li >
-    <a href="../../customization/designer-kit/">Design Resources</a>
-  </li>
+    <li >
+        <a href="../../customization/designer-kit/">Design Resources</a>
+    </li>
 
                                 
                                     
-  <li>
-    
-      <span>Current Beta Program</span>
-    
-    <ul>
-      
-        
-  <li class="active">
-    <a href="./">HLS in HTML5</a>
-  </li>
+    <li>
+        <a href="">Beta Program</a>
+        <ul>
+            
+                
+    <li class="active">
+        <a href="./">HLS in HTML5</a>
+    </li>
 
-      
-    </ul>
-  </li>
+            
+        </ul>
+    </li>
 
                                 
                             </ul>
@@ -137,7 +133,7 @@
 
                             
                                 <h1 id="jw-player-hls-html5-beta">JW Player HLS HTML5 Beta</h1>
-<p>With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified. </p>
+<p>With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified. The current beta has prioritized a wide variety of encoder and stream support over nailing down the optimal adaptive bitrate switching algorithm.</p>
 <h2 id="current-beta-features">Current Beta Features</h2>
 <table>
 <thead>
@@ -165,7 +161,7 @@
 </tr>
 <tr>
 <td>Basic error message support</td>
-<td>608 Captions</td>
+<td>608 caption fixes</td>
 <td>AES decryption via HTTP</td>
 </tr>
 <tr>
@@ -193,15 +189,11 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td>Timed ID3 MetaData</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h2 id="current-limitations">Current Limitations</h2>
 <ul>
+<li>Streams tend to start on the lowest quality and stay there instead of upswitching.</li>
 <li>HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">Chromium Project</a>.</li>
 <li>Midrolls when played with Google IMA ad manager are not currently pausing the main video content.</li>
 <li>Midrolls after replaying the current item are not working correctly.</li>
@@ -232,10 +224,10 @@
 <p>No, Flash ads will only render when the player is in Flash mode. We suggest using VPAID 2 Javascript ads or HTML5 compatible VAST.</p>
 <h1 id="reporting-issues">Reporting Issues</h1>
 <p>If you are experiencing issues while testing your HLS streams, please follow the steps below to submit your feedback:</p>
-<h2 id="1-confirm-that-your-hls-stream-is-currently-compatible">1 - Confirm that your HLS stream is currently compatible</h2>
+<p><strong>1 - Confirm that your HLS stream is currently compatible</strong></p>
 <p>We are currently beta testing standard VOD and Live streams. Many features, such as multitrack audio and advertising are not yet available. Please see our compatibility list above for our current support. If there is a missing feature that you would like supported, please let us know.</p>
-<h2 id="2-if-your-stream-should-be-compatible-use-our-feedback-form">2 - If your stream should be compatible, use our feedback form</h2>
-<p>Click here to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.</p>
+<p><strong>2 - If your stream should be compatible, use our feedback form</strong></p>
+<p><a href="https://docs.google.com/a/jwplayer.com/forms/d/15G39urrGd7QEQEbjfyRYeEM5-G31tFaRj0OARZfricA/viewform">Click here</a> to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.</p>
                             
 
                             
