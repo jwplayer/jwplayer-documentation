@@ -54,8 +54,11 @@ No, Flash ads will only render when the player is in Flash mode. We suggest usin
 
 If you are experiencing issues while testing your HLS streams, please follow the steps below to submit your feedback:
 
-## 1 - Confirm that your HLS stream is currently compatible
+**1 - Confirm that your HLS stream is currently compatible**
+
 We are currently beta testing standard VOD and Live streams. Many features, such as multitrack audio and advertising are not yet available. Please see our compatibility list above for our current support. If there is a missing feature that you would like supported, please let us know.
-## 2 - If your stream should be compatible, use our feedback form
+
+**2 - If your stream should be compatible, use our feedback form**
+
 Click here to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.
 
