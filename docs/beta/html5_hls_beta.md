@@ -8,13 +8,12 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 |Adaptive VOD streams               |Robust error messaging    |Choosing audio track based on system language|
 |Single quality Live/DVR streams    |M3U8 WebVTT captions          |Custom quality labels                                |
 |Desktop Google Chrome only        |Adaptive quality in Live     |708 captioning                    |
-|Basic error message support       | 608 Captions                             |AES decryption via HTTP   |
+|Basic error message support       | 608 caption fixes                             |AES decryption via HTTP   |
 |608 caption support               |                              |Mozilla Firefox support   |
 |AES 128 decryption over HTTPS only|                              |Byte-range requests       |
 |AAC/MP3 audio fragment support    |                              |                                  |
 |Timed ID3 MetaData                |                              |                                  |
 |AAC/MP3 audio support             |                              |                                  |
-|Timed ID3 MetaData                |                              |                                  |
 
 
 ## Current Limitations
@@ -55,8 +54,11 @@ No, Flash ads will only render when the player is in Flash mode. We suggest usin
 
 If you are experiencing issues while testing your HLS streams, please follow the steps below to submit your feedback:
 
-## 1 - Confirm that your HLS stream is currently compatible
+**1 - Confirm that your HLS stream is currently compatible**
+
 We are currently beta testing standard VOD and Live streams. Many features, such as multitrack audio and advertising are not yet available. Please see our compatibility list above for our current support. If there is a missing feature that you would like supported, please let us know.
-## 2 - If your stream should be compatible, use our feedback form
+
+**2 - If your stream should be compatible, use our feedback form**
+
 Click here to visit our Google form and submit feedback to our team. We’ll be in contact with any updates.
 
