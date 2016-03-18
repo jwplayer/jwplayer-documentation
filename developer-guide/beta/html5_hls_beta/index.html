@@ -133,8 +133,6 @@
 
                             
                                 <h1 id="jw-player-hls-html5-beta">JW Player HLS HTML5 Beta</h1>
-<p>Welcome to our beta program for JW Player 7.4! The goal of this program is to gather feedback and ensure that we launch our HLS HTML5 product with the best possible HLS support.</p>
-<h2 id="supported-and-upcoming-features">Supported and Upcoming Features</h2>
 <p>With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified. </p>
 <h2 id="current-beta-features">Current Beta Features</h2>
 <table>
@@ -147,23 +145,23 @@
 </thead>
 <tbody>
 <tr>
-<td>VOD streams</td>
-<td>Full error message support</td>
+<td>Adaptive VOD streams</td>
+<td>Robust error messaging</td>
 <td>Choosing audio track based on system language</td>
 </tr>
 <tr>
-<td>Live/DVR streams</td>
+<td>Single quality Live/DVR streams</td>
 <td>M3U8 WebVTT captions</td>
 <td>Custom quality labels</td>
 </tr>
 <tr>
 <td>Desktop Google Chrome only</td>
-<td></td>
+<td>Adaptive quality in Live</td>
 <td>708 captioning</td>
 </tr>
 <tr>
 <td>Basic error message support</td>
-<td></td>
+<td>608 Captions</td>
 <td>AES decryption via HTTP</td>
 </tr>
 <tr>
@@ -199,7 +197,22 @@
 </tbody>
 </table>
 <h2 id="current-limitations">Current Limitations</h2>
-<p>HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">Chromium Project</a>.</p>
+<ul>
+<li>HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">Chromium Project</a>.</li>
+<li>Midrolls when played with Google IMA ad manager are not currently pausing the main video content.</li>
+<li>Midrolls after replaying the current item are not working correctly.</li>
+<li>Video only streams, streams without any audio, stall.</li>
+<li>608 captions are in progress.</li>
+</ul>
+<h2 id="verified-encoders-and-cdns">Verified Encoders and CDNs</h2>
+<ul>
+<li>Akamai</li>
+<li>Edgecast</li>
+<li>Fastly</li>
+<li>Zencoder</li>
+<li>Amazon</li>
+<li>Wowza - some adaptive VOD streams are having issues with quality switching.</li>
+</ul>
 <h1 id="faq">FAQ</h1>
 <h4 id="q-why-is-my-hls-stream-still-rendering-in-flash">Q: Why is my HLS stream still rendering in Flash?</h4>
 <p>In order to enable HLS HTML5, set your default rendering mode to html5 in player setup or via your dashboard. If your player is still using Flash, please ensure that you are testing on the latest version of Google Chrome.</p>
