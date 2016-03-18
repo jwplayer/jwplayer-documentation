@@ -3256,6 +3256,7 @@ a.btn:hover {
   }
 }
 .mkdocs-jwplayer .main p code,
+.mkdocs-jwplayer .main li code,
 .mkdocs-jwplayer .main table code,
 .mkdocs-jwplayer .main .pre {
   background-color: #eaeaeb;
