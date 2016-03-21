@@ -1,5 +1,5 @@
 site_name: JW Player Developer Guide
-theme: readthedocs
+theme: 'mkdocs-jwplayer'
 site_favicon: favicon.ico
 pages:
   - Home: index.md
