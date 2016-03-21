@@ -1,5 +1,5 @@
 site_name: JW Player Developer Guide
-theme: Slate
+theme: slate
 site_favicon: favicon.ico
 pages:
   - Home: index.md
