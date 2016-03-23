@@ -1,0 +1,44 @@
+
+<!-- 
+
+KEYWORDS: update Android SDK, update SDK, Android, xcode,  jwplayer-android, franework, Android SDK, EntArticle
+
+TO LIVE *TEMPORARILY* AT: 
+http://support.jwplayer.com/customer/en/portal/articles/2035463-how-to-update-your-android-sdk
+--> 
+
+<!--
+<p>We moved the content of this article onto our <a href="link-here">developer portal</a>. </p>
+<p>Thank you for your patience while we clean up our documentation! </p>
+
+--> 
+<div class="panel"><strong>Please note:</strong> SDK-related articles are being moved to the <a href="https://developer.jwplayer.com">JW Player Developer Site</a>. Thank you for your patience as we clean up our documentation! </div>
+
+
+<p>In order to take full advantage of our SDK improvements, you should update your current Android development environment using the following instructions:</p>
+
+<ul>
+	<li>
+	<p>Sign in to your <a href="https://account.jwplayer.com/">JW Player Dashboard</a> and download the latest SDK version from your Account tab. </p>
+	</li>
+	<li>
+	<p>In Android Studio, remove the module dependency for jwplayer-android-x.y.z for your app, then remove the jwplayer module itself.</p>
+	</li>
+	<li>
+	<p>Import the new .AAR file contained in the newest version Zip package downloaded from your Account tab in the JW Player Dashboard. Finally, add the new jwplayer-android-x.y.x module as a module dependency for your app.<br />
+	&nbsp;</p>
+	</li>
+</ul>
+
+<p>If you are using Maven: </p>
+
+<ul>
+	<li>
+	<p>If the dependency version is a + (e.g. compile &#39;com.longtailvideo.jwplayer:jwplayer-android-sdk:+&#39;) in build.gradle the SDK will update automatically when each build is done.</p>
+	</li>
+	<li>
+	<p>If there is a locked-in version (e.g. compile &#39;com.longtailvideo.jwplayer:jwplayer-android-sdk:1.1.99&#39;) you must change it to the latest version number or a plus sign.</p>
+	</li>
+</ul>
+
+<p>If you still have questions, check out our <a href="/customer/en/portal/articles/1715317">SDK FAQ</a> or the <a href="http://developer.jwplayer.com/android-sdk/">Android SDK</a> section of our developer portal.</p>

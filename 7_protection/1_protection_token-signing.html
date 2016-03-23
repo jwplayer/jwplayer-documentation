@@ -3,18 +3,10 @@ Updated version of article formerly called "Token Signing with JW Platform" loca
 
 FOR REVIEW BY: Allison 
 
-TITLE: "JW Player URL Signing" 
+TITLE: "URL Signing with JW Player" 
 
 KEYWORDS: token signing, content protection, jw platform, jwAdvancedSetup, URL Signing, signing, security, jwplatform, hosting, tokens, password, paywall
 
-NOTES: Mainly needs to be re-considered from the point of view of a publisher user: 
-- What is Token Signing? 
-- How does JW Player handle it? 
-- How do users use it in the dashboard?
-- What are the rules and implications of using it? 
-
-Developer-focused piece (API stuff etc.) needs to be moved to the developer portal. 
-<title>JW Player URL Signing</title>
 
 -->
 
@@ -47,7 +39,7 @@ will then serve up the content that was requested.</li>
 <p>The setting to enable video/player signing can be found under Account &gt; Properties settings.</p>
 
 
-<p><img alt="Account security setting" src="/customer/portal/attachments/239095" /></p>
+<p><img alt="Account security setting" src="//support-static.jwplayer.com/images/protection/URL-signing-sshot.png" /></p>
 
 
 <p>There are multiple ways to secure your videos and players by using
@@ -70,7 +62,9 @@ players, e.g. when you rely on advertising. You need to have a piece of
 code on your website to dynamically generate signed player links (see
 below).</dd><dt style="font-weight: bold;">Secured Video URLs and Secured Embeds both ON</dt><dd>This is the tightest setting. Both video download links and player embed codes need to be signed in order to work.</dd>
 </dl>
-<br>
+<p>For instructions about how to achieve URL signing via the <strong>JW Platform API</strong>, see the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/content_signing.html">URL signing pages</a> in our Developer Portal.</p>
+
+<!-- 
 <h2>Signing Walkthrough: How it Works<br>
 </h2>
 
@@ -103,3 +97,5 @@ server. Here we use the data that you entered and the signature you
 generated to construct a final URL which looks something like this:</p>
 
 <pre>http://dashboard.jwplatform.com/videos/nPripu9l.mp4?exp=1271760610&amp;sig=b59b91370f4faf4815b6736db10e5041</pre>
+
+--> 

@@ -1,13 +1,15 @@
 <!-- When New Sharing is in the dashboard, un-comment the section with that and lose the old stuff! 
 
+WILL LIVE AT: 
+https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay
+
+ALSO: This needs a Developer Site page to put some of the existing content on. 
+
 This article is a combination of: 
 https://support.jwplayer.com/customer/portal/articles/1483088-social-sharing-with-jw-platform
 and 
 https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay
 
-ALSO: This needs a Developer Site page to put some of the existing content on. 
-
-NOTE: There is a Dashboard/Code tab structure that needs to be implemented here. Ask Shannon for help when you get to this. 
 
 FOR REVIEW BY: Franklin (Andrew, Allison?)
 
@@ -17,11 +19,20 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
 
 -->
 
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+<nav>
+<ul>
+	<li><a href="#about-sharing">About Sharing</a></li>
+    <li><a href="#implementing-sharing">Implementing Sharing</a></li>
+	</ul>
+</nav>
+</div>
 <p>This article provides an overview of JW Player's Social Sharing plugin as well as instructions for implementation.</p>
 <p>Sharing of videos through Facebook, Twitter, blogs and email can dramatically increase reach across the web. See <a href="http://www.longtailvideo.com/support/blog/22445/social-sharing-publish-your-videos-to-facebook-twitter-youtube">this blog post on sharing</a> for more info and some hints.</p>
 
 <p>Please note: JW Player no longer supports in-feed video playback on Facebook.</p>
-
+<a name="about-sharing"></a>
 <h2>About Social Sharing</h2>
 
 <p>The JW Player Sharing Overlay displays a customizable layer over the player that allows viewers to do any of the following:
@@ -43,11 +54,17 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
 <p>If the Sharing Overlay is activated while the video is playing, playback is automatically paused. Users can then return to the video by clicking the top right "X", or anywhere else outside the overlay.</p>
 
 <p>When users "share" the video using this overlay, the "link" URL gets shared (this is defined either in the setup block upon embed, or in the content's metadata in the dashboard).</p>
+<p>&nbsp;</p>
+<a name="implementing-sharing"></a>
+<h2>Implementing Social Sharing</h2>
 
-
-<hr>
-
-<h2>DASHBOARD </h2>
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="dashboard" aria-selected="true" href="#dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="code" aria-selected="false" href="#code" role="tab" tabindex="0">Code</a></li>
+</ul>
+<div class="tabs-content">
+<section aria-hidden="false" class="content active" id="dashboard" role="tabpanel"> 
 
 <p>Go to your JW Player dashboard's <a href="http://dashboard.jwplayer.com/#/players" target="_blank">Players section</a> and click on the player you would like to edit (or create a new player). In the left-hand accordion menu, you will see a "Sharing" section.</p>
 
@@ -73,7 +90,7 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
   <li>Reddit</li>
   <li>Email</li>
   </ul>
-  It is also possible to set up a custom site or action. To do this, jump to our section on implementing the Sharing Overlay via <a href="#code-half">code</a>.
+  It is also possible to set up a custom site or action. To do this, jump to our section on implementing the Sharing Overlay via <a href="#code">code</a>.
   </li>
 </ol>
 </p>
@@ -89,10 +106,8 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
 <p>Technically, playback is enabled through the <em>Facebook OpenGraph</em> and <em>Twitter Cards</em> headers we place inside a video's <a href="http://content.jwplatform.com/players/HkauGhRi.html">iframe embed page</a>. No configuration is needed on your website.</p>
 <p>&nbsp;</p>
 
-<hr>
-
-<a name="code-half"></a>
-<h2>CODE</h2>
+</section>
+<section aria-hidden="true" class="content" id="code" role="tabpanel">
 <p>The sharing functionality is activated by setting up the player using the Sharing configuration block. Inside this block, the following <em>optional</em> parameters can be set:</p>
 <ul>
   <li><strong>link</strong><br>
@@ -162,4 +177,9 @@ version:jw6, example:code, example:embed, license:pro, social, sharing, facebook
 
 
 <h2>Sharing API</h2>
-<p>We've also added an API to our Sharing plugin. To learn about the calls and how to use them, head on over to the Sharing plugin documentation on the <a href="dev-portal-page" target="_blank">JW Player Developer Portal</a>.</p>
+<p>We've also added an API to our Sharing plugin. To learn about the calls and how to use them, head on over to the Sharing plugin documentation on the <a href="dev-portal-page" target="_blank">JW Player Developer Portal</a>.
+</p>
+</section>
+</div>
+</div>
+

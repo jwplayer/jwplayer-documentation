@@ -1,0 +1,243 @@
+<!-- 
+LIVES AT: 
+https://support.jwplayer.com/customer/portal/articles/2164257-migrating-your-dashboard
+
+TITLE: Migrating Your Dashboard
+
+KEYWORDS: 
+Bits on the Run, JW Platform dashboard, New dashboard, paygo, pay as you go, migrate, migrating, change dashboard, get new dashboard
+
+
+
+-->
+
+
+<p>This article targets customers that still use the <strong>Bits on the Run</strong> (a.k.a. JW Platform) dashboard, providing more info about the new JW Player dashboard, as well as frequently asked questions.</p>
+
+<ul>
+	<li>If you are already using the JW Player dashboard, see the <a href="/customer/portal/topics/729640">Account &amp; Billing topic</a>.</li>
+	<li>If you have not used JW Player before, please read <a href="/customer/portal/articles/1403727-what-is-jw-player-">our introduction article</a>.</li>
+</ul>
+
+<h2>The New Dashboard</h2>
+
+<p>In the new JW Player dashboard, you will notice a brand new design, and several new features including:</p>
+
+<ul>
+	<li><strong>Deeper Analytics</strong>: Including device, domain &amp; country breakdowns.</li>
+	<li><strong>External URLs</strong>: Manage, embed &amp; analyze self-hosted (live) streams.</li>
+	<li><strong>Multiple Users</strong>: Manage access for more users in admin or editor roles.</li>
+	<li><strong>Player Downloads</strong>: Get the self-hosting ZIPs, including our mobile SDKs.</li>
+	<li><strong>Ad Scheduling</strong>: Setup midrolls, waterfalls and overlays directly in our GUI.</li>
+</ul>
+
+<p>Moving to our new dashboard will not affect your content delivery, in-progress transcodes, API integrations or billing. Only the user interface will be updated (instantly and seamlessly). Watch this video demo of the dashboard for a helpful walk-through:</p>
+
+<div style="margin:40px 0;"><script type="text/javascript" src="//content.jwplatform.com/players/7Ps01kDK-9eJtS1X8.js"></script></div>
+
+<h2>Change: New Analytics</h2>
+
+<p>The new JW Player dashboard offers a more robust set of analytics versus the JW Platform dashboard. In addition to the aforementioned device/domain/country breakdowns, it includes unique daily viewers, play/completion rates by video and real-time updates of the current day (highlighted by dotted lines).</p>
+
+<p>In order to calculate these analytics, we have built a new data pipeline. Depending upon the way you embed your videos, the new analytics may be significantly different than your old analytics. In short, if you use single-line embed codes all will be fine, but if you play direct MP4/HLS links in a self-hosted JW Player (or 3rd party player), you likely have to do some work. <a href="//support.jwplayer.com/customer/portal/articles/2168318-jw-platform-analytics-what-s-new-">See this analytics article for more details</a>.</p>
+
+<h2>Change: Reseller Model</h2>
+
+<p>The old JW Platform dashboard offered a multi-account environment we call our <strong>Reselling Model</strong>. In the new JW Player dashboard, we have updated this model in several ways:</p>
+
+<ul>
+	<li>We introduced the concepts of separate <a href="/customer/portal/articles/2284233">Users</a> and <a href="/customer/portal/articles/2231363">Properties</a>. This is more flexible versus the old <strong>sub-accounts</strong>, since users can now be assigned to one or more properties (content libraries).</li>
+	<li>We made available these multiple properties for all Enterprise customers. This means we don&#39;t have separate reseller accounts anymore; everybody gets it.</li>
+	<li>We have removed the ability to whitelabel the dashboard through a custom logo, custom CSS and custom dashboard DNS mask, due to limited usage. Note that <a href="/customer/portal/articles/1433702-dns-masking-the-jw-platform">Contentserver DNS masking</a> remains available.</li>
+</ul>
+
+<div class="panel callout">When a reseller migrates to the new dashboard, all his sub-accounts will be automatically converted to properties. However, <strong>secondary user logins will not be transferred over and have to be re-created</strong>. Additionally, note that multiple properties are <strong>only available to Enterprise users, not Premium or Free</strong>.</div>
+
+<h2>Frequently Asked</h2>
+
+<h3>Why is there a new dashboard?</h3>
+
+<p>Over the past 2 years, we have worked on integrating the functionalities of JW Player (Cloud player, mobile SDK downloads, etc) with those of JW Platform (hosting, streaming, playlists, resellers, etc) - also known as <em>Bits on the Run</em>, our previous name. This new dashboard is the result of that, essentially offering all features from JW Player and JW Platform under a single roof.</p>
+
+<p>Additionally, the new dashboard was redesigned from the ground up as a single-page JavaScript application, allowing such items as background video uploading, quick publishing and analytics that update in realtime. See <a href="//www.jwplayer.com/blog/new-publisher-dashboard/">our external blog post</a> for more information.</p>
+
+<h3>I like the old dashboard. Do I have to Migrate to the new dashboard?</h3>
+
+<p>Yes. We will sunset the JW Platform dashboard on April 1st, 2016. The new dashboard retains all existing functionality though, plus adds a host of new features (like deeper analytics, management of external URLs and multiple users, and access to player downloads).</p>
+
+<p>Moving to our new dashboard will not affect your content delivery, in-progress transcodes, API integrations or billing. Only the user interface will be updated (instantly and seamlessly).</p>
+
+<h3>I am still on the Pay-as-you-go Billing model. Do I have to migrate to the new billing model?</h3>
+
+<p>Yes. We will stop accepting new Pay-as-you-go payments on April 1st, 2016. At that date, we will also sunset the JW Platform dashboard and migrate its users to our new JW Player dashboard.</p>
+
+<p>For typical Pay-as-you-go usage, we now offer the JW Player Premium edition. Priced at $299/year, it includes 50GB storage forever and 250GB streaming per month. Depending upon your usage volumes, this is 2 to 10 times cheaper than your existing Pay-as-you go pricing! On top of that, we offer a 50% discount if you have an outstanding storage or streaming balance.</p>
+
+<p>If you stream and/or store more than the amounts included with JW Player Premium, we will contact you with a custom offer. Alternatively, feel free to contact us for more info.</p>
+
+<h3>If I migrate to JW Player Free, can I later upgrade to Premium or Enterprise?</h3>
+
+<p>Yes. You can upgrade to JW Player Premium or Enterprise at any time. Do note the 50% Premium discount we offer current Pay-as-you-go customers will expire after April 1, 2016.</p>
+
+
+
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1611847-introduction-to-casting/edit?select_filter=677400">
+</head>
+
+<body>
+<p>Certain legacy <a href="http://www.jwplayer.com/products/jwplatform/" target="_blank"><strong>JW Platform</strong></a> accounts use a <a href="http://dashboard.jwplatform.com/payments/paygo/">pay-as-you-go pricing model</a> for account balances. The article below explains how to refill&nbsp;your plan&#39;s balances to ensure that your account stays active and functional.</p>
+
+<h2><strong>Important Note</strong></h2>
+
+<p><strong>This method of payment is for JW Platform&nbsp;Legacy customers. We no longer offer this payment model. </strong></p>
+
+<div class="article_callout">This document applies to <strong>Legacy Users</strong> of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<p><img alt="the JW Platform paygo system at a high level" src="/customer/portal/attachments/257247" /></p>
+
+<h2><a name="two-balances"></a>Two Balances</h2>
+
+<p>JW Platform tracks two balances that together cover your usage of the video platform:</p>
+
+<dl>
+	<dt>Platform Usage Balance</dt>
+	<dd>Platform usage charges cover the cost of using the JW platform, including: video upload, transcoding, storage, content &amp; playlist management, API usage and player configuration.<br />
+	The charges for platform usage are based on the size of your video library over time. This is tracked in terms of GB-month. You purchase GB-months, which are then consumed by your use of the video platform.</dd>
+	<dt>Video Delivery Balance</dt>
+	<dd>Video delivery charges cover the cost of embedding video players, streaming or downloading your content, securing your content and tracking video analytics.<br />
+	The charges for video delivery are based on the amount of video data transferred in Gigabytes (GB). You can purchase any amount of video delivery you like, which is then consumed as your users watch your videos.</dd>
+</dl>
+
+<h2><a name="rate-cards"></a>Rate Cards</h2>
+
+<p>When adding funds to your account, the amount you buy determines the rate - larger amounts are cheaper. Our rate cards are placed below. <a href="http://www.jwplayer.com/contact-us/enterprise/">Please contact us</a> if you are looking for custom rates.</p>
+
+<h3>Platform Usage</h3>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Purchase Amount</th>
+			<th>Rate in USD</th>
+			<th>Rate in EUR</th>
+		</tr>
+		<tr>
+			<td>Less than 10 GB-month</td>
+			<td>$ 3.99 per GB-month</td>
+			<td>&euro; 3.49 per GB-month</td>
+		</tr>
+		<tr>
+			<td>10 to &lt; 25 GB-month</td>
+			<td>$ 3.69 per GB-month</td>
+			<td>&euro; 2.99 per GB-month</td>
+		</tr>
+		<tr>
+			<td>25 to &lt; 100 GB-month</td>
+			<td>$ 3.19 per GB-month</td>
+			<td>&euro; 2.49 per GB-month</td>
+		</tr>
+		<tr>
+			<td>100 to &lt; 250 GB-month</td>
+			<td>$ 2.49 per GB-month</td>
+			<td>&euro; 1.99 per GB-month</td>
+		</tr>
+		<tr>
+			<td>250+ GB-month</td>
+			<td>$ 1.89 per GB-month</td>
+			<td>&euro; 1.49 per GB-month</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Depending upon your video quality, 1GB of platform usage amounts to roughly 1 hour of video stored.</p>
+
+<h3>Video Delivery</h3>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Purchase Amount</th>
+			<th>Rate in USD</th>
+			<th>Rate in EUR</th>
+		</tr>
+		<tr>
+			<td>Less than 10 GB</td>
+			<td>$ 1.79 per GB</td>
+			<td>&euro; 1.39 per GB</td>
+		</tr>
+		<tr>
+			<td>10 to &lt; 25 GB</td>
+			<td>$ 1.49 per GB</td>
+			<td>&euro; 1.19 per GB</td>
+		</tr>
+		<tr>
+			<td>25 to &lt; 100 GB</td>
+			<td>$ 1.29 per GB</td>
+			<td>&euro; 0.99 per GB</td>
+		</tr>
+		<tr>
+			<td>100 to &lt; 250 GB</td>
+			<td>$ 0.99 per GB</td>
+			<td>&euro; 0.79 per GB</td>
+		</tr>
+		<tr>
+			<td>250 to &lt; 1000 GB</td>
+			<td>$ 0.79 per GB</td>
+			<td>&euro; 0.59 per GB</td>
+		</tr>
+		<tr>
+			<td>1000 to &lt; 5000 GB</td>
+			<td>$ 0.49 per GB</td>
+			<td>&euro; 0.39 per GB</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Depending upon your video quality, 1GB of delivery usage amounts to roughly 4 hours of video streamed.</p>
+
+<h2><a name="tracking-usage"></a>Tracking Usage</h2>
+
+<p>The <a href="http://dashboard.jwplatform.com">JW Platform Dashboard</a> displays both your platform usage and video delivery balance. You will also receive notification emails if one of your balances is running low. You can replenish your account at any time. You must maintain positive balances in order for your account to remain active.</p>
+
+<ul>
+	<li>If your video delivery balance reaches zero, we temporarily suspend your video streaming. Your videos will still be safely stored in your account, but you must recharge your video delivery balance in order to resume streaming.</li>
+	<li>If your platform usage balance reaches zero, we suspend your ability to upload new videos. At this point, you must recharge your platform usage balance in order to prevent your account from being closed after 30 days.</li>
+</ul>
+
+<h2><a name="making-purchases"></a>Making Purchases</h2>
+
+<p>JW Platform accepts the following payment methods:</p>
+
+<ul>
+	<li><strong>Paypal</strong>, which allows for secure payments by bank or by credit card. After the checkout, your platform usage and video delivery are instantly updated and reflected in your account.</li>
+	<li><strong>Credit Cards</strong>, for USD orders only. After the checkout, your platform usage and video delivery are instantly updated and reflected in your account.</li>
+	<li><strong>Bank transfers</strong>, whereby we hand you the invoice after checkout. You yourself have to transfer the funds to our bank account. When the money lands, your platform usage/video delivery are updated.</li>
+</ul>
+
+<p>If you are unable to use direct payments (for instance if you work with purchase orders), you can contact our sales team for more information. Note that it is already possible to put a custom reference on our invoices, through the <em>Your Reference</em> input in the checkout screen.</p>
+
+<h2><a name="update-delays"></a>Update Delays</h2>
+
+<p>Depending on your method of payment it sometimes takes a day or more for us to receive it. In these cases your account is updated as soon as we receive the payment. The speed of payment processing depends on chosen payment method:</p>
+
+<ul>
+	<li>A payment with <strong>PayPal</strong> is usually instant, but in some cases can still take a little longer for Paypal to approve your payment. There are always delays if you use an e-check with PayPal. PayPal holds the payment until the e-check has cleared. As soon as this happens PayPal sends us a message and we immediately update your account.</li>
+	<li>A payment by <strong>Credit Card</strong> is always instant.</li>
+	<li>A payment by <strong>Bank Transfer</strong> will not be processed until the money has been transferred from your bank and received by our bank. With international transfers it can take a few days or in rare cases more than a week. We check our account every weekday to see which payments we receive.</li>
+</ul>
+
+<p>Please <a href="http://dashboard.jwplatform.com/">contact us</a> if you think your payment should already have been processed. Please include all relevant information, such as your JW Platform invoice and PayPal transaction ID.</p>
+
+</body>
+</html>
+--> 

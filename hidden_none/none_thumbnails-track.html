@@ -1,0 +1,154 @@
+<!-- 
+TO LIVE *TEMPORARILY* AT: 
+http://support.jwplayer.com/customer/portal/articles/1407439-adding-preview-thumbnails
+--> 
+<p>We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/1407438">another one</a>. </p>
+<p>Thank you for your patience while we clean up our documentation! </p>
+ 
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1407439-adding-preview-thumbnails/edit?select_filter=601064">
+</head>
+
+<body>
+<p>JW Player supports the loading of preview thumbnails for individual shots or scenes in a video. These thumbnails are displayed in a tooltip when a viewer hovers the controlbar. This allows for quick scanning and navigating of longer-form content. Here is an example player with tooltip thumbnails:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+    height: 270,
+    width: 640,
+    file: '//content.jwplatform.com/videos/vM7nH0Kl-640.mp4',
+    image: '//content.jwplatform.com/thumbs/vM7nH0Kl-640.jpg',
+    tracks: [{
+      file: '//content.jwplatform.com/strips/vM7nH0Kl-120.vtt',
+      kind: 'thumbnails'
+    }]
+});
+</script>
+
+<p>This guide explains how to format and embed these Tooltip Thumbnails.</p>
+
+<h2>Formatting</h2>
+
+<p>JW Player uses <a href="http://dev.w3.org/html5/webvtt/">WebVTT</a> files to load Tooltip Thumbnails. WebVTT is a plain text format, part of the HTML5 standard, that&#39;s also used for providing <a href="/customer/portal/articles/1407438-adding-closed-captions">closed captioning</a>. When used for thumbnails, these VTT files contain links to the actual thumbnail images, which can be in JPG, PNG or GIF format.</p>
+
+<h3>VTT Example</h3>
+
+<p>Here is an example VTT file. It belongs to a 20-second video, for which 4 preview thumbnails are included:</p>
+
+<pre>
+WEBVTT
+
+00:00.000 --&gt; 00:05.000
+/assets/preview1.jpg
+
+00:05.000 --&gt; 00:10.000
+/assets/preview2.jpg
+
+00:10.000 --&gt; 00:15.000
+/assets/preview3.jpg
+
+00:15.000 --&gt; 00:20.000
+/assets/preview4.jpg
+</pre>
+
+<p>The structure of the VTT file is quite straightforward. It consist of a list of <em>cues</em>, which each include:</p>
+
+<ul>
+  <li>The range the tooltip thumbnail represents. Note the range needs to be in <em>(HH:)MM:SS.MMM</em> format. Only this exact notation will be parsed.</li>
+  <li>The URL to the tooltip thumbnail for this range. The URL is relative to the VTT file (not to the page or player), much like images included in CSS sheets.</li>
+</ul>
+
+<p>Note JW Player will render the thumbnails in the tooltip using their original dimensions. We think thumbnails that are around 100 to 150 pixels wide tend to work well. Smaller thumbnails are hard to decipher and larger thumbnails are too much of a distraction to the main content.</p>
+
+<h3>Using Sprites</h3>
+
+<p>For many reasons (file sizes, load delays, server requests, etc.), having each thumbnail be a separate image is sub-optimal. Therefore, JW Player supports so-called <em>Thumbnail Sprites</em>, multiple thumbnails stitched together into a single image. Here&#39;s an example:</p>
+
+<p><img alt="A Tooltip Thumbnail Sprite" src="//support-static.jwplayer.com/images/tooltipthumbs-sprite.jpg" /></p>
+
+<p>In the VTT file, the individual thumbnails can be identified by appending their coordinates to the thumbnail URL using a spatial <a href="http://www.w3.org/TR/media-frags/">Media Fragment</a>:</p>
+
+<pre>
+WEBVTT
+
+00:00.000 --&gt; 00:05.000
+/assets/thumbnails.jpg#xywh=0,0,160,90
+
+00:05.000 --&gt; 00:10.000
+/assets/preview2.jpg#xywh=160,0,320,90
+
+00:10.000 --&gt; 00:15.000
+/assets/preview3.jpg#xywh=0,90,160,180
+
+00:15.000 --&gt; 00:20.000
+/assets/preview4.jpg#xywh=160,90,320,180
+</pre>
+
+<p>Note JW Player to date only supports pixel-based fragments, not percentage-based ones.</p>
+
+<h2>Embedding</h2>
+
+<p>Tooptip Thumbnail VTT files can be embedded in a player by adding it as a <strong>track</strong> to the <a href="/customer/portal/articles/1413113-configuration-options-reference#playlist">Playlist Object</a>. The tooltip thumbnails track has 2 required properties:</p>
+
+<dl>
+  <dt>file</dt>
+  <dd>URL to the WebVTT file that refers to the thumbnails (e.g. <strong>/assets/myThumbnails.vtt</strong>).</dd>
+  <dt>kind</dt>
+  <dd>The type of text track we are using. For thumbnails, specify <strong>thumbnails</strong> here. Otherwise, this will default to <strong>captions</strong>.</dd>
+</dl>
+
+<p>Note that tracks in JW Player have two additional properties, <em>default</em> and <em>label</em>. Both are only used for <a href="/customer/portal/articles/1407438-adding-closed-captions">Closed Captions</a>, and ignored for Tooltip Thumbnails.</p>
+
+<h3>Example</h3>
+
+<p>Here is an example setup, loading a single video with Tooltip Thumbnails:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+    playlist: [{
+        file: &quot;/assets/myVideo.mp4&quot;,
+        image: &quot;/assets/myPoster.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/myThumbnails.vtt&quot;, 
+            kind: &quot;thumbnails&quot;
+        }]
+    }]
+});
+</pre>
+
+<p>Note that VTT files are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</p>
+
+<h3>RSS Feeds</h3>
+
+<p>When using external RSS playlists, Tooltip Thumbnails can be included using a <strong>&lt;jwplayer:track&gt;</strong> element. Here is an example feed, containing the same video and thumbnail track as above:</p>
+
+<pre>
+&lt;rss version=&quot;2.0&quot; xmlns:media=&quot;http://rss.jwpcdn.com/&quot; &gt; 
+  &lt;channel&gt; 
+
+    &lt;item&gt; 
+      &lt;title&gt;Sintel&lt;/title&gt;
+      &lt;description&gt;Sintel is a fantasy CGI from the Blender Open Movie Project.&lt;/description&gt;
+      &lt;jwplayer:image&gt;/assets/myPoster.jpg&lt;/jwplayer:image&gt;
+      &lt;jwplayer:source file=&quot;/assets/myVideo.mp4&quot; /&gt;
+      &lt;jwplayer:track file=&quot;/assets/myThumbnails.vtt&quot; kind=&quot;thumbnails&quot; /&gt;
+    &lt;/item&gt;
+
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</pre>
+
+<p>See the <a href="/customer/portal/articles/1406722-rss-playlist-embed">RSS Feed Embed</a> example for more info.</p>
+
+</body>
+</html>
+-->

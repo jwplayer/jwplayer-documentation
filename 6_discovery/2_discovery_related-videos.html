@@ -15,11 +15,19 @@ KEYWORDS:
 version:jw6, example:code, example:embed, related, feeds, recommendations, watch more, related videos, related overlay, jwAdvancedSetup, related plugin, 
 
 --> 
-
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+<nav>
+<ul>
+	<li><a href="#about-related">About Related Videos</a></li>
+    <li><a href="#implementing-related">Implementing Related Videos</a></li>
+	</ul>
+</nav>
+</div>
 <p>This article provides an overview of JW Player's Related Videos plugin as well as instructions for implementation.</p>
 
 <p>Surfacing videos that are relevant &amp; related to the current video being watched has been shown to increase viewer engagement and time spent per viewer. </p>
-
+<a name="#about-related"></a>
 <h2>About Related Videos</h2>
 
 <p>The JW Player Related Videos Overlay displays a customizable layer over the player that:
@@ -63,17 +71,23 @@ stretching: 'uniform'
 <h2>How Are Related Videos Determined?</h2>
 <p>Related Videos can be determined differently, depending on the source of video content.
 <ul>
-<li>For users <strong>hosting content externally</strong>, Related Videos are determined by passing a Related Videos file into the embed. For more on this, jump to "Code" configuration, below.</li>
+<li>For users <strong>hosting content externally</strong>, Related Videos are determined by passing a Related Videos file into the embed. For more on this, jump to "<a href="#code">Code</a>" configuration, below.</li>
 <li>For users <strong>hosting content with JW Player</strong> (formerly JW Platform customers), Related Videos are determined using content tags. For more on this, jump to "Dashboard" configuration, below. <br/><strong>Note:</strong> For those users with a <strong>High-Volume Hosting &amp; Streaming</strong> package, an additional option is available: <a href="https://support.jwplayer.com/customer/en/portal/articles/2191721">Data-Driven Recommendations</a>. "Recommended" Videos, in this case, use the same UI as "Related" Videos. </li>
 
 </ul>
 </p> 
 <p> Related videos are sorted by most-recent first, and only the number of videos that fit in the overlay will be displayed. (Generally, 6 videos fit in a 400x300 player, and 12 videos in a 600x400 player).</p>
 <p>&nbsp;</p>
-
-<hr>
-<p>&nbsp;</p>
-<h2>DASHBOARD</h2>
+<a name="#implementing-related"></a>
+<h2>Implementing Related Videos</h2>
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="dashboard" aria-selected="true" href="#dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="code" aria-selected="false" href="#code" role="tab" tabindex="0">Code</a></li>
+    </ul>
+<div class="tabs-content">
+<section aria-hidden="false" class="content active" id="dashboard" role="tabpanel">  
+ 
 <p>Right now, Related Videos options in the dashboard are <strong>not displayed for every user</strong>. If you are interested in Recommendations and High-Volume Hosting &amp; Streaming, <a href="http://www.jwplayer.com/contact-us/" target="_blank">contact us</a>.</p>
 <!--
 <p>JW Player can automatically calculate which videos are related to one another based upon their <em>tags</em>. A piece of content is considered "Related" to another if it has <em>at least</em> 1 tag in common. All <a href="Content Metadata Article, Anchor to Tags">Click here</a> for more information on content metadata and tagging.</p>  --> 
@@ -87,15 +101,13 @@ stretching: 'uniform'
 <li>Timer and custom text for "autoplay", if selected</li>
 </ul>
 </p>
-<p><img src="//support-static.jwplayer.com/images/discovery/related-overlay-player-builder.png" alt="Related Controls in Player Builder" style="max-width:43%; padding: 0 10px;"/><img src="//support-static.jwplayer.com/images/discovery/related-overlay-player-builder_2.png" alt="Related Overlay in Player Builder" style="max-width:43%; padding: 0 10px;"/></p> 
+<p><img src="//support-static.jwplayer.com/images/discovery/related-overlay-player-builder.png" alt="Related Controls in Player Builder" style="max-width:45%; padding: 0 10px;"/><img src="//support-static.jwplayer.com/images/discovery/related-overlay-player-builder_2.png" alt="Related Overlay in Player Builder" style="max-width:45%; padding: 0 10px;"/></p> 
 
 <p>&nbsp;</p>
 
-<hr>
-<p>&nbsp;</p>
-<a name="code-setup"></a>
-<h2>Code Setup</h2>
-<p>The Related Videos functionality is activated by setting the Related configuration block. Inside this block, the following  parameters can be set (only "file" is required):</p>
+</section>
+<section aria-hidden="true" class="content" id="code" role="tabpanel">
+<p>The Related Videos functionality is activated by setting the Related configuration block. Inside this block, the following  parameters can be set (only "file" is required):
 <ul>
   <li><strong>file (required)</strong><br>
     The URL of an RSS or JSON file with related videos, e.g. http://example.com/related.json&nbsp;</li>&nbsp;<br>
@@ -113,7 +125,7 @@ stretching: 'uniform'
       <li><strong>show (default) &mdash; </strong>Displays a list of related videos instead of a replay button. Setting <strong>true</strong> will map to this configuration option for legacy purposes.</li>
       <li><strong>hide &mdash; </strong>Displays a replay button with the related overlay collapsed. Setting <strong>false</strong> will map to this configuration option for legacy purposes.</li>
       <li><strong>autoplay &mdash; </strong>Will automatically begin the next related video after 10 seconds. If MEDIAID replacement is not used, autoplay will cycle through the feed much like a playlist.<br>
-		<em><strong>Note:</strong> Setting autoplay will override onclick behavior to <strong>play</strong>.</li>&nbsp;<br/></em>    
+		<em><strong>Note:</strong> Setting autoplay will override onclick behavior to <strong>play</strong>.&nbsp;<br/></em></li> 
         </ul>
   </li>
   <li><strong>autoplaytimer</strong><br>
@@ -128,6 +140,7 @@ stretching: 'uniform'
   <li><strong>heading</strong><br>
     Single line heading displayed above the grid with related videos when clicked and as a tooltip when the related icon is moused over. The default value is Related Videos.</li>
 </ul>
+</p>
 
 <h2>Example Setup</h2>
 
@@ -222,7 +235,7 @@ autoplaytimer: 10
 
 <h3>JSON</h3>
 
-<p>As of JW Player 7.2.0, support for JSON feeds has also been added. For more about the JSON feed structure, visit the JW Player Developer page <a href="dev-portal-link" target="_blank">on this topic</a>.
+<p>As of JW Player 7.2.0, support for JSON feeds has also been added. For more about the JSON feed structure, visit the JW Player Developer page <a href="dev-portal-link" target="_blank">on this topic</a>. </p>
 <!--
 Formatting for JSON feeds functions in the very same way as our standard JW Player playlists. The same information from our above RSS feeds would be formatted and used in a JSON file as follows:</p>
 
@@ -324,4 +337,8 @@ playerInstance.setup({
 
 <h2>Related Videos API</h2>
 
-<p>We've also added an API to our Related Videos plugin. To learn about the calls and how to use them, head on over to the Related Videos plugin documentation on the <a href="dev-portal-page" target="_blank">JW Player Developer Portal</a>.</p>
+<p>We've also added an API to our Related Videos plugin. To learn about the calls and how to use them, head on over to the Related Videos plugin documentation on the <a href="dev-portal-page" target="_blank">JW Player Developer Portal</a>.
+</p>
+</section>
+</div>
+</div>
