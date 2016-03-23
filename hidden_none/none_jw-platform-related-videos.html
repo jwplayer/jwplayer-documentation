@@ -1,0 +1,66 @@
+<!-- 
+TO LIVE *TEMPORARILY* AT: 
+http://support.jwplayer.com/customer/en/portal/articles/1481963-creating-playlists
+--> 
+<p>We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/1908212">another one</a>. </p>
+<p>Thank you for your patience while we clean up our documentation! </p>
+
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+<script type="text/javascript" src="http://player-develop-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/bin-debug/jwplayer.js"></script>
+<script type="text/javascript">
+jwplayer.key="N8zhkmYvvRwOhz4aTGkySoEri4x+9pQwR7GHIQ=="; //Test Key
+</script>
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1611847-introduction-to-casting/edit?select_filter=677400">
+</head>
+
+<body>
+<p><a href="http://www.jwplayer.com/products/jwplatform/" target="_blank">JW Platform</a> players can display an overlay with related videos, allowing publishers to increase engagement and time spent per viewer. This article explains how related videos are <em>calculated</em> and set up.</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Live example</h2>
+
+<p>First, here&#39;s an example embed containing a related videos overlay. The viewer can call the overlay by clicking the <em>related</em> button. Additionally, the overlay pops up automatically when the video completes.</p>
+
+<div id="myElement">&nbsp;</div>
+<script>
+jwplayer("myElement").setup({
+  displaytitle: false,
+  height: 272,
+  ph: 1,
+  playlist: "http://content.jwplatform.com/jw6/YZGlPcgl.xml",
+  plugins: {"http://assets-jpcust.jwpsrv.com/player/6/6124956/ping.js": {"pixel": "http://content.jwplatform.com/ping.gif"}},
+  primary: "flash",
+  related: {"oncomplete": true, "onclick": "play", "file": "http://content.jwplatform.com/related6/MEDIAID.xml"},
+  width: 640,
+stretching: 'uniform'
+});
+</script>
+
+<p>When a related video is clicked, it immediately starts playback. Under water, related videos for that video are fetched in turn. This way, viewers can watch an endless stream of related videos without ever leaving the page.</p>
+
+<h2>Video Tagging</h2>
+
+<p>JW Platform automatically calculates which videos are related based upon their <em>tags</em>. Tags can be set in the Video Details pages, but also in the Videos Overview page, for multiple videos at once. Here&#39;s a screenshot of the tagging widget:</p>
+
+<p><img alt="the video tagging widget" src="/customer/portal/attachments/257545" /></p>
+
+<p>A video is related to another video if it has at least 1 tag in common. JW Platform sorts all related videos by date (descending), only displaying the related videos that fit the overlay. Generally, 6 videos fit in a small (400x300) player and 12 videos in a larger (600x400) player.</p>
+
+<h2>Player Config</h2>
+
+<p>By default, players do not show the related videos overlay. It can be enabled in the player properties, through the <em>Related Videos</em> setting:</p>
+
+<p><img alt="the related videos player setting" src="/customer/portal/attachments/257546" /></p>
+
+<p>Note that related videos work across desktop browsers and mobile devices.</p>
+
+</body>
+</html>
+
+-->

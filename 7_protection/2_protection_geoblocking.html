@@ -1,25 +1,56 @@
 <!-- 
 
-Updated version of article formerly called "Geoblocking with the Platform API" at http://support.jwplayer.com/customer/en/portal/articles/1995777
+THIS WILL LIVE AT: 
+http://support.jwplayer.com/customer/en/portal/articles/1995777
+("Geoblocking with the Platform API") 
 
 FOR REVIEW BY: Allison 
 
-TITLE: "Geoblocking" 
+TITLE: "Geo-Blocking with JW Player" 
 
 KEYWORDS: geoblocking, content protection, jw platform, jwAdvancedSetup, EntArticle
-
-NOTES: Mainly needs to be re-considered from the point of view of a publisher user: 
-- What is Geoblocking? 
-- How does JW Player handle it? 
-- How do users use it in the dashboard?
-- What are the rules and implications of using it? 
-
-Developer-focused portion (API stuff etc.) needs to be moved to the developer portal. 
 
 <title>Geo-Blocking Settings for API and Dashboard</title>
 
 -->
 
+
+<p>The JW Player dashboard now has a feature to set geo-blocking by
+country. Users can set a list of either allowed or restricted countries
+for the entire property. When content or players are requested from
+countries that do not meet the geo-blocking criteria, that content will
+not be served to the end user.<br>
+</p>
+
+<h2>Geo-Blocking by Country / Region<br>
+</h2>
+
+<br>
+<p>Users can enable Geo-blocking for the account (per property if you
+have multiple properties set up) within the Account &gt; Properties
+section settings.&nbsp; At this time, geo-blocking is not configurable
+for a specific player or specific content.&nbsp; <br>
+</p><h2>Types of Restrictions<br>
+</h2>
+
+<p>The default for geo-blocking is OFF.</p>
+<p>To <span style="font-weight: bold;">allow </span>only a certain list
+of regions, set Geo-Blocking to "Allowed List" and add regions to your
+allowed list.&nbsp; Requests from the allowed regions will be returned
+content. <br>
+</p>
+<p>To <span style="font-weight: bold;">block </span>only a certain list
+of regions, set Geo-Blocking to "Blocked List" and add regions to your
+blocked list.&nbsp; Requests from blocked regions will be returned at
+403 response and will not be able to view your content. <br>
+</p>
+<p>Note: at this time you may configure <span style="font-weight: bold;">either</span> an allowed list or a blocked list.&nbsp; These options are mutually exclusive.&nbsp; <br>
+</p>
+<p><img src="//support-static.jwplayer.com/images/protection/geo-blocking-dashboard.png" alt="Geo-Blocking Dashboard Settings"/></p>
+
+<p>To achieve geo-blocking via the <strong>JW Platform API</strong>, see the <a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/protectionrules/index.html">JW Platform API Reference</a> in our Developer Portal.</p>
+
+<!-- 
 <p>The JW Player dashboard now has a feature to set geo-blocking by
 country. Users can set a list of either allowed or restricted countries
 for the entire property. When content or players are requested from
@@ -114,3 +145,4 @@ else: # if a protectionrule does exist, update it
 pp.pprint(&quot;listing protectionrules again after create or update&quot;)
 list_response = api.call(&#39;/accounts/protectionrules/list&#39;)
 pp.pprint(list_response)</pre>
+-->

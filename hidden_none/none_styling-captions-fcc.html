@@ -1,0 +1,125 @@
+<!-- 
+TO LIVE *TEMPORARILY* AT: 
+http://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance
+-->
+
+<p>We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/1597259">another one</a>. </p>
+
+<p>Thank you for your patience while we clean up our documentation! </p>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
+
+<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1482067-styling-captions-for-fcc-compliance/edit?select_filter=601064">
+</head>
+
+<body>
+<p>It is possible to change the styling of the captions using the <strong>captions</strong> configuration block. This is primarily relevant in the context of accessibility requirements, such as those <a href="http://www.jwplayer.com/blog/implementing-fcc-closed-captioning-mandates/">mandated by the FCC</a> in the United States.</p>
+
+<h2>Example</h2>
+
+<p>Here is an example setup of a player with large, red captions on a semitransparent background:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/3XnJSIm4-640.jpg",
+  file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+  tracks: [{ 
+    file: '//content.jwplatform.com/tracks/2UEDrDhv.txt', 
+    label: 'English', 
+    kind: 'captions',
+    'default':true
+  }],
+  width: 640,
+  height: 270,
+  captions: {
+    color: '#FF0000',
+    fontsize: 20,
+    backgroundOpacity: 50
+  }
+});
+</script>
+
+<p>And here is the embed code associated with this setup:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+        file: &quot;/assets/sintel.mp4&quot;,
+        image: &quot;/assets/sintel.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/captions.vtt&quot;
+        }]
+    }],
+    captions: {
+        color: &#39;#FF0000&#39;,
+        fontSize: 24,
+        backgroundOpacity: 50
+    }
+});
+</pre>
+
+<h2>Properties</h2>
+
+<p>Here is an overview of all captions styling properties that can be set:</p>
+
+<dl>
+  <dt>color</dt>
+  <dd>Can be any hexadecimal color value, the default is <strong>FFFFFF</strong>.</dd>
+  <dt>fontsize</dt>
+  <dd>By default, the captions are displayed using a font size that fits 80 characters per line. Use this option to override this selection with a specific fontsize in pixels (e.g. <strong>20</strong>). Note the captions are still scaled up during fullscreen playback.</dd>
+  <dt>fontfamily</dt>
+  <dd>By default, the font family is Arial, Sans-serif. Use this option to override that and change the font family.</dd>
+  <dt>fontOpacity</dt>
+  <dd>By default the fontOpacity is 100. This option will accept a numerical value of 0-100.</dd>
+  <dt>backgroundColor</dt>
+  <dd>This is the highlight color of the text. All HEX color values are accepted.</dd>
+  <dt>backgroundOpacity</dt>
+  <dd>By default the opacity is 100. This option will accept a numerical value of 0-100 to adjust the opacity of the background text highlight.</dd>
+  <dt>edgeStyle</dt>
+  <dd>The edge style is an option to put emphasis around text. The available options are: none, dropshadow, raised, depressed, uniform.</dd>
+  <dt>windowColor</dt>
+  <dd>This is the background color of the overall window the captions reside in. All HEX color values are accepted.</dd>
+  <dt>windowOpacity</dt>
+  <dd>By default the opacity is 100. This option will accept a numerical value of 0-100 to adjust the opacity of the window.</dd>
+</dl>
+
+<h2>Cue Styling</h2>
+
+<p>JW Player does not yet support WebVTT cue settings (<em>line</em>, <em>position</em>, <em>size</em>, etc.), nor most WebVTT cue objects (<em>class</em>, <em>ruby</em>, <em>timestamp</em>, etc.). They will not break playback, but are simply ignored. However, some basic HTML tags are supported:</p>
+
+<ul>
+  <li><strong>&lt;b&gt;</strong>: to make text bold.</li>
+  <li><strong>&lt;i&gt;</strong>: to make text italic.</li>
+  <li><strong>&lt;u&gt;</strong>: to underline text.</li>
+  <li><strong>&lt;font size=&quot;123&quot;&gt;</strong>: to change the text fontsize.</li>
+  <li><strong>&lt;font color=&quot;ffcc00&quot;&gt;</strong>: to change the text color.</li>
+</ul>
+
+<p>Here is an example VTT file with a few cues containing inline styles:</p>
+
+<pre>
+WEBVTT
+
+00:00:08.000 --&gt; 00:00:10.000
+&lt;b&gt;Nothing&lt;/b&gt; is going on.
+
+00:00:10.500 --&gt; 00:00:12.500
+&lt;font color=&quot;#3333CC&quot;&gt;Violet, &lt;i&gt;please&lt;/i&gt;!&lt;/font&gt;
+- I am &lt;font size=&quot;20&quot; color=&quot;#FF0000&quot;&gt;&lt;u&gt;not&lt;/u&gt;&lt;/font&gt; your babe!
+</pre>
+
+<p>Note these HTML tags can also be used in SRT or DFXP files. DFXP-specific styling functionality is not supported though.</p>
+
+</body>
+</html>
+-->

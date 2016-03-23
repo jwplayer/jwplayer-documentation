@@ -1,0 +1,515 @@
+<!-- 
+
+TITLE: Using Captions & Other Tracks
+
+KEYWORDS: tracks, captions, metadata, chapters, thumbnails, thumbnail, caption, track, chapter, cc, closed captions, vtt, srt, webvtt, 608 captions, fcc captions, preview thumbnail, 
+
+This REPLACES "Adding Closed Captions" at 
+https://jwplayer.desk.com/admin/content-management/articles/1407438
+
+
+It includes elements from: 
+
+Adding Chapter Markers
+http://support.jwplayer.com/customer/portal/articles/1407454-adding-chapter-markers
+
+Adding Preview Thumbnails
+http://support.jwplayer.com/customer/portal/articles/1407439-adding-preview-thumbnails
+
+
+
+-->
+<section>
+<div class="article_toc">
+<h2>Table Of Contents</h2>
+<nav>
+<ul>
+	<li><a href="#using-tracks">Using Tracks</a>
+    	<ul style="list-style-type: circle;">
+        <li><!--<a href="#using-tracks-dashboard">-->In the Dashboard<!--</a>--></li>
+        <li><!--<a href="#using-tracks-code">-->With Code<!--</a>--></li>
+        </ul>
+    </li>
+    <li>	<a href="#types-of-tracks">Types of Tracks</a>
+    	<ul style="list-style-type: circle;">
+		<li><!--<a href="#captions">-->Captions<!--</a>-->
+    	<!-- <ul>
+			<li>VTT- and SRT-based</li>
+            <li>M3u8-based (608 Captions)</li>
+        </ul> -->
+    	</li>
+		<li><!--<a href="#chapters">-->Chapters<!--</a>--></li>
+    	<li><!--<a href="#thumbnails">-->Thumbnails<!--</a>--></li>
+        <li><!--<a href="#metadata">-->Metadata<!--</a>--></li>
+        </ul>
+	</li>
+</ul>
+</nav>
+</div>
+<p>JW Player's Tracks configuration options allow you to customize the experience you want your viewers to have with your content, including making it more accessible. <a href="https://www.jwplayer.com/innovation/experiments/interactive-transcripts/" target="_blank">Click here</a> to see our demo of an interactive video transcript, one way in which you can take creative advantage of all Tracks have to offer.</p>
+<p>Any of the track types discussed on this page can be implemented via <a href="https://dev.w3.org/html5/webvtt/" target="blank">WebVTT</a> (VTT) files. In addition, Captions tracks can be added via an <a href="http://en.wikipedia.org/wiki/SubRip">SRT</a> file, though SRT will not be covered here.</p>
+<p>VTT files are easy to understand, and can be authored with a simple text editor&mdash;as you will see in the examples below. </p>
+<!--<p>(Information on multi-track audio, or "multiple audio renditions", is in  <a href="https://support.jwplayer.com/customer/portal/articles/1761348">another article</a>.)</p>-->
+<p>&nbsp;</p>
+<a name="using-tracks"></a>
+<h2>Using Tracks</h2>
+<!-- TABBED SECTION -->
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="using-tracks-dashboard" aria-selected="true" href="#using-tracks-dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="using-tracks-code" aria-selected="false" href="#using-tracks-code" role="tab" tabindex="0">Code</a></li>
+</ul>
+<div class="tabs-content">
+
+<!-- Tab 1 -->
+<section aria-hidden="false" class="content active" id="using-tracks-dashboard" role="tabpanel">
+	<!-- INSERT Tab 1 CONTENT BELOW THIS LINE --> 
+ <p>In the JW Player Dashboard, each content object has a "tracks" tab, where you can manage the tracks for that video. </p>
+  <p>
+  <ol type="A">
+  <li>
+  <a href="#captions">Caption</a> tracks are special here, and can be uploaded, edited, or even created from a blank file using our <a href="https://www.jwplayer.com/blog/new-video-caption-editor/">captions editor</a>. </li>
+  <li>Already-existing Captions, <a href="#chapters">Chapters</a>, and <a href="#metadata">Metadata</a> tracks can all be uploaded here. </li>
+  <li><a href="#thumbnails">Thumbnail</a> tracks are automatically created when a video is uploaded into the JW Platform. </li>
+  </ol>
+  </p>
+  <p><img src="http://support-static.jwplayer.com.s3.amazonaws.com/images/streaming/tracks-content-detail.png" alt="The Tracks Tab is the third tab on a video's detail page"/></p>
+	<!-- END Tab 1 CONTENT   -->
+</section>
+<!-- End Tab 1 -->
+
+<!-- Tab 2 -->
+<section aria-hidden="true" class="content" id="using-tracks-code" role="tabpanel">
+
+	<!-- INSERT Tab 2 CONTENT BELOW THIS LINE --> 
+ <p>When <a href="https://support.jwplayer.com/customer/portal/articles/1406723#cloud-player-embed-code">setting up a player</a> in code, you can take advantage of the "tracks" configuration block. There are four possible properties, that may or may not be needed depending on which type of track you plan to embed:</p>
+  <dl>
+  <dt><strong>file</strong> (required)</dt>
+  <dd>URL to the WebVTT (or SRT, for captions) file to display (e.g. <strong>/assets/myCaptions.vtt</strong>). <em>Note: these files are subject to <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain Security Restrictions</a>, in both Flash and HTML5 mode.</em></dd>
+  <dt><strong>label</strong></dt>
+  <dd>This option applies to captions, and is a human-readable track name (e.g. <strong>English Captions</strong>). If more than one track is available, this label will be displayed in the captions selection (CC) menu in the player.</dd>
+  <dt>&quot;<strong>default</strong>&quot;</dt>
+  <dd>This option applies to captions, which are Off by default and can be enabled using the player's CC menu. Set this to <strong>true</strong> if you want captions to display on startup. (<strong>Note:</strong> the option should be placed in quotes because <strong>default</strong> is a reserved JavaScript keyword in IE8.)</dd>
+  <dt><strong>kind</strong> (required for Chapters, Thumbnails, and Metadata)</dt>
+  <dd>The type of text track being specified (<strong>captions</strong>, <strong>chapters</strong>, <strong>thumbnails</strong>, <strong>metadata</strong>). Captions are the default; however, it is good practice to add this property anyway for readability when captions are being used.</dd>
+</dl>
+<p>
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;)
+playerInstance.setup({
+    playlist: [{
+        file: &quot;/assets/sintel.mp4&quot;,
+        image: &quot;/assets/sintel.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/captions-en.vtt&quot;, 
+            label: &quot;English&quot;,
+            kind: &quot;captions&quot;,
+            &quot;default&quot;: true 
+        },{ 
+            file: &quot;/assets/captions-fr.vtt&quot;, 
+            kind: &quot;captions&quot;,
+            label: &quot;French&quot;
+        }]
+    }]
+});
+</pre>
+</p>
+<p>Each "kind" of tracks file has different format expectations within the file, as outlined below. </p>
+
+<!-- END Tab 2 CONTENT   --> 
+
+</section>
+<!-- End Tab 2 -->
+
+</div>
+</div>
+<!-- END TABBED SECTION -->
+<hr>
+
+<p>&nbsp;</p>
+
+<a name="types-of-tracks"></a>
+<h2>Types of Tracks</h2>
+
+
+<!-- TAB SECTION -->
+
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="captions" aria-selected="true" href="#captions" role="tab" tabindex="0">Captions</a></li>
+	<li class="tab-title" a="presentation"><a aria-controls="chapters" aria-selected="false" href="#chapters" role="tab" tabindex="0">Chapters</a></li>
+    <li class="tab-title" role="presentation"><a aria-controls="thumbnails" aria-selected="false" href="#thumbnails" role="tab" tabindex="0">Thumbnails</a></li>
+    <li class="tab-title" role="presentation"><a aria-controls="metadata" aria-selected="false" href="#metadata" role="tab" tabindex="0">Metadata</a></li>
+</ul>
+<div class="tabs-content">
+
+<!-- Tab 1 -->
+<section aria-hidden="false" class="content active" id="captions" role="tabpanel">
+
+	<!-- INSERT Tab 1 CONTENT BELOW THIS LINE --> 
+
+
+<p>JW Player 7 supports the rendering of closed captions or subtitles in the video display. These captions can be selected by viewers through the <em>CC</em> button. The example below uses a single language. The CC button then acts as a toggle.</p>
+
+<p>For multiple languages, the CC button will show a language selection menu. <a href="#" onclick="return toggle()">Click here</a> to load multiple languages for the below example video (or toggle back to single CC).</p>
+
+<div id="container" style="background-color:#eee;">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "https://content.jwplatform.com/thumbs/3XnJSIm4-640.jpg",
+  file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+  tracks: [{ 
+    file: '//support-static.jwplayer.com/content/misc/2UEDrDhv.vtt', 
+    label: 'English', 
+    kind: 'captions' 
+  }],
+  width: 640,
+  height: 270
+});
+
+var languages = [{
+  label:'English',file:'//support-static.jwplayer.com/content/misc/2UEDrDhv.vtt'
+},{
+  label:'Japanese',file:'//support-static.jwplayer.com/content/misc/6aaGiPcs.vtt'
+},{
+  label:'Russian',file:'//support-static.jwplayer.com/content/misc/2nxzdRca.vtt'
+},{
+  label:'Spanish',file:'//support-static.jwplayer.com/content/misc/BMjSl0KC.vtt'
+}];
+var single = true;
+
+function toggle() {
+  var t = [];
+  if(single) {
+    single = false;
+    for (var i=0; i<languages.length; i++) {
+      t.push({
+        file: languages[i].file,
+        kind: 'captions',
+        label: languages[i].label,
+      });
+    }
+  } else {
+    single = true;
+    t.push({
+      file: languages[0].file,
+      kind:'captions',
+      label: languages[0].label
+    });
+  }
+ playerInstance.load({
+    file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+    tracks: t
+  });
+  playerInstance.play();
+  return false;
+};
+</script>
+
+
+<h3>Caption File Formats</h3>
+<p>When a Captions file is associated with a video (via the dashboard or the embed block), viewers see text overlaid on the video.</p>
+<p>JW Player supports both VTT and SRT files for captions across all browsers, in both Flash and HTML5 mode. However, <strong>VTT captions are strongly preferred</strong>, since they are part of the HTML5 standard. <strong>Note:</strong> Captions will <strong>not</strong> work on iOS for versions prior to JW Player 7.3. For 100% caption support on iOS, update to <a >JW Player 7.3</a>.</p>
+
+<p>JW Player also provides more captions information here:
+<ul>
+	<li><a href="/customer/portal/articles/1430278-cea-608-captions">HLS Captions (CEA-608)</a> </li>
+    <li><a href="https://support.jwplayer.com/customer/en/portal/articles/1482067">Styling for FCC Captions Requirements</a></li>
+</ul>
+</p>
+
+<a name="captions-example"></a>
+<h3>Captions VTT Example</h3>
+
+WEBVTT
+
+00:00:12,000 --&gt; 00:00:15.000
+What brings you to the land
+of the gatekeepers?
+
+00:00:18,500 --&gt; 00:00:20.500
+I&#39;m searching for someone.
+
+00:00:36,500 --&gt; 00:00:39.000
+A dangerous quest for a lone hunter.
+
+00:00:41,500 --&gt; 00:00:44.000
+I&#39;ve been alone for as long
+as I can remember.
+</pre>
+
+<h3>Embedding a Captions File</h3>
+
+<p>Here is an example setup, using one video and two VTT files. The English captions will render by default:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;)
+playerInstance.setup({
+    playlist: [{
+        file: &quot;/assets/sintel.mp4&quot;,
+        image: &quot;/assets/sintel.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/captions-en.vtt&quot;, 
+            label: &quot;English&quot;,
+            kind: &quot;captions&quot;,
+            &quot;default&quot;: true 
+        },{ 
+            file: &quot;/assets/captions-fr.vtt&quot;, 
+            kind: &quot;captions&quot;,
+            label: &quot;French&quot;
+        }]
+    }]
+});
+</pre>
+
+<!-- END Tab 1 CONTENT   --> 
+ 
+</section>
+<!-- End Tab 1 -->
+
+
+
+<!-- Tab 2 -->
+<section aria-hidden="true" class="content" id="chapters" role="tabpanel">
+
+	<!-- INSERT Tab 2 CONTENT BELOW THIS LINE --> 
+    
+
+<p>JW Player supports the rendering of chapter markers within the timeslider. These work particularly well for long form video, to segment it into discreet sections. Here is a live example:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/q1fx20VZ-640.jpg",
+  file: "//content.jwplatform.com/videos/q1fx20VZ-640.mp4",
+  tracks: [{ 
+    file: '//content.jwplatform.com/tracks/XtwSLSdq.txt',
+    kind: 'chapters'
+  }],
+  width: 640,
+  height: 270
+});
+</script>
+
+<p>When a Chapters track is associated with a video (via dashboard or the embed block), a viewer can quickly hover over the cue point and can see the title of the chapter or section. Clicking on the cue point navigates the viewer directly to the selected point in the video.</p>
+
+<h3>Chapters VTT Format</h3>
+<p>The following required and optional elements make up a valid Chapters VTT file:</p>
+<dl>
+  <dt><strong>Cue identifier</strong> (optional )</dt>
+  <dd>Used to identify the actual cue point.</dd>
+  <dt><strong>Cue timings</strong> (required)</dt>
+  <dd>Specifies the time zone for the cue. The chapter will be displayed on the start of the zone.</dd>
+  <dt><strong>Chapter title</strong> (required)</dt>
+  <dd>The actual title you want displayed.</dd>
+</dl>
+
+<h3>Chapters VTT Example</h3>
+<pre>
+WEBVTT
+
+Chapter 1
+00:00:00.000 --&gt; 00:01:42.000
+Opening credits
+
+Chapter 2
+00:01:42.000 --&gt; 00:04:44.000
+A dangerous quest
+
+Chapter 3
+00:04:44.000 --&gt; 00:05:50.000
+The attack
+</pre>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+  <li>The title that gets displayed in the tooltip is the text located beneath the time.</li>
+  <li>VTT files should always be saved in UTF8 encoding to prevent character issues.</li>
+  <li>VTT files are subject to cross-domain security restrictions and therefore won&#39;t automatically load from another domain than the player. See <a href="/customer/portal/articles/1403679-crossdomain-file-loading">Crossdomain File Loading</a> for more info.</li>
+</ul>
+
+<h3>Embedding a Chapters File</h3> 
+
+<p>After you have your VTT file with chapter cues, you can upload it with the video it belongs to in the JW Player dashboard.</p>
+<p> If you are not hosting your content with JW Payer, or you'd like to add this track by hand, add the following <strong>tracks</strong> configuration block to your player embed, with the <strong>kind</strong> set to <strong>chapters</strong>.</p>
+
+<p>The full player embed code for above live example looks like:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+  file: &quot;/upload/sintel.mp4&quot;,
+  image: &quot;/upload/sintel.jpg&quot;,
+  tracks: [{
+    file:&#39;/upload/chapters.vtt&#39;,
+    kind:&#39;chapters&#39;
+  }],
+  width: 640,
+  height: 270
+});
+</pre>
+
+<p>Note the timeslider skin element can be customized. See the <a href="http://support.jwplayer.com/customer/portal/articles/2067702-skin-css#timeslider">Skin CSS Reference</a> for more info.</p>
+
+<p>Chapters can also be loaded as part of RSS feeds. See the <a href="/customer/portal/articles/1403635-media-format-reference#feeds">RSS Feeds Reference</a> for more info.</p>
+
+<!-- END Tab 2 CONTENT   --> 
+ 
+</section>
+<!-- End Tab 2 -->
+
+
+<!-- Tab 3 -->
+<section aria-hidden="true" class="content" id="thumbnails" role="tabpanel">
+
+	<!-- INSERT Tab 3 CONTENT BELOW THIS LINE --> 
+
+<p>JW Player supports the loading of preview thumbnails for individual shots or scenes in a video. These thumbnails are displayed in a tooltip when a viewer hovers over the controlbar. This allows for quick scanning and navigating of longer-form content. Here is an example player with tooltip thumbnails:</p>
+
+<div id="container" style="background-color:#eee;">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+    height: 270,
+    width: 640,
+    file: '//content.jwplatform.com/videos/vM7nH0Kl-640.mp4',
+    image: '//content.jwplatform.com/thumbs/vM7nH0Kl-640.jpg',
+    tracks: [{
+      file: '//content.jwplatform.com/strips/vM7nH0Kl-120.vtt',
+      kind: 'thumbnails'
+    }]
+});
+</script>
+
+
+<h3>Thumbnails VTT Format</h3>
+
+<p>When used for thumbnails, VTT files contain links to the actual thumbnail images, which can be in JPG, PNG or GIF format.</p>
+
+<p>The structure of the Thumbnails VTT file is straightforward. It consist of a list of <em>cues</em>, which each include:</p>
+
+<ul>
+  <li>The <strong>range</strong> the tooltip thumbnail represents. Note the range needs to be in <em>(HH:)MM:SS.MMM</em> format. Only this exact notation will be parsed.</li>
+  <li>The <strong>URL</strong> to the tooltip thumbnail for this range. The URL is relative to the VTT file (not to the page or player), much like images included in CSS sheets.</li>
+</ul>
+
+<p><strong>Note:</strong> JW Player renders tooltip thumbnails in their original dimensions. We recommend 100x150 pixels &mdash; Smaller thumbnails are hard to decipher and larger thumbnails tend to distract from the main content.</p>
+
+<h3>Thumbnails VTT Example</h3>
+
+<p>Here is an example VTT file. It belongs to a 20-second video, for which 4 preview thumbnails are included:</p>
+
+<pre>
+WEBVTT
+
+00:00.000 --&gt; 00:05.000
+/assets/preview1.jpg
+
+00:05.000 --&gt; 00:10.000
+/assets/preview2.jpg
+
+00:10.000 --&gt; 00:15.000
+/assets/preview3.jpg
+
+00:15.000 --&gt; 00:20.000
+/assets/preview4.jpg
+</pre>
+
+
+
+<h4>Using Sprites</h4>
+
+<p>For many reasons (file sizes, load delays, server requests, etc.), having each thumbnail be a separate image is sub-optimal. Therefore, JW Player supports <em>Thumbnail Sprites</em>: multiple thumbnails stitched together into a single image. Here&#39;s an example:</p>
+
+<p><img alt="A Tooltip Thumbnail Sprite" src="//support-static.jwplayer.com/images/tooltipthumbs-sprite.jpg" /></p>
+
+<p>In the VTT file, the individual thumbnails can be located by adding their coordinates to the thumbnail URL using a spatial <a href="http://www.w3.org/TR/media-frags/">Media Fragment</a>:</p>
+
+<pre>
+WEBVTT
+
+00:00.000 --&gt; 00:05.000
+/assets/thumbnails.jpg#xywh=0,0,160,90
+
+00:05.000 --&gt; 00:10.000
+/assets/preview2.jpg#xywh=160,0,320,90
+
+00:10.000 --&gt; 00:15.000
+/assets/preview3.jpg#xywh=0,90,160,180
+
+00:15.000 --&gt; 00:20.000
+/assets/preview4.jpg#xywh=160,90,320,180
+</pre>
+
+<p><strong>Note:</strong> JW Player supports pixel-based fragments, not percentage-based ones.</p>
+
+<h3>Embedding a Thumbnails File</h3>
+
+<p>Here is an example setup, loading a single video with Tooltip Thumbnails:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+    playlist: [{
+        file: &quot;/assets/myVideo.mp4&quot;,
+        image: &quot;/assets/myPoster.jpg&quot;,
+        tracks: [{ 
+            file: &quot;/assets/myThumbnails.vtt&quot;, 
+            kind: &quot;thumbnails&quot;
+        }]
+    }]
+});
+</pre>
+
+
+<h3>RSS Feeds</h3>
+
+<p>When using external RSS playlists, Tooltip Thumbnails can be included using a <strong>&lt;jwplayer:track&gt;</strong> element. Here is an example feed, containing the same video and thumbnail track as above:</p>
+
+<pre>
+&lt;rss version=&quot;2.0&quot; xmlns:media=&quot;http://rss.jwpcdn.com/&quot; &gt; 
+  &lt;channel&gt; 
+
+    &lt;item&gt; 
+      &lt;title&gt;Sintel&lt;/title&gt;
+      &lt;description&gt;Sintel is a fantasy CGI from the Blender Open Movie Project.&lt;/description&gt;
+      &lt;jwplayer:image&gt;/assets/myPoster.jpg&lt;/jwplayer:image&gt;
+      &lt;jwplayer:source file=&quot;/assets/myVideo.mp4&quot; /&gt;
+      &lt;jwplayer:track file=&quot;/assets/myThumbnails.vtt&quot; kind=&quot;thumbnails&quot; /&gt;
+    &lt;/item&gt;
+
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</pre>
+
+<p>See the <a href="/customer/portal/articles/1406722-rss-playlist-embed">RSS Feed Embed</a> example for more info.</p>
+
+<!-- END Tab 3 CONTENT   --> 
+
+</section>
+<!-- End Tab 3 -->
+
+<!-- Tab 4 -->
+<section aria-hidden="true" class="content" id="metadata" role="tabpanel">
+
+	<!-- INSERT Tab 4 CONTENT BELOW THIS LINE --> 
+
+
+<p>Metadata tracks and what they do!</p>
+
+
+	<!-- END Tab 4 CONTENT   --> 
+
+</section>
+<!-- End Tab 4 -->
+
+</div>
+</div>
+<!-- END TABBED SECTION -->
+
+<p><strong>Note:</strong> If you are making VTT files yourself, please save them using <strong>UTF8</strong> encoding to correctly display special characters (accents, but also e.g. Arab, Chinese, Russian). If these files are not stored and served using UTF8 encoding, you may experience rendering issues.</p>
+
+</section>
