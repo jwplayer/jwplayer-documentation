@@ -10,4 +10,6 @@ pages:
     - DOM Structure Visual Reference: customization/css-skinning/dom-structure.md
     - Example CSS File: customization/css-skinning/skins_example.md
   - Design Resources: customization/designer-kit.md
+  - Beta Program:
+    - HLS in HTML5: beta/html5_hls_beta.md
 site_dir: developer-guide
