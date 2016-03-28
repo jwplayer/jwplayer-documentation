@@ -12,4 +12,6 @@ pages:
   - Design Resources: customization/designer-kit.md
   - Beta Program:
     - HLS in HTML5: beta/html5_hls_beta.md
+  - Javascript API:
+    - API Reference: api/api_ref.md
 site_dir: developer-guide

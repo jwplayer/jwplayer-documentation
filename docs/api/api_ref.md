@@ -1,0 +1,1067 @@
+This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls. API calls below are grouped together in a logical way, while breaking each section into Getters, Setters, Events, and Miscellaneous.
+
+# Table Of Contents
+
+* [All](#all)
+* [Setup](#setup)
+* [Playlist](#playlist)
+* [Buffer](#buffer)
+* [Playback](#playback)
+* [Seek](#seek)
+* [Volume](#volume)
+* [Resize](#resize)
+* [Quality](#quality)
+* [Captions](#captions)
+* [Controls](#controls)
+* [Advertising](#advertising)
+* [Metadata](#metadata)
+* [Sharing](#sharing)
+* [Related](#related)
+
+
+Also, note that all Events below are using the on listener, however it is also possible to register or remove each event with on, once, or off. The use of trigger may also be used for custom events. For an introduction to JW7's API, see the [JavaScript API Quick Start](http://support.jwplayer.com/customer/portal/articles/1413074).
+
+Note that this document is a reference for the JW Player 7 API, which has changed substantially since JW6. Existing JW6 event listeners will continue working with JW7, though we do suggest updating them to this newer model. For the JW6 API, see our [JW6 Javascript Reference](http://support.jwplayer.com/customer/portal/articles/2051720-javascript-api-reference-legacy)
+
+# <a name="all"></a>All
+
+##jwplayer().on('all')
+
+This singular API call can be used to gather all events from the player's API. 
+#### Note: This will output a large amount of information and may degrade browser performance if it is used for an extended period of time.
+
+# <a name="setup"></a>Setup
+
+These API calls are used to create players and provide setup information. Both setup() and remove() fall under Miscellaneous due to the fact that they are not actually setting, but are rather building and removing players.
+
+
+## jwplayer( _div_ ).setup( _options_ )
+Creates a new JW Player on your web page.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|div| The div that JW Player will replace | String |Yes|
+|options| Configuration options that will tell your player how to render itself | JSON |Yes|
+
+ The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a full list of all JW Player configuration options.
+### Sample
+<pre>
+&lt;div id="myDiv"&gt;This text will be replaced with a player.&lt;/div&gt;
+&lt;script&gt;
+jwplayer("myDiv").setup({
+	file: "http://example.com/myVideo.mp4",
+	image: "http://example.com/myImage.png",
+	height: 360,
+	width: 640
+});
+&lt;/script&gt;
+</pre>
+
+##jwplayer().remove()
+
+Being the reverse of the setup() call, this call will remove a JW Player from the page. It ensures the player stops playback, the DOM is re-set to its original state and all event listeners and timers are cleaned up. Any event listeners will need to be reinstantiated if another player is set up.
+
+* * *
+
+##jwplayer().getProvider()
+
+Returns the provider being utilized by JW Player for a particular media file. This replaces JW6's getRenderingMode(), as JW7 will always technically render in html5 mode, even if it is using a flash-based provider. This returns an object like:
+
+|Returns|Description|Type|
+|----|--------|---|
+|name | The name of the provider currently being used|String|
+
+###List of possible providers:
+|Values|Description|
+|----|--------|
+|flash_video |Static video file with our Flash provider|
+|flash_rtmp |Streaming media, utilizing Adobe's RTMP protocol|
+|flash_adaptive |Streaming HLS using Adobe Flash|
+|flash_sound |Static audio file with Flash provider|
+|html5 |Displays whenever content renders natively within a video tag|
+|shaka <sup>7.0+</sup>|MPEG Dash Provider|
+|caterpillar <sup>7.4+</sup> |HLS content rendering with HLS HTML5 provider|
+
+##jwplayer().getContainer()
+
+Returns the entire HTML of the div in which a JW Player instance exists. This includes all IDs, styles, classes, and content.
+
+* * *
+
+##.on('ready')
+
+Signifies when the player has been initialized in either Flash or HTML5 and is ready for playback. This is the earliest point at which any API calls should be made.
+
+|Returns|Description|Type|
+|----|--------|---|
+|setupTime | The amount of time (in milliseconds) for the player to go from setup() to ready.|Number|
+
+
+##.on('setupError')
+
+Fired when neither the Flash nor HTML5 player could be set up.
+
+|Returns|Description|Type|
+|----|--------|---|
+|message | The error message that describes why the player could not be set up|String|
+
+
+##.on('remove')
+
+Triggered when the player is taken off of a page via jwplayer().remove();
+
+|Returns|Description|Type|
+|----|--------|---|
+| - |No value returned| - |
+
+* * *
+
+# <a name="playlist"></a>Playlist
+
+These API calls are used for loading and retrieving the current playlist (of one or more items), as well as for navigating between playlist items.
+
+The data model of a playlists is as follows:
+
+*   The playlist is an Array, containing one or more playlist items.
+*   Each item is an Object, containing the title (String), description (String), mediaid (String), image (String), sources (Array) and tracks (Array) properties.
+*   The sources Array in turn contain a list of Objects, each with a file, type, label and default property.
+*   The tracks Array in turn contain a list of Objects, each with a file, kind and default property.
+
+Additionally, each playlist item has a file property, which acts as a shortcut to the file of the first entry in the sources Array. This shortcut makes it easier to do basic playlist loading or fetching, since most publishers will setup their playlist items with one file only.
+
+See the [Configurations Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a description of each property and some example playlists.
+
+* * *
+
+##.getPlaylist()
+
+Returns the below information for each playlist item in JSON format. Any additional custom information will also be returned.
+
+|Returns|Description|Type|
+|----|--------|---|
+| description | A description specified inside of the playlist | String |
+| mediaid | A unique media identifier for a particular piece of content, regardless of the format used | String |
+| file | The first media file of the playlist item. Alternatives are listed in the _sources_ array | String |
+| image | The poster image file loaded inside of the player | String |
+| preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
+| title | The title of the playlist item | String |
+| tracks | Tracks information included with the playlist item | Array |
+| sources | Information about all configured sources | Array |
+
+##.getPlaylistItem(_index_)
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|index| Retrieves the same information as getPlaylist(), but for a single playlist item.| Number |No|
+
+####If no number is specified, the current playlist item's information will be returned. 
+
+
+##.getPlaylistIndex()
+
+|Description|Type|
+|--------|---|
+|The numerical index of the currently loaded playlist item.| Number |
+
+* * *
+
+##.load(_playlist_)
+
+Loads a new playlist into the player.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|playlist| The playlist to load into the player. |JSON &#124; String |Yes|
+
+###Types of Playlists
+|Description|Type|
+|--------|---|
+| JSON, containing playlist information. See above for correct syntax|JSON|
+| A URL referencing the location of an RSS/XML/JSON file|String|
+
+### JSON Playlist Example
+<pre>playerInstance.load([{
+	"file": "/videos/myVideo.mp4",
+	"image": "/images/myImage.png",
+	"title": "My Favorite Video!",
+	"description": "This has lots of kittens in it!"
+}]);</pre>
+
+### Playlist URL Example
+<pre>playerInstance.load("https://mywebsite.com/myplaylist.json");</pre>
+
+##.playlistItem(_index_)
+Start playback of the playlist item at the specified index.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|index| The index of a playlist item you wish to play |Number|Yes|
+
+* * *
+
+##.on('playlist')
+
+Fired when an entirely new playlist has been loaded into the player. 
+### Note this event is not fired as part of the initial playlist load. Please use on('ready') in these cases.
+
+|Returns|Description|Type|
+|----|--------|---|
+| playlist | The new playlist; Provides the same output as getPlaylist() | Array |
+
+
+##.on('playlistItem')
+
+Fired when the playlist index changes to a new playlist item. This event occurs before the player begins playing the new playlist item. 
+
+
+|Returns|Description|Type|
+|----|--------|---|
+| index | Index of the currently playing playlist item | Number |
+| playlist | The current playlist; Provides the same output as getPlaylist() | Array |
+
+##.on('playlistComplete')
+Fired when the player is done playing all items in the playlist. However, if the repeat option is set true, this is never fired.
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+* * *
+
+# <a name="buffer"></a>Buffer
+
+These API calls are used to update clients with the percentage of a file that is buffered into the player. This only applies to VOD media; live streaming media (_HLS/RTMP/YouTube/DASH_) does not expose this behavior.
+
+* * *
+
+##.getBuffer()
+
+|Description|Type|
+|--------|---|
+| A percentage (0-100) of the video's current loaded amount | Number |
+
+* * *
+
+##.on('bufferChange')
+
+Fired when the currently playing item loads additional data into its buffer.
+
+|Returns|Description|Type|
+|----|--------|---|
+| duration | Current media's duration (In seconds) | Number |
+| bufferPercent | Percentage between 0 and 100 of the current media that is buffered. | Number |
+| position | Current position of the media file (In seconds) | Number |
+| metadata | Contains _bandwidth_ and _droppedFrames_. See table below for more info. | Array |
+
+### Returned metadata
+|Returns|Description|Type|
+|----|--------|---|
+| bandwidth | Current download speed in bits per second. | Number |
+| droppedFrames | Amount of dropped frames caused by a buffer change. | Number |
+
+
+* * *
+
+# <a name="playback"></a>Playback
+
+These API calls are used to retrieve and change the current playback state of the player. Playback controllers are listed under Miscellaneous, as they directly control playback rather than the player state.
+
+Note: JW7 will return playback states in lower case. If you are using JW6, states will be returned in all capital letters. We suggest using [toUpperCase()](http://www.w3schools.com/jsref/jsref_touppercase.asp) if this affects your API setup.
+
+## Miscellaneous
+
+##.play(_state_)
+
+|Expects|Description|Type|Required|
+|--|--------|---|--|
+|state|The desired _play_ state. Setting this to false will put the player into a _paused_ state. Omitting _state_ will toggle playback| Boolean | No|
+
+
+##.pause(_state_)
+
+The opposite of play(). 
+
+|Expects|Description|Type|Required|
+|--|--------|---|--|
+|state|The desired _pause_ state. Setting this to false will put the player into a _playing_ state. Omitting _state_ will toggle playback| Boolean | No|
+
+##.stop()
+
+Stops the player (returning it to the idle state) and unloads the currently playing media file.
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+
+* * *
+
+##.getState()
+
+Returns the player's current playback state. Can be one of the following:
+
+|Returns|Description|
+|----|--------|
+|idle |Either playback has not started or playback was stopped due to a stop() call or an error. In this state, either the play or the error icon is visible in the display.|
+|buffering|The user pressed play, but sufficient data to start playback has not yet loaded. The buffering icon is visible in the display.|
+|playing|The video is currently playing. No icon is visible in the display.|
+|paused|The video is currently paused. The play icon is visible in the display.|
+
+
+* * *
+
+##.on('play')
+
+Fired when the player enters the playing state.
+
+|Returns|Description|Possible Outputs|Type|
+|----|--------|--|--|
+|oldstate |The state the player moved from.|buffering &#124; playing |String|
+
+##.on('pause')
+
+Fired when the player enters the paused state.
+
+|Returns|Description|Possible Values|Type|
+|----|--------|--|--|
+|oldstate |The state the player moved from.|buffering &#124; playing |String|
+
+##.on('buffer')
+
+Fired when the player enters the buffering state.
+
+|Returns|Description|Possible Values|Type|
+|----|--------|--|--|
+|oldstate |The state the player moved from.|buffering &#124; playing |String|
+|newstate |The state the player moved to.|idle &#124; playing &#124; paused|String|
+|reason |The reason why a buffer event occurred.|loading &#124; complete &#124; stalled &#124; error|String|
+
+##.on('idle')
+
+Fired when the player enters the idle state.
+
+|Returns|Description|Possible Outputs|Type|
+|----|--------|--|--|
+|oldstate |The state the player moved from.|buffering &#124; playing &#124; paused|String|
+
+##.on('complete')
+
+Fired when an item completes playback.
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+##.on('firstFrame')
+
+Use this to determine the period of time between a user pressing play and the same user viewing their content. Triggered by a video's first frame event (Or the instant an audio file begins playback). This event pinpoints when content playback begins.
+
+|Returns|Description|Type|
+|----|--------|---|
+| loadTime | The amount of time (In milliseconds) it takes for the player to transition from a play attempt to a firstFrame event.  | Number |
+
+##.on('error')
+
+Fired when a media error has occurred, causing the player to stop playback and go into idle mode.
+
+|Returns|Description|Type|
+|----|--------|---|
+| message | The error message that has been detected. See [Troubleshooting your Setup](http://support.jwplayer.com/customer/portal/articles/1403682-troubleshooting-your-setup) for a list of possible media errors.  | String |
+
+### Note: A media error event is not fired when a player setup error occurs. We suggest using setupError to catch these types of issues.
+
+# <a name="seek"></a>Seek
+
+These API calls are used to retrieve and update the current media playback position.
+
+* * *
+
+##.getPosition()
+
+Intended to return the viewer's current position in a media file. Values may vary depending on the type of media. See the table below for more information.
+
+|Media Type|Description|Type|
+|----------|--------|---|
+|VOD| The current playback position for a VOD file, in seconds | Number |
+|Live| How long the current stream has been playing, in seconds | Number |
+|DVR| A negative value, indicating how far behind the viewer is from the stream's live position.<sup>1</sup> | Number |
+
+####<sup>1</sup> Seeking to a live position will include a buffer of approximately -30 seconds to avoid buffering.
+
+##.getDuration()
+
+The total length of the media file. This varies depending on VOD or live content. See the table below for more information.
+
+|Media Type|Description|Type|
+|----------|--------|---|
+|VOD| The length of a loaded VOD file, in seconds | Number |
+|Live| Live streams will always return a duration of _infinity_ | Number |
+|DVR| The total amount of buffer in the DVR stream, in seconds | Number |
+
+* * *
+
+##.seek(_position_)
+
+Jump to the specified position within the currently playing item.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|position| The position (in seconds) to seek to |Number |Yes|
+
+* * *
+
+##.on('seek')
+
+Fired after a seek has been requested either by scrubbing the controlbar or through the API.
+
+|Returns|Description|Type|
+|----|--------|---|
+| position | The position of the player before the player seeks (in seconds).  | Number |
+| offset | The user requested position to seek to (in seconds). | Number |
+
+### Note: Seeking is often based on keyframe availability. The actual position the player will eventually seek to may differ from what was specified. 
+
+##.on('seeked')
+
+Triggered when content playback resumes after seeking. As opposed to on('seek'), this API listener will only trigger when playback actually continues.
+
+##.on('time')
+
+While the player is playing, this event is fired as the playback position gets updated. This may occur as frequently as 10 times per second.
+
+|Returns|Description|Type|
+|----|--------|---|
+| duration | Duration of the current playlist item in seconds.  | Number |
+| position | Playback position in seconds. | Number |
+
+* * *
+
+# <a name="volume"></a>Volume
+
+These API calls are used to change the playback volume of the player. Note they only work on desktop browsers, not on mobile devices.
+
+* * *
+
+##.getMute()
+
+|Description|Type|
+|--------|---|
+| Returns current mute state of the player. | Boolean |
+
+###Note: This may be independent from the volume value. Volume 0 does not mean that content is set to mute.
+
+##.getVolume()
+
+|Returns|Type|
+|--------|---|
+| The current playback volume, as a percentage from 0 to 100. | Number |
+
+* * *
+
+##.setMute(_state_)
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|state| Set the mute state of the player. If the state is undefined, mute is toggled. |Boolean|No|
+
+##.setVolume(_volume_)
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|volume| Set the volume of the player between 1-100 |Number |Yes|
+
+* * *
+
+
+
+##.on('mute')
+
+Triggered when the player has gone in or out of a mute state.
+
+|Returns|Description|Type|
+|----|--------|---|
+| mute | The player's new mute state  | Boolean |
+
+##.on('volume')
+
+Triggered when the player's volume is changed.
+
+|Returns|Description|Type|
+|----|--------|---|
+| volume | New volume percentage (0-100)  | Number |
+
+* * *
+
+# <a name="resize"></a>Resize
+
+These API calls are used to retrieve and update the current player dimensions and fullscreen state. Note there is no API call to set fullscreen, due to phishing-related security restrictions in both Flash and HTML5.
+* * *
+
+##.getFullscreen()
+
+|Returns|Type|
+|--------|---|
+| The current fullscreen state | Boolean |
+
+##.getHeight()
+
+|Returns|Type|
+|--------|---|
+| The player's current height, in pixels | Number |
+
+##.getWidth()
+
+|Returns|Type|
+|--------|---|
+| The player's current width, in pixels | Number |
+
+* * *
+
+##.resize(_width_, _height_)
+
+Resizes the player to the specified width and height.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|width| The new desired width of the player in pixels (number) or percent (string) |Number &#124; String|Yes|
+|height| The new desired height of the player in pixels (number) or percent (string)|Number &#124; String |Yes|
+
+###Example:
+<pre>
+jwplayer().resize('50%', 250)
+</pre>
+* * *
+
+##.on('fullscreen')
+
+Fired when the player toggles to/from fullscreen.
+
+|Returns|Description|Type|
+|----|--------|---|
+| fullscreen | The player's new fullscreen state | Boolean |
+
+##.on('resize')
+
+Fired when the player's on-page dimensions have changed. Is not fired in response to a fullscreen change.
+
+|Returns|Description|Type|
+|----|--------|---|
+| width | The new width of the player | Number |
+| height | The new height of the player | Number |
+
+
+* * *
+
+# <a name="quality"></a>Quality
+
+These API calls are used to listen to or update the video quality if multiple quality levels of a video are provided. Quality levels are sorted and given index numbers. The following table shows how these are sorted:
+
+|Quality Index|Meaning|
+|--------|---|
+|0| Auto Quality |
+|1| Highest Available Quality |
+|2| Second Highest Quality |
+|3| Third Highest Quality |
+|...| ... |
+
+* * *
+
+##.getQualityLevels()
+
+Returns the information for each quality level of a media file. Note: These qualities are sorted by index number.
+
+|Returns|Description|Type|
+|----|--------|---|
+| bitrate | The bitrate of the media file  | Number |
+| height | The height of the media file  | Number |
+| width | The width of the media file  | Number |
+| label | The label used for a quality  | String |
+
+##.getCurrentQuality()
+
+Returns the index of the current active quality level. The indexes provided vary based on the amount of available qualities. See the table below to understand how quality indexes function
+
+|Description|Type|
+|--------|---|
+| Index of the current quality | Number |
+
+##.getVisualQuality()
+
+Returns information about the current quality of a video stream. 
+
+|Returns|Description|Type|
+|----|--------|---|
+| mode | The current quality mode. Can be _auto_ if adaptive is enabled or _manual_ if a static quality is set | String |
+| level | Information about the current selected quality. See getQualityLevels for the full list of available information| Array |
+| reason | The reason that a quality was selected. See table below for more information | String |
+
+### List of Reasons
+|Reason|Description|
+|--------|---|
+|initial choice| The user had this quality set as a default and did not change it |
+
+* * *
+
+##.setCurrentQuality(_index_)
+
+Change the quality level to the provided index. The index must not exceed the amount of available qualities.
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|index| Sets stream quality to a specified index |Number|Yes|
+
+* * *
+
+##.on('levels')
+
+Fired when the list of available quality levels is updated. Happens e.g. shortly after a playlist item starts playing.
+
+|Returns|Description|Type|
+|----|--------|---|
+| width | The new width of the player  | Number |
+|levels | The full array of qualities, including the new additions. Includes the same information as getQualityLevels() | Array|
+
+##.on('levelsChanged')
+
+Fired when the active quality level is changed. Happens in response to e.g. a user clicking the controlbar quality menu or a script calling setCurrentQuality.
+
+|Returns|Description|Type|
+|----|--------|---|
+| currentQuality | index of the new quality level in the getQualityLevels() array | Number |
+
+##.on('visualQuality')
+
+Fired when the active quality level is changed for HLS. This is different than _qualityChange_ since this will trigger when adaptive streaming automatically shifts quality.
+
+|Returns|Description|Type|
+|----|--------|---|
+| mode | The current type of quality selection. auto = automatic quality switching &124; manual = static quality  | String |
+| label | Information about the new quality that was switched to. This returns the same information as getVisualQuality()  | String |
+| reason | Why the quality was changed. See table below for possible reasons  | String |
+
+|Reason|Description|
+|----|--------|
+|PUT INFORMATION HERE|DO IT|
+
+* * *
+
+# <a name="audio"></a>Audio Tracks API
+
+These API calls are used to listen to or update the audio track if multiple audio tracks of a video are provided.
+
+* * *
+
+##.getAudioTracks()
+
+Returns an array with audio tracks from the player. Each track is an object that contains a label property.
+
+##.getCurrentAudioTrack()
+
+Returns the index of the currently active audio track.
+
+* * *
+
+##.setCurrentAudioTrack(_index_)
+
+Change the audio track to the provided index. The index must be within the list provided by getAudioTracks().
+
+* * *
+
+##.on('audioTracks')
+
+Fired when the list of available audio tracks is updated. Happens e.g. shortly after a playlist item starts playing.
+
+*   levels (Array): the full array with new quality levels.
+
+
+
+##.on('audioTrackChanged')
+
+Fired when the active audio track is changed. Happens in response to e.g. a user clicking the audio tracks menu or a script calling setCurrentAudioTrack().
+
+|Returns|Description|Type|
+|----|--------|---|
+| currentTrack | Index of the new quality level in the getAudioTracks() array.  | Number |
+
+* * *
+
+# <a name="captions"></a>Captions
+
+These API calls are used to listen to or update the active captions track if one or more closed captions tracks are provided with a video. This API can be used to log captions usage or build your own CC menu outside JW Player.
+
+###Note: An index of _0_ implies that captions are off.
+
+* * *
+
+##.getCaptionsList()
+
+Returns an array with captions tracks from the player.
+
+###Sideloaded Captions(VTT, SRT, DFXP)
+
+|Returns|Description|Type|
+|----|--------|---|
+| id | The URL of the sideloaded caption file | String |
+| label | The label that is configured in the player setup. | String |
+
+###Stream-Embedded Captions
+
+|Returns|Description|Type|
+|----|--------|---|
+| id | The index of the caption. | Number |
+| label | The label specified within the embedded captions | String |
+
+##.getCurrentCaptions()
+
+|Description|Type|
+|--------|---|
+| The index of the currently active captions track. | Number |
+
+* * *
+
+##.setCurrentCaptions(_index_)
+
+
+|Expects|Description|Type| Required|
+|--|--------|---|--|
+|index| Change the visible captions track to the provided index  |Number|Yes|
+
+* * *
+
+##.on('captionsList')
+
+Fired when the list of available captions tracks is updated. Happens shortly after a playlist item starts playing.
+
+|Returns|Description|Type|
+|----|--------|---|
+| tracks | An array with all included captions tracks. Includes the same information as getCaptionsList() | Array |
+
+##.on('captionsChanged')
+
+Triggered whenever the active captions track is changed manually or via API.
+
+|Returns|Description|Type|
+|----|--------|---|
+| currentTrack | Index of the new active captions track  | Number |
+
+* * *
+
+# <a name="controls"></a>Controls
+
+This API call allows developers to interact with the built-in player controls (dock buttons, controlbar and display icons). Note that enabled controls will still fade out during playback if the video has no keyboard/mouse focus. When controls are disabled, JW Player is completely chrome-less.
+
+* * *
+
+##.getControls()
+
+|Description|Type|
+|--------|---|
+| Returns whether or not the built-in controls are currently enabled | Boolean |
+
+##.getSafeRegion()
+
+Returns an array with the region of the display not used by the controls. Scripts and plugins use this information to ensure their visual assets don't overlap with the controls. An example region the call can return is:
+
+<pre>{ x:0, y:30, width:480, height:200 }</pre>
+
+* * *
+
+##.addButton(_icon, label, handler, id_)
+
+Adds a button to the player's dock.
+
+|Expects|Description|Type|Required|
+|----|--------|---|
+|icon|The URL to a GIF, JPG or PNG image that is displayed in the button. Monochromatic, white icons of about 20x20 pixels work well with many skins.|String|Yes|
+|label|The label that appears as a tooltip when the button is moused over.|String|Yes|
+|Handler|The JavaScript function that is called when the button is clicked.|String|Yes|
+|id|The string used to identify the button. It must be unique across all buttons (an error is thrown otherwise).|String|Yes|
+
+##.removeButton(_id_)
+
+Removes a button from the dock.
+
+|Expects|Description|Type|Required|
+|----|--------|---|-|
+|id|The id used to identify the button to remove.|String|Yes|
+
+##.setControls(_state_)
+
+|Expects|Description|Type|Required|
+|----|--------|---|-|
+|state|Sets the display of the built-in JW Player controls. Not including a state will toggle the appearance.|Boolean|No|
+
+* * *
+
+##.on('controls')
+
+Fired when controls are enabled or disabled by a script.
+
+|Returns|Description|Type|
+|----|--------|---|
+| controls | New state of the controls.  | Boolean |
+
+##.on('displayClick')
+
+Fired when a user clicks the video display. Especially useful for wiring your own controls when the built-in ones are disabled. Note the default click action (toggling play/pause) will still occur if controls are enabled.
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned  | - |
+
+* * *
+
+# <a name="advertising"></a>Advertising
+
+This API provides developers with more control over the advertising functionality of the Advertising edition of JW Player. For VAST and IMA advertising plugins, this API allows impression verification, custom scheduling, tag waterfalling and multiple companions.
+
+* * *
+
+##.playAd(_tag_)
+
+VAST and IMA. Used to play an ad immediately, which is primarily useful for situations where the built-in ad schedule of JW Player cannot be used.(e.g. for live streaming or dynamic ads for playlist items)
+
+|Expects|Description|Type|Required|
+|----|--------|---|
+|tag|The VAST tag URL that should be loaded into the player.|String|Yes|
+
+
+We recommend to call playAd in one of these four situations:
+
+1.  inside a JW Player event handler for beforePlay(), to trigger a pre-roll.
+2.  inside a JW Player event handler for onTime(), to trigger a mid-roll.
+3.  inside a event handler for onBeforeComplete(), to trigger a post-roll.
+4.  Outside of event handlers, only when the player is in the playing state.
+
+###Note that as of JW Player 7.0.0, playAd() supports waterfalling via ad tag arrays. This will only work when our VAST client is utilized.
+
+* * *
+
+##.on('adBlock') <sup>JW 7.3+</sup>
+
+ This event is fired when an ad plugin (Either VAST or Google IMA) is configured inside of the JW Player setup, and an ad blocker is detected on a viewer's browser. It is then possible to request a user disable their ad blocker to proceed.
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+
+##.on('beforePlay')
+
+Fired just before the player begins playing. Unlike the onPlay event, the player will not have begun playing or buffering when triggered, which makes this the right moment to insert preroll ads using playAd().
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+
+##.on('beforeComplete')
+
+Fired just before the player completes playing. Unlike the onComplete event, the player will not have moved on to either showing the replay screen or advancing to the next playlistItem, which makes this the right moment to insert post-roll ads using playAd(). 
+
+|Returns|Description|Type|
+|----|--------|---|
+| - | No value returned | - |
+
+##.on('adClick')
+
+VAST and IMA. Fired whenever a user clicks an ad to be redirected to its landing page.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that was clicked.|String|
+
+##.on('adCompanions')
+
+VAST and IMA. Fired whenever an ad contains companions.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that is currently playing.|String|
+|companions | An array of available companion information.|Array|
+
+Every companion will return:
+
+|Returns|Description|Type|
+|----|--------|---|
+|width | The width of the companion in pixels.|Number|
+|height | The height of the companion in pixels.|Number|
+|type | The type of the creative: static, iframe, or HTML.|String|
+|resource | The URL to the static/iframe resource, or the raw HTML content.|String|
+|click | URL to link to when clicking the companion. Only available if the type is static.|String|
+
+##.on('adComplete')
+
+VAST and IMA. Fired whenever an ad has completed playback.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that was completed.|String|
+
+
+
+##.on('adSkipped')
+VAST and IMA. Fired whenever an ad has been skipped.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that was skipped.|String|
+
+
+
+##.on('adError')
+
+VAST and IMA. Fired whenever an error prevents the ad from playing. 
+
+#### Note: This may fire multiple times for a single ad tag if Google IMA is being used.  
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that produced the error.|String|
+|message | The ad error message. See table below.|String|
+
+|Possible Error Messages|Causes|
+|-----------------------|-----------|
+|invalid ad tag|Invalid XML, Improperly formatted VAST syntax|
+|ad tag empty |No ad was available after searching wrapped ad tags|
+|no compatible creatives|FLV video creative or VPAID SWF is attempting to play in HTML5 player|
+|error playing creative |404 on a creative file|
+|error loading ad tag|All additional ad errors|
+
+
+##.on('adRequest')
+
+VAST only. Fired whenever an ad is requested by the player.
+
+|Returns|Description|Possible Values|Type|
+|----|--------|---|--|
+|tag | The ad tag that is being requested.|-|String|
+|adposition | An ad's position.|pre &#124; mid &#124; post|String|
+
+##.on('adStarted') VPAID-only
+
+ This API will trigger when a VPAID ad creative signals to our player that it is starting. This differs from an adImpression, since the advertisement may not yet be visible.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that was started.|String|
+|creativetype | The type of VPAID ad that is being played|String|
+
+|creativetype|Description|
+|----|--------|
+|vpaid-swf | A Flash-based ad creative|
+|vpaid-js | A Javascript-based VPAID 2 ad creative|
+
+##.on('adImpression')
+VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs the instant a video ad begins to play.
+
+|Returns|Description|Possible Values|Type|
+|----|--------|---|--|
+|tag | The ad tag that was started.|-|String|
+|creativetype | The type of ad that is being played|-|String|
+|adposition | An ad's position.|pre &#124; mid &#124; post|String|
+
+|creativetype|Description|
+|----|--------|
+|vpaid-swf | A Flash-based ad creative|
+|vpaid-js | A Javascript-based VPAID 2 ad creative|
+|video | A video-based static creative|
+|image/png | Nonlinear PNG image creative |
+|static | Nonlinear static image creative|
+
+## .on('adPlay')
+Fired whenever an ad starts playing or when an ad is unpaused.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that is currently playing.|String|
+
+## .on('adPause')
+Fired whenever an ad is paused.
+
+|Returns|Description|Type|
+|----|--------|---|
+|tag | The ad tag that is currently playing.|String|
+
+## .on('adTime')
+Fired while ad playback is in progress.
+
+|Returns|Description|Type|
+|-------|-----------|----|
+|tag     |The ad tag that is currently playing.|String|
+|position|The current playback position in the ad creative.|Number|
+|duration|The total duration of the ad creative.|Number|
+|sequence|Returns the sequence number the ad is a part of.|Number|
+
+Note this [JavaScript API section](/customer/portal/topics/564475-javascript-api/articles?page=2) includes examples on doing impression verification, custom scheduling, tag waterfalling and multiple companions with the Advertising API.
+
+* * *
+
+# <a name="metadata"></a>Metadata
+
+This API call allows developers to listen for metadata embedded in the media file (e.g. dimensions or TX3G cues in MP4 files). It is intended debugging purposes. Do not rely on this API in production environments, since metadata callbacks are subject to sudden change!
+
+* * *
+
+## .on('meta')
+
+Fired when new metadata has been broadcasted by the player.
+
+* metadata (Object): Object containing the new metadata. This can be metadata hidden in the media (XMP, ID3, keyframes) or metadata broadcasted by the playback provider (bandwidth, quality switches).
+
+# <a name="sharing"></a>Sharing
+
+New to our sharing plugin in 7.2, is the inclusion of a fully-functional API. This works in conjunction with our new getPlugin() method. For instance, all of our sharing instances are using the getPlugin(‘sharing’) API call to refer to this particular plugin. The following will target our sharing plugin:
+
+<pre>var sharingPlugin = playerInstance.getPlugin('sharing');
+</pre>
+
+All sharingPlugin references below will assume that the above code is implemented on your page.
+
+* * *
+
+*   sharingPlugin.open() - Opens the sharing plugin. This will also pause content if it is triggered during playback.
+*   sharingPlugin.close() - Closes the sharing plugin if it is opened. This will resume playback if the sharing overlay was triggered during content.
+
+* * *
+
+*   sharingPlugin.on('open') - Listens for the opening of the plugin.
+*   sharingPlugin.on('close') - Listens for the closing of the plugin.
+*   sharingPlugin.on('click') - Triggered whenever somebody shares content from within the sharing plugin.  
+    Returns: Label of the sharing method that was used. (method: facebook | method: link | method: embed)
+
+# <a name="related"></a>Related
+
+Similar to our new Sharing refactor, our Related Plugin has received a brand new API. Similar to sharing, the related api examples below will assume that the following code is implemented:
+
+<pre>
+	var relatedPlugin = jwplayer().getPlugin('related');
+</pre>
+
+Using this, the following API calls apply:
+
+* * *
+
+*   relatedPlugin.open();  
+    Opens the related plugin overlay. This will pause content if it is currently playing.
+*   relatedPlugin.close();  
+    Closes the related plugin overlay. This will resume content.
+
+* * *
+
+*   relatedPlugin.on('open');  
+    Triggers when the related plugin is opened.  
+    Returns:
+    *   method - The method used to open the plugin. (api, complete, or click)
+    *   url - URL of the feed that was loaded into the player.
+    *   items - An array of all objects that have been loaded into the related plugin.
+*   relatedPlugin.on('close');  
+    Triggers when the related plugin is closed.  
+    Returns:
+    *   method - The method used to open the plugin. (api, complete, or click)
+*   relatedPlugin.on('play');  
+    Triggers when a user selects an object in a related feed.  
+    Returns:
+    *   item - Metadata for the chosen item specified in the feed.
+    *   auto - Returns true if started via autoplay; false if manually started.
+    *   position - Ordinal position of the related video that has been chosen.
