@@ -55,10 +55,10 @@ WHEN FINISHED, this article will continue to live at https://support.jwplayer.co
 
 <p>If you are planning on using HLS on desktops for any other browser, you must have JW Player Premium and Flash installed.</p>
 <h2>(b) Access to your files</h2>
-<p>If you&#39;re not seeing your video appear, it&#39;s a very good idea to check your network activity to make sure that your file exists in the location that you&#39;re pointing to. In addition, if there is some security being applied, network errors may appear here as well. You can inspect this in Chrome by right clicking the page, selecting the &quot;Inspect Element&quot; menu, and navigating to the Network tab.</p>
-<img alt="" src="/customer/portal/attachments/424122" style="opacity: 0.9; line-height: 20.7999992370605px; width: 178px; height: 84px;" />
+<p>If you&#39;re not seeing your video appear, check your network activity to make sure that the file exists in the location that you&#39;re pointing to. In addition, if there is some security being applied, network errors may appear here as well. You can inspect this in Chrome by right clicking the page, selecting the &quot;Inspect Element&quot; menu, and navigating to the Network tab.</p>
+<img alt="" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/faqs/network-tab.png" style="opacity: 0.9; line-height: 20.7999992370605px; width: 178px; height: 84px;" />
 <p>Pressing play and seeing any network activity highlighted in red will alert you of any network-based issues.</p>
-<img alt="" src="/customer/portal/attachments/424124" style="width: 267px; height: 125px;" />
+<img alt="" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/faqs/file-red-highlight.png" style="width: 267px; height: 125px;" />
 <p>Here, we can see that I&#39;m getting a 404 error when accessing my video file. A 404 error simply means that the file does not exists. A 403 error would mean I cannot access this file due to security reasons. For a full list of HTTP error codes, please see this page <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">here</a>.</p>
 <h2>(c) Encoding/Stream</h2>
 <p>If you are using an MP4 file that fails to play with your JW Player, a good troubleshooting step is to place the file within a standard HTML5 video tag on a test page. For more information, on how to do this, there is a full explanation on the W3C&#39;s site <a href="http://www.w3schools.com/html/html5_video.asp">here</a>.&nbsp;If the file still fails to play in this context, there may be an issue with the file&#39;s encoding, or a lack of support for this file type within the browser itself.</p>
@@ -66,9 +66,10 @@ WHEN FINISHED, this article will continue to live at https://support.jwplayer.co
 <p>If your file type should be supported in your browser, we suggest a re-encode with something like <a href="https://handbrake.fr/">handbrake</a>. h.264 with AAC audio is the widest supported standard and should be able to play on most major browsers. For more supported media formats in browsers, we again suggest checking our HTML5 report <a href="http://www.jwplayer.com/html5/formats/">here</a>. Some browsers may not support MP4 natively in HTML5 and may require something like <a href="http://www.webmproject.org/">WEBM</a>.</p>
 <h2>(d) Crossdomain Issues</h2>
 <p>As mentioned on our Crossdomain page <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading">here</a>, crossdomain restrictions can prevent certain files from loading if they are hosted on a separate domain. Note that this will only affect text files, such as M3U8 or SMIL manifests. Regardless, you should see error messages that indicate this in your console log and potentially in player errors. Accessing your console log can be done by right clicking the page, selecting inspect element, and choosing the console tab. A missing crossdomain file will appear in your console log as:</p>
-<img alt="" src="/customer/portal/attachments/424127" style="width: 532px; height: 127px;" />
-<p>If your CORS configuration is not properly set up, you&#39;ll see the following error instead:<br />
-<img alt="" src="/customer/portal/attachments/424130" style="width: 650px; height: 30px;" />&nbsp;Again, we suggest looking at our site <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading">here</a> for a better understanding of how Crossdomain access works. If you are seeing these errors when accessing a resource, the player will be unable to play.</p>
+<p><img alt="" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/faqs/missing-crossdomain-file.png" style="width: 532px; height: 127px;" /></p>
+<p>If your CORS configuration is not properly set up, you&#39;ll see the following error instead:</p>
+<p><img alt="" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/faqs/CORS.png" style="width: 650px; height: 30px;" /></p>
+<p>Again, we suggest looking at our site <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading">here</a> for a better understanding of how Crossdomain access works. If you are seeing these errors when accessing a resource, the player will be unable to play.</p>
 <a name="layer2"></a>
 
 <h1>Layer 2: JW Player files/key</h1>
@@ -199,10 +200,13 @@ controls: false
 
 <h1>Layer 5: Submitting a support request/bug report</h1>
 
-<p>If you have followed all troubleshooting steps above, and are convinced that something is still not working as it should, it may be time to reach out to our support team. Being able to separate a player issue from a conflict or configuration problem helps greatly with expediting a resolution. Thusly, any work that can be done on your end to isolate a player-specific problem will greatly increase turnaround time. In order to properly submit a bug report to our support team, we require the following:</p>
+<p>If you have followed all troubleshooting steps above, and are convinced that something is still not working as it should, it may be time to <a href="https://support.jwplayer.com/customer/portal/emails/new">reach out to our support team</a>. (<strong>Note:</strong> Direct support is only available to <a href="https://www.jwplayer.com/pricing/"><strong>JW Player Premium</strong></a> and above customers).</p> 
+
+<p>A big part of the support team's work is separating a player issue from a conflict or other configuration problem. The more you can do to help us with this, the more quickly we will be able to get you a resolution.</p>
+<p>In order to properly submit a bug report to our support team, we require the following:</p>
 
 <ol>
-	<li>A link to an unstyled page that exhibits the player issue. This should be in a <strong>live environment</strong>, not an attached HTML document. We need this as close to a production environment as possible in order to assess network conditions and confirm that the player itself is at fault.</li>
+	<li>A link to an <strong>unstyled</strong> page that exhibits the player issue. This should be in a <strong>live environment</strong>, not an attached HTML document. We need this as close to a production environment as possible in order to assess network conditions and confirm that the player itself is at fault. <a href="https://support.jwplayer.com/customer/portal/articles/2186238">Click here</a> for more information about good reproduction pages.</li>
 	<li>A thorough description of the problem and troubleshooting steps that have already been taken. Please include any specific browsers or devices that the problem happens on.</li>
 	<li>The expected outcome vs the actual outcome. Again, keep this as simple as possible. If the issue is hand-in-hand with an implementation you&#39;re working on, include detail on how your portion of code functions.</li>
 </ol>
