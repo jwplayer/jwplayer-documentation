@@ -12,6 +12,9 @@ pages:
   - Design Resources: customization/designer-kit.md
   - Beta Program:
     - HLS in HTML5: beta/html5_hls_beta.md
+  - Release Notes:
+    - JW Player 7: release_notes/release_notes_7.md
+    - JW Player 6 (Legacy): release_notes/release_notes_6.md
   - Javascript API:
     - API Reference: api/api_ref.md
 site_dir: developer-guide
