@@ -39,7 +39,7 @@ Creates a new JW Player on your web page.
 |options| Configuration options that will tell your player how to render itself | JSON |Yes|
 
  The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a full list of all JW Player configuration options.
-### Sample
+####Sample
 <pre>
 &lt;div id="myDiv"&gt;This text will be replaced with a player.&lt;/div&gt;
 &lt;script&gt;
@@ -68,7 +68,7 @@ Returns the provider being utilized by JW Player for a particular media file. Th
 |----|--------|---|
 |name | The name of the provider currently being used|String|
 
-###List of possible providers:
+####List of possible providers:
 |Values|Description|
 |----|--------|
 |flash_video |Static video file with our Flash provider|
@@ -131,7 +131,7 @@ Triggered when the player is taken off of a page via jwplayer().remove();
 ###jwplayer().on('all')
 
 This singular API call can be used to gather all events from the player's API. 
-#### Note: This will output a large amount of information and may degrade browser performance if it is used for an extended period of time.
+####Note: This will output a large amount of information and may degrade browser performance if it is used for an extended period of time.
 
 * * *
 
@@ -192,14 +192,14 @@ Loads a new playlist into the player.
 |--|--------|---|--|
 |playlist| The playlist to load into the player. |Array &#124; String |Yes|
 
-###Types of Playlists
+####Types of Playlists
 
 |Description|Type|
 |--------|---|
 | An array of playlist item objects. See above for correct syntax|Array|
 | A URL referencing the location of an RSS/XML/JSON file|String|
 
-### JSON Playlist Example
+####JSON Playlist Example
 
 <pre>playerInstance.load([{
 	"file": "/videos/myVideo.mp4",
@@ -208,7 +208,7 @@ Loads a new playlist into the player.
 	"description": "This has lots of kittens in it!"
 }]);</pre>
 
-### Playlist URL Example
+####Playlist URL Example
 <pre>playerInstance.load("https://mywebsite.com/myplaylist.json");</pre>
 
 ###jwplayer().playlistItem(_index_)
@@ -599,7 +599,7 @@ Resizes the player to the specified width and height.
 |width| The new desired width of the player in pixels (number) or percent (string) |Number &#124; String|Yes|
 |height| The new desired height of the player in pixels (number) or percent (string)|Number &#124; String |Yes|
 
-###Example:
+####Example:
 <pre>
 jwplayer().resize('50%', 250)
 </pre>
@@ -644,7 +644,7 @@ These API calls are used to listen to or update the video quality if multiple qu
 |--------|---|
 | Returns an array of objects based on each quality level of a media item | Array |
 
-###Each object contains the following:
+####Each object contains the following:
 
 |Value|Description|Type|
 |----|--------|---|
@@ -671,7 +671,7 @@ Returns an object containing information about the current quality of a video st
 | level | Information about the current selected quality. See getQualityLevels for the full list of available information| Array |
 | reason | The reason that a quality was selected. See table below for more information | String |
 
-### List of Reasons
+####List of Reasons
 |Reason|Description|
 |--------|---|
 |initial choice| The user had this quality set as a default and did not change it |
@@ -722,6 +722,8 @@ Fired when the active quality level is changed for HLS. This is different than _
 | mode | The current type of quality selection. auto = automatic quality switching &124; manual = static quality  | String |
 | label | Information about the new quality that was switched to. This returns the same information as getVisualQuality()  | String |
 | reason | Why the quality was changed. See table below for possible reasons  | String |
+
+####Possible Reasons
 
 |Reason|Description|
 |----|--------|
@@ -798,14 +800,14 @@ These API calls are used to listen to or update the active captions track if one
 
 Returns an array of objects based on utilized captions. Information for each object may vary depending on the caption types.
 
-###Sideloaded Captions(VTT, SRT, DFXP)
+####Sideloaded Captions(VTT, SRT, DFXP)
 
 |Value|Description|Type|
 |----|--------|---|
 | id | The URL of the sideloaded caption file | String |
 | label | The label that is configured in the player setup. | String |
 
-###Stream-Embedded Captions
+####Stream-Embedded Captions
 
 |Value|Description|Type|
 |----|--------|---|
@@ -1017,7 +1019,7 @@ VAST and IMA. Fired whenever an ad contains companions.
 |tag | The ad tag that is currently playing.|String|
 |companions | An array with available companion information.|Array|
 
-###Every companion will return the following object:
+####Every companion will return the following object:
 
 |Value|Description|Type|
 |----|--------|---|

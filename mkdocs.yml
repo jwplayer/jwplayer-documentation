@@ -16,5 +16,5 @@ pages:
     - JW Player 7: release_notes/release_notes_7.md
     - JW Player 6 (Legacy): release_notes/release_notes_6.md
   - Javascript API:
-    - API Reference: api/api_ref.md
+    - API Reference: api/javascript_api_reference.md
 site_dir: developer-guide
