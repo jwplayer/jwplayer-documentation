@@ -18,9 +18,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.3.5|3/19/2016|Minor caption bugfixes
-|Staging/Pre-release|7.3.5|3/18/2016|Minor caption bugfixes|
-|Beta|7.4.0|3/18/2016|HLS in HTML5
+|Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
+|Staging/Pre-release|7.3.6|3/18/2016|Fixed certain HLS artifacts in Flash|
+|Beta|7.4.0|3/18/2016|HLS in HTML5|
 
 <a name="version74"></a>
 
@@ -131,6 +131,10 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 
 *   TXXX Metadata will now appear properly with Flash provider
 *   Captions in audio mode will now render above the control bar
+
+### **7.3.6** - 3/18/2016
+
+*   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
 
 <a name="version72"></a>
 
