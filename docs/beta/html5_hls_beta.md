@@ -1,28 +1,30 @@
 # JW Player HLS HTML5 Beta
-With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified. The current beta has prioritized a wide variety of encoder and stream support over nailing down the optimal adaptive bitrate switching algorithm.
+With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified.
 
-## Current Beta Features 
-
-|7.4 Beta Release (Now)            | Full 7.4 Release (April)    | Future Enhancement (Q2 - Q3 2016)                   |
+## Release History
+|Version           | Release Date   | Notes                  |
 |----------------------------------|-----------------------------|-----------------------------------------------------|
-|Adaptive VOD streams               |Robust error messaging    |Choosing audio track based on system language|
-|Single quality Live/DVR streams    |M3U8 WebVTT captions          |Custom quality labels                                |
-|Desktop Google Chrome only        |Adaptive quality in Live     |708 captioning                    |
-|Basic error message support       | 608 caption fixes                             |AES decryption via HTTP   |
-|608 caption support               |                              |Mozilla Firefox support   |
-|AES 128 decryption over HTTPS only|                              |Byte-range requests       |
-|AAC/MP3 audio fragment support    |                              |                                  |
-|Timed ID3 MetaData                |                              |                                  |
-|AAC/MP3 audio support             |                              |                                  |
+|7.4.0-beta.2     |April 2, 2016    |Performance improvements and better feature coverage|
+|7.4.0-beta.1    | March 18, 2016         |Initial beta with broad encoder support                       |
 
 
-## Current Limitations
-* Streams tend to start on the lowest quality and stay there instead of upswitching.
-* HE-AAC has a known issue with working in Chrome. For information on its resolution, please see the ticket in the [Chromium Project](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
-* Midrolls when played with Google IMA ad manager are not currently pausing the main video content.
-* Midrolls after replaying the current item are not working correctly.
-* Video only streams, streams without any audio, stall.
-* 608 captions are in progress.
+## Features in 7.4.0
+* Adaptive bitrate switching for Live, DVR and VOD streams
+* Extensive support for streams with discontinuities
+* 608 embedded captions
+* Playback AES encrypted streams over HTTP and HTTPS
+* AES tokens
+* ID3 timed metadata
+* Fast, frame accurate seeking
+* Audio only streams with MP3 or AAC
+* MPEG 2 Layer 3 and MPEG 1 Layer 3 for MP3 is supported
+* HE-AAC in Chrome 50
+* H.264 main and baseline profiles
+** High profile is dependent on hardware
+
+## Known Issues
+* Manually switching quality levels in some live streams cause the player to hang
+* Visual Quality API event properties are not properly updated when in HTML5
 
 ## Verified Encoders and CDNs
 * Akamai
@@ -31,6 +33,14 @@ With JW Player 7.4, HLS streams will use MSE extensions to render video and audi
 * Zencoder
 * Amazon
 * Wowza - some adaptive VOD streams are having issues with quality switching.
+
+## Features planned for 7.5
+* HLS v4 support for WebVTT captions and Multi-audio tracks
+* Reduntant streams
+* Using MSE for HTML5 playback in FireFox
+* 708 Captions
+* Custom quality labels
+* Choosing audio track based on system language
 
 # FAQ
 #### Q: Why is my HLS stream still rendering in Flash?
