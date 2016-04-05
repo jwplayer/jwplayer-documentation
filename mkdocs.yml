@@ -3,9 +3,6 @@ theme: jwplayer
 site_favicon: favicon.ico
 pages:
   - Home: index.md
-  - Javascript API:
-    - Intro to Javascript API: api/javascript_api_introduction.md
-    - API Reference: api/javascript_api_reference.md
   - Customization:
     - Creating Skins: customization/css-skinning/skins_creating.md
     - Custom Icons and Fonts: customization/css-skinning/skins_fonts.md
@@ -15,8 +12,5 @@ pages:
   - Design Resources: customization/designer-kit.md
   - Beta Program:
     - HLS in HTML5: beta/html5_hls_beta.md
-  - Release Notes:
-    - JW Player 7: release_notes/release_notes_7.md
-    - JW Player 6 (Legacy): release_notes/release_notes_6.md
 
 site_dir: developer-guide
