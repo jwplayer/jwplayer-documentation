@@ -1,52 +1,37 @@
 
 <script src='//content.jwplatform.com/libraries/XeGdlzmk.js'></script>
-# Introduction to the JW Player JavascriptAPI
+# Introduction to the Javascript API
 
-This article explains how to use the [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) component of JW Player 7. This API can be used to enhance the functionality of your video embeds and/or to implement rich video-page interactions. It abstracts any differences between Flash and HTML5, so the code you write will work with both technologies.
-
-We divide our API into three major sections:
-
-|Get|Set|Event|
-|---|---|-----|
-|Returns information about the player and its current use|Tells the player to do something|Triggered when the player _does_ something|
-
-|Blah|asdf|asdf|
-|---|---|-----|
-|Media Information<br/>Playback State<br/>Volume/Mute Status<br/>Content Metadata|Control playback<br/>Raise/Lower volume<br/>Play an ad<br/>Hide Controls|Goes into fullscreen<br/>Turns on captions<br/>Clicks on a player<br/>Buffers during a video|
-
-###Get
-
-This can include things like:
-
-###Set
-
- This can include things like:
-
-
-
-###Events
-
-. This can happen for moments when a viewer:
-
-
+This article explains the basics of how to use the [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) component of JW Player. This API can be used to enhance the functionality of your video embeds, or to implement rich page-level video interactions. Unless noted, there are no differences between Flash and HTML5 API calls, so the code you write will work across multiple technologies.
 
 ###Note: We strongly suggest that all API calls be made after the player is considered ready.
 
-##Require.js and JW Player
+##Getting Information with the JW Player API
 
-JW Player is not currently supported within require js due to JW Player needing to use jwplayer namespace. To avoid issues when require and jwplayer.js are on the same page, load jwplayer.js before the require.js script is loaded.
+Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/api/javascript_api_reference/). 
 
-####Example:
-<pre>
-&lt;script src='jwplayer.js' &gt;
-&lt;script src='requirejs.js' &gt;
-</pre>
+####"Get" API calls can return information like:
 
-## JW Player API Events
+* An array of playlist items with __jwplayer().getPlaylist()__
+* The duration of a video with __jwplayer().getDuration()__
+* The current playback state of the video player with __jwplayer().getState()__
+* The current pixel dimensions of a JW Player with __jwplayer().getHeight()__ and __jwplayer().getWidth()__
 
-JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control.
+##Controlling and setting with the JW Player API
+These types of API calls are used to control player behavior. Many of these calls expect a value to be passed along with it. For example, setVolume() expects a number from 1-100 to be included. 
 
-Currently, JW Player events support the following ways of listening for events:
+####API calls can tell the player to do things like:
+
+* Pause playback with __jwplayer().pause(true)__
+* Set volume to 50% with __jwplayer().setVolume(50)__
+* Seek to 2 minutes into a video with __jwplayer().seek(120)__
+
+
+## Events listening with the JW Player API
+
+Certain events are triggered when the player _does_ something. JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](/api/javascript_api_reference/) document.
+
+Currently, JW Player events support the following event triggers:
 
 |Listener|Description|Example|
 |---|---|---|
@@ -55,16 +40,14 @@ Currently, JW Player events support the following ways of listening for events:
 |once(_'event'_)|Behaves similarly to on, however will only trigger for a single event, until it is set up again.|jwplayer().once(event, [callback], [context])|
 |trigger(_'event'_)|Capable of firing events to a listener. This replaces dispatchEvent from JW6.|jwplayer().trigger(event, [*args])|
 
-## Event Example
-
-The below event triggers every time a volume change is initiated. As a result, Javascript will fire an alert dictating what the volume has been changed to.
+The below event triggers every time a volume change is initiated, and will return a number called "volume" within an object.
 
 <pre>jwplayer().on('volume', function(e) {
 alert("Volume is changed to: "+ e.volume);
 });
 </pre>
 
-## Getting Started
+## Example: Using the JW Player API
 
 Before it is possible to interact with a player, a player setup is required. Our [Embedding Section](/customer/portal/topics/601065-embedding/articles) contains several examples. Here is the proper syntax for a basic player embed:
 
@@ -81,22 +64,32 @@ Before it is possible to interact with a player, a player setup is required. Our
 Once the player completes its setup, API calls can immediately be made. If you have one player on your page, it can always be accessed using the **playerInstance** reference function. For example:
 
 <pre>
-&lt;a onclick="jwplayer("myElement").play()"&gt;Toggle playback&lt;/a&gt;
-&lt;a onclick="alert(jwplayer("myElement").getVolume())'&gt;Report volume&lt;/a&gt;
+&lt;script&gt;
+jwplayer("myElement").on('complete', function(){
+alert("Complete fired - Your content has completed!");
+});
+&lt;/script&gt;
+
+&lt;a href="javascript:jwplayer('myElement').play();"&gt;Toggle playback&lt;/a&gt;
+&lt;a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());"&gt;Report volume&lt;/a&gt;
 </pre>
 
-Here is the combination of setup code and API links in action:
+Here is a simple example of how our API functions, based on the above code:
 <div id="myElement"></div>
 <script type="text/javascript">
 jwplayer("myElement").setup({ "file": "https://content.jwplatform.com/videos/C4lp6Dtd-640.mp4"});
+jwplayer("myElement").on('complete', function(event){
+alert("Complete fired - Your content has completed!");
+});
 </script>
 
-<p><a href="#" onclick="jwplayer("myElement").play(); return false;">Toggle playback</a> | <a href="#" onclick="alert('The volume of the player is: '+jwplayer("myElement").getVolume()); return false;">Report Volume</a></p>
+<a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> | 
+<a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());">Return Player Volume</a>
 
 
 ## Targeting Multiple Players
 
-When you have multiple players on a page, you must be specific about which player you want to interact with. Let's assume that we have embedded two different players:
+When you have multiple players on a page, you must be specific about which player you want to interact with. Let's assume that we have embedded two different players on the same page:
 
 <pre>
 &lt;div id='myFirstPlayer'&gt;Loading the first player...&lt;/div&gt;
@@ -110,14 +103,14 @@ jwplayer("myFirstPlayer").setup({
 });
 
 jwplayer("mySecondPlayer").setup({ 
-"file": "/uploads/example.mp4", 
-"image": "/uploads/example.jpg"
+"file": "/uploads/example2.mp4", 
+"image": "/uploads/example2.jpg"
 });
 
 &lt;/script&gt;
 </pre>
 
-There are two ways that we can target a player here.
+There are two ways that we can target a player:
 
 #### 1- Include the id of the player div:
 <pre>
@@ -133,27 +126,19 @@ jwplayer(1).play();
 
 #### Note: Not including an ID or index with your API call will always target the first player on a page
 
-## Setter and Getter API Calls
+##Require.js and JW Player
 
-In addition t is possible to send and receive information from JW Player using its API
+JW Player is not currently supported within require js due to JW Player needing to use jwplayer namespace. To avoid issues when require and jwplayer.js are on the same page, load jwplayer.js before the require.js script is loaded.
 
-*   **Getter -** Provides a way to retrieve variables and information from the player. For example:
+####Example:
+<pre>
+&lt;script src='jwplayer.js' &gt;
+&lt;script src='requirejs.js' &gt;
+</pre>
 
-    <pre>playerInstance.getVolume();
-    </pre>
+## Cheat Sheet Reference
 
-    will return the player's current volume.
-
-*   **Setter -** Refers to a way to **set** a player value. This can be similar to setting your player's volume, changing the player's dimensions, or controlling playback. For example:
-
-    <pre>playerInstance.setVolume(80);
-    </pre>
-
-    will set your player's volume to 80.
-
-## Cheat Sheet
-
-The table below act as a cheat sheet of all API calls. The separate [JavaScript API Reference](/customer/portal/articles/1413089-javascript-api-reference) guide contains an listing of all parameters for all API calls. Click on the name of a class in the table to jump to the corresponding section in the API Reference. Also, for the sake of simplicity, we are only referencing **on** events here. As mentioned above, these can also utilize **off**, **once**, and **trigger**.
+The table below act as a cheat sheet of all API calls. The separate [JavaScript API Reference](/api/javascript_api_reference/) guide contains an listing of all parameters for all API calls. Click on the name of a class in the table to jump to the corresponding section in the API Reference. Also, for the sake of simplicity, we are only referencing **on** events here. As mentioned above, these can also utilize **off**, **once**, and **trigger**.
 
 |Class|Getters|Setters|Events|
 |-----|-------|-------|------|
@@ -171,3 +156,5 @@ The table below act as a cheat sheet of all API calls. The separate [JavaScript 
 |[Metadata](javascript_api_reference/#metadata)|-|-|on('meta')|
 |[Sharing](javascript_api_reference/#sharing)|-|getPlugin('sharing').open()<br/>getPlugin('sharing').close()|getPlugin('sharing').on('open')<br/>getPlugin('sharing').on('close')<br/>getPlugin('sharing').on('click')|
 |[Related](javascript_api_reference/#related)|-|getPlugin('related').open()<br/>getPlugin('related').close()|getPlugin('related').on('open')<br/>getPlugin('related').on('close')<br/>getPlugin('related').on('play')|
+
+

@@ -52,7 +52,6 @@ jwplayer("myDiv").setup({
 &lt;/script&gt;
 </pre>
 
-* * *
 
 ###jwplayer().remove()
 
@@ -139,16 +138,43 @@ This singular API call can be used to gather all events from the player's API.
 
 These API calls are used for loading and retrieving the current playlist (of one or more items), as well as for navigating between playlist items.
 
-The data model of a playlists is as follows:
+####The playlist is an Array, containing one or more objects. Example:
 
-*   The playlist is an Array, containing one or more playlist items.
-*   Each item is an Object, containing the title (String), description (String), mediaid (String), image (String), sources (Array) and tracks (Array) properties.
-*   The sources Array in turn contain a list of Objects, each with a file, type, label and default property.
-*   The tracks Array in turn contain a list of Objects, each with a file, kind and default property.
+<pre>
+[object, object, object]
+</pre>
 
-Additionally, each playlist item has a file property, which acts as a shortcut to the file of the first entry in the sources object. This shortcut makes it easier to do basic playlist loading or fetching, since most publishers will setup their playlist items with one file only.
+####Each of these objects contains the following:
 
-See the [Configurations Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a description of each property and some example playlists.
+|Value|Description|Type|
+|----|--------|---|
+| description | A description specified inside of the playlist | String |
+| mediaid | A unique media identifier for a particular piece of content, regardless of the format used | String |
+| file | The first media file of the playlist item. Alternatives are listed in the _sources_ objects | String |
+| image | The poster image file loaded inside of the player | String |
+| preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
+| title | The title of the playlist item | String |
+| tracks | The full array of tracks included with the playlist item, similar to getCaptionsList() | Array |
+| sources | An array of all configured sources for a playlist item | Array |
+
+####Note: Each playlist item has a file property at the highest level, which acts as a shortcut to the file of the first entry in the sources object.
+
+####The __sources__ array contains a list of objects for each source:
+
+|Value|Description|Type|
+|----|--------|---|
+|file|The file used in the source array item|String|
+|label|A label assigned to a particular quality|String|
+|type|The media type|String|
+|default|If this media source has been defined as a default for playback|Boolean|
+
+####The __tracks__ array contains a list of objects based on any configured tracks:
+
+|Value|Description|Type|
+|----|--------|---|
+|file|The file used containing any utilized tracks|String|
+|label|If using captions, the configured label assigned to a particular quality|String|
+|kind|The type of tracks assigned to the video. Can be: captions &#124; chapters &#124; thumbnails |String|
 
 * * *
 
@@ -471,7 +497,7 @@ Fired after a seek has been requested either by scrubbing the controlbar or thro
 |Value|Description|Type|
 |----|--------|---|
 | position | The position of the player before the player seeks (in seconds).  | Number |
-| offset | The user requested position to seek to (in seconds). | Number |
+| offset | The position that has been requested to seek to (in seconds). | Number |
 
 ####Note: Seeking is often based on keyframe availability. The actual position the player will eventually seek to may differ from what was specified. 
 
@@ -676,7 +702,7 @@ Returns an object containing information about the current quality of a video st
 |--------|---|
 |initial choice| The user had this quality set as a default and did not change it |
 |auto| An automatic quality change occurred|
-|manual| The user manually chose a quality after playback began |
+|api| The user chose a static quality after playback began, or an API was used to set it |
 
 * * *
 
@@ -725,9 +751,11 @@ Fired when the active quality level is changed for HLS. This is different than _
 
 ####Possible Reasons
 
-|Reason|Description|
-|----|--------|
-|PUT INFORMATION HERE|DO IT|
+|reason|Description|
+|--------|---|
+|initial choice| The user had this quality set as a default and did not change it |
+|auto| An automatic quality change occurred|
+|api| The user chose a static quality after playback began, or an API was used to set it |
 
 * * *
 
@@ -949,7 +977,7 @@ VAST and IMA. Used to play an ad immediately, which is primarily useful for situ
 |tag|The VAST tag URL that should be loaded into the player.|String|Yes|
 
 
-We recommend to call playAd in one of these four situations:
+We recommend to call playAd() in one of these following situations:
 
 1.  inside a JW Player event handler for beforePlay(), to trigger a pre-roll.
 2.  inside a JW Player event handler for onTime(), to trigger a mid-roll.
@@ -1006,7 +1034,7 @@ VAST and IMA. Fired whenever a user clicks an ad to be redirected to its landing
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that was clicked.|String|
+|tag | The URL of the ad tag that was clicked|String|
 
 ###jwplayer().on('adCompanions')
 
@@ -1016,18 +1044,18 @@ VAST and IMA. Fired whenever an ad contains companions.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that is currently playing.|String|
-|companions | An array with available companion information.|Array|
+|tag | The URL of the ad tag that is currently playing|String|
+|companions | An array with available companion information|Array|
 
 ####Every companion will return the following object:
 
 |Value|Description|Type|
 |----|--------|---|
-|width | The width of the companion in pixels.|Number|
-|height | The height of the companion in pixels.|Number|
-|type | The type of the creative: static, iframe, or HTML.|String|
-|resource | The URL to the static/iframe resource, or the raw HTML content.|String|
-|click | URL to link to when clicking the companion. Only available if the type is static.|String|
+|width | The width of the companion in pixels|Number|
+|height | The height of the companion in pixels|Number|
+|type | The type of the creative: static, iframe, or HTML|String|
+|resource | The URL to the static/iframe resource, or the raw HTML content|String|
+|click | URL to link to when clicking the companion. Only available if the type is static|String|
 
 ###jwplayer().on('adComplete')
 
@@ -1037,7 +1065,7 @@ VAST and IMA. Fired whenever an ad has completed playback.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that was completed.|String|
+|tag | The URL of the ad tag that was completed|String|
 
 ###jwplayer().on('adSkipped')
 VAST and IMA. Fired whenever an ad has been skipped.
@@ -1046,7 +1074,7 @@ VAST and IMA. Fired whenever an ad has been skipped.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that was skipped.|String|
+|tag | The URL of the ad tag that was skipped|String|
 
 
 
@@ -1060,8 +1088,8 @@ VAST and IMA. Fired whenever an error prevents the ad from playing.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that produced the error.|String|
-|message | The ad error message. See table below.|String|
+|tag | The URL of the ad tag that produced the error|String|
+|message | The ad error message. See table below|String|
 
 |Possible Error Messages|Causes|
 |-----------------------|-----------|
@@ -1080,8 +1108,8 @@ VAST only. Fired whenever an ad is requested by the player.
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
-|tag | The ad tag that is being requested.|-|String|
-|adposition | An ad's position.|pre &#124; mid &#124; post|String|
+|tag | The URL of the ad tag that is being requested|-|String|
+|adposition | An ad's position|pre &#124; mid &#124; post|String|
 
 ###jwplayer().on('adStarted') <sup>VPAID-only</sup>
 
@@ -1091,7 +1119,7 @@ VAST only. Fired whenever an ad is requested by the player.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that was started.|String|
+|tag | The URL of the  ad tag that was started.|String|
 |creativetype | The type of VPAID ad that is being played|String|
 
 |creativetype|Description|
@@ -1106,7 +1134,7 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
-|tag | The ad tag that was started.|-|String|
+|tag | The URL of the ad tag that was started|-|String|
 |creativetype | The type of ad that is being played|-|String|
 |adposition | An ad's position.|pre &#124; mid &#124; post|String|
 
@@ -1125,7 +1153,7 @@ Fired whenever an ad starts playing or when an ad is unpaused.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that is currently playing.|String|
+|tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adPause')
 Fired whenever an ad is paused.
@@ -1134,7 +1162,7 @@ Fired whenever an ad is paused.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The ad tag that is currently playing.|String|
+|tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adTime')
 Fired while ad playback is in progress.
@@ -1143,7 +1171,7 @@ Fired while ad playback is in progress.
 
 |Value|Description|Type|
 |-------|-----------|----|
-|tag     |The ad tag that is currently playing.|String|
+|tag     |The URL of the ad tag that is currently playing.|String|
 |position|The current playback position in the ad creative.|Number|
 |duration|The total duration of the ad creative.|Number|
 |sequence|Returns the sequence number the ad is a part of.|Number|
@@ -1166,7 +1194,7 @@ Continuously triggered when new metadata has been received by the player. Values
 
 |Value|Description|Type|
 |-------|-----------|----|
-|metadata|Object containing the metadata. This can be metadata hidden in the media (XMP, ID3, keyframes) or metadata from the playback provider (bandwidth, quality switches)|Object|
+|metadata|Object containing the metadata. This can be metadata in the media (XMP, ID3, keyframes) or metadata from the playback provider (bandwidth, quality switches, etc.)|Object|
 
 * * *
 
