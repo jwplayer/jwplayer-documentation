@@ -138,7 +138,7 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   TXXX Metadata will now appear properly with Flash provider
 *   Captions in audio mode will now render above the control bar
 
-#### **7.3.6** - 3/18/2016
+#### **7.3.6** - 4/1/2016
 
 *   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
 
