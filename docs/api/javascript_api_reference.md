@@ -155,11 +155,12 @@ These API calls are used for loading and retrieving the current playlist (of one
 | preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
 | title | The title of the playlist item | String |
 | tracks | The full array of tracks included with the playlist item, similar to getCaptionsList() | Array |
-| sources | An array of all configured sources for a playlist item | Array |
+| sources | An array that contains a single object with information about the currently utilized source | Array |
+| allSources | An array of all configured sources for the current playlist item | Array |
 
 ####Note: Each playlist item has a file property at the highest level, which acts as a shortcut to the file of the first entry in the sources object.
 
-####The __sources__ array contains a list of objects for each source:
+####The __sources__ array contains a single object with information about the currently utilized source:
 
 |Value|Description|Type|
 |----|--------|---|
@@ -190,10 +191,11 @@ Returns an object for each item in a playlist. These objects are then returned a
 | image | The poster image file loaded inside of the player | String |
 | preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
 | title | The title of the playlist item | String |
-| tracks | The full array of tracks included with the playlist item, similar to getCaptionsList() | Array |
-| sources | An array of all configured sources for a playlist item | Array |
+| tracks | The full array of tracks included with the playlist item | Array |
+| sources | An array that contains a single object with information about the currently utilized source | Array |
+| allSources | An array of all configured sources for the current playlist item | Array |
 
-###jwplayer().getPlaylistItem(_index_)
+###jwplayer().getPlaylistItem(__index__)
 
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
@@ -210,7 +212,7 @@ Returns an object for each item in a playlist. These objects are then returned a
 
 * * *
 
-###jwplayer().load(_playlist_)
+###jwplayer().load(__playlist__)
 
 Loads a new playlist into the player.
 
@@ -237,7 +239,7 @@ Loads a new playlist into the player.
 ####Playlist URL Example
 <pre>playerInstance.load("https://mywebsite.com/myplaylist.json");</pre>
 
-###jwplayer().playlistItem(_index_)
+###jwplayer().playlistItem(__index__)
 Start playback of the playlist item at the specified index.
 
 |Attribute|Description|Type| Required|
@@ -325,7 +327,7 @@ These API calls are used to retrieve and change the current playback state of th
 
 ## Miscellaneous
 
-###jwplayer().play(_state_)
+###jwplayer().play(__state__)
 
 Sets the play state of the JW Player.
 
@@ -334,7 +336,7 @@ Sets the play state of the JW Player.
 |state|The desired _play_ state. Setting this to false will put the player into a _paused_ state. Omitting _state_ will toggle playback| Boolean | No|
 
 
-###jwplayer().pause(_state_)
+###jwplayer().pause(__state__)
 
 The opposite of play(); sets the pause state of JW Player. 
 
