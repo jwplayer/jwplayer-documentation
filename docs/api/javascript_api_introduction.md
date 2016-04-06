@@ -6,6 +6,8 @@ This article explains the basics of how to use the [JavaScript API](http://www.j
 
 ###Note: We strongly suggest that all API calls be made after the player is considered ready.
 
+* * *
+
 ##Getting Information with the JW Player API
 
 Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/api/javascript_api_reference/). 
@@ -17,6 +19,8 @@ Certain API calls utilize a "get" prefix, which signifies that their express pur
 * The current playback state of the video player with __jwplayer().getState()__
 * The current pixel dimensions of a JW Player with __jwplayer().getHeight()__ and __jwplayer().getWidth()__
 
+* * *
+
 ##Controlling and setting with the JW Player API
 These types of API calls are used to control player behavior. Many of these calls expect a value to be passed along with it. For example, setVolume() expects a number from 1-100 to be included. 
 
@@ -26,8 +30,9 @@ These types of API calls are used to control player behavior. Many of these call
 * Set volume to 50% with __jwplayer().setVolume(50)__
 * Seek to 2 minutes into a video with __jwplayer().seek(120)__
 
+* * *
 
-## Events listening with the JW Player API
+## Event listening with the JW Player API
 
 Certain events are triggered when the player _does_ something. JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](/api/javascript_api_reference/) document.
 
@@ -47,9 +52,11 @@ alert("Volume is changed to: "+ e.volume);
 });
 </pre>
 
+* * *
+
 ## Example: Using the JW Player API
 
-Before it is possible to interact with a player, a player setup is required. Our [Embedding Section](/customer/portal/topics/601065-embedding/articles) contains several examples. Here is the proper syntax for a basic player embed:
+Before it is possible to interact with a player, a player setup is required. Our [Embedding Section](https://support.jwplayer.com/customer/portal/topics/601065-embedding/articles) contains several examples. Here is the proper syntax for a basic player embed:
 
 <pre>
 &lt;div id='myElement'&gt;Loading the player...&lt;/div&gt;
@@ -86,6 +93,7 @@ alert("Complete fired - Your content has completed!");
 <a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> | 
 <a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());">Return Player Volume</a>
 
+* * *
 
 ## Targeting Multiple Players
 
@@ -112,19 +120,21 @@ jwplayer("mySecondPlayer").setup({
 
 There are two ways that we can target a player:
 
-#### 1- Include the id of the player div:
+### 1 - Include the id of the player div:
 <pre>
 // ID references the first player
 jwplayer("myFirstPlayer").play();
 </pre>
 
-#### 2 - Include the index of player you wish to target
+### 2 - Include the index of player you wish to target
 <pre>
 // An index of 1 targets the second player on the page 
 jwplayer(1).play();
 </pre>
 
 #### Note: Not including an ID or index with your API call will always target the first player on a page
+
+* * *
 
 ##Require.js and JW Player
 
@@ -135,6 +145,8 @@ JW Player is not currently supported within require js due to JW Player needing 
 &lt;script src='jwplayer.js' &gt;
 &lt;script src='requirejs.js' &gt;
 </pre>
+
+* * *
 
 ## Cheat Sheet Reference
 

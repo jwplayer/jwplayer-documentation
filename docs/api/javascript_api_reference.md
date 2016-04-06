@@ -20,9 +20,7 @@ This article provides a reference to all available JW Player [JavaScript API](ht
 * [Related](#related)
 
 
-Also, note that all Events below are using the on listener, however it is also possible to register or remove each event with on, once, or off. The use of trigger may also be used for custom events. For an introduction to JW7's API, see the [JavaScript API Quick Start](http://support.jwplayer.com/customer/portal/articles/1413074).
-
-Note that this document is a reference for the JW Player 7 API, which has changed substantially since JW6. Existing JW6 event listeners will continue working with JW7, though we do suggest updating them to this newer model. For the JW6 API, see our [JW6 Javascript Reference](http://support.jwplayer.com/customer/portal/articles/2051720-javascript-api-reference-legacy)
+Also, note that all Events below are using the on listener, however it is also possible to register or remove each event with on, once, or off. The use of trigger may also be used for custom events. For an introduction to JW7's API, see the [JavaScript API Quick Start](/api/javascript_api_introduction/).
 
 * * *
 
@@ -308,7 +306,7 @@ Fired when the currently playing item loads additional data into its buffer.
 | duration | Current media's duration (In seconds) | Number |
 | bufferPercent | Percentage between 0 and 100 of the current media that is buffered. | Number |
 | position | Current position of the media file (In seconds) | Number |
-| metadata | Contains _bandwidth_ and _droppedFrames_ values. See below for more info. | Object |
+| metadata | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
 
 ####Metadata Object
 |Value|Description|Type|
@@ -333,7 +331,7 @@ Sets the play state of the JW Player.
 
 |Attribute|Description|Type|Required|
 |--|--------|---|--|
-|state|The desired _play_ state. Setting this to false will put the player into a _paused_ state. Omitting _state_ will toggle playback| Boolean | No|
+|state|The desired __play__ state. Setting this to false will put the player into a __paused__ state. Omitting __state__ will toggle playback| Boolean | No|
 
 
 ###jwplayer().pause(__state__)
@@ -342,7 +340,7 @@ The opposite of play(); sets the pause state of JW Player.
 
 |Attribute|Description|Type|Required|
 |--|--------|---|--|
-|state|The desired _pause_ state. Setting this to false will put the player into a _playing_ state. Omitting _state_ will toggle playback| Boolean | No|
+|state|The desired __pause__ state. Setting this to false will put the player into a __playing__ state. Omitting __state__ will toggle playback| Boolean | No|
 
 ###jwplayer().stop()
 
@@ -475,7 +473,7 @@ The total length of the media file. This varies depending on VOD or live content
 |Media Type|Description|Type|
 |----------|--------|---|
 |VOD| The length of a loaded VOD file, in seconds | Number |
-|Live| Live streams will always return a duration of _infinity_ | Number |
+|Live| Live streams will always return a duration of __infinity__ | Number |
 |DVR| The total amount of buffer in the DVR stream, in seconds | Number |
 
 * * *
@@ -618,7 +616,7 @@ These API calls are used to retrieve and update the current player dimensions an
 
 * * *
 
-###jwplayer().resize(_width_, _height_)
+###jwplayer().resize(__width__, __height__)
 
 Resizes the player to the specified width and height.
 
@@ -662,7 +660,7 @@ Fired when the player's on-page dimensions have changed. Is not fired in respons
 
 These API calls are used to listen to or update the video quality if multiple quality levels of a video are provided. Quality levels are sorted and given index numbers. 
 
-####Note: An index of 0 will _always_ be "Auto".
+####Note: An index of 0 will __always__ be "Auto".
 
 * * *
 
@@ -695,7 +693,7 @@ Returns an object containing information about the current quality of a video st
 
 |Value|Description|Type|
 |----|--------|---|
-| mode | The current quality mode. Can be _auto_ if adaptive is enabled or _manual_ if a static quality is set | String |
+| mode | The current quality mode. Can be __auto__ if adaptive is enabled or __manual__ if a static quality is set | String |
 | level | Information about the current selected quality. See getQualityLevels for the full list of available information| Array |
 | reason | The reason that a quality was selected. See table below for more information | String |
 
@@ -741,7 +739,7 @@ Fired when the active quality level is changed. Happens in response to e.g. a us
 
 ###jwplayer().on('visualQuality')
 
-Fired when the active quality level is changed for HLS. This is different than _qualityChange_ since this will trigger when adaptive streaming automatically shifts quality.
+Fired when the active quality level is changed for HLS. This is different than __qualityChange__ since this will trigger when adaptive streaming automatically shifts quality.
 
 ####Returns an object with the following:
 
@@ -1178,7 +1176,6 @@ Fired while ad playback is in progress.
 |duration|The total duration of the ad creative.|Number|
 |sequence|Returns the sequence number the ad is a part of.|Number|
 
-####Note: The [JavaScript API section](/customer/portal/topics/564475-javascript-api/articles?page=2) includes examples of impression verification, custom scheduling, tag waterfalling and multiple companions with the Advertising API.
 
 * * *
 

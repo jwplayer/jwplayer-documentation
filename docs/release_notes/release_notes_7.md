@@ -1,7 +1,7 @@
 This page lists all changes for the various JW Player 7 releases. JW Player 6 release notes can be found [here](http://support.jwplayer.com/customer/portal/articles/1403726).
 
 
-## Table Of Contents
+### Table Of Contents
 
 *   [Version 7.4 (beta)](#version74) - 3/18/2016
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
@@ -9,7 +9,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
 *   [Version 7.0](#version70) - 7/20/2015 [+](#version70x)
 
-## Release Channel Status
+### Release Channel Status
 
 Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articles/2149561-using-player-release-channels) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
 
@@ -22,9 +22,11 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Staging/Pre-release|7.3.6|3/18/2016|Fixed certain HLS artifacts in Flash|
 |Beta|7.4.0|3/18/2016|HLS in HTML5|
 
+* * *
+
 <a name="version74"></a>
 
-# JW Player 7.4
+## JW Player 7.4
 
 JW Player 7.4 features a new provider used for rendering HLS video in HTML5\. See the list below for more information on features and known issues:
 
@@ -35,9 +37,11 @@ JW Player 7.4 features a new provider used for rendering HLS video in HTML5\. Se
 
 For more detailed information, please visit our page located on the [JW Player Developer site](https://developer.jwplayer.com/jw-player/docs/developer-guide/beta/html5_hls_beta/).
 
+* * *
+
 <a name="version73"></a>
 
-# JW Player 7.3
+## JW Player 7.3
 
 JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native [HTML5 tracks element](http://www.html5rocks.com/en/tutorials/track/basics/), allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes. The full list is below:
 
@@ -96,11 +100,13 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Fixed an issue where JW Player was not skipping over non-playble media formats in a VAST response.
 *   VPAID 2.0 creatives were not properly getting a mute property.
 
+* * *
+
 <a name="version73x"></a>
 
-## Additional 7.3 Releases:
+### Additional 7.3 Releases:
 
-### **7.3.1** - 2/16/2016
+#### **7.3.1** - 2/16/2016
 
 *   Visual Quality API will now function on iOS
 *   Flash loading errors will now provide more accurate information
@@ -112,59 +118,61 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Corrected regression where DRM streams required ‘customData’
 *   Fixed regression with poster images not loading inside of playlists
 
-### **7.3.2** - 2/22/2016
+#### **7.3.2** - 2/22/2016
 
 *   Fixed issue with captions and advertising on iOS
 *   Captions now display properly on IE 10
 *   Ads on IE 10 should now function correctly
 
-### **7.3.3** - 2/24/2016
+#### **7.3.3** - 2/24/2016
 
 *   Fixed iOS issue with playlists when preload was set to 'none'.
 
-### **7.3.4** - 2/25/2016
+#### **7.3.4** - 2/25/2016
 
 *   Fixed issue where certain video streams were interpreted as audio-only in iOS
 *   Fixed issue where thumbnail VTTs were appearing as captions in iOS
 
-### **7.3.5** - 3/18/2016
+#### **7.3.5** - 3/18/2016
 
 *   TXXX Metadata will now appear properly with Flash provider
 *   Captions in audio mode will now render above the control bar
 
-### **7.3.6** - 3/18/2016
+#### **7.3.6** - 3/18/2016
 
 *   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
 
+* * *
+
 <a name="version72"></a>
 
-# JW Player 7.2
+## JW Player 7.2
 
 JW Player 7.2 features a variety of exciting new features and updates to your video experiences. We’ve modernized our Sharing and Related plugins to coincide with our JW7 skinning principles. In addition, JW Player now supports using preload with its media. This allows the player to gather playback information about media prior to playback and may improve time to first frame.
 
 In addition, we’ve fixed many pesky bugs, improving experiences for both viewers and publishers.
 
-## Features
+### Features
 
-### Sharing Plugin
+#### Sharing Plugin
 
 *   CSS-based design
 *   New API to triggers and hides display as well as showing which networks get clicked.
 *   Add your own custom social networks. Default networks include - Facebook, Twitter, Pinterest, Email, Tumblr, Google Plus, Reddit, LinkedIn
 
-### Related Plugin
+#### Related Plugin
 
 *   CSS-based design with responsive Grid layout
 *   Automatic Related Playback with configurable countdown timer and message.
 *   Added support for related feeds in JSON file format
 *   New API to triggers and hide display as well as show which video gets watched.
 
-### Support for Content Preload
+#### Support for Content Preload
 
 *   Provides faster video startup by preloading media metadata, parsing manifest on page load, and/or starting to download the actual media.
 *   Default value is none.
 
-## Changes
+### Changes
 
 *   Right click customizations are now part of Free Edition and have an updated design.
 *   When seeking with DVR, we now show a tooltip displaying the time.
@@ -204,11 +212,13 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Fixed an issue with clicking on flash ads in FireFox on OSX.
 *   Fixed playback content not resuming after mid-roll ad-pods. 
 
+* * *
+
 <a name="version72x"></a>
 
-## Additional 7.2 Releases:
+### Additional 7.2 Releases:
 
-### **7.2.3** - 12/7/2015
+#### **7.2.3** - 12/7/2015
 
 *   Fixed issues with scrolling and Chrome throttling Flash.
 *   Due to publisher feedback, when Chrome throttles Flash, JW Player will no longer sends an error event.
@@ -218,7 +228,7 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Improved right click overlay to be less prone to styling conflicts
 *   Fixed manual quality toggling in Firefox.
 
-### **7.2.4** - 12/16/2015
+#### **7.2.4** - 12/16/2015
 
 *   VAST flash creatives will now be properly ignored when player renders in HTML5
 *   Fixed “Cannot set property 'blocking' of null” VPAID console error
@@ -226,22 +236,26 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Player now renders correctly in certain older browser versions
     *   Fixes “JSON.stringify cannot serialize cyclic structures” error
 
+* * *
+
 <a name="version71"></a>
 
-# JW Player 7.1
+## JW Player 7.1
 
 JW Player 7.1.0 is our first major feature update to JW7\. This new version offers new UI changes and stability fixes. For advertising users, 7.1.0 allows Interactive VPAID 2.0 JavaScript creatives to be used on in HTML5 video players. This release also changes the behavior to the control bar when it is rendered either smaller than 300 px wide or when the interface elements get cluttered.
 
-## Features:
+### Features:
 
-### VPAID 2.0
+#### VPAID 2.0
 
-HTML5/JavaScript Creatives will render on the following desktop browsers when the JW Player is using an HTML5 video provider in:
+HTML5/JavaScript Creatives will render on the following desktop browsers when the JW Player is using an HTML5 video provider.
 
-*   Chrome
-*   Safari
-*   FireFox
-*   Opera
+|Supported Browsers|
+|--|
+|Chrome|
+|Safari|
+|FireFox|
+|Opera|
 
 *Internet Explorer is not yet supported.
 
@@ -251,17 +265,17 @@ Fullscreen iOS browsers will play VPAID 2.0 creatives but will not have interact
 
 Fullscreen iOS browsers will play VPAID 2.0 creatives but will not have interactive elements due to a lack of native fullscreen API support.
 
-### Small Player UI/UX
+#### Small Player UI/UX
 
 Devices with a smaller viewing area will now see a more mobile-friendly control bar UI. Font size has been increased and secondary control bar elements have been relocated to an overflow menu.
 
-## Changes:
+### Changes:
 
 *   **on(‘adStarted’)** event added to listen for VPAID adStarted event.
 *   **on(‘adImpression’)** is fired when the VPAID ad impression event is fired instead of the adStarted event.
 *   Apostrophes are now accepted in image file names.
 
-## Fixes:
+### Fixes:
 
 *   Youtube videos will now correctly begin when our play button is touched on mobile devices.
 *   Long lists of captions will now be properly selectable in overlay menu.
@@ -269,11 +283,13 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   Fixed player behavior when certain HTTP/HTTPS files were combined.
 *   Bug fixes and improvements with updated DASH provider.
 
+* * *
+
 <a name="version71x"></a>
 
-## Additional 7.1 Releases:
+### Additional 7.1 Releases:
 
-### **7.1.4** - 10/7/2015
+#### **7.1.4** - 10/7/2015
 
 *   VPAID 2.0 JavaScript creatives will render even when Flash is used as the main content video provider. Priority of creative choice is given to the order that they appear in the VAST response.
 *   When the player is rendering in Flash mode, SWF-based VPAID 1.0 ads will play if they are listed as the first or only creative source.
@@ -288,11 +304,13 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   When using Autoplay, player would not resumed correctly after Chrome begins Power Save throttling.
 *   Fixed support for WebVTT captions in HLS live streams that were trailing behind timecodes.
 
+* * *
+
 <a name="version70"></a>
 
-# JW Player 7.0
+## JW Player 7.0
 
-## General Updates and enhancements
+### General Updates and enhancements
 
 *   All embeds require a valid license key to work.
 *   All interface elements are rendered in HTML regardless of media provider. Flash media playback will get HTML controls.
@@ -307,12 +325,12 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   YouTube will only render in HTML5.
 *   Semantic naming of player versions and plugins. Expect faster releases!
 
-## Advertising Updates
+### Advertising Updates
 
 *   New **on('adRequest')** event is triggered when an ad is requested through VAST. This does not work with Google IMA ads.
 *   JW Player 7 will intelligently choose VAST creatives based on player size. This means that smaller player sizes will load smaller video files.
 
-## API Updates
+### API Updates
 
 *   New **on('event')** method to attach event handlers to a player instance.
 *   New **off('event')** method to remove event handlers that are attached to a player instance.
@@ -335,7 +353,7 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   play events only fire once.
 *   Original DOM container will be restored when removing player.
 
-## Updated CSS Skinning Model
+### Updated CSS Skinning Model
 
 *   All JW Player 6 skins have been rebuilt in CSS and are included within the player.
 *   Set the name of the your custom skin within JW Player embed configuration to apply custom styles to the player.
@@ -349,29 +367,31 @@ More information can be found in our following articles:
 *   [Building JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1412123)
 *   [JW Player CSS Reference](http://support.jwplayer.com/customer/portal/articles/2067702)
 
-## Advertising Enhancements
+### Advertising Enhancements
 
 *   JW Player will pick the best VAST Ad creative based on the size of the player when the request was made.
 
-## MPEG-DASH Support
+### MPEG-DASH Support
 
 *   Stream Live and VOD in HTML5 in modern browsers with MPEG-DASH. See [Using DASH Streaming](http://support.jwplayer.com/customer/portal/articles/2020483) for full list of supported features. Available in **Premium** Editions only.
 *   Protect your content with Widevine DRM in Chrome. Available in **Enterprise** and **Ads** Editions only.
 
-## Known Issues and Upcoming Features
+### Known Issues and Upcoming Features
 
 *   Due to JW7's new skinning model, IE8 is **not** officially supported with JW7.
 *   Chromecast functionality is not currently functioning. Expect this soon.
 *   Logo can only be positioned in the top right corner.
 *   Using Advertising and DASH may cause issues. HLS is highly recommended if you intend on monetizing your content.
 
-### See also [JW6 to JW7 Migration FAQ](http://support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7)
+#### See also [JW6 to JW7 Migration FAQ](http://support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7)
+
+* * *
 
 <a name="version70x"></a>
 
-## Additional 7.0 Releases:
+### Additional 7.0 Releases:
 
-### **7.0.1** - 8/5/2015
+#### **7.0.1** - 8/5/2015
 
 *   displaytitle has been re-added as a configuration option
 *   displaydescription can be used to toggle the display of a file’s description field
@@ -390,7 +410,7 @@ More information can be found in our following articles:
 *   Removed unstyled icon appearances during player setup
 *   More reliable handling of ad errors
 
-### **7.0.2** - 8/26/2015
+#### **7.0.2** - 8/26/2015
 
 *   **Chromecast** functionality has been re-added and is now available for Premium users. **Note:** Advertising functions are no longer available while casting
 *   **vpaidmode** has been added for Google IMA VPAID 2 configuration to allow for friendly iframes.
@@ -406,7 +426,7 @@ More information can be found in our following articles:
 *   Fixed titles not appearing correctly with related plugin
 *   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
 
-### **7.0.3** - 9/1/2015
+#### **7.0.3** - 9/1/2015
 
 *   Changed provider logic to render based on provider availability.
 *   Fixed touch events on Windows 10 devices to show controls appropriately.
