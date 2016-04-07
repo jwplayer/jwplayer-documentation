@@ -3,6 +3,8 @@
 This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls. API calls below are grouped together in a logical way, while breaking each section into Getters, Setters, Events, and Miscellaneous.
 
 ## Table Of Contents
+
+
 * [Setup & Misc](#setup)
 * [All](#all)
 * [Playlist](#playlist)
@@ -134,21 +136,13 @@ This singular API call can be used to gather all events from the player's API.
 
 ## <a name="playlist"></a>Playlist
 
-These API calls are used for loading and retrieving the current playlist (of one or more items), as well as for navigating between playlist items.
-
-####The playlist is an Array, containing one or more objects. Example:
-
-<pre>
-[object, object, object]
-</pre>
-
-####Each of these objects contains the following:
+These API calls are used for loading and retrieving the current playlist (of one or more items), as well as for navigating between playlist items. When accessed via the API, a playlist is an Array, containing one or more objects. Each of these objects contains the following:
 
 |Value|Description|Type|
 |----|--------|---|
 | description | A description specified inside of the playlist | String |
 | mediaid | A unique media identifier for a particular piece of content, regardless of the format used | String |
-| file | The first media file of the playlist item. Alternatives are listed in the _sources_ objects | String |
+| file | Provides a shortcut to sources[0].file.  Alternative files are listed in the __allSources__ array | String |
 | image | The poster image file loaded inside of the player | String |
 | preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
 | title | The title of the playlist item | String |
@@ -179,36 +173,25 @@ These API calls are used for loading and retrieving the current playlist (of one
 
 ###jwplayer().getPlaylist()
 
-Returns an object for each item in a playlist. These objects are then returned as a playlist array. Any additional custom playlist properties will also be returned.
+Returns an array of objects from a playlist. Any additional custom playlist properties will also be returned. See the [playlist](#playlist) section above for the structure of these objects.
 
-|Value|Description|Type|
-|----|--------|---|
-| description | A description specified inside of the playlist | String |
-| mediaid | A unique media identifier for a particular piece of content, regardless of the format used | String |
-| file | The first media file of the playlist item. Alternatives are listed in the _sources_ object | String |
-| image | The poster image file loaded inside of the player | String |
-| preload | Preload status for current item. Can be: metadata &#124; auto &#124; none | String |
-| title | The title of the playlist item | String |
-| tracks | The full array of tracks included with the playlist item | Array |
-| sources | An array that contains a single object with information about the currently utilized source | Array |
-| allSources | An array of all configured sources for the current playlist item | Array |
+|Description|Type|
+|--------|---|
+|An array of objects from the current playlist| Array |
 
 ###jwplayer().getPlaylistItem(__index__)
 
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
-|index| Retrieves the same information as getPlaylist(), but for a single playlist item.| Number |No|
+|index| Retrieves the same information as getPlaylist(), but for a single playlist item| Number |No|
 
 ####If no number is specified, the current playlist item's information will be returned. 
-
 
 ###jwplayer().getPlaylistIndex()
 
 |Description|Type|
 |--------|---|
 |The numerical index of the currently loaded playlist item.| Number |
-
-* * *
 
 ###jwplayer().load(__playlist__)
 
@@ -244,7 +227,7 @@ Start playback of the playlist item at the specified index.
 |--|--------|---|--|
 |index| The index of a playlist item you wish to play |Number|Yes|
 
-* * *
+* * * 
 
 ###jwplayer().on('playlist')
 
@@ -285,15 +268,13 @@ Fired when the player is done playing all items in the playlist. If the repeat o
 
 These API calls are used to update clients with the percentage of a file that is buffered into the player. This only applies to VOD media; live streaming media (_HLS/RTMP/YouTube/DASH_) does not expose this behavior.
 
-* * *
-
 ###jwplayer().getBuffer()
 
 |Description|Type|
 |--------|---|
 | A percentage (0-100) of the video's current loaded amount | Number |
 
-* * *
+* * * 
 
 ###jwplayer().on('bufferChange')
 
@@ -322,8 +303,6 @@ Fired when the currently playing item loads additional data into its buffer.
 These API calls are used to retrieve and change the current playback state of the player. Playback controllers are listed under Miscellaneous, as they directly control playback rather than the player state.
 
 ####Note: JW7 will return playback states in lower case. If you are using JW6, states will be returned in all capital letters. We suggest using [toUpperCase()](http://www.w3schools.com/jsref/jsref_touppercase.asp) if this affects your API setup.
-
-## Miscellaneous
 
 ###jwplayer().play(__state__)
 
@@ -354,8 +333,6 @@ Stops the player (returning it to the idle state) and unloads the currently play
   </tr>
 </table>
 
-* * *
-
 ###jwplayer().getState()
 
 Returns the player's current playback state.
@@ -367,8 +344,7 @@ Returns the player's current playback state.
 |playing|The video is currently playing. No icon is visible in the display.| String|
 |paused|The video is currently paused. The play icon is visible in the display.| String|
 
-
-* * *
+* * * 
 
 ###jwplayer().on('play')
 
@@ -452,7 +428,6 @@ Fired when a media error has occurred, causing the player to stop playback and g
 
 These API calls are used to retrieve and update the current media playback position.
 
-* * *
 
 ###jwplayer().getPosition()
 
@@ -476,7 +451,6 @@ The total length of the media file. This varies depending on VOD or live content
 |Live| Live streams will always return a duration of __infinity__ | Number |
 |DVR| The total amount of buffer in the DVR stream, in seconds | Number |
 
-* * *
 
 ###jwplayer().seek(_position_)
 
@@ -532,8 +506,6 @@ These API calls are used to change the playback volume of the player.
 
 ####Note: Setting volume will only work on desktop browsers, not on mobile devices.
 
-* * *
-
 ###jwplayer().getMute()
 
 |Description|Type|
@@ -548,8 +520,6 @@ These API calls are used to change the playback volume of the player.
 |--------|---|
 |The current playback volume, as a percentage from 0 to 100. | Number |
 
-* * *
-
 ###jwplayer().setMute(_state_)
 
 |Attribute|Description|Type| Required|
@@ -563,8 +533,6 @@ These API calls are used to change the playback volume of the player.
 |volume| Set the volume of the player between 1-100 |Number |Yes|
 
 * * *
-
-
 
 ###jwplayer().on('mute')
 
@@ -594,8 +562,6 @@ These API calls are used to retrieve and update the current player dimensions an
 
 ####Note: There is no API call to set fullscreen, due to phishing-related security restrictions in both Flash and HTML5.
 
-* * *
-
 ###jwplayer().getFullscreen()
 
 |Returns|Type|
@@ -614,7 +580,6 @@ These API calls are used to retrieve and update the current player dimensions an
 |--------|---|
 | The player's current width, in pixels | Number |
 
-* * *
 
 ###jwplayer().resize(__width__, __height__)
 
@@ -662,8 +627,6 @@ These API calls are used to listen to or update the video quality if multiple qu
 
 ####Note: An index of 0 will __always__ be "Auto".
 
-* * *
-
 ###jwplayer().getQualityLevels()
 
 |Description|Type|
@@ -703,8 +666,6 @@ Returns an object containing information about the current quality of a video st
 |initial choice| The user had this quality set as a default and did not change it |
 |auto| An automatic quality change occurred|
 |api| The user chose a static quality after playback began, or an API was used to set it |
-
-* * *
 
 ###jwplayer().setCurrentQuality(_index_)
 
@@ -763,8 +724,6 @@ Fired when the active quality level is changed for HLS. This is different than _
 
 These API calls are used to listen to or update the audio track if multiple audio tracks of a video are provided.
 
-* * *
-
 ###jwplayer().getAudioTracks()
 
 |Returns|Type|
@@ -783,8 +742,6 @@ These API calls are used to listen to or update the audio track if multiple audi
 |Returns|Type|
 |--------|---|
 |The index of the currently active audio track. Will return -1 if there are no alternative audio tracks| Number |
-
-* * *
 
 ###jwplayer().setCurrentAudioTrack(_index_)
 
@@ -822,8 +779,6 @@ These API calls are used to listen to or update the active captions track if one
 
 ####Note: An index of 0 implies that captions are off.
 
-* * *
-
 ###jwplayer().getCaptionsList()
 
 Returns an array of objects based on utilized captions. Information for each object may vary depending on the caption types.
@@ -847,8 +802,6 @@ Returns an array of objects based on utilized captions. Information for each obj
 |Description|Type|
 |--------|---|
 | The index of the currently active captions track. | Number |
-
-* * *
 
 ###jwplayer().setCurrentCaptions(_index_)
 
@@ -887,8 +840,6 @@ This API call allows developers to interact with the built-in player controls (d
 
 ####Note: Controls will still fade out during playback if the video has no keyboard/mouse focus. When controls are disabled, JW Player is completely chrome-less.
 
-* * *
-
 ###jwplayer().getControls()
 
 |Description|Type|
@@ -907,8 +858,6 @@ Used to ensure that any visual assets don't overlap with JW Player controls.
 | y | Starting point on the Y axis with JW Player. Will always be 0.  | Number |
 | width | Current viewable container width  | Number |
 | height | Current viewable container height, subtracting control bar height  | Number |
-
-* * *
 
 ###jwplayer().addButton(_icon, label, handler, id_)
 
@@ -965,8 +914,6 @@ Fired when a user clicks the video display. Especially useful for wiring your ow
 ## <a name="advertising"></a>Advertising
 
 This API provides developers with more control over the advertising functionality of the Advertising edition of JW Player. For VAST and IMA advertising plugins, this API allows impression verification, custom scheduling, tag waterfalling and multiple companions.
-
-* * *
 
 ###jwplayer().playAd(_tag_)
 
@@ -1077,7 +1024,6 @@ VAST and IMA. Fired whenever an ad has been skipped.
 |tag | The URL of the ad tag that was skipped|String|
 
 
-
 ###jwplayer().on('adError')
 
 VAST and IMA. Fired whenever an error prevents the ad from playing. 
@@ -1183,8 +1129,6 @@ Fired while ad playback is in progress.
 
 This API call allows developers to listen for metadata embedded in the media file (e.g. dimensions or TX3G cues in MP4 files). It is intended debugging purposes. Do not rely on this API in production environments, since metadata callbacks are subject to sudden change!
 
-* * *
-
 ###jwplayer().on('meta')
 
 Continuously triggered when new metadata has been received by the player. Values may vary based on the stream itself.
@@ -1209,9 +1153,7 @@ sharingPlugin = playerInstance.getPlugin('sharing');
 
 All sharingPlugin references below will assume that the above code is implemented on your page.
 
-* * *
-
-##sharingPlugin.open()
+###sharingPlugin.open()
 Opens the sharing plugin. This will also pause content if it is triggered during playback.
 <table>
   <tr>
@@ -1221,7 +1163,7 @@ Opens the sharing plugin. This will also pause content if it is triggered during
   </tr>
 </table>
 
-##sharingPlugin.close()
+###sharingPlugin.close()
 Closes the sharing plugin if it is opened. This will resume playback if the sharing overlay was triggered during content.
 <table>
   <tr>
@@ -1271,8 +1213,6 @@ jwplayer().on('ready', function(event){
 relatedPlugin = playerInstance.getPlugin('related');
 });
 </pre>
-
-* * *
 
 ###relatedPlugin.open();  
 Opens the related plugin overlay. This will pause content if it is currently playing.
