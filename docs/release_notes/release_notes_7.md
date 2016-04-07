@@ -68,12 +68,13 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 ### Changes:
 
 *   Custom logo is now a CSS-styled div element
+*	New on('adBlock') API call to detect when an adblocker is installed on a viewer's browser
+*	skipoffset can now be applied on a per-adbreak basis
 *   Logo position options from JW6 have been restored (bottom-left, bottom-right, top-left, top-right)
 *   Margins can also be specified
 *   When highlighted, the player’s border color is now handled by browser styling
 *   DASH streams will now use representation width pixel value as default label method
 *   Small player UI now includes playlist navigation
-*   Player now changes live stream quality if an empty HLS chunk list is detected
 *   Related overlay shows longer titles + larger sized thumbnails
 *   Player will no longer encode urls and expects to be given a properly formatted URL for external assets.
 *   In live HLS streams, if JW Player detects an empty chunklist of a certain quality, it will automatically attempt to switch qualities.
