@@ -1,7 +1,8 @@
+#JW Player 7 Release Notes
+
 This page lists all changes for the various JW Player 7 releases. JW Player 6 release notes can be found [here](http://support.jwplayer.com/customer/portal/articles/1403726).
 
-
-### Table Of Contents
+## Table Of Contents
 
 *   [Version 7.4 (beta)](#version74) - 3/18/2016
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
@@ -9,7 +10,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
 *   [Version 7.0](#version70) - 7/20/2015 [+](#version70x)
 
-### Release Channel Status
+## Release Channel Status
 
 Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articles/2149561-using-player-release-channels) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
 
@@ -45,14 +46,14 @@ For more detailed information, please visit our page located on the [JW Player D
 
 JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native [HTML5 tracks element](http://www.html5rocks.com/en/tutorials/track/basics/), allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes. The full list is below:
 
-## Features/Improvements:
+### Features/Improvements:
 
-### PlayReady DRM Support
+#### PlayReady DRM Support
 
 *   PlayReady DRM now supported on IE11/Edge browsers for Win 8.1+
 *   Clearkey DRM now functions with DASH
 
-### HTML5 HLS Safari Improvements
+#### HTML5 HLS Safari Improvements
 
 *   ID3 timed metadata can now be accessed with the on('meta') listener
 *   HLS DVR streams can now be viewed and controlled on JW Player controlbar
@@ -60,7 +61,7 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Native HTML5 caption tracks are now used for iOS devices, allowing for fullscreen subtitles.
 *   Multiple audio tracks can now be accessed in Safari.
 
-### Misc.
+#### Misc.
 
 *   Player supports playlists in JSON file format
 *   Ads rendered with Google IMA SDK now use JW Player control bar UI
@@ -326,12 +327,12 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   YouTube will only render in HTML5.
 *   Semantic naming of player versions and plugins. Expect faster releases!
 
-### Advertising Updates
+#### Advertising Updates
 
 *   New **on('adRequest')** event is triggered when an ad is requested through VAST. This does not work with Google IMA ads.
 *   JW Player 7 will intelligently choose VAST creatives based on player size. This means that smaller player sizes will load smaller video files.
 
-### API Updates
+#### API Updates
 
 *   New **on('event')** method to attach event handlers to a player instance.
 *   New **off('event')** method to remove event handlers that are attached to a player instance.
@@ -341,7 +342,7 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   New **getProvider()** method to find out which media provider is currently being used to render video.
 *   All time events are reported to the full precision available and are no longer trimmed to three decimal places.
 
-### Quality of Experience API
+#### Quality of Experience API
 
 *   New event called **firstFrame** triggered when the first frame of a video is played.
 *   New event called **seeked** triggered when playback resumes after seeking
@@ -349,12 +350,12 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   New **on('visualQuality')** event triggered when the visual quality of a video changes during playback. This only works for HLS media files and contains the bitrate, width of the player, and the reason why the quality change happened.
 *   Use **getVisualQuality()** to get the quality of the video currently playing.
 
-### Additional API Enhancements
+#### Additional API Enhancements
 
 *   play events only fire once.
 *   Original DOM container will be restored when removing player.
 
-### Updated CSS Skinning Model
+#### Updated CSS Skinning Model
 
 *   All JW Player 6 skins have been rebuilt in CSS and are included within the player.
 *   Set the name of the your custom skin within JW Player embed configuration to apply custom styles to the player.
@@ -368,11 +369,11 @@ More information can be found in our following articles:
 *   [Building JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1412123)
 *   [JW Player CSS Reference](http://support.jwplayer.com/customer/portal/articles/2067702)
 
-### Advertising Enhancements
+#### Advertising Enhancements
 
 *   JW Player will pick the best VAST Ad creative based on the size of the player when the request was made.
 
-### MPEG-DASH Support
+#### MPEG-DASH Support
 
 *   Stream Live and VOD in HTML5 in modern browsers with MPEG-DASH. See [Using DASH Streaming](http://support.jwplayer.com/customer/portal/articles/2020483) for full list of supported features. Available in **Premium** Editions only.
 *   Protect your content with Widevine DRM in Chrome. Available in **Enterprise** and **Ads** Editions only.
