@@ -1,4 +1,6 @@
-This page enumerates all changes for the various JW Player releases. We typically release a new version every 2 months.
+#JW Player 6 Release Notes
+
+This page enumerates all changes for the various JW Player 6 releases. Due to the launch of JW Player 7 in July of 2015, JW Player 6 is no longer being updated. Please use JW7 for any bug fixes and feature enhancements.
 
 ## JW Player 6 Release History
 
@@ -16,19 +18,6 @@ This page enumerates all changes for the various JW Player releases. We typicall
 *   [Version 6.1](#version61) - 12/17/2012
 *   [Version 6.0](#version60) - 11/09/2012
 
-
-## Google IMA Patch
-
-The following items were fixed on 6/1/2015:
-
-Accounting for Google's recent IMA SDK [changes](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/history), a patch to our Google IMA advertising plugin was pushed on June 1, 2015\. Therefore, JW Player 6.12 or higher **must** be used to serve HTML5 ads with our Google IMA plugin.
-
-In addition to the above changes, the following features and improvements have been added:
-
-*   Improved ad scheduling, allowing for the use of <playlist> ad rules and VMAP schedules within Google IMA.
-*   Added support for nonlinear creatives in HTML5 mode for non-iPhone devices.
-*   Improved timing for video prerolls, preventing content from being played back prior to advertising.
-*   playAd() API call will work in HTML5 mode when using Google IMA.
 
 <a name="version612"></a>
 
@@ -70,7 +59,7 @@ The release improves functionality, performance, and UX in a few different ways,
 *   Fixed an issue where some HLS streams would freeze when entering/exiting fullscreen on Windows FireFox.
 *   Fixed an issue where IE11 YouTube HTML5 mode would not show any controls.
 
-### 6.12.4956 Patch with bug fixes.
+#### 6.12.4956 Patch with bug fixes.
 
 The following items were fixed on 4/6/2015:
 
@@ -81,6 +70,19 @@ The following items were fixed on 4/6/2015:
 *   Fixed an issue where some HLS streams would play in the background while ads were playing.
 *   Fixed an issue with players using RTMP as a media source and autostart with prerolls, the RTMP stream did not resume after the ad ended.
 *   Fixed an issue with players not rendering correctly when css padding and border were styled inline on the player element.
+
+#### Google IMA Patch
+
+The following items were fixed on 6/1/2015:
+
+Accounting for Google's recent IMA SDK [changes](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/history), a patch to our Google IMA advertising plugin was pushed on June 1, 2015\. Therefore, JW Player 6.12 or higher **must** be used to serve HTML5 ads with our Google IMA plugin.
+
+In addition to the above changes, the following features and improvements have been added:
+
+*   Improved ad scheduling, allowing for the use of <playlist> ad rules and VMAP schedules within Google IMA.
+*   Added support for nonlinear creatives in HTML5 mode for non-iPhone devices.
+*   Improved timing for video prerolls, preventing content from being played back prior to advertising.
+*   playAd() API call will work in HTML5 mode when using Google IMA.
 
 <a name="version611"></a>
 
@@ -520,5 +522,3 @@ JW Player 6.9 has many new features and updates that are available in all editio
 ## Version 6.0
 
 **11-09-2012**: Initial release of JW6.
-
-See [Migrating from JW5 to JW6](/support/jw-player/28834/migrating-from-jw5-to-jw6) for an overview of changes from most recent player version, JW5.
