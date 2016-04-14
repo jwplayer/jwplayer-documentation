@@ -1,0 +1,278 @@
+<!-- 
+
+STUB FOR DASHBOARD FAQ 
+
+OLD KEYWORDS: adding content, add content, external url, publish content, dashboard, help dashboard, embedding help, saved players, type of content, content type, 
+
+-->
+
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;">We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/2160275" id="301url">another one</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+<a href="#players" style="color: #000;"><strong>Players</strong></a>
+<ul>
+	<li><a href="#new-in-jw7">What&#39;s new in JW Player 7?</a></li>
+	<li><a href="#updating-to-jw7">How can I get JW 7?</a></li>
+	<li><a href="#how-do-saved-players-work">How do saved players work?</a></li>
+	<li><a href="#what-is-player-library-URL">What is the Player Library URL, and how do I use it?</a></li>
+</ul>
+<a href="#content" style="color: #000;"><strong>Content</strong></a>
+
+<ul>
+	<li><a href="#ways-to-add-content">What are the ways I can add content? </a></li>
+	<li><a href="#identifying-content-types">How can I tell which type of content is which?</a></li>
+</ul>
+<a href="#embedding" style="color: #000;"><strong>Embedding</strong></a>
+
+<ul>
+	<li><a href="#how-to-publish-a-video">How do I get embed code for a video?</a></li>
+	<li><a href="#what-is-quick-publish">What is Quick Publish?</a></li>
+</ul>
+<a href="#user-permissions" style="color: #000;"><strong>User Permissions</strong></a>
+
+<ul>
+	<li><a href="#add-additional-user">Who can I add as an additional user?</a></li>
+	<li><a href="#additional-user-access">What can additional users access with my account?</a></li>
+</ul>
+<a href="#analytics" style="color: #000;"><strong>Analytics</strong></a>
+
+<ul>
+	<li><a href="#how-analytics-works">How do JW Player&nbsp;analytics work?</a></li>
+</ul>
+<a href="#ad-tag-previewing" style="color: #000;"><strong>Ad Tag Previewing</strong></a>
+
+<ul>
+	<li><a href="#why-doesnt-preview-reflect">Why doesn&#39;t the ad preview reflect the tag I entered?</a></li>
+</ul>
+<a href="#self-hosted-vs-cloud-hosted" style="color: #000;"><strong>Self-Hosted vs. Cloud Hosted Player</strong></a>
+
+<ul>
+	<li><a href="#what-is-cloud-hosted-player">What is the Cloud-Hosted Player?</a></li>
+	<li><a href="#what-is-self-hosted-player">What is the Self-Hosted Player?</a></li>
+</ul>
+<a href="#migrating-old-dashboard" style="color: #000;"><strong>Migrating from the Old Dashboard</strong></a>
+
+<ul>
+	<li><a href="#existing-embeds-migrating">What will happen to my existing embeds?</a></li>
+	<li><a href="#analytics-old-dashboard">Where are my analytics?</a></li>
+</ul>
+&nbsp;
+
+<section style="margin: 0 0 50px;">
+<h2 id="players" style="border-bottom: 1px solid #ccc;"><br />
+Players</h2>
+
+<h3 id="new-in-jw7">What&#39;s new in JW Player 7?</h3>
+
+<p>We&#39;ve given JW7:</p>
+
+<ul>
+	<li>Much faster load times</li>
+	<li>New, customizable CSS skins (they&#39;re also retina-optimized)</li>
+	<li>MPEG-DASH support</li>
+	<li>...and lots more (<a href="http://support.jwplayer.com/customer/portal/articles/2037025-jw-player-7-release-notes">click here</a> to read the full release notes)</li>
+</ul>
+
+<p>&nbsp;</p>
+&nbsp;
+
+<h3 id="updating-to-jw7">How can I get JW7?</h3>
+
+<p>Update your existing saved players to JW7 at any time. If you don&#39;t want to update, existing JW6 embeds will continue working for the near future. (Check the Player Detail or Player List pages for version numbers). <a href="http://support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7">Click here</a> for more information about updating to JW7.</p>
+
+<ul>
+	<li>To <strong>update existing players</strong> to JW7, look for the &quot;update&quot; buttons on the Player Detail and Player List pages.</li>
+	<li>Each <strong>new</strong> player you create will will be a JW7 player.</li>
+	<li>Or, you can <strong>download</strong> the JW7 player from Players &gt; Downloads.</li>
+</ul>
+<strong>Note:</strong> If you&#39;ve done any customizations outside the dashboard with existing players (like custom XML skins, playlists, or any API work), those may be affected by updating &mdash; read the full <a href="http://support.jwplayer.com/customer/portal/articles/2037025-jw-player-7-release-notes">JW7 release notes</a>. In addition, if a large part of your user base relies on Internet Explorer 8, JW7 won&#39;t work for them.
+
+<p>&nbsp;</p>
+&nbsp;
+
+<h3 id="how-do-saved-players-work">How do saved players work?</h3>
+
+<p>Any updates you make to a saved player in the dashboard will be reflected in all the live embeds that use that player.</p>
+
+<p>If you&#39;d like to set overrides in the code at the embed level, you can do that, and those overrides will not change when the auto-updating player is changed &amp; saved. <a href="http://support.jwplayer.com/customer/portal/articles/1891931">Click here</a> to learn more and to see a code example.</p>
+&nbsp;
+
+<h3 id="what-is-player-library-URL">What is the Player Library URL, and how do I use it?</h3>
+
+<p>The Player Library URL calls the JW Player javascript library PLUS the unique player configurations for that player.</p>
+
+<p>You can place this code in the &lt;head&gt; of your site &mdash; this gives your organization this player to use as a default site-wide. It&#39;s likely most relevant if you are a developer; <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">click here</a> for more information.</p>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="content" style="border-bottom: 1px solid #ccc;"><br />
+Content</h2>
+
+<h3 id="ways-to-add-content">What are the ways I can add content?</h3>
+
+<p>You can add content into the dashboard two ways:<img alt="Adding Content Type Toggle" src="/customer/portal/attachments/459983" style="width: 200px; height: 122px;  max-width:200px;  float: right; margin: 20px;" /> To change which type of content you&#39;d like to add, use the dropdown toggle on the &quot;add new&quot; button in the Content List page.</p>
+
+<ol>
+	<li><strong>Upload</strong> videos to host in our system (storage &amp; streaming limits apply)</li>
+	<li>Add <strong>externally-hosted URLs</strong> as links in your library (these do not count against hosting limits)</li>
+</ol>
+
+<p>You may wish to put externally-hosted URLs in your library in order to add tags, metadata, or a poster image. There are two places where content type is identified.&nbsp;</p>
+
+<h3 id="identifying-content-types">How can I tell which type of content is which? <img alt="Content List Page Indicator" src="/customer/portal/attachments/459994" style="width: 200px; height: 255px; float: right; margin: 0px 0px 15px 15px;  max-width:200px; " /><img alt="Content Detail Page Indicator" src="/customer/portal/attachments/459987" style="width: 200px; height: 178px; max-width:200px; float: right; margin: 15px;" /></h3>
+
+<ol>
+	<li>On the content list page, in the &quot;type&quot; column</li>
+	<li>On a content detail page, in the left info bar</li>
+</ol>
+<br />
+<br />
+<br />
+&nbsp;</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="embedding" style="border-bottom: 1px solid #ccc;"><br />
+Embedding</h2>
+
+<h3 id="how-to-publish-a-video">How do I get embed code for a video?</h3>
+
+<p>First, configure and save a player in the JW Player Dashboard, or use one of our provided sample players.</p>
+
+<p>Then, get your <strong>content</strong> ready to go &mdash; <a href="#content" style="color: #000;">click here</a> for more about adding content. you may (1) upload content <em>(limits apply)</em>, or (2) add externally-hosted URLs as links in your library. To change which type of content you&#39;d like to add, use the dropdown toggle on the &quot;add new&quot; button in the Content List page.</p>
+
+<p>If you&#39;re ready to embed:</p>
+
+<ol>
+	<li>Click the &quot;embed&quot; button on the piece of content you&#39;d like to publish.</li>
+	<li>Make sure your desired player is selected in Publish Mode &mdash; if it isn&#39;t, swap it for the one you want</li>
+	<li>Copy the provided iframe embed code from the right side of Publish Mode (if you&#39;d like to use a javascript embed, <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">click here</a> for more info), and insert it into your webpage&#39;s html.</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<h3 id="what-is-quick-publish">What is Quick Publish?</h3>
+
+<p>Get embed code quickly from the homepage by pasting your content URL into the &quot;Quick Publish&quot; box, or by uploading a piece of content from your computer. This will open Publish Mode (which contains the last player you embedded) with your embed code, ready to go!</p>
+
+<p>URLs entered into Quick Publish will also be added to your library as linked content (still hosted externally), in case you&#39;d like to add tags, metadata, or a poster image. Access these from the Content List. Uploads entered into Quick Publish will be added to your library &mdash; you can embed them quickly and then go back later to add a custom title, metadata, tags, and more.&nbsp;</p>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="user-permissions" style="border-bottom: 1px solid #ccc;">User Permissions</h2>
+
+<h3 id="add-additional-user">Who can I add as an additional user?</h3>
+
+<p>You may add any user who does not already have a JW Player account.</p>
+
+<p><em>Quick tip: &nbsp;If you&#39;d like to add a user who already has a separate JW Player account, you can use a &quot;+&quot; symbol with a string in their email address to differentiate it. For example, if &quot;user@example.com&quot; already had a JW Player account, I could add them as &quot;user+1@example.com&quot;.</em><br />
+&nbsp;</p>
+
+<h3 id="additional-user-access">What permissions do different users have in my account?&nbsp;</h3>
+
+<ul>
+	<li>The<strong> OWNER&nbsp;</strong>has unrestricted access, and is the only person who can delete an account, or transfer ownership of an account to another user. There can only be one Owner per Account.</li>
+	<li><strong>ADMIN</strong> users have full account access (including Billing and User Management) &mdash; <strong>except</strong>&nbsp;they cannot change or replace the Account owner, and cannot delete an Account.</li>
+	<li><strong>MANAGERS</strong> have access to most site areas &mdash; <strong>except</strong> Billing and User Management</li>
+</ul>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="analytics" style="border-bottom: 1px solid #ccc;">Analytics</h2>
+
+<h3 id="how-analytics-works">How do JW Player analytics work?</h3>
+
+<p><span>Your JW Player Dashboard comes complete with an analytics section, where you can monitor your content performance, and look at activity by device, geography, engagement, and more. Player activity is associated with a unique media ID, to ensure that everything is attributed accurately. </span></p>
+
+<p>JW Player Analytics are enabled for all accounts by default &mdash; as long as your JW Player embeds are set up correctly, we will begin tracking your analytics immediately. If you have any questions about Media IDs, <a href="http://support.jwplayer.com/customer/portal/articles/2083166-using-media-ids" target="_blank">read this</a>. For more information about basic embed setup, <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed" target="_blank">click here</a>.<br />
+<br />
+<em>Note: If you already use the dashboard to add content and generate embed code, your setup work is already done.</em></p>
+
+<p>The following metrics are tracked:</p>
+
+<ul>
+	<li class="p1"><span class="s1"><b>Content:</b>&nbsp;Any video or audio content&nbsp;object with a unique Media ID</span></li>
+	<li class="p1"><span class="s1"><b>Embeds:</b>&nbsp;Players that have loaded on a webpage</span></li>
+	<li class="p1"><span class="s1"><b>Plays:&nbsp;</b>Video starts across all embedded players</span></li>
+	<li class="p1"><span class="s1"><b>Completes:</b>&nbsp;Videos watched to completion</span></li>
+	<li class="p1"><span class="s1"><b>Daily Unique Viewers:&nbsp;</b>Unique users who have played at least one video</span></li>
+	<li class="p1"><span class="s1"><b>Plays per Unique:&nbsp;</b>The number of plays divided by the number of unique viewers on specific day</span></li>
+	<li class="p1"><span class="s1"><b>Complete Rate:&nbsp;</b>The number of plays divided by the number of completes, as a percentage</span></li>
+	<li class="p1"><span class="s1"><b>Time Watched:&nbsp;</b>Total time watched across all your players</span></li>
+	<li class="p1"><span class="s1"><b>Engagement:&nbsp;</b>Use this data to track the performance of your video (where do viewers drop off? which sections do they replay?)</span></li>
+</ul>
+
+<p>Due to the way that we track analytics from within the player, it is not possible to keep count of viewed time for <strong>live streams</strong>. Please keep this in mind when looking to track certain aspects of playback.</p>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="ad-tag-previewing" style="border-bottom: 1px solid #ccc;">Ad Tag Previewing</h2>
+
+<h3 id="why-doesnt-preview-reflect">Why doesn&#39;t the video preview show the ad tag I configured?</h3>
+
+<p>Due to the nature of ad tags, they will not always work in a dashboard environment (various causes might include ad server limitations like: IP limiting, Geo-blocking or Geo-fencing, Impression Caps, and more). We also wouldn&#39;t want to impact your ad fill or fill rates with configuration previews.</p>
+
+<p><strong>For these reasons, our video previews will only show JW Player-inserted sample test ads.</strong></p>
+
+<p>In order to truly test your own ad tags, we recommend that you do so in your own test or production environment, or try our <a href="http://demo.jwplayer.com/ad-tester/" target="_blank">Demo Ad Tester Tool</a>.</p>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="self-hosted-vs-cloud-hosted" style="border-bottom: 1px solid #ccc;">Self-Hosted vs. Cloud-Hosted Player</h2>
+
+<h3 id="what-is-cloud-hosted-player">What is the Cloud-Hosted Player?</h3>
+
+<p>With the Cloud-Hosted Player, we host the JW Player javascript library for you. This ensures a fast, reliable, secure player that is always up-to-date with the latest mobile devices and web standards. The Cloud-Hosted Player&#39;s feature functionality is exactly the same as that of the downloadable (Self-Hosted) player, and it has the added bonuses of (1) simple setup in seconds, (2) automatic feature <em>updates</em>, (3) and fast, reliable <a href="http://www.jwplayer.com/blog/the-cloud-hosted-jw-player-why-it-is-the-easiest-way-to-go-live/">CDN delivery</a>.&nbsp;All JW Player Dashboard embed codes point to the Cloud-Hosted Player library.</p>
+
+<p>When using the Cloud-Hosted player, you still have control over all available player customizations. For more about customizations, <a href="http://support.jwplayer.com/customer/portal/topics/601064-customization/articles">click here</a>.</p>
+
+<h3 id="what-is-self-hosted-player">What is the Self-Hosted Player?</h3>
+
+<p>The Self-Hosted Player library is not functionally different from the Cloud-Hosted Player library. It is simply a downloadable version of the player which you can host yourself, on your own servers. The download can be found in the Players &gt; <a href="https://dashboard.jwplayer.com/#/players/downloads" target="_blank">License Keys &amp; Downloads</a> section of your dashboard.</p>
+
+<p>If you are self-hosting our player, you will need to (1) point to your copy of jwplayer.js, and (2) define your self-hosted license key. A code example is available <a href="http://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embed#option-3-self-host">here</a>.</p>
+
+<p><a href="http://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embed#option-2-cloud">Click here</a> to learn more about the differences between Cloud- and Self-Hosted Players.</p>
+</section>
+
+<section style="margin: 0 0 50px;">
+<h2 id="migrating-old-dashboard" style="border-bottom: 1px solid #ccc;">Migrating from the Old Dashboard</h2>
+
+<p>For more information about JW Player 7, read the <a href="http://support.jwplayer.com/customer/portal/articles/2037025-jw-player-7-release-notes">full release notes</a>.</p>
+
+<h3 id="existing-embeds-migrating">What will happen to my existing embeds?</h3>
+
+<p><strong>If you&#39;re using the cloud-hosted library:</strong><br />
+Existing embeds that used JW Player cloud-hosted JavaScript Library will not change at all. We are not auto-updating the existing JW6 library to JW7. If you would like to update your existing pages with JW7, you will need to replace it with a new player library from the new dashboard.<br />
+Once you update the player library on your pages, your embeds will be using JW7 and the players might need to be adjusted due to the updates made in JW7.</p>
+
+<p><strong>If you&#39;re self-hosting JW Player:</strong><br />
+Existing embeds that use a self-hosted JavaScript library will not change at all. To update these to use JW7, download the player zips from your account dashboard, update the license key on your pages, and replace the url to JW Player with the new location where you are hosting JW7.<br />
+Once you update the player library on your pages, your embeds will be using JW7 and the players might need to be adjusted due to the updates made in JW7.</p>
+
+<h3 id="analytics-old-dashboard">What will happen to my analytics data?</h3>
+
+<p>The old dashboard&#39;s analytics information does not fit into our new data model &mdash; this migration paves the way for the updates to come.</p>
+
+<p>&nbsp;<br />
+&nbsp;</p>
+
+<p>&nbsp;<br />
+&nbsp;</p>
+</section>

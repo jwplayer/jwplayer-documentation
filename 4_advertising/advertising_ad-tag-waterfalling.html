@@ -1,0 +1,153 @@
+
+<!-- 
+FOR REVIEW BY: Eric Boyd 
+
+TITLE: "Ad Tag Waterfalling"
+
+KEYWORDS: jw ads, ads, advertising, waterfall ads, backup ad tags, waterfall array, ad network waterfalling, waterfalling jwGetStarted, waterfall, waterfalling, cascade, advertising, fill rate, api, vast waterfalling, AdsArticle
+
+NOTES: Turn into dashboard/code split — ask Shannon for details. Will need some screenshots. 
+
+WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/portal/articles/1665150 (updating previous "Ad Tag Waterfalling" at the same URL) 
+
+--> 
+
+<p>Currently, JW Player oficially supports one main mechanism for waterfalling between ad networks. This practice of waterfalling is currently only supported when using our <strong>vast</strong> ad client. The use of Google IMA or <strong>googima</strong> is not supported at this time.</p>
+
+<h2>Introduction to Waterfalls</h2>
+
+<p>Many advertising tags do not have a 100% fill rate. In order to maximize revenue, a technique known as &quot;waterfalling&quot; is typically used. Once JW Player detects that an ad is not returned in VAST tag, we are able to cascade to another tag and attempt to play a different ad. This process will essentially go down a list and try multiple ad tags until an ad response is returned. If we do not return an ad from any of the listed tags, we will begin content playback.<br />
+It is worth noting that a waterfall process may take additional time to display an advertisement. Typically, this should add a few seconds for each ad tag attempt. This delay should be taken into account when implementing this process and deciding how long your ad tag list should be.</p>
+
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="dashboard" aria-selected="true" href="#dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="code" aria-selected="false" href="#code" role="tab" tabindex="0">Code</a></li>
+</ul>
+
+<div class="tabs-content">
+<section aria-hidden="false" class="content active" id="dashboard" role="tabpanel">
+
+<p>Adding waterfalls to your players from the JW player dashboard is easy.</p>
+
+<ol>
+	<li>In your ads player navigate to the Advertising pane.</li>
+	<li>Add a valid preroll tag url.</li>
+	<li>Click the button <img src="//support-static.jwplayer.com/images/advertising/waterfall-plus.png" width="100px" /> .</li>
+	<li>Add another valid ad tag from your ad partner.</li>
+	<li>Save your player.</li>
+</ol>
+
+<p>You can add up to 3 ad tags in a waterfall from the Player Builder. To add more than that, create the waterfall with an Ad Schedule.</p>
+
+<h2>Adding Waterfall&rsquo;s in an Ad Schedule</h2>
+
+<p>You also have the ability to add waterfalls for ad breaks in the Ad Schedule tool. You can add more ad tags to these waterfalls but it is advised to add no more than 5 as it degrades the end viewer experience.</p>
+<img src="//support-static.jwplayer.com/images/advertising/schedule-waterfall.png" width="700px" />
+<ol>
+	<li>Navigate to Ads.</li>
+	<li>Create a New Ad Schedule or edit an existing one.</li>
+	<li>In your ad break, provide a tag name and tag url or choose an existing tag from the select menu.</li>
+	<li>Press the <img src="//support-static.jwplayer.com/images/advertising/waterfall-plus.png" width="100px" /> to add another tag.</li>
+	<li>Make sure to press Save.</li>
+</ol>
+See <a href="http://support.jwplayer.com/customer/en/portal/articles/1432024-scheduling-ad-breaks">Scheduling Ads</a> to see how to schedule your ads.
+</section> 
+
+<section aria-hidden="true" class="content" id="code" role="tabpanel">
+
+
+<h2>Creating a Waterfall Array</h2>
+
+<p>Setting up a waterfall in the player configuration is accomplished by providing the player with an array of ads instead of a single ad. The array can be used anywhere you set a <strong>tag</strong>.<br />
+<br />
+An example of a single ad tag waterfall can be seen here:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+     file: &quot;video.mp4&quot;,
+&nbsp;    advertising: {
+&nbsp; &nbsp;       client: &quot;vast&quot;,
+&nbsp; &nbsp;       tag: [&quot;myadtag1.xml&quot;,&quot;myadtag2.xml&quot;,&quot;myadtag3.xml&quot;]
+&nbsp;    }
+});
+</pre>
+
+<p>In this example, we are placing an array of ad tags in our tag section. The player will handle this by cascading down this list, trying &quot;myadtag1.xml&quot; initially, &quot;myadtag2.xml&quot; next, and finally attempting &quot;myadtag3.xml&quot;. Content playback with waterfalling will begin once one of these scenarios is met:</p>
+
+<ol>
+	<li>A single ad is returned, played, and completed by one of these tags.</li>
+	<li>None of the listed ad tags return an ad.</li>
+</ol>
+
+<h2>Waterfalling in an Ad Schedule</h2>
+
+<p>In addition to creating a preroll for a single playlist item, waterfalling can also be configured in an ad schedule. In the below example, we can see that <em>adbreak1</em> will only use a single ad tag (preroll.xml), while <em>adbreak2</em> is using an array of ads. Thus, <em>adbreak2</em> will invoke a waterfalling process.</p>
+
+<pre>
+playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+     file: &quot;video.mp4&quot;,
+     advertising: {
+          adschedule: {
+               adbreak1: {
+                    offset: &quot;pre&quot;,
+                    tag: &quot;preroll.xml&quot;
+                         },
+               adbreak2: {
+                    offset: 5,
+                    tag: [&ldquo;tag1.xml&rdquo;, &ldquo;tag2.xml&rdquo;, &ldquo;tag3.xml&rdquo;]
+                         }
+                   }
+                }
+            });     
+
+</pre>
+
+</section>
+</div>
+</div>
+
+<h2>Example</h2>
+
+<p>Here is a live example of how to set up and implement an ad tag waterfall. Below, we have three ad tags with only the third returning an actual ad. All failed ad attempts will be logged below the player.</p>
+
+<div class="jwplayer playlist-none" id="container">&nbsp;</div>
+<p>&nbsp;</p>
+<h3>Player Event Log: <span style="font-size:15px; font-style:italic;">(press play to view)</span></h3> 
+<pre id="log">&nbsp;
+
+</pre>
+<script type="text/javascript">
+var fallbacks = ["adtag1.xml","adtag2.xml","//www.adotube.com/php/services/player/OMLService.php?avpid=oRYYzvQ&platform_version=vast20&ad_type=linear&groupbypass=1&HTTP_REFERER=http://www.longtailvideo.com&video_identifier=longtailvideo.com,test"]
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+  image: "/customer/portal/attachments/268131",
+width: '80%',
+aspectratio: '16:9',
+  advertising: {
+    client: "vast",
+    tag: fallbacks
+  }
+});
+var log = document.getElementById("log");
+var index = 0;
+playerInstance.onAdError(function(event) {
+var html = log.innerHTML;
+if(index < fallbacks.length) {
+    html += event.tag+" was empty, loading fallback tag "+(index+1)+".<br>";
+    log.innerHTML = html;
+    index++;
+ } else { 
+    html += event.tag+" has failed, with no more fallbacks available.<br>";
+    log.innerHTML = html;
+  }
+});
+playerInstance.onAdImpression(function(event) {
+var html = log.innerHTML;
+html +="Success! Ad tag number "+ (index+1) +" is now playing!</br>";
+log.innerHTML = html;
+});
+</script>

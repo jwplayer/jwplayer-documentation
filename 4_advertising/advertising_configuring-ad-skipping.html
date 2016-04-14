@@ -1,0 +1,95 @@
+<!-- 
+NOTE: This is one of our top URLs! Do not delete without creating a stub/redirect first. 
+
+KEYWORDS: Skip ads, skippable ads, skipoffset, ad skip, AdsArticle, ad skipping, skip seconds, skip timer
+
+-->
+<p>You can set an amount of time that you want your viewers to watch an ad before being allowed to skip it. When this skip offset is configured, a countdown will appear in the player and the 'skip' button will become active when the time has passed. This skip cancels the ad playback and does not fire any ad complete trackers.</p>
+
+<div class="panel"><strong>PLEASE NOTE:</strong> that this option is configurable for VAST only and not Google IMA.</div>
+
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="dashboard" aria-selected="true" href="#dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="code" aria-selected="false" href="#code" role="tab" tabindex="0">Code</a></li>
+</ul>
+
+<div class="tabs-content">
+<section aria-hidden="false" class="content active" id="dashboard" role="tabpanel">
+
+<p>Ad skipping can be set in two ways from the JW Player dashboard, will be done differently depending on whether you are using the dashboard's <a href="https://support.jwplayer.com/customer/en/portal/articles/1432024-scheduling-ad-breaks">Ad Schedules</a> feature, or if you are setting your ad tags directly within your players. </p>
+<div class="panel"><strong>Note:</strong> If skipping is set on both the Ad Schedule Break and Player Settings levels, the Ad Schedule Break skip settings will override any other settings. </div>
+
+<div><img src="//support-static.jwplayer.com/images/advertising/ad-scheduling-skipping.png" alt="ad schedule skip settings" style="float:right; width:50%; margin:0px 0px 15px 20px;"/></div>
+<h2>When Using Ad Schedules</h2><p>To specify skip settings in an ad schedule, navigate to the ad break you'd like to edit.</p> 
+
+<p>Underneath the <a href="https://support.jwplayer.com/customer/portal/articles/1665150">ad waterfall</a> settings, you'll see options for turning skipping "on", as well as for specifying the number of seconds you'd like your viewers to wait before they can skip the ad.</p>
+
+<p>To ensure changes are applied to your schedule (and propagate to already-embedded (live) schedules, be sure to save your schedule.</p>
+<p style="clear:left;">&nbsp;</p>
+<div><img src="//support-static.jwplayer.com/images/advertising/player-builder-ad-skipping.png" alt="ad schedule skip settings" style="float:right; width:30%; margin:0px 0px 15px 20px;"/></div>
+<h2>When Using Player Ad Settings</h2>
+<p>To specify skip settings in a player, navigate to the player you'd like to edit.</p>
+<p>In the "Advertising" pane of the player builder, make sure Advertising is "on".</p>
+<p>Underneath the <a href="https://support.jwplayer.com/customer/portal/articles/1665150">ad waterfalling</a> settings, you'll see a section with controls for making the ad "skippable", setting the skip timer, and changing the text for the skip countdown message.</p>
+<p>To ensure changes are applied to your player (and propagate to already-embedded (live) players, be sure to save your player.</p>
+
+<p>&nbsp;</p>
+
+</section>
+
+<section aria-hidden="true" class="content" id="code" role="tabpanel">
+
+<p>To set a skip ad offset in the player configuration code all you need to do is add the following to your advertising configuration block.</p>
+
+<dl>
+	<dt>skipoffset</dt>
+	<dd>Set this to an amount of time in seconds that you want an ad to be watched before it can be skipped.</dd>
+</dl>
+<p>If you are using a VAST 3.0 tag, any <strong>skipoffset</strong> specified in your ad tag will supercede any player-level configuration options for skipping ads.</p>
+<p><img alt="skipping" src="//support-static.jwplayer.com/images/adskip.png"/>​</p>
+<p>The following configuration options are available:</p>
+<dl>
+	<dt><strong>skipoffset</strong></dt>
+	<dd>Set this to an amount of time in seconds that you want an ad to be watched before it can be skipped.</dd>
+	<dt><strong>skipmessage</strong></dt>
+	<dd>This is used to provide a customized countdown message. Use the form <i>Skip ad in xx seconds.</i>.</dd>
+	<dt><strong>skiptext</strong></dt>
+	<dd>This sets the text of the Skip button after the countdown is over..</dd>
+</dl>
+<h2>Example Preroll with Skip</h2>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//support-static.jwplayer.com/images/Skip_Ad.png",
+  file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+  advertising: {
+    client: "vast",
+   'skipoffset':5,
+    tag: "//www.adotube.com/php/services/player/OMLService.php?avpid=oRYYzvQ&platform_version=vast20&ad_type=linear&groupbypass=1&HTTP_REFERER=http://www.longtailvideo.com&video_identifier=longtailvideo.com,test"
+  }
+});
+</script>
+
+<h2>Sample embed code</h2>
+
+<p>The skipoffset can only be set at the advertising block level and not for individual ads in an ad schedule.</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+  playerInstance.setup({
+    image: &quot;/uploads/myPoster.jpg&quot;,
+    file: &quot;/uploads/myVideo.mp4&quot;,
+    primary: &#39;flash&#39;,
+    advertising: {
+      client: &quot;vast&quot;,
+     &#39;skipoffset&#39;:5,   
+      tag: &quot;//adserver.com/vastResponse.xml&quot;
+    }
+  });
+</pre>
+</section>
+</div>
+</div>

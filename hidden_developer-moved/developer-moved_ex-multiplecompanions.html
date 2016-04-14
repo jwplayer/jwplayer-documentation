@@ -1,0 +1,122 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+
+​<p>Here is an example of a setup of JW Player with VAST advertising client. Using the <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#advertising" target="_blank">Advertising API</a>, we fetch a list of companions from the VAST tag and insert these into the page:</p>
+
+<div class="article_callout">This document applies to users of <strong>JW Player Ads</strong>. Don&#39;t have Ads? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+<style type="text/css">div.ad { margin-bottom: 20px; display: block; background: #ddd; }
+  #adPlayer { margin-left:0px; margin-bottom: 20px; box-shadow: 0 0 5px #ccc; }
+</style>
+<div id="wrapper" style="width:680px;">
+<div class="ad" id="topAd" style="width:680px; height: 60px;">&nbsp;</div>
+
+<div class="ad" id="rightAd" style="width:160px; height:322px; float:right;">&nbsp;</div>
+
+<div id="adPlayer">Text will be replaced</div>
+
+<div class="ad" id="bottomAd" style="width:480px; height:32px;">&nbsp;</div>
+</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("adPlayer");
+playerInstance.setup({
+  file: "//content.jwplatform.com/videos/bkaovAYt-640.mp4",
+  image: "//content.jwplatform.com/thumbs/bkaovAYt-640.jpg",
+  advertising: {
+    client: "vast",
+    tag: "//traffick.jivox.com/jivox/serverAPIs/getCampaignById.php?api=vast&version=2.0&siteId=94d5ae29c87442&campaignId=21411&r=__random-number__"
+  }
+});
+
+playerInstance.on('adCompanions', function(event) {
+  for(var i=0; i<event.companions.length; i++) {
+    var entry = event.companions[i];
+    if(entry.width == 728) {
+      insertAd("topAd",entry.resource);
+    } else if(entry.width == 160) {
+      insertAd("rightAd",entry.resource);
+    } else if(entry.height == 32) {
+      insertAd("bottomAd",entry.resource);
+    }
+  }
+});
+
+function insertAd(element,resource) {
+  var div = document.getElementById(element);
+  div.style.backgroundImage = "url("+resource+")";
+}
+</script>
+
+<h2>Embed code</h2>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See the <a href="http://support.jwplayer.com/customer/portal/articles/1499103-quickstart-reference" target="_blank">Quick Start Guide</a> for more info. Next, place the following embed code at the location you want the player to appear:</p>
+
+<pre>
+&lt;div id=&quot;adPlayer&quot;&gt;Text will be replaced&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+image: &quot;/uploads/myPoster.jpg&quot;,
+file: &quot;/uploads/myVideo.mp4&quot;,
+  advertising: {
+  client: &quot;vast&quot;,
+  tag: &quot;//adserver.com/vastResponse.xml&quot;
+  }
+});
+&lt;/script&gt;
+</pre>
+
+<h2>Script code</h2>
+
+<p>With the player and VAST tag set up, it&#39;s time to add the code for fetching and inserting the companions. First, setup some element in which you want to load the companions:</p>
+
+<pre>
+&lt;div id=&quot;topAd&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;rightAd&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;bottomAd&quot;&gt;&lt;/div&gt;
+</pre>
+
+<p>Next, insert the scripting code that uses the JW Player <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#advertising" target="_blank">Advertising API</a> to fetch the companions and display them. Determining which companion to display where can be done by checking the <strong>width</strong> or <strong>height</strong> of the available companions:</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+playerInstance.on(&#39;adCompanions&#39;, function(event) {
+  for(var i=0; i&lt;event.companions.length; i++) {
+    var entry = event.companions[i];
+    if(entry.width == 728) {
+      insertAd(&quot;topAd&quot;,entry.resource);
+    } else if(entry.width == 160) {
+      insertAd(&quot;rightAd&quot;,entry.resource);
+    } else if(entry.height == 32) {
+      insertAd(&quot;bottomAd&quot;,entry.resource);
+    }
+  }
+});
+
+function insertAd(element,resource) {
+  var div = document.getElementById(element);
+  div.style.backgroundImage = &quot;url(&quot;+resource+&quot;)&quot;;
+}
+&lt;/script&gt;
+</pre>
+
+<p>Note the specific on(&#39;adCompanions&#39;) API call is available for both VAST advertising and Google IMA. The API call is available in both HTML5 and Flash mode.</p>
+

@@ -10,59 +10,82 @@ jwGetStarted, analytics, new analytics, using analytics, data capture, media ids
 
 
 -->
-<p><span>Your&nbsp;JW Player Dashboard comes complete with an analytics section, where you can monitor your content performance, and look at activity by device, geography, engagement, and more.&nbsp;Player activity is associated&nbsp;with a unique&nbsp;media ID, to ensure&nbsp;that everything is attributed accurately. <a href="http://support.jwplayer.com/customer/portal/articles/2083166-using-media-ids" target="_blank">Click here</a> to learn more about Media IDs.</span></p>
-
-<h2 dir="ltr" id="metric-definitions"><br />
-What are the metrics shown?&nbsp;</h2>
-
-<p><strong>&nbsp;<br />
-Content:</strong> Any video or audio content&nbsp;object with a unique Media ID</p>
-
-<p><strong>Embeds:</strong> Players that have loaded on a webpage</p>
-
-<p><strong>Plays: </strong>Video starts across all embedded players</p>
-
-<p><strong>Completes:</strong> Videos watched to completion</p>
-
-<p><strong>Daily Unique Viewers: </strong>Unique users who have played at least one video</p>
-
-<p><strong>Plays per Unique: </strong>The number of plays divided by the number of unique viewers on specific day</p>
-
-<p><strong>Complete Rate: </strong>The number of plays divided by the number of completes, as a percentage</p>
-
-<p><strong>Time Watched: </strong>Total time watched across all your players</p>
-
-<p><strong>Engagement: </strong>Use this data to track the performance of your video (where do viewers drop off? which sections do they replay?)</p>
+<p>Your JW Player Dashboard comes complete with an analytics section, where you can monitor your content performance and look at activity by device, geography, engagement, and more. </p>
+<p>If you use the dashboard's publish mode to build embed code, your information will appear automatically. If you are using a more custom embedding method, be sure to follow our <a href="https://support.jwplayer.com/customer/en/portal/articles/1406723-embedding">embedding</a> instructions to make sure that your analytics information is accurate.</p>
 
 
-<h2 id="how-to-apply-media-IDs"><br />
-<span>How to Ensure Data Capture</span></h2>
+
+<a name="metric-definitions"></a>
+<p>&nbsp;</p>
+<h2>What are the metrics shown?</h2>
+
+<table>
+<tr>
+<th>Content</th>
+<td>Any video or audio content&nbsp;object with a unique Media ID</td>
+</tr>
+<tr>
+<th>Embeds</th>
+<td>Players that have loaded on a webpage</td>
+</tr>
+<tr>
+<th>Plays</th>
+<td>Video starts across all embedded players</td>
+</tr>
+<tr>
+<th>Completes</th>
+<td>Videos watched to completion</td>
+</tr>
+<tr>
+<th>Daily Unique Viewers</th>
+<td>Unique users who have played at least one video</td>
+</tr>
+<tr>
+<th>Plays per Unique</th>
+<td>The number of plays divided by the number of unique viewers on specific day</td>
+</tr>
+<tr>
+<th>Complete Rate</th>
+<td>The number of plays divided by the number of completes, as a percentage</td>
+</tr>
+<tr>
+<th>Time Watched</th>
+<td>Total time watched across all your players</td>
+</tr>
+<tr>
+<th>Engagement</th>
+<td>Use this data to track the performance of your video (where do viewers drop off? which sections do they replay?)</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<h2>Analytics in the Dashboard</h2>
+<p>Our design allows you to easily see overall metrics for your account, content-level data (each piece of content is defined by unique media-id), and domain level data (only top-level domains are currently reported). &nbsp;You can also see these metrics split by device and geography.</p>
+<p>It is also possible to download this information via CSV, or access it via API.</p>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color:#fff !important; border:none !important; ba">
+<tr style="background-color:#fff !important;">
+<td width="33%" valign="top" style="padding:0px 10px 0px 0px; background-color:#fff !important;">
+<a href="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-overview.png" target="_blank"><img alt="Analytics Overview" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-overview.png" style="max-width:100%;"/></a>
+</td>
+<td width="33%" valign="top" style="padding:0px 10px 0px 0px; background-color:#fff !important;">
+<a href="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-content-list.png" target="_blank"><img alt="Analytics Content List View" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-content-list.png" style="max-width:100;"/></a>
+</td>
+<td width="34%" valign="top" style="padding:0px 10px 0px 0px; background-color:#fff !important;">
+<a href="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-content-detail.png" target="_blank"><img alt="Analytics Content Detail View" src="http://support-static.jwplayer.com.s3.amazonaws.com/images/analytics/analytics-content-detail.png" style="max-width:100;"/></a>
+</td>
+</tr>
+</table>
+
+<p><strong>Note:</strong> Due to the way that we track analytics from within the player, it is not possible to keep count of time watched and engagement for live streams. Please keep this in mind when looking to track certain aspects of playback.</p>
 
 
-<h3>Dashboard Setup</h3>
-<p><em>Note: If you already use the dashboard to add content and generate embed code as part of your workflow, your setup work is already done.</em></p>
 
-<p>When you add externally-hosted URLs, or upload content via the dashboard, they are automatically assigned Media IDs. (For reference, these Media IDs are visible on the Content Detail page on the left side of the page.) </p>
-<p>[screenshot of media ID]</p>
-<p>Embedding this content using the dashboard's Publish Mode code will ensure that the Media ID is being tracked.</p>
-<p>[screenshot of publish mode]</p>
 
-<h3>Code Setup</h3>
-<p>If you use custom player embeds, or if you self-host your content, your embeds might not be passing Media IDs through for tracking. </p>
-<p>If you host your content with JW Player but are building custom embeds, here's what to do:
-<ol>
-<li>Either through the dashboard or <a href="http://apidocs.jwplayer.com/methods/videos/create.html" target="_blank">through the API</a>, find out which Media IDs are associated with which pieces of content.</li>
-<li>Make sure the Media ID parameter makes it into your embeds, as in the below example: 
-<pre>
-playlist:[{
-file:&quot;&quot;,
-mediaid:&quot;eXaMPlE1&quot;
-}]</pre>
-</li>
-</ol>
-</p>
 
-<p></p>
+
+
+
 <!-- OLD
 <ol>
 	<li>Get Media IDs for your content via the <strong>Dashboard</strong> or the <strong>API </strong>
