@@ -1,0 +1,74 @@
+<!-- 
+FOR REVIEW BY: Eric Boyd 
+
+TITLE: "Using VAST3 Ad Pods"
+
+KEYWORDS: VAST 3.0, VAST, adpods, pods, commercials, AdsArticle, ads, advertising pods, jw ads, ads, advertising, vast, vast3, vast3 ad pods, ad podding, using vast, vast tags, AdsArticle
+
+
+--> 
+<p>The <a href="http://www.iab.net/media/file/VASTv3.0.pdf">IAB VAST 3.0</a> template introduced the concept of Ad Pods. Ad Pods are a way to specify multiple &lt;ad&gt; elements which are to be sequenced together and played back-to-back within a singule ad break. Ad Pods are configured from VAST 3.0 compliant ad networks and passed to the JW Player. Additionally, it is possible to create custom, static ad pods either using in-line VAST data, or wrapped ad tags.</p>
+
+<p>If a VAST 3.0 ad tag is configured to use Ad Pods, the JW Player will play the ads together anywhere the ad break was scheduled. Ad Pods can be scheduled as Pre-Rolls, Mid-Rolls, and even as Post-Rolls. The Advertising API has also been updated to contain the location of the ad in a pod and the total number of ads in a pod.</p>
+
+<p><img alt="Ad Pod Diagram" src="//support-static.jwplayer.com/images/advertising/ad-pod-diagram.png"/></p>
+
+<div class="panel"><strong>Note:</strong> While JW Player's <a href="https://support.jwplayer.com/customer/en/portal/articles/1432024">Ad Scheduling</a> tool allows you to create ad <strong>breaks</strong>, it does not yet allow for creating ad <strong>pods</strong> in the dashboard. does not allow you to create ad pods in the dashboard, it does accept VAST 3 tags that contain ad pods as described in this article.</div>
+
+<h2>Ad Pod Countdown Message</h2>
+
+<p>By default, JW Player will use the following message prefixed to the ad countdown message: <strong>Ad <em>x</em> of <em>y</em></strong> (Where <em>x</em> is the current ad playing and <em>y</em> is the total number ads in the pod)</p>
+<p>
+<img alt="Ad pod countdown message in player controlbar" src="//support-static.jwplayer.com/images/adpods1.png"/></p>
+
+<p>The subsequent portion of the ad message is fully customizable. See our article about <a href="https://support.jwplayer.com/customer/portal/articles/1433868-custom-ad-countdown-message">custom countdown messages</a> for more information.</p>
+
+<h2>Pod API Calls</h2>
+
+<p>Each <a href="https://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#advertising">Advertising API</a> call also contains these two attributes if the ad is part of a pod:</p>
+
+<dl>
+	<dt><strong>sequence</strong></dt>
+	<dd>This is the number of the ad in pod that is currently playing.</dd>
+	<dt><strong>podcount</strong></dt>
+	<dd>This is the total number of ads in the pod</dd>
+</dl>
+<p>&nbsp;</p>
+<h3>Sample Ad Pod</h3>
+
+<p>A JW Player using a VAST3 ad pod is below:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+    playerInstance.setup({    
+        image: "//s3.amazonaws.com/demo.jwplayer.com/advertising/assets/adpod.jpg",
+        file: "//content.jwplatform.com/videos/s8BPzDe0-kNspJqnJ.mp4",
+        advertising: {
+            client:"vast",
+            schedule:{
+                adbreak1: {
+                    offset:'pre',
+                    tag: '//s3.amazonaws.com/demo.jwplayer.com/advertising/assets/vast3_jw_ads.xml'
+                }
+            }
+        }
+    });
+</script>
+<p>&nbsp;</p>
+<h3>Sample Embed code</h3>
+<pre>
+playerInstance = jwplayer(&quot;container&quot;);
+playerInstance.setup({
+     file: &quot;video.mp4&quot;,
+     advertising: {
+        client: &quot;vast&quot;,
+            schedule:{
+                adbreak1: {
+                offset: &quot;pre&quot;,
+                tag: &quot;adpod.xml&quot;
+                }
+            }
+        }
+});     
+</pre>

@@ -1,0 +1,144 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+​<style type="text/css">.ListItems div {
+align-content: left;
+width: 680px; height: 150px;
+margin-left:50px;
+text-indent: 0px;
+background: #000000;
+box-shadow: inset 0 3px 10px rgba(0,0,0,.85);
+-webkit-box-shadow: inset 0 3px 10px rgba(0,0,0,.85);
+-moz-box-shadow: inset 0 3px 10px rgba(0,0,0,.85);
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+-moz-border-radius-bottomleft: 5px;
+-moz-border-radius-bottomright: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+font-family: helvetica;
+color: #000000;
+text-decoration: none;
+list-style-type: none;
+list-style-position:inside;
+padding:0 0 0 0px;
+margin-top: -20px;
+        
+}
+
+.ListItems div li {
+display: block;
+float: left;
+list-style-type: none;
+list-style: none;
+padding: 15px 0 0 11px;
+line-height:200%
+}
+
+.ListItems div a {
+text-indent: 0px;
+display: block;
+background: #000;
+border: 1px solid #666;
+height: 75px; width: 120px;
+margin: 0;
+color: #ffffff;
+text-decoration: none;
+text-align:center;
+margin: 0;
+list-style-type: none;
+list-style-position:inside;
+margin:0;
+line-height:200%;
+}
+
+.ListItems div a:hover {
+list-style-type: none;
+border: 1px solid #ff0046;
+}
+</style>
+<p>While we do have a guide to making your own <a href="http://support.jwplayer.com/customer/portal/articles/1480872-example-creating-an-html-playlist">static playlist</a>, this guide will explain how to create your own playlist sidebar by utilizing <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#playlist" target="_blank">our API</a> and a loaded RSS file. A timeline of how this process works is as follows:</p>
+
+<ol>
+	<li>JW Player loads a playlist file, which contains multiple video objects and information.</li>
+	<li>When the player is ready (Detected via our on(&#39;ready&#39;) API call) and finished loading this file, (Utilizing our on(&#39;ready&#39;) listener within our API) we extract information using getPlaylist()</li>
+	<li>We run a loop, extracting information for each item on this playlist file.</li>
+	<li>We take this information and display it via HTML</li>
+</ol>
+
+<p>For starters, we&#39;re going to get all of our playlist information via getPlaylist(), and store the result is an array called &quot;playlist&quot;. Then, we&#39;re going to be utilizing a for loop to run when our player is ready. We&#39;ll be determining the number of runthroughs based on the length of our playlist. (In this case, playlist.length)</p>
+
+<pre>
+for(var index=0;index&lt;playlist.length;index++)</pre>
+
+<p>Within this for loop, if we invoke the an <code>index</code> number and then call for our appropriate property, we&#39;ll be able to pick the information we want. For example:</p>
+
+<pre>
+​playlist[index].title</pre>
+
+<pre>
+playlist[index].image</pre>
+
+<p>will call the title and image file used in our chosen playlist item, respectively.</p>
+
+<p>Since we can grab this information via javascript, we simply need to print the result into HTML. We then call our function to play the specified item.</p>
+
+<pre>
+function playThis(index) {
+playerInstance.playlistItem(index);
+}
+</pre>
+
+<p>The result is below. We&#39;ve done some additional CSS work to make a nice playlist with description overlays.</p>
+
+<div id="fullPlaylist" style="width:680px;">
+<div id="container">&nbsp;</div>
+
+<div class="ListItems" style="position:inherit;">
+<div id="list" style="position:relative;">&nbsp;</div>
+
+<ul>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  playlist: "//content.jwplatform.com/feeds/13ShtP5m.rss",
+  displaytitle: false,
+  width: 680,
+  height: 360
+});
+
+var list = document.getElementById("list");
+var html = list.innerHTML;
+
+playerInstance.on('ready',function(){
+var playlist = playerInstance.getPlaylist();
+for (var index=0;index<playlist.length;index++){
+var playindex = index +1;
+html += "<li><span class='dropt' title='"+playlist[index].title+"'><a href='javascript:playThis("+index+")'><img height='75' width='120' src='" + playlist[index].image + "'</img></br>"+playlist[index].title+"</a></br><span style='width:500px;'</span></span></li>"
+list.innerHTML = html;
+}
+
+});
+function playThis(index) {
+playerInstance.playlistItem(index);
+}
+</script>

@@ -3,35 +3,6 @@
 MOVE TO DEV PORTAL 
 --> 
 
-<a name="feeds">
-<h2>About External Playlists &amp; Feeds</h2>
-</a>
-<p>As of JW Player 7.3, it is possible to load either a basic XML, or a JSON-formatted playlist file into the player. For more details, read our article about </p>
-<h4>RSS Feed</h4>
-
-<p>RSS Feeds are useful for syndicating your content to podcasting services like iTunes. Our feeds are standard RSS and compliant with many such services. Learn more about RSS <a href="https://en.wikipedia.org/wiki/RSS" target="_blank">here</a>. </p>
-
-<h4>JSON Feed</h4>
-
-<p>Compared to RSS feeds, JSON feeds allow for the inclusion of information related to:</p>
-
-<ul>
-	<li>Available Transcodes</li>
-	<li>Transcode labels</li>
-	<li>Media dimensions</li>
-	<li>Video type</li>
-	<li>Content Duration</li>
-	<li>Passthrough files</li>
-	<li>Available Caption/Thumbnail Tracks</li>
-</ul>
-
-<p>The JW Player dashboard&#39;s JSON feeds are great for verifying the completion/quantity of transcodes, as well as to populate meta information for social media sites like Facebook or Twitter. Previously, this information was only accessible via the JW Platform API, but it can now be pinged on a production site, which does not apply to JW Platform&#39;s 10 API calls/minute limit.</p>
-<p><em><strong>Note:</strong> We do not recommend using our JW Platform JSON feeds directly in an embed &mdash; they contain a lot of extra information (and therefore a much greater file size), and this may impact performance. Player-optimized JSON feeds will be coming soon.</em></p>
-
-
-
-
-
 <p>As of JW Player 7.3, it is possible to load either a basic XML, or a JSON-formatted playlist file. Each of these cases is used to load a playlist with one or more media items into JW Player. For each entry, JW Player can read metadata, poster image, media sources and text tracks from the feed. Loading of external feeds differs slightly from our single file example, since it uses the <em>playlist</em> option instead of <em>file</em>.</p>
 
 <h2>RSS Feeds</h2>

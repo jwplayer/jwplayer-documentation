@@ -1,0 +1,53 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+​<p>When curious about how the player handles certain streams and/or decides which chunk to display, the use of our on(&#39;meta&#39;) API call can help demystify things.</p>
+
+<p>For this example, we&#39;ll be outputting some information about an HLS stream to our console log. We&#39;ll need to add the following to our web page in order to see this information:​</p>
+
+<pre>
+playerInstance.on(&#39;meta&#39;, function(event) {
+console.log(event.metadata);
+​});
+</pre>
+
+<p>Open your console log and take a start the following stream:</p>
+
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+file: "//playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",
+primary: 'flash'
+});
+
+playerInstance.on('meta', function(event) {
+console.log(event.metadata);
+});
+</script>
+
+<p>An example of the output you&#39;ll be seeing is below:</p>
+<img alt="" src="/customer/portal/attachments/247917" style="width: 721px; height: 50px;" />​
+<p>In this output, we&#39;re able to see the quality level/resolution of each segment, as well as our perceived bandwidth. This is a great way to confirm that your stream is operating to your liking.</p>
+
+<p>For more advanced features, it may be possible to parse this information. Such information can be utilized to let your viewers know what kind of connection they&#39;re getting while watching your stream. Likewise, this information can be fed back to Google Analytics for further tracking. For more information on integrating your Google analytics, you can see the following article located <a href="http://support.jwplayer.com/customer/portal/articles/1417188-combining-jw-player-api-events-with-google-analytics">here</a>.</p>
+
+<p>In addition, metadata in either ID3 or EXTINF can be extracted using the same method. This will be included in the metadata object.</p>
+

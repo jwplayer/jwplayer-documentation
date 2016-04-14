@@ -2,10 +2,27 @@
 TO LIVE *TEMPORARILY* AT: 
 http://support.jwplayer.com/customer/en/portal/articles/1481963-creating-playlists
 --> 
-<p>We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/1908212">another one</a>. </p>
-<p>Thank you for your patience while we clean up our documentation! </p>
+<p> </p>
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;">We moved the content of this article into <a href="http://support.jwplayer.com/customer/portal/articles/1483102" id="301url">another one</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
 
-
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

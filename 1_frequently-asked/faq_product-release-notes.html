@@ -1,0 +1,187 @@
+<!-- 
+
+FOR REVIEW BY: Shannon (Eric?)
+
+TITLE: JW Player 7 Release Notes 
+(This is an update of the former article of the same name, located at: https://support.jwplayer.com/customer/portal/articles/1403726)
+
+KEYWORDS: release, whatsnew, release notes, changelog, change log, changes, jw player version, version, version information, release candidate, 
+
+NOTES: Will remain at the same URL (above)
+
+ 
+
+--> 
+<p>This page provides a high-level overview of all recent JW Player product releases.</p>
+
+<p>If you are a developer looking for more detailed technical release notes, please see the following developer pages:</p>
+
+<table style="float:left; width:50%">
+	<tbody>
+		<tr>
+			<th>Product</th>
+			<th>Latest Version</th>
+		</tr>
+		<tr>
+			<td><a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/release_notes/release_notes_7/">JW Player</a></td>
+			<td>7.3.6</td>
+		</tr>
+		<tr>
+			<td><a href="https://developer.jwplayer.com/sdk/android/docs/developer-guide/about/release-notes/">Android SDK</a></td>
+			<td>2.1.1</td>
+		</tr>
+		<tr>
+			<td><a href="https://developer.jwplayer.com/sdk/ios/docs/developer-guide/about/release-notes/">iOS SDK</a></td>
+			<td>2.1.0</td>
+		</tr>
+		<tr>
+			<td><a href="https://developer.jwplayer.com/jw-platform/docs/developer-guide/release-notes/">JW Platform API</a></td>
+			<td>-</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="article_toc" style="float:right">
+<h2>Recent Releases:</h2>
+
+<nav>
+<ul>
+	<li><a href="#160328">Realtime Analytics</a> - Mar 28, 2016</li>
+	<li><a href="#160303">CDN Accelerated Uploads</a> - Mar 3, 2016</li>
+	<li><a href="#160301">Platform Ad Scheduling</a> - Mar 1, 2016</li>
+	<li><a href="#160218">AppleTV App Builder</a> - Feb 18, 2016</li>
+	<li><a href="#160216">JW Player 7.3</a> - Feb 16, 2016</li>
+	<li><a href="#160202">Mobile SDKs 2.1</a> - Feb 2, 2016</li>
+	<li><a href="#160121">Multiple Users &amp; Properties</a> - Jan 21, 2016</li>
+	<li><a href="#160107">Analytics Recency</a> - Jan 7, 2016</li>
+</ul>
+</nav>
+</div>
+
+<hr /><a name="160328"></a>
+
+<h2><a name="160328">Realtime Analytics</a> - Mar 28, 2016</h2>
+
+<p>With Realtime Analytics, Publishers can see which videos are popular <em>right now</em>. Real-time will make audience &amp; content trends more actionable, especially for fast moving content segments like news, sports and entertainment.</p>
+
+<p><img alt="jw player realtime analytics" src="//support-static.jwplayer.com/images/faqs/release-realtime.png" width="720" /></p>
+
+<p>Realtime Analytics are available in the <strong>Enterprise</strong> and <strong>Ads</strong> editions of JW Player. See the <a href="https://support.jwplayer.com/customer/portal/articles/2371336--right-now-analytics-">Realtime Analytics article</a> for more info.</p>
+<a name="160303"></a>
+
+<hr />
+<h2><a name="160303">CDN Accelerated Uploads</a> - Mar 3, 2016</h2>
+
+<p>CDN Accelerated Uploads leverage our CDN edge nodes to dramatically (up to 10x) improve the upload speed of videos. Customers in South America, Asia and Oceania in particular will benefit from this upgrade.</p>
+
+<p>Contrary to competing solutions like Aspera Fasp, no dedicated software is needed for accelerated uploads. They work for regular HTTP uploads, both within the user dashboard and through the platform API.</p>
+
+<p>CDN Accelerated Uploads are available in all editions of JW Player. See the <a href="https://developer.jwplayer.com/jw-platform/reference/v1/s3_uploads.html">Platform API documentation</a> for more info.</p>
+<a name="160301"></a>
+
+<hr />
+<h2><a name="160301">Platform Ad Scheduling</a> - Mar 1, 2016</h2>
+
+<p>Platform Ad Scheduling enables editorial users to schedule mid-rolls, waterfalls and per-video advertisements. All functionality of JW Player&#39;s ad configuration API is supported in an intuitive, no-coding-needed UI. Schedules are particularly effective for monetizing content that&#39;s over 5 minutes in lenght through mid-rolls.</p>
+
+<p><img alt="jw player platform ad scheduling" src="//support-static.jwplayer.com/images/faqs/release-scheduling.png" width="720" /></p>
+
+<p>Platform Ad Scheduling is available in the <strong>Ads</strong> edition of JW Player. See the <a href="//support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-">Scheduling Ad Breaks article</a> for more info.</p>
+<a name="160218"></a>
+
+<hr />
+<h2><a name="160218">AppleTV App Builder</a> - Feb 18, 2016</h2>
+
+<p>Our open-source AppleTV App Builder enables Online Publications to get their content to TV efficiently and cost-effectively. The app builder allows easy customization through colors &amp; images. Content is populated using RSS feeds from JW Platform. Advertising and Analytics through JW Platform are also included.</p>
+
+<p><img alt="JW Player appleTV App Builder" src="//support-static.jwplayer.com/images/faqs/release-appletv.png" width="720" /></p>
+
+<p>The AppleTV App Builder is available in all editions of JW Player. See our <a href="https://github.com/jwplayer/appletv">JW Player AppleTV Git repo</a> for more info.</p>
+<a name="160216"></a>
+
+<hr />
+<h2><a name="160216">JW Player 7.3</a> - Feb 16, 2016</h2>
+
+<p>JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native <a href="http://www.html5rocks.com/en/tutorials/track/basics/">HTML5 tracks element</a>, allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes.</p>
+
+<h3>PlayReady DRM Support</h3>
+
+<ul>
+	<li>PlayReady DRM now supported on IE11/Edge browsers for Win 8.1+</li>
+	<li>Clearkey DRM now functions with DASH</li>
+</ul>
+
+<h3>HTML5 HLS Safari Improvements</h3>
+
+<ul>
+	<li>ID3 timed metadata can now be accessed with the on(&#39;meta&#39;) listener</li>
+	<li>HLS DVR streams can now be viewed and controlled on JW Player controlbar</li>
+	<li>HLS embedded captions can now be controlled with JW Player control bar</li>
+	<li>Native HTML5 caption tracks are now used for iOS devices, allowing for fullscreen subtitles.</li>
+	<li>Multiple audio tracks can now be accessed in Safari.</li>
+</ul>
+
+<h3>Misc.</h3>
+
+<ul>
+	<li>Player supports playlists in JSON file format</li>
+	<li>Ads rendered with Google IMA SDK now use JW Player control bar UI</li>
+</ul>
+
+<p>JW Player 7.3 includes updates for all editions of JW Player. See the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/release_notes/release_notes_7/">HTML5 Player Release Notes</a> for more info.</p>
+<a name="160202"></a>
+
+<hr />
+<h2><a name="160202">Mobile SDKs 2.1</a> - Feb 2, 2016</h2>
+
+<p>The 2.1 updates of our Android and iOS Mobile SDKs most notably introduce reading and exposing ID3 metadata from HLS streams. Common use cases include server-side or client-side ad insertion, as well as presentiong artist/album information for radio stations.</p>
+
+<h3>Android SDK Updates</h3>
+
+<ul>
+	<li>ID3 Timed Metadata</li>
+	<li>Local Media File Playback</li>
+	<li>Chromecast Beta</li>
+	<li>Support for newly added JW7 API callbacks (onSeeked, onFirstFrame, onAdRequest, etc.)</li>
+	<li>Various enhancements and bugfixes.</li>
+</ul>
+
+<h3>iOS SDK Updates</h3>
+
+<ul>
+	<li>HLS Live DVR</li>
+	<li>ID3 Timed Metadata</li>
+	<li>Picture in Picture (iOS 9 iPad only)</li>
+	<li>HLS Multiple Track Audio</li>
+	<li>Various enhancements and bugfixes.</li>
+</ul>
+
+<p>The Mobile SDKs 2.1 include updates in the <strong>Enterprise</strong> and <strong>Ads</strong> editions of JW Player. See the <a href="//developer.jwplayer.com/sdk/android/docs/developer-guide/about/release-notes/">Android SDK Release Notes</a> and the <a href="//developer.jwplayer.com/sdk/ios/docs/developer-guide/about/release-notes/">iOS SDK Release Notes</a> for more info.</p>
+<a name="160121"></a>
+
+<hr />
+<h2><a name="160121">Multiple Users &amp; Properties</a> - Jan 21, 2016</h2>
+
+<p>Multiple Users &amp; Properties enable larger companies to segment their media library, providing users with granular access to one or more of them. Each property has its own player templates &amp; downloads, videos &amp; feeds library, engagement &amp; usage analytics and content protection rules. Typical use cases include:</p>
+
+<ul>
+	<li>Businesses that span multiple teams (e.g. marketing, product, support, etc).</li>
+	<li>Media corporations with multiple publications (e.g. magazines, blogs or talent sites).</li>
+	<li>Development agencies with multiple customers (using a property for each customer).</li>
+</ul>
+
+<p><img alt="JW Player multiple users and properties" src="//support-static.jwplayer.com/images/faqs/release-properties.png" width="720" /></p>
+
+<p>Multiple Users are included in all editions of JW Player. See the <a href="//support.jwplayer.com/customer/en/portal/articles/2284233-managing-users">Managing Users article</a> for more info. Multiple Properties are included in the <strong>Enterprise</strong> and <strong>Ads</strong> editions of JW Player. See the <a href="//support.jwplayer.com/customer/en/portal/articles/2231363-managing-properties">Managing Properties article</a> for more info.</p>
+<a name="160107"></a>
+
+<hr />
+<h2><a name="160107">Analytics Recency</a> - Jan 7, 2016</h2>
+
+<p>Analytics Recency improves the availability of analytics from next-day to within seconds of event capture. This improves the actionability of analytics, as video edits or ad rules can be optimized as changes happen.</p>
+
+<p>Today&#39;s unique viewers count will be estimated, but accurate within 2%. Custom date ranges are now also supported.</p>
+
+<p><img alt="JW Player Analytics Recency" src="//support-static.jwplayer.com/images/faqs/release-recency.png" width="720" /></p>
+
+<p>The Analytics Recency update is included in all editions of JW Player. See the <a href="//support.jwplayer.com/customer/portal/articles/2142460-using-jw-player-analytics">Using JW Player Analytics article</a> for more info.</p>

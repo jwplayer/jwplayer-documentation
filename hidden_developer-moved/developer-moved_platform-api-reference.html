@@ -1,0 +1,116 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-platform/reference/v1/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>Using the <a href="http://www.jwplayer.com/products/jwplatform/platform-api/" target="_blank">Platform API</a>, developers can build video management functionality into their own website or application.</p>
+
+<div class="article_warning">To ensure fair access for all, usage of api.jwplatform.com is limited to <strong>10 calls per minute.</strong> We reserve the right to block API access to accounts that exceed this rate. If you need a higher API rate, please contact <a href="mailto:sales@jwplayer.com?subject=Higher%20API%20Rate%20Limits">sales@jwplayer.com</a>.&nbsp;Note that calls to&nbsp;content.jwplatform.com do not count towards the API rate limit.</div>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Getting Started</h2>
+
+<p>The API consists of an URL Scheme for requesting files, plus an API framework for requesting data. This article provides an overview of both. Click on an API class or URL group below to get detailed information. Note these references are auto-generated and hosted outside our support site.</p>
+
+<p>To quickly get started, we provide both a PHP and Python API kit, plus a ZIP file with some PHP examples. They are all attached to this article:</p>
+
+<ul>
+	<li><a href="http://support-static.jwplayer.com/API/php-api-kit-20151013.zip">PHP API Kit</a></li>
+	<li><a href="http://support-static.jwplayer.com/API/php-api-examples-20151013.zip">PHP API Examples</a></li>
+	<li><a href="http://support-static.jwplayer.com/API/python-api-kit.zip">Python API Kit</a></li>
+</ul>
+
+<p>We also provide a fully functional <a href="/customer/portal/articles/1433604-wordpress-plugin-for-jw-platform">JW Platform WordPress Plugin</a>, which is capable of uploading, searching and publishing videos within the WordPress admin.</p>
+
+<h2>URL Scheme</h2>
+
+<p>These are the different files that can be requested from our Contentserver.</p>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/urls/thumbs.html">Thumbs</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/urls/videos.html">Videos</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/urls/feeds.html">Feeds</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/urls/players.html">Players</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/urls/previews.html">Previews</a></li>
+</ul>
+
+<h2>API Framework</h2>
+
+<p>These pages describe the general behaviour and security features of our data API:</p>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html">Call Syntax</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/authentication.html">Authentication</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/output_formats.html">Output Formats</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/uploads.html">File Uploads</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/resumable_uploads.html">Resumable File Uploads</a></li>
+</ul>
+
+<h2>API Classes</h2>
+
+<p>Here is an overview of all classes currently available in the API:</p>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/index.html">/videos</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/conversions/index.html">/videos/conversions</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/thumbnails/index.html">/videos/thumbnails</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/captions/index.html">/videos/captions</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/tags/index.html">/videos/tags</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/views/index.html">/videos/views</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/engagement/index.html">/videos/engagement</a></li>
+</ul>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/index.html">/channels</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/thumbnails/index.html">/channels/thumbnails</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/videos/index.html">/channels/videos</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/views/index.html">/channels/views</a></li>
+</ul>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/players/index.html">/players</a></li>
+	<!--
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/players/views/index.html">/players/views</a></li>
+	-->
+</ul>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/index.html">/accounts</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/templates/index.html">/accounts/templates</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/skins/index.html">/accounts/skins</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/tags/index.html">/accounts/tags</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/watermarks/index.html">/accounts/watermarks</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/usage/index.html">/accounts/usage</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/credentials/index.html">/accounts/credentials</a></li>
+</ul>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/version.html">/version</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/methods/status.html">/status</a></li>
+</ul>
+
+<h2>Appendices</h2>
+
+<p>Here&#39;s a full error reference and change log:</p>
+
+<ul>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/errors.html">Error Handling</a></li>
+	<li><a href="http://developer.jwplayer.com/jw-platform/reference/v1/change_log.html">Change Log</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+
+<p>Here is an example of a basic setup of JW Player, with a link below that resizes it on the fly. This can be used by publishers to build a &quot;lean back&quot; video viewing experience into their site:</p>
+<style type="text/css">#container{ display: block; margin: 0 auto; box-shadow:0 0 4px #999; }
+</style>
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/3XnJSIm4-640.jpg",
+  file: "//content.jwplatform.com/videos/3XnJSIm4-kNspJqnJ.mp4",
+  width: 320,
+  height: 136
+});
+
+function resizePlayer(){
+  if(playerInstance.getWidth() == 640) { 
+    playerInstance.resize(320,136); 
+  } else {
+    playerInstance.resize(640,272);
+  }
+}
+</script>
+
+<p style="text-align: center;"><a href="javascript:resizePlayer()" style="color:#C00;">resize the player</a></p>
+
+<p>This feature is built using the <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">JW Player JavaScript API</a>, with just a few lines of JavaScript code.</p>
+
+<h3>Embed Code</h3>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See the <a href="http://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embed">Quick Start Guide</a> for more info. Next, place the following embed code at the location you want the player to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+  playerInstance.setup({
+    image: &quot;/uploads/myPoster.jpg&quot;,
+    file: &quot;/uploads/myVideo.mp4&quot;,
+    width: 320,
+    height: 180
+  });
+&lt;/script&gt;
+</pre>
+
+<p>Second, add the HTML and JavaScript to implement the resize link:</p>
+
+<pre>
+&lt;a href=&quot;javascript:resizePlayer()&quot;&gt;resize the player&lt;/a&gt;
+
+&lt;script&gt;
+  function resizePlayer(){
+    if(playerInstance.getWidth() == 640) { 
+      playerInstance.resize(320,180); 
+    } else {
+      playerInstance.resize(640,360);
+    }
+  };
+&lt;/script&gt;
+</pre>
+
+<p>This script uses the playerInstance.resize() call to change the player dimensions on the fly. The actual resize button can be much prettified (e.g. to an iphone-style toggle, using 2 images). See the <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">JavaScript API Reference</a> for more info.</p>
