@@ -1,0 +1,358 @@
+<!-- 
+Formerly PLATFORM CREATING PLAYLISTS ARTICLE
+
+
+
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;">We <strong>moved the content of this article</strong> into <a href="https://support.jwplayer.com/customer/en/portal/articles/1428529" id="301url">another one</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>--> 
+<p>This article covers the ways in which playlists can be built and managed. For more information about how playlists are <strong>displayed</strong> in a JW Player and the visual playlist UI, read "<a href="https://support.jwplayer.com/customer/en/portal/articles/1428529">Using the Visual Playlist</a>".</p>
+
+<p>Playlists are a collection of content that can be played, in order, in a JW Player. Playlist objects can be created <a href="#dashboard">in the dashboard</a>, built in the <a href="#code">code</a> of a player setup block, or created externally in an RSS feed, XML file, or JSON <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">feed</a> and referenced in an embed.</p>
+
+<div class="tab-switch clearfix">
+<ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
+	<li class="tab-title active" role="presentation"><a aria-controls="dashboard" aria-selected="true" href="#dashboard" role="tab" tabindex="0">Dashboard</a></li>
+	<li class="tab-title" role="presentation"><a aria-controls="code" aria-selected="false" href="#code" role="tab" tabindex="0">Code</a></li>
+</ul>
+
+<div class="tabs-content">
+<section aria-hidden="false" class="content active" id="dashboard" role="tabpanel">
+<p>In the JW Player dashboard, playlist creation &amp; management happens in the <em>Playlists</em> <a href="https://dashboard.jwplayer.com/#/content/playlists" target="_blank">section</a>:</p>
+
+<p><img src="//support-static.jwplayer.com/images/discovery/playlist-management-list.png" alt="playlists section overview page" /></p>
+
+<a name="Manual-vs-Dynamic"></a>
+<p>&nbsp;</p>
+<h3>Manual vs. Dynamic Playlists</h3>
+<p>There are two types of playlists that can be created in the dashboard. They each behave differently, and the differences between them are important. 
+<ul>
+	<li><strong>Manual</strong> playlists are populated by dragging &amp; dropping videos into the playlist. Manual playlists don&#39;t change after they're created unless you change them, and they do not automatically get updated.</li>
+	<li><strong>Dynamic</strong> playlists are automatically populated based upon rules, at the time of player load. For example, you can create a playlist that follows this rule: <em>Include all videos that are tagged with <strong>Cat</strong></em>. If you tag another video with <strong>Cat</strong>, it would automatically be added to this playlist.</li>
+</ul>
+</p>
+<a name="Creating-Playlist-Dashboard"></a>
+<h3>Creating a Playlist</h3>
+<p>Click the blue <em>New Playlist</em> button on the playlist list page to create a new playlist. The dropdown arrow on the right side of this button will allow you to select between a Manual or Dynamic playlist. </p>
+
+<p><strong>Note:</strong> Make sure you have videos in your account before creating a playlist, or there will not be any content to populate it!</p>
+
+<p><img alt="new playlist create dropdown select type" src="//support-static.jwplayer.com/images/discovery/playlists-list.png"/></p>
+<p>Once a playlist is created, you can view the detail page of that playlist by clicking the name of the playlist on the playlist list page.</p>
+<p>Here is a screenshot of the detail page for a <em>dynamic</em> playlist (the <em>manual</em> playlist detail page has a similar layout):</p>
+ <p><img alt="dynamic playlist detail page" src="//support-static.jwplayer.com/images/discovery/playlist-detail-dynamic.png" /></p>
+
+<p>On this page, you can manage all aspects of a playlist, including:</p>
+
+<ol>
+	<li>The metadata of the playlist, like its <em>title</em> and <em>description</em>.</li>
+	<li>The playlist contents:
+    	<ul>
+    	<li>For <strong>Dynamic</strong> playlists, this means the rules for populating the playlist: tags to use, the sorting method and the maximum length.</li>
+		<li>For <strong>Manual</strong> playlists, you control the contents by searching and adding new videos by dragging them from the search results.</li>
+        </ul>
+	<li>The current lineup of the playlist. For <strong>Dynamic</strong> playlist, this is purely informational. For <strong>Manual</strong> playlists, you can also re-order or delete videos here.</li>
+    </li>
+</ol>
+<p>&nbsp;</p>
+<h2>Publishing a Playlist</h2>
+
+
+<p>There are two ways to publish playlists from the dashboard. The simplest one is by publishing it in an existing JW Player from your account. Do this by hitting the <em>Embed</em> button in the left sidebar of the Playlist detail page. This will expand Publish Mode:</p>
+
+<p><img alt="playlist in publish mode" src="//support-static.jwplayer.com/images/discovery/playlist-publish-mode.png" /></p>
+
+<p>Here, you'll see the last player used to publish a video. If you'd like, select a different player you want to use. (Note: this is the same publishing flow outlined in our <a href="https://support.jwplayer.com/customer/portal/articles/1406723">Basic Embedding</a> article). Preview your playlist in the selected player before embedding by clicking the "preview" button.</p>
+<p>&nbsp; </p>
+<h3>Syndication</h3>
+<p>The other way to publish your playlist is through a syndication RSS or JSON feed. This is a valuable way to make your video content available for partners to use, or for publication elsewhere. The RSS and JSON feeds for playlists contain all the metadata and media links needed to play your videos.</p>
+<p>Both RSS and JSON feed URLs can be found in the "sources" tab of a playlist detail page.</p>
+<img src="//support-static.jwplayer.com/images/discovery/playlist-detail-sources-tab.png" alt="Playlist Detail Sources Tab"/>
+
+<p>For more about RSS and JSON Feeds, and how to embed them, read our article on <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">external feeds</a>.</p>
+</section>
+
+<section aria-hidden="true" class="content" id="code" role="tabpanel">
+
+<p>Above, we included an example of what happens when an RSS feed is used as playlist content in an embed. (For more about embedding external feeds, read our <a href="https://support.jwplayer.com/customer/en/portal/articles/1406722">article on the topic</a>).</p>  
+<p>It's also possible to use single items of content and configure a playlist with them, directly inside a JW Player embed.</p>
+
+<a name="Building a Playlist in the Embed Block"></a>
+<p>&nbsp;</p>
+<h2>Building a Playlist Directly in the Embed Block</h2>
+
+<p>Understanding how a player functions with a single item is integral to understanding how to properly create a multi-item playlst. A single item is used here:</p>
+
+<pre>
+var playerInstance = jwplayer(&quot;player&quot;);
+playerInstance.setup({
+  file: &#39;myvideo.mp4&#39;,
+  image: &#39;myposter.png&#39;,
+  title: &#39;My Video&#39;,
+  mediaid: &#39;123456&#39;
+});
+</pre>
+
+<h3>A Single Item Playlist</h3>
+<p>Above, we&#39;ve configured only one single piece of content (an mp4 file) within the player&mdash; with a file, poster image, and title. However, let&#39;s say that we want to <em>create</em> a single-item playlist. In this case, rather than specifying a file, image, and title directly, we&#39;ll be inserting these into a &quot;playlist&quot; config block as a playlist item. Let&#39;s look at the above code in the context of a playlist:</p>
+<pre>
+playerInstance.setup({
+playlist: [{
+  file: &#39;myvideo.mp4&#39;,
+  image: &#39;myposter.png&#39;,
+  title: &#39;My Video&#39;,
+  mediaid: &#39;123456&#39;
+}]
+});
+</pre>
+
+<p>Again, since we&#39;re listing this as a single playlist item, both of our code snippets will behave exactly the same way. However, using the playlist block allows us to easily insert additional playlist items if needed.<br />
+For reference, the formatting for a playlist is as follows:</p>
+
+<pre>
+playlist: [{}, {}, ...]
+</pre>
+
+<h3>A two-item playlist</h3>
+
+<p>So, with the above in mind, let&#39;s add a second video item&nbsp;to our playlist:</p>
+
+<pre>
+playerInstance.setup({
+playlist: [{
+  file: &#39;myvideo.mp4&#39;,
+  image: &#39;myposter.png&#39;,
+  title: &#39;My Video&#39;,
+  mediaid: &#39;123456&#39;
+},
+{
+  file: &#39;mysecondvideo.mp4&#39;,
+  image: &#39;mysecondposter.png&#39;,
+  title: &#39;My Second Video&#39;,
+  mediaid: &#39;234567&#39;
+}]
+});
+</pre>
+
+<p>Awesome! We now have two items in our playlist.</p>
+
+<h3>A three-item playlist... and beyond</h3>
+
+<p>Any additional playlist items will follow the same convention as above. Each item (meaning a file, image, and title) will exist within {curly} brackets, separated by a comma, and all will be fully contained within a single set of [square brackets], similar to an array. Just for clarity, three playlist items would appear as:</p>
+
+<pre>
+playerInstance.setup({
+playlist: [{
+  file: &#39;myvideo.mp4&#39;,
+  image: &#39;myposter.png&#39;,
+  title: &#39;My Video&#39;,
+  mediaid: &#39;123456&#39;
+},
+{
+  file: &#39;mysecondvideo.mp4&#39;,
+  image: &#39;mysecondposter.png&#39;,
+  title: &#39;My Second Video&#39;,
+  mediaid: &#39;234567&#39;
+},
+{
+  file: &#39;mythirdvideo.mp4&#39;,
+  image: &#39;mythirdposter.png&#39;,
+  title: &#39;My Third Video&#39;,
+  mediaid: &#39;345678&#39;
+}]
+});
+</pre>
+
+<p>Any configuration options after a playlist will still require a comma after the second square bracket similar to:</p>
+
+<pre>
+playerInstance.setup({
+playlist: [{
+  file: &#39;myvideo.mp4&#39;,
+  image: &#39;myposter.png&#39;,
+  title: &#39;My Video&#39;,
+  mediaid: &#39;123456&#39;
+},
+{
+  file: &#39;mysecondvideo.mp4&#39;,
+  image: &#39;mysecondposter.png&#39;,
+  title: &#39;My Second Video&#39;,
+  mediaid: &#39;234567&#39;
+},
+{
+  file: &#39;mythirdvideo.mp4&#39;,
+  image: &#39;mythirdposter.png&#39;,
+  title: &#39;My Third Video&#39;,
+  mediaid: &#39;345678&#39;
+}],
+primary: &#39;flash&#39;
+});
+</pre>
+
+<p>So again, this is still allowed, just keep the additional comma in mind when embedding!</p>
+<p>&nbsp;</p>
+<h2>Sources with a playlist</h2>
+
+<p>Lastly, it is entirely possible to create a playlist item that has multiple sources (Either using multiple qualities or fallbacks) in conjunction with our article <a href="https://support.jwplayer.com/customer/portal/articles/1710454-configuring-multiple-sources">here</a>. You&#39;ll need to nest your sources block in place of&nbsp;&quot;file&quot;&nbsp;within the playlist item. So a quick example of the structure would look like:</p>
+
+<pre>
+playerInstance.setup({
+    playlist: [{
+        sources: [{source1},{source2},{source3}, ...],
+        image: &#39;myposter.png&#39;,
+        title: &#39;My Video&#39;,
+        mediaid: &#39;123456&#39;
+},{
+        sources: [{source1},{source2},{source3}, ...],
+        image: &#39;mysecondposter.png&#39;,
+        title: &#39;My Second Video&#39;,
+        mediaid: &#39;234567&#39;
+},{
+        sources: [{source1},{source2},{source3}, ...],
+        image: &#39;mythirdposter.png&#39;,
+        title: &#39;My Third Video&#39;,
+        mediaid: &#39;345678&#39;
+}],
+});
+</pre>
+
+<p>An actual example of how this would look with 3 different sources per playlist item:</p>
+
+<pre>
+playerInstance.setup({
+playlist: [{
+     sources: [{ 
+            file: &quot;myFile.flv&quot;
+        },{ 
+            file: &quot;myFile.mp4&quot;
+        },{
+            file: &quot;myFile.webm&quot;
+        }],
+     image: &#39;image.jpg&#39;,
+     title: &#39;This is a multisource video!&#39;,
+     mediaid: &#39;123456&#39;
+},{
+     sources: [{ 
+            file: &quot;myFile2.flv&quot;
+        },{ 
+            file: &quot;myFile2.mp4&quot;
+        },{
+            file: &quot;myFile2.webm&quot;
+        }],
+     image: &#39;image2.jpg&#39;,
+     title: &#39;This is another multisource video!&#39;,
+     mediaid: &#39;234567&#39;
+},{
+     sources: [{ 
+            file: &quot;myFile3.flv&quot;
+        },{ 
+            file: &quot;myFile3.mp4&quot;
+        },{
+            file: &quot;myFile3.webm&quot;
+        
+</pre>
+
+</section>
+</div>
+</div>
+
+<h2>More Playlist Demos</h2>
+<p>Check out our developer portal for more playlist-related demos.
+<ul>
+<li><a href="https://support.jwplayer.com/customer/portal/articles/1543546-example-making-your-own-playlist-sidebar">Making Your Own Playlist Sidebar</a></li>
+<li><a href="https://support.jwplayer.com/customer/portal/articles/1439570-example-loading-new-playlists">Loading New Playlists</a></li>
+<li><a href="https://support.jwplayer.com/customer/portal/articles/1480872-example-creating-an-html-playlist">Creating an HTML Playlist</a></li>
+</ul>
+</p>
+<p>&nbsp;</p>
+<p>If you have questions about what content can work in a JW Player embed, be sure to read about JW Player's <a href="https://support.jwplayer.com/customer/portal/articles/1403635">supported formats</a> and <a href="https://support.jwplayer.com/customer/portal/articles/1406723">basic embedding</a>. </p>
+
+<!--
+<p>This article introduces the playlist management capabilities of <a href="http://www.jwplayer.com/products/jwplatform/" target="_blank">JW Platform</a>. These can be found in the <em>Playlists</em> section of the dashboard:</p>
+
+<p><img alt="playlists section overview page" src="/customer/portal/attachments/257236" /></p>
+
+<div class="article_callout">This document applies to users of <strong>JW Platform</strong>. Don&#39;t have Hosting? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
+
+<h2>Creating Playlist</h2>
+
+<p>Hit the big <em>Create New Playlist</em> button to popup the playlist overlay. In this, set a title for your playlist and the type op playlist you want to create:</p>
+
+<p><img alt="playlists creation overlay" src="/customer/portal/attachments/257235" /></p>
+
+<p>The two types of playlists behave differently, so make sure you understand their details:</p>
+
+<ul>
+	<li><strong>Manual</strong> playlists are populated by hand. You literally drag &amp; drop videos into the playlist, just like you would with a tool like iTunes or Winamp. Manual playlists won&#39;t automatically get updated.</li>
+	<li><strong>Dynamic</strong> playlists are automatically populated based upon rules. For example, you can create a playlist that has <em>All videos that are tagged with <strong>Cat</strong></em>. Every time you tag a new video with <strong>Cat</strong>, it will automatically get added to that playlist.</li>
+</ul>
+
+<p>Note: make sure you have a couple of videos in your account already, otherwise there&#39;s no content to put inside your playlist.</p>
+
+<h2>Managing Playlists</h2>
+
+<p>Once a playlist is created, you can jump to the properties page of that playlist. Here is a screenshot of the properties of a <em>dynamic</em> playlist (<em>manual</em> playlist properties are very similar):</p>
+
+<p><img alt="playlists properties page" src="/customer/portal/attachments/257237" /></p>
+
+<p>On this page, you can manage all aspects of this playlist, including:</p>
+
+<ol>
+	<li>Updating the metadata of the playlist, like its <em>title</em> and <em>description</em>.</li>
+	<li>For <strong>Dynamic</strong> playlists: Updating the rules for populating the playlist, like the tags to use, the sorting method and the maximum length.</li>
+	<li>For <strong>Manual</strong> playlists: Searching and adding new videos by dragging them from the search results.</li>
+	<li>Viewing the current lineup of the playlist. For <strong>Dynamic</strong> playlist, this is purely informational. For <strong>Manual</strong> playlists, you can also re-order or delete videos here.</li>
+</ol>
+
+<p>The right sidebar of the page contains the options for publishing the playlist to your audience.</p>
+
+<h2>Publishing Playlists</h2>
+
+<p>There are two ways to publish playlists from JW Platform. The most important and widely used one is by publishing it in JW Player. Do this by hitting the <em>Embed This Playlist</em> button. It will popup the publishing overlay:</p>
+
+<p><img alt="playlists publishing overlay" src="/customer/portal/attachments/257238" /></p>
+
+<p>Here, select which player design you want to use to publish your playlist. Next, copy/paste the resulting embed code into your own website or blog. A preview of your video+playlist is shown below the code.</p>
+
+<p>Use the small links at the bottom to quickly publish the playlist to Facebook, to Twitter, or to Email in a preview page.</p>
+<a name="rss"></a>
+
+<h3>RSS Feed</h3>
+
+<p>The other way to publish playlists is through RSS Feeds. This method is valuable for syndication of your video content to partners that have their own video player. The RSS feed contains all the metadata and media links they need to play your videos.</p>
+
+<p>RSS Feeds are also useful for syndicating your content to podcasting services like iTunes. Our feeds are standard RSS and compliant with many of them.</p>
+<a name="json"></a>
+
+<h3>JSON Feed</h3>
+
+<p>The latest addition to JW Platform allows for a user to receive a JSON feed of a particular video or playlist object. Compared to existing RSS feeds, JSON feeds allow for information related to:</p>
+
+<ul>
+	<li>Available Transcodes</li>
+	<li>Transcode labels</li>
+	<li>Media dimensions</li>
+	<li>Video type</li>
+	<li>Content Duration</li>
+	<li>Passthrough files</li>
+	<li>Available Caption/Thumbnail Tracks</li>
+</ul>
+
+<p>With the above information, JW Platform&#39;s JSON feeds can be used to verify the completion/quantity of transcodes, as well as to populate meta information for social media sites like Facebook or Twitter. Previously, this information was only accessible via JW Platform&#39;s API, but it can now be pinged on a production site, which does not apply to JW Platform&#39;s 10 API calls/minute limit.</p>-->
+

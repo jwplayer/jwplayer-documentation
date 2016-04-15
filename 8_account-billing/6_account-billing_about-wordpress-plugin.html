@@ -4,7 +4,7 @@ FOR REVIEW BY: Allison, Roel
 TITLE: "JW Player Wordpress Plugin" 
 
 KEYWORDS:
-platform, jwplatform, wordpress, plugin, jw platform, jw7 wordpress, wordpress player, wordpress jw player, cms
+platform, jwplatform, wordpress, plugin, jw platform, jw7 wordpress, wordpress player, wordpress jw player, cms, wordpress plugin, jw player wordpress, 
 
 
 WILL LIVE AT: 
@@ -36,20 +36,17 @@ https://support.jwplayer.com/customer/en/portal/articles/1433604
 <!-- <p>Full documentation on installation, setup and getting started can be found on the <a href="link-to-dev-portal-wordpress" target="_blank">JW Player Developer Portal</a>.</p> --> 
 <p>&nbsp;</p>
 <h2>Installation</h2>
-<p>Get the JW Player Wordpress Plugin <a href="https://wordpress.org/plugins/jw-player/" target="_blank">here</a>. </p>
-<p>
+<p>Get the JW Player Wordpress Plugin <a href="https://wordpress.org/plugins/jw-player/" target="_blank">here</a>.
 <ol>
 <li>Unpack the zip-file and put the resulting folder in the wp-content/plugins directory of your Wordpress install.</li>
 <li>Login as Wordpress admin.</li>
 <li>Go the the plugins page&mdash;the JW Player plugin should be visible. Click "activate" to enable the plugin. <em>Please note: if you had the older JW Player plugin, you will be prompted to de-activate it before activating this new plugin.</em></li>
 <li>Click the "authorize plugin" link in the notification to authorize your plugin with your JW Player account API Key &amp; Secret. (You'll find these in the <a href="https://dashboard.jwplayer.com/#/players/downloads" target="_blank">Players &gt; License Keys &amp; Downloads</a> section of the JW Player dashboard).</li>
-<li>Change the settings to your liking. </li>
+<li>Change the settings to your liking. <br/><br/> <img alt="JW Player Wordpress Plugin Settings Page" src="//support-static.jwplayer.com/images/acct-billing/wordpress-settings-screenshot-3.png" style="width:70%;"/></li>
 </ol>
 </p>
-<p><img alt="JW Player Wordpress Plugin Settings Page" src="//support-static.jwplayer.com/images/acct-billing/wordpress-settings-screenshot-3.png" style="width:60%;"/></p>
 <p>&nbsp;</p>
-<h3>Settings Options</h3>
-<p>
+<h2>Settings Options</h2>
 <ul>
 <li><strong>Authorization:</strong> This is where you'll enter your API Key &amp; Secret</li>
 <li><strong>Default Player:</strong> This player will be selected by default when you embed videos with the JW Player plugin. Edit this player, or any other player settings, from your <a href="https://dashboard.jwplayer.com/#/players/list" target="_blank">JW Player dashboard</a>. Each time you choose a video to embed, you will be able to select another player. If you use shortcodes, you can override the default player selection by adding a dash with the corresponding player key to the video key. (For example: <em>[jwplayer a1b2c3d4-z0y9x8w7]</em>) </li>
@@ -60,24 +57,22 @@ https://support.jwplayer.com/customer/en/portal/articles/1433604
 <li><strong>Content DNS Mask:</strong> text here about <a href="https://support.jwplayer.com/customer/portal/articles/1433702-dns-masking-the-jw-platform" target="_blank">DNS masking</a>.  Please note that HTTPS embeds will not work with a content mask. </li>
 <li><strong>Custom Shortcode Parser:</strong> text here about <a href="https://support.jwplayer.com/customer/portal/articles/1403714-jw6-wordpress-plugin-reference" target="_blank">shortcodes</a>.</li>
 </ul>
-</p>
-
 <p>&nbsp;</p>
 
-
 <h2>Frequently Asked Questions</h2>
-<p><h3>Does this plugin replace the old JW Player Plugin for Wordpress?</h3>
-Yes, it does. You cannot run both plugins at the same time. However, you can import your referenced media, your players and your playlists from the old plugin into your JW Player account. </p>
-<p><h3>Does this plugin work with caching solutions like WP-Supercache? </h3>
-Yes, it does. However, you should disable the signing functionality of the plugin, since the caching might interfere with the signing timeout logic. In Wordpress, go to Settings &gt; JW Player and set the signing timeout to 0. </p>
-<p><h3>Can I search through only my playlists in Wordpress?</h3>
-<p> Yes, you can. In order to do this, simply write "pl:" (without the quotes) in front of your search query in the widget. </p>
-</p>
-<p><h3>What should I do if I find a bug or specific technical issue with the JW Player Plugin?</h3>
-Please open an issue on our plugin's <a href="https://github.com/jwplayer/wordpress-plugin/issues" target="_blank">GitHub</a> page.
-</p>
-<p><h3>What should I do if I need other support using the JW Player Plugin?</h3>
-Please use our Publisher Support website to <a href="https://support.jwplayer.com/customer/portal/emails/new" target="_blank">contact our support team</a>. (Login required).
-</p>
+<h3>Does this plugin replace the old JW Player Plugin for Wordpress?</h3>
+<p>Yes, it does. You cannot run both plugins at the same time. However, you can import your referenced media, your players and your playlists from the old plugin into your JW Player account.</p>
+<p>&nbsp;</p>
+<h3>Does this plugin work with caching solutions like WP-Supercache? </h3>
+<p>Yes, it does. However, you should disable the signing functionality of the plugin, since the caching might interfere with the signing timeout logic. In Wordpress, go to Settings &gt; JW Player and set the signing timeout to 0. </p>
+<p>&nbsp;</p>
+<h3>Can I search through only my playlists in Wordpress?</h3>
+<p>Yes, you can. In order to do this, simply write "pl:" (without the quotes) in front of your search query in the widget. </p>
+<p>&nbsp;</p>
+<h3>What should I do if I find a bug or specific technical issue with the JW Player Plugin?</h3>
+<p>Please open an issue on our plugin's <a href="https://github.com/jwplayer/wordpress-plugin/issues" target="_blank">GitHub</a> page.</p>
+<p>&nbsp;</p>
+<h3>What should I do if I need other support using the JW Player Plugin?</h3>
+<p>Please use our Publisher Support website to <a href="https://support.jwplayer.com/customer/portal/emails/new" target="_blank">contact our support team</a>. (Login required).</p>
 <p>&nbsp;</p>
 

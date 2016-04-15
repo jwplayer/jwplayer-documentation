@@ -1,0 +1,52 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>Here is an example of a setup of JW Player that autostarts the video - but only for the first time a user visits the page:</p>
+
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+  image: "//content.jwplatform.com/thumbs/bkaovAYt-640.jpg",
+  file: "//content.jwplatform.com/videos/bkaovAYt-kNspJqnJ.mp4"
+});
+
+playerInstance.on('ready', function(){
+  if(document.cookie.indexOf("jwplayerAutoStart") == -1) {
+    document.cookie = "jwplayerAutoStart=1";
+    playerInstance.play();
+  }
+});
+</script>​
+
+<p>This feature is built using the <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">JW Player JavaScript API</a>, with just a few lines of JavaScript code.</p>
+
+<h3>Embed code</h3>
+
+<p>Assuming that you have a functional JW Player setup as mentioned <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">here</a>, you&#39;ll need to add the following code to your page:</p>
+
+<pre>
+&lt;script&gt;
+  if(document.cookie.indexOf(&quot;jwplayerAutoStart&quot;) == -1) {
+    document.cookie = &quot;jwplayerAutoStart=1&quot;;
+    playerInstance.play();
+  }
+&lt;/script&gt;</pre>
+
+<p>This script uses a cookie to store that a viewer was autostarted before. If that&#39;s not the case, the playerInstance.play() function is called. However, please be aware that autostart does not work on mobile devices.</p>

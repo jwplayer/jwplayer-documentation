@@ -3,8 +3,20 @@ TO LIVE *TEMPORARILY* AT:
 http://support.jwplayer.com/customer/portal/articles/2038071-creating-fonts-for-jw-player-skins
 --> 
 
-<p>This page has moved to our new developer site! Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_fonts/">here</a>.</p>
-
+<div class="panel">This page has moved to our new developer site! Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_fonts/" id="301url">here</a>.</div>
+<p>You will be automatically redirected in <strong id="301eta">5</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
 
 <!-- 
 

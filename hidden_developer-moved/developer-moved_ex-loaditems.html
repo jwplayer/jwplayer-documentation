@@ -1,0 +1,91 @@
+<div class="panel" align="center" style="text-align:center; padding: 20px 0px;"><span style="font-size:18px;"><strong>This page has moved</strong> to our new developer site!&nbsp; Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_example/" id="301url">here</a>.</span> 
+<p>Thanks for your patience while we update our documentation. </p>
+</div>
+<p style="text-align:center;">You will be automatically redirected in <strong id="301eta">10</strong> seconds.</p>
+<script>
+	setInterval(function(){
+		var eta = document.getElementById("301eta");
+		var cnt = Number(eta.innerHTML);
+		if(cnt > 1) {
+			eta.innerHTML = (cnt-1).toString();
+		} else { 
+			document.location.href = 
+			    document.getElementById("301url").href;
+		}
+	},1000);
+</script>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+
+
+​<p>Here is an example of a setup that uses the JavaScript API to load new videos into JW Player on the fly:</p>
+<style type="text/css">#container{ display:block; margin: 20px auto; box-shadow:0 0 4px #999; }
+</style>
+<div id="container">&nbsp;</div>
+<script type="text/javascript">
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+    file: "//content.jwplatform.com/videos/C4lp6Dtd-640.mp4",
+    image: "//content.jwplatform.com/thumbs/C4lp6Dtd-640.jpg",
+    title: "Tears of Steel"
+});
+function playTrailer(key) { 
+  playerInstance.load([{
+    file: "//content.jwplatform.com/videos/"+key+"-640.mp4",
+    image: "//content.jwplatform.com/thumbs/"+key+"-640.jpg"
+  }]);
+  playerInstance.play();
+}
+</script>
+
+<p>Select a cool trailer to play:</p>
+
+<ul>
+  <li><a href="javascript:playTrailer('C4lp6Dtd')">Tears of Steel</a></li>
+  <li><a href="javascript:playTrailer('3XnJSIm4')">Sintel</a></li>
+  <li><a href="javascript:playTrailer('bkaovAYt')">Big Buck Bunny</a></li>
+  <li><a href="javascript:playTrailer('kaUXWqTZ')">Elephants Dream</a></li>
+</ul>
+
+<p>These videos are loaded through the&nbsp;<a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference">JW Player JavaScript API</a>, using just a few lines of JavaScript code.</p>
+
+<h2>Embed code</h2>
+
+<p>As always, ensure you have uploaded a copy of JW Player and included the script in the &lt;head&gt; of your page, together with your player key. See the <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">MP4 Video Embed</a> article for more info. Next, place the following embed code at the location you want the player to appear:</p>
+
+<pre>
+&lt;div id=&quot;myElement&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+  image: &quot;/uploads/myPoster.jpg&quot;,
+  file: &quot;/uploads/myVideo.mp4&quot;,
+  title: &quot;My Cool Trailer&quot;
+});
+&lt;/script&gt;
+</pre>
+
+<p>Second, add the JavaScript to implement the load behaviour:</p>
+
+<pre>
+&lt;script&gt;
+  function loadVideo(myFile,myImage) { 
+    playerInstance.load([{
+      file: myFile,
+      image: myImage
+    }]);
+    playerInstance.play();
+  };
+&lt;/script&gt;
+</pre>
+
+<p>Last, add some HTML that calls this function with the correct files and images:</p>
+
+<pre>
+&lt;li&gt;&lt;a href=&quot;javascript:loadVideo(&#39;file1.mp4&#39;,&#39;image1.jpg&#39;)&quot;&gt;Video 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;javascript:loadVideo(&#39;file2.mp4&#39;,&#39;image2.jpg&#39;)&quot;&gt;Video 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;javascript:loadVideo(&#39;file3.mp4&#39;,&#39;image3.jpg&#39;)&quot;&gt;Video 3&lt;/a&gt;&lt;/li&gt;
+</pre>
+

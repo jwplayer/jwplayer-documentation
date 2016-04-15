@@ -1,0 +1,119 @@
+<div class="panel">This article applies to <strong>JW Platform</strong> customers only.</div>
+
+<p>In the new JW Player Analytics, we&rsquo;ve changed the way we look at data in an effort to empower you with the information you need to grow. &nbsp;</p>
+
+<p>You will retain CSV and API access to the old metrics (views, pageviews, time viewed), but your new dashboard looks like this:</p>
+
+<div style="padding:25px; background:#fff; border-radius:5px;"><a href="/customer/portal/attachments/538830" target="_blank"><img alt="" src="/customer/portal/attachments/538830" style="width: 231px; height: 180px; margin: 10px 12px; float: left;" /></a><a href="/customer/portal/attachments/538858" target="_blank"><img alt="" src="/customer/portal/attachments/538858" style="width: 170px; height: 180px; margin: 10px 12px;" /></a><a href="/customer/portal/attachments/538859" target="_blank"><img alt="" src="/customer/portal/attachments/538859" style="width: 207px; height: 180px; margin: 10px 12px;" /></a></div>
+&nbsp;
+
+<h2>How do the new JW Player analytics work?</h2>
+
+<p>Your JW Player Dashboard comes complete with an analytics section, where you can monitor your content performance, and look at activity by device, geography, engagement, and more. Remember, only data associated with a valid JW Player media id is displayed.</p>
+
+<p>How to ensure all your embeds are associated with a valid media id:</p>
+
+<p>If you&rsquo;re using single line JS or iFrame embed, this work has been done behind the scenes. &nbsp;We&rsquo;ve been collecting data for you since 8/1/2015.</p>
+
+<p>If you&rsquo;re using a custom embed:</p>
+
+<ul>
+	<li>
+	<p>Using RSS Feeds or Playlist XML Feeds - again, this work has already been done for you</p>
+	</li>
+	<li>
+	<p>Completely customizing and linking directly to mp4 transcodes or HLS manifests, you will need to include a media id parameter in your custom embed code.</p>
+	</li>
+</ul>
+
+<p>For more information about basic embed setup, <a href="http://support.jwplayer.com/customer/portal/articles/1406723-mp4-video-embed">click here</a>.<br />
+&nbsp;</p>
+
+<h2>The following metrics are reported in the New Analytics:</h2>
+
+<ul>
+	<li>
+	<p><strong>Content</strong>: Any video or audio content object with a unique Media ID</p>
+	</li>
+	<li>
+	<p><strong>Embeds</strong>: Event that fires when a player loads on a webpage</p>
+
+	<ul>
+		<li>
+		<p>Similar to old &ldquo;Pageviews&rdquo;</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Plays</strong>: Event that fires when a video starts (first frame)</p>
+
+	<ul>
+		<li>
+		<p>Similar to old &ldquo;Views&rdquo; &mdash;&nbsp;but does not include downloads</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Completes</strong>: Event that fires when the video ends (final frame)</p>
+	</li>
+	<li>
+	<p><strong>Daily Unique Viewers</strong>: Unique users who have played at least one video</p>
+
+	<ul>
+		<li>
+		<p>No personally identifiable information is ever stored. To identify users, we combine the IP address + User Agent, and create a hash on the value. &nbsp;As a result, any time somebody uses a new user agent or IP address, we will consider that a new user.</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Plays per Unique</strong>: The number of plays divided by the number of unique viewers on specific day</p>
+	</li>
+	<li>
+	<p><strong>Complete Rate</strong>: The number of plays divided by the number of completes, as a percentage</p>
+	</li>
+	<li>
+	<p><strong>Time Watched</strong>: Total time watched across all your players</p>
+
+	<ul>
+		<li>
+		<p>Similar to Time Viewed</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><strong>Engagement</strong>: Use this data to track the performance of your video (where do viewers drop off? which sections do they replay?)</p>
+	</li>
+</ul>
+
+<p>Due to the way that we track analytics from within the player, it is not possible to keep count of time watched and engagement for live streams. Please keep this in mind when looking to track certain aspects of playback.<br />
+<br />
+Our new design allows you to easily see overall metrics for your account, content-level data (each piece of content is defined by unique media-id), and domain level data (only top-level domains are currently reported). &nbsp;You can also see these metrics split by device and geography.<br />
+&nbsp;</p>
+
+<h2>What has gone away?</h2>
+
+<div style="padding:15px; margin:15px; align:right; background:#fff; border-radius:5px; width: 200px; float:right; text-align:right;">
+<h6><span style="font-size:11px;"><em>Old Platform Analytics Dashboard<br />
+(no longer accessible)</em></span><br />
+&nbsp;</h6>
+<a href="/customer/portal/attachments/538896" target="_blank"><img alt="" src="/customer/portal/attachments/538896" style="width: 200px; float: right;" /></a></div>
+
+<ul>
+	<li>The metrics we display and how they&rsquo;re defined have changed (see above)
+	<ul>
+		<li>You will no longer have access to the old dashboard charts/tables to view these old metrics (replaced by new and improved layout!)</li>
+		<li>Views, Page Views, and Time Viewed by day will still be available via CSV download &amp; API</li>
+		<li>Views, Page Views, and Time Viewed by video will still be available via CSV download &amp; API</li>
+	</ul>
+	</li>
+	<li>All-time Views count by player/playlist</li>
+	<li>Custom date ranges in the UI (temporarily)</li>
+	<li>Views per day for a specific video</li>
+</ul>
+&nbsp;
+
+<h2>Why the change?</h2>
+
+<p>Our goal with the Analytics Dashboard is to give you actionable information that that empowers you to make revenue driving decisions. Based on our research with our customers, we feel the new experience is a big upgrade, and lets you dive deeper into your data for analysis. We&rsquo;re constantly working on new ways to improve, and we value your input! If you&rsquo;re interested in speaking with us about your Analytics needs, we&rsquo;re all ears! Please contact your sales rep for next steps.&nbsp;</p>
+
+<p>&nbsp;</p>

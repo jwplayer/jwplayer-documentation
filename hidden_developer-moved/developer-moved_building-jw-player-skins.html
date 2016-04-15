@@ -3,12 +3,22 @@ TO LIVE *TEMPORARILY* AT:
 http://support.jwplayer.com/customer/portal/articles/1412123-building-jw-player-skins
 --> 
 
-<p>This page has moved to our new developer site! Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_creating/#introduction">here</a>.</p>
+<div class="panel">This page has moved to our new developer site! Please visit the updated location <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/css-skinning/skins_creating" id="301url">here</a>.</div>
+<p>You will be automatically redirected in <strong id="301eta">5</strong> seconds.</p>
 
-
+<script>
+setInterval(function(){
+var eta = document.getElementById("301eta");
+var cnt = Number(eta.innerHTML);
+if(cnt > 1) {
+eta.innerHTML = (cnt-1).toString();
+} else {
+document.location.href =
+document.getElementById("301url").href;
+}
+},1000);
+</script>
 <!-- 
-
-
 
 
 <!DOCTYPE html>
@@ -22,7 +32,10 @@ http://support.jwplayer.com/customer/portal/articles/1412123-building-jw-player-
 <meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1412123-building-jw-player-skins/edit?select_filter=601064">
 </head>
 
-<body>
+<body> -->
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
 <p>Customizing JW Player is made easier with JW Player 7&#39;s updated CSS-based skinnng model. Gone are the days of JW6&#39;s XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding <a href="http://www.jwplayer.com/products/jwplayer/skins/" target="_blank">our own complimentary skins</a>, please see <a href="http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins">Using JW Player Skins</a>. For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.</p>
 
 <h2>Creating your Style</h2>
@@ -88,7 +101,3 @@ playerInstance.setup({
 </pre>
 
 <p>For a complete list of class names that are able to be overridden see CSS Skin Classes, please see our <a href="http://support.jwplayer.com/customer/portal/articles/2067702-skin-css">CSS Skin Reference</a>.</p>
-
-</body>
-</html>
--->
