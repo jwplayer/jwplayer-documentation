@@ -1,9 +1,12 @@
-# JW Player HLS HTML5 Beta
+# JW Player HLS HTML5 Beta Program
 With JW Player 7.4, HLS streams will use MSE extensions to render video and audio streams in HTML5. HTML5 playback of HLS will work in Chrome on Desktop. In all other instances, we will either use native HTML5 HLS support (Safari, Edge, Android Chrome) or our Flash provider (IE9-11, Firefox). Support will be investigated as the stability of streams in other browsers can be verified.
 
 ## Release History
 |Version           | Release Date   | Notes                  |
 |----------------------------------|-----------------------------|-----------------------------------------------------|
+|7.4.0-RC1     |April 15, 2016    |Performance improvements and bug fixes|
+|7.4.0-beta.4     |April 14, 2016    |Continued improvements and better feature coverage|
+|7.4.0-beta.3     |April 12, 2016    |Performance improvements and better feature coverage|
 |7.4.0-beta.2     |April 2, 2016    |Performance improvements and better feature coverage|
 |7.4.0-beta.1    | March 18, 2016         |Initial beta with broad encoder support                       |
 
