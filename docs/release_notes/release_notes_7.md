@@ -21,7 +21,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |---|---|---|---|
 |Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
 |Staging/Pre-release|7.3.6|3/18/2016|Fixed certain HLS artifacts in Flash|
-|Beta|7.4.0-RC|4/15/2016|HLS in HTML5|
+|Beta|7.4.0-RC|4/15/2016|HLS in HTML5 RC|
 
 * * *
 
