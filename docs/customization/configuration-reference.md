@@ -2,20 +2,12 @@
 
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
-## Table Of Contents
-
-
-*   [Basic Options](#basic)
-*   [The Playlist](#playlist)
-*   [Skin](#skin)
-*   [Captions](#captions)
-*   [RTMP](#rtmp)
-*   [Logo](#logo)
-*   [Sharing](#sharing)
-*   [GA](#ga)
-*   [Related](#related)
-*   [Advertising](#advertising)
-*   [DRM](#drm)
+|Table Of Contents| | |
+|--|--|--|
+|[Setup Options](#setup)|[The Playlist](#playlist)|[Skin](#skin)|
+|[Captions](#captions)|[RTMP](#rtmp)|[Logo](#logo)|
+|[Sharing](#sharing)|[Google Analytics](#ga)|[Related](#related)|
+|[Advertising](#advertising)|[DRM](#drm)||
 
 ## Introduction
 
@@ -37,9 +29,8 @@ jwplayer("myElement").setup({
 </pre>
 Web developers will recognize the JavaScript Object Notation (JSON) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
+<a name="setup"></a>
 * * *
-
-<a name="basic"></a>
 
 ## Setup Options
 
@@ -91,9 +82,10 @@ These are the options for configuring the layout and playback behavior of a play
 
 #### *If no preload option is selected in HTML5 mode, JW Player will rely on a browser's default &lt; video &gt; preload behavior
 
+<a name="playlist"></a>
 * * *
 
-<a name="playlist"></a>
+
 
 ## Playlist
 
@@ -253,9 +245,9 @@ jwplayer("myElement").setup({
 });
 </pre>
 
-* * *
-
 <a name="skin"></a>
+
+* * *
 
 ## Skin
 
@@ -286,9 +278,9 @@ More information regarding skins, see the following articles:
  * [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/)
  * [Creating your own Font with JW Player](/customization/css-skinning/skins_fonts/)
 
-* * *
-
 <a name="captions"></a>
+
+* * *
 
 ## Captions
 
@@ -311,9 +303,10 @@ This options block configures the styling of closed captions in the player for d
 
 See [Styling Captions for FCC Compliance](/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
 
+<a name="rtmp"></a>
+
 * * *
 
-<a name="rtmp"></a>
 
 ## RTMP
 
@@ -329,6 +322,8 @@ See [Using RTMP Streaming](/customer/portal/articles/1430358-using-rtmp-streamin
 
 <a name="logo"></a>
 
+* * *
+
 ## Logo
 
 This options block configures a clickable watermark that is overlayed on the video. It is available in All JW Player 7 Editions.
@@ -343,9 +338,9 @@ This options block configures a clickable watermark that is overlayed on the vid
 
 See [Branding Your Player](/customer/portal/articles/1406865-branding-your-player) for more information.
 
-* * *
-
 <a name="sharing"></a>
+
+* * *
 
 ## Sharing
 
@@ -385,9 +380,9 @@ jwplayer("myElement").setup({
 
 See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) for more information.
 
-* * *
-
 <a name="ga"></a>
+
+* * *
 
 ## Google Analytics
 
@@ -407,9 +402,9 @@ By default, JW Player sets the event label for any of event actions to the file 
 
 See [Connecting Google Analytics](/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
-* * *
-
 <a name="related"></a>
+
+* * *
 
 ## Related
 
@@ -426,9 +421,10 @@ This options block controls an overlay with related videos. It is available in A
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
 
-* * *
 
 <a name="advertising"></a>
+
+* * *
 
 ## Advertising
 
@@ -519,9 +515,9 @@ This is a configuration block object with 3 properties: id, width and height. Se
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](/customer/portal/topics/605644-video-ads/articles).
 
-* * *
-
 <a name="drm"></a>
+
+* * *
 
 ## DRM
 
