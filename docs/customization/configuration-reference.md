@@ -15,7 +15,7 @@ JW Player contains a large number of features and options that can be configured
 
 Here is an example setup that contains both **setup** options and specific **advertising** options:
 
-<pre>
+```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "height": 360,
@@ -26,7 +26,7 @@ jwplayer("myElement").setup({
 		"tag": "http://adserver.com/vastTag.xml"
 	}
 });
-</pre>
+```
 Web developers will recognize the JavaScript Object Notation (JSON) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 <a name="setup"></a>
@@ -94,14 +94,14 @@ The playlist is a powerful feature of JW Player, used to sequentially play piece
 A playlist can be either a **string**, referring to the URL of an RSS feed or JSON file, or an **array** of media objects.
 
 ####Configuring Playlist as a String
-<pre>
+```
 jwplayer("myElement").setup({
   "playlist": "http://example.com/myPlaylist.json"
 });
-</pre>
+```
 
 ####Configuring Playlist as an Array
-<pre>
+```
 jwplayer("myElement").setup({
     "playlist": [{
         "file": "/assets/sintel.mp4",
@@ -113,7 +113,7 @@ jwplayer("myElement").setup({
         "title": "Big Buck Bunny Trailer"
     }]
 });
-</pre>
+```
 
 Basic playlist information is as follows:
 
@@ -143,7 +143,7 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
 
 ####Alternate Media Sources
 If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
-<pre>
+```
 jwplayer("myElement").setup({
   "playlist": [{
     "title":"One Playlist Item With Multiple Sources",
@@ -158,7 +158,7 @@ jwplayer("myElement").setup({
     }]
   }]
 });
-</pre>
+```
 
 ####Quality Toggle for Video Files
 
@@ -168,7 +168,7 @@ In the event that a streaming technology like HLS or DASH cannot be used, listin
 * Changing qualities may cause playback stuttering
 * Pseudostreaming may need to be configured in cases where Flash is used
 
-<pre>
+```
 jwplayer("myElement").setup({
   playlist: [{
     "title":"One Playlist Item With Multiple Qualities",
@@ -182,7 +182,7 @@ jwplayer("myElement").setup({
     }]
   }]
 });
-</pre>
+```
 
 In the above example, the player will add an "HD" button, allowing a user to toggle their desired video quality. If more than two sources are used, the player will instead overlay a quality selection menu, rather than a quality toggle.
 
@@ -224,7 +224,7 @@ The **playlist[].adschedule** block is used for scheduling ad breaks throughout 
 
 ####Example
 
-<pre>
+```
 jwplayer("myElement").setup({
   "playlist": [{
   "title":"One Media Item",
@@ -243,7 +243,7 @@ jwplayer("myElement").setup({
     }
   }]
 });
-</pre>
+```
 
 <a name="skin"></a>
 
@@ -369,14 +369,14 @@ Setting an empty **sharing** options block will enable the social sharing overla
 
 ####Example:
 
-<pre>
+```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "sharing": {
     "sites": ["reddit","facebook","twitter"]
   }
 });
-</pre>
+```
 
 See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) for more information.
 
@@ -459,7 +459,7 @@ Use this option to load an entire advertising schedule to JW Player, containing 
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
 
 ####Example:
-<pre>
+```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
@@ -467,7 +467,7 @@ jwplayer("myElement").setup({
     "schedule": "myvmap.xml"
   }
 });
-</pre>
+```
 
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
 
@@ -481,7 +481,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
 
 ####Example:
-<pre>
+```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
@@ -498,7 +498,7 @@ jwplayer("myElement").setup({
     }
   }
 });
-</pre>
+```
 
 <a name="advertising-companiondiv"></a>
 
