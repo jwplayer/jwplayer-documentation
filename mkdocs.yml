@@ -6,6 +6,8 @@ pages:
   - Javascript API:
     - Intro to Javascript API: api/javascript_api_introduction.md
     - Javascript API Reference: api/javascript_api_reference.md
+  - Configuration:
+    - Confoguration Reference: customization/configuration-reference.md
   - Customization:
     - Creating Skins: customization/css-skinning/skins_creating.md
     - Custom Icons and Fonts: customization/css-skinning/skins_fonts.md
