@@ -16,9 +16,6 @@ This article acts a reference to all configuration options JW Player supports. C
 *   [Related](#related)
 *   [Advertising](#advertising)
 *   [DRM](#drm)
-*   [Other Options](#other)
-
-
 
 ## Introduction
 
@@ -28,17 +25,16 @@ Here is an example setup that contains both **setup** options and specific **adv
 
 <pre>
 jwplayer("myElement").setup({
-	"file": "http://example.com/myVideo.mp4",
-	"height": 360,
-	"width": 640,
+  "file": "http://example.com/myVideo.mp4",
+  "height": 360,
+  "width": 640,
   "autostart": true,
-	"advertising": {
+  "advertising": {
 		"client": "vast",
 		"tag": "http://adserver.com/vastTag.xml"
 	}
 });
 </pre>
-
 Web developers will recognize the JavaScript Object Notation (JSON) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 * * *
@@ -55,7 +51,7 @@ These are the options for configuring the layout and playback behavior of a play
 |--|--|--|--|
 |**file**|String|**(Required)** URL to a single video file, audio file, YouTube video or live stream to play. Must either be configured directly inside of **setup**, inside of a **playlist** array, or in a **sources** array|-|
 |**image**|String|URL to a poster image to display before playback starts. Can either be configured directly inside of **setup**, or inside of a **playlist**|-|
-|**playlist**|Array or String|A list of multiple media items that the player should progress through. See the **[playlist](#playlist)** section for more information|-|
+|[playlist](#playlist)|Array or String|A list of multiple media items that the player should progress through. See the **[playlist](#playlist)** section for more information|-|
 
 ####Behavior
 
@@ -138,7 +134,7 @@ Basic playlist information is as follows:
 |**playlist[].image**|String|Poster image URL. Displayed before and after playback.|
 |[playlist&#91;&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
-|[playlist&#91;&#93;.adschedule&#91;&#93;](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
+|[playlist&#91;&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
 
 
 
@@ -156,18 +152,20 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
 ####Alternate Media Sources
 If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
 <pre>
-"playlist": [{
-  "title":"One Playlist Item With Multiple Sources",
-  "description":"Three Sources - One Playlist Item",
-  "image": "myImage.png",
-  "sources": [{
-    "file": "myVideo.m3u8"
-  },{
-    "file": "myVideo.mp4"
-  },{
-    "file": "myVideo.webm"
+jwplayer("myElement").setup({
+  "playlist": [{
+    "title":"One Playlist Item With Multiple Sources",
+    "description":"Three Sources - One Playlist Item",
+    "image": "myImage.png",
+    "sources": [{
+      "file": "myVideo.m3u8"
+    },{
+      "file": "myVideo.mp4"
+    },{
+      "file": "myVideo.webm"
+    }]
   }]
-}]
+});
 </pre>
 
 ####Quality Toggle for Video Files
@@ -179,17 +177,19 @@ In the event that a streaming technology like HLS or DASH cannot be used, listin
 * Pseudostreaming may need to be configured in cases where Flash is used
 
 <pre>
-playlist: [{
-  "title":"One Playlist Item With Multiple Qualities",
-  "description":"Two Qualities - One Playlist Item",
-  "sources": [{
-    "file": "myVideo-720p.mp4",
-    "label": "HD"
-  },{
+jwplayer("myElement").setup({
+  playlist: [{
+    "title":"One Playlist Item With Multiple Qualities",
+    "description":"Two Qualities - One Playlist Item",
+    "sources": [{
+      "file": "myVideo-720p.mp4",
+      "label": "HD"
+    },{
     "file": "myVideo-480p.mp4",
-  "label": "SD"
+    "label": "SD"
+    }]
   }]
-}]
+});
 </pre>
 
 In the above example, the player will add an "HD" button, allowing a user to toggle their desired video quality. If more than two sources are used, the player will instead overlay a quality selection menu, rather than a quality toggle.
@@ -233,22 +233,24 @@ The **playlist[].adschedule** block is used for scheduling ad breaks throughout 
 ####Example
 
 <pre>
-"playlist": [{
-"title":"One Media Item",
-"description":"Only a single media item in a playlist!",
-"file": "myFile.mp4",
-"image": "myImage.png",
-  "adschedule": {
-    "myPreroll": {
-    "offset": "pre",
-    "tag": "myAdTag.xml"
-    },
+jwplayer("myElement").setup({
+  "playlist": [{
+  "title":"One Media Item",
+  "description":"Only a single media item in a playlist!",
+  "file": "myFile.mp4",
+  "image": "myImage.png",
+    "adschedule": {
+      "myPreroll": {
+      "offset": "pre",
+      "tag": "myAdTag.xml"
+      },
     "myMidroll": {
-    "offset": "10",
-    "tag": "myMidroll.xml"
+      "offset": "10",
+      "tag": "myMidroll.xml"
+      }
     }
-  }
-}]
+  }]
+});
 </pre>
 
 * * *
@@ -283,6 +285,7 @@ More information regarding skins, see the following articles:
 
  * [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/)
  * [Creating your own Font with JW Player](/customization/css-skinning/skins_fonts/)
+
 * * *
 
 <a name="captions"></a>
@@ -372,9 +375,12 @@ Setting an empty **sharing** options block will enable the social sharing overla
 ####Example:
 
 <pre>
-"sharing": {
-  "sites": ["reddit","facebook","twitter"]
-}
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "sharing": {
+    "sites": ["reddit","facebook","twitter"]
+  }
+});
 </pre>
 
 See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) for more information.
@@ -426,33 +432,89 @@ See [Display Related Videos](https://support.jwplayer.com/customer/portal/articl
 
 ## Advertising
 
-This options block configures the video advertising capabilities of JW Player. It is available in the Ads Edition of JW Player 7.
+This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default. 
+
+####Note: Advertising is only available in the Ads Edition of JW Player 7.
 
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.client**|String|**(Required for advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast":** Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags|-|
+|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast":** Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags|-|
 |**advertising.tag**|String|The URL of the VAST tag to display|-|
 |**advertising.admessage**|String|Text that displays during ad playback|"The ad will end in xx seconds"|
-|**advertising.companiondiv**|String|The URL of the VAST tag to display|-|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|-|
 |**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement|"Advertisement"|
 |**advertising.skipmessage**|String|This is used to provide a customized countdown message|"Skip ad in xx"|
 |**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over|"Skip"|
 |**advertising.vpaidmode**|String|Used exclusively for [Google IMA VPAID ads](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled":** VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iframe. The VPAID ad cannot access the site. VPAID ads that depend on friendly iframe access may not play<br/>**"insecure":** The VPAID ad will load in a friendly iframe. This allows the ad access to the site via javascript |"disabled"|
-|**advertising.schedule**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|-|
+|**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|-|
+|**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads|-|
+
+<a name="advertising-schedule"></a>
 
 ###advertising.schedule
 
-Use this option to load an entire advertising schedule to JW Player, containing multiple ads. The option can be the URL to a VMAP schedule or an inline JSON block with ads. **advertising.tag** is ignored if this option is set. See [Scheduling Ad Breaks](/customer/portal/articles/1432024-scheduling-ad-breaks-) for more info.
+Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
 
-|Format|Options|
-|---|---|
-|String| "http://www.mywebsite.com/vmap.xml"|
+####Note: advertising.tag is ignored if this option is set.
+
+####Ad Schedules with VMAP Files
+
+If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
+
+####Example:
+<pre>
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": "myvmap.xml"
+  }
+});
+</pre>
+
+The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
+
+####Ad Schedules with JSON
+
+In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset. 
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
+|**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+
+####Example:
+<pre>
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": {
+      "adbreak-preroll":{
+        "tag": "myPreroll.xml",
+        "offset": "pre"
+      },
+      "adbreak-midroll":{
+        "tag": "myMidroll.xml",
+        "offset": "50%"
+      }
+    }
+  }
+});
+</pre>
+
+<a name="advertising-companiondiv"></a>
 
 ###advertising.companiondiv
 
-This is a configuration block with 3 properties: id, width and height. Set these to have JW Player load companion ads from your VAST/IMA tag into your page. See [Companion Ads](/customer/portal/articles/1433869-companion-ads) for more info.
+This is a configuration block object with 3 properties: id, width and height. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](/customer/portal/articles/1433869-companion-ads) for more info.
+
+|Option|Type|Description|
+|---|---|---|
+|**advertising.companiondiv.height**|Number|The targeted desired height of a companion ad that exists in a VAST ad|
+|**advertising.companiondiv.width**|Number|The targeted desired width of a companion ad that exists in a VAST ad|
+|**advertising.companiondiv.id**|String|The ID of the div to replace with a companion ad|
 
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](/customer/portal/topics/605644-video-ads/articles).
@@ -486,9 +548,3 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.key**|String|**(Required)** The key required to decrypt DRM content|-|
-
-
-<a name="other"></a>
-
-
-
