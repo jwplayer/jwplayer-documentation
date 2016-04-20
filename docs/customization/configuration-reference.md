@@ -36,11 +36,13 @@ Web developers will recognize the JavaScript Object Notation ([JSON](https://en.
 
 These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player
 
-###Media
+
 
 The following properties are related to media that is loaded into the player.
 
 If only a single playlist item is used, this information can either be configured directly inside of **setup**. If you are planning on using multiple media items, these can also be used inside of a **[playlist](#playlist)** array.
+
+###Media
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
@@ -49,8 +51,9 @@ If only a single playlist item is used, this information can either be configure
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
 
-###Behavior
+<br/>
 
+###Behavior
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
@@ -59,8 +62,9 @@ If only a single playlist item is used, this information can either be configure
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
 
-###Appearance
+<br/>
 
+###Appearance
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
@@ -75,8 +79,9 @@ If only a single playlist item is used, this information can either be configure
 ####Stretching Examples:
 ![](//support-static.jwplayer.com/images/stretch-options.png)
 
-####Rendering and Loading
+<br/>
 
+###Rendering and Loading
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
@@ -117,8 +122,6 @@ jwplayer("myElement").setup({
 });
 ```
 
-Basic playlist information is as follows:
-
 |Setting|Type|Description|
 |--|--|--|
 |**playlist[].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
@@ -130,7 +133,11 @@ Basic playlist information is as follows:
 |[playlist&#91;&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
 
+In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
+
 <a name="playlist-sources"></a>
+
+<br/>
 
 ### playlist[].sources[]
 
@@ -193,6 +200,7 @@ In the above example, the player will add an "HD" button, allowing a user to tog
 |**playlist[].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
 
 <a name="playlist-tracks"></a>
+<br/>
 
 ### playlist[].tracks[]
 
@@ -210,6 +218,9 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 
 
 <a name="playlist-adschedule"></a>
+
+<br/>
+
 ### playlist[].adschedule
 
 The **playlist[].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block. 
@@ -240,6 +251,8 @@ jwplayer("myElement").setup({
   }]
 });
 ```
+See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644-advertising/articles) section for more articles and examples
+
 <a name="skin"></a>
 
 * * *
@@ -334,7 +347,7 @@ See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles
 
 This options block controls an overlay with social sharing options: copy embed code, copy video link and share video to social networks.
 
-Setting an empty **sharing** options block will enable the social sharing overlay. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
+Setting an empty **"sharing":{}** options block will enable the social sharing overlay. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -344,16 +357,13 @@ Setting an empty **sharing** options block will enable the social sharing overla
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
 ####Available Built-In Social Networks
-|Social Network|Configuration Value|
-|-|-|
-|**Facebook**|"facebook"|
-|**Twitter**|"twitter"|
-|**Pinterest**|"interest"|
-|**Email**|"email"|
-|**Tumblr**|"tumblr"|
-|**Google Plus**|"googleplus"|
-|**Reddit**|"reddit"|
-|**LinkedIn**|"linkedin"|
+|Social Network|Configuration Value| |Social Network|Configuration Value|
+|-|-|-|-|-|
+|**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
+|**Twitter**|"twitter"| |**Google Plus**|"googleplus"|
+|**Pinterest**|"interest"| |**Reddit**|"reddit"|
+|**Email**|"email"| |**LinkedIn**|"linkedin"|
+
 
 ####Example:
 
@@ -437,8 +447,9 @@ This options block configures the video advertising capabilities of JW Player. I
 
 Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
 
-####Ad Schedules with VMAP Files
+<br/>
 
+####Ad Schedules with VMAP Files
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
 ```
 jwplayer("myElement").setup({
@@ -452,8 +463,9 @@ jwplayer("myElement").setup({
 
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
 
-####Embedded Ad Schedules with JSON
+<br/>
 
+####Embedded Ad Schedules with JSON
 In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset. 
 
 |Option|Type|Description|Default|
@@ -511,12 +523,16 @@ Configuration options related to DRM for MPEG DASH streams. As of JW 7.3.0, both
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
 |**drm.playready.customData**|String| Security data that should be passed in a request header |-|
 
+<br/>
+
 ###drm.widevine
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
 |**drm.widevine.customData**|String| Security data that should be passed in a request header |-|
+
+<br/>
 
 ###drm.clearkey
 
