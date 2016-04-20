@@ -40,17 +40,17 @@ Creates a new JW Player on your web page.
 
  The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a full list of all JW Player configuration options.
 ####Sample
-<pre>
-&lt;div id="myDiv"&gt;This text will be replaced with a player.&lt;/div&gt;
-&lt;script&gt;
+```
+<div id="myDiv">This text will be replaced with a player.</div>
+<script>
 jwplayer("myDiv").setup({
 	"file": "http://example.com/myVideo.mp4",
 	"image": "http://example.com/myImage.png",
 	"height": 360,
 	"width": 640
 });
-&lt;/script&gt;
-</pre>
+</script>
+```
 
 
 ###jwplayer().remove()
@@ -210,15 +210,19 @@ Loads a new playlist into the player.
 
 ####JSON Playlist Example
 
-<pre>playerInstance.load([{
+```
+  jwplayer('myElement').load([{
 	"file": "/videos/myVideo.mp4",
 	"image": "/images/myImage.png",
 	"title": "My Favorite Video!",
 	"description": "This has lots of kittens in it!"
-}]);</pre>
+}]);
+```
 
 ####Playlist URL Example
-<pre>playerInstance.load("https://mywebsite.com/myplaylist.json");</pre>
+```
+jwplayer().load("https://mywebsite.com/myplaylist.json");
+```
 
 ###jwplayer().playlistItem(__index__)
 Start playback of the playlist item at the specified index.
@@ -591,9 +595,9 @@ Resizes the player to the specified width and height.
 |height| The new desired height of the player in pixels (number) or percent (string)|Number &#124; String |Yes|
 
 ####Example:
-<pre>
+```
 jwplayer().resize('50%', 250)
-</pre>
+```
 
 * * *
 
@@ -700,7 +704,7 @@ Fired when the active quality level is changed. Happens in response to e.g. a us
 
 ###jwplayer().on('visualQuality')
 
-Fired when the active quality level is changed for HLS. This is different than __qualityChange__ since this will trigger when adaptive streaming automatically shifts quality.
+Fired when the active quality level is changed for HLS. This is different than __levelsChanged__ since this will trigger when adaptive streaming automatically shifts quality.
 
 ####Returns an object with the following:
 
@@ -1145,11 +1149,11 @@ Continuously triggered when new metadata has been received by the player. Values
 
  Sharing API calls work in conjunction with our getPlugin() method. For instance, all of our sharing instances are using the getPlugin(‘sharing’) API call to refer to this particular plugin. The following will target our sharing plugin:
 
-<pre>
+```
 jwplayer().on('ready', function(event){
-sharingPlugin = playerInstance.getPlugin('sharing');
+sharingPlugin = jwplayer().getPlugin('sharing');
 });
-</pre>
+```
 
 All sharingPlugin references below will assume that the above code is implemented on your page.
 
@@ -1208,11 +1212,11 @@ Triggered whenever somebody shares content from within the sharing plugin.
 
 Similar to sharing, the related api examples below will assume that the following code is implemented:
 
-<pre>
+```
 jwplayer().on('ready', function(event){
-relatedPlugin = playerInstance.getPlugin('related');
+relatedPlugin = jwplayer().getPlugin('related');
 });
-</pre>
+```
 
 ###relatedPlugin.open();  
 Opens the related plugin overlay. This will pause content if it is currently playing.

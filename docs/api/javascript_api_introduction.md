@@ -47,39 +47,39 @@ Currently, JW Player events support the following event triggers:
 
 The below event triggers every time a volume change is initiated, and will return a number called "volume" within an object.
 
-<pre>jwplayer().on('volume', function(e) {
+```
+jwplayer().on('volume', function(e) {
 alert("Volume is changed to: "+ e.volume);
 });
-</pre>
-
+```
 * * *
 
 ## Example: Using the JW Player API
 
 Before it is possible to interact with a player, a player setup is required. Our [Embedding Section](https://support.jwplayer.com/customer/portal/topics/601065-embedding/articles) contains several examples. Here is the proper syntax for a basic player embed:
 
-<pre>
-&lt;div id='myElement'&gt;Loading the player...&lt;/div&gt;
-&lt;script type='text/javascript'&gt;
+```
+<div id='myElement'>Loading the player...</div>
+<script type='text/javascript'>
   jwplayer("myElement").setup({ 
     "file": "/uploads/example.mp4", 
     "image": "/uploads/example.jpg"
   });
-&lt;/script&gt;
-</pre>
+</script>
+```
 
 Once the player completes its setup, API calls can immediately be made. If you have one player on your page, it can always be accessed using the **playerInstance** reference function. For example:
 
-<pre>
-&lt;script&gt;
+```
+<script>
 jwplayer("myElement").on('complete', function(){
 alert("Complete fired - Your content has completed!");
 });
-&lt;/script&gt;
+</script>
 
-&lt;a href="javascript:jwplayer('myElement').play();"&gt;Toggle playback&lt;/a&gt;
-&lt;a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());"&gt;Report volume&lt;/a&gt;
-</pre>
+<a href="javascript:jwplayer('myElement').play();">Toggle playback</a>
+<a href="javascript:alert('The volume of the player is: ' + jwplayer('myElement').getVolume());">Report volume</a>
+```
 
 Here is a simple example of how our API functions, based on the above code:
 <div id="myElement"></div>
@@ -99,11 +99,11 @@ alert("Complete fired - Your content has completed!");
 
 When you have multiple players on a page, you must be specific about which player you want to interact with. Let's assume that we have embedded two different players on the same page:
 
-<pre>
-&lt;div id='myFirstPlayer'&gt;Loading the first player...&lt;/div&gt;
-&lt;div id='mySecondPlayer'&gt;Loading the player...&lt;/div&gt;
+```
+<div id='myFirstPlayer'>Loading the first player...</div>
+<div id='mySecondPlayer'>Loading the player...</div>
 
-&lt;script type='text/javascript'&gt;
+<script type='text/javascript'>
 
 jwplayer("myFirstPlayer").setup({ 
 "file": "/uploads/example.mp4", 
@@ -115,22 +115,22 @@ jwplayer("mySecondPlayer").setup({
 "image": "/uploads/example2.jpg"
 });
 
-&lt;/script&gt;
-</pre>
+</script>
+```
 
 There are two ways that we can target a player:
 
 ### 1 - Include the id of the player div:
-<pre>
+```
 // ID references the first player
 jwplayer("myFirstPlayer").play();
-</pre>
+```
 
 ### 2 - Include the index of player you wish to target
-<pre>
+```
 // An index of 1 targets the second player on the page 
 jwplayer(1).play();
-</pre>
+```
 
 #### Note: Not including an ID or index with your API call will always target the first player on a page
 
@@ -141,10 +141,11 @@ jwplayer(1).play();
 JW Player is not currently supported within require js due to JW Player needing to use jwplayer namespace. To avoid issues when require and jwplayer.js are on the same page, load jwplayer.js before the require.js script is loaded.
 
 ####Example:
-<pre>
-&lt;script src='jwplayer.js' &gt;
-&lt;script src='requirejs.js' &gt;
-</pre>
+
+```
+<script src='jwplayer.js'>
+<script src='requirejs.js'>
+```
 
 * * *
 

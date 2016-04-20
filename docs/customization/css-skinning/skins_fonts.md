@@ -59,14 +59,14 @@ Copy the .eot, .svg, .ttf, and .woff files into a desired font directory. If thi
 
 We'll need to load our font via CSS using **@font-face**, as well as provide a **font-family** name. In this case, the **jw-custom-icons.woff** file has been relocated to a **font** subdirectory. I will also be naming this font-family **custom**.
 
-<pre>
-&lt;style&gt;
+```
+<style>
 @font-face {
 	font-family: 'custom';
     src: url('fonts/jw-custom-icons.woff');
 }
-&lt;/style&gt;
-</pre>
+</style>
+```
 
 Note that this example will be using **only** a .woff file. For more extensive browser compatibility, please see the [css-tricks article](https://css-tricks.com/snippets/css/using-font-face/) which details the loading of multiple fonts.
 
@@ -74,8 +74,10 @@ Note that this example will be using **only** a .woff file. For more extensive b
 
 Finally, we need to apply the new font to our player. This is accomplished with one line of CSS to apply the **custom** font-family name.
 
-<pre>.jw-icon{font-family:'custom'};
-</pre>
+```
+.jw-icon{font-family:'custom'};
+
+```
 
 Note, the font-family is referred to as **custom** due to our naming in step 3.
 
