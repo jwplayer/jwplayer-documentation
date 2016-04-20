@@ -661,7 +661,7 @@ Returns an object containing information about the current quality of a video st
 |Value|Description|Type|
 |----|--------|---|
 | mode | The current quality mode. Can be __auto__ if adaptive is enabled or __manual__ if a static quality is set | String |
-| level | Information about the current selected quality. See getQualityLevels for the full list of available information| Array |
+| level | Information about the current selected quality. See getQualityLevels for the full list of available information| Object |
 | reason | The reason that a quality was selected. See table below for more information | String |
 
 ####List of Reasons

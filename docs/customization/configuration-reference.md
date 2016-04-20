@@ -38,7 +38,9 @@ These are the options for configuring the layout and playback behavior of a play
 
 ###Media
 
-Media properties can either be configured directly inside of **setup**, or inside of a [playlist](#playlist). The below configurations can only be used for single media files.
+The following properties are related to media that is loaded into the player.
+
+If only a single playlist item is used, this information can either be configured directly inside of **setup**. If you are planning on using multiple media items, these can also be used inside of a **[playlist](#playlist)** array.
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
