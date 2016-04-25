@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Table Of Contents
 
-*   [Version 7.4 (RC)](#version74) - 4/15/2016
+*   [Version 7.4](#version74) - 4/25/2016
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
 *   [Version 7.2](#version72) - 11/18/2015 [+](#version72x)
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
@@ -20,8 +20,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
-|Staging/Pre-release|7.3.6|3/18/2016|Fixed certain HLS artifacts in Flash|
-|Beta|7.4.0-RC|4/15/2016|HLS in HTML5 RC|
+|Staging/Pre-release|7.4.0|4/25/2016|HLS in HTML5|
+|Beta|7.4.0|4/25/2016|HLS in HTML5|
 
 * * *
 
@@ -43,7 +43,7 @@ The following functionality is supported in JW 7.4:
 * Fast, frame accurate seeking
 * Audio only streams with MP3 or AAC
 * MPEG 2 Layer 3 and MPEG 1 Layer 3 for MP3 is supported
-* HE-AAC in Chrome 50
+* HE-AAC in Chrome 50+
 * H.264 main and baseline profiles
 * High profile is dependent on hardware
 
@@ -76,6 +76,7 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * Relative urls were not working in FireFox.
 * Mobile chrome was sending an additional play event.
 * Closed-captions no longer appear during ad playback.
+* Fixed an issue that could cause Google IMA ads to play behind content
 
 
 
