@@ -28,20 +28,12 @@ You're encouraged to commit as frequently as makes sense for your work flow. Bef
 There are two (2) common scenarios when rebasing against master.
 
 ### You've already pushed commits
-You've just attemmpted to create a PR - you already have commits pushed to the remote tracking branch - and you notice that your branch is behind master. In this case, it's sometimes easier to create a new branch off master, then merge in your changes from the branch containing your work. Otherwise, you could end up in conflict hell trying to do a rebase and having to resolve merge conflicts in each commit.
+You've just attempted to create a PR - you already have commits pushed to the remote tracking branch - and you notice that your branch is behind master. In this case, it's sometimes easier to create a new branch off master, then merge in your changes from the branch containing your work. Otherwise, you could end up in conflict hell trying to do a rebase and having to resolve merge conflicts in each commit.
 
 ### Your work is untracked
-You've yet to commit any work, but PRs have been merged to master. (*It's assumed that you've installed YADR at this point and can take advantage of git customizations*.)
+If you're yet to commit any work, but PRs have been merged to master:
 
-1. Stash your changes (`git stash`)
-2. Switch to master (`gco master`)
-3. Update (`gpl`)
-4. Switch back to your feature branch (`gco feature_branch`)
-5. Start rebasing interactively (`git rebase -i master`)
-5. Pick all commit msgs
-6. Save and exit rebasing step
-7. Amend (cleanup) commit messages
-8. Save and exit commit message cleanup step
-9. Pop your stashed changes (`git stash pop`)
-	- You may have merge conflicts. If so, resolve them before moving on. (SourceTree makes this easy) 
-10. Push changes to the remote tracking branch
+* Rebase with [git cli](https://git-scm.com/docs/git-rebase) or..
+* Rebase with [SourceTree](http://blogs.atlassian.com/2014/06/interactive-rebase-sourcetree/)
+
+In both scenarios, always [squash commits](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) when merging with github.

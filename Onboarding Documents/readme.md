@@ -45,7 +45,7 @@ Welcome to JW Player / Murray Hill
 2. Best practices
   * [Git Flow](git-flow.md)
   * [How to write a commit message](commit-messages.md)
-  * [git tips/tricks](github-tips-tricks.md)
+  * [Git tips/tricks](github-tips-tricks.md)
   * [How to customize your terminal](shell-customization.md)
   * [Clean code cheat-sheet](http://www.planetgeek.ch/wp-content/uploads/2013/06/Clean-Code-V2.1.pdf)
   * Pre-commit check-list

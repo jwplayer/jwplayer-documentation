@@ -4,13 +4,13 @@
 ## Getting Familiar with the Player
 
 ### Lucid Charts
-This is a good way to gain a high level understanding of the player ecosystem. Ask Rob for access.
+[Lucid chart](https://www.lucidchart.com) is a good way to gain a high level understanding of the player ecosystem. Ask Bruno for an account with access to the *"Player"* group.
 
 ### Testing Suite
 
 Squash is used to test the player's functionality. It is the best way to see all features in action and gain a comprehensive understanding of the player's capabilities.
 
-There are 4 environments:
+There are 4 environments for accessing test pages:
 
 * Your local environment
 * [PR](https://player-pr-test-jenkins.longtailvideo.com/builds/lastSuccessfulBuild/archive/test/) - test PRs before they are merged into master
@@ -46,32 +46,32 @@ To access git annotations:
 * Click on a line to view the git commit message
 
 ### Tooling
-* IDE - [Intellij IDEA](https://www.jetbrains.com/idea/)
-* Dotfile - [YADR](https://github.com/skwp/dotfiles)
-* Git Client - [Source Tree](https://www.sourcetreeapp.com/)
-* Monitoring PRs/issues - [waffle.io](https://waffle.io/)
-* Examining/manipulating network traffic - [Charles Proxy](https://www.charlesproxy.com/)
-* FTP - [Cyberduck](https://cyberduck.io/?l=en) - upload assets to / access the S3 player-test bucket (using your lastpass login for S3)
-* Automated builds / CI - [jenkins](https://jenkins.longtailvideo.com)
+* [Intellij IDEA](https://www.jetbrains.com/idea/) - IDE
+* [YADR](https://github.com/skwp/dotfiles) - Dotfile
+* [Source Tree](https://www.sourcetreeapp.com/) - Git Client
+* [waffle.io](https://waffle.io/) - Monitoring PRs/issues
+* [Charles Proxy](https://www.charlesproxy.com/) - Examining/manipulating network traffic
+* [Cyberduck](https://cyberduck.io/?l=en) - FTP - upload assets to / access the S3 player-test bucket (using your lastpass login for S3)
+* Jenkins - Automated builds / CI + Test Pages
+	* [In network](https://jenkins.longtailvideo.com) (Requires VPN connection when working remotely)
+	* [Outside the network](https://jenkins.jwplayer.com)
 
 ## Coding Guidelines
 The [clean code cheat sheet](http://www.planetgeek.ch/wp-content/uploads/2013/06/Clean-Code-V2.1.pdf) should be used as a general coding guideline. Our top 3 priorities are:
 
 * **Codebase size** - The goal is to keep the player as small as possible, which ensures the fastest possible load times. (eg. We use a subset of the underscore library and only add new methods as the need arises.)
-* **Performance optimizations** - There are lots of factors that go into optimizations. A good grasp of algorithms is helpful. We generally end up with the best solutions through peer code review as PRs are submitted. However, feel free to ask for feedback early and often.
+* **Performance optimizations** - There are lots of factors that go into optimizations. A good grasp of algorithms is helpful. We generally end up with the best solutions through peer code review as PRs are submitted. However, feel free to ask for feedback early and often. 
+
+	Here are some general guidelines:
+	* [Profile with Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/profile/?hl=en) to identify:
+		*  [JavaScript execution bottlenecks](https://developers.google.com/web/tools/chrome-devtools/profile/rendering-tools/js-execution?hl=en)
+		*  Loss in framerate due to layout and repaint caused by CSS styling and DOM manipulation
+	* [Avoid optimization killers](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
+	* [Don't guess it, test it](https://aerotwist.com/blog/dont-guess-it-test-it/)
+	* [Performance optimisation with timeline profiles](https://addyosmani.com/blog/performance-optimisation-with-timeline-profiles/)
 * **Code Readability** - Self commenting code is preferred. In cases where this isn't practical, comments should be used to explain what a function or code block does. Other principles such as DRY (Dont Repeat Yourself) or SRP (Single Responsibility Principle) are useful to keep in mind.
 
 Additionally, a solid understanding of browser specs and other 3rd party technologies the player depends on will help guide solutions (Eg. Understanding browser reflows or considering device limitations).
-
-Pay attention to:
-* Browser releases
-* Dev dependency releases
-* Updates to the spec/documentation for:
-	* HTML ([w3c](https://w3c.github.io/)) 
-	* Browsers ([caniuse](http://caniuse.com/) is a good resource)
-	* HLS
-	* Ads APIs (Vast/Googima)
-	* 
 
 ## Responsibilities & Priorities
 Your first priority is always working on stories in the current sprint. Keeping abreast of PRs is good. As you gain experience working on the player, you're expected to contribute to reviewing and merging PRs. The open source project repo is public, so members of the community occassionally submit issues and PRs. Team members should share the load, ensuring that we respond in a timely manner. If you're not comfortable doing so, seek help from a more senior team member.
@@ -89,14 +89,24 @@ Your first priority is always working on stories in the current sprint. Keeping 
 
 It's imperative that we keep up with changes in specs that pertain to video & ad playback. 
 
-* [Video](https://www.w3.org/wiki/HTML/Elements/video)
-* [Audio](https://www.w3.org/wiki/HTML/Elements/audio)
-* [Tracks](https://www.w3.org/wiki/HTML/Elements/track)
+* [HTML5 - W3C](http://w3c.github.io/html/) - contains info on video, audio and track elements.
+	* We can participate in any of the repos at [github.com/w3c](https://github.com/w3c). More details [here](https://www.w3.org/2015/Talks/1217-github-w3c/#). 
+* [WHATWG (Living Standard)](https://whatwg.org/) 
+	* We currently use these features in Chrome:
+		* [Fetch](https://fetch.spec.whatwg.org/)
+		* [Streams](https://streams.spec.whatwg.org/)	 
+* [W3C vs. WHATWG HTML5 Specs](http://developer.telerik.com/featured/w3c-vs-whatwg-html5-specs-differences-documented/)
+* [Presentation API](https://w3c.github.io/presentation-api/)
+* [Remote Playback API](https://w3c.github.io/remote-playback/)
 * [Encrypted Media Extensions (EME)](https://w3c.github.io/encrypted-media/)
 * [Media Source Extensions (MSE)](https://w3c.github.io/media-source/)
 * [Http Live Streaming (HLS)](https://tools.ietf.org/html/draft-pantos-http-live-streaming-19)
-* [VAST](http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-4-0/)
-* [Google IMA](https://developers.google.com/interactive-media-ads/)
+* [Google IMA](https://developers.google.com/interactive-media-ads/docs/sdks/html5/)
+* [IAB](http://www.iab.com/guidelines/)
+	* [VAST](http://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/)
+	* [VPAID](http://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/)
+	* [VMAP](http://www.iab.com/guidelines/digital-video-multiple-ad-playlist-vmap-1-0-1/)
+* [caniuse.com](http://caniuse.com/)
 
 
 ### Browsers
