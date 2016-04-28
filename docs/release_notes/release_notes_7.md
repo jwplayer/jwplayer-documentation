@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Table Of Contents
 
-*   [Version 7.4 (beta)](#version74) - 3/18/2016
+*   [Version 7.4](#version74) - 4/25/2016
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
 *   [Version 7.2](#version72) - 11/18/2015 [+](#version72x)
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
@@ -20,8 +20,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
-|Staging/Pre-release|7.3.6|3/18/2016|Fixed certain HLS artifacts in Flash|
-|Beta|7.4.0|3/18/2016|HLS in HTML5|
+|Staging/Pre-release|7.4.0|4/25/2016|HLS in HTML5|
+|Beta|7.4.0|4/25/2016|HLS in HTML5|
 
 * * *
 
@@ -29,14 +29,56 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 ## JW Player 7.4
 
-JW Player 7.4 features a new provider used for rendering HLS video in HTML5\. See the list below for more information on features and known issues:
+HLS in HTML5 support in JW Player is currently only for Chrome 34 and above. We recommend updating to the latest version of Chrome to get the most out of HLS. Specifically support for High Efficiency Advanced Audio Codec (HE-AAC) was only introduced in Chrome 50. 
 
-*   Currently only supported on Chrome for desktop
-*   Streams containing HE-AAC audio will not function. You can follow this issue in the Chromium project [here](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
-*   Embedded 608 captions may display timing issues
-*   AES decryption will only work via HTTPS
+The following functionality is supported in JW 7.4:
 
-For more detailed information, please visit our page located on the [JW Player Developer site](https://developer.jwplayer.com/jw-player/docs/developer-guide/beta/html5_hls_beta/).
+###Features
+* Adaptive bitrate switching for Live, DVR and VOD streams
+* Extensive support for streams with discontinuities
+* 608 embedded captions
+* Playback AES encrypted streams over HTTP and HTTPS
+* AES tokens
+* ID3 timed metadata
+* Fast, frame accurate seeking
+* Audio only streams with MP3 or AAC
+* MPEG 2 Layer 3 and MPEG 1 Layer 3 for MP3 is supported
+* HE-AAC in Chrome 50+
+* H.264 main and baseline profiles
+* High profile is dependent on hardware
+
+####Coming Soon in 7.5
+* Multi-track audio
+* Embedded WebVTT captions
+* Redundant CDN switching 
+
+####Verified Encoders and CDNs
+* Akamai
+* Edgecast
+* Fastly
+* Zencoder
+* Amazon Web Services
+* Wowza
+* Azure
+* Unified Streaming
+
+###Changes
+In addition to adding HLS in HTML5, 7.4 has the following updates:
+
+* Google IMA ad tags will automatically get duration and video title added to the request url for more enhanced ad targeting.
+* WebVTT captions are rendered using the native &lt;track&gt; element in Chrome.
+    * Note: Caption styling from player setup is not yet supported with HTML5 video in Chrome. This will be released with JW 7.5.
+* DASH streams will now play in FireFox 45 and up. Still no reliable Safari support.
+* Shaka Provider has been updated to version 1.6.5
+
+###Fixes
+* Using the API to trigger captions was not updating UI correctly.
+* Relative urls were not working in FireFox.
+* Mobile chrome was sending an additional play event.
+* Closed-captions no longer appear during ad playback.
+* Fixed an issue that could cause Google IMA ads to play behind content
+
+
 
 * * *
 
