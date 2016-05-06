@@ -68,7 +68,7 @@ If only a single playlist item is used, this information can either be configure
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
-|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size|-|
+|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|270|
 |**width**|Number or String|The desired height of your video player (In pixels or percentage)|480|
 |**visualplaylist**|Boolean|Configure whether to display the visual playlist icon|true|
