@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Table Of Contents
 
-*   [Version 7.4](#version74) - 4/25/2016
+*   [Version 7.4](#version74) - 4/25/2016 [+](#version74x)
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
 *   [Version 7.2](#version72) - 11/18/2015 [+](#version72x)
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
@@ -78,7 +78,21 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * Closed-captions no longer appear during ad playback.
 * Fixed an issue that could cause Google IMA ads to play behind content
 
+* * *
 
+<a name="version74x"></a>
+
+### Additional 7.4 Releases:
+
+#### **7.4.1** - 5/6/2016
+
+* Caption styling will now work with native HTML5 tracks in Chrome Desktop
+	* When rendering captions in Chrome natively, "fontSize" in the "captions" block will not be obeyed, due to font scaling
+* Changed how player fonts are loaded to prevent false positives with certain firewalls
+* Progressive live streams should now change states correctly
+* Google IMA ad schedules should now play properly
+* Fixed an issue in IE11/Firefox where captions may display during ads
+* “Default” sideloaded captions should now display in Safari automatically
 
 * * *
 

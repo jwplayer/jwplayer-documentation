@@ -1,6 +1,6 @@
 #Javascript API Reference
 
-This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls. API calls below are grouped together in a logical way, while breaking each section into Getters, Setters, Events, and Miscellaneous.
+This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls.
 
 ## Table Of Contents
 
