@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Table Of Contents
 
-*   [Version 7.4](#version74) - 4/25/2016
+*   [Version 7.4](#version74) - 4/25/2016 [+](#version74x)
 *   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
 *   [Version 7.2](#version72) - 11/18/2015 [+](#version72x)
 *   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
@@ -14,14 +14,14 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articles/2149561-using-player-release-channels) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
 
-Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.  
+Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.  
 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
-|Staging/Pre-release|7.4.0|4/25/2016|HLS in HTML5|
-|Beta|7.4.0|4/25/2016|HLS in HTML5|
+|Staging/Pre-release|7.4.1|5/9/2016|HLS in HTML5|
+|Beta|7.4.1|5/6/2016|HLS in HTML5|
 
 * * *
 
@@ -78,7 +78,21 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * Closed-captions no longer appear during ad playback.
 * Fixed an issue that could cause Google IMA ads to play behind content
 
+* * *
 
+<a name="version74x"></a>
+
+### Additional 7.4 Releases:
+
+#### **7.4.1** - 5/6/2016
+
+* Caption styling will now work with native HTML5 tracks in Chrome Desktop
+	* When rendering captions in Chrome natively, "fontSize" in the "captions" block will not be obeyed, due to font scaling
+* Changed how player fonts are loaded to prevent false positives with certain firewalls
+* Progressive live streams should now change states correctly
+* Google IMA ad schedules should now play properly
+* Fixed an issue in IE11/Firefox where captions may display during ads
+* “Default” sideloaded captions should now display in Safari automatically
 
 * * *
 
@@ -254,7 +268,7 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Fixed an issue where androidhls was not being honored inside of a playlist
 *   Fixed playback of HLS on Chromecast when the primary source is DASH. (DASH is not supported on Chromecast.)
 *   Fixed an issue with clicking on flash ads in FireFox on OSX.
-*   Fixed playback content not resuming after mid-roll ad-pods. 
+*   Fixed playback content not resuming after mid-roll ad-pods. 
 
 * * *
 
