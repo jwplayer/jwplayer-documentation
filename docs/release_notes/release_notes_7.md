@@ -19,9 +19,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.3.6|4/1/2016|Fixed certain HLS artifacts in Flash|
-|Staging/Pre-release|7.4.1|5/9/2016|HLS in HTML5|
-|Beta|7.4.1|5/6/2016|HLS in HTML5|
+|Production|7.4.2|5/11/2016|Fixed certain HLS artifacts in Flash|
+|Staging/Pre-release|7.4.2|5/10/2016|HLS in HTML5|
+|Beta|7.4.2|5/9/2016|HLS in HTML5|
 
 * * *
 
@@ -93,6 +93,10 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * Google IMA ad schedules should now play properly
 * Fixed an issue in IE11/Firefox where captions may display during ads
 * “Default” sideloaded captions should now display in Safari automatically
+
+#### **7.4.2** - 5/11/2016
+
+* Added hlshtml configuration option to control use of HLS HTML5
 
 * * *
 

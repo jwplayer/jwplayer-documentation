@@ -84,6 +84,7 @@ If only a single playlist item is used, this information can either be configure
 ###Rendering and Loading
 |Setting|Type|Description|Default|
 |--|--|--|--|
+|**hlshtml**<sup>7.4.2</sup>|Boolean|Set to *true* to enable the JW Player HTML5 HLS provider|false|
 |**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**base**|String|Configures an alternate base path for skins and providers|"/"|

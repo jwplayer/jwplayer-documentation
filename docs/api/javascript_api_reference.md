@@ -38,7 +38,7 @@ Creates a new JW Player on your web page.
 |div| The target div that JW Player will replace | String |Yes|
 |options| Configuration options that will tell your player how to render itself | JSON |Yes|
 
- The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a full list of all JW Player configuration options.
+ The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](/customization/configuration-reference/) for a full list of all JW Player configuration options.
 ####Sample
 ```
 <div id="myDiv">This text will be replaced with a player.</div>
@@ -785,7 +785,8 @@ These API calls are used to listen to or update the active captions track if one
 
 ###jwplayer().getCaptionsList()
 
-Returns an array of objects based on utilized captions. Information for each object may vary depending on the caption types.
+Returns an array of objects based on available captions. Information for each object may vary depending on the caption types.
+**Note:** The index of [0] will always be **off** and will always be returned even if no captions are present.
 
 ####Sideloaded Captions(VTT, SRT, DFXP)
 
@@ -809,7 +810,6 @@ Returns an array of objects based on utilized captions. Information for each obj
 
 ###jwplayer().setCurrentCaptions(_index_)
 
-
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
 |index| Change the visible captions track to the provided index  |Number|Yes|
@@ -818,13 +818,15 @@ Returns an array of objects based on utilized captions. Information for each obj
 
 ###jwplayer().on('captionsList')
 
-Fired when the list of available captions tracks is updated. Happens shortly after a playlist item starts playing.
+Fired when the list of available captions tracks changes. This event is the ideal time to set default captions with the API.
 
-####Returns an object with the following:
+**Note:** 'captionsList' will always return an array of at least **1** item due to **off**, but will trigger again once captions are fully loaded. We suggest only changing captions when the tracks array length exceeds **1**.
+
+####Returns an array with the following:
 
 |Value|Description|Type|
 |----|--------|---|
-| tracks | An object with all included captions tracks. Includes the same information as getCaptionsList() | Object |
+| tracks | An array with all included captions tracks(Including "off"). Includes the same information as getCaptionsList() | Array |
 
 ###jwplayer().on('captionsChanged')
 
