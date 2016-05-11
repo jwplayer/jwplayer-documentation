@@ -19,7 +19,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.4.2|5/11/2016|Fixed certain HLS artifacts in Flash|
+|Production|7.4.2|5/11/2016|HLS in HTML5|
 |Staging/Pre-release|7.4.2|5/10/2016|HLS in HTML5|
 |Beta|7.4.2|5/9/2016|HLS in HTML5|
 
