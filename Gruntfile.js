@@ -5,11 +5,7 @@ module.exports = function (grunt) {
   // configure grunt
   grunt.initConfig({
     'mkdocs-jwplayer': {
-      build: {
-        options: {
-          serve: false
-        }
-      },
+      build: {},
       serve: {
         options: {
           serve: true
@@ -17,7 +13,6 @@ module.exports = function (grunt) {
       },
       deploy: {
         options: {
-          serve: false,
           deploy: true
         }
       }
