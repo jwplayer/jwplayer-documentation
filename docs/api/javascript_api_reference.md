@@ -919,14 +919,14 @@ Fired when a user clicks the video display. Especially useful for wiring your ow
 
 ## <a name="advertising"></a>Advertising
 
-This API provides developers with more control over the advertising functionality of the Advertising edition of JW Player. For VAST and IMA advertising plugins, this API allows impression verification, custom scheduling, tag waterfalling and multiple companions.
+This API provides developers with more control over the functionality of the Advertising edition of JW Player. For VAST and IMA plugins, this API allows for things like impression verification, custom scheduling, and multiple companions.
 
 ###jwplayer().playAd(_tag_)
 
-VAST and IMA. Used to play an ad immediately, which is primarily useful for situations where the built-in ad schedule of JW Player cannot be used.(e.g. for live streaming or dynamic ads for playlist items)
+Used to play an ad immediately, which is primarily useful for situations where the built-in ad schedule of JW Player cannot be used.(e.g. for live streaming or dynamic ads for playlist items)
 
 |Attribute|Description|Type|Required|
-|----|--------|---|
+|----|--------|---|--|
 |tag|The VAST tag URL that should be loaded into the player.|String|Yes|
 
 
@@ -985,9 +985,11 @@ VAST and IMA. Fired whenever a user clicks an ad to be redirected to its landing
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was clicked|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that is being played|-|String|
+|tag | The URL of the ad tag that was clicked|-|String|
 
 ###jwplayer().on('adCompanions')
 
@@ -997,18 +999,19 @@ VAST and IMA. Fired whenever an ad contains companions.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The URL of the ad tag that is currently playing|String|
 |companions | An array with available companion information|Array|
+|tag | The URL of the ad tag that is currently playing|String|
 
 ####Every companion will return the following object:
 
 |Value|Description|Type|
 |----|--------|---|
-|width | The width of the companion in pixels|Number|
-|height | The height of the companion in pixels|Number|
-|type | The type of the creative: static, iframe, or HTML|String|
-|resource | The URL to the static/iframe resource, or the raw HTML content|String|
 |click | URL to link to when clicking the companion. Only available if the type is static|String|
+|height | The height of the companion in pixels|Number|
+|resource | The URL to the static/iframe resource, or the raw HTML content|String|
+|type | The type of the creative: static, iframe, or HTML|String|
+|width | The width of the companion in pixels|Number|
+
 
 ###jwplayer().on('adComplete')
 
@@ -1016,18 +1019,22 @@ VAST and IMA. Fired whenever an ad has completed playback.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was completed|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that is just completed|-|String|
+|tag | The URL of the ad tag that just completed|-|String|
 
 ###jwplayer().on('adSkipped')
 VAST and IMA. Fired whenever an ad has been skipped.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was skipped|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that was skipped|-|String|
+|tag | The URL of the ad tag that was skipped|-|String|
 
 
 ###jwplayer().on('adError')
@@ -1040,16 +1047,16 @@ VAST and IMA. Fired whenever an error prevents the ad from playing.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The URL of the ad tag that produced the error|String|
 |message | The ad error message. See table below|String|
+|tag | The URL of the ad tag that produced the error|String|
 
 |Possible Error Messages|Causes|
 |-----------------------|-----------|
-|invalid ad tag|Invalid XML, Improperly formatted VAST syntax|
 |ad tag empty |No ad was available after searching wrapped ad tags|
-|no compatible creatives|FLV video creative or VPAID SWF is attempting to play in HTML5 player|
 |error playing creative |404 on a creative file|
 |error loading ad tag|All additional ad errors|
+|invalid ad tag|Invalid XML, Improperly formatted VAST syntax|
+|no compatible creatives|FLV video creative or VPAID SWF is attempting to play in HTML5 player|
 
 
 ###jwplayer().on('adRequest')
@@ -1060,8 +1067,10 @@ VAST only. Fired whenever an ad is requested by the player.
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
+|adposition | An ad's position.|"pre" &#124; "mid" &#124; "post"|String|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|offset | An ad's position. Will return a number (in seconds) of a midroll's position|"pre" &#124; "post" &#124; number|String&#124;Number|
 |tag | The URL of the ad tag that is being requested|-|String|
-|adposition | An ad's position|pre &#124; mid &#124; post|String|
 
 ###jwplayer().on('adStarted') <sup>VPAID-only</sup>
 
@@ -1086,9 +1095,14 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
-|tag | The URL of the ad tag that was started|-|String|
+|adposition | An ad's position.|"pre" &#124; "mid" &#124; "post"|String|
+|adsystem | AdSystem referenced inside of the VAST XML |-|String|
+|adtitle | AdTitle referenced inside of the VAST XML|-|String|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
 |creativetype | The type of ad that is being played|-|String|
-|adposition | An ad's position.|pre &#124; mid &#124; post|String|
+|linear | Returns if an ad is "linear" or "nonlinear"|-|String|
+|tag | The URL of the ad tag that was started|-|String|
+|vastversion | The version of VAST referenced in the VAST XML|-|Number|
 
 |creativetype|Description|
 |----|--------|
@@ -1105,6 +1119,9 @@ Fired whenever an ad starts playing or when an ad is unpaused.
 
 |Value|Description|Type|
 |----|--------|---|
+|creativetype | The type of advertising creative|String|
+|newstate | The new state of the player|String|
+|oldstate | The state of the player prior to ad playback|String|
 |tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adPause')
@@ -1114,6 +1131,9 @@ Fired whenever an ad is paused.
 
 |Value|Description|Type|
 |----|--------|---|
+|creativetype | The type of advertising creative|String|
+|newstate | The new state of the player. This should be "paused"|String|
+|oldstate | The state of the player prior to ad pause|String|
 |tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adTime')
@@ -1121,12 +1141,14 @@ Fired while ad playback is in progress.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|-------|-----------|----|
-|tag     |The URL of the ad tag that is currently playing.|String|
-|position|The current playback position in the ad creative.|Number|
-|duration|The total duration of the ad creative.|Number|
-|sequence|Returns the sequence number the ad is a part of.|Number|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of advertising creative|-|String|
+|duration|The total duration of the ad creative|-|Number|
+|position|The current playback position in the ad creative|-|Number|
+|sequence|Returns the sequence number the ad is a part of|-|Number|
+|tag     |The URL of the ad tag that is currently playing|-|String|
 
 
 * * *
