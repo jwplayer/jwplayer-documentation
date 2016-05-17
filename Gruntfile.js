@@ -14,6 +14,12 @@ module.exports = function (grunt) {
         options: {
           serve: true
         }
+      },
+      deploy: {
+        options: {
+          serve: false,
+          deploy: true
+        }
       }
     }
   });
@@ -21,14 +27,19 @@ module.exports = function (grunt) {
   // load grunt plugins
   grunt.loadNpmTasks('grunt-mkdocs-jwplayer');
 
-  // default task runner
+  // build docs
   grunt.registerTask('default', [
     'mkdocs-jwplayer:build'
   ]);
 
-  // task runner for serving docs on localhost
+  // build docs and serve localhost
   grunt.registerTask('serve', [
     'mkdocs-jwplayer:serve'
+  ]);
+
+  // build docs and deploy via jenkins
+  grunt.registerTask('deploy', [
+    'mkdocs-jwplayer:deploy'
   ]);
 
 };
