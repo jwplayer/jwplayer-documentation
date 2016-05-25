@@ -98,6 +98,20 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 
 * Added hlshtml configuration option to control use of HLS HTML5
 
+#### **7.4.3** - 5/11/2016
+
+* Audio mode with Shaka is now supported
+* adImpression now returns the mediaFile URL of the chosen creative
+* HLS HTML5 - Player would occasionally stall on quality upswitches
+* HLS HTML5 - Multiple forward seeks could stall playback
+* HLS HTML5 - M3U8 manifests with capital letters were not handled correctly
+* getDuration() returned duration of the previous playist item, if called before metadata was loaded
+* load() was not choosing the correct provider when changing playlist items or loading media via API
+* CSS list item styles could affect right click menu styling
+* Player volume was not persisting on page reloads
+* Stopping and replaying in HTML5 could cause an error
+
+
 * * *
 
 <a name="version73"></a>
