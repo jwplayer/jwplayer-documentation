@@ -287,12 +287,12 @@ More information regarding skins, see the following articles:
 
 This options block configures the styling of closed captions in the player for desktop browsers. On iOS/Android, a system settings menu provides exactly the same settings, as these are mandated by the FCC.
 
-#### Note: In these examples, color can be specified as [hex value](http://www.w3schools.com/colors/colors_picker.asp) values or as a [color name](http://www.w3schools.com/colors/colors_names.asp).
+#### Note: In these examples, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
 
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**captions.color**|String|Color of the captions text|"#ffffff"|
-|**captions.fontSize**|Number|Size of the captions text|15|
+|**captions.fontSize**|Number|Size of the captions text (Will not affect text size when rendering captions via browser)|15|
 |**captions.fontFamily**|String|[Font Family](http://www.w3schools.com/cssref/pr_font_font-family.asp) of the captions text|"sans"|
 |**captions.fontOpacity**|Number|Alpha percentage of the captions text|100|
 |**captions.backgroundColor**|String|Color of the caption characters background|"#000000"|
