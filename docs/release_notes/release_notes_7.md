@@ -98,7 +98,7 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 
 * Added hlshtml configuration option to control use of HLS HTML5
 
-#### **7.4.3** - 5/11/2016
+#### **7.4.3** - 5/25/2016
 
 * Audio mode with Shaka is now supported
 * adImpression now returns the mediaFile URL of the chosen creative
