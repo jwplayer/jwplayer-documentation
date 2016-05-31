@@ -19,9 +19,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.4.2|5/11/2016|HLS in HTML5|
-|Staging/Pre-release|7.4.2|5/10/2016|HLS in HTML5|
-|Beta|7.4.2|5/9/2016|HLS in HTML5|
+|Production|7.4.3|5/31/2016|Various HLS fixes|
+|Staging/Pre-release|7.4.3|5/25/2016|Various HLS fixes|
+|Beta|7.4.3|5/25/2016|Various HLS fixes|
 
 * * *
 
@@ -84,6 +84,23 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 
 ### Additional 7.4 Releases:
 
+#### **7.4.3** - 5/25/2016
+
+* Audio mode with Shaka is now supported
+* adImpression now returns the mediaFile URL of the chosen creative
+* HLS HTML5 - Player would occasionally stall on quality upswitches
+* HLS HTML5 - Multiple forward seeks could stall playback
+* HLS HTML5 - M3U8 manifests with capital letters were not handled correctly
+* getDuration() returned duration of the previous playist item, if called before metadata was loaded
+* load() was not choosing the correct provider when changing playlist items or loading media via API
+* CSS list item styles could affect right click menu styling
+* Player volume was not persisting on page reloads
+* Stopping and replaying in HTML5 could cause an error
+
+#### **7.4.2** - 5/11/2016
+
+* Added hlshtml configuration option to control use of HLS HTML5
+
 #### **7.4.1** - 5/6/2016
 
 * Caption styling will now work with native HTML5 tracks in Chrome Desktop
@@ -93,10 +110,6 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * Google IMA ad schedules should now play properly
 * Fixed an issue in IE11/Firefox where captions may display during ads
 * “Default” sideloaded captions should now display in Safari automatically
-
-#### **7.4.2** - 5/11/2016
-
-* Added hlshtml configuration option to control use of HLS HTML5
 
 * * *
 
@@ -168,6 +181,30 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 
 ### Additional 7.3 Releases:
 
+#### **7.3.6** - 4/1/2016
+
+*   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
+
+#### **7.3.5** - 3/18/2016
+
+*   TXXX Metadata will now appear properly with Flash provider
+*   Captions in audio mode will now render above the control bar
+
+#### **7.3.4** - 2/25/2016
+
+*   Fixed issue where certain video streams were interpreted as audio-only in iOS
+*   Fixed issue where thumbnail VTTs were appearing as captions in iOS
+
+#### **7.3.3** - 2/24/2016
+
+*   Fixed iOS issue with playlists when preload was set to 'none'.
+
+#### **7.3.2** - 2/22/2016
+
+*   Fixed issue with captions and advertising on iOS
+*   Captions now display properly on IE 10
+*   Ads on IE 10 should now function correctly
+
 #### **7.3.1** - 2/16/2016
 
 *   Visual Quality API will now function on iOS
@@ -179,30 +216,6 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Fixed regression with audio player fading during playback
 *   Corrected regression where DRM streams required ‘customData’
 *   Fixed regression with poster images not loading inside of playlists
-
-#### **7.3.2** - 2/22/2016
-
-*   Fixed issue with captions and advertising on iOS
-*   Captions now display properly on IE 10
-*   Ads on IE 10 should now function correctly
-
-#### **7.3.3** - 2/24/2016
-
-*   Fixed iOS issue with playlists when preload was set to 'none'.
-
-#### **7.3.4** - 2/25/2016
-
-*   Fixed issue where certain video streams were interpreted as audio-only in iOS
-*   Fixed issue where thumbnail VTTs were appearing as captions in iOS
-
-#### **7.3.5** - 3/18/2016
-
-*   TXXX Metadata will now appear properly with Flash provider
-*   Captions in audio mode will now render above the control bar
-
-#### **7.3.6** - 4/1/2016
-
-*   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
 
 * * *
 
@@ -280,6 +293,14 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 
 ### Additional 7.2 Releases:
 
+#### **7.2.4** - 12/16/2015
+
+*   VAST flash creatives will now be properly ignored when player renders in HTML5
+*   Fixed “Cannot set property 'blocking' of null” VPAID console error
+*   Player now renders correctly if browser cookies are blocked
+*   Player now renders correctly in certain older browser versions
+    *   Fixes “JSON.stringify cannot serialize cyclic structures” error
+
 #### **7.2.3** - 12/7/2015
 
 *   Fixed issues with scrolling and Chrome throttling Flash.
@@ -289,14 +310,6 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Fixed on(‘adComplete’) event behavior with Flash VPAID creatives.
 *   Improved right click overlay to be less prone to styling conflicts
 *   Fixed manual quality toggling in Firefox.
-
-#### **7.2.4** - 12/16/2015
-
-*   VAST flash creatives will now be properly ignored when player renders in HTML5
-*   Fixed “Cannot set property 'blocking' of null” VPAID console error
-*   Player now renders correctly if browser cookies are blocked
-*   Player now renders correctly in certain older browser versions
-    *   Fixes “JSON.stringify cannot serialize cyclic structures” error
 
 * * *
 
@@ -453,6 +466,32 @@ More information can be found in our following articles:
 
 ### Additional 7.0 Releases:
 
+#### **7.0.3** - 9/1/2015
+
+*   Changed provider logic to render based on provider availability.
+*   Fixed touch events on Windows 10 devices to show controls appropriately.
+*   Fixed certain livestreams with 608 captions to display the captions at correct times.
+*   Fixed a display issue with poster images in audio only players.
+*   Fixed multi-line WebVTT captions that were not rendering.
+*   Fixed support for DISCONTINUITY-SEQUENCE in HLS.
+*   Fixed an HLS stream that would not play due to targetduration being incorrectly set to a negative value.
+
+#### **7.0.2** - 8/26/2015
+
+*   **Chromecast** functionality has been re-added and is now available for Premium users. **Note:** Advertising functions are no longer available while casting
+*   **vpaidmode** has been added for Google IMA VPAID 2 configuration to allow for friendly iframes.
+*   Because JW7 controls are not rendered in Flash, stagevideo configuration is no longer needed and has been removed.
+*   play() and pause() will now control ad playback with our VAST plugin
+*   Ad skip button will now fully inherit skin styles
+*   Continuing improvements to player file size and performance
+*   Fixed issue with relative paths with our Flash provider
+*   Player errors will now differentiate between a missing, invalid, or expired key
+*   Corrected poster behavior with audio files
+*   Fixed issue with multiple embedded players sharing plugins
+*   Vapor skin should now display correctly on Firefox for Windows
+*   Fixed titles not appearing correctly with related plugin
+*   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
+
 #### **7.0.1** - 8/5/2015
 
 *   displaytitle has been re-added as a configuration option
@@ -472,28 +511,5 @@ More information can be found in our following articles:
 *   Removed unstyled icon appearances during player setup
 *   More reliable handling of ad errors
 
-#### **7.0.2** - 8/26/2015
 
-*   **Chromecast** functionality has been re-added and is now available for Premium users. **Note:** Advertising functions are no longer available while casting
-*   **vpaidmode** has been added for Google IMA VPAID 2 configuration to allow for friendly iframes.
-*   Because JW7 controls are not rendered in Flash, stagevideo configuration is no longer needed and has been removed.
-*   play() and pause() will now control ad playback with our VAST plugin
-*   Ad skip button will now fully inherit skin styles
-*   Continuing improvements to player file size and performance
-*   Fixed issue with relative paths with our Flash provider
-*   Player errors will now differentiate between a missing, invalid, or expired key
-*   Corrected poster behavior with audio files
-*   Fixed issue with multiple embedded players sharing plugins
-*   Vapor skin should now display correctly on Firefox for Windows
-*   Fixed titles not appearing correctly with related plugin
-*   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
 
-#### **7.0.3** - 9/1/2015
-
-*   Changed provider logic to render based on provider availability.
-*   Fixed touch events on Windows 10 devices to show controls appropriately.
-*   Fixed certain livestreams with 608 captions to display the captions at correct times.
-*   Fixed a display issue with poster images in audio only players.
-*   Fixed multi-line WebVTT captions that were not rendering.
-*   Fixed support for DISCONTINUITY-SEQUENCE in HLS.
-*   Fixed an HLS stream that would not play due to targetduration being incorrectly set to a negative value.
