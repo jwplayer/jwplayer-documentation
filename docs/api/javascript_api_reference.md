@@ -1011,6 +1011,7 @@ VAST and IMA. Fired whenever an ad contains companions.
 |resource | The URL to the static/iframe resource, or the raw HTML content|String|
 |type | The type of the creative: static, iframe, or HTML|String|
 |width | The width of the companion in pixels|Number|
+|creativeview <sup>7.5</sup> | An array of included creativeview event tracking pixels|Array|
 
 
 ###jwplayer().on('adComplete')
@@ -1101,9 +1102,9 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |client | The client that is currently being used|"vast" &#124; "googima"|String|
 |creativetype | The type of ad that is being played|-|String|
 |linear | Returns if an ad is "linear" or "nonlinear"|-|String|
+|mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
 |tag | The URL of the ad tag that was started|-|String|
 |vastversion | The version of VAST referenced in the VAST XML|-|Number|
-|mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
 
 |creativetype|Description|
 |----|--------|
