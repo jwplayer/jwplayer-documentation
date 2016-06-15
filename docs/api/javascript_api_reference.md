@@ -291,7 +291,7 @@ Fired when the currently playing item loads additional data into its buffer.
 | duration | Current media's duration (In seconds) | Number |
 | bufferPercent | Percentage between 0 and 100 of the current media that is buffered. | Number |
 | position | Current position of the media file (In seconds) | Number |
-| metadata | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
+| metadata <sup>Flash-Only</sup> | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
 
 ####Metadata Object
 |Value|Description|Type|
@@ -1103,6 +1103,7 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |linear | Returns if an ad is "linear" or "nonlinear"|-|String|
 |tag | The URL of the ad tag that was started|-|String|
 |vastversion | The version of VAST referenced in the VAST XML|-|Number|
+|mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
 
 |creativetype|Description|
 |----|--------|
@@ -1111,6 +1112,10 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |video | A video-based static creative|
 |image/png | Nonlinear PNG image creative |
 |static | Nonlinear static image creative|
+
+|mediafile|Description|
+|----|--------|
+|file | The URL of the media file that is currently playing|
 
 ###jwplayer().on('adPlay')
 Fired whenever an ad starts playing or when an ad is unpaused.
