@@ -30,7 +30,8 @@ Welcome to JW Player / Murray Hill
       	- [Repos](repos.md)
   * Issue Tracking
       	- [Jira](https://jwplayer.atlassian.net/secure/Dashboard.jspa)
-  * Set up SSH Keys for jenkins and github
+      	- [Tech Debt](https://github.com/jwplayer/jwplayer-commercial/issues)
+  * [Set up SSH Keys for GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) and Jenkins
   * Automation Server / Continuous Integration
       	- [Jenkins](jenkins.md)
   * Tools
