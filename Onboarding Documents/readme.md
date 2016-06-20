@@ -29,7 +29,7 @@ Welcome to JW Player / Murray Hill
   * Source Code
       	- [Repos](repos.md)
   * Issue Tracking
-      	- [Jira](hhttps://jwplayer.atlassian.net/secure/Dashboard.jspa)
+      	- [Jira](https://jwplayer.atlassian.net/secure/Dashboard.jspa)
   * Set up SSH Keys for jenkins and github
   * Automation Server / Continuous Integration
       	- [Jenkins](jenkins.md)
