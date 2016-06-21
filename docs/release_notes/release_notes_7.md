@@ -20,8 +20,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.4.3|5/31/2016|Various HLS fixes|
-|Staging/Pre-release|7.4.3|5/25/2016|Various HLS fixes|
-|Beta|7.4.3|5/25/2016|Various HLS fixes|
+|Staging/Pre-release|7.4.4|6/21/2016|Child manifest fix + related feed support|
+|Beta|7.4.4|6/21/2016|Child manifest fix + related feed support|
 
 * * *
 
@@ -83,6 +83,11 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 <a name="version74x"></a>
 
 ### Additional 7.4 Releases:
+
+#### **7.4.4** - 6/21/2016
+
+* HLS JS - Fixed issue where child manifests were not being referenced properly when tokenized parent manifests contained slashes in url search params
+* Added support for JW Platform JSON feeds in related plugin
 
 #### **7.4.3** - 5/25/2016
 

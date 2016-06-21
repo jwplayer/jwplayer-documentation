@@ -291,7 +291,7 @@ Fired when the currently playing item loads additional data into its buffer.
 | duration | Current media's duration (In seconds) | Number |
 | bufferPercent | Percentage between 0 and 100 of the current media that is buffered. | Number |
 | position | Current position of the media file (In seconds) | Number |
-| metadata <sup>Flash-Only</sup> | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
+| metadata <sup>Flash HLS-Only</sup> | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
 
 ####Metadata Object
 |Value|Description|Type|
@@ -481,7 +481,7 @@ Fired after a seek has been requested either by scrubbing the controlbar or thro
 
 ###jwplayer().on('seeked')
 
-Triggered when content playback resumes after seeking. As opposed to on('seek'), this API listener will only trigger when playback actually continues.
+Triggered when video position changes after seeking, as opposed to on('seek') which triggers as a seek occurs.
 
 <table>
   <tr>
@@ -592,7 +592,7 @@ Resizes the player to the specified width and height.
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
 |width| The new desired width of the player in pixels (number) or percent (string) |Number &#124; String|Yes|
-|height| The new desired height of the player in pixels (number) or percent (string)|Number &#124; String |Yes|
+|height| The new desired height of the player. Must be specified in pixels (number)|Number |Yes|
 
 ####Example:
 ```
