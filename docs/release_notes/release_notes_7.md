@@ -2,13 +2,13 @@
 
 This page lists all changes for the various JW Player 7 releases. JW Player 6 release notes can be found [here](http://support.jwplayer.com/customer/portal/articles/1403726).
 
-## Table Of Contents
+## Major Version Releases
 
-*   [Version 7.4](#version74) - 4/25/2016 [+](#version74x)
-*   [Version 7.3](#version73) - 2/1/2016 [+](#version73x)
-*   [Version 7.2](#version72) - 11/18/2015 [+](#version72x)
-*   [Version 7.1](#version71) - 9/16/2015 [+](#version71x)
-*   [Version 7.0](#version70) - 7/20/2015 [+](#version70x)
+*   [Version 7.4](#version74) - 4/25/2016
+*   [Version 7.3](#version73) - 2/1/2016
+*   [Version 7.2](#version72) - 11/18/2015
+*   [Version 7.1](#version71) - 9/16/2015
+*   [Version 7.0](#version70) - 7/20/2015
 
 ## Release Channel Status
 
@@ -25,15 +25,45 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 * * *
 
-<a name="version74"></a>
+### **7.4.4** - 6/21/2016
 
-## JW Player 7.4
+* HLS JS - Fixed issue where child manifests were not being referenced properly when tokenized parent manifests contained slashes in url search params
+* Added support for JW Platform JSON feeds in related plugin
+
+### **7.4.3** - 5/25/2016
+
+* Audio mode with Shaka is now supported
+* adImpression now returns the mediaFile URL of the chosen creative
+* HLS HTML5 - Player would occasionally stall on quality upswitches
+* HLS HTML5 - Multiple forward seeks could stall playback
+* HLS HTML5 - M3U8 manifests with capital letters were not handled correctly
+* getDuration() returned duration of the previous playist item, if called before metadata was loaded
+* load() was not choosing the correct provider when changing playlist items or loading media via API
+* CSS list item styles could affect right click menu styling
+* Player volume was not persisting on page reloads
+* Stopping and replaying in HTML5 could cause an error
+
+### **7.4.2** - 5/11/2016
+
+* Added hlshtml configuration option to control use of HLS HTML5
+
+### **7.4.1** - 5/6/2016
+
+* Caption styling will now work with native HTML5 tracks in Chrome Desktop
+	* When rendering captions in Chrome natively, "fontSize" in the "captions" block will not be obeyed, due to font scaling
+* Changed how player fonts are loaded to prevent false positives with certain firewalls
+* Progressive live streams should now change states correctly
+* Google IMA ad schedules should now play properly
+* Fixed an issue in IE11/Firefox where captions may display during ads
+* “Default” sideloaded captions should now display in Safari automatically
+
+### **7.4.0** - 4/25/2016
 
 HLS in HTML5 support in JW Player is currently only for Chrome 34 and above. We recommend updating to the latest version of Chrome to get the most out of HLS. Specifically support for High Efficiency Advanced Audio Codec (HE-AAC) was only introduced in Chrome 50. 
 
 The following functionality is supported in JW 7.4:
 
-###Features
+####Features
 * Adaptive bitrate switching for Live, DVR and VOD streams
 * Extensive support for streams with discontinuities
 * 608 embedded captions
@@ -47,7 +77,7 @@ The following functionality is supported in JW 7.4:
 * H.264 main and baseline profiles
 * High profile is dependent on hardware
 
-####Coming Soon in 7.5
+####Not yet functional
 * Multi-track audio
 * Embedded WebVTT captions
 * Redundant CDN switching 
@@ -62,7 +92,7 @@ The following functionality is supported in JW 7.4:
 * Azure
 * Unified Streaming
 
-###Changes
+####Changes
 In addition to adding HLS in HTML5, 7.4 has the following updates:
 
 * Google IMA ad tags will automatically get duration and video title added to the request url for more enhanced ad targeting.
@@ -71,60 +101,56 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 * DASH streams will now play in FireFox 45 and up. Still no reliable Safari support.
 * Shaka Provider has been updated to version 1.6.5
 
-###Fixes
+####Fixes
 * Using the API to trigger captions was not updating UI correctly.
 * Relative urls were not working in FireFox.
 * Mobile chrome was sending an additional play event.
 * Closed-captions no longer appear during ad playback.
 * Fixed an issue that could cause Google IMA ads to play behind content
 
-* * *
+### **7.3.6** - 4/1/2016
 
-<a name="version74x"></a>
+*   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
 
-### Additional 7.4 Releases:
+### **7.3.5** - 3/18/2016
 
-#### **7.4.4** - 6/21/2016
+*   TXXX Metadata will now appear properly with Flash provider
+*   Captions in audio mode will now render above the control bar
 
-* HLS JS - Fixed issue where child manifests were not being referenced properly when tokenized parent manifests contained slashes in url search params
-* Added support for JW Platform JSON feeds in related plugin
+### **7.3.4** - 2/25/2016
 
-#### **7.4.3** - 5/25/2016
+*   Fixed issue where certain video streams were interpreted as audio-only in iOS
+*   Fixed issue where thumbnail VTTs were appearing as captions in iOS
 
-* Audio mode with Shaka is now supported
-* adImpression now returns the mediaFile URL of the chosen creative
-* HLS HTML5 - Player would occasionally stall on quality upswitches
-* HLS HTML5 - Multiple forward seeks could stall playback
-* HLS HTML5 - M3U8 manifests with capital letters were not handled correctly
-* getDuration() returned duration of the previous playist item, if called before metadata was loaded
-* load() was not choosing the correct provider when changing playlist items or loading media via API
-* CSS list item styles could affect right click menu styling
-* Player volume was not persisting on page reloads
-* Stopping and replaying in HTML5 could cause an error
+### **7.3.3** - 2/24/2016
 
-#### **7.4.2** - 5/11/2016
+*   Fixed iOS issue with playlists when preload was set to 'none'.
 
-* Added hlshtml configuration option to control use of HLS HTML5
+### **7.3.2** - 2/22/2016
 
-#### **7.4.1** - 5/6/2016
+*   Fixed issue with captions and advertising on iOS
+*   Captions now display properly on IE 10
+*   Ads on IE 10 should now function correctly
 
-* Caption styling will now work with native HTML5 tracks in Chrome Desktop
-	* When rendering captions in Chrome natively, "fontSize" in the "captions" block will not be obeyed, due to font scaling
-* Changed how player fonts are loaded to prevent false positives with certain firewalls
-* Progressive live streams should now change states correctly
-* Google IMA ad schedules should now play properly
-* Fixed an issue in IE11/Firefox where captions may display during ads
-* “Default” sideloaded captions should now display in Safari automatically
+### **7.3.1** - 2/16/2016
 
-* * *
+*   Visual Quality API will now function on iOS
+*   Flash loading errors will now provide more accurate information
+*   VAST Flash companions now display properly on Firefox
+*   Improved Chromecast reliability with mixed playlists
+*   608 Captions will now work on DVR streams in Flash
+*   608 Captions should now toggle correctly on iOS for live streams
+*   Fixed regression with audio player fading during playback
+*   Corrected regression where DRM streams required ‘customData’
+*   Fixed regression with poster images not loading inside of playlists
 
 <a name="version73"></a>
 
-## JW Player 7.3
+### **7.3.0** - 2/1/2016
 
 JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native [HTML5 tracks element](http://www.html5rocks.com/en/tutorials/track/basics/), allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes. The full list is below:
 
-### Features/Improvements:
+#### Features/Improvements:
 
 #### PlayReady DRM Support
 
@@ -144,7 +170,7 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Player supports playlists in JSON file format
 *   Ads rendered with Google IMA SDK now use JW Player control bar UI
 
-### Changes:
+#### Changes:
 
 *   Custom logo is now a CSS-styled div element
 *	New on('adBlock') API call to detect when an adblocker is installed on a viewer's browser
@@ -162,7 +188,7 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   JW Player will pass videoSlotCanAutoPlay in initAd for VPAID 2.0 creatives.
 *   Seeking past multiple midrolls will only trigger and play the last midroll.
 
-### Fixes:
+#### Fixes:
 
 *   QoE events are now properly accounting for preroll advertising on mobile devices
 *   Cuepoint text styling has been improved
@@ -180,59 +206,33 @@ JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS 
 *   Fixed an issue where JW Player was not skipping over non-playble media formats in a VAST response.
 *   VPAID 2.0 creatives were not properly getting a mute property.
 
-* * *
+### **7.2.4** - 12/16/2015
 
-<a name="version73x"></a>
+*   VAST flash creatives will now be properly ignored when player renders in HTML5
+*   Fixed “Cannot set property 'blocking' of null” VPAID console error
+*   Player now renders correctly if browser cookies are blocked
+*   Player now renders correctly in certain older browser versions
+    *   Fixes “JSON.stringify cannot serialize cyclic structures” error
 
-### Additional 7.3 Releases:
+### **7.2.3** - 12/7/2015
 
-#### **7.3.6** - 4/1/2016
-
-*   Fixed an HLS Flash issue where artifacts could appear after discontinuity breaks
-
-#### **7.3.5** - 3/18/2016
-
-*   TXXX Metadata will now appear properly with Flash provider
-*   Captions in audio mode will now render above the control bar
-
-#### **7.3.4** - 2/25/2016
-
-*   Fixed issue where certain video streams were interpreted as audio-only in iOS
-*   Fixed issue where thumbnail VTTs were appearing as captions in iOS
-
-#### **7.3.3** - 2/24/2016
-
-*   Fixed iOS issue with playlists when preload was set to 'none'.
-
-#### **7.3.2** - 2/22/2016
-
-*   Fixed issue with captions and advertising on iOS
-*   Captions now display properly on IE 10
-*   Ads on IE 10 should now function correctly
-
-#### **7.3.1** - 2/16/2016
-
-*   Visual Quality API will now function on iOS
-*   Flash loading errors will now provide more accurate information
-*   VAST Flash companions now display properly on Firefox
-*   Improved Chromecast reliability with mixed playlists
-*   608 Captions will now work on DVR streams in Flash
-*   608 Captions should now toggle correctly on iOS for live streams
-*   Fixed regression with audio player fading during playback
-*   Corrected regression where DRM streams required ‘customData’
-*   Fixed regression with poster images not loading inside of playlists
-
-* * *
+*   Fixed issues with scrolling and Chrome throttling Flash.
+*   Due to publisher feedback, when Chrome throttles Flash, JW Player will no longer sends an error event.
+*   Fixed overlap between Logos and Related/Sharing close icon.
+*   Fixed a regression with pseudo streaming.
+*   Fixed on(‘adComplete’) event behavior with Flash VPAID creatives.
+*   Improved right click overlay to be less prone to styling conflicts
+*   Fixed manual quality toggling in Firefox.
 
 <a name="version72"></a>
 
-## JW Player 7.2
+### **7.2.0** - 11/18/2015
 
 JW Player 7.2 features a variety of exciting new features and updates to your video experiences. We’ve modernized our Sharing and Related plugins to coincide with our JW7 skinning principles. In addition, JW Player now supports using preload with its media. This allows the player to gather playback information about media prior to playback and may improve time to first frame.
 
 In addition, we’ve fixed many pesky bugs, improving experiences for both viewers and publishers.
 
-### Features
+#### Features
 
 #### Sharing Plugin
 
@@ -252,7 +252,7 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Provides faster video startup by preloading media metadata, parsing manifest on page load, and/or starting to download the actual media.
 *   Default value is none.
 
-### Changes
+#### Changes
 
 *   Right click customizations are now part of Free Edition and have an updated design.
 *   When seeking with DVR, we now show a tooltip displaying the time.
@@ -269,7 +269,7 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Adjusted the placement of captions to react to controlbar being shown.
 *   Updated Audio mode behavior to not get throttled by Chrome power saving.
 
-### Fixes
+#### Fixes
 
 *   Player should now respond to touch events properly on iOS 7.
 *   ID3 Metadata was not synching to the correct timestamp in HLS.
@@ -292,39 +292,28 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Fixed an issue with clicking on flash ads in FireFox on OSX.
 *   Fixed playback content not resuming after mid-roll ad-pods. 
 
-* * *
+### **7.1.4** - 10/7/2015
 
-<a name="version72x"></a>
-
-### Additional 7.2 Releases:
-
-#### **7.2.4** - 12/16/2015
-
-*   VAST flash creatives will now be properly ignored when player renders in HTML5
-*   Fixed “Cannot set property 'blocking' of null” VPAID console error
-*   Player now renders correctly if browser cookies are blocked
-*   Player now renders correctly in certain older browser versions
-    *   Fixes “JSON.stringify cannot serialize cyclic structures” error
-
-#### **7.2.3** - 12/7/2015
-
-*   Fixed issues with scrolling and Chrome throttling Flash.
-*   Due to publisher feedback, when Chrome throttles Flash, JW Player will no longer sends an error event.
-*   Fixed overlap between Logos and Related/Sharing close icon.
-*   Fixed a regression with pseudo streaming.
-*   Fixed on(‘adComplete’) event behavior with Flash VPAID creatives.
-*   Improved right click overlay to be less prone to styling conflicts
-*   Fixed manual quality toggling in Firefox.
-
-* * *
+*   VPAID 2.0 JavaScript creatives will render even when Flash is used as the main content video provider. Priority of creative choice is given to the order that they appear in the VAST response.
+*   When the player is rendering in Flash mode, SWF-based VPAID 1.0 ads will play if they are listed as the first or only creative source.
+*   Flash Throttling detection for Chrome.
+*   Controls now fade properly even without user interaction
+*   Unknown CC track was appearing in captions menu when 608 captions and WebVTT captions were part of an HLS stream.
+*   Api call getVisualQuality() is now returning correct value instead of undefined.
+*   Ad complete API is now firing correctly for Flash VPAID ad creatives.
+*   Better handling of a Flash exception that occurs when calling setup on a bad flash embed.
+*   Certain VPAID 2.0 JavaScript creatives were showing JW Player controls instead of the controls that came with the creative.
+*   When Flash was blocked or not able to load the player would show a buffering icon, it now shows the native browser UI instead of JW Player UI until Flash is started.
+*   When using Autoplay, player would not resumed correctly after Chrome begins Power Save throttling.
+*   Fixed support for WebVTT captions in HLS live streams that were trailing behind timecodes.
 
 <a name="version71"></a>
 
-## JW Player 7.1
+### **7.1.0** - 9/16/2015
 
 JW Player 7.1.0 is our first major feature update to JW7\. This new version offers new UI changes and stability fixes. For advertising users, 7.1.0 allows Interactive VPAID 2.0 JavaScript creatives to be used on in HTML5 video players. This release also changes the behavior to the control bar when it is rendered either smaller than 300 px wide or when the interface elements get cluttered.
 
-### Features:
+#### Features:
 
 #### VPAID 2.0
 
@@ -349,13 +338,13 @@ Fullscreen iOS browsers will play VPAID 2.0 creatives but will not have interact
 
 Devices with a smaller viewing area will now see a more mobile-friendly control bar UI. Font size has been increased and secondary control bar elements have been relocated to an overflow menu.
 
-### Changes:
+#### Changes:
 
 *   **on(‘adStarted’)** event added to listen for VPAID adStarted event.
 *   **on(‘adImpression’)** is fired when the VPAID ad impression event is fired instead of the adStarted event.
 *   Apostrophes are now accepted in image file names.
 
-### Fixes:
+#### Fixes:
 
 *   Youtube videos will now correctly begin when our play button is touched on mobile devices.
 *   Long lists of captions will now be properly selectable in overlay menu.
@@ -363,32 +352,55 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   Fixed player behavior when certain HTTP/HTTPS files were combined.
 *   Bug fixes and improvements with updated DASH provider.
 
-* * *
+### **7.0.3** - 9/1/2015
 
-<a name="version71x"></a>
+*   Changed provider logic to render based on provider availability.
+*   Fixed touch events on Windows 10 devices to show controls appropriately.
+*   Fixed certain livestreams with 608 captions to display the captions at correct times.
+*   Fixed a display issue with poster images in audio only players.
+*   Fixed multi-line WebVTT captions that were not rendering.
+*   Fixed support for DISCONTINUITY-SEQUENCE in HLS.
+*   Fixed an HLS stream that would not play due to targetduration being incorrectly set to a negative value.
 
-### Additional 7.1 Releases:
+### **7.0.2** - 8/26/2015
 
-#### **7.1.4** - 10/7/2015
+*   **Chromecast** functionality has been re-added and is now available for Premium users. **Note:** Advertising functions are no longer available while casting
+*   **vpaidmode** has been added for Google IMA VPAID 2 configuration to allow for friendly iframes.
+*   Because JW7 controls are not rendered in Flash, stagevideo configuration is no longer needed and has been removed.
+*   play() and pause() will now control ad playback with our VAST plugin
+*   Ad skip button will now fully inherit skin styles
+*   Continuing improvements to player file size and performance
+*   Fixed issue with relative paths with our Flash provider
+*   Player errors will now differentiate between a missing, invalid, or expired key
+*   Corrected poster behavior with audio files
+*   Fixed issue with multiple embedded players sharing plugins
+*   Vapor skin should now display correctly on Firefox for Windows
+*   Fixed titles not appearing correctly with related plugin
+*   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
 
-*   VPAID 2.0 JavaScript creatives will render even when Flash is used as the main content video provider. Priority of creative choice is given to the order that they appear in the VAST response.
-*   When the player is rendering in Flash mode, SWF-based VPAID 1.0 ads will play if they are listed as the first or only creative source.
-*   Flash Throttling detection for Chrome.
-*   Controls now fade properly even without user interaction
-*   Unknown CC track was appearing in captions menu when 608 captions and WebVTT captions were part of an HLS stream.
-*   Api call getVisualQuality() is now returning correct value instead of undefined.
-*   Ad complete API is now firing correctly for Flash VPAID ad creatives.
-*   Better handling of a Flash exception that occurs when calling setup on a bad flash embed.
-*   Certain VPAID 2.0 JavaScript creatives were showing JW Player controls instead of the controls that came with the creative.
-*   When Flash was blocked or not able to load the player would show a buffering icon, it now shows the native browser UI instead of JW Player UI until Flash is started.
-*   When using Autoplay, player would not resumed correctly after Chrome begins Power Save throttling.
-*   Fixed support for WebVTT captions in HLS live streams that were trailing behind timecodes.
+###
+ **7.0.1** - 8/5/2015
 
-* * *
+*   displaytitle has been re-added as a configuration option
+*   displaydescription can be used to toggle the display of a file’s description field
+*   visualplaylist has been add as a configuration option. The default value is true, setting this to false will remove the visual playlist from the controlbar
+*   Improved replay icon appearance in seven skin.
+*   Player skins are now loaded via CDN instead of being built directly into the player
+*   Removed legacy GA events
+*   Custom providers can now be implemented in Premium edition players
+*   Added support for Akamai HDS provider. Contact Akamai for the latest version.
+*   Clicking “Live” will bring you to the Live position in a DVR stream
+*   Updated DASH support streams with startNumber with values of 0
+*   HLS is now enabled by default for Android devices. To turn HLS off set androidhls:false
+*   Hovering over the player in HTML5 shows mouseover cursor.
+*   Corrected buffer display prior to ad playback
+*   Improved ad schedule handling
+*   Removed unstyled icon appearances during player setup
+*   More reliable handling of ad errors
 
 <a name="version70"></a>
 
-## JW Player 7.0
+### **7.0.0** - 7/20/2015
 
 ### General Updates and enhancements
 
@@ -464,57 +476,3 @@ More information can be found in our following articles:
 *   Using Advertising and DASH may cause issues. HLS is highly recommended if you intend on monetizing your content.
 
 #### See also [JW6 to JW7 Migration FAQ](http://support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7)
-
-* * *
-
-<a name="version70x"></a>
-
-### Additional 7.0 Releases:
-
-#### **7.0.3** - 9/1/2015
-
-*   Changed provider logic to render based on provider availability.
-*   Fixed touch events on Windows 10 devices to show controls appropriately.
-*   Fixed certain livestreams with 608 captions to display the captions at correct times.
-*   Fixed a display issue with poster images in audio only players.
-*   Fixed multi-line WebVTT captions that were not rendering.
-*   Fixed support for DISCONTINUITY-SEQUENCE in HLS.
-*   Fixed an HLS stream that would not play due to targetduration being incorrectly set to a negative value.
-
-#### **7.0.2** - 8/26/2015
-
-*   **Chromecast** functionality has been re-added and is now available for Premium users. **Note:** Advertising functions are no longer available while casting
-*   **vpaidmode** has been added for Google IMA VPAID 2 configuration to allow for friendly iframes.
-*   Because JW7 controls are not rendered in Flash, stagevideo configuration is no longer needed and has been removed.
-*   play() and pause() will now control ad playback with our VAST plugin
-*   Ad skip button will now fully inherit skin styles
-*   Continuing improvements to player file size and performance
-*   Fixed issue with relative paths with our Flash provider
-*   Player errors will now differentiate between a missing, invalid, or expired key
-*   Corrected poster behavior with audio files
-*   Fixed issue with multiple embedded players sharing plugins
-*   Vapor skin should now display correctly on Firefox for Windows
-*   Fixed titles not appearing correctly with related plugin
-*   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
-
-#### **7.0.1** - 8/5/2015
-
-*   displaytitle has been re-added as a configuration option
-*   displaydescription can be used to toggle the display of a file’s description field
-*   visualplaylist has been add as a configuration option. The default value is true, setting this to false will remove the visual playlist from the controlbar
-*   Improved replay icon appearance in seven skin.
-*   Player skins are now loaded via CDN instead of being built directly into the player
-*   Removed legacy GA events
-*   Custom providers can now be implemented in Premium edition players
-*   Added support for Akamai HDS provider. Contact Akamai for the latest version.
-*   Clicking “Live” will bring you to the Live position in a DVR stream
-*   Updated DASH support streams with startNumber with values of 0
-*   HLS is now enabled by default for Android devices. To turn HLS off set androidhls:false
-*   Hovering over the player in HTML5 shows mouseover cursor.
-*   Corrected buffer display prior to ad playback
-*   Improved ad schedule handling
-*   Removed unstyled icon appearances during player setup
-*   More reliable handling of ad errors
-
-
-
