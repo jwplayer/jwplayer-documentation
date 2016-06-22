@@ -19,7 +19,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.4.3|5/31/2016|Various HLS fixes|
+|Production|7.4.4|6/22/2016|Child manifest fix + related feed support|
 |Staging/Pre-release|7.4.4|6/21/2016|Child manifest fix + related feed support|
 |Beta|7.4.4|6/21/2016|Child manifest fix + related feed support|
 
@@ -27,7 +27,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 ### **7.4.4** - 6/21/2016
 
-* HLS JS - Fixed issue where child manifests were not being referenced properly when tokenized parent manifests contained slashes in url search params
+* HLS JS - Tokenized child manifests were not being parsed properly when url search params contained slashes
 * Added support for JW Platform JSON feeds in related plugin
 
 ### **7.4.3** - 5/25/2016
