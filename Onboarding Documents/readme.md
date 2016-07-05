@@ -21,7 +21,7 @@ Welcome to JW Player / Murray Hill
   * View JW Player's [Roadmap](https://docs.google.com/presentation/d/1XLF7Gf9ql8D1KY-aSyI-PKujuGAIka-cFx4HIxdq2i0/edit)
   * [HR Resources](HR Resources.md)
   * [Engineering Resources](engineering-resources.md)
-  * [Favorite Lunch places](lunch-spots.md)
+  * [Favorite Lunch Spots](lunch-spots.md)
 
 
 ## Dev
@@ -38,11 +38,11 @@ Welcome to JW Player / Murray Hill
       	- [Lastpass](https://lastpass.com/) (password management and account sharing)
       	- [Intellij IDEA](https://www.jetbrains.com/idea) (IDE) - request a product license from your manager. 
       	- [Source Tree](https://www.sourcetreeapp.com/) (git client)
-      	- [Waffle.io](https://waffle.io) (monitor github repos)
+      	- [Waffle.io](https://waffle.io/jwplayer/jwplayer) (monitor github repos)
   * VPN
-  		- [OpenVPN](https://openvpn.net) Client
-  		- **Builds**: [jenkins.jwplayer.com](https://jenkins.jwplayer.com) can be accessed at work or remotely without needing to connect to the vpn
-		- **Test Pages**: [jenkins.longtailvideo.com](https://jenkins.longtailvideo.com) requires establishing a VPN connection. You'll also need to a login to gain access - ask your manager for the login info.
+  	- [OpenVPN](https://openvpn.net) Client
+  	- **Builds**: [jenkins.jwplayer.com](https://jenkins.jwplayer.com) can be accessed at work or remotely without needing to connect to the vpn
+	- **Test Pages**: [jenkins.longtailvideo.com](https://jenkins.longtailvideo.com) requires establishing a VPN connection. You'll also need to a login to gain access - ask your manager for the login info.
 2. Best practices
   * [Git Flow](git-flow.md)
   * [How to write a commit message](commit-messages.md)
