@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.5](#version75) - 7/8/2016
 *   [Version 7.4](#version74) - 4/25/2016
 *   [Version 7.3](#version73) - 2/1/2016
 *   [Version 7.2](#version72) - 11/18/2015
@@ -21,9 +22,55 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |---|---|---|---|
 |Production|7.4.4|6/22/2016|Child manifest fix + related feed support|
 |Staging/Pre-release|7.4.4|6/21/2016|Child manifest fix + related feed support|
-|Beta|7.4.4|6/21/2016|Child manifest fix + related feed support|
+|Beta|7.5.0|7/8/2016|Captions refactor, accessibility features, DRM+Ads improvements|
 
 * * *
+
+### **7.5.0 (Beta)** - 7/8/16
+
+#### New Features:
+
+####DRM Improvements
+* Widevine DRM now functional in Firefox 47+
+* Fairplay DRM now functional in Safari Desktop
+* Various fixes/improvements to Playready DRM
+####Advertising Improvements
+* Support for ad tag macros with VMAP ad schedule URLs
+* Different VMAPs can be used on individual playlist items
+* Preload options now supported in HLS HTML5
+* CreativeView tracking pixels now returned with adCompanions API event
+* Ad Impression will now return the mediafile type as creative type
+####Captions + Accessibility Improvements
+* “C” keyboard shortcut will now toggle captions display
+* Change caption appearance/style on the fly with setCaptions() API
+* Support for embedded 708 Captions (In HLS HTML5)
+* Support for VTT positions
+* Improved screen reader support with Aria implementation (Credit to [francoismassart](https://github.com/francoismassart))
+####Misc
+* withCredentials can now be added to HLS/DASH manifest requests by including “withcredentials”: true to a playlist item
+* Added support for redundant HLS streams
+#### Fixes:
+* HLS JS now correctly returns mpegts data with ‘time’ event
+* Cursor will now hide with controls in HTML5 mode
+* Posters will now stretch properly within a certain threshold
+* Fixed issue with VPAID 2 resizing while toggling fullscreen
+* Player now correctly obeys stretching options in fullscreen Flash
+* VPAID 2 ad will no longer display control bar with Google IMA plugin
+* Audio HLS streams will now properly play with captions
+* Mailto and Download links should no longer affect playback
+* Ad pods will now fire correct complete events
+* Improved 608 caption handling with discontinuity periods in Flash
+* Improved segment error handling in HLS HTML5
+* jwplayer.defaults now correctly sets advertising block to all players on page
+* Default 8px margin no longer added to body of VPAID 2 iFrames
+* AES key URLs are now parsed correctly when additional quotes were used
+#### Changes:
+* New default "Seven" Skin
+* CC button will show active color whenever captions are not off
+* Skinning model improvements/cleanup
+* Adaptive streaming qualities now ordered based on bandwidth
+* A single ad error will no longer error out an entire ad pod
+
 
 ### **7.4.4** - 6/21/2016
 
@@ -378,8 +425,7 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 *   Fixed titles not appearing correctly with related plugin
 *   subscribe, securetoken and bufferlength have been re-added as RTMP config options.
 
-###
- **7.0.1** - 8/5/2015
+### **7.0.1** - 8/5/2015
 
 *   displaytitle has been re-added as a configuration option
 *   displaydescription can be used to toggle the display of a file’s description field
@@ -402,7 +448,7 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 
 ### **7.0.0** - 7/20/2015
 
-### General Updates and enhancements
+#### General Updates and enhancements
 
 *   All embeds require a valid license key to work.
 *   All interface elements are rendered in HTML regardless of media provider. Flash media playback will get HTML controls.
