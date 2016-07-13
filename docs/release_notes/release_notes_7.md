@@ -26,6 +26,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 * * *
 
+<a name="version75"></a>
+
 ### **7.5.0 (Beta)** - 7/8/16
 
 #### New Features:
@@ -103,6 +105,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Google IMA ad schedules should now play properly
 * Fixed an issue in IE11/Firefox where captions may display during ads
 * “Default” sideloaded captions should now display in Safari automatically
+
+<a name="version74"></a>
 
 ### **7.4.0** - 4/25/2016
 
