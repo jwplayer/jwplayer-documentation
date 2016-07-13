@@ -710,7 +710,7 @@ Fired when the active quality level is changed for HLS. This is different than _
 
 |Value|Description|Type|
 |----|--------|---|
-| mode | The current type of quality selection. auto = automatic quality switching &124; manual = static quality  | String |
+| mode | The current type of quality selection. auto = automatic quality switching &#124; manual = static quality  | String |
 | label | Information about the new quality that was switched to. This returns the same information as getVisualQuality()  | String |
 | reason | Why the quality was changed. See table below for possible reasons  | String |
 
@@ -779,9 +779,31 @@ Fired when the active audio track is changed. Happens in response to e.g. a user
 
 ## <a name="captions"></a>Captions
 
-These API calls are used to listen to or update the active captions track if one or more closed captions tracks are provided with a video. This API can be used to log captions usage or build your own CC menu outside JW Player.
-
+These API calls are used to listen to or update the active captions track if one or more closed captions tracks are provided with a video. This API can be used to log captions usage or build your own CC menu outside JW Player. Using setCaptions(), which is new in JW 7.5, it is also possible to set caption styles dynamically, without having to reload the player.
 ####Note: An index of 0 implies that captions are off.
+
+###jwplayer().setCaptions(_styles_)<sup>7.5+</sup>
+
+Changes the appearance of captions without having to reload the player. All colors should be in hex value. 
+
+|Attribute|Description|Type| Required|
+|---|--------|---|--|
+|styles|An object containing the desired caption styles and values (See example below) |Object|Yes|
+
+|Value|Description|Type|Default|
+|--------|---|--|
+|color|Text color|String|#ffffff|
+|fontSize|The size of text. _Note: Does not affect cases where native rendering occurs_|Number|20|
+|fontFamily|The style of text to use|String|Arial, sans-serif|
+|fontOpacity|Adjusts the transparency of text as a percentage|Number|100|
+|backgroundColor|The color of the text background|String|#000000|
+|backgroundOpacity|Adjusts the transparency of the text background as a percentage|Number|100|
+|edgeStyle| Surrounds text with a particular style. Can be: **none &#124; dropshadow &#124; raised &#124; depressed &#124; uniform**|String|none|
+|windowColor| Surrounds text box with chosen color from edge to edge of the video|String|-|
+|windowOpacity| Sets the transparency of the window as a percentage|Number|-|
+
+
+**Example:** jwplayer().setCaptions({"color": "#ffffff", "backgroundColor": "#000000"});
 
 ###jwplayer().getCaptionsList()
 
