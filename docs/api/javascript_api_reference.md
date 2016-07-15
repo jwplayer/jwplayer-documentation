@@ -24,6 +24,8 @@ This article provides a reference to all available JW Player [JavaScript API](ht
 
 Also, note that all Events below are using the on listener, however it is also possible to register or remove each event with on, once, or off. The use of trigger may also be used for custom events. For an introduction to JW7's API, see the [JavaScript API Quick Start](/api/javascript_api_introduction/).
 
+Happy coding!
+
 * * *
 
 ## <a name="setup"></a>Setup
@@ -1127,6 +1129,7 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
 |tag | The URL of the ad tag that was started|-|String|
 |vastversion | The version of VAST referenced in the VAST XML|-|Number|
+|wrapper <sup>7.5.0</sup>| An array of the AdSystems specified in any utilized ad wrappers; index denotes level of wrapper|-|Array|
 
 |creativetype|Description|
 |----|--------|
