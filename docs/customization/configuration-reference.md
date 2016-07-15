@@ -50,6 +50,7 @@ If only a single playlist item is used, this information can either be configure
 |**image**|String|URL to a poster image to display before playback starts. |-|
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
+|**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
 
 <br/>
 
@@ -114,25 +115,28 @@ jwplayer("myElement").setup({
     "playlist": [{
         "file": "/assets/sintel.mp4",
         "image": "/assets/sintel.jpg",
-        "title": "Sintel Trailer"
+        "title": "Sintel Trailer",
+        "mediaid": "ddra573"
     },{
         "file": "/assets/bigbuckbunny.mp4",
         "image": "/assets/bigbuckbunny.jpg",
-        "title": "Big Buck Bunny Trailer"
+        "title": "Big Buck Bunny Trailer",
+        "mediaid": "ddrx3v2"
     }]
 });
 ```
 
 |Setting|Type|Description|
 |--|--|--|
-|**playlist[].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
-|**playlist[].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
-|**playlist[].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
-|**playlist[].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services.|
-|**playlist[].image**|String|Poster image URL. Displayed before and after playback.|
-|[playlist&#91;&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
-|[playlist&#91;&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
-|[playlist&#91;&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
+|**playlist[_index_].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
+|**playlist[_index_].withCredentials**<sup>7.5+</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
+|**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
+|**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
+|**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
+|**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
+|[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
+|[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
+|[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
@@ -140,7 +144,7 @@ In addition to standard media information, ("title", "description", "mediaid") i
 
 <br/>
 
-### playlist[].sources[]
+### playlist[_index_].sources[]
 
 Sources are inserted into playlist objects and are lists of files. Sources serve a dual purpose, depending on the files used: 
 
@@ -156,6 +160,7 @@ jwplayer("myElement").setup({
     "title":"One Playlist Item With Multiple Sources",
     "description":"Three Sources - One Playlist Item",
     "image": "myImage.png",
+    "mediaid": "ddrx3v2",
     "sources": [{
       "file": "myVideo.m3u8"
     },{
@@ -195,24 +200,24 @@ In the above example, the player will add an "HD" button, allowing a user to tog
 
 |Config|Type|Description|
 |---|---|---|
-|**playlist[].sources[].file**|String|URL to the video file, audio file, YouTube video or live stream of this playlist item source.|
-|**playlist[].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
-|**playlist[].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
-|**playlist[].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
+|**playlist[_index_].sources[].file**|String|URL to the video file, audio file, YouTube video or live stream of this playlist item source.|
+|**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
+|**playlist[_index_].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
+|**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
 
 <a name="playlist-tracks"></a>
 <br/>
 
-### playlist[].tracks[]
+### playlist[_index_].tracks[]
 
 Tracks can be attached to media for three possible reasons: **captions**, **thumbnails**, or **chapters**. Thumbnail and chapter files **must** be in WEBVTT format. Captions accept **WEBVTT**, **SRT**, and **DFXP** format, though JW Player strongly suggests using **WEBVTT** if possible.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**playlist[].tracks[].file**|String|URL to the captions, chapters or thumbnails text track file. See [Adding Closed Captions](https://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions) for an example setup.|-|
-|**playlist[].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video control bar, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the control bar|"captions"|
-|**playlist[].tracks[].label**|String|Label of the text track. Is only used in setups with multiple captions, where the label is displayed in the CC selection menu.|index|
-|**playlist[].tracks[].default**|Boolean|Only for **captions**. Set this to **true** if you want a captions track to display by default|-|
+|**playlist[_index_].tracks[].file**|String|URL to the captions, chapters or thumbnails text track file. See [Adding Closed Captions](https://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions) for an example setup.|-|
+|**playlist[_index_].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video control bar, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the control bar|"captions"|
+|**playlist[_index_].tracks[].label**|String|Label of the text track. Is only used in setups with multiple captions, where the label is displayed in the CC selection menu.|index|
+|**playlist[_index_].tracks[].default**|Boolean|Only for **captions**. Set this to **true** if you want a captions track to display by default|-|
 
 
 When using the playlist to load an RSS feed, these options are set in the feed. See the [Media Formats Reference](https://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference) for an mapping of all playlist options to RSS format.
@@ -222,22 +227,23 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 
 <br/>
 
-### playlist[].adschedule
+### playlist[_index_].adschedule
 
-The **playlist[].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block. 
+The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block. 
 
 ####Note: An [advertising](#advertising) block, which requires a [JW Player Ads license](https://www.jwplayer.com/pricing/), must be configured to specify your desired ad client before **adschedule** can be configured.
 
 |Config|Type|Information|
 |---|---|---|
-|**playlist[].adschedule.*adbreak*.offset**|String or Number|Specifies when the included tag should play during content. Can be **pre** for a preroll, **post** for a postroll, or a **%** or **number**(In seconds), for a midroll|
-|**playlist[].adschedule.*adbreak*.tag**|String|This is used to set the ad tag for each adbreak within the ad schedule of a playlist item.|
+|**playlist[_index_].adschedule.*adbreak*.offset**|String or Number|Specifies when the included tag should play during content. Can be **pre** for a preroll, **post** for a postroll, or a **%** or **number**(In seconds), for a midroll|
+|**playlist[_index_].adschedule.*adbreak*.tag**|String|This is used to set the ad tag for each adbreak within the ad schedule of a playlist item.|
 ```
 jwplayer("myElement").setup({
   "playlist": [{
   "title":"One Media Item",
   "description":"Only One media item in a playlist!",
   "file": "myFile.mp4",
+  "mediaid": "ddrx3v2",
   "image": "myImage.png",
     "adschedule": {
       "myPreroll": {
@@ -513,16 +519,16 @@ For an overview of JW Player's advertising capabilities, see its dedicated [Vide
 
 ## DRM
 
-###[JW Player Enterprise License](https://www.jwplayer.com/pricing/) Required
+###[JW Player Enterprise License Required](https://www.jwplayer.com/pricing/)
 
-Configuration options related to DRM for MPEG DASH streams. As of JW 7.3.0, both WideVine and PlayReady are supported and can be configured independently within a single setup. See our [Using DASH Streaming](http://support.jwplayer.com/customer/portal/articles/2020483-using-dash-streaming) article for more configuration information and examples.
+Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3.0, both WideVine and PlayReady are supported/ JW Player 7.5.0 introduces Fairplay support for Safari on OSX and macOS, as well as Widevine DRM for Firefox. All three can be configured independently within a single setup.
 
 ###drm.playready
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
-|**drm.playready.customData**|String| Security data that should be passed in a request header |-|
+|**drm.playready.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
 
 <br/>
 
@@ -531,7 +537,16 @@ Configuration options related to DRM for MPEG DASH streams. As of JW 7.3.0, both
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
-|**drm.widevine.customData**|String| Security data that should be passed in a request header |-|
+|**drm.widevine.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
+
+<br/>
+
+###drm.fairplay<sup>7.5</sup>
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**drm.fairplay.url**|String|**(Required)** The URL of the Fairplay license server|-|
+|**drm.fairplay.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
 
 <br/>
 
@@ -542,3 +557,4 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.key**|String|**(Required)** The key required to decrypt DRM content|-|
+

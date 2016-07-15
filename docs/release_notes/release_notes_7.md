@@ -30,31 +30,45 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 ### **7.5.0 (Beta)** - 7/8/16
 
+JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Safari Desktop) as well as improvements to captions positioning, handling, and styling. Aria integration improves accessibility by adding support for screen readers. Finally, we've exposed additional tracking information via our API, and made VMAP ad scheduling more robust. All changes/improvements can be seen below:
+
 #### New Features:
 
-####DRM Improvements
+####[DRM](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drm) and Streaming Improvements
+* withCredentials can now be added to HLS/DASH manifest requests by including “withcredentials”: true to a playlist item
+* Added support for redundant HLS streams
+* Preload options now supported in HLS HTML5
 * Widevine DRM now functional in Firefox 47+
 * Fairplay DRM now functional in Safari Desktop
 * Various fixes/improvements to Playready DRM
+* Increased speed of Dash quality upswitching
 ####Advertising Improvements
 * Support for ad tag macros with VMAP ad schedule URLs
 * Different VMAPs can be used on individual playlist items
-* Preload options now supported in HLS HTML5
 * CreativeView tracking pixels now returned with adCompanions API event
 * Ad Impression will now return the mediafile type as creative type
-####Captions + Accessibility Improvements
+* Information about ad wrappers will now be exposed with adImpression event
+####Captions Refactor + Accessibility Improvements
+* VTT positions now supported in Flash and HTML5
+* Required caption polyfills will be loaded on-the-fly when required (Based on browser support)
 * “C” keyboard shortcut will now toggle captions display
-* Change caption appearance/style on the fly with setCaptions() API
+* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/#captions)
 * Support for embedded 708 Captions (In HLS HTML5)
 * Support for VTT positions
 * Improved screen reader support with Aria implementation (Credit to [francoismassart](https://github.com/francoismassart))
-####Misc
-* withCredentials can now be added to HLS/DASH manifest requests by including “withcredentials”: true to a playlist item
-* Added support for redundant HLS streams
+
+#### Changes:
+# Providers will now be loaded separately only when required
+* New default "Seven" Skin
+* CC button will show active color whenever captions are not off
+* Skinning model improvements/cleanup
+* Adaptive streaming qualities now ordered in API and menus based on bandwidth
+* A single ad error will no longer error out an entire ad pod
+
 #### Fixes:
 * HLS JS now correctly returns mpegts data with ‘time’ event
 * Cursor will now hide with controls in HTML5 mode
-* Posters will now stretch properly within a certain threshold
+* If within a certain threshold, posters will snap to the full player size
 * Fixed issue with VPAID 2 resizing while toggling fullscreen
 * Player now correctly obeys stretching options in fullscreen Flash
 * VPAID 2 ad will no longer display control bar with Google IMA plugin
@@ -66,13 +80,6 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * jwplayer.defaults now correctly sets advertising block to all players on page
 * Default 8px margin no longer added to body of VPAID 2 iFrames
 * AES key URLs are now parsed correctly when additional quotes were used
-#### Changes:
-* New default "Seven" Skin
-* CC button will show active color whenever captions are not off
-* Skinning model improvements/cleanup
-* Adaptive streaming qualities now ordered based on bandwidth
-* A single ad error will no longer error out an entire ad pod
-
 
 ### **7.4.4** - 6/21/2016
 
