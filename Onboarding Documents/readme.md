@@ -35,7 +35,7 @@ Welcome to JW Player / Murray Hill
       	- [Source Tree](https://www.sourcetreeapp.com/) (git client)
       	- [Waffle.io](https://waffle.io/jwplayer/jwplayer) (monitor github repos)
   * VPN
-  	- [OpenVPN](https://openvpn.net) Client
+  	- Login and install [OpenVPN](http://vpn.longtailvideo.com) using your LDAP credentials. If you cannot login, contact helpdesk@jwplayer.com to be granted access.
   	- **Builds**: [jenkins.jwplayer.com](https://jenkins.jwplayer.com) can be accessed at work or remotely without needing to connect to the vpn
 	- **Test Pages**: [jenkins.longtailvideo.com](https://jenkins.longtailvideo.com) requires establishing a VPN connection. You'll also need to a login to gain access - ask your manager for the login info.
 
