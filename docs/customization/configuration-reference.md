@@ -546,7 +546,7 @@ Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.fairplay.url**|String|**(Required)** The URL of the Fairplay license server|-|
-|**drm.fairplay.keyurl**|String|**(Required)** A URL to a CER/DER file, containing a public key|-|
+|**drm.fairplay.keyUrl**|String|**(Required)** A URL to a CER/DER file, containing a public key|-|
 
 <br/>
 
