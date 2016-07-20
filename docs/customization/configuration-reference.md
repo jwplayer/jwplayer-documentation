@@ -521,7 +521,7 @@ For an overview of JW Player's advertising capabilities, see its dedicated [Vide
 
 ###[JW Player Enterprise License Required](https://www.jwplayer.com/pricing/)
 
-Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3.0, both WideVine and PlayReady are supported/ JW Player 7.5.0 introduces Fairplay support for Safari on OSX and macOS, as well as Widevine DRM for Firefox. All three can be configured independently within a single setup.
+Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3.0, both WideVine and PlayReady are supported/ JW Player 7.5.0 introduces Fairplay support for Safari on OSX and macOS Desktops, as well as Widevine DRM for Firefox. All three can be configured independently within a single setup.
 
 ###drm.playready
 
@@ -546,7 +546,7 @@ Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.fairplay.url**|String|**(Required)** The URL of the Fairplay license server|-|
-|**drm.fairplay.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
+|**drm.fairplay.keyurl**|String|**(Required)** A URL to a CER/DER file, containing a public key|-|
 
 <br/>
 
