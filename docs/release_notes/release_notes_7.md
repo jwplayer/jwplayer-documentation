@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.5](#version75) - 7/8/2016
+*   [Version 7.5](#version75) - 7/26/2016
 *   [Version 7.4](#version74) - 4/25/2016
 *   [Version 7.3](#version73) - 2/1/2016
 *   [Version 7.2](#version72) - 11/18/2015
