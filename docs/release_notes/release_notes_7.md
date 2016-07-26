@@ -35,7 +35,7 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 #### New Features:
 
 ####[DRM](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drm) and Streaming Improvements
-* withCredentials can now be added to HLS HTML5 manifest requests by including “withcredentials”: true to a playlist item
+* withCredentials can now be added to HLS HTML5 manifest requests by including “withCredentials”: true to a playlist item
 * Added support for redundant HLS streams in HLS HTML5
 * Preload options now supported in HLS HTML5
 * Widevine DRM now functional in Firefox 47+
