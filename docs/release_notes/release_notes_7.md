@@ -20,15 +20,15 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.4.4|6/22/2016|Child manifest fix + related feed support|
-|Staging/Pre-release|7.4.4|6/21/2016|Child manifest fix + related feed support|
+|Production|7.5.0|7/26/2016|Captions refactor, accessibility features, DRM+Ads improvements|
+|Staging/Pre-release|7.5.0|7/26/2016|Captions refactor, accessibility features, DRM+Ads improvements|
 |Beta|7.5.0|7/8/2016|Captions refactor, accessibility features, DRM+Ads improvements|
 
 * * *
 
 <a name="version75"></a>
 
-### **7.5.0 (Beta)** - 7/8/16
+### **7.5.0** - 7/26/16
 
 JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Safari Desktop) as well as improvements to captions positioning, handling, and styling. Aria integration improves accessibility by adding support for screen readers. Finally, we've exposed additional tracking information via our API, and made VMAP ad scheduling more robust. All changes/improvements can be seen below:
 
@@ -36,7 +36,7 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 
 ####[DRM](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drm) and Streaming Improvements
 * withCredentials can now be added to HLS/DASH manifest requests by including “withcredentials”: true to a playlist item
-* Added support for redundant HLS streams
+* Added support for redundant HLS streams in HLS HTML5
 * Preload options now supported in HLS HTML5
 * Widevine DRM now functional in Firefox 47+
 * Fairplay DRM now functional in Safari Desktop
