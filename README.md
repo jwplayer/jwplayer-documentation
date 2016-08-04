@@ -7,25 +7,26 @@ This is the place where we will keep our support docs.
 
 ## Developing Locally
 
-##### Install [MkDocs](http://www.mkdocs.org/)
+#### Install [MkDocs](http://www.mkdocs.org/)
 
 ```
 $ pip install mkdocs
 ```
 
-##### Install Node modules:
+#### Install Node modules:
 
 ```
 $ npm install
 ```
 
-##### Define your build directory in *mkdocs.yml* (`site` by default):
+#### Define your build directory in *mkdocs.yml*:
 
+For example:
 ```
 site_dir: developer-guide
 ```
 
-##### Run Grunt and serve via localhost:
+#### Run Grunt and serve via localhost:
 
 ```
 $ grunt serve
