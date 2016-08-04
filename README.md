@@ -4,7 +4,6 @@ This is the place where we will keep our support docs.
 
 [Onboarding Docs](https://github.com/jwplayer/jwplayer-docs-new/tree/master/Onboarding%20Documents)
 
-
 ## Developing Locally
 
 #### Install [MkDocs](http://www.mkdocs.org/)
@@ -19,10 +18,10 @@ $ pip install mkdocs
 $ npm install
 ```
 
-#### Define your build directory in *mkdocs.yml*:
+#### Make sure `theme` and `site_dir` are set to the following values in *mkdocs.yml*:
 
-For example:
 ```
+theme: jwplayer
 site_dir: developer-guide
 ```
 
