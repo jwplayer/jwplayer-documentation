@@ -18,13 +18,6 @@ $ pip install mkdocs
 $ npm install
 ```
 
-#### Make sure `theme` and `site_dir` are set to the following values in *mkdocs.yml*:
-
-```
-theme: jwplayer
-site_dir: developer-guide
-```
-
 #### Run Grunt and serve via localhost:
 
 ```
