@@ -20,9 +20,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.5.2|8/2/2016|Caption fixes and ad pod improvements|
-|Staging/Pre-release|7.5.2|8/2/2016|Caption fixes and ad pod improvements|
-|Beta|7.5.2|8/2/2016|Caption fixes and ad pod improvements|
+|Production|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
+|Staging/Pre-release|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
+|Beta|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
 
 * * *
 
