@@ -20,11 +20,24 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.5.0|7/26/2016|Captions refactor, accessibility features, DRM+Ads improvements|
-|Staging/Pre-release|7.5.0|7/26/2016|Captions refactor, accessibility features, DRM+Ads improvements|
-|Beta|7.5.0|7/8/2016|Captions refactor, accessibility features, DRM+Ads improvements|
+|Production|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
+|Staging/Pre-release|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
+|Beta|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
 
 * * *
+
+### **7.5.2** - 8/4/16
+
+#### Fixes:
+* Captions will no longer move when controls are disabled and player is moused over
+* DFXP captions will now be read correctly when using colons to separate seconds and frames
+* Player will now prioritize sequenced ads within an ad buffet
+* Native captions no longer display twice when using thumbnails with HTML5 Provider 
+* Player will now display multiple captions that use the same timestamp
+* 608 captions should now wrap correctly in IE 
+* DFXP/SRT captions should now wrap correctly in all browsers
+* Fixed issue where background color styles could incorrectly be applied to captions
+
 
 <a name="version75"></a>
 

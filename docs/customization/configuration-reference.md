@@ -2,6 +2,10 @@
 
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
+!!!important
+Certain JW Player features may require a specific license. Please [contact our team](https://www.jwplayer.com/contact-us/) to upgrade your account.
+!!!
+
 |Table Of Contents| | |
 |--|--|--|
 |[Setup Options](#setup)|[The Playlist](#playlist)|[Skin](#skin)|
@@ -227,11 +231,14 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 
 <br/>
 
+!!!important
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+!!!
+
 ### playlist[_index_].adschedule
 
 The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block. 
 
-####Note: An [advertising](#advertising) block, which requires a [JW Player Ads license](https://www.jwplayer.com/pricing/), must be configured to specify your desired ad client before **adschedule** can be configured.
 
 |Config|Type|Information|
 |---|---|---|
@@ -429,7 +436,9 @@ See [Display Related Videos](https://support.jwplayer.com/customer/portal/articl
 
 ## Advertising
 
-###[JW Player Ads License](https://www.jwplayer.com/pricing/) Required
+!!!important
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+!!!
 
 This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default. 
 
@@ -519,7 +528,9 @@ For an overview of JW Player's advertising capabilities, see its dedicated [Vide
 
 ## DRM
 
-###[JW Player Enterprise License Required](https://www.jwplayer.com/pricing/)
+!!!important
+Video content protection requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+!!!
 
 Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3.0, both WideVine and PlayReady are supported/ JW Player 7.5.0 introduces Fairplay support for Safari on OSX and macOS Desktops, as well as Widevine DRM for Firefox. All three can be configured independently within a single setup.
 

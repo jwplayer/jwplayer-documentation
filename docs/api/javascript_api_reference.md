@@ -943,6 +943,10 @@ Fired when a user clicks the video display. Especially useful for wiring your ow
 
 ## <a name="advertising"></a>Advertising
 
+!!!important
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+!!!
+
 This API provides developers with more control over the functionality of the Advertising edition of JW Player. For VAST and IMA plugins, this API allows for things like impression verification, custom scheduling, and multiple companions.
 
 ###jwplayer().playAd(_tag_)
