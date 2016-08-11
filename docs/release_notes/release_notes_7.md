@@ -37,6 +37,10 @@ JW Player 7.6 has a mobile optimized design for displaying recommended content d
 
 * Updated design for showing recommended and related content
 
+#### Fixes:
+
+* Fixed issue in Google IMA where adTime was not being returned in HTML5
+
 ### **7.5.2** - 8/4/16
 
 #### Fixes:
