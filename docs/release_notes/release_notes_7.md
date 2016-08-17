@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.6(Beta)](#version76) - 8/11/2016
+*   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
 *   [Version 7.4](#version74) - 4/25/2016
 *   [Version 7.3](#version73) - 2/1/2016
@@ -21,7 +21,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.5.2|8/4/2016|Caption fixes and ad pod improvements|
+|Production|7.6.0|8/15/2016|Improved Related Overlay|
 |Staging/Pre-release|7.6.0|8/11/2016|Improved Related Overlay|
 |Beta|7.6.0|8/11/2016|Improved Related Overlay|
 
@@ -29,7 +29,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 <a name="version76"></a>
 
-### **7.6.0 (Beta)** - 8/11/16
+### **7.6.0** - 8/15/16
 
 JW Player 7.6 has a mobile optimized design for displaying recommended content during and after a video ends. This new overlay is called “Next Up” and retains all of the functionality the related overlay. Next Up pairs seamlessly with feeds from JW Platform to allow your viewers to continue watching and discovering great content.
 
