@@ -21,9 +21,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.6.1|8/24/2016|Improved Related Overlay|
-|Staging/Pre-release|7.6.1|8/24/2016|Improved Related Overlay|
-|Beta|7.6.1|8/24/2016|Improved Related Overlay|
+|Production|7.6.1|8/24/2016|Fixes for related, captions, ad pods|
+|Staging/Pre-release|7.6.1|8/24/2016|Fixes for related, captions, ad pods|
+|Beta|7.6.1|8/24/2016|Fixes for related, captions, ad pods|
 
 * * *
 
