@@ -21,13 +21,28 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.6.0|8/15/2016|Improved Related Overlay|
-|Staging/Pre-release|7.6.0|8/11/2016|Improved Related Overlay|
-|Beta|7.6.0|8/11/2016|Improved Related Overlay|
+|Production|7.6.1|8/29/2016|Fixes for related, captions, ad pods|
+|Staging/Pre-release|7.6.1|8/29/2016|Fixes for related, captions, ad pods|
+|Beta|7.6.1|8/24/2016|Fixes for related, captions, ad pods|
 
 * * *
 
 <a name="version76"></a>
+
+### **7.6.1** - 8/29/16
+
+#### Fixes:
+* Improved wrapping in new related plugin
+* Live stream captions will display after pausing
+* Embedded 608 captions will now appear in Edge
+* Improved 608 captions handling in HTML5 with discontinuities
+* Improved Related item alignment on IE9/10
+* VPAID ads can now be used inside of ad pods
+* VMAP requests will initially use withCredentials and fall back to CORS
+* Related items should now properly cycle through with autoplay
+* Captions would need to be re-enabled after a preroll
+* Nan/Nan no longer appears if the player takes an extended time to set up
+* Side-loaded captions will now properly render in IE9
 
 ### **7.6.0** - 8/15/16
 

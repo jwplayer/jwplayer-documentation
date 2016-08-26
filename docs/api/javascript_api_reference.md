@@ -14,6 +14,7 @@ This article provides a reference to all available JW Player [JavaScript API](ht
 * [Volume](#volume)
 * [Resize](#resize)
 * [Quality](#quality)
+* [Audio](#audio)
 * [Captions](#captions)
 * [Controls](#controls)
 * [Advertising](#advertising)

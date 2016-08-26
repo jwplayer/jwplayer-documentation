@@ -17,6 +17,8 @@ First you will need to give your custom skin a name, which will be used to enabl
 
 Loading a custom skin will replace all elements with our basic **core** skin unless they are explicitly styled. Because of this, we suggest using an existing skin as a starting point for your CSS skinning needs.
 
+Upon embedding the player, you *must* ensure to set your "skin" configuration option to the name specified in your skin. Read more in our [configuration options reference](../configuration-reference)
+
 ## Implementing your CSS
 
 There are currently **two** options to implement the above CSS modifications with JW7\. One of these methods is **much** preferred to maintain optimal rendering performance:
