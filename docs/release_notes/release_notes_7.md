@@ -32,17 +32,19 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 ### **7.6.1** - 8/29/16
 
 #### Fixes:
-* Improved wrapping in new related plugin
-* Live stream captions will display after pausing
-* Embedded 608 captions will now appear in Edge
-* Improved 608 captions handling in HTML5 with discontinuities
-* Improved Related item alignment on IE9/10
-* VPAID ads can now be used inside of ad pods
-* VMAP requests will initially use withCredentials and fall back to CORS
-* Related items should now properly cycle through with autoplay
-* Captions would need to be re-enabled after a preroll
-* Nan/Nan no longer appears if the player takes an extended time to set up
-* Side-loaded captions will now properly render in IE9
+* VPAID ads can now be used inside of ad pods if they are in sequenced in following patterns:
+** The pod starts with a VPAID creative and can be followed by multiple VPAID units 
+** The pod can end switch from VPAID to standard linear ad
+** The pod cannot switch from linear ad to a VPAID creative
+* Fixed an issue where captions would need to be re-enabled after a preroll
+* VMAP requests will initially use withCredentials=true and fall back to withCredentials=false 
+* Added support for embedded 608 captions in HLS streams for Microsoft Edge
+* Fixed multiple issues with timing and appearance of 608 captions after discontinuities in an HLS stream
+* Fixed captions in live streams turning off after pausing and resuming the stream
+* Fixed an issue where side-loaded tracks were not loading in IE9
+* Fixed an issue where next up related item was repeated instead of cycing to a new video 
+* Updated style for video titles wrapping in related video overlay
+* Nan/Nan no longer appears as the duration and current time if the player takes an extended time to set up
 
 ### **7.6.0** - 8/15/16
 
