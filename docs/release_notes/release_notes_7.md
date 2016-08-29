@@ -32,10 +32,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 ### **7.6.1** - 8/29/16
 
 #### Fixes:
-* VPAID ads can now be used inside of ad pods if they are sequenced in following patterns:
- * The pod starts with a VPAID creative and can be followed by multiple VPAID units 
- * The pod can end switch from VPAID to standard linear ad
- * The pod cannot switch from linear ad to a VPAID creative
+* VPAID ads can now be used inside of ad pods if they are sequenced in following patterns: (1) The pod starts with a VPAID creative and can be followed by multiple VPAID units, (2) The pod can end switch from VPAID to standard linear ad, (3) The pod cannot switch from linear ad to a VPAID creative
 * Fixed an issue where captions would need to be re-enabled after a preroll
 * VMAP requests will initially use withCredentials=true and fall back to withCredentials=false 
 * Added support for embedded 608 captions in HLS streams for Microsoft Edge
