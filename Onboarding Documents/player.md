@@ -21,6 +21,11 @@ You can find the build number at the top of the Squash test page - it links to t
 
 ***Note***: the player has ~50% automated test coverage. 
 
+### Testing on Devices
+
+To access your local server on a mobile device, go to the `Grunfile.js` in `jw-commercial` and update the `hostname` field from `localhost` to `0.0.0.0`. You should then be able to access Squash by going to `http://<internal IP>:3000/jwplayer-commercial/test/`. You can get your internal IP from the command line or the Network Utility app. Make sure your decive is on the same wifi network as your server!
+
+
 ### Project Setup
 
 The player team maintains the following repos:
