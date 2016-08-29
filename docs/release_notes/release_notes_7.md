@@ -32,7 +32,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 ### **7.6.1** - 8/29/16
 
 #### Fixes:
-* VPAID ads can now be used inside of ad pods if they are in sequenced in following patterns:
+* VPAID ads can now be used inside of ad pods if they are sequenced in following patterns:
  * The pod starts with a VPAID creative and can be followed by multiple VPAID units 
  * The pod can end switch from VPAID to standard linear ad
  * The pod cannot switch from linear ad to a VPAID creative
@@ -42,7 +42,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed multiple issues with timing and appearance of 608 captions after discontinuities in an HLS stream
 * Fixed captions in live streams turning off after pausing and resuming the stream
 * Fixed an issue where side-loaded tracks were not loading in IE9
-* Fixed an issue where next up related item was repeated instead of cycing to a new video 
+* Fixed an issue where next up related item was repeated instead of cycling to a new video 
 * Updated style for video titles wrapping in related video overlay
 * Nan/Nan no longer appears as the duration and current time if the player takes an extended time to set up
 
