@@ -16,13 +16,16 @@
 
 <p>JW Live enables you to easily broadcast and manage your event live to your audience around the world. Best of all, it&#39;s natively integrated into JW Platform and JW Player for desktop, mobile, and OTT.</p>
 
-<p><i>NOTE: JW Live is currently an invite-only private beta. Please contact your account manager or <a href="mailto:sales@jwplayer.com">sales@jwplayer.com</a> for more info.</i></p>
 
-<p><img height="319" src="https://lh3.googleusercontent.com/uKmGUqUIRA40PUl-8Tn-LVY2IKxGfN6orkOzxcfrVyC2BYzwKqWIcUJ0_nvVpzoa_WH_S-IWjW9D6I-VOPm5cFEDzO1aItkr7O4-17CuvyH4KaIBzTTTZJcj0YBhVgNyPpEMwkdw" width="624" /></p>
+<p><em>NOTE: JW Live is currently an invite-only private beta. Please contact your account manager or <a href="mailto:sales@jwplayer.com">sales@jwplayer.com</a> for more info.</em></p>
+
+<p style="text-align:center;"><img height="319" src="https://lh3.googleusercontent.com/SjzR3i7i_SnIsQbzswytCdGfRc7w4HNJ6oGbkH8Czrd7gmESey18ypMDh28qzH7Mrn3VDxXApC9k0YeY3HQuNM8F8Tsh03G7e98gpYO5z2oX9AvDJHhpiZAPdLEQr4AVWAbPpOJA" width="624" /></p>
+
 
 <p>All you need to get started is a video source (typically a camera or video switcher) and an RTMP encoder. The camera captures the video source of your event and the RTMP encoder encapsulates and transmits (via your internet connection uplink) the video via RTMP to JW Live.</p>
 
-<p><i>NOTE: Your encoder only needs to transcode a single rendition of your source stream to send to JW Live (rather than other platforms that require you to transcode various bitrate renditions before transmitting). This optimizes your uplink bandwidth and reduces the required hardware and software CPU time required to transcode and transmit an RTMP feed.</i></p>
+
+<p><em>NOTE: Your encoder only needs to transcode a single rendition of your source stream to send to JW Live (rather than other platforms that require you to transcode various bitrate renditions before transmitting). This optimizes your uplink bandwidth and reduces the required hardware and software CPU time required to transcode and transmit an RTMP feed.</em></p>
 
 <h3>Step 1: Preparing Your Source Stream</h3>
 
@@ -39,71 +42,100 @@
 <p>Before setting up your event in JW Live, please make sure you have the following:</p>
 
 <ol>
-	<li><b>A video source</b> -- typically a camera, screen recording tool, or pre-recorded video file</li>
-	<li><b>An RTMP encoder</b> -- a software or hardware RTMP encoder that will encode your video to RTMP and allow you to connect your live stream to JW Live.</li>
-	<li><b>A stable internet uplink</b> -- we recommend a hard-wired connection (no WiFi) and a continuous, uninterrupted minimum uplink of 5Mbps</li>
+	<li>
+	<p>A video source -- typically a camera, screen recording tool, or pre-recorded video file</p>
+	</li>
+	<li>
+	<p>An RTMP encoder -- a software or hardware RTMP encoder that will encode your video to RTMP and allow you to connect your live stream to JW Live.</p>
+	</li>
+	<li>
+	<p>A stable internet uplink -- we recommend a hard-wired connection (no WiFi) and a continuous, uninterrupted minimum uplink of 5Mbps</p>
+	</li>
 </ol>
 
-<p>Also, please keep the following in mind about supported use cases in JW Live:</p>
+
+<p>Also, please keep the following in mind about how JW Live works:</p>
 
 <ul>
-	<li>JW Live is designed for event-based live streams only (not for 24/7 broadcasts, real-time video chat applications, or other use cases).</li>
-	<li>JW Live has a maximum duration of 6 hours per event and your event will automatically be ended after this duration is exceeded (if your event is longer than 6hrs, we recommend setting up multiple events to cover the entire duration of your event).</li>
+	<li>
+	<p>JW Live is designed for event-based live streams only (not for 24/7 broadcasts, real-time video chat applications, or other use cases).</p>
+	</li>
+	<li>
+	<p>JW Live has a maximum duration of 6 hours per event and your event will automatically be ended after this duration is exceeded (if your event is longer than 6hrs, we recommend setting up multiple events to cover the entire duration of your event).</p>
+	</li>
 </ul>
-
-<h4>Getting Started</h4>
 
 <p>To setup your live event in JW Live, log in to your JW Platform account and click on the &ldquo;Live&rdquo; option in the left navigation under the &ldquo;Content&rdquo; section.</p>
 
-<p>Click the &ldquo;Create Live Stream&rdquo; button which will launch the live stream setup popup. Here, you can enter your event metadata (title and description). You can also select your geographical location for your broadcast origin. It is best to select an origin location that is closest geographically to your live stream. This will reduce overall latency.</p>
+<p>Click the &ldquo;Create Live Stream&rdquo; button which will launch the live stream setup screen.</p>
+&nbsp;
 
-<p style="text-align: center;"><img src="https://lh4.googleusercontent.com/WtsMoAU-8VeZ3Txljn53mWgLZKY2fy95gwjjXTZNZlyxavErxzwP2-vK0-Yq4XVjbF6kWNwpp6R8rV1Z1ebWqtj5AIBVRNUsSE-_v12f5djVzzQH2W3Dt-DgkfmAJuwLo0bbIqvT" /></p>
+<p>On the first screen, you can enter your event metadata (title, description, and poster image) as well as your Simulcast end points (optional). At this point you can either click &ldquo;Save&rdquo; to save your event details and come back later or you can click &ldquo;Connect&rdquo; if you&rsquo;re ready to start your stream now.</p>
 
-<p><i>NOTE: Typical latency is between 15-30 seconds from source to end viewer, depending on the location of your source, the location of the data center (which is what you select in this step), and the location of the viewer.</i></p>
+<p style="text-align: center;"><img height="279" src="https://lh5.googleusercontent.com/3dRaJimac68Vx2ef3r-FJZwEyuNKwRu2xMxc-7utdMTOIZvLPGcyaszRucPc-Dg2e-RqiHGdzwRgPlZXeg6I5AGJeKDDZHEO1NFEQhE2m_DQtdwpikt413BvLte3rUOerKA1lBrk" width="624" /></p>
 
-<p>Once you&rsquo;ve entered your metadata and selected your location, you will advance to the live stream detail screen. Here, you should first upload your poster image. This is the image that will be displayed in the player prior to the event starting. Make sure to click &ldquo;Save&rdquo; after setting your poster image.</p>
+<p>Step 1: Setup metadata and simulcast</p>
 
-<p style="text-align: center;"><img height="243" src="https://lh6.googleusercontent.com/MsSSR_wq-k54kCucg5vEKzf8apY_kRSuk8QKspPJMwHDdxgfSNhanWgcxbIlcv5xGZr94sdrgKUEK3yc9Oox9ElcgBTnnk6saacQJgG1mpGEGAeKeoJgTiGHDNJLZB6VrfRaIF_d" width="267" /></p>
+<p>Once you&rsquo;re on the Connect screen, you will first have to select your geographical location for your broadcast origin. It is best to select an origin location that is closest geographically to your live stream. This will reduce overall latency.</p>
 
-<p>Next, it is recommended that you setup your Facebook Live simulcasting under the &ldquo;Publish&rdquo; tab.</p>
+<p style="text-align: center;"><img height="279" src="https://lh6.googleusercontent.com/PK5Obdo1HEk4dPntlukt2Kaa4OxQF5qJzl6KrhR5mdHZ_RZqavll7LiUzGWqoFq7FS_WveKivgF7aXKN1hNXHDkiZkl_ntzHKZ0SE-wleXT2uQhiqSiktzmMhUhV9udbACvPRvZw" width="495" /></p>
 
-<p style="text-align: center;"><span id="docs-internal-guid-61b1e163-be96-7663-882d-b6b3368041c5"><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;"><img height="212" src="https://lh4.googleusercontent.com/3hqBgbyAeZwGJL8LFMhdEo67K5I_VsmrnC2YZHgLeZnCl1L0C6mauT2aM03miVQC8T-6e-hUS2ih0LIlzBPldyK70Fo-pLC61uUEZhXcn4Zo6RWiXDX5-fcxF53tmzkJS-SNvlvb" width="532" /></span></span></p>
+<p><em>NOTE: Typical latency is between 15-30 seconds from source to end viewer, depending on the location of your source, the location of the data center (which is what you select in this step), and the location of the viewer.</em></p>
 
-<p>After you&rsquo;ve setup your metadata, poster image, and Facebook Live (optional), you can click the &ldquo;Start Live Stream&rdquo; button. Please allow up to a few minutes for the server resources to allocate for your live stream.</p>
 
-<p style="text-align: center;"><img src="https://lh3.googleusercontent.com/d9ao8zXWGRR2V2N6nIAoqzoFooaVaY1srTdtutXbO7ukFrkNReV6yWxnXMyYycg1aY4CnDAoQMH8QIqeTZQgdC9Rvi3pHMSY-96QVH-Wayl0qPFsb-11wCZhGlrueCjPDA2JfofT" /></p>
+<p>Once you&rsquo;ve selected your location, we will automatically allocate and prepare server resources to broadcast your live stream at the data center location you chose. Please allow up to a few minutes for the server resources to allocate once you&rsquo;ve selected your location.</p>
 
-<p>JW Live dynamically transcodes your input RTMP feed to multiple renditions of H.264 in an HLS stream to optimize the viewing experience for your audience and to reduce the cost of delivery.</p>
+<p style="text-align: center;"><img height="303" src="https://lh4.googleusercontent.com/a6KpSxQVNLln_atpdd8HADlnf7WcCk6AA_7uAiilpj8qgXDsleznhODMUyys3Ab2msyRTBOQ3ybfXp1jzqd8faKKDVBoVnMv3YOD-mNM7EAjYzx7U8ldWRykf0YoXC36WmwESyPU" width="532" /></p>
 
-<p><i>NOTE: JW Live supports up to 1080p input and output.</i></p>
-
-<p>Once server resources are allocated you will see an RTMP Entry Point URL and Stream Name that you can use to connect your source stream to JW Live.</p>
-
-<p style="text-align: center;"><img height="280" src="https://lh4.googleusercontent.com/ixKRGnaFxlzaxOqNFUaPbF_6mz8pWM6D7u5a4WsTCANEscRltq2ZhgaI-Nt3XBdhWFVLP7TSfC1-2wBnEH2E6GAd4eUiqRNNykrDby0ykA6FWVdw_FGP6gmN7VgLPJAOB4w7wjAu" width="572" /></p>
-
-<p>Some encoders support separate URL and Stream Names and others only take a single URL containing both values. In the latter case, you can concatenate the <b>RTMP Entry Point URL</b> and <b>Stream Name</b> like so:</p>
-
-<p style="text-align: center;"><span style="font-family:courier new,courier,monospace;"><span id="docs-internal-guid-61b1e163-be61-da19-9178-1136694b9fc9"><span style="font-size: 14.6667px; color: rgb(0, 0, 255); vertical-align: baseline; white-space: pre-wrap;">http://001.livestream.jwplatform.com/app-0001<span style="font-size: 14.6667px; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;">/<span style="font-size: 14.6667px; color: rgb(56, 118, 29); vertical-align: baseline; white-space: pre-wrap;">fw48fhs</span></span></span></span></span></p>
-
-<p style="text-align: center;"><i>NOTE: You must enter a trailing slash (&ldquo;/&rdquo;) after the Entry Point URL and before the Stream Name</i></p>
-
-<p>Enter these values into your encoder and then start broadcasting from your encoder.</p>
-
-<p style="text-align: center;"><img height="360" src="https://lh3.googleusercontent.com/WaAJ8cZM4ZmkrvqqWbnEmTD_eZGxyS1tzaprsmASlitkiO3a1p9Xz_6-LfGqMyOEtyQFzfEiLa864nMy9S1TtuVUy46kot9lGmR1CmmnEcWM1079AdfFQLW0YEak_qI9j-TJXu1i" width="603" /></p>
-
-<p style="text-align: center;"><i>Figure A. An example using Telestream Wirecast by entering the Entry Point URL in the &ldquo;Address&rdquo; field and the Stream Name in the &ldquo;Stream&rdquo; field.</i></p>
+<p><em>NOTE: The location setting cannot be changed after it is set.</em></p>
 
 <p>&nbsp;</p>
 
-<p style="text-align: center;"><img height="520" src="https://lh3.googleusercontent.com/5wt2Mxvy1gg45AQy_VlVScuTvVpaBqR-hzzOZHebmyk8nbfIsybRA67Eq5fiY-I69yb8f9k-3hQWM_pO7x6qLL6gNsIRnTpgAfIgX2HZqx2bzrl74Ebgus2l5QDg8_Vk9-nwxOEA" width="454" /></p>
+<p>Once server resources are allocated you will see an RTMP Entry Point URL and Stream Name that you can use to connect your source stream to JW Live. Some encoders support separate URL and Stream Names and others only take a single URL containing both values. In the latter case, you can concatenate the <b>RTMP Entry Point URL</b> and <b>Stream Name</b> like so:</p>
 
-<p style="text-align: center;"><i>Figure B. An example of recommended settings for a 720p source stream. Please note that the key frame interval should be 2x the frame rate always.</i></p>
+
+<p><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 255); vertical-align: baseline; white-space: pre-wrap;">http://001.livestream.jwplatform.com/app-0001<span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;">/<span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(56, 118, 29); vertical-align: baseline; white-space: pre-wrap;">fw48fhs</p>
+
+<p><em>NOTE: You must enter a trailing slash (&ldquo;/&rdquo;) after the Entry Point URL and before the Stream Name</em></p>
+
+<p style="text-align: center;"><img height="299" src="https://lh5.googleusercontent.com/FZWCV9Re0v2Gy7N3M3ADl1NNC7ysF8xrOMs6I5RZWMs5rpaQq0bliwVY9hZR_RPs3qV3Xvu-B4jGoiZ48wjO5JlOvICa-RQ2uYEfYDGBd4gYGAX5PqxJ6dJoPrj_r-6gHZiT6-YW" width="528" /></p>
+&nbsp;
+
+<p>Enter these values into your encoder and then start broadcasting from your encoder.</p>
+
+<p style="text-align: center;"><img height="360" src="https://lh3.googleusercontent.com/wBZbAEE9fY2IpZIG9clCJG_O-gd7hUBEOokTjqc4mtrpJhaGXR2iQvMtDvZ_-T_ZiBBwl-jGPUQbXJ52YimI5uiTR2v-pOvtm-Q0dFvjBqQCUT7FsHnj2YlVYISnzQX3FkaVSmZJ" width="603" /></p>
+
+<p><em>Figure A. An example using Telestream Wirecast by entering the Entry Point URL in the &ldquo;Address&rdquo; field and the Stream Name in the &ldquo;Stream&rdquo; field.</em></p>
+
+<p style="text-align: center;"><img height="520" src="https://lh3.googleusercontent.com/ftI0Jw61k7mhNhfr775bJWlMrfZEFhtaPOJfdgkahNMRVmmy3G9ow8pWlzYDrFd5lOMTfXruyJWB2d7qKpgbgX0ICvCph3WXVnvCCGj9Tp_8ylwPqkdMmOFLvm2EoByOm2jKbTQH" width="454" /></p>
+
+<p><em>Figure B. An example of recommended settings for a 720p source stream. Please note that the key frame interval should be 2x the frame rate always.</em></p>
 
 <p>Please allow 15-30 seconds after you begin broadcasting for servers to detect your RTMP source stream. Once we detect your source stream, you will see a preview of the stream in the player window with the &ldquo;preview&rdquo; indicator illuminated in the player.</p>
 
-<p>Once you are live, you will see your video in a player. You will also be able to see your analytics for the event by clicking on the &quot;Stats&quot; tab, which will update every few minutes (you may need to refresh the page to see updates).</p>
 
-<p>Once your stream is ready to end, click the &ldquo;Stop Live Stream&rdquo; button. You will be prompted to confirm the end of your broadcast. Your stream will automatically be archived and a link to your archived asset will be made available once it&#39;s ready.</p>
+<p style="text-align: center;"><img height="300" src="https://lh3.googleusercontent.com/9vrslvjA2jxV0UwgXDWURJdpEHIupQfZisqiOeKS9wPcvB-mak-y9C_wzfEOIEBHtUtnlhdQWS6Vgi8o9aH4dSX0h_3Yql5l7tMSj6PaJDNHBJO8YCi7d2F2VRWu-N8HCgZO7JyU" width="533" /></p>
+
+<p style="text-align: center;">Figure C. Example of player with connected source stream via RTMP and preview player.</p>
+
+<p>Once the stream is detected, the &ldquo;Go Live&rdquo; button will become available. When you are ready to begin broadcasting, click the &ldquo;Go Live&rdquo; button. This will activate all of your player embeds as well as simulcast broadcasts (such as Facebook Live) at the same time.</p>
+
+<p style="text-align: center;"><img height="312" src="https://lh4.googleusercontent.com/APih4tKqDOeYFAdytD4pOmF8380Q7RWTJnigBt4y6sS6hI9vZDKMtQn3EfidAvsJZFYjxL_SOxvpnYvdkhAhW8BCPLPCdJrtjZXLrVM22QHh4Cfn9fyUUYMbQz5kscdWRrX7T_F-" width="587" /></p>
+
+<p>Once you are live, you will see your video in a player with the &ldquo;live&rdquo; label on it. You will also see a Facebook Live icon if you&rsquo;re connected to this simulcast end point. On the right you will see your analytics for the event, which will update every few minutes (you may need to refresh the page to see updates).</p>
+
+<p style="text-align: center;"><img height="280" src="https://lh3.googleusercontent.com/vpxLhbZSfa-kczv_UJzuvpSTjNDthOypwHJcvzbn99iU7GwkJY1Cz_QQ-5Rhn7DZZZHph-L8yyNsM9DnnvsoDltVEZ0CD4qWu_Ue3Hc9rjhKh16QkT8orgg50XL97gQH6cvxQyxd" width="596" /></p>
+
+<p>Click on any of the analytics items to see a detailed view of each item.</p>
+&nbsp;
+
+<p><em>NOTE: You can also see your RTMP Entry Point info again by clicking the &ldquo;info&rdquo; icon in the player.</em></p>
+
+<p>Once your stream is ready to end, click the &ldquo;End Stream&rdquo; button. You will be prompted to confirm the end of your broadcast. Your stream will automatically be archived. Once your live stream is archived, you can can trim it using in the videos section.</p>
+
+<p>In the trimming step, drag the in-point and out-point to the start and end of the window you wish to trim. You can only trim once. Confirm by clicking &ldquo;Trim and Save&rdquo; to continue.</p>
+
+
 
 <p>If you have any questions please don&rsquo;t hesitate to check out our support site or ask your account manager.</p>
 
