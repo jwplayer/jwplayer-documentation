@@ -1,0 +1,173 @@
+<p>Within the ecosystem of JW Player products, you have many ways available to you to utilize live streaming. Three of the main use cases for live streaming with JW Platform and JW Player are:</p>
+
+<ol>
+	<li>
+	<p><a href="#JWLive">Using JW Live as your live streaming provider</a> (end-to-end solution, part of JW Platform)</p>
+	</li>
+	<li>
+	<p><a href="#ExternalURL">Using JW Platform to manage an external live stream</a> (via external URL import)</p>
+	</li>
+	<li>
+	<p><a href="#JWPlayer">Using JW Player only</a> (with an external live streaming provider)</p>
+	</li>
+</ol>
+
+<h2><a name="JWLive" style="color:#000">Getting Started with JW Live</a></h2>
+
+<p>JW Live enables you to easily broadcast and manage your event live to your audience around the world. Best of all, it&#39;s natively integrated into JW Platform and JW Player for desktop, mobile, and OTT.</p>
+
+<p><i>NOTE: JW Live is currently an invite-only private beta. Please contact your account manager or <a href="mailto:sales@jwplayer.com">sales@jwplayer.com</a> for more info.</i></p>
+
+<p><img height="319" src="https://lh3.googleusercontent.com/uKmGUqUIRA40PUl-8Tn-LVY2IKxGfN6orkOzxcfrVyC2BYzwKqWIcUJ0_nvVpzoa_WH_S-IWjW9D6I-VOPm5cFEDzO1aItkr7O4-17CuvyH4KaIBzTTTZJcj0YBhVgNyPpEMwkdw" width="624" /></p>
+
+<p>All you need to get started is a video source (typically a camera or video switcher) and an RTMP encoder. The camera captures the video source of your event and the RTMP encoder encapsulates and transmits (via your internet connection uplink) the video via RTMP to JW Live.</p>
+
+<p><i>NOTE: Your encoder only needs to transcode a single rendition of your source stream to send to JW Live (rather than other platforms that require you to transcode various bitrate renditions before transmitting). This optimizes your uplink bandwidth and reduces the required hardware and software CPU time required to transcode and transmit an RTMP feed.</i></p>
+
+<h3>Step 1: Preparing Your Source Stream</h3>
+
+<p>To get started with JW Live, you should first make sure you have a source stream (camera, screen capture, etc.) and encoder that is able to output RTMP with H.264 video. A few supported encoder options include:</p>
+
+<ol>
+	<li><b>Mobile</b>: <a href="https://itunes.apple.com/us/app/broadcast-me/id491982406?mt=8" target="_blank">Broadcast Me app for iOS</a> and <a href="https://play.google.com/store/apps/details?id=eu.agilio.testingrtmp&amp;hl=en" target="_new">Android</a></li>
+	<li><b>Software</b>: <a href="http://www.telestream.net/wirecast/" target="_blank">Telestream Wirecast</a></li>
+	<li><b>Hardware</b>: Teradek Vidiu and NewTek TriCaster products</li>
+</ol>
+
+<h3>Step 2: Setting Up Your Live Event</h3>
+
+<p>Before setting up your event in JW Live, please make sure you have the following:</p>
+
+<ol>
+	<li><b>A video source</b> -- typically a camera, screen recording tool, or pre-recorded video file</li>
+	<li><b>An RTMP encoder</b> -- a software or hardware RTMP encoder that will encode your video to RTMP and allow you to connect your live stream to JW Live.</li>
+	<li><b>A stable internet uplink</b> -- we recommend a hard-wired connection (no WiFi) and a continuous, uninterrupted minimum uplink of 5Mbps</li>
+</ol>
+
+<p>Also, please keep the following in mind about supported use cases in JW Live:</p>
+
+<ul>
+	<li>JW Live is designed for event-based live streams only (not for 24/7 broadcasts, real-time video chat applications, or other use cases).</li>
+	<li>JW Live has a maximum duration of 6 hours per event and your event will automatically be ended after this duration is exceeded (if your event is longer than 6hrs, we recommend setting up multiple events to cover the entire duration of your event).</li>
+</ul>
+
+<h4>Getting Started</h4>
+
+<p>To setup your live event in JW Live, log in to your JW Platform account and click on the &ldquo;Live&rdquo; option in the left navigation under the &ldquo;Content&rdquo; section.</p>
+
+<p>Click the &ldquo;Create Live Stream&rdquo; button which will launch the live stream setup popup. Here, you can enter your event metadata (title and description). You can also select your geographical location for your broadcast origin. It is best to select an origin location that is closest geographically to your live stream. This will reduce overall latency.</p>
+
+<p style="text-align: center;"><img src="https://lh4.googleusercontent.com/WtsMoAU-8VeZ3Txljn53mWgLZKY2fy95gwjjXTZNZlyxavErxzwP2-vK0-Yq4XVjbF6kWNwpp6R8rV1Z1ebWqtj5AIBVRNUsSE-_v12f5djVzzQH2W3Dt-DgkfmAJuwLo0bbIqvT" /></p>
+
+<p><i>NOTE: Typical latency is between 15-30 seconds from source to end viewer, depending on the location of your source, the location of the data center (which is what you select in this step), and the location of the viewer.</i></p>
+
+<p>Once you&rsquo;ve entered your metadata and selected your location, you will advance to the live stream detail screen. Here, you should first upload your poster image. This is the image that will be displayed in the player prior to the event starting. Make sure to click &ldquo;Save&rdquo; after setting your poster image.</p>
+
+<p style="text-align: center;"><img height="243" src="https://lh6.googleusercontent.com/MsSSR_wq-k54kCucg5vEKzf8apY_kRSuk8QKspPJMwHDdxgfSNhanWgcxbIlcv5xGZr94sdrgKUEK3yc9Oox9ElcgBTnnk6saacQJgG1mpGEGAeKeoJgTiGHDNJLZB6VrfRaIF_d" width="267" /></p>
+
+<p>Next, it is recommended that you setup your Facebook Live simulcasting under the &ldquo;Publish&rdquo; tab.</p>
+
+<p style="text-align: center;"><span id="docs-internal-guid-61b1e163-be96-7663-882d-b6b3368041c5"><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;"><img height="212" src="https://lh4.googleusercontent.com/3hqBgbyAeZwGJL8LFMhdEo67K5I_VsmrnC2YZHgLeZnCl1L0C6mauT2aM03miVQC8T-6e-hUS2ih0LIlzBPldyK70Fo-pLC61uUEZhXcn4Zo6RWiXDX5-fcxF53tmzkJS-SNvlvb" width="532" /></span></span></p>
+
+<p>After you&rsquo;ve setup your metadata, poster image, and Facebook Live (optional), you can click the &ldquo;Start Live Stream&rdquo; button. Please allow up to a few minutes for the server resources to allocate for your live stream.</p>
+
+<p style="text-align: center;"><img src="https://lh3.googleusercontent.com/d9ao8zXWGRR2V2N6nIAoqzoFooaVaY1srTdtutXbO7ukFrkNReV6yWxnXMyYycg1aY4CnDAoQMH8QIqeTZQgdC9Rvi3pHMSY-96QVH-Wayl0qPFsb-11wCZhGlrueCjPDA2JfofT" /></p>
+
+<p>JW Live dynamically transcodes your input RTMP feed to multiple renditions of H.264 in an HLS stream to optimize the viewing experience for your audience and to reduce the cost of delivery.</p>
+
+<p><i>NOTE: JW Live supports up to 1080p input and output.</i></p>
+
+<p>Once server resources are allocated you will see an RTMP Entry Point URL and Stream Name that you can use to connect your source stream to JW Live.</p>
+
+<p style="text-align: center;"><img height="280" src="https://lh4.googleusercontent.com/ixKRGnaFxlzaxOqNFUaPbF_6mz8pWM6D7u5a4WsTCANEscRltq2ZhgaI-Nt3XBdhWFVLP7TSfC1-2wBnEH2E6GAd4eUiqRNNykrDby0ykA6FWVdw_FGP6gmN7VgLPJAOB4w7wjAu" width="572" /></p>
+
+<p>Some encoders support separate URL and Stream Names and others only take a single URL containing both values. In the latter case, you can concatenate the <b>RTMP Entry Point URL</b> and <b>Stream Name</b> like so:</p>
+
+<p style="text-align: center;"><span style="font-family:courier new,courier,monospace;"><span id="docs-internal-guid-61b1e163-be61-da19-9178-1136694b9fc9"><span style="font-size: 14.6667px; color: rgb(0, 0, 255); vertical-align: baseline; white-space: pre-wrap;">http://001.livestream.jwplatform.com/app-0001<span style="font-size: 14.6667px; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;">/<span style="font-size: 14.6667px; color: rgb(56, 118, 29); vertical-align: baseline; white-space: pre-wrap;">fw48fhs</span></span></span></span></span></p>
+
+<p style="text-align: center;"><i>NOTE: You must enter a trailing slash (&ldquo;/&rdquo;) after the Entry Point URL and before the Stream Name</i></p>
+
+<p>Enter these values into your encoder and then start broadcasting from your encoder.</p>
+
+<p style="text-align: center;"><img height="360" src="https://lh3.googleusercontent.com/WaAJ8cZM4ZmkrvqqWbnEmTD_eZGxyS1tzaprsmASlitkiO3a1p9Xz_6-LfGqMyOEtyQFzfEiLa864nMy9S1TtuVUy46kot9lGmR1CmmnEcWM1079AdfFQLW0YEak_qI9j-TJXu1i" width="603" /></p>
+
+<p style="text-align: center;"><i>Figure A. An example using Telestream Wirecast by entering the Entry Point URL in the &ldquo;Address&rdquo; field and the Stream Name in the &ldquo;Stream&rdquo; field.</i></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align: center;"><img height="520" src="https://lh3.googleusercontent.com/5wt2Mxvy1gg45AQy_VlVScuTvVpaBqR-hzzOZHebmyk8nbfIsybRA67Eq5fiY-I69yb8f9k-3hQWM_pO7x6qLL6gNsIRnTpgAfIgX2HZqx2bzrl74Ebgus2l5QDg8_Vk9-nwxOEA" width="454" /></p>
+
+<p style="text-align: center;"><i>Figure B. An example of recommended settings for a 720p source stream. Please note that the key frame interval should be 2x the frame rate always.</i></p>
+
+<p>Please allow 15-30 seconds after you begin broadcasting for servers to detect your RTMP source stream. Once we detect your source stream, you will see a preview of the stream in the player window with the &ldquo;preview&rdquo; indicator illuminated in the player.</p>
+
+<p>Once you are live, you will see your video in a player. You will also be able to see your analytics for the event by clicking on the &quot;Stats&quot; tab, which will update every few minutes (you may need to refresh the page to see updates).</p>
+
+<p>Once your stream is ready to end, click the &ldquo;Stop Live Stream&rdquo; button. You will be prompted to confirm the end of your broadcast. Your stream will automatically be archived and a link to your archived asset will be made available once it&#39;s ready.</p>
+
+<p>If you have any questions please don&rsquo;t hesitate to check out our support site or ask your account manager.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="ExternalURL" style="color:#000">JW Platform: Managing an External Live Stream</a></h2>
+
+<p>Managing your live stream via an external provider in JW Platform allows you to utilize your existing live streaming workflow while taking advantage of the premium features of JW Platform and JW Player such as custom metadata, automatically curated recommendations, real-time analytics and more.</p>
+
+<p>To manage a live stream in JW Platform, simple click the &ldquo;Import Video URL&rdquo; button in the JW Dashboard &ldquo;Videos&rdquo; section and paste the URL to the M3U8 document (HLS manifest file). See your live streaming providers support documentation for instructions on how to get the output M3U8 manifest URL.</p>
+
+<p style="text-align: center;"><img height="331" src="https://lh4.googleusercontent.com/YTjrviDhiR-PXTUpyqyylVIn3z-FBrWmtOmwB8p4byLsOmgw_iXBQaULPNatL7Keakvu5lun2m_7kA_0c1p54KFBtiWRJY11WOz5M1QYsbxzfROdaFXGCiCWQGzlesO75S4Y-Ray" width="579" /></p>
+
+<p style="text-align: center;"><i>Figure A. Paste your URL into the text field in this popup after clicking &ldquo;Add Video URL&rdquo; and then click &ldquo;Add&rdquo; to finish importing.</i></p>
+
+<p>&nbsp;</p>
+
+<h2><a name="JWPlayer" style="color:#000">JW Player: Playing a Live Stream</a></h2>
+
+<p>JW Player natively supports live streaming via HTTP Adaptive Streaming technologies such as HLS and MPEG-DASH as well as RTMP live streams.</p>
+
+<h3>HLS &amp; MPEG-DASH</h3>
+
+<p>Using a live stream with JW Player is very similar to working with static VoD content. You simply load the URL to the live stream into JW Player and the player will automatically show a &ldquo;live&rdquo; indicator and show the appropriate control bar for live (including DVR controls if DVR is enabled with your provider).</p>
+
+<p>See our developer documentation for additional information on how to use a live stream in JW Player.</p>
+
+<h3>RTMP</h3>
+
+<p>RTMP (Real Time Messaging Protocol) is a system for delivering on-demand and live media to Adobe Flash applications (like the JW Player). However, RTMP only works in Flash and not in HTML5. Newer HTTP streaming protocols, like Apple&#39;s HTTP Live Streaming (HLS), have wider device support (e.g. iOS) and are the recommended way to do live streaming.</p>
+
+<p>Also note that JW Platform and JW Live do not offer RTMP delivery of live streams directly. You will need to have your own provider to deliver the RTMP stream to your JW Player.</p>
+
+<h4>Setup</h4>
+
+<p>An RTMP live stream is embedded in JW Player in exactly the same way as an on-demand stream. However, the Akamai, Edgecast and Limelight CDNs require a player to subscribe to a live stream. JW Player <a href="https://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming">supports this mechanism</a>.</p>
+
+<p>JW Player will embed and play a live stream like an on-demand file, with one exception: instead of displaying a slider to scrub through the timeline, the player will display the title of the event in the controlbar.</p>
+
+<h4>Serving RTMP</h4>
+
+<p>In order to use RTMP, your host or CDN needs to have a dedicated RTMP server installed.</p>
+
+<p>There are two major offerings, both supported by JW Player:</p>
+
+<ul>
+	<li>
+	<p>Wowza Media Server is today&#39;s most widely used solution. It includes support for almost any streaming protocol, including RTMP. Wowza 3 introduced dedicated support for SMIL manifests (see below)</p>
+	</li>
+	<li>
+	<p>Adobe Media Server is another great option. Since Flash is developed by Adobe, new RTMP functionalities find their way in FMS first.</p>
+	</li>
+</ul>
+
+<h4>Load Balancing</h4>
+
+<p>For large-scale RTMP deployments, JW Player supports three mechanism for server load balancing:</p>
+
+<ul>
+	<li>
+	<p>DNS load balancing, working independent of JW Player.</p>
+	</li>
+	<li>RTMP 302 redirects, as used by Wowza for load balancing. See their user guide for more info.</li>
+	<li>SMIL load balancing, where an initial SMIL file contains the RTMP links to edge nodes. See the section on dynamic streaming below for an example SMIL file.</li>
+</ul>
+
+<p>See the <a href="http://developer.jwplayer.com/">developer documentation for code samples on how to configure the player to play RTMP streams</a>.</p>
