@@ -7,7 +7,7 @@ Customizing JW Player is made easier with JW Player 7's updated CSS-based skinnn
 First you will need to give your custom skin a name, which will be used to enable it within a player. The given name will be added into the jwplayer element and can be used to overwrite styles. The actual skin name should be appeneded to the **.jw-skin-** prefix. Our below example is altering our display icon container, and is going to be called **myskin**:
 
 ```
-.jwplayer .jw-skin-myskin .jw-display-icon-container {
+.jwplayer.jw-skin-myskin .jw-display-icon-container {
     border-style: solid;
     border-width: medium;
     border-radius: 50%;
