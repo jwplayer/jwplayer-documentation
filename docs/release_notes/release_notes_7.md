@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.7](#version77) - 9/12/2016
 *   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
 *   [Version 7.4](#version74) - 4/25/2016
@@ -23,9 +24,51 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |---|---|---|---|
 |Production|7.6.1|8/29/2016|Fixes for related, captions, ad pods|
 |Staging/Pre-release|7.6.1|8/29/2016|Fixes for related, captions, ad pods|
-|Beta|7.6.1|8/24/2016|Fixes for related, captions, ad pods|
+|Beta|7.7.0 - Alpha|9/12/2016|Next up UI, Firefox HLS HTML5, Google IMA|
 
 * * *
+
+<a name="version77"></a>
+
+### **7.7.0 - Alpha** - 9/12/16
+
+JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content. 
+
+This release also enhances the controlbar UI with a new default rewind 10 second element, a new “Next Up” button which shows a tooltip for the next video to be played when hovered over, and the option for the Next Up element to display before the next video begins.
+
+#### New in Streaming and DRM
+* H.264 video and aac audio encoded HLS streams are now supported in HTML5 in Firefox
+* Updated to a new DASH library that will start faster as well upswitch qualities quicker
+* Multi-period streams are now supported
+* Support for custom functions when requesting key and certificates for Apple FairPlay Streaming
+* Added the ability to set custom HTTP headers for Widevine and PlayReady key requests
+
+#### New Playlist Overlay and Next Up Changes
+* Added the ability to flip through pages of feeds in both curated playlist and discovery mode within the Next Up video overlay
+* New configuration options to set localization text for Next Up and Playlist overlay title
+* New Next Up tooltip will show the playlist item or the next recommended item
+* Updated the icon used for related dock items to be consistent with playlists
+* Added a nextupoffset that can be used to trigger a moment in the video to display the Next Up item. The default value is 10 seconds before the item ends.
+
+#### New in Advertising
+* No longer using IMA 3 Flash SDK, all IMA ads will render using the HTML5 IMA SDK
+* Ad slots will automatically preload when using googima on playlistitem instead of on beforePlay
+
+#### Changes
+* Improved compatibility with RequireJS
+* When the player errors, a viewer can now access the playlist overlay and navigate to new content
+* Ability to set the minimum configurable length for when DVR controls are enabled
+* Removed previous button from controlbar
+* Created a new 30 second seek back icon and controlbar element
+* Right-click menu will automatically close after 3 seconds
+
+#### Fixes
+* Fixed an issue with unmarked discontinuities in HLS streams causing the player to hang
+* Fixed player API to not trigger pause when seeking is happening
+* Fixed multiple issues with PlayReady streams not playing
+* Fixed ads being skippable in an ad pod before the allotted skipoffset was reached
+* Fixed HTML5 HLS not broadcasting stalled when it is stalled.
+
 
 <a name="version76"></a>
 
