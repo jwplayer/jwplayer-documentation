@@ -234,6 +234,11 @@ Start playback of the playlist item at the specified index.
 |--|--------|---|--|
 |index| The index of a playlist item you wish to play |Number|Yes|
 
+###jwplayer().next();<sup>7.7</sup>
+
+Tells JW Player to immediately play the next playlist item
+
+
 * * * 
 
 ###jwplayer().on('playlist')
@@ -1111,12 +1116,7 @@ VAST only. Fired whenever an ad is requested by the player.
 |Value|Description|Type|
 |----|--------|---|
 |tag | The URL of the  ad tag that was started.|String|
-|creativetype | The type of VPAID ad that is being played|String|
-
-|creativetype|Description|
-|----|--------|
-|vpaid-swf | A Flash-based ad creative|
-|vpaid-js | A Javascript-based VPAID 2 ad creative|
+|creativetype | The MIME type of the VPAID creative|String|
 
 ###jwplayer().on('adImpression')
 VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs the instant a video ad begins to play.
@@ -1129,24 +1129,12 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |adsystem | AdSystem referenced inside of the VAST XML |-|String|
 |adtitle | AdTitle referenced inside of the VAST XML|-|String|
 |client | The client that is currently being used|"vast" &#124; "googima"|String|
-|creativetype | The type of ad that is being played|-|String|
+|creativetype | **VAST-only** The MIME type of the current media file specified in the VAST XML|-|String|
 |linear | Returns if an ad is "linear" or "nonlinear"|-|String|
-|mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
+|mediafile <sup>7.4.3</sup> | **VAST-only** An object containing "file", which is the currently playing media item|-|Object|
 |tag | The URL of the ad tag that was started|-|String|
 |vastversion | The version of VAST referenced in the VAST XML|-|Number|
 |wrapper <sup>7.5.0</sup>| An array of the AdSystems specified in any utilized ad wrappers; index denotes level of wrapper|-|Array|
-
-|creativetype|Description|
-|----|--------|
-|vpaid-swf | A Flash-based ad creative|
-|vpaid-js | A Javascript-based VPAID 2 ad creative|
-|video | A video-based static creative|
-|image/png | Nonlinear PNG image creative |
-|static | Nonlinear static image creative|
-
-|mediafile|Description|
-|----|--------|
-|file | The URL of the media file that is currently playing|
 
 ###jwplayer().on('adPlay')
 Fired whenever an ad starts playing or when an ad is unpaused.
@@ -1155,7 +1143,7 @@ Fired whenever an ad starts playing or when an ad is unpaused.
 
 |Value|Description|Type|
 |----|--------|---|
-|creativetype | The type of advertising creative|String|
+|creativetype | **VAST-only** The MIME type of the current media file specified in the VAST XML|String|
 |newstate | The new state of the player|String|
 |oldstate | The state of the player prior to ad playback|String|
 |tag | The URL of the ad tag that is currently playing.|String|
@@ -1167,7 +1155,7 @@ Fired whenever an ad is paused.
 
 |Value|Description|Type|
 |----|--------|---|
-|creativetype | The type of advertising creative|String|
+|creativetype | **VAST-only** The MIME type of the current media file specified in the VAST XML|String|
 |newstate | The new state of the player. This should be "paused"|String|
 |oldstate | The state of the player prior to ad pause|String|
 |tag | The URL of the ad tag that is currently playing.|String|
@@ -1180,7 +1168,7 @@ Fired while ad playback is in progress.
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
 |client | The client that is currently being used|"vast" &#124; "googima"|String|
-|creativetype | The type of advertising creative|-|String|
+|creativetype | **VAST-only** The MIME type of the current media file specified in the VAST XML|-|String|
 |duration|The total duration of the ad creative|-|Number|
 |position|The current playback position in the ad creative|-|Number|
 |sequence|Returns the sequence number the ad is a part of|-|Number|
