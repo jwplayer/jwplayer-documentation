@@ -11,7 +11,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 |[Setup Options](#setup)|[The Playlist](#playlist)|[Skin](#skin)|
 |[Captions](#captions)|[RTMP](#rtmp)|[Logo](#logo)|
 |[Sharing](#sharing)|[Google Analytics](#ga)|[Related](#related)|
-|[Advertising](#advertising)|[DRM](#drm)||
+|[Advertising](#advertising)|[DRM](#drm)|[Localization](#localization)|
 
 ## Introduction
 
@@ -73,10 +73,10 @@ If only a single playlist item is used, this information can either be configure
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
+|**localization**<sup>7.7</sup>|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|270|
 |**width**|Number or String|The desired height of your video player (In pixels or percentage)|480|
-|**visualplaylist**|Boolean|Configure whether to display the visual playlist icon|true|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
@@ -136,8 +136,9 @@ jwplayer("myElement").setup({
 |**playlist[_index_].withCredentials**<sup>7.5+</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
 |**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
 |**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
-|**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
+|**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
+|**playlist[_index_].minimumdvr**<sup>7.7</sup>|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode(Defaults to **120**)|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
@@ -175,6 +176,43 @@ jwplayer("myElement").setup({
   }]
 });
 ```
+####Sources with DRM<sup>7.7</sup>
+
+When using DRM, we highly suggest placing the drm block inside of the appropriate media source. This ensures the correct media and DRM pair gets chosen for the appropriate browser. For example:
+
+```
+  "sources": [{
+      "file": "myFairplayStream.m3u8",
+      "drm": {
+        "fairplay": {
+          "certificateUrl": "http://myfairplay.com/fairplay/cert",
+          "processSpcUrl": "http://myfairplay.com/fairplay/ckc"
+        }
+      }
+    },{
+      "file": "myWidevineStream.mpd",
+      "drm": {
+        "widevine": {
+          "url": "http://mywidevineurl.com/drm"
+          }
+      }
+    },{
+      "file": "myPlayreadyStream.mpd",
+      "drm": {
+        "playready": {
+          "url": "http://myplayreadyurl.com/drm"
+          }
+      },{
+      "file": "myClearkeyStream.mpd",
+      "drm": {
+        "clearkey": {
+          "key": "1234clear5678key"
+          }
+      }
+    }]
+```
+See our [drm](#drm) section for more information.
+
 
 ####Quality Toggle for Video Files
 
@@ -208,6 +246,7 @@ In the above example, the player will add an "HD" button, allowing a user to tog
 |**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
 |**playlist[_index_].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
 |**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
+|**playlist[_index_].sources[].drm**<sup>7.7</sup>|Object|An object containing DRM information for a particular source|
 
 <a name="playlist-tracks"></a>
 <br/>
@@ -532,14 +571,18 @@ For an overview of JW Player's advertising capabilities, see its dedicated [Vide
 Video content protection requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
 !!!
 
-Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3.0, both WideVine and PlayReady are supported/ JW Player 7.5.0 introduces Fairplay support for Safari on OSX and macOS Desktops, as well as Widevine DRM for Firefox. All three can be configured independently within a single setup.
+Configuration options related to DRM for MPEG DASH (Playready, Widevine, Clearkey) and HLS streams (Fairplay).
+
+JW Player 7.7 includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
+
+For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management)
 
 ###drm.playready
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
-|**drm.playready.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
+|**drm.playready.headers**|Array| Specifies custom headers to send to your playready license server. See [headers](#headers) for more information|-|
 
 <br/>
 
@@ -548,16 +591,59 @@ Configuration options related to DRM for MPEG DASH and HLS streams. As of JW 7.3
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
-|**drm.widevine.customData**|String| Security data that should be passed in a request header as a "customData" header|-|
+|**drm.widevine.headers**|Array| Specifies custom headers to send to your widevine license server. See [headers](#headers) for more information |-|
 
 <br/>
 
-###drm.fairplay<sup>7.5</sup>
+<a name="headers"></a>
 
-|Option|Type|Description|Default|
-|---|---|---|---|
-|**drm.fairplay.url**|String|**(Required)** The URL of the Fairplay license server|-|
-|**drm.fairplay.keyUrl**|String|**(Required)** A URL to a CER/DER file, containing a public key|-|
+###drm.[widevine/playready].headers<sup>7.7</sup>
+
+Adding customized HTTP header data to license requests is possible in JW 7.7+ with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
+
+In JW 7.7+, this can be configured in the following way:
+
+```
+"drm": {
+  "playready": {
+  "url": "mydrmserver.com"
+  "headers": [{
+    "name": "customData",
+    "value": "hereismycustomdatastring"
+    }]
+  }
+}
+```
+In previous versions, adding "customData" would look like the following:
+
+```
+"drm": {
+  "playready": {
+  "url": "mydrmserver.com"
+  "customData": "hereismycustomdatastring"
+  }
+}
+```
+
+|Option|Type|Description|
+|---|---|---|
+|**headers.name**|String|The name of the http header that will be included|
+|**headers.value**|String|The value of the http header that will be included|
+
+<br/>
+###drm.fairplay<sup>7.7</sup>
+
+JW Player 7.7 includes new configuration options for custom Fairplay integrations, replacing 'url' and 'keyUrl' options from 7.5. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
+
+|Option|Type|Description|
+|---|---|---|
+|**drm.fairplay.certificateUrl**|String|**(Required)** The path to the certificate which is part of the session data used to initialize the keySession.certificateUrl|
+|**drm.fairplay.processSpcUrl**|String|**(Required)** The path to the license server (server playback context) which provides the ckc. Expects a direct url to the server. If the url needs to be constructed dynamically, a custom function can be passed to this configuration option which returns the url|
+|**drm.fairplay.extractContentId**|Function|Expects a function that receives the initData uri (converted to a string) from the needkey event, and returns the contentId which is part of the session data used to initialize the keySession|
+|**drm.fairplay.licenseRequestHeaders**|Array|Expects an Array of Objects containing header “name” and “value” properties to be included in the request to the license server|
+|**drm.fairplay.licenseResponseType**|String|Specifies the data type returned by the XHR request to the license server. The default value is 'arraybuffer'. Other options include 'blob', 'json', and 'text'. This option impacts how “licenseRequestMessage” will be processed|
+|**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the license key message and returns the message to be sent to the license server. With the default “licenseResponseType” of ArrayBuffer this function passes through keymessage event message property without any changes|f
+|**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a ‘blob’ response), this function can return a promise|
 
 <br/>
 
@@ -567,5 +653,21 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**drm.widevine.key**|String|**(Required)** The key required to decrypt DRM content|-|
+|**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|-|
 
+<br/>
+
+
+<a name="localization"></a>
+
+* * *
+
+## Localization<sup>7.7</sup>
+
+When using the localization block in a player configuration, it is possible to configure certain words or phrases in the JW Player Next Up interface by specifying the following values.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**nextUp**|String|override for the "Next Up" prompt |"Next Up"|
+|**playlist**|String|Title of the Next Up tooltip in Playlist mode  |"Playlist"|
+|**nextUp**|String|Title of the Next Up tooltip in Related mode |"Related"|
