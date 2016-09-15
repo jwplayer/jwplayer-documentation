@@ -234,11 +234,6 @@ Start playback of the playlist item at the specified index.
 |--|--------|---|--|
 |index| The index of a playlist item you wish to play |Number|Yes|
 
-###jwplayer().next();<sup>7.7</sup>
-
-Tells JW Player to immediately play the next playlist item
-
-
 * * * 
 
 ###jwplayer().on('playlist')
