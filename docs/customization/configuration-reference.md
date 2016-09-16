@@ -133,11 +133,12 @@ jwplayer("myElement").setup({
 |Setting|Type|Description|
 |--|--|--|
 |**playlist[_index_].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
-|**playlist[_index_].withCredentials**<sup>7.5+</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
+|**playlist[_index_].withCredentials**<sup>7.5</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
 |**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
 |**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
+|**playlist[_index_].recommendations**<sup>7.6</sup>String|URL to a feed that contains related items for a particular playlist item|
 |**playlist[_index_].minimumdvr**<sup>7.7</sup>|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode(Defaults to **120**)|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
@@ -206,7 +207,8 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
       "file": "myClearkeyStream.mpd",
       "drm": {
         "clearkey": {
-          "key": "1234clear5678key"
+          "key": "1234clear5678key",
+          "keyId": "fefde00d-efde-adbf-eff1-baadf01dd11d"
           }
       }
     }]
@@ -579,19 +581,23 @@ For more information regarding DRM, and for examples, please view our [support a
 
 ###drm.playready
 
+Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or higher operating systems
+
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
-|**drm.playready.headers**|Array| Specifies custom headers to send to your playready license server. See [headers](#headers) for more information|-|
+|**drm.playready.headers**|Array| Specifies the custom http headers to send to your playready license server. See [headers](#headers) for more information|-|
 
 <br/>
 
 ###drm.widevine
 
+Widevine DRM is specific to Google Chrome on non-iOS devices
+
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
-|**drm.widevine.headers**|Array| Specifies custom headers to send to your widevine license server. See [headers](#headers) for more information |-|
+|**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
 
 <br/>
 
@@ -638,22 +644,23 @@ JW Player 7.7 includes new configuration options for custom Fairplay integration
 |Option|Type|Description|
 |---|---|---|
 |**drm.fairplay.certificateUrl**|String|**(Required)** The path to the certificate which is part of the session data used to initialize the keySession.certificateUrl|
-|**drm.fairplay.processSpcUrl**|String|**(Required)** The path to the license server (server playback context) which provides the ckc. Expects a direct url to the server. If the url needs to be constructed dynamically, a custom function can be passed to this configuration option which returns the url|
+|**drm.fairplay.processSpcUrl**|String or Function|**(Required)** The path to the license server (server playback context) which provides the ckc. Expects a direct url to the server. If the url needs to be constructed dynamically, a custom function can be passed to this configuration option which returns the url|
 |**drm.fairplay.extractContentId**|Function|Expects a function that receives the initData uri (converted to a string) from the needkey event, and returns the contentId which is part of the session data used to initialize the keySession|
 |**drm.fairplay.licenseRequestHeaders**|Array|Expects an Array of Objects containing header “name” and “value” properties to be included in the request to the license server|
 |**drm.fairplay.licenseResponseType**|String|Specifies the data type returned by the XHR request to the license server. The default value is 'arraybuffer'. Other options include 'blob', 'json', and 'text'. This option impacts how “licenseRequestMessage” will be processed|
-|**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the license key message and returns the message to be sent to the license server. With the default “licenseResponseType” of ArrayBuffer this function passes through keymessage event message property without any changes|f
-|**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a ‘blob’ response), this function can return a promise|
+|**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the license key message and returns the message to be sent to the license server. With the default “licenseResponseType” of ArrayBuffer this function passes through keymessage event message property without any changes|
+|**drm.fairplay.extractKey**|Function|Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a ‘blob’ response), this function can return a promise|
 
 <br/>
 
 ###drm.clearkey
 
-A basic form of DRM that lists a decryption key inside of your player configuration. This is the least secure form of DRM, though it is the simplest to implement across browsers. There are no additional server resources required to decrypt content with this method.
+A basic form of DRM that lists a decryption key inside of your player configuration. This is the least secure form of DRM, though it is the simplest to implement across browsers. There are no additional server resources required to decrypt content with this method. Clearkey is supported in both Chrome and Firefox browsers.
 
-|Option|Type|Description|Default|
-|---|---|---|---|
-|**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|-|
+|Option|Type|Description|
+|---|---|---|
+|**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|
+|**drm.clearkey.keyId<sup>7.7</sup>**|String|**(Required in 7.7+)** The key ID specified in the mpd's **default_KID** value  |
 
 <br/>
 
