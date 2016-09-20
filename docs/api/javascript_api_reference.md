@@ -174,6 +174,11 @@ These API calls are used for loading and retrieving the current playlist (of one
 
 * * *
 
+###jwplayer().next();<sup>7.7</sup>
+
+Tells JW Player to immediately play the next playlist item
+
+
 ###jwplayer().getPlaylist()
 
 Returns an array of objects from a playlist. Any additional custom playlist properties will also be returned. See the [playlist](#playlist) section above for the structure of these objects.
