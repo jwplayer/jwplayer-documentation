@@ -1133,8 +1133,8 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |linear | Returns if an ad is "linear" or "nonlinear"|-|String|
 |mediafile <sup>7.4.3</sup> | **VAST-only** An object containing "file", which is the currently playing media item|-|Object|
 |tag | The URL of the ad tag that was started|-|String|
-|vastversion | The version of VAST referenced in the VAST XML|-|Number|
-|wrapper <sup>7.5.0</sup>| An array of the AdSystems specified in any utilized ad wrappers; index denotes level of wrapper|-|Array|
+|vastversion | **VAST-only** The version of VAST referenced in the VAST XML|-|Number|
+|wrapper <sup>7.5.0</sup>| **VAST-only** An array of the AdSystems specified in any utilized ad wrappers; index denotes level of wrapper|-|Array|
 
 ###jwplayer().on('adPlay')
 Fired whenever an ad starts playing or when an ad is unpaused.
