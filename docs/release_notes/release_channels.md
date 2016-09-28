@@ -10,7 +10,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 Release channels for JW Player range from the most stable and tested version (Production channel) to early testing and likely least stable (Beta channel). Channels allow you to test and play with our latest code, without affecting your live cloud-hosted version of JW Player. Each channel is automatically updated with new player versions and generally adhere to the following rolling schedule:
 
-*   **Production channel:** This channel has gotten the full testing and blessing of the JW Player QA team and was live on the staging channel for four weeks, allowing time for minor patches. It's only updated every 8-12 weeks for feature releases and the date the release happens is published four weeks prior to the update.
+*   **Production channel:** This channel has gotten the full testing and blessing of the JW Player QA team and was live on the staging channel for four weeks, allowing time for minor patches. It's only updated every 6-8 weeks for feature releases and the date the release happens is published four weeks prior to the update.
 *   **Beta channel:** This channel has passed all automated tests but has not been fully verified by the JW Player QA team. If you are interested in seeing a preview of what's next, with minimal risk, Beta channel is the place to be. It's updated biweekly during the start of a feature release and more frequently as full testing progresses. Major updates are promoted to Beta every six weeks, two-three weeks before the Staging channel will get them.
 
 ## Choosing a Channel
