@@ -1,6 +1,6 @@
 #Javascript API Reference
 
-This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls. API calls below are grouped together in a logical way, while breaking each section into Getters, Setters, Events, and Miscellaneous.
+This article provides a reference to all available JW Player [JavaScript API](http://www.jwplayer.com/products/jwplayer/javascript/) calls.
 
 ## Table Of Contents
 
@@ -14,6 +14,7 @@ This article provides a reference to all available JW Player [JavaScript API](ht
 * [Volume](#volume)
 * [Resize](#resize)
 * [Quality](#quality)
+* [Audio](#audio)
 * [Captions](#captions)
 * [Controls](#controls)
 * [Advertising](#advertising)
@@ -23,6 +24,8 @@ This article provides a reference to all available JW Player [JavaScript API](ht
 
 
 Also, note that all Events below are using the on listener, however it is also possible to register or remove each event with on, once, or off. The use of trigger may also be used for custom events. For an introduction to JW7's API, see the [JavaScript API Quick Start](/api/javascript_api_introduction/).
+
+Happy coding!
 
 * * *
 
@@ -38,19 +41,19 @@ Creates a new JW Player on your web page.
 |div| The target div that JW Player will replace | String |Yes|
 |options| Configuration options that will tell your player how to render itself | JSON |Yes|
 
- The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference) for a full list of all JW Player configuration options.
+ The only required option when setting up a JW Player embed is the __file__ property. See the [Configuration Options Reference](/customization/configuration-reference/) for a full list of all JW Player configuration options.
 ####Sample
-<pre>
-&lt;div id="myDiv"&gt;This text will be replaced with a player.&lt;/div&gt;
-&lt;script&gt;
+```
+<div id="myDiv">This text will be replaced with a player.</div>
+<script>
 jwplayer("myDiv").setup({
 	"file": "http://example.com/myVideo.mp4",
 	"image": "http://example.com/myImage.png",
 	"height": 360,
 	"width": 640
 });
-&lt;/script&gt;
-</pre>
+</script>
+```
 
 
 ###jwplayer().remove()
@@ -210,15 +213,19 @@ Loads a new playlist into the player.
 
 ####JSON Playlist Example
 
-<pre>playerInstance.load([{
+```
+  jwplayer('myElement').load([{
 	"file": "/videos/myVideo.mp4",
 	"image": "/images/myImage.png",
 	"title": "My Favorite Video!",
 	"description": "This has lots of kittens in it!"
-}]);</pre>
+}]);
+```
 
 ####Playlist URL Example
-<pre>playerInstance.load("https://mywebsite.com/myplaylist.json");</pre>
+```
+jwplayer().load("https://mywebsite.com/myplaylist.json");
+```
 
 ###jwplayer().playlistItem(__index__)
 Start playback of the playlist item at the specified index.
@@ -287,7 +294,7 @@ Fired when the currently playing item loads additional data into its buffer.
 | duration | Current media's duration (In seconds) | Number |
 | bufferPercent | Percentage between 0 and 100 of the current media that is buffered. | Number |
 | position | Current position of the media file (In seconds) | Number |
-| metadata | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
+| metadata <sup>Flash HLS-Only</sup> | Contains __bandwidth__ and __droppedFrames__ values. See below for more info. | Object |
 
 ####Metadata Object
 |Value|Description|Type|
@@ -477,7 +484,7 @@ Fired after a seek has been requested either by scrubbing the controlbar or thro
 
 ###jwplayer().on('seeked')
 
-Triggered when content playback resumes after seeking. As opposed to on('seek'), this API listener will only trigger when playback actually continues.
+Triggered when video position changes after seeking, as opposed to on('seek') which triggers as a seek occurs.
 
 <table>
   <tr>
@@ -588,12 +595,12 @@ Resizes the player to the specified width and height.
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
 |width| The new desired width of the player in pixels (number) or percent (string) |Number &#124; String|Yes|
-|height| The new desired height of the player in pixels (number) or percent (string)|Number &#124; String |Yes|
+|height| The new desired height of the player. Must be specified in pixels (number)|Number |Yes|
 
 ####Example:
-<pre>
+```
 jwplayer().resize('50%', 250)
-</pre>
+```
 
 * * *
 
@@ -657,7 +664,7 @@ Returns an object containing information about the current quality of a video st
 |Value|Description|Type|
 |----|--------|---|
 | mode | The current quality mode. Can be __auto__ if adaptive is enabled or __manual__ if a static quality is set | String |
-| level | Information about the current selected quality. See getQualityLevels for the full list of available information| Array |
+| level | Information about the current selected quality. See getQualityLevels for the full list of available information| Object |
 | reason | The reason that a quality was selected. See table below for more information | String |
 
 ####List of Reasons
@@ -700,13 +707,13 @@ Fired when the active quality level is changed. Happens in response to e.g. a us
 
 ###jwplayer().on('visualQuality')
 
-Fired when the active quality level is changed for HLS. This is different than __qualityChange__ since this will trigger when adaptive streaming automatically shifts quality.
+Fired when the active quality level is changed for HLS. This is different than __levelsChanged__ since this will trigger when adaptive streaming automatically shifts quality.
 
 ####Returns an object with the following:
 
 |Value|Description|Type|
 |----|--------|---|
-| mode | The current type of quality selection. auto = automatic quality switching &124; manual = static quality  | String |
+| mode | The current type of quality selection. auto = automatic quality switching &#124; manual = static quality  | String |
 | label | Information about the new quality that was switched to. This returns the same information as getVisualQuality()  | String |
 | reason | Why the quality was changed. See table below for possible reasons  | String |
 
@@ -775,13 +782,36 @@ Fired when the active audio track is changed. Happens in response to e.g. a user
 
 ## <a name="captions"></a>Captions
 
-These API calls are used to listen to or update the active captions track if one or more closed captions tracks are provided with a video. This API can be used to log captions usage or build your own CC menu outside JW Player.
-
+These API calls are used to listen to or update the active captions track if one or more closed captions tracks are provided with a video. This API can be used to log captions usage or build your own CC menu outside JW Player. Using setCaptions(), which is new in JW 7.5, it is also possible to set caption styles dynamically, without having to reload the player.
 ####Note: An index of 0 implies that captions are off.
+
+###jwplayer().setCaptions(_styles_)<sup>7.5+</sup>
+
+Changes the appearance of captions without having to reload the player. All colors should be in hex value. 
+
+|Attribute|Description|Type| Required|
+|---|--------|---|--|
+|styles|An object containing the desired caption styles and values (See example below) |Object|Yes|
+
+|Value|Description|Type|Default|
+|--------|---|--|
+|color|Text color|String|#ffffff|
+|fontSize|The size of text. _Note: Does not affect cases where native rendering occurs_|Number|20|
+|fontFamily|The style of text to use|String|Arial, sans-serif|
+|fontOpacity|Adjusts the transparency of text as a percentage|Number|100|
+|backgroundColor|The color of the text background|String|#000000|
+|backgroundOpacity|Adjusts the transparency of the text background as a percentage|Number|100|
+|edgeStyle| Surrounds text with a particular style. Can be: **none &#124; dropshadow &#124; raised &#124; depressed &#124; uniform**|String|none|
+|windowColor| Surrounds text box with chosen color from edge to edge of the video|String|-|
+|windowOpacity| Sets the transparency of the window as a percentage|Number|-|
+
+
+**Example:** jwplayer().setCaptions({"color": "#ffffff", "backgroundColor": "#000000"});
 
 ###jwplayer().getCaptionsList()
 
-Returns an array of objects based on utilized captions. Information for each object may vary depending on the caption types.
+Returns an array of objects based on available captions. Information for each object may vary depending on the caption types.
+**Note:** The index of [0] will always be **off** and will always be returned even if no captions are present.
 
 ####Sideloaded Captions(VTT, SRT, DFXP)
 
@@ -805,7 +835,6 @@ Returns an array of objects based on utilized captions. Information for each obj
 
 ###jwplayer().setCurrentCaptions(_index_)
 
-
 |Attribute|Description|Type| Required|
 |--|--------|---|--|
 |index| Change the visible captions track to the provided index  |Number|Yes|
@@ -814,13 +843,15 @@ Returns an array of objects based on utilized captions. Information for each obj
 
 ###jwplayer().on('captionsList')
 
-Fired when the list of available captions tracks is updated. Happens shortly after a playlist item starts playing.
+Fired when the list of available captions tracks changes. This event is the ideal time to set default captions with the API.
 
-####Returns an object with the following:
+**Note:** 'captionsList' will always return an array of at least **1** item due to **off**, but will trigger again once captions are fully loaded. We suggest only changing captions when the tracks array length exceeds **1**.
+
+####Returns an array with the following:
 
 |Value|Description|Type|
 |----|--------|---|
-| tracks | An object with all included captions tracks. Includes the same information as getCaptionsList() | Object |
+| tracks | An array with all included captions tracks(Including "off"). Includes the same information as getCaptionsList() | Array |
 
 ###jwplayer().on('captionsChanged')
 
@@ -913,14 +944,18 @@ Fired when a user clicks the video display. Especially useful for wiring your ow
 
 ## <a name="advertising"></a>Advertising
 
-This API provides developers with more control over the advertising functionality of the Advertising edition of JW Player. For VAST and IMA advertising plugins, this API allows impression verification, custom scheduling, tag waterfalling and multiple companions.
+!!!important
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+!!!
+
+This API provides developers with more control over the functionality of the Advertising edition of JW Player. For VAST and IMA plugins, this API allows for things like impression verification, custom scheduling, and multiple companions.
 
 ###jwplayer().playAd(_tag_)
 
-VAST and IMA. Used to play an ad immediately, which is primarily useful for situations where the built-in ad schedule of JW Player cannot be used.(e.g. for live streaming or dynamic ads for playlist items)
+Used to play an ad immediately, which is primarily useful for situations where the built-in ad schedule of JW Player cannot be used.(e.g. for live streaming or dynamic ads for playlist items)
 
 |Attribute|Description|Type|Required|
-|----|--------|---|
+|----|--------|---|--|
 |tag|The VAST tag URL that should be loaded into the player.|String|Yes|
 
 
@@ -979,9 +1014,11 @@ VAST and IMA. Fired whenever a user clicks an ad to be redirected to its landing
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was clicked|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that is being played|-|String|
+|tag | The URL of the ad tag that was clicked|-|String|
 
 ###jwplayer().on('adCompanions')
 
@@ -991,18 +1028,20 @@ VAST and IMA. Fired whenever an ad contains companions.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The URL of the ad tag that is currently playing|String|
 |companions | An array with available companion information|Array|
+|tag | The URL of the ad tag that is currently playing|String|
 
 ####Every companion will return the following object:
 
 |Value|Description|Type|
 |----|--------|---|
-|width | The width of the companion in pixels|Number|
-|height | The height of the companion in pixels|Number|
-|type | The type of the creative: static, iframe, or HTML|String|
-|resource | The URL to the static/iframe resource, or the raw HTML content|String|
 |click | URL to link to when clicking the companion. Only available if the type is static|String|
+|height | The height of the companion in pixels|Number|
+|resource | The URL to the static/iframe resource, or the raw HTML content|String|
+|type | The type of the creative: static, iframe, or HTML|String|
+|width | The width of the companion in pixels|Number|
+|creativeview <sup>7.5</sup> | An array of included creativeview event tracking pixels|Array|
+
 
 ###jwplayer().on('adComplete')
 
@@ -1010,18 +1049,22 @@ VAST and IMA. Fired whenever an ad has completed playback.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was completed|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that is just completed|-|String|
+|tag | The URL of the ad tag that just completed|-|String|
 
 ###jwplayer().on('adSkipped')
 VAST and IMA. Fired whenever an ad has been skipped.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|----|--------|---|
-|tag | The URL of the ad tag that was skipped|String|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of ad that was skipped|-|String|
+|tag | The URL of the ad tag that was skipped|-|String|
 
 
 ###jwplayer().on('adError')
@@ -1034,16 +1077,16 @@ VAST and IMA. Fired whenever an error prevents the ad from playing.
 
 |Value|Description|Type|
 |----|--------|---|
-|tag | The URL of the ad tag that produced the error|String|
 |message | The ad error message. See table below|String|
+|tag | The URL of the ad tag that produced the error|String|
 
 |Possible Error Messages|Causes|
 |-----------------------|-----------|
-|invalid ad tag|Invalid XML, Improperly formatted VAST syntax|
 |ad tag empty |No ad was available after searching wrapped ad tags|
-|no compatible creatives|FLV video creative or VPAID SWF is attempting to play in HTML5 player|
 |error playing creative |404 on a creative file|
 |error loading ad tag|All additional ad errors|
+|invalid ad tag|Invalid XML, Improperly formatted VAST syntax|
+|no compatible creatives|FLV video creative or VPAID SWF is attempting to play in HTML5 player|
 
 
 ###jwplayer().on('adRequest')
@@ -1054,8 +1097,10 @@ VAST only. Fired whenever an ad is requested by the player.
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
+|adposition | An ad's position.|"pre" &#124; "mid" &#124; "post"|String|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|offset | An ad's position. Will return a number (in seconds) of a midroll's position|"pre" &#124; "post" &#124; number|String&#124;Number|
 |tag | The URL of the ad tag that is being requested|-|String|
-|adposition | An ad's position|pre &#124; mid &#124; post|String|
 
 ###jwplayer().on('adStarted') <sup>VPAID-only</sup>
 
@@ -1080,9 +1125,16 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 
 |Value|Description|Possible Values|Type|
 |----|--------|---|--|
-|tag | The URL of the ad tag that was started|-|String|
+|adposition | An ad's position.|"pre" &#124; "mid" &#124; "post"|String|
+|adsystem | AdSystem referenced inside of the VAST XML |-|String|
+|adtitle | AdTitle referenced inside of the VAST XML|-|String|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
 |creativetype | The type of ad that is being played|-|String|
-|adposition | An ad's position.|pre &#124; mid &#124; post|String|
+|linear | Returns if an ad is "linear" or "nonlinear"|-|String|
+|mediafile <sup>7.4.3</sup> | **VAST-only** Information regarding the media creative that is currently playing|-|Object|
+|tag | The URL of the ad tag that was started|-|String|
+|vastversion | The version of VAST referenced in the VAST XML|-|Number|
+|wrapper <sup>7.5.0</sup>| An array of the AdSystems specified in any utilized ad wrappers; index denotes level of wrapper|-|Array|
 
 |creativetype|Description|
 |----|--------|
@@ -1092,6 +1144,10 @@ VAST and IMA. Fired based on the IAB definition of an ad impression. This occurs
 |image/png | Nonlinear PNG image creative |
 |static | Nonlinear static image creative|
 
+|mediafile|Description|
+|----|--------|
+|file | The URL of the media file that is currently playing|
+
 ###jwplayer().on('adPlay')
 Fired whenever an ad starts playing or when an ad is unpaused.
 
@@ -1099,6 +1155,9 @@ Fired whenever an ad starts playing or when an ad is unpaused.
 
 |Value|Description|Type|
 |----|--------|---|
+|creativetype | The type of advertising creative|String|
+|newstate | The new state of the player|String|
+|oldstate | The state of the player prior to ad playback|String|
 |tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adPause')
@@ -1108,6 +1167,9 @@ Fired whenever an ad is paused.
 
 |Value|Description|Type|
 |----|--------|---|
+|creativetype | The type of advertising creative|String|
+|newstate | The new state of the player. This should be "paused"|String|
+|oldstate | The state of the player prior to ad pause|String|
 |tag | The URL of the ad tag that is currently playing.|String|
 
 ###jwplayer().on('adTime')
@@ -1115,12 +1177,14 @@ Fired while ad playback is in progress.
 
 ####Returns an object with the following:
 
-|Value|Description|Type|
-|-------|-----------|----|
-|tag     |The URL of the ad tag that is currently playing.|String|
-|position|The current playback position in the ad creative.|Number|
-|duration|The total duration of the ad creative.|Number|
-|sequence|Returns the sequence number the ad is a part of.|Number|
+|Value|Description|Possible Values|Type|
+|----|--------|---|--|
+|client | The client that is currently being used|"vast" &#124; "googima"|String|
+|creativetype | The type of advertising creative|-|String|
+|duration|The total duration of the ad creative|-|Number|
+|position|The current playback position in the ad creative|-|Number|
+|sequence|Returns the sequence number the ad is a part of|-|Number|
+|tag     |The URL of the ad tag that is currently playing|-|String|
 
 
 * * *
@@ -1145,11 +1209,11 @@ Continuously triggered when new metadata has been received by the player. Values
 
  Sharing API calls work in conjunction with our getPlugin() method. For instance, all of our sharing instances are using the getPlugin(‘sharing’) API call to refer to this particular plugin. The following will target our sharing plugin:
 
-<pre>
+```
 jwplayer().on('ready', function(event){
-sharingPlugin = playerInstance.getPlugin('sharing');
+sharingPlugin = jwplayer().getPlugin('sharing');
 });
-</pre>
+```
 
 All sharingPlugin references below will assume that the above code is implemented on your page.
 
@@ -1208,11 +1272,11 @@ Triggered whenever somebody shares content from within the sharing plugin.
 
 Similar to sharing, the related api examples below will assume that the following code is implemented:
 
-<pre>
+```
 jwplayer().on('ready', function(event){
-relatedPlugin = playerInstance.getPlugin('related');
+relatedPlugin = jwplayer().getPlugin('related');
 });
-</pre>
+```
 
 ###relatedPlugin.open();  
 Opens the related plugin overlay. This will pause content if it is currently playing.

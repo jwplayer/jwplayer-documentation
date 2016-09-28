@@ -18,7 +18,8 @@ Here is the CSS used by JW Player 7 to render the seven [skin](http://www.jwpla
 
 ## Sample Skin
 
-<pre>
+```
+
 .jw-icon {
     font-family: 'jw-icons';
     -webkit-font-smoothing: antialiased;
@@ -256,7 +257,7 @@ active configuration in the skin block.*/
     color: #666f82
 }
 
-/* Adds a left border as a spacer between all contorlbar icons. */
+/* Adds a left border as a spacer between all controlbar icons. */
 .jw-skin-seven .jw-controlbar-right-group .jw-icon-tooltip:before,
 .jw-skin-seven .jw-controlbar-right-group .jw-icon-inline:before {
     border-left: 1px solid #666
@@ -326,4 +327,4 @@ active configuration in the skin block.*/
     color: #ff0046
 }
 
-</pre>
+```

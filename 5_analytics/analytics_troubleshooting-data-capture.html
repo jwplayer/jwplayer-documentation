@@ -1,0 +1,90 @@
+<p>If you have players operating on your site, but see no data in the Analytics section of your dashboard, there could be an issue with how you've setup your custom player embed. For more information on how to embed your player properly to enable platform services (like Analytics), please <a href="https://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embedding-options" target="_blank">click here</a>.</p>
+<p><strong>The most common cause</strong>  of data capture issues is that an external url is used without a reference to a JW Player Media ID.</p>
+<a name="how-to-apply-media-IDs"></a>
+<p>&nbsp;</p>
+<h2>How to Apply Media IDs to Embeds</h2>
+
+<p><em>Note: If you use JW Platform to host your content, or if you use the dashboard to add externally hosted URLs and generate embed code, your setup work is already done for you.</em></p>
+
+<ol>
+	<li>Get Media IDs for your content via the <strong>Dashboard</strong> or the <strong>API </strong>
+
+	<ul>
+		<li><strong>Dashboard:</strong> Add externally-hosted URLs or upload your content via the dashboard. &nbsp;The Media ID can be viewed on the content-detail page.</li>
+		<li><strong>API:</strong> The <a href="http://apidocs.jwplayer.com/methods/videos/create.html" target="_blank">/videos/create</a> method supports externally-hosted URLs
+		<ul>
+			<li>Be sure to define <strong>sourcetype</strong> as &#39;url&#39; and to also include your <strong>sourceurl</strong></li>
+			<li>You can use the API to do your own <a href="https://developer.jwplayer.com/jw-platform/docs/developer-guide/integrating_with_your_cms/batch_migration/" target="_blank">batch&nbsp;upload</a> via CSV.</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<br />
+	<li>Embed all content using JW Player Media IDs
+	<ul>
+		<li><strong>Dashboard:</strong> Once your content is added, click &ldquo;embed&rdquo; on a video from the detail page or list page. (Publish Mode generates single-line embed codes that contain a reference to your content&rsquo;s Media ID.)</li>
+		<li><strong>API:</strong> Include the Media ID parameter in your player embeds, as in the below code example
+		<pre>
+playlist:[{
+file:&quot;&quot;,
+mediaid:&quot;eXaMPlE1&quot;
+}]</pre>
+		</li>
+	</ul>
+	</li>
+</ol>
+<p>&nbsp;</p>
+<h2>Test it Out</h2>
+<p>If you believe your Media IDs have been set up correctly, you can check the analytics dashboard to see if your metrics are being updated in real-time.</p>
+
+<p>&nbsp;</p>
+
+<!-- 
+
+<div class="article_callout"><span id="docs-internal-guid-a6ee798b-4ebe-3293-aad9-97308cbe28e6"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">If you have players operating on your site, but see no data in the Analytics section of your dashboard, there could be an issue with how you&rsquo;ve setup your custom player embed. &nbsp;For more information on how to embed your player properly to enable platform services (like Analytics), please <a href="https://support.jwplayer.com/customer/portal/articles/1406723-basic-video-embedding-options" target="_blank">click here</a>.<br />
+<br />
+The most common cause of data capture issues is that an external url is used, with no reference to a JW Player Media ID provided.</span></span><br />
+&nbsp;</div>
+
+<h2 id="how-to-apply-media-IDs"><span>How to Apply Media IDs </span></h2>
+
+<p><em>Note: If you use JW Platform to host your content, or if you&nbsp;use the dashboard to add externally hosted&nbsp;URLs and generate embed code, your setup work is already done for you.</em></p>
+
+<ol>
+	<li>Get Media IDs for your content via the <strong>Dashboard</strong> or the <strong>API </strong>
+
+	<ul>
+		<li><strong>Dashboard:</strong> Add externally-hosted URLs or upload your content via the dashboard. &nbsp;The Media ID can be viewed on the content-detail page.</li>
+		<li><strong>API:</strong> The <a href="http://apidocs.jwplayer.com/methods/videos/create.html" target="_blank">/videos/create</a> method supports externally-hosted URLs
+		<ul>
+			<li>Be sure to define <strong>sourcetype</strong> as &#39;url&#39; and to also include your <strong>sourceurl</strong></li>
+			<li>You can use the API to do your own <a href="https://developer.jwplayer.com/jw-platform/docs/developer-guide/integrating_with_your_cms/batch_migration/" target="_blank">batch&nbsp;upload</a> via CSV.</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<br />
+	<li>Embed all content using JW Player Media IDs
+	<ul>
+		<li><strong>Dashboard:</strong> Once your content is added, click &ldquo;embed&rdquo; on a video from the detail page or list page. (Publish Mode generates single-line embed codes that contain a reference to your content&rsquo;s Media ID.)</li>
+		<li><strong>API:</strong> Include the Media ID parameter in your player embeds, as in the below code example
+		<pre>
+playlist:[{
+file:&quot;&quot;,
+mediaid:&quot;eXaMPlE1&quot;
+}]</pre>
+		</li>
+	</ul>
+	</li>
+</ol>
+
+<h2><br />
+<span>Test it Out</span></h2>
+
+<p>If you believe your Media IDs have been set up correctly, you can check the analytics dashboard to see if your metrics are being updated in real-time.</p>
+
+<p><br />
+&nbsp;</p>
+
+
+-->
