@@ -223,9 +223,41 @@ The title and description configuration options are displayed in their own class
 |**.jw-title-secondary**|This class is populated with content from the description configuration option in the player setup per-playlist item.|
 |**.jw-preview**|This class styles the preview image from the image configuration option in the player setup per-playlist item.|
 
-## Visual Playlist Overlay
+## Next Up Overlay <sup>7.6</sup>
+
+The discovery overlay displays playlist items, as well as items related to the current playing media.
+
+###Customization
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-nextup-header**| Customize the top bar with "Next Up" label|
+|**.jw-nextup-body**|Customize the thumbnail/title group container|
+|**.jw-nextup-thumbnail**|Customize the next up item thumbnail|
+|**.jw-nextup-title**|Customize the next up item title|
+|**.jw-nextup-close**|Customize the close button|
+|**.jw-nextup-close:hover**|Customize the close button hover state|
+
+###Selectors
+
+|CSS Class          | Definition | Type |
+|-------------------|-----------|--|
+|**.jw-nextup-container**|Parent container for next up (hidden by default) that positions the next up display in the player.|default|
+|**.jw-nextup-container-visible**|Add-on class for next up parent container that transitions the next up display to visible state.|state|
+|**.jw-nextup**|Second container element for next up with `position: relative` CSS property set to enable absolute positioning of the close button.|default|
+|**.jw-nextup-header**|Top bar element for next up that contains the "Next Up" label text.|default|
+|**.jw-nextup-body**|Grouping container element for the next up thumbnail and title.|default|
+|**.jw-nextup-thumbnail**|Thumbnail element for next up display (hidden by default). Element uses inline style `background-image: url(thumbnail.jpg);` in addition to `background-size: cover` to accommodate displaying any thumbnail size in an elegant way.|default|
+|**.jw-nextup-thumbnail-visible**|Modifier class that makes the next up thumbnail element visible (set when next up item has a thumbnail).|state|
+|**.jw-nextup-title**|Title text element for next up display.|default|
+|**.jw-nextup-close**|Close button for next up (hidden by default) which hides the display when clicked.|default|
+|**.jw-nextup-sticky .jw-nextup-close**|State to show close button for next up display (shown when nearing end of current video).|state|
+
+## Visual Playlist Overlay (Deprecated in JW Player 7.7)
 
 The visual playlist is added by the player for all setups that have more than one playlist item. These are the elements used to build a visual playlist.
+
+#### Note: The visual playlist has been removed in JW Player 7.7 and has been replaced with the Next Up overlay
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -238,3 +270,5 @@ The visual playlist is added by the player for all setups that have more than on
 |**.jw-label .jw-icon-play**|Sets the color of the play icon of the currently playing playlist item.|
 |**.jw-label .jw-icon-play:before**|Aligns the playlist play icon with the items in the playlist.|
 |**.jw-tooltip-title**|Sets the style for the the playlist title div.|
+
+
