@@ -23,7 +23,7 @@ Let's assume that we have a single player on a page. If I would like track with 
 
 ```
 jwplayer().on('error', function(event) {
-ga('send', 'event', 'JW Player Events', 'Errors', 'event.message');
+ga('send', 'event', 'JW Player Events', 'Errors', event.message);
 });
 ```
 
