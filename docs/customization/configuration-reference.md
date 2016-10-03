@@ -671,7 +671,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 ## Localization<sup>7.7</sup>
 
-When using the localization block in a player configuration, it is possible to configure certain words or phrases in the JW Player Next Up interface by specifying the following values.
+Using the localization block in a player configuration allows you to configure certain words and phrases in the JW Player Next Up interface. The available options are below.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
