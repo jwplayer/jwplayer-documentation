@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.7](#version77) - 9/12/2016
+*   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
 *   [Version 7.4](#version74) - 4/25/2016
@@ -30,7 +30,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 <a name="version77"></a>
 
-### **7.7.0 - Alpha** - 9/12/16
+### **7.7.0** - 10/04/16
 
 JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content. 
 
@@ -75,17 +75,16 @@ This release also enhances the controlbar UI with a new default rewind 10 second
 ### **7.6.1** - 8/29/16
 
 #### Fixes:
-* Improved wrapping in new related plugin
-* Live stream captions will display after pausing
-* Embedded 608 captions will now appear in Edge
-* Improved 608 captions handling in HTML5 with discontinuities
-* Improved Related item alignment on IE9/10
-* VPAID ads can now be used inside of ad pods
-* VMAP requests will initially use withCredentials and fall back to CORS
-* Related items should now properly cycle through with autoplay
-* Captions would need to be re-enabled after a preroll
-* Nan/Nan no longer appears if the player takes an extended time to set up
-* Side-loaded captions will now properly render in IE9
+* VPAID ads can now be used inside of ad pods if they are sequenced in following patterns: (1) The pod starts with a VPAID creative and can be followed by multiple VPAID units, (2) The pod can end switch from VPAID to standard linear ad, (3) The pod cannot switch from linear ad to a VPAID creative
+* Fixed an issue where captions would need to be re-enabled after a preroll
+* VMAP requests will initially use withCredentials=true and fall back to withCredentials=false 
+* Added support for embedded 608 captions in HLS streams for Microsoft Edge
+* Fixed multiple issues with timing and appearance of 608 captions after discontinuities in an HLS stream
+* Fixed captions in live streams turning off after pausing and resuming the stream
+* Fixed an issue where side-loaded tracks were not loading in IE9
+* Fixed an issue where next up related item was repeated instead of cycling to a new video 
+* Updated style for video titles wrapping in related video overlay
+* Nan/Nan no longer appears as the duration and current time if the player takes an extended time to set up
 
 ### **7.6.0** - 8/15/16
 

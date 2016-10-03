@@ -1,0 +1,246 @@
+<h2>Overview</h2>
+
+<p>Adaptive streaming is the ability for a video player to dynamically adjust video quality based on a user’s available bandwidth, device performance, and network conditions. Most modern web browsers only support progressive video playback which does not allow for seamless quality switching. Adaptive playback comes in many formats and protocols and the popularity of each format has changed over the years. </p>
+
+<p>JW Player supports three formats of adaptive streaming, Apple HLS, MPEG-DASH, and RTMP. HLS and DASH are supported in JavaScript and HTML5 whereas RTMP requires the Flash plugin to be installed on the user’s device. As Flash has become an outdated technology and is being deprecated by most major browsers, we highly recommend switching to a modern format like HLS or DASH. </p>
+
+<p><img alt="" src="//support-static.jwplayer.com/images/hls.png" />​</p>
+
+<h3>About HTTP Streaming</h3>
+<p>Streaming over HTTP allows a video player to choose the best quality video without proprietary software installed on a server. Video content exists on normal web servers and a video player is able to request assets by reading a manifest. The manifest provides the locations to various video qualities or renditions on the web server and contains information about the codecs used to compress the video and bitrates which allow the player to determine the most suitable quality to play. It also can contain multiple-audio track renditions as well as links to closed-caption or subtitle tracks. See <a href="https://support.jwplayer.com/customer/portal/articles/1430278-cea-608-and-708-captions">Captions</a> for more information about captions in streaming media. </p>
+
+<p>In order to play either format, a video player is needed to parse the manifests, transmux into a browser/machine compatible format, and an adaptive engine to choose the correct video quality to play. JW Player supports adaptive streaming over HTTP in all modern browsers.</p>
+
+<h3>Browser Support</h3>
+<p>Support for streaming technology depends on the browser and browser version. JW Player works to fill in gaps where the browser does not natively support a codec for playing back the media. </p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Browser</th>
+			<th>HTML5 DASH</th>
+			<th>HTML5 HLS</th>
+			<th>Flash HLS</th>
+		</tr>
+		<tr>
+			<th>Chrome 35+</th>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<th>FireFox 42+</th>
+			<td>x</td>
+			<td>planned</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<th>Safari +</th>
+			<td>-</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<th>Microsoft Edge</th>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<th>IE 11 Win 8.1</th>
+			<td>x</td>
+			<td>planned</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<th>Chrome for Android 35+</th>
+			<td>x</td>
+			<td>x</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<th>Mobile Safari iOS 8+</th>
+			<td>-</td>
+			<td>x</td>
+			<td>-</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<p>The following sections break down features and technical details supported by JW Player for each respective streaming media format.</p>
+
+<h2>HLS Support</h2>
+<p>Apple HTTP Live Streaming (HLS) is a manifest format that Apple has written for streaming on iOS devices and on desktop Safari. Microsoft Edge and Chrome Android support older versions of HLS. HLS is delivered to a browser packaged as transport stream (.ts) files. The .ts video container has video compressed using the h.264 codec audio compressed with AAC or MP3. A manifest can also contain just .aac files as well. JW Player only supports multiple-audio tracks if the audio is separate elementary .aac manifests as opposed to multiple .aac tracks embedded within the .ts container. </p>
+
+<h3>TS Container Codec Details</h3>
+<p>For adaptive live streams all fragments should be self-initializing, meaning they start with a PMT/PAT definitions and a full h.264 IDR frame. Live streams should also contain no B-frames or frames that rely on future and past data to decode. Using B-frames in a live stream will result in rendering errors, ranging from short stutters and macroblock artifacts to an eventual stall of the stream. Common issues are the omission of keyframes in fragments, or misalignment of keyframes across quality levels.</p>
+
+<h3>HLS Features</h3>
+<p>JW Player supports a subset of features from Protocol 6 Version 13 of the HLS IETF draft. Unless otherwise noted features are available in JW Player Premium edition and higher.</p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Feature</th>
+			<th>Desktop HTML5</th>
+			<th>Mobile iOS</th>
+			<th>Android Chrome</th>
+			<th>Desktop Flash</th>
+		</tr>
+		<tr>
+			<td>Alternate Audio Renditions</td>
+			<td>x<sup>1</sup></td>
+			<td>x</td>
+			<td>n/a</td>
+			<td>x</td>	
+		</tr>
+		<tr>
+			<td>WebVTT subtitle tracks</td>
+			<td>x<sup>2</sup></td>
+			<td>x</td>
+			<td>n/a</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td>CEA-608/708 Captions</td>
+			<td>x</td>
+			<td>x</td>
+			<td>-</td>
+			<td>x</td>
+		</tr>		
+		<tr>
+			<td>Discontinuities</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td>ID3 Timed Metadata</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td>DVR sliding controlbar</td>
+			<td>x</td>
+			<td>x</td>
+			<td>n/a</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td>AES-128 Decryption<sup>3</sup></td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td>Apple FairPlay DRM<sup>3</sup></td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+			<td>x</td>
+		</tr>		
+
+	</tbody>
+</table>
+<p><ol>
+	<li>Safari only</li>
+	<li>Safari and Edge</li>
+	<li>Available with a JW Player Enterprise license</li>
+	</ol></p>
+
+<h3> Features Not Supported</h3>
+<p>
+	<ul>
+		<li>Decryption of encrypted streams with SAMPLE-AES.</li>
+		<li>Alternate video renditions through #EXT-X-TYPE="VIDEO".</li>
+		<li>Support for presentation of streams containing just the I-frames, #EXT-X-I-FRAME-INF.</li>
+		<li>Any stream that requires byte range mapping.</li>
+	</ul>
+	
+	</p>
+
+<h2>DASH Support</h2>
+<p>Dynamic Adaptive Streaming over HTTP (MPEG-DASH) is an ISO standard written and supported by an international team of media companies. The standard is designed to be codec agnostic and interoperable between browsers. DASH is supported in HTML5 and JavaScript by using Media Source Extensions and is available in modern browsers. </p>
+<p>DASH file URLs are manifest media presentation documents (.mpd). The mpd files direct JW Player to all the information necessary to begin streaming. DASH is codec-agnostic and will therefore work with files encoded in h.264/AAC or VP9/Vorbis. JW Platform encodes DASH streams using VP9 as it is more efficient than h.264.</p>
+
+<h3>Noteable Features</h3>
+<ul>
+	<li>Multi-period manifests (JW 7.7 and higher)</li>
+	<li>Side-loaded captions</li>
+	<li>DRM - Widevine and PlayReady</li>
+</ul>
+
+
+<h2>Embedding and Customizing Adpative Streams</h2>
+<p>Embedding and publishing adaptive streams in JW Player player is straightforward. JW Player will pick the most suitable video engine to render the content based on the order of sources provided.</p>
+
+
+<pre>
+var playerInstance = jwplayer(&quot;myElement&quot;);
+playerInstance.setup({
+    playlist: [{
+        image: &quot;/assets/myPoster.jpg&quot;,
+        sources: [{ 
+            file: &quot;/assets/myStream.mpd&quot;
+        },{
+            file: &quot;/assets/myStream.m3u8&quot;
+        },{
+            file: &quot;/assets/myStream.mp4&quot;
+        }]
+    }],
+});
+</pre>
+
+
+<h3>Customizing Quality Labels</h3>
+
+<p>Sometimes it is necessary to adjust the quality labels inside the HD menu. You can do this with hlslabels configuration option.</p>
+
+<dl>
+	<dt><strong>hlslabels</strong></dt>
+	<dd>By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps. For example:</dd>
+</dl>
+
+<pre>
+    hlslabels:{
+           &quot;2500&quot;:&quot;High&quot;,
+           &quot;1000&quot;:&quot;Medium&quot;
+	}
+</pre>
+
+<h3>Note on Primary</h3>
+<p>JW Player allows you to force the player into HTML5 or Flash rendering mode using the ‘primary’ configuration option. This only works if there is a media engine for both Flash and HTML5 per video format supported on each browser. Setting a primary to Flash will not render the player in Flash when the first source is DASH since JW Player prefers HTML5 over Flash rendering based on the order of the sources provided. </p>
+
+<h3>Crossdomain and 302</h3>
+
+<p>Note that, when playing in Flash, both the M3U8 manifests and the TS segments are subject to crossdomain security restrictions. See <a href="http://support.jwplayer.com/customer/portal/articles/1403679-crossdomain-file-loading" target="_blank">Crossdomain File Loading</a> for more information.</p>
+
+<p>An additional limitation to keep in mind is that JW Player does not support 302 redirects on the M3U8 manifest/playlist files, since the Adobe Flash player does not support the combination of crossdomain loading and redirects. We advise to instead use DNS load-balancing or serve up a dynamic M3U8 manifest, containing direct links to the M3U8 playlists on the target servers.</p>
+
+
+<h2>Additional Tools and Information</h2>
+
+<ul>
+	<li><strong><a href="http://dashif.org/conformance.html">Manifest Validator</a> - </strong>A third party tool that checks that a DASH manifest or video file is correctly structured and encoded. In order to get a stream functional JW Player 7, it should validate here.</li>
+	<li><strong><a href="http://www.wowza.com/forums/content.php?508-How-to-do-MPEG-DASH-streaming">How to do MPEG DASH Streaming</a> - </strong>A helpful guide from Wowza about getting your stream encoded and playing in the DASH format.</li>
+</ul>
+
+<style type="text/css">#container{ display: block;  box-shadow:0 0 4px #999; }
+</style>
+<div id="container">&nbsp;</div>
+<script>
+var playerInstance = jwplayer("container");
+playerInstance.setup({
+androidhls: true,
+image: "//s1-www.ltvimg.com/cdn/farfuture/0FDzO4QxNC98hKeyR4XLKhRSNExkNoa5spWkLut481Q/mtime:1383252338/sites/default/files/jw-poster-adp.png",
+file: "//playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",
+primary: 'flash'
+});
+</script><br />
+&nbsp;
+<p>See <a href="http://support.jwplayer.com/customer/portal/articles/1430218-using-hls-streaming" target="_blank">Using Apple HLS Streaming</a> for more info.</p>

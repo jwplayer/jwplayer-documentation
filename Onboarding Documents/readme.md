@@ -8,40 +8,37 @@ This is a weekly check-in between an experienced JW'er and a junior one. It span
  * Junior updates resources as they go through them
  * Lunch at least once
 
-
 ## Timeline
 The first Wednesday of each month begins a new session. We will have a meeting with the onboarding seniors to assign them a junior and explain the program. The last Friday of the month ends the program and we will have a retro to discuss how it went. 
 
-
 ## Meetings
-
 Welcome to JW Player / Murray Hill
-
   * Learn JW Player's [History](timeline.md) 
   * View JW Player's [Roadmap](https://docs.google.com/presentation/d/1XLF7Gf9ql8D1KY-aSyI-PKujuGAIka-cFx4HIxdq2i0/edit)
   * [HR Resources](HR Resources.md)
   * [Engineering Resources](engineering-resources.md)
-  * [Favorite Lunch places](lunch-spots.md)
-
+  * [Favorite Lunch Spots](lunch-spots.md)
 
 ## Dev
 1. Development
   * Source Code
       	- [Repos](repos.md)
   * Issue Tracking
-      	- [Jira](hhttps://jwplayer.atlassian.net/secure/Dashboard.jspa)
-  * Set up SSH Keys for jenkins and github
+      	- [Jira](https://jwplayer.atlassian.net/secure/Dashboard.jspa)
+      	- Tech Debt can be found in the Issues section of the repos labeled with 'tech debt'. For example, [Tech Debt for jwplayer/jwplayer](https://github.com/jwplayer/jwplayer/labels/tech-debt).
+  * [Set up SSH Keys for GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) and Jenkins
   * Automation Server / Continuous Integration
       	- [Jenkins](jenkins.md)
   * Tools
       	- [Lastpass](https://lastpass.com/) (password management and account sharing)
       	- [Intellij IDEA](https://www.jetbrains.com/idea) (IDE) - request a product license from your manager. 
       	- [Source Tree](https://www.sourcetreeapp.com/) (git client)
-      	- [Waffle.io](https://waffle.io) (monitor github repos)
+      	- [Waffle.io](https://waffle.io/jwplayer/jwplayer) (monitor github repos)
   * VPN
-  		- [OpenVPN](https://openvpn.net) Client
-  		- **Builds**: [jenkins.jwplayer.com](https://jenkins.jwplayer.com) can be accessed at work or remotely without needing to connect to the vpn
-		- **Test Pages**: [jenkins.longtailvideo.com](https://jenkins.longtailvideo.com) requires establishing a VPN connection. You'll also need to a login to gain access - ask your manager for the login info.
+  	- Login and install [OpenVPN](http://vpn.longtailvideo.com) using your LDAP credentials. If you cannot login, contact helpdesk@jwplayer.com to be granted access.
+  	- **Builds**: [jenkins.jwplayer.com](https://jenkins.jwplayer.com) can be accessed at work or remotely without needing to connect to the vpn
+	- **Test Pages**: [jenkins.longtailvideo.com](https://jenkins.longtailvideo.com) requires establishing a VPN connection. You'll also need to a login to gain access - ask your manager for the login info.
+
 2. Best practices
   * [Git Flow](git-flow.md)
   * [How to write a commit message](commit-messages.md)
@@ -52,6 +49,7 @@ Welcome to JW Player / Murray Hill
 
 3. Team Specific info
   * [Player](player.md)
+  
 4. Get involved
   * Local meetups
   * Join the PPC

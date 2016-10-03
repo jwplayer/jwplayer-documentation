@@ -1,0 +1,413 @@
+<h2>Overview</h2>
+
+<p>JW Player supports industry standard DRM (Digital Rights Management) standards to help you protect your content. JW Player supports DRM providers such as Apple FairPlay, Microsoft PlayReady, Google Widevine, and the open ClearKey standard. AES 128 bit encryption is also supported as a basic way to protect your content.</p>
+
+<p>DRM solutions are available for both HLS and MPEG-DASH adaptive streaming technologies and are configurable via the JW Player Javascript API.</p>
+
+<h2>Compatibility</h2>
+
+<p>One of the main problems with DRM is the lack of cross-platform compatibility. Most DRM technologies are proprietary and are only supported on OEM-specific products. For example, Apple FairPlay is only compatible with the Apple Safari web browser and other Apple hardware and software products.</p>
+
+<p>Below is a list of DRM technologies that are supported in JW Player (v7.5+) and which browsers support them. Note that our support for each DRM is constrained by what the DRM makers themselves support. For example, Apple supports Fairplay in Safari on Mac OS, but not in Safari on iOS.</p>
+
+<table style="max-width: 640px; min-width: 480px;">
+	<tbody>
+		<tr>
+			<td><strong>DRM</strong></td>
+			<td><strong>Browser &amp; Mobile OS Supported</strong></td>
+		</tr>
+		<tr>
+			<td>Google Widevine</td>
+			<td>Chrome 35+ (Desktop and Android)<br />
+			Firefox 47+ (Windows, Mac only)<br />
+			<br />
+			Android v4.3+ (via native JW Player SDK)</td>
+		</tr>
+		<tr>
+			<td>Microsoft Playready</td>
+			<td>Internet Explorer 11+ (Windows 8.1+ only)<br />
+			Microsoft Edge 12+ (Windows desktop and Phone)</td>
+		</tr>
+		<tr>
+			<td>Apple FairPlay Streaming (FPS)</td>
+			<td>Safari 11+ on OS X<br />
+			<br />
+			Apple iOS v8+ (via native JW Player iOS SDK)</td>
+		</tr>
+		<tr>
+			<td>Clearkey</td>
+			<td>Chrome 35+<br />
+			Firefox 47+<br />
+			Internet Explorer 11+<br />
+			Microsoft Edge 12+<br />
+			Safari 11+<br />
+			<br />
+			Android v4.3+<br />
+			Apple iOS v8+</td>
+		</tr>
+		<tr>
+			<td>AES 128bit</td>
+			<td>Chrome 35+<br />
+			Firefox 47+<br />
+			Internet Explorer 11+<br />
+			Microsoft Edge 12+<br />
+			Safari 11+<br />
+			<br />
+			Android v4.3+<br />
+			Apple iOS v8+</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Configuration &amp; Setup</h2>
+
+<blockquote><em>NOTE: The use of DRM can only be configured when a stream is being used with an Enterprise license.</em></blockquote>
+
+
+<p>DRM (including AES 128bit encryption) can be used either with HLS or MPEG-DASH adaptive streaming technologies served over HTTP(S), it cannot be used with other formats or delivery technologies.</p>
+
+<h3>DRM Providers</h3>
+
+<p>JW Player has recommended partners to provide encryption and license serving services. You will need to talk with these partners independently to get setup with your DRM workflow and license capabilities.</p>
+
+<p>Recommended partners for DRM services include:</p>
+
+<p><a href="http://ezdrm.com/">EZDRM</a><br />
+<a href="http://www.vualto.com/">Vualto</a></p>
+
+<p>In a typical DRM workflow, you utilize a DRM provider to encrypt content and serve licenses. A DRM multi-platform provider abstracts the encryption process of cross-platform DRM technologies by providing a single interface for encrypting via Widevine, Fairplay, etc. Some providers also provide a storage solution to store your encrypted assets and can also provide delivery services.</p>
+
+<p style="text-align:center;"><img src="https://lh3.googleusercontent.com/H0wUbasMX7Gqn8sCW_6_H_TeZRzZmnkkDUYOZ-8PM1_xi39OyCltrySzgyCKOvrRgMkLV69Bijdmd3rcgEuF_PrQRIB1Yy4VoaYow3OF7wIicvIhxcWS-23eZt-I6YUWM5_Jl1ry" /><br />
+<em>Figure A - Example DRM workflow using JW Player and third-party DRM vendor (workflows and capabilities of each DRM provider vary so please inquire about the particular provider you intend to use).</em></p>
+
+<h3>DRM-specific Setup</h3>
+
+<p>Specific DRM configuration options are then nested inside of the drm block. As of JW Player 7.3, it is possible to configure multiple forms of DRM, which will be chosen according to the utilized browser.</p>
+
+<p>As of JW Player 7.3, an optional customData value can also be specified for additional security. If you wish to enable this feature, it will need to be enabled by your stream provider.</p>
+
+<p>The most typical workflow for DRM includes utilizing multiple DRM technologies to cover the most common playback environments. An example of a fully nested DRM block is shown below. This method utilizes the appropriate DRM technology based on the browser/client that is requesting the content.</p>
+
+<pre>
+jwplayer(&#39;myElement&#39;).setup({
+  file: &#39;//www.website.com/media/videofile.mpd&#39;,
+  drm: {
+    widevine: {
+    url: &#39;//widevine-proxy.appspot.com/proxy&#39;,
+      headers:[{
+name:&rdquo;customData&rdquo;,
+ value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
+    }],
+    playready: {
+    url: &#39;//playready-proxy.appspot.com/proxy&#39;,
+     headers:[{
+name:&rdquo;customData&rdquo;,
+	 value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
+    }],
+    },
+    fairplay: {
+    processSpcUrl: &#39;path to key server that provides ckc&#39;,
+    certificateUrl: &#39;path to certificate&#39;,
+    },
+    clearkey: {
+    key: &quot;xldkjfa9a38hfa98hsadf0a89h&quot;
+    }
+  }
+});
+</pre>
+
+<h3>AES Decryption</h3>
+
+<p>The Enterprise edition of JW Player has the ability to decrypt stream segments that are encrypted with AES-128 in HLS or MPEG-DASH streaming packages. When encryption is used, the manifest playlist file needs to reference the corresponding key file so that the JW Player can retrieve the keys for decryption. The using the aestoken configuration, the player can also pass a token to the key request URI, enhancing the security of AES.</p>
+
+<p>JW Player supports three modes for decoding encrypted segments:</p>
+
+<ol>
+	<li>The key can rotate per fragment or be the same.</li>
+	<li>The key can be hosted externally or be embedded within the index file.</li>
+	<li>Custom initialization vectors (IVs) can be used.</li>
+</ol>
+
+<p><em>Note: JW Player does not support SAMPLE-AES.</em></p>
+
+<p>Here is an example of a playlist file with a custom IV:</p>
+
+<pre>
+#EXTM3U
+#EXT-X-TARGETDURATION:10
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:10,	
+#EXT-X-KEY:METHOD=AES-128,URI=&quot;key&quot;,IV=0x1c341b1db8ff5399501511a99c8c7d14
+fileSequence0.ts
+#EXTINF:10,	
+fileSequence1.ts
+#EXT-X-ENDLIST
+</pre>
+
+<p>On embed of the JW Player, a token can be set in the configuration value aestoken. When the JW Player requests the key, the token is appended as a url parameter called token. This allows the key server that is providing the AES decryption key to authenticate whether or not the request is valid. JW Player will check to make sure the ? is present on the key uri and add one if necessary.</p>
+
+<p>An example of how this setup would look:</p>
+
+<pre>
+jwplayer(&quot;myElement&quot;).setup({
+	file: &#39;sample_aes_stream.m3u8&#39;,
+	aestoken: &#39;EXAMPLE_AES_TOKEN&#39;
+});
+</pre>
+
+<p><em>Note: aestoken is only supported on desktop browsers in Flash rendering mode. It is not supported on iOS, Safari and Android in HTML5 mode.</em></p>
+
+<h3>Apple FairPlay Streaming</h3>
+
+<p>Safari 9 and higher supports DRM through Apple FairPlay Streaming (FPS). The most basic setup of FPS is achieved by providing JW Player with the certificate path URL (certificateUrl) and the URL to the server playback context (processSpcUrl). These configuration options are based on default functions that handle the transaction between the browser and the license server. These include options to set license request headers, extract the content id, and extract the key from the content key context (ckc). Certain DRM packagers require their own custom functions to handle these transactions.</p>
+
+<h4>Simple Setup</h4>
+
+<p>In this example JW Player has built in the code necessary to request the server playback context and to request the content provider&rsquo;s application certificate.</p>
+
+<pre>
+        drm: {
+          fairplay: {
+            certificateUrl: &#39;http://license.com/fairplay/cert&#39;,
+            processSpcUrl: &#39;http://license.com/fairplay/ckc&#39;
+          }
+        }
+</pre>
+
+<p>These functions are built into the player and are not needed to be defined when the response from the license server is formatted as an arraybuffer instead of text. Note that Apple&rsquo;s reference example uses a text response instead of an arraybuffer.</p>
+
+<h4>Configuring a Custom FairPlay Integration</h4>
+
+<p>Apple has provided flexibility to key providers and DRM packagers in how they handle through JavaScript the key, certificate, and content requests. Since there is no single set of configuration options to handle all scenarios, JW Player has the following configuration options that allow custom functions to be passed into the player.</p>
+
+<p><em>certificateUrl</em><br />
+<strong>Required</strong>. The path to the certificate which is part of the session data used to initialize the keySession.certificateUrl</p>
+
+<p><em>processSpcUrl</em><br />
+<strong>Required</strong>. The path to the license server (server playback context) which provides the ckc. Expects a direct url to the server. If the url needs to be constructed dynamically, a custom function can be passed to this configuration option which returns the url.</p>
+
+<p><em>extractContentId</em><br />
+Optional. Expects a function that receives the initData uri (converted to a string) from the needkey event, and returns the contentId which is part of the session data used to initialize the keySession.</p>
+
+<p>By default this returns the text following &ldquo;skd://&rdquo; in the initData uri:</p>
+
+<pre>
+function(initDataUri) {
+    return initDataUri.split(&#39;skd://&#39;)[1];
+}
+</pre>
+
+<p><em>licenseRequestHeaders</em><br />
+Optional. Expects an Array of Objects containing header &ldquo;name&rdquo; and &ldquo;value&rdquo; properties to be included in the request to the license server.</p>
+
+<p><em>licenseResponseType</em><br />
+Optional. Specifies the data type returned by the XHR request to the license server. The default value is &#39;arraybuffer&#39;. Other options include &#39;blob&#39;, &#39;json&#39;, and &#39;text&#39;. This option impacts how &ldquo;licenseRequestMessage&rdquo; will be processed.</p>
+
+<p><em>licenseRequestMessage</em><br />
+Optional. Expects a function that receives the license key message and returns the message to be sent to the license server. With the default &ldquo;licenseResponseType&rdquo; of ArrayBuffer this function passes through keymessage event message property without any changes.</p>
+
+<p><em>extractKey</em><br />
+Optional. Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a &lsquo;blob&rsquo; response), this function can return a promise.</p>
+
+<p>By default this returns a Uint8Array view of the default &#39;arraybuffer&#39; response.</p>
+
+<pre>
+function(ckc) {
+    return new Uint8Array(ckc);
+}
+</pre>
+
+<p>Here is a summary of all defaults set for optional FairPlay DRM options:</p>
+
+<pre>
+
+        extractContentId: function(initDataUri) {
+            return initDataUri.split(&#39;skd://&#39;)[1];
+        },
+        licenseRequestHeaders: [],
+        licenseResponseType: &#39;arraybuffer&#39;,
+        licenseRequestMessage: function(message) {
+           return message;
+        },
+        extractKey: function(ckc) {
+            return new Uint8Array(ckc);
+        }
+    </pre>
+
+<h4>Apple FairPlay Reference Implementation</h4>
+
+<p>Apple&rsquo;s reference implementation specifies the response from the license server to be formatted as text instead of as an arraybuffer. Though it is easier to manage when it is an arraybuffer, this is supported in JW Player with the following custom functions.</p>
+
+<pre>
+ fairplay: {
+            certificateUrl: &#39;path/fps_certificate.der&#39;,
+            extractContentId: function(initDataUri) {
+              var link = document.createElement(&#39;a&#39;);
+              link.href = initDataUri;
+              return link.hostname;
+            },
+            processSpcUrl: &#39;path/keyservermodule&#39;,
+            licenseResponseType: &#39;text&#39;,
+            licenseRequestHeaders: [
+              { name: &#39;Content-type&#39;, value: &#39;application/x-www-form-urlencoded&#39; }
+            ],
+            licenseRequestMessage: function(message, session) {
+              return &#39;spc=&#39;+base64EncodeUint8Array(message)+&#39;&amp;assetId=&#39;+encodeURIComponent(session.contentId);
+            },
+            extractKey: function(ckc) {
+              var base64EncodedKey = ckc.trim();
+              if (base64EncodedKey.substr(0, 5) === &#39;<ckc>&#39; &amp;&amp; base64EncodedKey.substr(-6) === &#39;</ckc>&#39;) {
+                base64EncodedKey = base64EncodedKey.slice(5,-6);
+              }
+              return base64EncodedKey;
+            }
+          }
+</pre>
+
+<p>The following function is also required to base64 encode the key string. This does not need to be part of the player setup but needs to be on the page alongside the player for the above example.</p>
+
+<pre>
+
+    function base64EncodeUint8Array(input) {
+        var keyStr = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot;;
+        var output = &quot;&quot;;
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        while (i &lt; input.length) {
+          chr1 = input[i++];
+          chr2 = i &lt; input.length ? input[i++] : Number.NaN; // Not sure if the index
+          chr3 = i &lt; input.length ? input[i++] : Number.NaN; // checks are needed here
+
+          enc1 = chr1 &gt;&gt; 2;
+          enc2 = ((chr1 &amp; 3) &lt;&lt; 4) | (chr2 &gt;&gt; 4);
+          enc3 = ((chr2 &amp; 15) &lt;&lt; 2) | (chr3 &gt;&gt; 6);
+          enc4 = chr3 &amp; 63;
+
+          if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+          } else if (isNaN(chr3)) {
+            enc4 = 64;
+          }
+          output += keyStr.charAt(enc1) + keyStr.charAt(enc2) +
+                  keyStr.charAt(enc3) + keyStr.charAt(enc4);
+        }
+        return output;
+      }
+</pre>
+
+<h4>UpLynk Custom Functions</h4>
+
+<p>Verizon UpLynk requires customization to generate the SPC url. JW Player accepts either a function or a direct url within the processSpcUrl configuration option to accommodate this need.</p>
+
+<p>The following is an example implementation within JW Player&rsquo;s DRM block to integrate with UpLynk provided FPS streams.</p>
+
+<pre>
+      jwplayer(&#39;uplynk&#39;).setup({
+        file: &#39;content-url.m3u8&#39;,
+        drm: {
+          fairplay: {
+            certificateUrl: &#39;path/certificate.der&#39;,
+            extractContentId: function(initDataUri) {
+              var link = document.createElement(&#39;a&#39;);
+              link.href = getSPCUrl(initDataUri);
+              var query = link.search.substr(1);
+              var id = query.split(&quot;&amp;&quot;);
+              var item = id[0].split(&quot;=&quot;);
+              var cid = item[1];
+              return cid;
+            },
+            processSpcUrl: getSPCUrl,
+            licenseResponseType: &#39;json&#39;,
+            licenseRequestMessage: function(message, session) {
+              var payload = {};
+              payload.spc = base64EncodeUint8Array(message);
+              payload.assetId = session.contentId;
+              return JSON.stringify(payload);
+            },
+            extractKey: function(response) {
+              return response.ckc;
+            }
+          }
+        }
+      });
+
+      function getSPCUrl(initDataUri) {
+        var spcurl = initDataUri.replace(&#39;skd://&#39;, &#39;https://&#39;);
+        spcurl = spcurl.substring(1, spcurl.length);
+        return spcurl;
+      }
+
+      function base64EncodeUint8Array(input) {
+        var keyStr = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot;;
+        var output = &quot;&quot;;
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        while (i &lt; input.length) {
+          chr1 = input[i++];
+          chr2 = i &lt; input.length ? input[i++] : Number.NaN; // Not sure if the index
+          chr3 = i &lt; input.length ? input[i++] : Number.NaN; // checks are needed here
+
+          enc1 = chr1 &gt;&gt; 2;
+          enc2 = ((chr1 &amp; 3) &lt;&lt; 4) | (chr2 &gt;&gt; 4);
+          enc3 = ((chr2 &amp; 15) &lt;&lt; 2) | (chr3 &gt;&gt; 6);
+          enc4 = chr3 &amp; 63;
+
+          if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+          } else if (isNaN(chr3)) {
+            enc4 = 64;
+          }
+          output += keyStr.charAt(enc1) + keyStr.charAt(enc2) +
+                  keyStr.charAt(enc3) + keyStr.charAt(enc4);
+        }
+        return output;
+      }
+</pre>
+
+<h4>EZDRM Example</h4>
+
+<p>EZDRM also requires customization to extract content id and the key from the server key context.</p>
+
+<pre>
+      jwplayer(&#39;ezdrm&#39;).setup({
+        key: &#39;YEUwUA9wRFeDcydr&#39;,
+        autostart: true,
+        file: &#39;content-path.m3u8&#39;,
+        drm: {
+          fairplay: {
+            certificateUrl: &#39;certificate-path.cer&#39;,
+            extractContentId: function(initDataUri) {
+              var uriParts = initDataUri.split(&#39;://&#39;, 1);
+              var protocol = uriParts[0].slice(-3);
+              uriParts = initDataUri.split(&#39;;&#39;, 2);
+              var contentId = uriParts.length &gt; 1 ? uriParts[1] : &#39;&#39;;
+              return protocol.toLowerCase() == &#39;skd&#39; ? contentId : &#39;&#39;;
+            },
+            processSpcUrl: &#39;http://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe&#39; + &#39;?p1=&#39; + Date.now(),
+            licenseResponseType: &#39;blob&#39;,
+            licenseRequestHeaders: [
+              { name: &#39;Content-type&#39;, value: &#39;application/octet-stream&#39; }
+            ],
+            licenseRequestMessage: function(message) {
+              return new Blob([message], {type: &#39;application/octet-binary&#39;});
+            },
+            extractKey: function(response) {
+              return new Promise(function(resolve, reject) {
+                var reader = new FileReader();
+                reader.addEventListener(&#39;loadend&#39;, function() {
+                  resolve(new Uint8Array(reader.result));
+                });
+                reader.addEventListener(&#39;error&#39;, function() {
+                  reject(reader.error);
+                });
+                reader.readAsArrayBuffer(response);
+              });
+            }
+          }
+        }
+      });
+   </pre>
