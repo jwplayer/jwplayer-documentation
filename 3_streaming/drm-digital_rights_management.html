@@ -8,61 +8,60 @@
 
 <p>One of the main problems with DRM is the lack of cross-platform compatibility. Most DRM technologies are proprietary and are only supported on OEM-specific products. For example, Apple FairPlay is only compatible with the Apple Safari web browser and other Apple hardware and software products.</p>
 
-<p>Below is a list of DRM technologies that are supported in JW Player (v7.5+) and which browsers support them. Note that our support for each DRM is constrained by what the DRM makers themselves support. For example, Apple supports Fairplay in Safari on Mac OS, but not in Safari on iOS.</p>
+<p>Below is a list of DRM technologies that are supported in JW Player and which browsers support them. Note that our support for each DRM is constrained by what the DRM makers themselves support. For example, Apple supports Fairplay in Safari on Mac OS, but not in Safari on iOS.</p>
 
 <table style="max-width: 640px; min-width: 480px;">
-	<tbody>
-		<tr>
-			<td><strong>DRM</strong></td>
-			<td><strong>Browser &amp; Mobile OS Supported</strong></td>
-		</tr>
-		<tr>
-			<td>Google Widevine</td>
-			<td>Chrome 35+ (Desktop and Android)<br />
-			Firefox 47+ (Windows, Mac only)<br />
-			<br />
-			Android v4.3+ (via native JW Player SDK)</td>
-		</tr>
-		<tr>
-			<td>Microsoft Playready</td>
-			<td>Internet Explorer 11+ (Windows 8.1+ only)<br />
-			Microsoft Edge 12+ (Windows desktop and Phone)</td>
-		</tr>
-		<tr>
-			<td>Apple FairPlay Streaming (FPS)</td>
-			<td>Safari 11+ on OS X<br />
-			<br />
-			Apple iOS v8+ (via native JW Player iOS SDK)</td>
-		</tr>
-		<tr>
-			<td>Clearkey</td>
-			<td>Chrome 35+<br />
-			Firefox 47+<br />
-			Internet Explorer 11+<br />
-			Microsoft Edge 12+<br />
-			Safari 11+<br />
-			<br />
-			Android v4.3+<br />
-			Apple iOS v8+</td>
-		</tr>
-		<tr>
-			<td>AES 128bit</td>
-			<td>Chrome 35+<br />
-			Firefox 47+<br />
-			Internet Explorer 11+<br />
-			Microsoft Edge 12+<br />
-			Safari 11+<br />
-			<br />
-			Android v4.3+<br />
-			Apple iOS v8+</td>
-		</tr>
-	</tbody>
+  <tbody>
+    <tr>
+      <td><strong>DRM</strong></td>
+      <td><strong>Browser &amp; Mobile OS Supported</strong></td>
+    </tr>
+    <tr>
+      <td>Google Widevine</td>
+      <td>Chrome 35+ (Desktop and Android)<br />
+      Firefox 47+ (Windows, Mac only)<br />
+      <br />
+      Android v4.3+ (via native JW Player SDK)</td>
+    </tr>
+    <tr>
+      <td>Microsoft Playready</td>
+      <td>Internet Explorer 11+ (Windows 8.1+ only)<br />
+      Microsoft Edge 12+ (Windows desktop and Phone)</td>
+    </tr>
+    <tr>
+      <td>Apple FairPlay Streaming (FPS)</td>
+      <td>Safari 11+ on OS X<br />
+      <br />
+      Apple iOS v8+ (via native JW Player iOS SDK)</td>
+    </tr>
+    <tr>
+      <td>Clearkey</td>
+      <td>Chrome 35+<br />
+      Firefox 47+<br />
+      Internet Explorer 11+<br />
+      Microsoft Edge 12+<br />
+      Safari 11+<br />
+      <br />
+      Android v4.3+<br />
+      Apple iOS v8+</td>
+    </tr>
+    <tr>
+      <td>AES 128bit</td>
+      <td>Chrome 35+<br />
+      Firefox 47+<br />
+      Internet Explorer 11+<br />
+      Microsoft Edge 12+<br />
+      Safari 11+<br />
+      <br />
+      Android v4.3+<br />
+      Apple iOS v8+</td>
+    </tr>
+  </tbody>
 </table>
 
 <h2>Configuration &amp; Setup</h2>
 
 <blockquote><em>NOTE: The use of DRM can only be configured when a stream is being used with an Enterprise license.</em></blockquote>
-
 
 <p>DRM (including AES 128bit encryption) can be used either with HLS or MPEG-DASH adaptive streaming technologies served over HTTP(S), it cannot be used with other formats or delivery technologies.</p>
 
@@ -75,44 +74,62 @@
 <p><a href="http://ezdrm.com/">EZDRM</a><br />
 <a href="http://www.vualto.com/">Vualto</a></p>
 
-<p>In a typical DRM workflow, you utilize a DRM provider to encrypt content and serve licenses. A DRM multi-platform provider abstracts the encryption process of cross-platform DRM technologies by providing a single interface for encrypting via Widevine, Fairplay, etc. Some providers also provide a storage solution to store your encrypted assets and can also provide delivery services.</p>
+<p>In a typical DRM workflow, you use a DRM provider to encrypt content and serve licenses. A DRM multi-platform provider abstracts the encryption process of cross-platform DRM technologies by providing a single interface for encrypting via Widevine, Fairplay, etc. Some providers also provide a storage solution to store your encrypted assets and can also provide delivery services.</p>
 
 <p style="text-align:center;"><img src="https://lh3.googleusercontent.com/H0wUbasMX7Gqn8sCW_6_H_TeZRzZmnkkDUYOZ-8PM1_xi39OyCltrySzgyCKOvrRgMkLV69Bijdmd3rcgEuF_PrQRIB1Yy4VoaYow3OF7wIicvIhxcWS-23eZt-I6YUWM5_Jl1ry" /><br />
 <em>Figure A - Example DRM workflow using JW Player and third-party DRM vendor (workflows and capabilities of each DRM provider vary so please inquire about the particular provider you intend to use).</em></p>
 
 <h3>DRM-specific Setup</h3>
 
-<p>Specific DRM configuration options are then nested inside of the drm block. As of JW Player 7.3, it is possible to configure multiple forms of DRM, which will be chosen according to the utilized browser.</p>
+<p>Specific DRM configuration options are then nested inside of the drm block. It is possible to configure multiple forms of DRM within a particular source, which will be chosen according to the particular browser.</p>
 
-<p>As of JW Player 7.3, an optional customData value can also be specified for additional security. If you wish to enable this feature, it will need to be enabled by your stream provider.</p>
+<p>Custom header values can also be specified for additional security. If you wish to enable this feature, it will need to be enabled by your stream provider and customized inside of your player configuration. More information can be found on our <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drm">developer site</a>.</p>
 
-<p>The most typical workflow for DRM includes utilizing multiple DRM technologies to cover the most common playback environments. An example of a fully nested DRM block is shown below. This method utilizes the appropriate DRM technology based on the browser/client that is requesting the content.</p>
+<p>A typical workflow for DRM includes configuring multiple DRM technologies to cover the most common playback environments. These DRM technologies should be embedded inside of a particular source, to allow the player to fall back to the correct technology. An example of a fully nested DRM block is shown below. This method chooses the appropriate DRM technology based on the browser/client that is requesting the content.</p>
 
 <pre>
 jwplayer(&#39;myElement&#39;).setup({
-  file: &#39;//www.website.com/media/videofile.mpd&#39;,
-  drm: {
-    widevine: {
-    url: &#39;//widevine-proxy.appspot.com/proxy&#39;,
-      headers:[{
-name:&rdquo;customData&rdquo;,
- value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
-    }],
-    playready: {
-    url: &#39;//playready-proxy.appspot.com/proxy&#39;,
-     headers:[{
-name:&rdquo;customData&rdquo;,
-	 value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
-    }],
-    },
-    fairplay: {
-    processSpcUrl: &#39;path to key server that provides ckc&#39;,
-    certificateUrl: &#39;path to certificate&#39;,
-    },
-    clearkey: {
-    key: &quot;xldkjfa9a38hfa98hsadf0a89h&quot;
-    }
-  }
+  playlist: [{
+    sources: [{
+      file: &#39;//www.website.com/media/videofile.mpd&#39;,
+        drm: {
+          widevine: {
+          url: &#39;//widevine-proxy.appspot.com/proxy&#39;,
+            headers:[{
+              name:&rdquo;customData&rdquo;,
+              value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
+            }]
+          }
+        }
+    },{
+    file: &#39;//www.website.com/media/videofile.mpd&#39;,
+      drm: {
+        playready: {
+          url: &#39;//playready-proxy.appspot.com/proxy&#39;,
+            headers:[{
+              name:&rdquo;customData&rdquo;,
+              value  : &quot;abcdefg1234567hijklmn89101112opqrs98765tuvwxyz&quot;
+            }]
+          }
+      }
+    },{
+    file: &#39;http://www.website.com/media/videofile.m3u8&#39;,
+      drm: {
+        fairplay: {
+          processSpcUrl: &#39;path to key server that provides ckc&#39;,
+          certificateUrl: &#39;path to certificate&#39;,
+        }
+      }
+    },{
+    file: &quot;clearkey-manifest.mpd&quot;
+      drm: {
+        clearkey: {
+          key: &quot;xldkjfa9a38hfa98hsadf0a89h&quot;,
+          keyId: &quot;1234-5678-91011&quot;
+        }
+      }
+    }]
+  }]
 });
 </pre>
 
@@ -123,12 +140,12 @@ name:&rdquo;customData&rdquo;,
 <p>JW Player supports three modes for decoding encrypted segments:</p>
 
 <ol>
-	<li>The key can rotate per fragment or be the same.</li>
-	<li>The key can be hosted externally or be embedded within the index file.</li>
-	<li>Custom initialization vectors (IVs) can be used.</li>
+  <li>The key can rotate per fragment or be the same.</li>
+  <li>The key can be hosted externally or be embedded within the index file.</li>
+  <li>Custom initialization vectors (IVs) can be used.</li>
 </ol>
 
-<p><em>Note: JW Player does not support SAMPLE-AES.</em></p>
+<p><em>Note: JW Player does not support SAMPLE-AES in non-Safari browsers.</em></p>
 
 <p>Here is an example of a playlist file with a custom IV:</p>
 
@@ -138,10 +155,10 @@ name:&rdquo;customData&rdquo;,
 #EXT-X-VERSION:3
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-PLAYLIST-TYPE:VOD
-#EXTINF:10,	
+#EXTINF:10, 
 #EXT-X-KEY:METHOD=AES-128,URI=&quot;key&quot;,IV=0x1c341b1db8ff5399501511a99c8c7d14
 fileSequence0.ts
-#EXTINF:10,	
+#EXTINF:10, 
 fileSequence1.ts
 #EXT-X-ENDLIST
 </pre>
@@ -152,8 +169,8 @@ fileSequence1.ts
 
 <pre>
 jwplayer(&quot;myElement&quot;).setup({
-	file: &#39;sample_aes_stream.m3u8&#39;,
-	aestoken: &#39;EXAMPLE_AES_TOKEN&#39;
+  file: &#39;sample_aes_stream.m3u8&#39;,
+  aestoken: &#39;EXAMPLE_AES_TOKEN&#39;
 });
 </pre>
 
@@ -165,7 +182,7 @@ jwplayer(&quot;myElement&quot;).setup({
 
 <h4>Simple Setup</h4>
 
-<p>In this example JW Player has built in the code necessary to request the server playback context and to request the content provider&rsquo;s application certificate.</p>
+<p>In this example JW Player has built in the code necessary to request the server playback context and to request the content provider&rsquo;s application certificate. This information should be placed in the appropriate source that contains the Fairplay M3U8 manifest.</p>
 
 <pre>
         drm: {
@@ -177,6 +194,7 @@ jwplayer(&quot;myElement&quot;).setup({
 </pre>
 
 <p>These functions are built into the player and are not needed to be defined when the response from the license server is formatted as an arraybuffer instead of text. Note that Apple&rsquo;s reference example uses a text response instead of an arraybuffer.</p>
+<a name="fairplay"></a>
 
 <h4>Configuring a Custom FairPlay Integration</h4>
 
@@ -306,32 +324,36 @@ function(ckc) {
 
 <pre>
       jwplayer(&#39;uplynk&#39;).setup({
-        file: &#39;content-url.m3u8&#39;,
-        drm: {
-          fairplay: {
-            certificateUrl: &#39;path/certificate.der&#39;,
-            extractContentId: function(initDataUri) {
-              var link = document.createElement(&#39;a&#39;);
-              link.href = getSPCUrl(initDataUri);
-              var query = link.search.substr(1);
-              var id = query.split(&quot;&amp;&quot;);
-              var item = id[0].split(&quot;=&quot;);
-              var cid = item[1];
-              return cid;
-            },
-            processSpcUrl: getSPCUrl,
-            licenseResponseType: &#39;json&#39;,
-            licenseRequestMessage: function(message, session) {
-              var payload = {};
-              payload.spc = base64EncodeUint8Array(message);
-              payload.assetId = session.contentId;
-              return JSON.stringify(payload);
-            },
-            extractKey: function(response) {
-              return response.ckc;
-            }
-          }
-        }
+      playlist: [{
+        sources: [{
+              file: &#39;content-url.m3u8&#39;,
+                drm: {
+                  fairplay: {
+                    certificateUrl: &#39;path/certificate.der&#39;,
+                    extractContentId: function(initDataUri) {
+                      var link = document.createElement(&#39;a&#39;);
+                      link.href = getSPCUrl(initDataUri);
+                      var query = link.search.substr(1);
+                      var id = query.split(&quot;&amp;&quot;);
+                      var item = id[0].split(&quot;=&quot;);
+                      var cid = item[1];
+                      return cid;
+                    },
+                    processSpcUrl: getSPCUrl,
+                    licenseResponseType: &#39;json&#39;,
+                    licenseRequestMessage: function(message, session) {
+                      var payload = {};
+                      payload.spc = base64EncodeUint8Array(message);
+                      payload.assetId = session.contentId;
+                      return JSON.stringify(payload);
+                    },
+                    extractKey: function(response) {
+                      return response.ckc;
+                    }
+                  }
+                }
+              }]
+            }]
       });
 
       function getSPCUrl(initDataUri) {
@@ -373,41 +395,43 @@ function(ckc) {
 <p>EZDRM also requires customization to extract content id and the key from the server key context.</p>
 
 <pre>
-      jwplayer(&#39;ezdrm&#39;).setup({
-        key: &#39;YEUwUA9wRFeDcydr&#39;,
-        autostart: true,
-        file: &#39;content-path.m3u8&#39;,
-        drm: {
-          fairplay: {
-            certificateUrl: &#39;certificate-path.cer&#39;,
-            extractContentId: function(initDataUri) {
-              var uriParts = initDataUri.split(&#39;://&#39;, 1);
-              var protocol = uriParts[0].slice(-3);
-              uriParts = initDataUri.split(&#39;;&#39;, 2);
-              var contentId = uriParts.length &gt; 1 ? uriParts[1] : &#39;&#39;;
-              return protocol.toLowerCase() == &#39;skd&#39; ? contentId : &#39;&#39;;
-            },
-            processSpcUrl: &#39;http://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe&#39; + &#39;?p1=&#39; + Date.now(),
-            licenseResponseType: &#39;blob&#39;,
-            licenseRequestHeaders: [
-              { name: &#39;Content-type&#39;, value: &#39;application/octet-stream&#39; }
-            ],
-            licenseRequestMessage: function(message) {
-              return new Blob([message], {type: &#39;application/octet-binary&#39;});
-            },
-            extractKey: function(response) {
-              return new Promise(function(resolve, reject) {
-                var reader = new FileReader();
-                reader.addEventListener(&#39;loadend&#39;, function() {
-                  resolve(new Uint8Array(reader.result));
+jwplayer(&#39;ezdrm&#39;).setup({
+      playlist: [{
+        sources: [{
+         file: &#39;content-path.m3u8&#39;,
+           drm: {
+            fairplay: {
+              certificateUrl: &#39;certificate-path.cer&#39;,
+              extractContentId: function(initDataUri) {
+                var uriParts = initDataUri.split(&#39;://&#39;, 1);
+                var protocol = uriParts[0].slice(-3);
+                uriParts = initDataUri.split(&#39;;&#39;, 2);
+                var contentId = uriParts.length &gt; 1 ? uriParts[1] : &#39;&#39;;
+                return protocol.toLowerCase() == &#39;skd&#39; ? contentId : &#39;&#39;;
+              },
+              processSpcUrl: &#39;http://fps.ezdrm.com/api/licenses/09cc0377-6dd4-40cb-b09d-b582236e70fe&#39; + &#39;?p1=&#39; + Date.now(),
+              licenseResponseType: &#39;blob&#39;,
+              licenseRequestHeaders: [
+                { name: &#39;Content-type&#39;, value: &#39;application/octet-stream&#39; }
+              ],
+              licenseRequestMessage: function(message) {
+                return new Blob([message], {type: &#39;application/octet-binary&#39;});
+              },
+              extractKey: function(response) {
+                return new Promise(function(resolve, reject) {
+                  var reader = new FileReader();
+                  reader.addEventListener(&#39;loadend&#39;, function() {
+                    resolve(new Uint8Array(reader.result));
+                  });
+                  reader.addEventListener(&#39;error&#39;, function() {
+                    reject(reader.error);
+                  });
+                  reader.readAsArrayBuffer(response);
                 });
-                reader.addEventListener(&#39;error&#39;, function() {
-                  reject(reader.error);
-                });
-                reader.readAsArrayBuffer(response);
-              });
+              }
             }
-          }
         }
-      });
+      }]  
+    }]
+  });
    </pre>
