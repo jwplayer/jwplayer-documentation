@@ -59,6 +59,25 @@ playlist: [{
 
 <p>Configuring sources can also be done within a playlist, as mentioned in our <a href="http://support.jwplayer.com/customer/portal/articles/1413113-configuration-options-reference#playlist" target="_blank">configuration reference page</a>. This will allow you to add fallbacks for each item in a playlist.</p>
 
+<h2>Sources and DRM</h2>
+
+<p>In order to configure multiple DRM types within a player embed, each DRM type must be specified within a drm object in a source array:</p>
+
+<pre>
+ jwplayer(&quot;myElement&quot;).setup({
+playlist: [{
+        sources: [{ 
+            file: &quot;//mySite.com/myFile.mpd&quot;,
+              drm: {
+                       widevine: {
+                              url: &quot;mywidevineserver.com/drm&quot;
+                              }
+               }
+        }]
+}]
+});</pre>
+More information can be found in our <a href="https://support.jwplayer.com/customer/en/portal/articles/2561182-drm-digital-rights-management-">DRM article</a>.
+
 <h2>Example</h2>
 
 <p>Here&#39;s an example of our player using an RTMP stream as a primary media file, with an MP4 file as a backup: ​</p>
@@ -70,18 +89,18 @@ playerInstance.setup({
   playlist: [{
     image: "//support.jwplayer.com/customer/portal/attachments/238181",
     sources: [{
-      file: "rtmp://fms.12E5.edgecastcdn.net/0012E5/mp4:videos/8Juv1MVa-485.mp4"
+      file: "rtmp://wowza.longtailvideo.com/vod/_definst_/mp4:sintel/320.mp4"
     },{
       file: "//content.jwplatform.com/videos/nhYDGoyh-kNspJqnJ.mp4"
     }]
   }],
-  primary: "flash",
 width:640,
 height:360
 });
 </script>
 
 <p>The player should render successfully between mobile devices and browsers with Flash. (Provided that it can play MP4 natively!)</p>
+
 
 </body>
 </html>

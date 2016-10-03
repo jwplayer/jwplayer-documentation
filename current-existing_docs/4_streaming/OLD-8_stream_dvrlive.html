@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-
-<script src="//content.jwplatform.com/libraries/XeGdlzmk.js"></script>
-
-<meta name="deskURL" content="https://jwplayer.desk.com/admin/content-management/articles/1430265-dvr-live-streaming/edit?select_filter=564477">
-</head>
-<body>
-<div class="article_callout">This document applies to users of <strong>JW Player Premium</strong>. Don&#39;t have Premium? <a href="http://www.jwplayer.com/pricing/">Upgrade Now</a>.</div>
-
 <h2>Overview</h2>
 
 <p>DVR functionality allows viewers to pause, play, and rewind live events. If viewers begin watching an event past the initial broadcast time, and do not want to miss any important content, this allows them to start at an earlier position. The JW Player detects if an HLS playlist is a DVR stream and adjusts the visual elements on the control bar to make it clear that the live stream can be paused or rewound to a point in the past. With JW Player 7, this functionality is supported in the <strong>Premium</strong> editon.</p>
@@ -28,26 +16,24 @@
 <ol>
 	<li>Buffer length is not configured with JW Player. This is configured on the streaming server.</li>
 	<li>Large manifests may negatively impact performance. Try using a larger segment size or smaller buffer period.</li>
-	<li>A minimum buffer of 2 minutes is required for the player to recognize a stream as being DVR.</li>
+	<li>A minimum window of 2 minutes is required for the player to recognize a stream as being DVR.
+	<ul>
+		<li><a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist">minDvrWindow</a> can be configured to decrease the required window in JW Player 7.7+</li>
+	</ul>
+	</li>
 </ol>
 
 <h3>Example</h3>
 
 <p>The following example is streamed from a Wowza server setup on Amazon EC2:</p>
 
-<pre>
-var playerInstance = jwplayer(&quot;container&quot;);
-playerInstance.setup({
-	file: &quot;//dev.wowza.longtailvideo.com:1935/dvr/sintel/playlist.m3u8?DVR&quot;,
-});
-</pre>
-
 <div id="container">&nbsp;</div>
 <script type="text/javascript">
 var playerInstance = jwplayer("container");
     playerInstance.setup({
-            file: "//wowza.longtailvideo.com:1935/dvr/sintel1280/playlist.m3u8?DVR",
-            image: "//s1-www.ltvimg.com/cdn/farfuture/k1HjFNkZSwsnHEyex1Z7ic8BKOpIcjplgpGGhnanHLU/mtime:1383770160/sites/default/files/jw-poster-dvr.png"
+            file: "https://wowza.jwplayer.com/live/jelly.stream/playlist.m3u8?DVR",
+            image: "//s1-www.ltvimg.com/cdn/farfuture/k1HjFNkZSwsnHEyex1Z7ic8BKOpIcjplgpGGhnanHLU/mtime:1383770160/sites/default/files/jw-poster-dvr.png",
+hlshtml: true
 });
 </script>
 
@@ -58,6 +44,3 @@ var playerInstance = jwplayer("container");
 <ul>
 	<li><a href="http://www.wowza.com/forums/content.php?300" target="_blank">Setting up DVR on a Wowza server</a></li>
 </ul>
-
-</body>
-</html>
