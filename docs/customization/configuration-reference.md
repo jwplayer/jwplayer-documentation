@@ -675,6 +675,6 @@ When using the localization block in a player configuration, it is possible to c
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**nextUp**|String|override for the "Next Up" prompt |"Next Up"|
-|**playlist**|String|Title of the Next Up tooltip in Playlist mode  |"Playlist"|
-|**related**|String|Title of the Next Up tooltip in Related mode |"Related"|
+|**localization.nextUp**|String|override for the "Next Up" prompt |"Next Up"|
+|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode  |"Playlist"|
+|**localization.related**|String|Title of the Next Up tooltip in Related mode |"Related"|
