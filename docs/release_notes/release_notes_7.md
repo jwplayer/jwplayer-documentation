@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.7](#version77) - 9/12/2016
+*   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
 *   [Version 7.4](#version74) - 4/25/2016
@@ -30,7 +30,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 <a name="version77"></a>
 
-### **7.7.0 - Alpha** - 9/12/16
+### **7.7.0** - 10/04/16
 
 JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content. 
 
