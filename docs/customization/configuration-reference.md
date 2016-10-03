@@ -592,7 +592,7 @@ Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or hig
 
 ###drm.widevine
 
-Widevine DRM is specific to Google Chrome on non-iOS devices
+Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also function on Firefox browsers for desktop systems.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
