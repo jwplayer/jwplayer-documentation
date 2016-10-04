@@ -63,6 +63,7 @@ If only a single playlist item is used, this information can either be configure
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|Boolean|Whether the player will attempt to begin playback automatically when a page is loaded|false|
+|**nextupoffset**|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
