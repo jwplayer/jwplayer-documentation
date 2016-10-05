@@ -22,7 +22,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.6.1|8/29/2016|Fixes for related, captions, ad pods|
+|Production|7.7.0|10/4/2016|Next up UI, Firefox HLS HTML5, Google IMA|
 |Beta|7.7.0|10/3/2016|Next up UI, Firefox HLS HTML5, Google IMA|
 
 * * *
