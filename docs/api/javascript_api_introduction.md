@@ -56,7 +56,7 @@ alert("Volume is changed to: "+ e.volume);
 
 ## Example: Using the JW Player API
 
-Before it is possible to interact with a player, a player setup is required. Our [Embedding Section](https://support.jwplayer.com/customer/portal/topics/601065-embedding/articles) contains several examples. Here is the proper syntax for a basic player embed:
+Before it is possible to interact with a player, a player setup is required. Our [Embedding Article](https://support.jwplayer.com/customer/portal/articles/1406723#fndtn-basic) contains several examples. Here is the proper syntax for a basic player embed:
 
 ```
 <div id='myElement'>Loading the player...</div>
