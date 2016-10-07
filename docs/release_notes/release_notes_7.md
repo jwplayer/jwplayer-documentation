@@ -51,7 +51,6 @@ This release also enhances the controlbar UI with a new default rewind 10 second
 
 #### New in Advertising
 * No longer using IMA 3 Flash SDK, all IMA ads will render using the HTML5 IMA SDK
-* Ad slots will automatically preload when using googima on playlistitem instead of on beforePlay
 
 #### Changes
 * Improved compatibility with RequireJS
