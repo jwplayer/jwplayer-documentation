@@ -3,7 +3,7 @@
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
 !!!important
-Certain JW Player features may require a specific license. Please [contact our team](https://www.jwplayer.com/contact-us/) to upgrade your account.
+Certain JW Player features may require a specific license. Please [contact our team](https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 |Table Of Contents| | |
@@ -274,7 +274,7 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 <br/>
 
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 ### playlist[_index_].adschedule

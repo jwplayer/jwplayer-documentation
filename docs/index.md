@@ -27,4 +27,4 @@ If you’re unable to find the resources you need on our developer site:
 - We welcome contributions to our open source Player code on [GitHub](https://github.com/jwplayer/jwplayer).
 - Stay connected on Twitter [@JWDevelopers](https://twitter.com/JWDevelopers).
 - We’re available to discuss feedback (or new cat videos!) at [devrelations@jwplayer.com](mailto:devrelations@jwplayer.com).
-- License upgrades are handled at our [contact us](https://www.jwplayer.com/contact-us/) page.
+- License upgrades are handled at our [contact us](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) page.
