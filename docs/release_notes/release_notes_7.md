@@ -23,11 +23,30 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.0|10/4/2016|Next up UI, Firefox HLS HTML5, Google IMA|
-|Beta|7.7.0|10/3/2016|Next up UI, Firefox HLS HTML5, Google IMA|
+|Beta|7.7.1|10/10/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
 
 * * *
 
 <a name="version77"></a>
+
+
+### **7.7.1** - 10/10/16
+
+#### Improvements to HLS HTML5 
+* Fixed an issue with live streams with inconsistent gaps in encoding that would desync and fail to play.
+* Fixed audio sync issues with live streams
+* Added messaging in Firefox when MP3 HLS streams cannot be played
+#### Discovery Overlay Fixes
+* Fixed an issue where additional pause events were firing when an item was chosen from the playlist overlay
+* Fixed an issue with discovery overlay where unplayed items were incorrectly marked as played
+#### Captions Fixes
+* Fixed an issue in Firefox where HLS 708 captions were displaying in the bottom-left region 
+* Fixed an issue in Firefox where sideloaded captions were not selectable when used in combination with 608 captions
+* Fixed an issue in Safari where embedded 608/708 captions were not available after a linear ad
+#### DRM Fixes
+* Fixed an issue in Safari where Fairplay DRM was not triggering a player error when a keyerror was fired
+* Fixed an issue in Firefox where replaying a DRM DASH stream would not play ads 
+
 
 ### **7.7.0** - 10/04/16
 
