@@ -50,7 +50,7 @@ If only a single playlist item is used, this information can either be configure
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**file**|String|**(Required)** URL to a single video file, audio file, YouTube video or live stream to play. Can also be configured inside of a [sources](playlist-sources) array|-|
+|**file**|String|**(Required)** URL to a single video file, audio file, YouTube video or live stream to play. Can also be configured inside of a [sources](#playlist-sources) array|-|
 |**image**|String|URL to a poster image to display before playback starts. |-|
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
