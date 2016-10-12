@@ -22,7 +22,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.7.0|10/4/2016|Next up UI, Firefox HLS HTML5, Google IMA|
+|Production|7.7.1|10/12/2016|Next up UI, Firefox HLS HTML5, Google IMA|
 |Beta|7.7.1|10/10/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
 
 * * *
@@ -35,6 +35,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 #### Improvements to HLS HTML5 
 * Fixed an issue with live streams with inconsistent gaps in encoding that would desync and fail to play.
 * Fixed audio sync issues with live streams
+* Fixed an issue where HLS streams with a short final segment would not play the last segment
 * Added messaging in Firefox when MP3 HLS streams cannot be played
 #### Discovery Overlay Fixes
 * Fixed an issue where additional pause events were firing when an item was chosen from the playlist overlay
