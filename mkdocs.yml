@@ -1,6 +1,8 @@
 site_name: JW Player Developer Guide
 theme: jwplayer
 site_favicon: favicon.ico
+extra:
+  product: player
 pages:
   - Home: index.md
   - Javascript API:
