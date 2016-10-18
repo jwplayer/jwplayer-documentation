@@ -23,12 +23,21 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.1|10/12/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
-|Beta|7.7.1|10/10/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
+|Beta|7.7.2|10/18/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
 
 * * *
 
 <a name="version77"></a>
 
+### **7.7.2** - 10/18/16
+
+#### Improvements to HLS HTML5 
+* Fixed an issue where certain audio streams containing a final short AAC segment were not going to a “complete” state.
+* Fixed an issue in Safari where on(‘meta’) was not outputting ID3 metadata after advertisements.
+* Fixed an issue where adjacent keyframes could cause stalls if the sample duration of the audio was longer than 2 keyframes.
+* Fixed an issue where switching qualities multiple times in a non-self instantiating stream could cause stalls.
+* Fixed an issue in Firefox where 608/708 captions would not appear with DVR streams.
+* Fixed an issue in Google IMA where setting “mute” configuration to true would play audio on certain ads for a split-second.
 
 ### **7.7.1** - 10/10/16
 
