@@ -23,7 +23,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.1|10/12/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
-|Beta|7.7.2|10/18/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
+|Beta|7.7.2|10/18/2016|Fixes to HLS HTML5 and Google IMA|
 
 * * *
 
