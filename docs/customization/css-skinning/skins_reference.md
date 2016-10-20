@@ -191,6 +191,36 @@ The center group contains the elements that make up the timeslider.
 |**.jw-dock-button**|This is the class assigned to the div to style the interface button for dock elements.|
 |**.jw-overlay**|This is the overlay tooltip that appears on hover of the dock buttons.|
 
+<a name="breakpoints"></a>
+
+#Break Points (7.7+)
+Breakpoint classes are added to the player element based on the width of the player, not the device or browser. Because JW Player instances are embedded via an iframe, the usual @media query will not work for defining CSS declarations to make elements responsive. Breakpoints are global classes that can be used to make responsive CSS declarations for any customizable player element.
+
+|Break Point        | Width Intervals (px) |
+|-------------------|-----------|
+|**.jw-breakpoint-0**|Player width: 0-419|
+|**.jw-breakpoint-1**|Player width: 420-539|
+|**.jw-breakpoint-2**|Player width: 540-639|
+|**.jw-breakpoint-3**|Player width: 640-799|
+|**.jw-breakpoint-4**|Player width: 800-959|
+|**.jw-breakpoint-5**|Player width: 960-1279|
+|**.jw-breakpoint-6**|Player width: 1280+|
+
+###Examples
+Make font size smaller only when player width is under 420px wide:
+```
+.jw-breakpoint-0 .jw-related-item-description {
+font-size: 11px;
+}
+```
+For medium-sized player widths, make the font size bigger:
+```
+.jw-breakpoint-3 .jw-related-item-description,
+.jw-breakpoint-4 .jw-related-item-description {
+  font-size: 16px;
+}
+```
+
 <a name="menus"></a>
 
 # Menus and Overlays
@@ -223,9 +253,46 @@ The title and description configuration options are displayed in their own class
 |**.jw-title-secondary**|This class is populated with content from the description configuration option in the player setup per-playlist item.|
 |**.jw-preview**|This class styles the preview image from the image configuration option in the player setup per-playlist item.|
 
-## Next Up Overlay <sup>7.6</sup>
+## Discovery Overlay <sup>7.6</sup>
 
-The discovery overlay displays playlist items, as well as items related to the current playing media.
+The discovery overlay replaces the "Related" plugin in JW 7.7, and shows information about other playlist items and recommended content. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
+
+###Customization
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-plugin-related**|Customize the background color of the related overlay|
+|**.jw-related-item-content**|Customize the background and border color of related items|
+|**.jw-related-item-content:hover**|Customize the background and border color of related items when hovering|
+|**.jw-related-item-duration**|Customize the next-up related item duration text|
+|**.jw-related-item-play**|Customize the next-up related item play button|
+|**.jw-related-item-title strong**|Customize the next-up related item "Next Up" text|
+|**.jw-related-item-title span**|Customize related item title text|
+|**.jw-related-item-title .jw-item-index-text em**|Customize related item title (for playlists) text|
+|**.jw-related-item-description**|Customize related item description text (Auto-advance only)|
+|**.jw-related-autoplay-frame**|Customize related item autoplay progress (Auto-advance only)|
+|**.jw-related-autoplay-frame-progress**|Customize related item autoplay progress (Auto-advance only)|
+|**.jw-related-item-content:hover .jw-related-autoplay-frame-progress**|Customize elements in hover state (falls under .jw-related-item-content:hover)|
+
+###Selectors
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-plugin-related**|Parent container for related overlay plugin that covers the player viewport when visible.|
+|**.jw-related-close**|Related overlay close icon button|
+|**.jw-related-item-content**|Item content area|
+|**.jw-related-item-poster**|Poster image container (poster image is set via inline style background image on this element)|
+|**.jw-related-item-duration**|Item duration text|
+|**.jw-related-item-play**|Next-up item play button container|
+|**.jw-related-item-play .jw-display-icon**|Next-up item play button icon|
+|**.jw-related-item-title-content**|Title text|
+|**.jw-related-item-description-content**|Description text|
+|**.jw-related-autoplay-frame**|Item autoplay border|
+|**.jw-related-autoplay-frame-progress**|Item autoplay progress border|
+
+## Next Up Card <sup>7.7</sup>
+
+The next up card displays prior to a video's completion, showing information about the following playlist item.
 
 ###Customization
 
@@ -252,6 +319,8 @@ The discovery overlay displays playlist items, as well as items related to the c
 |**.jw-nextup-title**|Title text element for next up display.|default|
 |**.jw-nextup-close**|Close button for next up (hidden by default) which hides the display when clicked.|default|
 |**.jw-nextup-sticky .jw-nextup-close**|State to show close button for next up display (shown when nearing end of current video).|state|
+
+
 
 ## Visual Playlist Overlay (Deprecated in JW Player 7.7)
 
