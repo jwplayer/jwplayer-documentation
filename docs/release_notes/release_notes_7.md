@@ -22,12 +22,16 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.7.1|10/12/2016|Fixes to HLS HTML5, discovery overlay, captions, and DRM|
-|Beta|7.7.2|10/18/2016|Fixes to HLS HTML5 and Google IMA|
+|Production|7.7.2|10/19/2016|Fixes to HLS HTML5 and Google IMA|
+|Beta|7.7.3|10/20/2016|Fixes to HLS HTML5 filtering bitrates with same resolution|
 
 * * *
 
 <a name="version77"></a>
+### **7.7.3** - 10/20/16
+
+#### Improvements to HLS HTML5 
+* Fixed an issue in HLS where streams that had the same resolution but different bitrates were filtered out as redundant fallback streams. HD menu will now display these streams and their respective bitrate.
 
 ### **7.7.2** - 10/18/16
 
