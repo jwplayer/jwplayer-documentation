@@ -49,7 +49,9 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue with live streams with inconsistent gaps in encoding that would desync and fail to play.
 * Fixed audio sync issues with live streams
 * Fixed an issue where HLS streams with a short final segment would not play the last segment
-* Added messaging in Firefox when MP3 HLS streams cannot be played
+* Changed HLS HTML5 handling of mp3 audio in HLS streams:
+	* Attempting to play segmented mp3 files in Firefox will display an "unsupported codec" error
+	* TS files that include mp3 audio will have audio removed in Chrome and Firefox
 #### Discovery Overlay Fixes
 * Fixed an issue where additional pause events were firing when an item was chosen from the playlist overlay
 * Fixed an issue with discovery overlay where unplayed items were incorrectly marked as played
