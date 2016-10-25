@@ -49,7 +49,6 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue with live streams with inconsistent gaps in encoding that would desync and fail to play.
 * Fixed audio sync issues with live streams
 * Fixed an issue where HLS streams with a short final segment would not play the last segment
-* Added messaging in Firefox when MP3 HLS streams cannot be played
 #### Discovery Overlay Fixes
 * Fixed an issue where additional pause events were firing when an item was chosen from the playlist overlay
 * Fixed an issue with discovery overlay where unplayed items were incorrectly marked as played
@@ -67,6 +66,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content. 
 
 This release also enhances the controlbar UI with a new default rewind 10 second element, a new “Next Up” button which shows a tooltip for the next video to be played when hovered over, and the option for the Next Up element to display before the next video begins.
+
+**Note:** JW Player 7.7 removes support for mp3 audio in HLS HTML5. HLS streams should use AAC audio instead. 
 
 #### New in Streaming and DRM
 * H.264 video and aac audio encoded HLS streams are now supported in HTML5 in Firefox
@@ -92,6 +93,9 @@ This release also enhances the controlbar UI with a new default rewind 10 second
 * Removed previous button from controlbar
 * Created a new 30 second seek back icon and controlbar element
 * Right-click menu will automatically close after 3 seconds
+* MP3 audio is no longer supported in HLS HTML5:
+	* TS files that include video and mp3 audio will have audio removed
+	* Segmented MP3 files and TS files that use the mp3 audio codec will not play
 
 #### Fixes
 * Fixed an issue with unmarked discontinuities in HLS streams causing the player to hang
