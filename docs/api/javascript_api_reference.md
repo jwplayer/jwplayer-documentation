@@ -120,7 +120,7 @@ Triggered when the player is taken off of a page via jwplayer().remove();
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -132,7 +132,7 @@ Triggered when the player is taken off of a page via jwplayer().remove();
 
 ###jwplayer().on('all')
 
-This singular API call can be used to gather all events from the player's API. 
+This singular API call can be used to gather all events from the player's API.
 ####Note: This will output a large amount of information and may degrade browser performance if it is used for an extended period of time.
 
 * * *
@@ -193,7 +193,7 @@ Returns an array of objects from a playlist. Any additional custom playlist prop
 |--|--------|---|--|
 |index| Retrieves the same information as getPlaylist(), but for a single playlist item| Number |No|
 
-####If no number is specified, the current playlist item's information will be returned. 
+####If no number is specified, the current playlist item's information will be returned.
 
 ###jwplayer().getPlaylistIndex()
 
@@ -239,11 +239,11 @@ Start playback of the playlist item at the specified index.
 |--|--------|---|--|
 |index| The index of a playlist item you wish to play |Number|Yes|
 
-* * * 
+* * *
 
 ###jwplayer().on('playlist')
 
-Fired when an entirely new playlist has been loaded into the player. 
+Fired when an entirely new playlist has been loaded into the player.
 ####Note: This event is not fired as part of the initial playlist load. Please use on('ready') in these cases.
 
 ####Returns an object with the following:
@@ -254,7 +254,7 @@ Fired when an entirely new playlist has been loaded into the player.
 
 ###jwplayer().on('playlistItem')
 
-Fired when the playlist index changes to a new playlist item. This event occurs before the player begins playing the new playlist item. 
+Fired when the playlist index changes to a new playlist item. This event occurs before the player begins playing the new playlist item.
 
 ####Returns an object with the following:
 
@@ -269,7 +269,7 @@ Fired when the player is done playing all items in the playlist. If the repeat o
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -286,7 +286,7 @@ These API calls are used to update clients with the percentage of a file that is
 |--------|---|
 | A percentage (0-100) of the video's current loaded amount | Number |
 
-* * * 
+* * *
 
 ###jwplayer().on('bufferChange')
 
@@ -327,7 +327,7 @@ Sets the play state of the JW Player.
 
 ###jwplayer().pause(__state__)
 
-The opposite of play(); sets the pause state of JW Player. 
+The opposite of play(); sets the pause state of JW Player.
 
 |Attribute|Description|Type|Required|
 |--|--------|---|--|
@@ -340,7 +340,7 @@ Stops the player (returning it to the idle state) and unloads the currently play
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -356,7 +356,7 @@ Returns the player's current playback state.
 |playing|The video is currently playing. No icon is visible in the display.| String|
 |paused|The video is currently paused. The play icon is visible in the display.| String|
 
-* * * 
+* * *
 
 ###jwplayer().on('play')
 
@@ -407,7 +407,7 @@ Fired when an item completes playback.
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -485,7 +485,7 @@ Fired after a seek has been requested either by scrubbing the controlbar or thro
 | position | The position of the player before the player seeks (in seconds).  | Number |
 | offset | The position that has been requested to seek to (in seconds). | Number |
 
-####Note: Seeking is often based on keyframe availability. The actual position the player will eventually seek to may differ from what was specified. 
+####Note: Seeking is often based on keyframe availability. The actual position the player will eventually seek to may differ from what was specified.
 
 ###jwplayer().on('seeked')
 
@@ -494,7 +494,7 @@ Triggered when video position changes after seeking, as opposed to on('seek') wh
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -514,7 +514,7 @@ While the player is playing, this event is fired as the playback position gets u
 
 ## <a name="volume"></a>Volume
 
-These API calls are used to change the playback volume of the player. 
+These API calls are used to change the playback volume of the player.
 
 ####Note: Setting volume will only work on desktop browsers, not on mobile devices.
 
@@ -570,7 +570,7 @@ Triggered when the player's volume is changed.
 
 ## <a name="resize"></a>Resize
 
-These API calls are used to retrieve and update the current player dimensions and fullscreen state. 
+These API calls are used to retrieve and update the current player dimensions and fullscreen state.
 
 ####Note: There is no API call to set fullscreen, due to phishing-related security restrictions in both Flash and HTML5.
 
@@ -635,7 +635,7 @@ Fired when the player's on-page dimensions have changed. Is not fired in respons
 
 ## <a name="quality"></a>Quality
 
-These API calls are used to listen to or update the video quality if multiple quality levels of a video are provided. Quality levels are sorted and given index numbers. 
+These API calls are used to listen to or update the video quality if multiple quality levels of a video are provided. Quality levels are sorted and given index numbers.
 
 ####Note: An index of 0 will __always__ be "Auto".
 
@@ -664,7 +664,7 @@ Returns the index of the current active quality level. The indexes provided vary
 
 ###jwplayer().getVisualQuality()
 
-Returns an object containing information about the current quality of a video stream. 
+Returns an object containing information about the current quality of a video stream.
 
 |Value|Description|Type|
 |----|--------|---|
@@ -691,7 +691,7 @@ Change the quality level to the provided index. The index must not exceed the am
 
 ###jwplayer().on('levels')
 
-Fired when the list of available quality levels is updated. Happens e.g. shortly after a playlist item starts playing. 
+Fired when the list of available quality levels is updated. Happens e.g. shortly after a playlist item starts playing.
 
 ####Returns an object with the following:
 
@@ -792,7 +792,7 @@ These API calls are used to listen to or update the active captions track if one
 
 ###jwplayer().setCaptions(_styles_)<sup>7.5+</sup>
 
-Changes the appearance of captions without having to reload the player. All colors should be in hex value. 
+Changes the appearance of captions without having to reload the player. All colors should be in hex value.
 
 |Attribute|Description|Type| Required|
 |---|--------|---|--|
@@ -872,7 +872,7 @@ Triggered whenever the active captions track is changed manually or via API.
 
 ## <a name="controls"></a>Controls
 
-This API call allows developers to interact with the built-in player controls (dock buttons, controlbar and display icons). 
+This API call allows developers to interact with the built-in player controls (dock buttons, controlbar and display icons).
 
 ####Note: Controls will still fade out during playback if the video has no keyboard/mouse focus. When controls are disabled, JW Player is completely chrome-less.
 
@@ -884,7 +884,7 @@ This API call allows developers to interact with the built-in player controls (d
 
 ###jwplayer().getSafeRegion()
 
-Used to ensure that any visual assets don't overlap with JW Player controls. 
+Used to ensure that any visual assets don't overlap with JW Player controls.
 
 ####Returns an object with the following:
 
@@ -934,13 +934,13 @@ Fired when controls are enabled or disabled by a script.
 
 ###jwplayer().on('displayClick')
 
-Fired when a user clicks the video display. Especially useful for wiring your own controls when the built-in ones are disabled. 
+Fired when a user clicks the video display. Especially useful for wiring your own controls when the built-in ones are disabled.
 ####Note: The default click action (toggling play/pause) will still occur if controls are enabled.
 
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -950,7 +950,7 @@ Fired when a user clicks the video display. Especially useful for wiring your ow
 ## <a name="advertising"></a>Advertising
 
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 This API provides developers with more control over the functionality of the Advertising edition of JW Player. For VAST and IMA plugins, this API allows for things like impression verification, custom scheduling, and multiple companions.
@@ -982,7 +982,7 @@ We recommend to call playAd() in one of these following situations:
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -995,7 +995,7 @@ Fired just before the player begins playing. Unlike the onPlay event, the player
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1003,12 +1003,12 @@ Fired just before the player begins playing. Unlike the onPlay event, the player
 
 ###jwplayer().on('beforeComplete')
 
-Fired just before the player completes playing. Unlike the onComplete event, the player will not have moved on to either showing the replay screen or advancing to the next playlistItem, which makes this the right moment to insert post-roll ads using playAd(). 
+Fired just before the player completes playing. Unlike the onComplete event, the player will not have moved on to either showing the replay screen or advancing to the next playlistItem, which makes this the right moment to insert post-roll ads using playAd().
 
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1074,7 +1074,7 @@ VAST and IMA. Fired whenever an ad has been skipped.
 
 ###jwplayer().on('adError')
 
-VAST and IMA. Fired whenever an error prevents the ad from playing. 
+VAST and IMA. Fired whenever an error prevents the ad from playing.
 
 ####Note: This may fire multiple times for a single ad tag if Google IMA is being used.  
 
@@ -1210,7 +1210,7 @@ Opens the sharing plugin. This will also pause content if it is triggered during
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1220,7 +1220,7 @@ Closes the sharing plugin if it is opened. This will resume playback if the shar
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1232,7 +1232,7 @@ Listens for the opening of the plugin.
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1242,7 +1242,7 @@ Listens for the closing of the plugin.
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1271,7 +1271,7 @@ Opens the related plugin overlay. This will pause content if it is currently pla
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
@@ -1281,7 +1281,7 @@ Closes the related plugin overlay. This will resume content.
 <table>
   <tr>
     <td>-</td>
-    <td>No value returned</td> 
+    <td>No value returned</td>
     <td>-</td>
   </tr>
 </table>
