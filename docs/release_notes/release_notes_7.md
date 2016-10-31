@@ -23,7 +23,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.2|10/19/2016|Fixes to HLS HTML5 and Google IMA|
-|Beta|7.7.3|10/20/2016|Fixes to HLS HTML5 filtering bitrates with same resolution|
+|Beta|7.7.4|10/28/2016|UI Updates|
 
 * * *
 
