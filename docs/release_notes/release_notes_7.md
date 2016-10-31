@@ -28,14 +28,22 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * * *
 
 <a name="version77"></a>
+### **7.7.4** - 10/28/16
+
+#### UI Updates
+* Adjusted player breakpoints to optimize experience for small players
+* Scaled and adjusted padding for dock buttons at small player sizes
+* Made a change to truncate controlbar text instead of adjusting height to accommodate multiple rows
+* Adjusted margins around premium skins at small player sizes to maximize usable space
+
 ### **7.7.3** - 10/20/16
 
-#### Improvements to HLS HTML5 
+#### Improvements to HLS HTML5
 * Fixed an issue in HLS where streams that had the same resolution but different bitrates were filtered out as redundant fallback streams. HD menu will now display these streams and their respective bitrate.
 
 ### **7.7.2** - 10/18/16
 
-#### Improvements to HLS HTML5 
+#### Improvements to HLS HTML5
 * Fixed an issue where certain audio streams containing a final short AAC segment were not going to a “complete” state.
 * Fixed an issue in Safari where on(‘meta’) was not outputting ID3 metadata after advertisements.
 * Fixed an issue where adjacent keyframes could cause stalls if the sample duration of the audio was longer than 2 keyframes.
@@ -45,7 +53,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 ### **7.7.1** - 10/10/16
 
-#### Improvements to HLS HTML5 
+#### Improvements to HLS HTML5
 * Fixed an issue with live streams with inconsistent gaps in encoding that would desync and fail to play.
 * Fixed audio sync issues with live streams
 * Fixed an issue where HLS streams with a short final segment would not play the last segment
@@ -53,21 +61,21 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue where additional pause events were firing when an item was chosen from the playlist overlay
 * Fixed an issue with discovery overlay where unplayed items were incorrectly marked as played
 #### Captions Fixes
-* Fixed an issue in Firefox where HLS 708 captions were displaying in the bottom-left region 
+* Fixed an issue in Firefox where HLS 708 captions were displaying in the bottom-left region
 * Fixed an issue in Firefox where sideloaded captions were not selectable when used in combination with 608 captions
 * Fixed an issue in Safari where embedded 608/708 captions were not available after a linear ad
 #### DRM Fixes
 * Fixed an issue in Safari where Fairplay DRM was not triggering a player error when a keyerror was fired
-* Fixed an issue in Firefox where replaying a DRM DASH stream would not play ads 
+* Fixed an issue in Firefox where replaying a DRM DASH stream would not play ads
 
 
 ### **7.7.0** - 10/04/16
 
-JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content. 
+JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content.
 
 This release also enhances the controlbar UI with a new default rewind 10 second element, a new “Next Up” button which shows a tooltip for the next video to be played when hovered over, and the option for the Next Up element to display before the next video begins.
 
-**Note:** JW Player 7.7 removes support for mp3 audio in HLS HTML5. HLS streams should use AAC audio instead. 
+**Note:** JW Player 7.7 removes support for mp3 audio in HLS HTML5. HLS streams should use AAC audio instead.
 
 #### New in Streaming and DRM
 * H.264 video and aac audio encoded HLS streams are now supported in HTML5 in Firefox
@@ -112,12 +120,12 @@ This release also enhances the controlbar UI with a new default rewind 10 second
 #### Fixes:
 * VPAID ads can now be used inside of ad pods if they are sequenced in following patterns: (1) The pod starts with a VPAID creative and can be followed by multiple VPAID units, (2) The pod can end switch from VPAID to standard linear ad, (3) The pod cannot switch from linear ad to a VPAID creative
 * Fixed an issue where captions would need to be re-enabled after a preroll
-* VMAP requests will initially use withCredentials=true and fall back to withCredentials=false 
+* VMAP requests will initially use withCredentials=true and fall back to withCredentials=false
 * Added support for embedded 608 captions in HLS streams for Microsoft Edge
 * Fixed multiple issues with timing and appearance of 608 captions after discontinuities in an HLS stream
 * Fixed captions in live streams turning off after pausing and resuming the stream
 * Fixed an issue where side-loaded tracks were not loading in IE9
-* Fixed an issue where next up related item was repeated instead of cycling to a new video 
+* Fixed an issue where next up related item was repeated instead of cycling to a new video
 * Updated style for video titles wrapping in related video overlay
 * Nan/Nan no longer appears as the duration and current time if the player takes an extended time to set up
 
@@ -139,9 +147,9 @@ JW Player 7.6 has a mobile optimized design for displaying recommended content d
 * Captions will no longer move when controls are disabled and player is moused over
 * DFXP captions will now be read correctly when using colons to separate seconds and frames
 * Player will now prioritize sequenced ads within an ad buffet
-* Native captions no longer display twice when using thumbnails with HTML5 Provider 
+* Native captions no longer display twice when using thumbnails with HTML5 Provider
 * Player will now display multiple captions that use the same timestamp
-* 608 captions should now wrap correctly in IE 
+* 608 captions should now wrap correctly in IE
 * DFXP/SRT captions should now wrap correctly in all browsers
 * Fixed issue where background color styles could incorrectly be applied to captions
 
@@ -237,7 +245,7 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 
 ### **7.4.0** - 4/25/2016
 
-HLS in HTML5 support in JW Player is currently only for Chrome 34 and above. We recommend updating to the latest version of Chrome to get the most out of HLS. Specifically support for High Efficiency Advanced Audio Codec (HE-AAC) was only introduced in Chrome 50. 
+HLS in HTML5 support in JW Player is currently only for Chrome 34 and above. We recommend updating to the latest version of Chrome to get the most out of HLS. Specifically support for High Efficiency Advanced Audio Codec (HE-AAC) was only introduced in Chrome 50.
 
 The following functionality is supported in JW 7.4:
 
@@ -258,7 +266,7 @@ The following functionality is supported in JW 7.4:
 ####Not yet functional
 * Multi-track audio
 * Embedded WebVTT captions
-* Redundant CDN switching 
+* Redundant CDN switching
 
 ####Verified Encoders and CDNs
 * Akamai
@@ -468,7 +476,7 @@ In addition, we’ve fixed many pesky bugs, improving experiences for both viewe
 *   Fixed an issue where androidhls was not being honored inside of a playlist
 *   Fixed playback of HLS on Chromecast when the primary source is DASH. (DASH is not supported on Chromecast.)
 *   Fixed an issue with clicking on flash ads in FireFox on OSX.
-*   Fixed playback content not resuming after mid-roll ad-pods. 
+*   Fixed playback content not resuming after mid-roll ad-pods.
 
 ### **7.1.4** - 10/7/2015
 
