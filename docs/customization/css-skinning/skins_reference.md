@@ -198,13 +198,14 @@ Breakpoint classes are added to the player element based on the width of the pla
 
 |Break Point        | Width Intervals (px) |
 |-------------------|-----------|
-|**.jw-breakpoint-0**|Player width: 0-419|
-|**.jw-breakpoint-1**|Player width: 420-539|
-|**.jw-breakpoint-2**|Player width: 540-639|
-|**.jw-breakpoint-3**|Player width: 640-799|
-|**.jw-breakpoint-4**|Player width: 800-959|
-|**.jw-breakpoint-5**|Player width: 960-1279|
-|**.jw-breakpoint-6**|Player width: 1280+|
+|**.jw-breakpoint-0**|Player width: 0-319|
+|**.jw-breakpoint-1**|Player width: 320-419|
+|**.jw-breakpoint-2**|Player width: 420-539|
+|**.jw-breakpoint-3**|Player width: 540-639|
+|**.jw-breakpoint-4**|Player width: 640-799|
+|**.jw-breakpoint-5**|Player width: 800-959|
+|**.jw-breakpoint-6**|Player width: 960-1279|
+|**.jw-breakpoint-7**|Player width: 1280+|
 
 ###Examples
 Make font size smaller only when player width is under 420px wide:
