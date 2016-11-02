@@ -35,6 +35,11 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Scaled and adjusted padding for dock buttons at small player sizes
 * Made a change to truncate controlbar text instead of adjusting height to accommodate multiple rows
 * Adjusted margins around premium skins at small player sizes to maximize usable space
+* Next Up overlay is hidden at smaller player sizes
+* Removed watermark from trial edition
+
+#### Advertising Updates
+* Support forceNonLinearFullSlot config in IMA
 
 ### **7.7.3** - 10/20/16
 

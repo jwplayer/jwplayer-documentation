@@ -380,7 +380,9 @@ Fired when the player enters the paused state.
 
 ###jwplayer().on('buffer')
 
-Fired when the player enters the buffering state.
+Fired when the player starts playback and when the player enters a buffering state.
+
+**Note:** Buffer underrun will not trigger this event with live RTMP streams.
 
 ####Returns an object with the following:
 
