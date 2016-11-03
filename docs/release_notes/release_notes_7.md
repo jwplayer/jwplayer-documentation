@@ -23,11 +23,16 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.4|11/2/2016|UI Updates|
-|Beta|7.7.4|10/28/2016|UI Updates|
+|Beta|7.7.6|11/2/2016|Streaming Updates|
 
 * * *
 
 <a name="version77"></a>
+### **7.7.6** - 11/2/16
+
+#### Streaming Updates
+* Fixed stability of HLS streaming in HTML5
+
 ### **7.7.4** - 10/28/16
 
 #### UI Updates
