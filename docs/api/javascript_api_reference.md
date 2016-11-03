@@ -1181,7 +1181,7 @@ Fired while ad playback is in progress.
 
 ## <a name="metadata"></a>Metadata
 
-This API call allows developers to listen for metadata embedded in the media file (e.g. dimensions or TX3G cues in MP4 files). It is intended debugging purposes. Do not rely on this API in production environments, since metadata callbacks are subject to sudden change!
+This API call allows developers to listen for metadata embedded in the media file (e.g. dimensions or ID3 timed metadata in HLS streams).
 
 ###jwplayer().on('meta')
 
