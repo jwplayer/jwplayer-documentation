@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.8 - Beta](#version78) - 11/15/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
@@ -23,9 +24,37 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.7.4|11/2/2016|UI Updates|
-|Beta|7.7.6|11/2/2016|Streaming Updates|
+|Beta|7.8.0|11/15/2016|Mobile Autostart, HLS HTML5 Default, Freewheel|
 
 * * *
+
+<a name="version78"></a>
+### **7.8.0** - 11/15/16
+
+In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safari, and Edge without the need to set a separate configuration. This update comes on the heels of Chrome updating to turn [all Flash into click-to-play](https://www.jwplayer.com/blog/deprecation-flash/). JW 7.8 also adds support for autoplay on mobile, including a new interface element to unmute autostarted videos on mobile, as well as a FreeWheel advertising plugin.
+
+####Streaming Updates
+* Added failover support to load the player via HTML5 when Flash is not available
+* Added support for multiple audio track renditions using #EXT-X-MEDIA and TYPE equal to AUDIO in HTML5.
+* Added support for subtitles in HTTP Live Streaming using WebVTT with #EXT-X-MEDIA and TYPE equal to SUBTITLES in HTML5
+* Improved time to switch to a higher quality.
+* Updated UI to show bitrate when multiple adaptive qualities with the same width are present.
+
+
+####FreeWheel HTML5 Integration
+* Created built in FreeWheel Ad Manager for HTML5.
+* Added support for all primary use cases around ad formats, pre/mid/post-roll slots, analytics, Javascript creatives (Flash creatives are not supported).
+
+
+####Mobile Autoplay and UI
+* Added support for inline autoplay while muted on iOS and Android
+* Added mute/unmute button to controlbar on mobile
+* Provided a configuration to allow ads to autoplay muted on mobile
+* Updated sharing overlay for improved usability at smaller player sizes
+
+####Fixes
+* Fixed display of accented characters with 608 captions
+* Better handling of aspect ratios with HLS streams
 
 <a name="version77"></a>
 ### **7.7.6** - 11/2/16
@@ -79,7 +108,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue in Firefox where replaying a DRM DASH stream would not play ads
 
 
-### **7.7.0** - 10/04/16
+### **7.7.0** - 10/4/16
 
 JW Player 7.7 has a new interface for displaying playlist content and a new flow for transitioning into discovery mode to showcase recommended content. The tile layout introduced in JW 7.6 will now also be used to display curated playlist content, replacing the visual playlist in the controlbar. After the last playlist item, if there are JW Platform powered recommendations, the UI will transition seamlessly into discovery mode which continuously recommends new videos to help viewers discover new content.
 
