@@ -1,5 +1,5 @@
-<!-- 
-FOR REVIEW BY: Eric Boyd 
+<!--
+FOR REVIEW BY: Eric Boyd
 
 TITLE: "Supported Ad Formats"
 
@@ -8,7 +8,7 @@ KEYWORDS: jw ads, ads, advertising, ad formats, supported formats, supported adv
 
 NOTES: This was formerly the article called "Ad Formats Reference" — http://support.jwplayer.com/customer/en/portal/articles/1431638-ad-formats-reference
 
-WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/portal/articles/1431638 (replacing "Ad Formats Reference") 
+WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/portal/articles/1431638 (replacing "Ad Formats Reference")
 
 -->
 <title></title>
@@ -31,7 +31,7 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 
 <h2><a name="clients"></a>Ad Clients</h2>
 
-<p>JW Player supports three ways to deliver video ads:</p>
+<p>JW Player supports several ways to deliver video ads:</p>
 
 <dl>
 	<dt>VAST/VPAID</dt>
@@ -40,6 +40,8 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 	<dd>Google&#39;s <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/compatibility">Interactive Media Ads (IMA)</a> SDK version 3 provides support for serving ads via Google&#39;s proprietary platforms along with other third-party ad servers. JW Player is one of Google&#39;s official video technology partners. For more information on these platforms, see our section <a href="http://support.jwplayer.com/customer/portal/articles/1431638-ad-formats-reference#servers" target="_blank">here</a>. &nbsp;</dd>
 	<dt>VMAP</dt>
 	<dd>VAST or Google IMA Ads served by a VAST-compliant video ad server can be scheduled throughout video playback in a VMAP tag. See <a href="http://support.jwplayer.com/customer/portal/articles/1432026-vmap-ad-schedule">Scheduling Ads with VMAP</a>.</dd>
+	<dt>FreeWheel</dt>
+	<dd>FreeWheel's HTML5 Ad Manager SDK provides support for serving ads via FreeWheel's proprietary ad server via configuration in their MRM Platform. Serving ads via FreeWheel requires an existing relationship with FreeWheel and is largely separate in implementation from VAST/IMA.</dd>
 </dl>
 
 <h2>Rendering Modes</h2>
@@ -62,6 +64,11 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 			<td>googima</td>
 			<td>IMA version 3</td>
 			<td>IMA version 3</td>
+		</tr>
+		<tr>
+			<td>FreeWheel</td>
+			<td>N/A</td>
+			<td>JS SDK</td>
 		</tr>
 	</tbody>
 </table>
@@ -116,6 +123,10 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 <h3>Google IMA</h3>
 
 <p>For IMA, all creatives served by the DFP server are supported. See the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/compatibility">IMA SDK Documentation</a> for more info.</p>
+
+<h3>FreeWheel</h3>
+
+<p>For FreeWheel, only creatives supported by FreeWheel's SDK can be displayed by the player. Additionally, Flash creatives are not supported.</p>
 
 <h2><a name="servers"></a>Supported Ad Servers</h2>
 
@@ -180,6 +191,10 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 
 <p>For IMA, DoubleClick for Publishers (DFP), Ad Exchange for Video, the AdSense for Video (AFV) network, along with third-party ad servers are supported. See the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/html5/compatibility">IMA SDK Documentation</a> for more info.</p>
 
+<h3>FreeWheel</h3>
+
+<p>For FreeWheel, only FreeWheel's proprietary ad server is supported.</p>
+
 <h2><a name="api"></a>JW Player Advertising API</h2>
 
 <p>The JW Player&#39;s JavaScript API also includes an advertising-specific API, which allows developers to build things like impression verification, custom scheduling, tag waterfalling and multiple companions on top of JW Player&#39;s VAST ad serving. More information about this API and its uses can be found in our <a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#advertising">API reference guide</a>.</p>
@@ -196,7 +211,7 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 
 <h2><a name="compare"></a>Ad Client Comparison</h2>
 
-<p>Due to the use of two different possible ad client configurations with JW Player (VAST and Google IMA), there are certain considerations to be made regarding both. Please consult the chart below:</p>
+<p>Due to the use of several different possible ad client configurations with JW Player (VAST, Google IMA, and FreeWheel), there are certain considerations to be made regarding both. Please consult the chart below:</p>
 
 <table border="0" style="width:100%">
 	<tbody>
@@ -204,9 +219,11 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 			<th>Function</th>
 			<th>VAST</th>
 			<th>Google IMA</th>
+			<th>FreeWheel</th>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-" target="_blank">Ad Scheduling via Player Setup</a></td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 		</tr>
@@ -214,9 +231,11 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 			<td>Companion Ads</td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>Yes</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1413089-javascript-api-reference#advertising">JW Player Ads API</a></td>
+			<td>Yes</td>
 			<td>Yes</td>
 			<td>Yes</td>
 		</tr>
@@ -224,41 +243,49 @@ WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/p
 			<td>Non-linear Advertisements</td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>Yes</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1434340-ad-tag-variables" target="_blank">Ad Tag Variables</a></td>
 			<td>Yes</td>
 			<td>Yes (Limited to IMA-compatible variables)</td>
+			<td>N/A</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1432026-vmap-ad-schedule" target="_blank">VMAP Ad Schedule</a></td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>N/A</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1433722-vast3-ad-pods" target="_blank">VAST 3 Ad Pods</a></td>
 			<td>Yes</td>
 			<td>Yes</td>
+			<td>N/A</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1432024-scheduling-ad-breaks-#playlist" target="_blank">Per-Playlist Item Schedule</a></td>
 			<td>Yes</td>
 			<td>No</td>
+			<td>Yes</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1665150-ad-tag-waterfalling" target="_blank">Ad Tag Waterfalling</a></td>
 			<td>Yes</td>
 			<td>No</td>
+			<td>N/A</td>
 		</tr>
 		<tr>
 			<td><a href="http://support.jwplayer.com/customer/portal/articles/1433818-configuring-ad-skipping" target="_blank">Configurable Ad Skipping</a></td>
 			<td>Yes</td>
 			<td>No</td>
+			<td>Yes</td>
 		</tr>
 		<tr>
 			<td>Google IMA Ad Rules</td>
 			<td>No</td>
 			<td>Yes</td>
+			<td>N/A</td>
 		</tr>
 	</tbody>
 </table>
