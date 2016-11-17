@@ -49,7 +49,7 @@ In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safa
 ####Mobile Autoplay and UI
 * Added support for inline autoplay while muted on iOS and Android
 * Added mute/unmute button to controlbar on mobile
-* Provided a configuration to allow ads to autoplay muted on mobile
+* Provided a configuration autoplayadsmuted: true, to allow ads to autoplay muted on mobile
 * Updated sharing overlay for improved usability at smaller player sizes
 
 ####Fixes
