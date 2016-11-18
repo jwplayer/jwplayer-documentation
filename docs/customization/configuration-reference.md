@@ -153,7 +153,7 @@ In addition to standard media information, ("title", "description", "mediaid") i
 
 ### playlist[_index_].sources[]
 
-Sources are inserted into playlist objects and are lists of files. Sources serve a dual purpose, depending on the files used: 
+Sources are inserted into playlist objects and are lists of files. Sources serve a dual purpose, depending on the files used:
 
  * **Use different file types:** Alternate "fallback" media sources
  * **Use the same file type:** Toggle quality with static video files
@@ -279,7 +279,7 @@ Video ad insertion requires a JW Player Platinum or Enterprise license. Please [
 
 ### playlist[_index_].adschedule
 
-The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block. 
+The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block.
 
 
 |Config|Type|Information|
@@ -444,7 +444,7 @@ This options block configures the built-in integration with Google Analytics.
 
 ####Note: Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player.
 
-Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required. 
+Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -482,7 +482,7 @@ See [Display Related Videos](https://support.jwplayer.com/customer/portal/articl
 Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
 !!!
 
-This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default. 
+This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
@@ -496,6 +496,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.vpaidmode**|String|Used exclusively for [Google IMA VPAID ads](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled":** VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iframe. The VPAID ad cannot access the site. VPAID ads that depend on friendly iframe access may not play<br/>**"insecure":** The VPAID ad will load in a friendly iframe. This allows the ad access to the site via javascript |"insecure"|
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|-|
 |**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads|-|
+|**[advertising.autoplayadsmuted]**|Boolean|For mobile inline players that start muted, allows ads to play muted|-|
 
 * * *
 
@@ -524,7 +525,7 @@ The VMAP schedule will then be applied to each playlist item. See our article ab
 <br/>
 
 ####Embedded Ad Schedules with JSON
-In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset. 
+In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
