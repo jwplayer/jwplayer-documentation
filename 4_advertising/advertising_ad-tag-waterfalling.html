@@ -1,18 +1,16 @@
-
-<!-- 
-FOR REVIEW BY: Eric Boyd 
+<!--
+FOR REVIEW BY: Eric Boyd
 
 TITLE: "Ad Tag Waterfalling"
 
 KEYWORDS: jw ads, ads, advertising, waterfall ads, backup ad tags, waterfall array, ad network waterfalling, waterfalling jwGetStarted, waterfall, waterfalling, cascade, advertising, fill rate, api, vast waterfalling, AdsArticle
 
-NOTES: Turn into dashboard/code split — ask Shannon for details. Will need some screenshots. 
+NOTES: Turn into dashboard/code split — ask Shannon for details. Will need some screenshots.
 
-WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/portal/articles/1665150 (updating previous "Ad Tag Waterfalling" at the same URL) 
+WHEN FINISHED, this will be located at http://support.jwplayer.com/customer/en/portal/articles/1665150 (updating previous "Ad Tag Waterfalling" at the same URL)
 
---> 
-
-<p>Currently, JW Player oficially supports one main mechanism for waterfalling between ad networks. This practice of waterfalling is currently only supported when using our <strong>vast</strong> ad client. The use of Google IMA or <strong>googima</strong> is not supported at this time.</p>
+-->
+<p>Currently, JW Player oficially supports one main mechanism for waterfalling between ad networks. This practice of waterfalling is currently only supported when using our <strong>vast</strong> ad client. The use of Google IMA or <strong>googima</strong> and FreeWheel are not supported at this time.</p>
 
 <h2>Introduction to Waterfalls</h2>
 
@@ -27,7 +25,6 @@ It is worth noting that a waterfall process may take additional time to display 
 
 <div class="tabs-content">
 <section aria-hidden="false" class="content active" id="dashboard" role="tabpanel">
-
 <p>Adding waterfalls to your players from the JW player dashboard is easy.</p>
 
 <ol>
@@ -51,12 +48,9 @@ It is worth noting that a waterfall process may take additional time to display 
 	<li>Press the <img src="//support-static.jwplayer.com/images/advertising/waterfall-plus.png" width="100px" /> to add another tag.</li>
 	<li>Make sure to press Save.</li>
 </ol>
-See <a href="http://support.jwplayer.com/customer/en/portal/articles/1432024-scheduling-ad-breaks">Scheduling Ads</a> to see how to schedule your ads.
-</section> 
+See <a href="http://support.jwplayer.com/customer/en/portal/articles/1432024-scheduling-ad-breaks">Scheduling Ads</a> to see how to schedule your ads.</section>
 
 <section aria-hidden="true" class="content" id="code" role="tabpanel">
-
-
 <h2>Creating a Waterfall Array</h2>
 
 <p>Setting up a waterfall in the player configuration is accomplished by providing the player with an array of ads instead of a single ad. The array can be used anywhere you set a <strong>tag</strong>.<br />
@@ -101,10 +95,9 @@ playerInstance.setup({
                          }
                    }
                 }
-            });     
+            });
 
 </pre>
-
 </section>
 </div>
 </div>
@@ -114,9 +107,13 @@ playerInstance.setup({
 <p>Here is a live example of how to set up and implement an ad tag waterfall. Below, we have three ad tags with only the third returning an actual ad. All failed ad attempts will be logged below the player.</p>
 
 <div class="jwplayer playlist-none" id="container">&nbsp;</div>
+
 <p>&nbsp;</p>
-<h3>Player Event Log: <span style="font-size:15px; font-style:italic;">(press play to view)</span></h3> 
-<pre id="log">&nbsp;
+
+<h3>Player Event Log: <span style="font-size:15px; font-style:italic;">(press play to view)</span></h3>
+
+<pre id="log">
+&nbsp;
 
 </pre>
 <script type="text/javascript">
@@ -140,7 +137,7 @@ if(index < fallbacks.length) {
     html += event.tag+" was empty, loading fallback tag "+(index+1)+".<br>";
     log.innerHTML = html;
     index++;
- } else { 
+ } else {
     html += event.tag+" has failed, with no more fallbacks available.<br>";
     log.innerHTML = html;
   }
