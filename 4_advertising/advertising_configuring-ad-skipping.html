@@ -1,12 +1,12 @@
-<!-- 
-NOTE: This is one of our top URLs! Do not delete without creating a stub/redirect first. 
+<!--
+NOTE: This is one of our top URLs! Do not delete without creating a stub/redirect first.
 
 KEYWORDS: Skip ads, skippable ads, skipoffset, ad skip, AdsArticle, ad skipping, skip seconds, skip timer
 
 -->
 <p>You can set an amount of time that you want your viewers to watch an ad before being allowed to skip it. When this skip offset is configured, a countdown will appear in the player and the 'skip' button will become active when the time has passed. This skip cancels the ad playback and does not fire any ad complete trackers.</p>
 
-<div class="panel"><strong>PLEASE NOTE:</strong> that this option is configurable for VAST only and not Google IMA.</div>
+<div class="panel"><strong>PLEASE NOTE:</strong> that this option is configurable for VAST and FreeWheel only and not Google IMA.</div>
 
 <div class="tab-switch clearfix">
 <ul class="tabs" data-options="scroll_to_content:false; deep_linking:true" data-tab="" role="tablist">
@@ -85,7 +85,7 @@ var playerInstance = jwplayer(&quot;myElement&quot;);
     primary: &#39;flash&#39;,
     advertising: {
       client: &quot;vast&quot;,
-     &#39;skipoffset&#39;:5,   
+     &#39;skipoffset&#39;:5,
       tag: &quot;//adserver.com/vastResponse.xml&quot;
     }
   });
