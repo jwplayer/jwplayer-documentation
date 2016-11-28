@@ -14,7 +14,7 @@ pages:
     - Creating Skins: customization/css-skinning/skins_creating.md
     - Custom Icons and Fonts: customization/css-skinning/skins_fonts.md
     - CSS Reference List: customization/css-skinning/skins_reference.md
-    - DOM Structure Visual Reference: customization/css-skinning/dom-structure.md
+    - CSS Skinning Model: customization/css-skinning/css-skinning-model.md
     - Example CSS File: customization/css-skinning/skins_example.md
   - Design Resources: customization/designer-kit.md
   - Analytics:
