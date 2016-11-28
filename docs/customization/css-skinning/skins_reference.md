@@ -1,4 +1,6 @@
-This article acts as a reference for styling all interface components of JW Player 7\. A major change between between JW Player 6 and 7 is that the skinning model uses CSS and web fonts. Regardless of rendering mode, all controls are overlaid on top of the player with HTML. When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with **jw-** in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div here on out.
+This article acts as a reference for styling all interface components of JW Player 7. This skinning model uses CSS and web fonts, and all controls are overlaid on top of the player with HTML. 
+
+When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with **jw-** in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div.
 
 A [JW Player skin](http://www.jwplayer.com/products/jwplayer/skins/) CSS file contains classes that are grouped into functional elements. This reference provides an elaborate overview the classes used. For additional information, check out a reference css file.
 
@@ -45,7 +47,6 @@ Sometimes the player needs to signify certain modes of the playback. These flags
 |**.jw-flag-media-audio**| Content being played is an audio file|
 |**.jw-flag-dragging**| Mouse down with cursor over control bar|
 |**.jw-flag-aspect-mode**| Enable a padding to create an aspect ratio|
-|**.jw-flag-compact-player**| When the player is rendering in small UI mode|
 
 <a name="colors"></a>
 
@@ -90,10 +91,11 @@ All JW Player icons are rendered using the font **jw-six-icons.eot**. Each icon 
 |**Play**|\e60e|
 |**Replay**|\e610|
 |**Pause**|\e60d|
-|**Previous**|\e60f|
+|**Rewind**|\e900|
 |**Next**|\e60c|
 |**Cuepoint**|\e606|
 |**Buffering**|\e601|
+|**Cast**|\e602|
 |**HD Off**|\e60a|
 |**HD On**|\e609|
 |**CC Off**|\e605|
@@ -106,22 +108,21 @@ All JW Player icons are rendered using the font **jw-six-icons.eot**. Each icon 
 |**More**|\e614|
 |**Close**|\e615|
 
-The easiest way to modify the default icons is to create a new font based on these character mappings. See Creating Web Font for more information.
+The easiest way to modify the default icons is to create a new font based on these character mappings. See [Custom Icons and Fonts](skins_fonts/) for more information.
 
 <a name="controls"></a>
 
 # Controls
-
-All player controls are within the **.jw-controls** class. When JW Player is set to **controls: false**, this entire class has a visibility of hidden. To not include a specific item in your skin, you will need to override the style with a visibility or display of none. The controls section is split into Display, Controlbar, and Dock.
+All player controls are within the **.jw-controls** class. When JW Player is set to **controls: false**, this entire class has a visibility of hidden. To not include a specific item in your skin, you will need to override the style with a visibility or display of none.
 
 |Group          | Definition |
 |-------------------|-----------|
-|**Display**| The set of icons in the center of the player|
-|**Controlbar**| Home to the controls for the player|
-|**Menus**| These are part of the controlbar but deserve their own section|
-|**Dock**| buttons overlaid on the player for plugins|
-|**Logo**| a brands logo|
-|**Preview**| the poster image|
+|**[Display](#display)**| The set of icons in the center of the player|
+|**[Controlbar](#controlbar)**| The playback controls for the player|
+|**[Menus](#menus)**| Extensions of the controlbar that display additional information|
+|**[Dock](#dock)**| Buttons displayed at the top right of the player for plugin use|
+|**Logo**| A logo displayed for branding purposes|
+|**Preview**| The video's poster image|
 
 ## Display
 
@@ -136,7 +137,7 @@ The display component contains the main element container for the (re)play, buff
 
 The controlbar component contains all elements for the video controls at the bottom of the player. It is built using three functional groups within the **.jw-controlbar** parent class. This diagram presents an overview:
 
-![](//support-static.jwplayer.com/images/controlbar.png)
+![](//support-static.jwplayer.com/images/controlbar-update.png)
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -148,12 +149,10 @@ The left group contains playback controls, the visual playlist, and elapsed time
 
 |CSS Class          | Definition |
 |-------------------|-----------|
-|**.jw-controlbar-left-group**|The main container that holds the play/pause elements as well as the previous/next and elapsed duration.|
-|**.jw-icon-playback**|The container that holds the play/pause icons. The icon is switched depending on the state the player is in.|
-|**.jw-icon-prev**|The control to toggle to the previous playlist item.|
-|**.jw-icon-next**|The control to toggle to the next playlist item.|
-|**.jw-text-elapsed**|The container for the elapsed video duration.|
-|**.jw-icon-playlist**|The container for the visual playlist icon. The player will add the visual playlist overlay automatically when this element is hovered over.|
+|**.jw-controlbar-left-group**|The main container that holds the play/pause elements as well as the previous/next and elapsed duration|
+|**.jw-icon-playback**|The container that holds the play/pause icons. The icon is switched depending on the state the player is in|
+|**.jw-icon-rewind**|The container that holds the "rewind" icon|
+|**.jw-text-elapsed**|The container for the elapsed video time|
 
 ## Center Group
 
@@ -161,26 +160,28 @@ The center group contains the elements that make up the timeslider.
 
 |CSS Class          | Definition |
 |-------------------|-----------|
-|**.jw-slider-horizontal .jw-slider-container**|The containers that hold the timeslider elements.|
-|**.jw-rail**|Sets the style for the base layer of the slider.|
-|**.jw-buffer**| Sets the style for the how much of video has been buffered, which is layered on top of **.jw-rail**.|
-|**.jw-progress**|Sets the style for the elapsed video, which is layered on top of **.jw-buffer**.|
-|**.jw-knob**|This marks the tip of the progress rail, used to indicate where playback is currently.|
-|**.jw-slider-horizontal .jw-cue**|This class is used for timeslider cuepoints, like chapters and ad breaks.|
+|**.jw-controlbar-center-group**|The main container that holds the time slider|
+|**.jw-slider-horizontal .jw-slider-container**|The containers that hold the timeslider elements|
+|**.jw-rail**|Sets the style for the base layer of the slider|
+|**.jw-buffer**| Sets the style for the how much of video has been buffered, which is layered on top of **.jw-rail**|
+|**.jw-progress**|Sets the style for the elapsed video, which is layered on top of **.jw-buffer**|
+|**.jw-knob**|This marks the tip of the progress rail, used to indicate where playback is currently|
+|**.jw-slider-horizontal .jw-cue**|This class is used for timeslider cuepoints, like chapters and ad breaks|
 
 ## Right Group
 
 |CSS Class          | Definition |
 |-------------------|-----------|
+|**.jw-controlbar-right-group**|The container that holds duration text and icons for various playback options|
 |**.jw-text-duration**|Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.|
+|**.jw-icon-next**|The control to toggle to the next playlist item.|
 |**.jw-icon-hd**|This is the class assigned to the div contains the HD icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
 |**.jw-icon-cc**|This is class assigned to the div contains the closed-caption CC icon. The player will automatically add a menu to the hover state of this div if there are more than 2 caption tracks per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
 |**.jw-icon-audio-tracks**|This is class assigned to the div contains the multiple audiotracks icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item.|
+|**.jw-icon-cast**|This class is used to display the Chromecast icon.|
 |**.jw-icon-volume**|This is class assigned to the div contains the volume icon. The player will automatically add a menu to the hover state of this div that contains the slider volume.|
 |**.jw-icon-volume .jw-off**|When the player is muted the .jw-off class gets added to toggle the volume off icon.|
 |**.jw-icon-fullscreen**|This is class assigned to the div contains the fullscreen icons. The player will add .jw-off class to toggle between fullscreen and exit fullscreen icons.|
-|**.jw-icon-cast**|This class is used to display the Chromecast icon.|
-
 
 ## Dock
 
@@ -226,7 +227,7 @@ For medium-sized player widths, make the font size bigger:
 
 # Menus and Overlays
 
-JW Player will automatically populate overlay divs on mouseover/touch of certain interface elements. These overlays are for the timeslider tooltip, closed-captions, video qualities, multiple audio-tracks, and the volume slider. There is also a new special menu for the visual playlist.
+JW Player will automatically populate overlay divs on mouseover/touch of certain interface elements. These overlays include the timeslider tooltip, closed-captions, video qualities, multiple audio-tracks, and the volume slider.
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -256,7 +257,7 @@ The title and description configuration options are displayed in their own class
 
 ## Discovery Overlay <sup>7.6</sup>
 
-The discovery overlay replaces the "Related" plugin in JW 7.7, and shows information about other playlist items and recommended content. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
+The discovery overlay replaces the "Related" plugin in JW 7.6, and shows information about other playlist items and recommended content. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
 
 ###Customization
 
@@ -293,7 +294,7 @@ The discovery overlay replaces the "Related" plugin in JW 7.7, and shows informa
 
 ## Next Up Card <sup>7.7</sup>
 
-The next up card displays prior to a video's completion, showing information about the following playlist item.
+The next up card displays prior to a video's completion, showing information about the following media item.
 
 ###Customization
 
@@ -321,13 +322,11 @@ The next up card displays prior to a video's completion, showing information abo
 |**.jw-nextup-close**|Close button for next up (hidden by default) which hides the display when clicked.|default|
 |**.jw-nextup-sticky .jw-nextup-close**|State to show close button for next up display (shown when nearing end of current video).|state|
 
-
-
 ## Visual Playlist Overlay (Deprecated in JW Player 7.7)
 
-The visual playlist is added by the player for all setups that have more than one playlist item. These are the elements used to build a visual playlist.
+Prior to 7.7, the visual playlist is added by the player for all setups that have more than one playlist item.
 
-#### Note: The visual playlist has been removed in JW Player 7.7 and has been replaced with the Next Up overlay
+#### Note: The visual playlist has been removed in JW Player 7.7 and has been replaced with the Discovery overlay
 
 |CSS Class          | Definition |
 |-------------------|-----------|
