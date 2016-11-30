@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.8 - Beta](#version78) - 11/15/2016
+*   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
 *   [Version 7.5](#version75) - 7/26/2016
@@ -23,13 +23,13 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.7.4|11/2/2016|UI Updates|
-|Beta|7.8.0|11/15/2016|Mobile Autostart, HLS HTML5 Default, Freewheel|
+|Production|7.8.1|11/30/2016|Production release of 7.8 see full notes below|
+|Beta|7.8.1|11/29/2016|Mobile Autostart, HLS HTML5 Default, Freewheel|
 
 * * *
 
 <a name="version78"></a>
-### **7.8.0** - 11/15/16
+### **7.8.1** - 11/30/16
 
 In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safari, and Edge without the need to set a separate configuration. This update comes on the heels of Chrome updating to turn [all Flash into click-to-play](https://www.jwplayer.com/blog/deprecation-flash/). JW 7.8 also adds support for autoplay on mobile, including a new interface element to unmute autostarted videos on mobile, as well as a FreeWheel advertising plugin.
 
@@ -49,16 +49,14 @@ In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safa
 ####Mobile Autoplay and UI
 * Added support for inline autoplay while muted on iOS and Android
 * Added mute/unmute button to controlbar on mobile
-* Provided the configuration autoplayadsmuted: true to allow ads to autoplay muted on mobile
+* Provided the configuration `autoplayadsmuted:true` to allow ads to autoplay muted on mobile
 * Updated sharing overlay for improved usability at smaller player sizes
-
 
 ####Sharing Overlay
 * Created small player and mobile-friendly overlay that scales based on player size
 * Removed video title that was previously being truncated for most title lengths
 * Removed Iframe/embed icon and text from overlay to reduce clutter
 * Removed URL text to reduce clutter in favor of a button that copies the URL
-
 
 ####Fixes
 * Fixed display of accented characters with 608 captions
