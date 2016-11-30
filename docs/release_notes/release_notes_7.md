@@ -52,6 +52,12 @@ In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safa
 * Provided the configuration `autoplayadsmuted:true` to allow ads to autoplay muted on mobile
 * Updated sharing overlay for improved usability at smaller player sizes
 
+####Sharing Overlay
+* Created small player and mobile-friendly overlay that scales based on player size
+* Removed video title that was previously being truncated for most title lengths
+* Removed Iframe/embed icon and text from overlay to reduce clutter
+* Removed URL text to reduce clutter in favor of a button that copies the URL
+
 ####Fixes
 * Fixed display of accented characters with 608 captions
 * Better handling of aspect ratios with HLS streams
