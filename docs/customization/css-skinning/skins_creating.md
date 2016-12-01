@@ -1,6 +1,6 @@
-# Introduction
+# Custom Skins
 
-Customizing JW Player is made easier with JW Player 7's updated CSS-based skinnng model. Gone are the days of JW6's XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding [our own complimentary skins](http://www.jwplayer.com/products/jwplayer/skins/), please see [Using JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins). For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.
+Customizing JW Player is made easier with JW Player 7's updated CSS-based skinning model. Gone are the days of JW6's XML and base64 images. Here to stay is dynamic, customizable CSS. For information regarding [our own complimentary skins](http://www.jwplayer.com/products/jwplayer/skins/), please see [Using JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins). For more advanced users, the below page will explain how to create your own custom skin, and load it into your JW Player.
 
 ## Creating your Style
 
@@ -11,7 +11,7 @@ First you will need to give your custom skin a name, which will be used to enabl
     border-style: solid;
     border-width: medium;
     border-radius: 50%;
-    padding:1em; 
+    padding:1em;
 }
 ```
 

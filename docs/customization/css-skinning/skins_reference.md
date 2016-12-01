@@ -1,4 +1,6 @@
-This article acts as a reference for styling all interface components of JW Player 7. This skinning model uses CSS and web fonts, and all controls are overlaid on top of the player with HTML. 
+# CSS Skinning Reference
+
+This article acts as a reference for styling all interface components of JW Player 7. This skinning model uses CSS and web fonts, and all controls are overlaid on top of the player with HTML.
 
 When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with **jw-** in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div.
 
@@ -6,23 +8,21 @@ A [JW Player skin](http://www.jwplayer.com/products/jwplayer/skins/) CSS file co
 
 <a name="main"></a>
 
-Main Div
-========
+## Main Div
 
 The main div will be given a class **jwplayer**. It is strongly advised to **not** add any additional inline styling on this div besides what is included in your skin css file.
 
-Skinning Namespace
-------------------
+## Skinning Namespace
 
 All skin related styles should be namespaced with a class on the main div, of the form of:
 
-**.jw-skin-SKINNAME**
+`.jw-skin-SKINNAME`
 
 If none are present on initialization, we will add **jw-skin-seven**, which uses the seven skin.
 
 <a name="states"></a>
 
-# Player States
+## Player States
 
 The state of the player is reflected in the DOM by a class on the main div. It will always contain one of the following:
 
@@ -50,7 +50,7 @@ Sometimes the player needs to signify certain modes of the playback. These flags
 
 <a name="colors"></a>
 
-# Colors
+## Colors
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -71,7 +71,7 @@ Sometimes the player needs to signify certain modes of the playback. These flags
 
 <a name="posters"></a>
 
-# Poster Images
+## Poster Images
 
 These define how the poster image will be stretched to fill the space given. Internally this state is used to stretch the player using JS.
 
@@ -82,7 +82,7 @@ These define how the poster image will be stretched to fill the space given. Int
 
 <a name="icons"></a>
 
-# Icons
+## Icons
 
 All JW Player icons are rendered using the font **jw-six-icons.eot**. Each icon has a character code that is mapped to a corresponding interface element.
 
@@ -112,7 +112,7 @@ The easiest way to modify the default icons is to create a new font based on the
 
 <a name="controls"></a>
 
-# Controls
+## Controls
 All player controls are within the **.jw-controls** class. When JW Player is set to **controls: false**, this entire class has a visibility of hidden. To not include a specific item in your skin, you will need to override the style with a visibility or display of none.
 
 |Group          | Definition |
@@ -133,7 +133,7 @@ The display component contains the main element container for the (re)play, buff
 |**.jw-display-icon-container**|Used to style the container in which the display icons are.|
 |**.jw-icon-display**|Used to style icons that appear in the display container. The icon that is rendered depends on the state the player is in.|
 
-# Controlbar
+## Controlbar
 
 The controlbar component contains all elements for the video controls at the bottom of the player. It is built using three functional groups within the **.jw-controlbar** parent class. This diagram presents an overview:
 
@@ -194,7 +194,7 @@ The center group contains the elements that make up the timeslider.
 
 <a name="breakpoints"></a>
 
-#Break Points (7.7+)
+## Break Points (7.7+)
 Breakpoint classes are added to the player element based on the width of the player, not the device or browser. Because JW Player instances are embedded via an iframe, the usual @media query will not work for defining CSS declarations to make elements responsive. Breakpoints are global classes that can be used to make responsive CSS declarations for any customizable player element.
 
 |Break Point        | Width Intervals (px) |
@@ -208,7 +208,7 @@ Breakpoint classes are added to the player element based on the width of the pla
 |**.jw-breakpoint-6**|Player width: 960-1279|
 |**.jw-breakpoint-7**|Player width: 1280+|
 
-###Examples
+### Examples
 Make font size smaller only when player width is under 420px wide:
 ```
 .jw-breakpoint-0 .jw-related-item-description {
@@ -225,7 +225,7 @@ For medium-sized player widths, make the font size bigger:
 
 <a name="menus"></a>
 
-# Menus and Overlays
+## Menus and Overlays
 
 JW Player will automatically populate overlay divs on mouseover/touch of certain interface elements. These overlays include the timeslider tooltip, closed-captions, video qualities, multiple audio-tracks, and the volume slider.
 
@@ -259,7 +259,7 @@ The title and description configuration options are displayed in their own class
 
 The discovery overlay replaces the "Related" plugin in JW 7.6, and shows information about other playlist items and recommended content. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
 
-###Customization
+### Customization
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -276,7 +276,7 @@ The discovery overlay replaces the "Related" plugin in JW 7.6, and shows informa
 |**.jw-related-autoplay-frame-progress**|Customize related item autoplay progress (Auto-advance only)|
 |**.jw-related-item-content:hover .jw-related-autoplay-frame-progress**|Customize elements in hover state (falls under .jw-related-item-content:hover)|
 
-###Selectors
+### Selectors
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -296,7 +296,7 @@ The discovery overlay replaces the "Related" plugin in JW 7.6, and shows informa
 
 The next up card displays prior to a video's completion, showing information about the following media item.
 
-###Customization
+### Customization
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -307,7 +307,7 @@ The next up card displays prior to a video's completion, showing information abo
 |**.jw-nextup-close**|Customize the close button|
 |**.jw-nextup-close:hover**|Customize the close button hover state|
 
-###Selectors
+### Selectors
 
 |CSS Class          | Definition | Type |
 |-------------------|-----------|--|
@@ -326,7 +326,9 @@ The next up card displays prior to a video's completion, showing information abo
 
 Prior to 7.7, the visual playlist is added by the player for all setups that have more than one playlist item.
 
-#### Note: The visual playlist has been removed in JW Player 7.7 and has been replaced with the Discovery overlay
+!!!
+The visual playlist has been removed in JW Player 7.7 and has been replaced with the Discovery overlay.
+!!!
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -339,5 +341,3 @@ Prior to 7.7, the visual playlist is added by the player for all setups that hav
 |**.jw-label .jw-icon-play**|Sets the color of the play icon of the currently playing playlist item.|
 |**.jw-label .jw-icon-play:before**|Aligns the playlist play icon with the items in the playlist.|
 |**.jw-tooltip-title**|Sets the style for the the playlist title div.|
-
-

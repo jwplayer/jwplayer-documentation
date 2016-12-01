@@ -1,13 +1,13 @@
-#Analytics System Integrations
+# Analytics System Integrations
 
 By default, JW Player tracks only playback data with [Google Analytics](http://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) as an integrated solution. However, there are many more potential analytics services that can be used with our API. Provided that your analytics service is capable of sending this information via Javascript, all API events can hypothetically be tracked and measured.
 
-### Listening for Events
+## Listening for Events
 
 A full introduction to our player's API can be found on our [API Introduction](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/) page. In a nutshell, JW Player's API is capable of listening for specific changes, either initiated by user or by API, and then returning information about its use. A very basic example of detecting when a user initiates a mute would be:
 
 ```
-jwplayer().on('mute',function(){ 
+jwplayer().on('mute',function(){
 	//I would fire my mute tracker here!
 	//What happens here would be dependent on your analytics product!
 });
@@ -15,7 +15,7 @@ jwplayer().on('mute',function(){
 
 ​For a full list of trackable player events grouped by category, please visit our [API reference page](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/).
 
-### Sending Events With Google Analytics
+## Sending Events With Google Analytics
 
 Now that you're able to determine that an event occurred on a page, a ping will need to be sent to an analytics platform for tracking. If your analytics platform of choice is Google Analytics, you'll need to initiate a **send** event. As mentioned in our previous article [here](http://support.jwplayer.com/customer/portal/articles/1417179), you'll need to make sure that you are implementing the new analytics.js on your page, rather than the older ga.js.
 
@@ -31,7 +31,7 @@ Once triggering an error state, we are able to check into our Google Analytics p
 
 More information about tracking events with the above code can be found [here](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) in Google's own analytics documentation.
 
-### Sending Events With comScore
+## Sending Events With comScore
 
 Much like a custom GA implementation, if you are utilizing comScore analytics, it is possible to create a setup similar to the above. The below table shows comScore events and their JW Player API equivalents:
 
@@ -47,7 +47,7 @@ Much like a custom GA implementation, if you are utilizing comScore analytics, i
 |Video Source|getPlaylistItem().file|
 |Current Bitrate|getQualityLevels()[getCurrentQuality()].bitrate|
 
-### Sending Events With Adobe Site Catalyst
+## Sending Events With Adobe Site Catalyst
 
 As of JW7, integrated Site Catalyst support has been removed. Events can still be tracked using the JW Player API and Site Catalyst's event tracking pings. Further information can be found on Adobe's site:
 
