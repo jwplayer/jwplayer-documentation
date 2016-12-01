@@ -8,11 +8,11 @@ This article explains the basics of how to use the [JavaScript API](http://www.j
 
 * * *
 
-##Getting Information with the JW Player API
+## Getting Information with the JW Player API
 
-Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/api/javascript_api_reference/). 
+Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/api/javascript_api_reference/).
 
-####"Get" API calls can return information like:
+#### "Get" API calls can return information like:
 
 * An array of playlist items with __jwplayer().getPlaylist()__
 * The duration of a video with __jwplayer().getDuration()__
@@ -21,10 +21,10 @@ Certain API calls utilize a "get" prefix, which signifies that their express pur
 
 * * *
 
-##Controlling and setting with the JW Player API
-These types of API calls are used to control player behavior. Many of these calls expect a value to be passed along with it. For example, setVolume() expects a number from 1-100 to be included. 
+## Controlling and setting with the JW Player API
+These types of API calls are used to control player behavior. Many of these calls expect a value to be passed along with it. For example, setVolume() expects a number from 1-100 to be included.
 
-####API calls can tell the player to do things like:
+#### API calls can tell the player to do things like:
 
 * Pause playback with __jwplayer().pause(true)__
 * Set volume to 50% with __jwplayer().setVolume(50)__
@@ -61,8 +61,8 @@ Before it is possible to interact with a player, a player setup is required. Our
 ```
 <div id='myElement'>Loading the player...</div>
 <script type='text/javascript'>
-  jwplayer("myElement").setup({ 
-    "file": "/uploads/example.mp4", 
+  jwplayer("myElement").setup({
+    "file": "/uploads/example.mp4",
     "image": "/uploads/example.jpg"
   });
 </script>
@@ -90,7 +90,7 @@ alert("Complete fired - Your content has completed!");
 });
 </script>
 
-<a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> | 
+<a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> |
 <a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());">Return Player Volume</a>
 
 * * *
@@ -105,13 +105,13 @@ When you have multiple players on a page, you must be specific about which playe
 
 <script type='text/javascript'>
 
-jwplayer("myFirstPlayer").setup({ 
-"file": "/uploads/example.mp4", 
+jwplayer("myFirstPlayer").setup({
+"file": "/uploads/example.mp4",
 "image": "/uploads/example.jpg"
 });
 
-jwplayer("mySecondPlayer").setup({ 
-"file": "/uploads/example2.mp4", 
+jwplayer("mySecondPlayer").setup({
+"file": "/uploads/example2.mp4",
 "image": "/uploads/example2.jpg"
 });
 
@@ -128,19 +128,21 @@ jwplayer("myFirstPlayer").play();
 
 ### 2 - Include the index of player you wish to target
 ```
-// An index of 1 targets the second player on the page 
+// An index of 1 targets the second player on the page
 jwplayer(1).play();
 ```
 
-#### Note: Not including an ID or index with your API call will always target the first player on a page
+!!!
+Not including an ID or index with your API call will always target the first player on a page.
+!!!
 
 * * *
 
-##Require.js and JW Player
+## Require.js and JW Player
 
 JW Player is not currently supported within require js due to JW Player needing to use jwplayer namespace. To avoid issues when require and jwplayer.js are on the same page, load jwplayer.js before the require.js script is loaded.
 
-####Example:
+**Example:**
 
 ```
 <script src='jwplayer.js'>
@@ -169,5 +171,3 @@ The table below act as a cheat sheet of all API calls. The separate [JavaScript 
 |[Metadata](javascript_api_reference/#metadata)|-|-|on('meta')|
 |[Sharing](javascript_api_reference/#sharing)|-|getPlugin('sharing').open()<br/>getPlugin('sharing').close()|getPlugin('sharing').on('open')<br/>getPlugin('sharing').on('close')<br/>getPlugin('sharing').on('click')|
 |[Related](javascript_api_reference/#related)|-|getPlugin('related').open()<br/>getPlugin('related').close()|getPlugin('related').on('open')<br/>getPlugin('related').on('close')<br/>getPlugin('related').on('play')|
-
-
