@@ -33,6 +33,8 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safari, and Edge without the need to set a separate configuration. This update comes on the heels of Chrome updating to turn [all Flash into click-to-play](https://www.jwplayer.com/blog/deprecation-flash/). JW 7.8 also adds support for autoplay on mobile, including a new interface element to unmute autostarted videos on mobile, as well as a FreeWheel advertising plugin.
 
+**Please Note:** Since the player will now be rendering HLS streams in HTML5 in most browsers, we suggest that you make sure the CORS headers on the domains hosting your streams are set up properly to allow your domain access. Otherwise, your HLS streams may fail to play. Please see our [Cross-domain File Loading support article](https://support.jwplayer.com/customer/en/portal/articles/1403679-crossdomain-file-loading) for more information.
+
 ####Streaming Updates
 * Added failover support to load the player via HTML5 when Flash is chosen as the primary setting but is blocked or not available
 * Added support for multiple audio track renditions using #EXT-X-MEDIA and TYPE equal to AUDIO in HTML5.
