@@ -1,4 +1,4 @@
-# Overview
+# Example CSS File
 
 Here is the CSS used by JW Player 7 to render the seven [skin](http://www.jwplayer.com/products/jwplayer/skins/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
 
@@ -11,10 +11,13 @@ Here is the CSS used by JW Player 7 to render the seven [skin](http://www.jwpla
 5.  Include your CSS in the head of your page or provide JW Player with the URL in setup.
 6.  Update your player embed to include the name of your custom skin.
 
-### Notes
+!!!
+This CSS does not take into account the state classes that were defined in the full class reference. If you want to override the style for a specific state you will need to include styles here with those classes.
+!!!
 
-*   This CSS does not take into account the state classes that were defined in the full class reference. If you want to override the style for a specific state you will need to include styles here with those classes.
-*   Every skin file is included the download package found in the Downloads section of your player account.
+!!!
+Every skin file is included the download package found in the Downloads section of your player account.
+!!!
 
 ## Sample Skin
 
@@ -110,13 +113,13 @@ Here is the CSS used by JW Player 7 to render the seven [skin](http://www.jwpla
   color: #ffffff;
 }
 
-/* Color for all buttons when they are inactive. This is over-ridden with the 
+/* Color for all buttons when they are inactive. This is over-ridden with the
 inactive configuration in the skin block.*/
 .jw-skin-seven .jw-button-color {
   color: #ffffff;
 }
 
-/* Color for all buttons for when they are hovered on. This is over-ridden with the 
+/* Color for all buttons for when they are hovered on. This is over-ridden with the
 active configuration in the skin block.*/
 
 .jw-skin-seven .jw-button-color:hover {
