@@ -23,12 +23,22 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.1|11/30/2016|Production release of 7.8 see full notes below|
-|Beta|7.8.1|11/29/2016|Mobile Autostart, HLS HTML5 Default, Freewheel|
+|Production|7.8.2|12/03/2016|Bug fixes|
+|Beta|7.8.2|12/03/2016|Bug Fixes|
 
 * * *
 
 <a name="version78"></a>
+### **7.8.2** - 12/03/16
+
+####Fixes
+* Fixed intermittent tab crashes in Chrome when Flash is selected as the primary mode of playback.
+* Fixes the accuracy of the time slider in Android Chrome when the viewport is zoomed.
+* Seeking outside the buffer in an HLS stream now properly updates the state to buffering.
+* Fixed cases where audio tracks did not show up for certain HLS v4 manifests.
+* Fixed parsing of HLS manifests containing sub-second durations starting with decimal points.
+
+
 ### **7.8.1** - 11/30/16
 
 In JW Player 7.8 HLS will be played in HTML5 as default in Chrome, Firefox, Safari, and Edge without the need to set a separate configuration. This update comes on the heels of Chrome updating to turn [all Flash into click-to-play](https://www.jwplayer.com/blog/deprecation-flash/). JW 7.8 also adds support for autoplay on mobile, including a new interface element to unmute autostarted videos on mobile, as well as a FreeWheel advertising plugin.
