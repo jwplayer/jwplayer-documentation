@@ -18,8 +18,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articles/2149561-using-player-release-channels) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
 
-Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.  
-
+Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) to list to get notified when we update the beta channel so you can test and verify new functionality. These messages are only sent to indicate an upcoming release and provide a target for when the production channel will be updated with a minor version. Patch updates are quick bug fixes that do not get notified on the mailing list. We are however working on a way to get notified for when all channels get updated.
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
