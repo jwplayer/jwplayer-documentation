@@ -20,14 +20,29 @@ Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articl
 
 Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) list to get notified when we update the beta channel so you can test and verify new functionality. These messages are only sent to indicate an upcoming release and provide a target for when the production channel will be updated with a minor version. Patch updates are quick bug fixes that do not get notified on the mailing list. We are however working on a way to get notified for when all channels get updated.
 
+
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.2|12/03/2016|Bug fixes|
-|Beta|7.8.2|12/03/2016|Bug Fixes|
+|Production|7.8.2|11/30/2016|Bug fixes|
+|Beta|7.8.3|12/08/2016|Bug fixes|
 
 * * *
 
 <a name="version78"></a>
+### **7.8.3** - 12/08/16
+
+####Fixes
+* Fixed an issue in HLS where gaps caused by segments not starting with keyframes was causing the stream to jump ahead.
+* Fixed an issue in HLS where gaps were caused by #EXT-INF numbers not having a leading digit (having fragment durations less than one second).
+* Updated logic regarding VPAID ads to not pause on click-through so VPAIDs without native controls don’t get stuck in a pause state.
+* Fixed an issue with IMA ads and playlists where moving to the next playlist item via the Next button or Next Up Overlay would prevent ads from playing on that playlist item and subsequent ones.
+* Fixed an issue where ads clicked on Android could not be resumed via the play display icon, only the controlbar.
+* Fixed an issue with switching playlists via the API when using FreeWheel.
+* Fixed an issue where streams with discontinuities were not always getting proper VisualQuality events.
+* Fixed an issue where the VisualQuality event was misreporting height and width on a level change.
+Added MP3 support to HLS streaming.
+
+
 ### **7.8.2** - 12/03/16
 
 ####Fixes
@@ -36,7 +51,6 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Seeking outside the buffer in an HLS stream now properly updates the state to buffering.
 * Fixed cases where audio tracks did not show up for certain HLS v4 manifests.
 * Fixed parsing of HLS manifests containing sub-second durations starting with decimal points.
-
 
 ### **7.8.1** - 11/30/16
 
