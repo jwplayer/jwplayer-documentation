@@ -40,7 +40,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue with switching playlists via the API when using FreeWheel.
 * Fixed an issue where streams with discontinuities were not always getting proper VisualQuality events.
 * Fixed an issue where the VisualQuality event was misreporting height and width on a level change.
-Added MP3 support to HLS streaming.
+* Added MP3 support to HLS streaming.
 
 
 ### **7.8.2** - 12/03/16
