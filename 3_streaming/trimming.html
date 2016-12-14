@@ -1,0 +1,35 @@
+JW Platform allows you to easily trim any video in your video library (VOD or live archive). This is especially useful for live streams created using JW Live. Once your live event over, you can now trim any preceding or post content that you want to discard.<br />
+<br />
+To trim a video, simply select any video from your library. This will take you to the video detail page (see below).
+<pre>
+<em>NOTE: Only videos that have MP4 format originals with the H.264 codec and &quot;.mp4&quot; file extension can be trimmed.
+</em>
+</pre>
+
+<p dir="ltr"><span id="docs-internal-guid-77e5b58c-fe44-1dea-30ef-4d5c16bc97a2"><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="253" src="https://lh4.googleusercontent.com/3DuJ4dPJM049oBdEpXof-oug5-3ZWbyPj1wzfuLoX9bjkN_uK28oZHO7oyEXgI1v3dzINpk_vf_lA0qBWuCPhkKYN5nz0Kx6N0eLQWcIICfP3nffcngQITvslrq2-lH47bS4x90y" width="624" /></span></span></p>
+Click the &ldquo;Trim&rdquo; button next to the Duration value (see below).
+
+<div dir="ltr">&nbsp;</div>
+<span id="docs-internal-guid-77e5b58c-fe44-78aa-40fc-836b2a9be06d"><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="241" src="https://lh5.googleusercontent.com/R506-FqJEmA9cbMv-x7cTm-z3EjFqBzqIBpi_qSRPYU1sib6zVmaNZkvGa1e5UH3UcbKZI1CqrGD8KuJqp13ZCU_zxNNLonluCAvyFTRDA5z3BSFSYglHLDkvF9U3Fql8DpYvTXi" width="624" /></span></span><br />
+<br />
+This will open up the trimming popup. Here it&rsquo;s really easy to set the new &ldquo;start time&rdquo; and &ldquo;end time&rdquo; of your video by either dragging each end of the blue control bar (see below) or by entering manual timecode values into the &ldquo;Start Time&rdquo; and &ldquo;End Time&rdquo; text boxes.<br />
+&nbsp;
+<div dir="ltr">&nbsp;</div>
+<span id="docs-internal-guid-77e5b58c-fe44-bb02-450f-f366429d746c"><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="237" src="https://lh3.googleusercontent.com/OMS5tUaLUMn0rEzydyj7OoFPnvqnsDyd8IZKOh5sXmhtnpg9vLNKczaQCXLetLr4YE7c_1S47yubbwk9YYz16M8-GL81GefV76QaUf5pfRU_lWramzj2Vkm2rVl2bSQiMdrFn1o1" width="624" /></span></span><br />
+<br />
+Once you are happy with your trim, click the &ldquo;Trim and Save&rdquo; button to save your changes. This will kick off transcoding jobs that will reprocess all output conversions. Please allow adequate time for your trimming transcodes to complete. Time varies depending on the length of your content.<br />
+<br />
+NOTE: Your original video will NOT be truncated, only the conversions will inherit the new &ldquo;trimmed&rdquo; duration (for MP4, HLS, DASH, etc.). That way, if you want to re-trim your video later you can because the original will persist. This way, you can re-trim your video as many times as you want without losing any data from the original. Also note, to access your original you must use the API. The original is not available for download from within the portal.<br />
+&nbsp;
+<h2>API Access</h2>
+You can also trim your videos through the JW Platform API. The /videos/create and /videos/update calls both support the &ldquo;trim_in_point&rdquo; and &ldquo;trim_out_point&rdquo; parameters.<br />
+<br />
+Here are example API calls using the Python SDK client to upload/create a video:
+<pre>
+/videos/create : client.request(&#39;/videos/create&#39;, {&#39;trim_in_point&#39;: &#39;00:00:00.000&#39;, &#39;trim_out_point&#39;: &#39;00:03:59.000&#39;})</pre>
+Here are example API calls using the Python SDK client to update an existing video:
+
+<pre>
+/videos/update: client.request(&#39;/videos/update&#39;, {&#39;update_file&#39;: True, &#39;video_key&#39;: &#39;iK5PWlIl&#39;, &#39;trim_in_point&#39;: &#39;00:00:00.000&#39;, &#39;trim_out_point&#39;: &#39;00:02:59.000&#39;})</pre>
+<br />
+&nbsp;
