@@ -50,9 +50,6 @@ Note that 7.8.3 was never promoted to production and all of these fixes are wrap
 * Fixed an issue with IMA ads and playlists where moving to the next playlist item via the Next button or Next Up Overlay would prevent ads from playing on that playlist item and subsequent ones.
 * Fixed an issue where ads clicked on Android could not be resumed via the play display icon, only the controlbar.
 * Fixed an issue with switching playlists via the API when using 
-
-
-.
 * Fixed an issue where streams with discontinuities were not always getting proper VisualQuality events.
 * Fixed an issue where the VisualQuality event was misreporting height and width on a level change.
 * Added MP3 support to HLS streaming.
