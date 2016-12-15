@@ -24,12 +24,24 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.8.2|11/30/2016|Bug fixes|
-|Beta|7.8.3|12/08/2016|Bug fixes|
+|Beta|7.8.4|12/15/2016|Bug fixes|
 
 * * *
-
 <a name="version78"></a>
+
+### **7.8.4** - 12/15/16 (Beta)
+
+####Fixes
+* Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
+* Aligned captions to correct time with streams that had ads stitched from Uplynk. 
+* Returned the embed code to the Sharing overlay for player sizes that can fit it.
+* Fixed an issue with ad time events not firing between midrolls with FreeWheel.
+* Added functionality to  play only the second midroll if a viewer skips past two midrolls with FreeWheel.
+
+
 ### **7.8.3** - 12/08/16
+
+Note that 7.8.3 was never promoted to production and all of these fixes are wrapped into 7.8.4.
 
 ####Fixes
 * Fixed an issue in HLS where gaps caused by segments not starting with keyframes was causing the stream to jump ahead.
@@ -37,7 +49,10 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Updated logic regarding VPAID ads to not pause on click-through so VPAIDs without native controls don’t get stuck in a pause state.
 * Fixed an issue with IMA ads and playlists where moving to the next playlist item via the Next button or Next Up Overlay would prevent ads from playing on that playlist item and subsequent ones.
 * Fixed an issue where ads clicked on Android could not be resumed via the play display icon, only the controlbar.
-* Fixed an issue with switching playlists via the API when using FreeWheel.
+* Fixed an issue with switching playlists via the API when using 
+
+
+.
 * Fixed an issue where streams with discontinuities were not always getting proper VisualQuality events.
 * Fixed an issue where the VisualQuality event was misreporting height and width on a level change.
 * Added MP3 support to HLS streaming.
