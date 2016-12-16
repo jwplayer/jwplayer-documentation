@@ -29,7 +29,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * * *
 <a name="version78"></a>
 
-### **7.8.4** - 12/15/16 (Beta)
+### **7.8.4** - 12/16/16
 
 ####Fixes
 * Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
