@@ -23,7 +23,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.2|11/30/2016|Bug fixes|
+|Production|7.8.4|12/16/2016|Bug fixes|
 |Beta|7.8.4|12/15/2016|Bug fixes|
 
 * * *
