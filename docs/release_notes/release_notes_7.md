@@ -23,11 +23,27 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.4|12/16/2016|Bug fixes|
-|Beta|7.8.4|12/15/2016|Bug fixes|
+|Production|7.8.6|12/21/2016|Bug fixes|
+|Beta|7.8.6|12/21/2016|Bug fixes|
 
 * * *
 <a name="version78"></a>
+
+### **JW 7.8.6** - 12/21/16
+####Fixes
+* Fixed a syncing issue with HLSv4 VTT subtitle tracks and discontinuities.
+* Fixed an intermittent issue with duplicate HLS 608 captions.
+
+### **JW 7.8.5** - 12/20/16
+
+Note that 7.8.5 was never promoted to production and all of these fixes are wrapped into 7.8.6.
+
+####Fixes
+* Improved accessibility for Next Up Close button by adding an Aria label.
+* The API calls setVolume() and getMute() now work correctly when the player is muted for autoplay on mobile.
+* Fixed an issue with HLS 608 captions truncating captions over 32 characters.
+* Fixed an issue where sideloaded VTT captions were not displaying after prerolls.
+
 
 ### **7.8.4** - 12/16/16
 
