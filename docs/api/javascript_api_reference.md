@@ -366,7 +366,7 @@ Fired when the player enters the playing state.
 
 |Value|Description|Possible Outputs|Type|
 |----|--------|--|--|
-|oldstate |The state the player moved from.|buffering &#124; playing |String|
+|oldstate |The state the player moved from.|buffering &#124; paused |String|
 
 ###jwplayer().on('pause')
 
@@ -388,8 +388,8 @@ Fired when the player starts playback and when the player enters a buffering sta
 
 |Value|Description|Possible Values|Type|
 |----|--------|--|--|
-|oldstate |The state the player moved from.|buffering &#124; playing |String|
-|newstate |The state the player moved to.|idle &#124; playing &#124; paused|String|
+|oldstate |The state the player moved from.|idle &#124; playing &#124; paused|String|
+|newstate |The state the player moved to.|buffering &#124; playing |String|
 |reason |The reason why a buffer event occurred.|loading &#124; complete &#124; stalled &#124; error|String|
 
 ###jwplayer().on('idle')
