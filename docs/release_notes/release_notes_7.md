@@ -24,10 +24,15 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.8.6|12/21/2016|Bug fixes|
-|Beta|7.8.6|12/21/2016|Bug fixes|
+|Beta|7.8.7|1/04/2017|HLS performance improvements|
 
 * * *
 <a name="version78"></a>
+### **JW 7.8.7** - 01/04/17
+####Fixes
+* Updated HLS in HTML5 to restrict maxium quality chosen in adaptive playback to be based on the player width and height. This reduces bandwidth and improves system performance.
+
+
 
 ### **JW 7.8.6** - 12/21/16
 ####Fixes
