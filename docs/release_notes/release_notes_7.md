@@ -24,15 +24,53 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.8.7|01/05/2017|HLS performance improvements|
-|Beta|7.8.7|1/04/2017|HLS performance improvements|
+|Beta|7.9.0|1/11/2017|UI and Casting updates|
 
 * * *
 <a name="version78"></a>
+### **JW 7.9.0 Beta** - 01/11/17
+In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay.
+
+####UI Updates
+* Moved timeslider above (instead of inline) at smaller player sizes to free up space on the controlbar.
+* Added configuration option “timeSliderAbove: true” to force timeslider above even at larger player sizes.
+* Moved Play/Pause, Rewind, and Next buttons onto the player view at smaller sizes to free up space on the controlbar.
+* Moved dock buttons closer to the top right corner at smaller player sizes.
+* Updated ad playback UI at smaller player sizes for consistency and readability.
+* Updated player U/X on mobile to be able to hide/show the controls while paused to facilitate taking screenshots of the content being watched.
+* Overhauled premium skins to provide better consistency.
+* Removed description from video view on start state at smaller player sizes since it was unreadable.
+* Changed current time and duration to a countdown at smallest player sizes to make room on the controlbar.
+
+####Casting Updates
+JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly. 
+
+The following changes have also been implemented:
+
+* AirPlay is now supported in Safari and iOS from within the Player.
+* Cast configuration options have been removed from the Dashboard.
+* Non VP9 DASH streams can be cast to Cast enabled devices.
+
+####Advertising Updates
+* Added configuration option “vpaidcontrols: true” for VPAID ads to force the controlbar to show.
+
+####Streaming Updates
+* Added support for Azure’s PlayReady AES functionality.
+* Updated HLS firstframe calculation.
+* Improved fallback for audio/video and audio-only levels.
+* Performance improvements to HLS in HTML5.
+
+####Fixes
+* Fixed issues around DVR playback and starting from the Live point.
+* Fixed an HLS playback stutter issue where the stream defined unusually short segments.
+* Fixed firing of VMAP breakstart tracking event.
+* Fixed an issue with the handling of VPAID wrapper clickthrough.
+* Fixed an issue where adcomplete was firing on one ad in an ad pod on skip in certain situations
+* Fixed an issue with ad pods with both VPAIDs and Vast linear ads where all pod items were not being played.
+
 ### **JW 7.8.7** - 01/04/17
 ####Fixes
 * Updated HLS in HTML5 to restrict maxium quality chosen in adaptive playback to be based on the player width and height. This reduces bandwidth and improves system performance.
-
-
 
 ### **JW 7.8.6** - 12/21/16
 ####Fixes
