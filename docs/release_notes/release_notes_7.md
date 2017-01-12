@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.9-beta.1](#version79) - 01/11/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
@@ -27,7 +28,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Beta|7.9.0|1/11/2017|UI and Casting updates|
 
 * * *
-<a name="version78"></a>
+<a name="version79"></a>
 ### **JW 7.9.0 Beta** - 01/11/17
 In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay.
 
