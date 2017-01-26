@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.9-beta.2](#version79) - 01/17/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
@@ -23,13 +24,85 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.2|11/30/2016|Bug fixes|
-|Beta|7.8.3|12/08/2016|Bug fixes|
+|Production|7.8.7|01/05/2017|HLS performance improvements|
+|Beta|7.9.0|1/17/2017|UI and Casting updates|
 
 * * *
+<a name="version79"></a>
+### **JW 7.9.0 Beta** - 01/17/17
+In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay.
+
+####UI Updates
+* Improved usability of controls at small player sizes:
+	* Moved the timeslider above (instead of inline) the control bar buttons to make the timeslider more functional and reduce clutter in the control bar.
+	* Moved the Play/Pause, Rewind, and Next buttons onto the player view.
+	* Moved dock buttons closer to the top right corner.
+	* Updated the controlbar during ad playback to have a fixed height and fit ad text in a single line.
+	* Removed the video description text that was visible before media playback starts.
+	* Display a countdown instead of the current time and duration at player sizes below 320px.
+* Added a configuration option “timeSliderAbove: true” that moves the timeslider above the control bar buttons at all  player sizes.
+* Updated player controls on mobile so that users can tap on the view to hide/show the controls while paused to facilitate taking screenshots of the content being watched.
+* Overhauled premium skins to provide better consistency.
+
+####Casting Updates
+JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly. 
+
+The following changes have also been implemented:
+
+* AirPlay is now supported in Safari and iOS from within the Player.
+* Cast configuration options have been removed from the Dashboard.
+* Non VP9 DASH streams can be cast to Cast enabled devices.
+
+####Advertising Updates
+* Added configuration option “vpaidcontrols: true” for VPAID ads to force the controlbar to show.
+
+####Streaming Updates
+* Added support for Azure’s PlayReady AES functionality.
+* Performance improvements to HLS in HTML5.
+
+####Fixes
+* Fixed firing of VMAP breakstart tracking event.
+* Fixed an issue with the handling of VPAID wrapper clickthrough.
+* Fixed an issue where adcomplete was firing on one ad in an ad pod on skip in certain situations.
+* Fixed issues around DVR playback and starting from the Live point.
+* Fixed an HLS playback stutter issue which occurred in streams that defined unusually short segments.
+* Fixed an issue with ad pods with both VPAIDs and Vast linear ads where all pod items were not being played.
+* Fixed an issue with HLS live streams where an empty child manifest would crash the player.
 
 <a name="version78"></a>
+### **JW 7.8.7** - 01/04/17
+####Fixes
+* Updated HLS in HTML5 to restrict maxium quality chosen in adaptive playback to be based on the player width and height. This reduces bandwidth and improves system performance.
+
+### **JW 7.8.6** - 12/21/16
+####Fixes
+* Fixed a syncing issue with HLSv4 VTT subtitle tracks and discontinuities.
+* Fixed an intermittent issue with duplicate HLS 608 captions.
+
+### **JW 7.8.5** - 12/20/16
+
+Note that 7.8.5 was never promoted to production and all of these fixes are wrapped into 7.8.6.
+
+####Fixes
+* Improved accessibility for Next Up Close button by adding an Aria label.
+* The API calls setVolume() and getMute() now work correctly when the player is muted for autoplay on mobile.
+* Fixed an issue with HLS 608 captions truncating captions over 32 characters.
+* Fixed an issue where sideloaded VTT captions were not displaying after prerolls.
+
+
+### **7.8.4** - 12/16/16
+
+####Fixes
+* Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
+* Aligned captions to correct time with streams that had ads stitched from Uplynk. 
+* Returned the embed code to the Sharing overlay for player sizes that can fit it.
+* Fixed an issue with ad time events not firing between midrolls with FreeWheel.
+* Added functionality to  play only the second midroll if a viewer skips past two midrolls with FreeWheel.
+
+
 ### **7.8.3** - 12/08/16
+
+Note that 7.8.3 was never promoted to production and all of these fixes are wrapped into 7.8.4.
 
 ####Fixes
 * Fixed an issue in HLS where gaps caused by segments not starting with keyframes was causing the stream to jump ahead.
@@ -40,7 +113,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 * Fixed an issue with switching playlists via the API when using FreeWheel.
 * Fixed an issue where streams with discontinuities were not always getting proper VisualQuality events.
 * Fixed an issue where the VisualQuality event was misreporting height and width on a level change.
-Added MP3 support to HLS streaming.
+* Added beta MP3 support to HLS streaming.
 
 
 ### **7.8.2** - 12/03/16
