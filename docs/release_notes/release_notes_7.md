@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.9-beta.2](#version79) - 01/17/2017
+*   [Version 7.9-rc.2](#version79) - 01/17/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
@@ -25,12 +25,12 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.8.7|01/05/2017|HLS performance improvements|
-|Beta|7.9.0|1/17/2017|UI and Casting updates|
+|Beta|7.9.0|1/26/2017|UI and Casting updates|
 
 * * *
 <a name="version79"></a>
-### **JW 7.9.0 Beta** - 01/17/17
-In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay.
+### **JW 7.9.0 Beta** - 01/26/17
+In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay. Lastly, support for playback of 360 Video has been added - no additional plugin required.
 
 ####UI Updates
 * Improved usability of controls at small player sizes:
@@ -59,6 +59,8 @@ The following changes have also been implemented:
 ####Streaming Updates
 * Added support for Azure’s PlayReady AES functionality.
 * Performance improvements to HLS in HTML5.
+* Added support for playback of 360 Video.  Both magic window and VR modes are supported when streaming a spherical 360-degree video.
+* Updated FreeWheel slot-end event handling.
 
 ####Fixes
 * Fixed firing of VMAP breakstart tracking event.
@@ -68,6 +70,13 @@ The following changes have also been implemented:
 * Fixed an HLS playback stutter issue which occurred in streams that defined unusually short segments.
 * Fixed an issue with ad pods with both VPAIDs and Vast linear ads where all pod items were not being played.
 * Fixed an issue with HLS live streams where an empty child manifest would crash the player.
+* Fixed an issue with playing IMA ad content via the API.
+* Added better error handling for situations where IMA returns an empty xml.
+* Fixed an issue where an IMA skippable ad was not skippable if immediately preceded by a VPAID.
+* Fixed an issue that caused  “preload: none” to break IMA ads.
+* Fixed an issue where firstframe was firing before playback started with “preload:auto”
+* Fixed an issue where the VisualQuality event did not return the index that corresponds with the quality level in getQualityLevels. 
+
 
 <a name="version78"></a>
 ### **JW 7.8.7** - 01/04/17
