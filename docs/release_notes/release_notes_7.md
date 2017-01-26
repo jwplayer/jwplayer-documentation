@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.9-rc.2](#version79) - 01/17/2017
+*   [Version 7.9-rc.2](#version79) - 01/26/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
@@ -25,7 +25,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.8.7|01/05/2017|HLS performance improvements|
-|Beta|7.9.0|1/26/2017|UI and Casting updates|
+|Beta|7.9.0|1/17/2017|UI and Casting updates|
 
 * * *
 <a name="version79"></a>
