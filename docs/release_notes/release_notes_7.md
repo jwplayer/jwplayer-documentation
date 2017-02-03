@@ -75,7 +75,8 @@ The following changes have also been implemented:
 * Fixed an issue where an IMA skippable ad was not skippable if immediately preceded by a VPAID.
 * Fixed an issue that caused  “preload: none” to break IMA ads.
 * Fixed an issue where firstframe was firing before playback started with “preload:auto”
-* Fixed an issue where the VisualQuality event did not return the index that corresponds with the quality level in getQualityLevels. 
+* Fixed an issue where the VisualQuality event did not return the index that corresponds with the quality level in getQualityLevels.
+* Added configuration option to advertising block for IMA's "enablePreloading". enablePreloading = false disables ad preloading and resolves issues with back-to-back VPAIDs in pods. VPAIDs are not full supported in IMA when using enablePreloading = true.
 
 
 <a name="version78"></a>
