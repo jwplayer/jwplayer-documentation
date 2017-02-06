@@ -81,6 +81,7 @@ If only a single playlist item is used, this information can either be configure
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
+|**timesliderabove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
 
 ####Stretching Examples:
 ![](//support-static.jwplayer.com/images/stretch-options.png)
@@ -139,11 +140,14 @@ jwplayer("myElement").setup({
 |**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|**playlist[_index_].recommendations**<sup>7.6</sup>String|URL to a feed that contains related items for a particular playlist item|
+|**playlist[_index_].recommendations**<sup>7.6</sup>|String|URL to a feed that contains related items for a particular playlist item|
 |**playlist[_index_].minDvrWindow**<sup>7.7</sup>|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
+|**playlist[index].stereomode**|String|Used for playback of a spherical 360 Video. "Monoscopic" is the value supported at this time.|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
+
+
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
@@ -497,6 +501,8 @@ This options block configures the video advertising capabilities of JW Player. I
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|-|
 |**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in FreeWheel|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|-|
+|**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
+|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
 
 * * *
 
