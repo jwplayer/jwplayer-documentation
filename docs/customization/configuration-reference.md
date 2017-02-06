@@ -503,6 +503,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|-|
 |**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
+|**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays. Note: only supported when using IMA|-|
 
 * * *
 
