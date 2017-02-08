@@ -33,7 +33,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 ####Fixes
 * Fixed several issues with HLS where midrolls could case the stream to restart from the beginning or freeze on a black screen and prevent playback from resuming.
 * Fixed an issue where some DVR streams were starting from the beginning and not Live edge.
-* Resolved an issue in Edge where stopping an HLS stream programmatically could break the player.
+* Resolved an issue in Edge where stopping an HLS stream programmatically could result in an error.
 
 ### **JW 7.9.0** - 02/02/17
 In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay. Lastly, support for playback of 360 Video has been added - no additional plugin required.
