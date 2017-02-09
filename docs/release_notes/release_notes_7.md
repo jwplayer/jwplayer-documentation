@@ -24,7 +24,7 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.9.0|02/02/2017|UI and Casting updates|
+|Production|7.9.1|02/09/2017|Fixes|
 |Beta|7.9.1|2/08/2017|Fixes|
 
 * * *
