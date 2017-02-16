@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.9-beta.2](#version79) - 01/17/2017
+*   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
 *   [Version 7.6](#version76) - 8/15/2016
@@ -24,13 +24,20 @@ Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sig
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.8.7|01/05/2017|HLS performance improvements|
-|Beta|7.9.0|1/17/2017|UI and Casting updates|
+|Production|7.9.1|02/09/2017|Fixes|
+|Beta|7.9.1|2/08/2017|Fixes|
 
 * * *
 <a name="version79"></a>
-### **JW 7.9.0 Beta** - 01/17/17
-In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay.
+### **JW 7.9.1** - 2/08/2017
+####Fixes
+* Fixed several issues with HLS where midrolls could case the stream to restart from the beginning or freeze on a black screen and prevent playback from resuming.
+* Fixed an issue where some DVR streams were starting from the beginning and not Live edge.
+* Resolved an issue in Edge where stopping an HLS stream programmatically could result in an error.
+* Fixed issues with the load() API that caused errors in IE11 and Edge.
+
+### **JW 7.9.0** - 02/02/17
+In JW 7.9, the UI has been updated to embrace small player sizes on mobile and desktop. Additionally, the Casting feature has been overhauled to handle both Google’s Chromecast and Apple’s Airplay. Lastly, support for playback of 360 Video has been added - no additional plugin required.
 
 ####UI Updates
 * Improved usability of controls at small player sizes:
@@ -45,7 +52,7 @@ In JW 7.9, the UI has been updated to embrace small player sizes on mobile and d
 * Overhauled premium skins to provide better consistency.
 
 ####Casting Updates
-JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly. 
+JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly.
 
 The following changes have also been implemented:
 
@@ -59,6 +66,8 @@ The following changes have also been implemented:
 ####Streaming Updates
 * Added support for Azure’s PlayReady AES functionality.
 * Performance improvements to HLS in HTML5.
+* Added support for playback of 360 Video.  Both magic window and VR modes are supported when streaming a spherical 360-degree video.
+* Updated FreeWheel slot-end event handling.
 
 ####Fixes
 * Fixed firing of VMAP breakstart tracking event.
@@ -68,6 +77,14 @@ The following changes have also been implemented:
 * Fixed an HLS playback stutter issue which occurred in streams that defined unusually short segments.
 * Fixed an issue with ad pods with both VPAIDs and Vast linear ads where all pod items were not being played.
 * Fixed an issue with HLS live streams where an empty child manifest would crash the player.
+* Fixed an issue with playing IMA ad content via the API.
+* Added better error handling for situations where IMA returns an empty xml.
+* Fixed an issue where an IMA skippable ad was not skippable if immediately preceded by a VPAID.
+* Fixed an issue that caused  “preload: none” to break IMA ads.
+* Fixed an issue where firstframe was firing before playback started with “preload:auto”
+* Fixed an issue where the VisualQuality event did not return the index that corresponds with the quality level in getQualityLevels.
+* Added configuration option to advertising block for IMA's "enablePreloading" setting. "enablePreloading = false" disables ad preloading and resolves issues with back-to-back VPAIDs in pods. VPAIDs are not fully supported in IMA when using "enablePreloading = true".
+
 
 <a name="version78"></a>
 ### **JW 7.8.7** - 01/04/17
@@ -94,7 +111,7 @@ Note that 7.8.5 was never promoted to production and all of these fixes are wrap
 
 ####Fixes
 * Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
-* Aligned captions to correct time with streams that had ads stitched from Uplynk. 
+* Aligned captions to correct time with streams that had ads stitched from Uplynk.
 * Returned the embed code to the Sharing overlay for player sizes that can fit it.
 * Fixed an issue with ad time events not firing between midrolls with FreeWheel.
 * Added functionality to  play only the second midroll if a viewer skips past two midrolls with FreeWheel.
@@ -323,7 +340,7 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 * VTT positions now supported in Flash and HTML5
 * Required caption polyfills will be loaded on-the-fly when required (Based on browser support)
 * “C” keyboard shortcut will now toggle captions display
-* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/#captions)
+* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#captions)
 * Support for embedded 708 Captions (In HLS HTML5)
 * Support for VTT positions
 * Improved screen reader support with Aria implementation (Credit to [francoismassart](https://github.com/francoismassart))

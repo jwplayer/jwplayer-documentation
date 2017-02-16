@@ -10,7 +10,7 @@ This article explains the basics of how to use the [JavaScript API](http://www.j
 
 ## Getting Information with the JW Player API
 
-Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/api/javascript_api_reference/).
+Certain API calls utilize a "get" prefix, which signifies that their express purpose is to return certain information. This may be in the form of an object, an array, a string, or a number. Each API call will have the expected output format listed in the full [JavaScript API Reference](/javascript-api-reference/).
 
 #### "Get" API calls can return information like:
 
@@ -34,7 +34,7 @@ These types of API calls are used to control player behavior. Many of these call
 
 ## Event listening with the JW Player API
 
-Certain events are triggered when the player _does_ something. JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](/api/javascript_api_reference/) document.
+Certain events are triggered when the player _does_ something. JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](/javascript-api-reference/) document.
 
 Currently, JW Player events support the following event triggers:
 
@@ -153,7 +153,7 @@ JW Player is not currently supported within require js due to JW Player needing 
 
 ## Cheat Sheet Reference
 
-The table below act as a cheat sheet of all API calls. The separate [JavaScript API Reference](/api/javascript_api_reference/) guide contains an listing of all parameters for all API calls. Click on the name of a class in the table to jump to the corresponding section in the API Reference. Also, for the sake of simplicity, we are only referencing **on** events here. As mentioned above, these can also utilize **off**, **once**, and **trigger**.
+The table below act as a cheat sheet of all API calls. The separate [JavaScript API Reference](/javascript-api-reference/) guide contains an listing of all parameters for all API calls. Click on the name of a class in the table to jump to the corresponding section in the API Reference. Also, for the sake of simplicity, we are only referencing **on** events here. As mentioned above, these can also utilize **off**, **once**, and **trigger**.
 
 |Class|Getters|Setters|Events|
 |-----|-------|-------|------|
