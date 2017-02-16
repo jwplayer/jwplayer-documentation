@@ -52,7 +52,7 @@ In JW 7.9, the UI has been updated to embrace small player sizes on mobile and d
 * Overhauled premium skins to provide better consistency.
 
 ####Casting Updates
-JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly. 
+JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly.
 
 The following changes have also been implemented:
 
@@ -111,7 +111,7 @@ Note that 7.8.5 was never promoted to production and all of these fixes are wrap
 
 ####Fixes
 * Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
-* Aligned captions to correct time with streams that had ads stitched from Uplynk. 
+* Aligned captions to correct time with streams that had ads stitched from Uplynk.
 * Returned the embed code to the Sharing overlay for player sizes that can fit it.
 * Fixed an issue with ad time events not firing between midrolls with FreeWheel.
 * Added functionality to  play only the second midroll if a viewer skips past two midrolls with FreeWheel.
@@ -340,7 +340,7 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 * VTT positions now supported in Flash and HTML5
 * Required caption polyfills will be loaded on-the-fly when required (Based on browser support)
 * “C” keyboard shortcut will now toggle captions display
-* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/#captions)
+* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#captions)
 * Support for embedded 708 Captions (In HLS HTML5)
 * Support for VTT positions
 * Improved screen reader support with Aria implementation (Credit to [francoismassart](https://github.com/francoismassart))
