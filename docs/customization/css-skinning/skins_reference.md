@@ -4,7 +4,7 @@ This article acts as a reference for styling all interface components of JW Play
 
 When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with **jw-** in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div.
 
-A [JW Player skin](http://www.jwplayer.com/products/jwplayer/skins/) CSS file contains classes that are grouped into functional elements. This reference provides an elaborate overview the classes used. For additional information, check out a reference css file.
+A [JW Player skin](//jwplayer.com/video-solutions/branding/) CSS file contains classes that are grouped into functional elements. This reference provides an elaborate overview the classes used. For additional information, check out a reference css file.
 
 <a name="main"></a>
 

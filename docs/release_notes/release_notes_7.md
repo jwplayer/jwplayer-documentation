@@ -1,6 +1,6 @@
 #JW Player 7 Release Notes
 
-This page lists all changes for the various JW Player 7 releases. JW Player 6 release notes can be found [here](http://support.jwplayer.com/customer/portal/articles/1403726).
+This page lists all changes for the various JW Player 7 releases. JW Player 6 release notes can be found [here](/release_notes/release_notes_6/).
 
 ## Major Version Releases
 
@@ -17,9 +17,9 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Release Channel Status
 
-Read [Using Release Channels](http://support.jwplayer.com/customer/portal/articles/2149561-using-player-release-channels) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
+Read [Using Release Channels](/release_notes/release_channels/) for guidance on which release channel to use and for an overview of how often each channel gets updated. The table below will update when a new version is pushed to any of the channels. The Beta channel will update more frequently as a release is coming.
 
-Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) list to get notified when we update the beta channel so you can test and verify new functionality. These messages are only sent to indicate an upcoming release and provide a target for when the production channel will be updated with a minor version. Patch updates are quick bug fixes that do not get notified on the mailing list. We are however working on a way to get notified for when all channels get updated.
+Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list to get notified when we update the beta channel so you can test and verify new functionality. These messages are only sent to indicate an upcoming release and provide a target for when the production channel will be updated with a minor version. Patch updates are quick bug fixes that do not get notified on the mailing list. We are however working on a way to get notified for when all channels get updated.
 
 
 |Channel|Player Version|Release Date|Notes|
@@ -52,7 +52,7 @@ In JW 7.9, the UI has been updated to embrace small player sizes on mobile and d
 * Overhauled premium skins to provide better consistency.
 
 ####Casting Updates
-JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly. 
+JW 7.9 no longer uses the custom receiver application hosted by JW Player. Instead, once casting is enabled the player will connect to the default receiver application hosted by Google. Because of this, you no longer need to register an application ID with Google and all existing setups will function correctly.
 
 The following changes have also been implemented:
 
@@ -111,7 +111,7 @@ Note that 7.8.5 was never promoted to production and all of these fixes are wrap
 
 ####Fixes
 * Fixed an issue where preroll ads on iOS played with Google IMA would pause and stall when preload was set to none.
-* Aligned captions to correct time with streams that had ads stitched from Uplynk. 
+* Aligned captions to correct time with streams that had ads stitched from Uplynk.
 * Returned the embed code to the Sharing overlay for player sizes that can fit it.
 * Fixed an issue with ad time events not firing between midrolls with FreeWheel.
 * Added functionality to  play only the second midroll if a viewer skips past two midrolls with FreeWheel.
@@ -340,10 +340,10 @@ JW Player 7.5 adds DRM compatibility for two additional browsers (Firefox and Sa
 * VTT positions now supported in Flash and HTML5
 * Required caption polyfills will be loaded on-the-fly when required (Based on browser support)
 * “C” keyboard shortcut will now toggle captions display
-* Change caption appearance/style on the fly with new [setCaptions() API](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/#captions)
+* Change caption appearance/style on the fly with new [setCaptions() API](//developer.jwplayer.com/jw-player/css-skinning-model.html/#captions)
 * Support for embedded 708 Captions (In HLS HTML5)
 * Support for VTT positions
-* Improved screen reader support with Aria implementation (Credit to [francoismassart](https://github.com/francoismassart))
+* Improved screen reader support with Aria implementation (Credit to [francoismassart](//github.com/francoismassart))
 
 #### Changes:
 * Providers will now be loaded separately only when required
@@ -494,7 +494,7 @@ In addition to adding HLS in HTML5, 7.4 has the following updates:
 
 ### **7.3.0** - 2/1/2016
 
-JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native [HTML5 tracks element](http://www.html5rocks.com/en/tutorials/track/basics/), allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes. The full list is below:
+JW Player 7.3 offers a variety of improvements and bugfixes. Exclusively on iOS devices, we now utilize the native [HTML5 tracks element](//html5rocks.com/en/tutorials/track/basics/), allowing for fullscreen captions on iOS devices. Additional DRM options have also been added, along with other improvements and changes. The full list is below:
 
 #### Features/Improvements:
 
@@ -800,9 +800,9 @@ Devices with a smaller viewing area will now see a more mobile-friendly control 
 
 More information can be found in our following articles:
 
-*   [Using JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1406968)
-*   [Building JW Player Skins](http://support.jwplayer.com/customer/portal/articles/1412123)
-*   [JW Player CSS Reference](http://support.jwplayer.com/customer/portal/articles/2067702)
+*   [Using JW Player Skins](//support.jwplayer.com/customer/portal/articles/1406968)
+*   [Building JW Player Skins](/customization/css-skinning/skins_creating/)
+*   [JW Player CSS Reference](/customization/css-skinning/skins_reference/)
 
 #### Advertising Enhancements
 
@@ -810,7 +810,7 @@ More information can be found in our following articles:
 
 #### MPEG-DASH Support
 
-*   Stream Live and VOD in HTML5 in modern browsers with MPEG-DASH. See [Using DASH Streaming](http://support.jwplayer.com/customer/portal/articles/2020483) for full list of supported features. Available in **Premium** Editions only.
+*   Stream Live and VOD in HTML5 in modern browsers with MPEG-DASH. See [Using DASH Streaming](//support.jwplayer.com/customer/portal/articles/2020483) for full list of supported features. Available in **Premium** Editions only.
 *   Protect your content with Widevine DRM in Chrome. Available in **Enterprise** and **Ads** Editions only.
 
 ### Known Issues and Upcoming Features
@@ -820,4 +820,4 @@ More information can be found in our following articles:
 *   Logo can only be positioned in the top right corner.
 *   Using Advertising and DASH may cause issues. HLS is highly recommended if you intend on monetizing your content.
 
-#### See also [JW6 to JW7 Migration FAQ](http://support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7)
+#### See also [JW6 to JW7 Migration FAQ](//support.jwplayer.com/customer/portal/articles/2037989-migration-from-jw6-to-jw7)
