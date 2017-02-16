@@ -4,7 +4,7 @@ JW Player supports two kinds of release channels. We use these channels to roll 
 
 New features and bug fixes are bundled into minor releases of JW Player. These are labeled as 7.x and can contain new API methods. Patches are only bug fixes and do not add any new functionality. These are indicated by incrementing the patch number 7.x.patch.  
 
-Sign up to our [release-candidate](http://www.jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.
+Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.
 
 ## Channels
 

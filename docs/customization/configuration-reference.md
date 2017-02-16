@@ -3,7 +3,7 @@
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
 !!!important
-Certain JW Player features may require a specific license. Please [contact our team](https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
+Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 |Table Of Contents| | |
