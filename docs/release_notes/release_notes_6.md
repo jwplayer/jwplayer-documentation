@@ -75,7 +75,7 @@ The following items were fixed on 4/6/2015:
 
 The following items were fixed on 6/1/2015:
 
-Accounting for Google's recent IMA SDK [changes](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/history), a patch to our Google IMA advertising plugin was pushed on June 1, 2015\. Therefore, JW Player 6.12 or higher **must** be used to serve HTML5 ads with our Google IMA plugin.
+Accounting for Google's recent IMA SDK [changes](//developers.google.com/interactive-media-ads/docs/sdks/html5/v3/history), a patch to our Google IMA advertising plugin was pushed on June 1, 2015\. Therefore, JW Player 6.12 or higher **must** be used to serve HTML5 ads with our Google IMA plugin.
 
 In addition to the above changes, the following features and improvements have been added:
 

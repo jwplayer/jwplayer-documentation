@@ -1,6 +1,6 @@
 # Example CSS File
 
-Here is the CSS used by JW Player 7 to render the seven [skin](http://www.jwplayer.com/products/jwplayer/skins/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
+Here is the CSS used by JW Player 7 to render the seven [skin](//jwplayer.com/video-solutions/branding/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
 
 ## Creating Your Own CSS
 
