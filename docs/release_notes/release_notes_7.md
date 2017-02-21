@@ -24,11 +24,23 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.9.1|02/09/2017|Fixes|
-|Beta|7.9.1|2/08/2017|Fixes|
+|Production|7.9.3|02/21/2017|Fixes|
+|Beta|7.9.3|2/17/2017|Fixes|
 
 * * *
 <a name="version79"></a>
+### **JW 7.9.3** - 2/21/2017
+####Fixes
+* Fixed ad plugin issues when using RequireJS.
+* Fixed an issue when using Flash where playlist switching via the API caused the video audio to play during the preroll.
+* Reduced console errors in Safari when the player is embedded inside of an iframe.
+* Improved handling of cookies when “withCredentials = true” with HLS streams.
+* Fixed an issue where VOD streams could incorrectly display as Live in Chrome.
+* Fixed an issue with the setCaptions API where it was not correctly changing the font size of the captions.
+* Fixed an issue where certain HLS streams might not begin playback.
+* Fixed an issue where the controlbar being visible would bump captions too high.
+* Fixed an issue where Vimeo HLS streams would not play.
+
 ### **JW 7.9.1** - 2/08/2017
 ####Fixes
 * Fixed several issues with HLS where midrolls could case the stream to restart from the beginning or freeze on a black screen and prevent playback from resuming.
