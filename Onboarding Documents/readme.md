@@ -15,7 +15,7 @@ The first Wednesday of each month begins a new session. We will have a meeting w
 Welcome to JW Player / Murray Hill
   * Learn JW Player's [History](timeline.md) 
   * View JW Player's [Roadmap](https://docs.google.com/presentation/d/1XLF7Gf9ql8D1KY-aSyI-PKujuGAIka-cFx4HIxdq2i0/edit)
-  * [HR Resources](HR Resources.md)
+  * [HR Resources](https://jwplayer.namely.com/users/login)
   * [Engineering Resources](engineering-resources.md)
   * [Favorite Lunch Spots](lunch-spots.md)
 
