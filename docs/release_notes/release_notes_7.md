@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.10](#version710) - Beta 03/02/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
@@ -25,9 +26,42 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.9.3|02/21/2017|Fixes|
-|Beta|7.9.3|2/17/2017|Fixes|
+|Beta|7.10.0|3/2/2017|Streaming, Viewability, and UI updates|
 
 * * *
+<a name="version710"></a>
+### **JW 7.10.0** - Beta 03/02/17
+JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
+
+####Streaming Updates
+* Added ability to display language with captions and audio tracks with DASH
+* Added support for DVR with DASH
+* Added support for multiple audio tracks with DASH
+* Added bitrate to quality labels with DASH to differentiate between levels with the same height but different bitrate
+* Added support for custom quality labels
+* Made general improvements to DASH streaming
+* Made general improvements to HLS streaming
+
+####Viewability
+* Added viewability information to all events coming from the player API
+* Added config option “autostart”: “viewable” which starts playback on desktop devices when the player appears in view rather than on page load or via user click.
+
+####UI
+* Added config option “nextUpDisplay”: false to disable the “Next Up” tooltip
+* Added support for timeslider thumbstrips on mobile
+
+####Fixes:
+* Fixed an issue where DVR stream might not start from the Live edge
+* Changed IMA’s enablePreloading functionality to opt-in rather than on by default due to Google not adequately supporting VPAIDs
+* Fixed an issue where the player would still request manifests after the player was stopped
+* Fixed an issue where sideloaded captions tracks did not display when in-manifest subtitle tracks exist in an HLS manifest.
+* Fixed an intermittent issue where an HLS stream would freeze during playback
+* Fixed an issue where embedded VTT captions were not rendering in some browsers when using DASH
+* Fixed an issue where CSS on the page could bleed into the rightclick and quality menus
+* Fixed an issue where Live multi-audio HLS streams could freeze
+* Fixed an issue that caused HLS streams to crash when switching playlist items, where the new playlist item has fewer quality levels
+* Fixed an issue where a DASH stream with an embedded VTT file wouldn’t display captions
+
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
 ####Fixes
