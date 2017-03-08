@@ -30,7 +30,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.0** - Beta 03/02/17
+### **JW 7.10.0** - Beta 3 03/08/17
 JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
 
 ####Streaming Updates
@@ -41,6 +41,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Added support for custom quality labels
 * Made general improvements to DASH streaming
 * Made general improvements to HLS streaming
+* Improved handling of Live stream completion by showing the end state
 
 ####Viewability
 * Added viewability information to all events coming from the player API
@@ -49,6 +50,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 ####UI
 * Added config option “nextUpDisplay”: false to disable the “Next Up” tooltip
 * Added support for timeslider thumbstrips on mobile
+* Improved default styling of captions
 
 ####Fixes:
 * Fixed an issue where DVR stream might not start from the Live edge
@@ -61,6 +63,9 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Fixed an issue where Live multi-audio HLS streams could freeze
 * Fixed an issue that caused HLS streams to crash when switching playlist items, where the new playlist item has fewer quality levels
 * Fixed an issue where a DASH stream with an embedded VTT file wouldn’t display captions
+* Normalized levels API properties across all providers
+* Fixed an issue where the timeslider scrubber could exhibit odd slingshot-like behavior when scrubbing
+* Fixed an issue where embedded VTT captions were not being styled correctly in some cases
 
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
