@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.10](#version710) - Beta 03/02/2017
+*   [Version 7.10](#version710) - RC 03/02/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
@@ -30,7 +30,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.0** - Beta 3 03/08/17
+### **JW 7.10.0** - Release Candidate 03/08/17
 JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
 
 ####Streaming Updates
@@ -44,7 +44,8 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Improved handling of Live stream completion by showing the end state
 
 ####Viewability
-* Added viewability information to all events coming from the player API
+* Added viewability information to all events coming from the player API.
+* Added a getViewable() method that will return 0 if the player is less than 50% viewable or 1 if it is greater than 50%.
 * Added config option “autostart”: “viewable” which starts playback on desktop devices when the player appears in view rather than on page load or via user click.
 
 ####UI
