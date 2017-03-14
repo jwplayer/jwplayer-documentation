@@ -53,6 +53,11 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Added support for timeslider thumbstrips on mobile
 * Improved default styling of captions
 
+####General Updates
+* Improved handling of VMAP breakstart/breakend events
+* Added support for autoplay muted in Facebook webview on iOS
+* Added support for autoplay muted on iOS Chrome
+
 ####Fixes:
 * Fixed an issue where DVR stream might not start from the Live edge
 * Changed IMA’s enablePreloading functionality to opt-in rather than on by default due to Google not adequately supporting VPAIDs
