@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.10](#version710) - RC 03/02/2017
+*   [Version 7.10](#version710) - 03/22/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
@@ -30,7 +30,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.0** - Release Candidate 03/08/17
+### **JW 7.10.0** -  03/22/17
 JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
 
 ####Streaming Updates
@@ -72,6 +72,8 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Normalized levels API properties across all providers
 * Fixed an issue where the timeslider scrubber could exhibit odd slingshot-like behavior when scrubbing
 * Fixed an issue where embedded VTT captions were not being styled correctly in some cases
+* Fixed an issue where Fairplay Streaming enabled streams were not playing over AirPlay
+* Fixed an issue where players were not autostarting in the Facebook webview browser on iOS
 
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
