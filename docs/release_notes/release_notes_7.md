@@ -55,7 +55,6 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 
 ####General Updates
 * Improved handling of VMAP breakstart/breakend events
-* Added support for autoplay muted in Facebook webview on iOS
 * Added support for autoplay muted on iOS Chrome
 
 ####Fixes:
