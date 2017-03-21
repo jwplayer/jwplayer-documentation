@@ -73,6 +73,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Fixed an issue where embedded VTT captions were not being styled correctly in some cases
 * Fixed an issue where Fairplay Streaming enabled streams were not playing over AirPlay
 * Fixed an issue where players were not autostarting in the Facebook webview browser on iOS
+* Fixed an issue where ID3 would be truncated when parsed in the HTML5 player
 
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
