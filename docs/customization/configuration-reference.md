@@ -62,7 +62,7 @@ If only a single playlist item is used, this information can either be configure
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
-|**autostart**|Boolean|Whether the player will attempt to begin playback automatically when a page is loaded|false|
+|**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
 |**nextupoffset**<sup>7.7</sup>|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
@@ -82,6 +82,8 @@ If only a single playlist item is used, this information can either be configure
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
 |**timesliderabove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
+|**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
+|**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "hlslabels":{"2500":"High","1000":"Medium"} |-|
 
 ####Stretching Examples:
 ![](//support-static.jwplayer.com/images/stretch-options.png)
@@ -91,7 +93,6 @@ If only a single playlist item is used, this information can either be configure
 ###Rendering and Loading
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**hlshtml**<sup>7.4.2</sup>|Boolean|Set to *true* to enable the JW Player HTML5 HLS provider|false|
 |**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**base**|String|Configures an alternate base path for skins and providers|"/"|
