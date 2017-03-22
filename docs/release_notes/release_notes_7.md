@@ -25,8 +25,8 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.9.3|02/21/2017|Fixes|
-|Beta|7.10.0|3/2/2017|Streaming, Viewability, and UI updates|
+|Production|7.10.1|03/22/2017|Streaming, Viewability, and UI updates|
+|Beta|7.10.1|03/02/2017|Streaming, Viewability, and UI updates|
 
 * * *
 <a name="version710"></a>
