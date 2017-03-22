@@ -80,6 +80,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Fixed an issue where players were not autostarting in the Facebook webview browser on iOS
 * Fixed an issue where ID3 would be truncated when parsed in the HTML5 player
 * Improved handling of Flash streaming on IE11 on Windows 7 to reduce stuttering
+* Fixed an issue where a DVR stream would crash when using Flash on Windows with IE11
 
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
