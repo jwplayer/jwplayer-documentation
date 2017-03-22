@@ -30,7 +30,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.0** -  03/22/17
+### **JW 7.10.1** -  03/22/17
 JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
 
 ####Streaming Updates
@@ -42,6 +42,11 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Made general improvements to DASH streaming
 * Made general improvements to HLS streaming
 * Improved handling of Live stream completion by showing the end state
+
+####Flash Version Update
+* JW Player 7.10.1 requires Flash 18 or higher. Previous versions required 11.2 or higher. The change allows us to restore hardware accelerated video playback for HLS with Flash with minimal effort. 
+* This fixes various issues with DVR streams and IE11 memory usage. Flash Plugin 25 is the latest version. Flash Plugin 18 is the last version to receive LTS security patches. Enforcing this requirement ensures greater security on sites that use our player.
+* Players on systems with Flash 11.2-17.x will no longer be able to use Flash. "primary: flash" will be ignored on these systems and html5 playback will be required.
 
 ####Viewability
 * Added viewability information to all events coming from the player API.
@@ -74,6 +79,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Fixed an issue where Fairplay Streaming enabled streams were not playing over AirPlay
 * Fixed an issue where players were not autostarting in the Facebook webview browser on iOS
 * Fixed an issue where ID3 would be truncated when parsed in the HTML5 player
+* Improved handling of Flash streaming on IE11 on Windows 7 to reduce stuttering
 
 <a name="version79"></a>
 ### **JW 7.9.3** - 2/21/2017
