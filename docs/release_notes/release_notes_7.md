@@ -26,10 +26,17 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.10.1|03/22/2017|Streaming, Viewability, and UI updates|
-|Beta|7.10.1|03/02/2017|Streaming, Viewability, and UI updates|
+|Beta|7.10.2|03/27/2017|Fixes|
 
 * * *
 <a name="version710"></a>
+### **JW 7.10.2** - Beta 3/27/2017
+####Fixes
+Fixed an issue where cookies were not being sent when withCredentials is set with a cookie file
+Fixed an issue where the player would not display on setup if the player element was not in the DOM
+Fixed mishandling of Flash VPAID clickthrough
+Fixed an issue where calling jwplayer().setCaptions({}); would not reset the window color or window opacity
+
 ### **JW 7.10.1** -  03/22/17
 JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
 
