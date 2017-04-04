@@ -25,12 +25,16 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.10.1|03/22/2017|Streaming, Viewability, and UI updates|
-|Beta|7.10.2|03/27/2017|Fixes|
+|Production|7.10.4|04/04/2017|Fixes|
+|Beta|7.10.4|04/04/2017|Fixes|
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.2 Beta** - 3/27/2017
+### **JW 7.10.4** - 04/04/2017
+####General
+* Service release, no new features
+
+### **JW 7.10.2** - 03/27/2017
 ####Fixes
 * Fixed an issue where cookies were not being sent when withCredentials is set with a cookie file
 * Fixed an issue where the player would not display on setup if the player element was not in the DOM
