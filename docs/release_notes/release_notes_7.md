@@ -25,11 +25,28 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.10.4|04/04/2017|Fixes|
-|Beta|7.10.4|04/04/2017|Fixes|
+|Production|7.10.5|04/12/2017|Fixes|
+|Beta|7.10.5|04/11/2017|Fixes|
 
 * * *
 <a name="version710"></a>
+### **JW 7.10.5** - 04/12/2017
+####Fixes:
+* Fixed an issue on the Edge browser where trying to remove the player using jwplayer().remove() would not successfully remove the player for DASH streams with embedded VTT tracks and casting enabled
+
+####Advertising Updates and Fixes
+As of Player version 7.10.5 we will be referencing ad plugin updates in a new, separate section.
+
+####Updates
+* Created a new on(‘adschedule’) event that displays elements of a parsed VMAP prior to ad playback, specifically the schedule of ads that should play.
+* Updated the on(‘adimpression’) event with information from a parsed VMAP that can be tied back to the on(‘adschedule’) event
+* Enabled the IMA config option “setLocale” for skip button language localization via “locale”: “de” in the advertising block. Two-letter language codes should be used.
+* Added a config option custParams to the advertising block for VAST. This allows passing custom parameters to individual ad breaks.
+
+####Fixes:
+* Fixed an issue on iPhone with IMA where, if in fullscreen, the ad audio could be heard behind the paused content and exiting fullscreen would allow the ad to be viewed. This change was to force-exit fullscreen during ads and prevent users from entering/re-entering during ads.
+* Fixed an issue with IMA where manually changing playlist items from a video with a postroll to a video with a preroll would cause the player to stall.
+
 ### **JW 7.10.4** - 04/04/2017
 ####General
 * Service release, no new features
