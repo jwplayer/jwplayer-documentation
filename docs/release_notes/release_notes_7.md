@@ -26,10 +26,23 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.10.5|04/12/2017|Fixes|
-|Beta|7.10.5|04/11/2017|Fixes|
+|Beta|7.10.7|04/18/2017|Fixes|
 
 * * *
 <a name="version710"></a>
+### **JW 7.10.7** - 04/18/2017
+####Fixes:
+* Fixed an issue with DASH streams not starting unless the user tried to seek
+* Fixed an issue where the Flash plugin failed to load in IE11 when trying to play audio-only HLS streams
+Updated the initially selected audio track in DASH streams to be the first language track when a default is not set
+* Fixed the labeling of 608 captions tracks in HLS streams to use the NAME parameter from the stream or fall back to “Unknown CC” when the language or label is unknown
+* Fixed an issue where calling playAd multiple times could cause a minDvrWindow exception
+####Advertising Fixes:
+* Fixed an issue where the player would not fallback to supported ad mediafiles after encountering an unsupported VPAID mediafile
+* Fixed an issue where the VMAP breakstart event would not fire in Firefox and IE11
+* Fixed an issue where a nonlinear VPAID 2 would not correctly fire the adImpression event
+* Fixed an issue where the playAd() API call was not taking the vpaidmode property into account
+
 ### **JW 7.10.5** - 04/12/2017
 ####Fixes:
 * Fixed an issue on the Edge browser where trying to remove the player using jwplayer().remove() would not successfully remove the player for DASH streams with embedded VTT tracks and casting enabled
