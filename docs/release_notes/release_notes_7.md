@@ -25,12 +25,12 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.10.5|04/12/2017|Fixes|
+|Production|7.10.7|04/19/2017|Fixes|
 |Beta|7.10.7|04/18/2017|Fixes|
 
 * * *
 <a name="version710"></a>
-### **JW 7.10.7** - 04/18/2017
+### **JW 7.10.7** - 04/19/2017
 ####Fixes:
 * Fixed an issue with DASH streams not starting unless the user tried to seek
 * Fixed an issue where the Flash plugin failed to load in IE11 when trying to play audio-only HLS streams
