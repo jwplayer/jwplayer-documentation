@@ -28,6 +28,11 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Production|7.10.7|04/19/2017|Fixes|
 |Beta|7.10.7|04/18/2017|Fixes|
 
+<!--- <a name="version711"></a>
+### **JW 7.11.0** - 05/03/2017
+####Fixes:
+* Fixed an issue where calling playAd multiple times could cause a minDvrWindow exception --->
+
 * * *
 <a name="version710"></a>
 ### **JW 7.10.7** - 04/19/2017
@@ -36,7 +41,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 * Fixed an issue where the Flash plugin failed to load in IE11 when trying to play audio-only HLS streams
 Updated the initially selected audio track in DASH streams to be the first language track when a default is not set
 * Fixed the labeling of 608 captions tracks in HLS streams to use the NAME parameter from the stream or fall back to “Unknown CC” when the language or label is unknown
-* Fixed an issue where calling playAd multiple times could cause a minDvrWindow exception
+
 ####Advertising Fixes:
 * Fixed an issue where the player would not fallback to supported ad mediafiles after encountering an unsupported VPAID mediafile
 * Fixed an issue where the VMAP breakstart event would not fire in Firefox and IE11
