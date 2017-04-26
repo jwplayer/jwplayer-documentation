@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.11](#version711) - 04/26/2017
 *   [Version 7.10](#version710) - 03/22/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
@@ -26,23 +27,42 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.10.7|04/19/2017|Fixes|
-|Beta|7.10.7|04/18/2017|Fixes|
-
-<!--- <a name="version711"></a>
-### **JW 7.11.0** - 05/03/2017
-####Fixes:
-* Fixed an issue where calling playAd multiple times could cause a minDvrWindow exception --->
+|Beta|7.11.0|04/26/2017|Chromless Player, HLS in IE11|
 
 * * *
+
+<a name="version711"></a>
+### **JW 7.11.0 Beta** - 04/26/2017
+To optimize player performance, the UI is no longer packaged as part of the core player javascript in JW Player 7.11.0. This decreases player load and setup time, especially when using controls:false, which ultimately saves bandwidth and eliminates rendering of elements that are never used.
+
+JW 7.11 also has some visual updates to the discovery overlay that improve performance and usability. We have also extended HLS in HTML5 to IE 11 on Windows 8 and higher.
+
+####Updates
+* Moved player controls to its own script to be managed as its own module, or excluded to create a chromeless player, and updated the API accordingly. 
+* Improved controlbar state transitions in the Seven skin by fading elements’ visibility.
+* Added functionality that seamlessly switches the controlbar UI when a manifest changes from live to DVR to VOD.
+* Changed the tooltip for the related playlist overlay to say “Discover” instead of “Related,” and updated its icon.
+* Improved the user interface so the controlbar does not display when there is a setup error.
+* Added ARIA labels to all buttons to be fully 508 compliant.
+* Updated captions support in Firefox and Internet Explorer to allow more styling control.
+
+####Fixes
+* Fixed an issue where the Flash plugin failed to load an HLS stream in IE11 in audio-only mode.
+* Fixed an issue where a manifest with no levels does not throw a level error and buffers infinitely.
+
+####Ads Fixes
+* Fixed an issue where hovering over the player while a Freewheel static ad is displayed does not show the control bar.
+* Fixed an issue where PlayAd withCredentials results in minDvrWindow exception flooding the console.
+
 <a name="version710"></a>
 ### **JW 7.10.7** - 04/19/2017
-####Fixes:
+####Fixes
 * Fixed an issue with DASH streams not starting unless the user tried to seek
 * Fixed an issue where the Flash plugin failed to load in IE11 when trying to play audio-only HLS streams
 Updated the initially selected audio track in DASH streams to be the first language track when a default is not set
 * Fixed the labeling of 608 captions tracks in HLS streams to use the NAME parameter from the stream or fall back to “Unknown CC” when the language or label is unknown
 
-####Advertising Fixes:
+####Advertising Fixes
 * Fixed an issue where the player would not fallback to supported ad mediafiles after encountering an unsupported VPAID mediafile
 * Fixed an issue where the VMAP breakstart event would not fire in Firefox and IE11
 * Fixed an issue where a nonlinear VPAID 2 would not correctly fire the adImpression event
@@ -61,7 +81,7 @@ As of Player version 7.10.5 we will be referencing ad plugin updates in a new, s
 * Enabled the IMA config option “setLocale” for skip button language localization via “locale”: “de” in the advertising block. Two-letter language codes should be used.
 * Added a config option custParams to the advertising block for VAST. This allows passing custom parameters to individual ad breaks.
 
-####Fixes:
+####Fixes
 * Fixed an issue on iPhone with IMA where, if in fullscreen, the ad audio could be heard behind the paused content and exiting fullscreen would allow the ad to be viewed. This change was to force-exit fullscreen during ads and prevent users from entering/re-entering during ads.
 * Fixed an issue with IMA where manually changing playlist items from a video with a postroll to a video with a preroll would cause the player to stall.
 
@@ -108,7 +128,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Improved handling of VMAP breakstart/breakend events
 * Added support for autoplay muted on iOS Chrome
 
-####Fixes:
+####Fixes
 * Fixed an issue where DVR stream might not start from the Live edge
 * Changed IMA’s enablePreloading functionality to opt-in rather than on by default due to Google not adequately supporting VPAIDs
 * Fixed an issue where the player would still request manifests after the player was stopped
