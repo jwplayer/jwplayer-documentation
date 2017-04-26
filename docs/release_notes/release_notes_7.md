@@ -49,9 +49,6 @@ JW 7.11 also has some visual updates to the discovery overlay that improve perfo
 ####Fixes
 * Fixed an issue where the Flash plugin failed to load an HLS stream in IE11 in audio-only mode.
 * Fixed an issue where a manifest with no levels does not throw a level error and buffers infinitely.
-
-####Ads Fixes
-* Fixed an issue where hovering over the player while a Freewheel static ad is displayed does not show the control bar.
 * Fixed an issue where PlayAd withCredentials results in minDvrWindow exception flooding the console.
 
 <a name="version710"></a>
