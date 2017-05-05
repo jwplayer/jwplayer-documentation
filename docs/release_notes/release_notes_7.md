@@ -42,14 +42,17 @@ JW 7.11 also has some visual updates to the discovery overlay that improve perfo
 * Improved controlbar state transitions in the Seven skin by fading elements’ visibility.
 * Added functionality that seamlessly switches the controlbar UI when a manifest changes from live to DVR to VOD.
 * Changed the tooltip for the related playlist overlay to say “Discover” instead of “Related,” and updated its icon.
+* Added functionality that automatically displays the related playlist overlay after a video is paused for seven seconds.
 * Improved the user interface so the controlbar does not display when there is a setup error.
 * Added ARIA labels to all buttons to be fully 508 compliant.
 * Updated captions support in Firefox and Internet Explorer to allow more styling control.
+* Improved captions rendering in IE11 and Firefox.
 
 ####Fixes
 * Fixed an issue where the Flash plugin failed to load an HLS stream in IE11 in audio-only mode.
 * Fixed an issue where a manifest with no levels does not throw a level error and buffers infinitely.
 * Fixed an issue where PlayAd withCredentials results in minDvrWindow exception flooding the console.
+* Fixed an issue where a live stream would incorrectly report a negative duration.
 
 <a name="version710"></a>
 ### **JW 7.10.7** - 04/19/2017
