@@ -27,12 +27,12 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.10.7|04/19/2017|Fixes|
-|Beta|7.11.0|04/26/2017|Chromless Player, HLS in IE11|
+|Beta|7.11.0 Release Candidate|05/05/2017|Chromless Player, HLS in IE11|
 
 * * *
 
 <a name="version711"></a>
-### **JW 7.11.0 Beta** - 04/26/2017
+### **JW 7.11.0 Release Candidate** - 05/05/2017
 To optimize player performance, the UI is no longer packaged as part of the core player javascript in JW Player 7.11.0. This decreases player load and setup time, especially when using controls:false, which ultimately saves bandwidth and eliminates rendering of elements that are never used.
 
 JW 7.11 also has some visual updates to the discovery overlay that improve performance and usability. We have also extended HLS in HTML5 to IE 11 on Windows 8 and higher.
