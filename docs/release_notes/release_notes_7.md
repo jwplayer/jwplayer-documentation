@@ -4,7 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
-*   [Version 7.11](#version711) - 04/26/2017
+*   [Version 7.11](#version711) - 05/10/2017
 *   [Version 7.10](#version710) - 03/22/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
@@ -26,13 +26,13 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.10.7|04/19/2017|Fixes|
-|Beta|7.11.0 Release Candidate|05/05/2017|Chromless Player, HLS in IE11|
+|Production|7.11.0|05/10/2017|Chromless Player, HLS in IE11|
+|Beta|7.11.0|05/08/2017|Chromless Player, HLS in IE11|
 
 * * *
 
 <a name="version711"></a>
-### **JW 7.11.0 Release Candidate** - 05/05/2017
+### **JW 7.11.0** - 05/10/2017
 To optimize player performance, the UI is no longer packaged as part of the core player javascript in JW Player 7.11.0. This decreases player load and setup time, especially when using controls:false, which ultimately saves bandwidth and eliminates rendering of elements that are never used.
 
 JW 7.11 also has some visual updates to the discovery overlay that improve performance and usability. We have also extended HLS in HTML5 to IE 11 on Windows 8 and higher.
@@ -43,7 +43,6 @@ JW 7.11 also has some visual updates to the discovery overlay that improve perfo
 * Added functionality that seamlessly switches the controlbar UI when a manifest changes from live to DVR to VOD.
 * Changed the tooltip for the related playlist overlay to say “Discover” instead of “Related,” and updated its icon.
 * Added functionality that automatically displays the related playlist overlay after a video is paused for seven seconds.
-* Improved the user interface so the controlbar does not display when there is a setup error.
 * Added ARIA labels to all buttons to be fully 508 compliant.
 * Updated captions support in Firefox and Internet Explorer to allow more styling control.
 * Improved captions rendering in IE11 and Firefox.
