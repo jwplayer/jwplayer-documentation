@@ -53,6 +53,9 @@ JW 7.11 also has some visual updates to the discovery overlay that improve perfo
 * Fixed an issue where PlayAd withCredentials results in minDvrWindow exception flooding the console.
 * Fixed an issue where a live stream would incorrectly report a negative duration.
 
+####Ads Fixes
+* Fixed an issue where ads would start muted on iOS when the preload config option was set to none.
+
 <a name="version710"></a>
 ### **JW 7.10.7** - 04/19/2017
 ####Fixes
