@@ -27,11 +27,24 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.11.0|05/10/2017|Chromless Player, HLS in IE11|
-|Beta|7.11.0|05/08/2017|Chromless Player, HLS in IE11|
+|Beta|7.11.1|05/15/2017|Fixes|
 
 * * *
 
 <a name="version711"></a>
+### **JW 7.11.1** - 05/15/2017
+####Fixes
+* Fixed an issue where calling .resize() without a valid width and height caused the player to have its height set to 0.
+* Fixed an issue where side-loaded VTT captions in DASH streams disappear when a video is replayed.
+* Fixed a bug where the cursor does not disappear when controls disappear during playback.
+
+####Advertising Fixes
+* Fixed an issue in Freewheel where on(‘complete’) fires twice.
+* Fixed an issue where Google IMA pre-rolls do not play on iOS when preload: 'none'.
+* Fixed an issue with Google IMA in iOS where pre-roll ads intermittently load and time out when autostarting.
+* Fixed an issue with VPAID non-linear overlay ads where the overlay creative moves up when the player is hovered over when vpaidcontrols: true.
+* Rolled back a fix from JW 7.10.5 for Google IMA where iOS force-exited fullscreen during ads and prevented users from entering/re-entering during ads. The fix is no longer necessary because it was a response to an issue that was rolled back in Google’s IMA SDK.
+
 ### **JW 7.11.0** - 05/10/2017
 To optimize player performance, the UI is no longer packaged as part of the core player javascript in JW Player 7.11.0. This decreases player load and setup time, especially when using controls:false, which ultimately saves bandwidth and eliminates rendering of elements that are never used.
 
