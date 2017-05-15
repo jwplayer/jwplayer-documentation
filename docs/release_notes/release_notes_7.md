@@ -32,7 +32,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 * * *
 
 <a name="version711"></a>
-### **JW 7.11.1** - 05/15/2017
+### **JW 7.11.1** - Beta 05/15/2017
 ####Fixes
 * Fixed an issue where calling .resize() without a valid width and height caused the player to have its height set to 0.
 * Fixed an issue where side-loaded VTT captions in DASH streams disappear when a video is replayed.
