@@ -26,20 +26,20 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.11.0|05/10/2017|Chromless Player, HLS in IE11|
+|Production|7.11.1|05/17/2017|Fixes|
 |Beta|7.11.1|05/15/2017|Fixes|
 
 * * *
 
 <a name="version711"></a>
-### **JW 7.11.1** - Beta 05/15/2017
+### **JW 7.11.1** - 05/17/2017
 ####Fixes
 * Fixed an issue where calling .resize() without a valid width and height caused the player to have its height set to 0.
 * Fixed an issue where side-loaded VTT captions in DASH streams disappear when a video is replayed.
 * Fixed a bug where the cursor does not disappear when controls disappear during playback.
 
 ####Advertising Fixes
-* Fixed an issue in Freewheel where on(‘complete’) fires twice.
+* Fixed an issue in Freewheel where content on(‘complete’) would fire twice.
 * Fixed an issue where Google IMA pre-rolls do not play on iOS when preload: 'none'.
 * Fixed an issue with Google IMA in iOS where pre-roll ads intermittently load and time out when autostarting.
 * Fixed an issue with VPAID non-linear overlay ads where the overlay creative moves up when the player is hovered over when vpaidcontrols: true.
