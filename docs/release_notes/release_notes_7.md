@@ -27,11 +27,22 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.11.1|05/17/2017|Fixes|
-|Beta|7.11.1|05/15/2017|Fixes|
+|Beta|7.11.2|05/22/2017|Fixes|
 
 * * *
 
 <a name="version711"></a>
+### **JW 7.11.2** - Beta 05/22/2017
+####Fixes
+* Fixed a bug where HLS streams with 6-second segments that were configured with preload: metadata and autostart: true would start playback at the second segment.
+
+####Advertising Updates
+* Improved VPAID 2 resizing in Vast plugin.
+
+####Advertising Fixes
+* Improved handling of click events when a non-linear VPAID2 ad is visible.
+* Fixed a situation where a non-linear VPAID2 would not move up when the controlbar became visible.
+
 ### **JW 7.11.1** - 05/17/2017
 ####Fixes
 * Fixed an issue where calling .resize() without a valid width and height caused the player to have its height set to 0.
