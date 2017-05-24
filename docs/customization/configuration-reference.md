@@ -506,6 +506,8 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays. Note: only supported when using IMA|-|
 |**advertising.setLocale**|String|Two-letter language code for localization of skip-button language. Two-letter language code must be valid. Note: only supported when using IMA|-|
+|**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
+|**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
 
 * * *
 
@@ -558,6 +560,27 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+```
+"advertising": {
+        "client": "googima",
+        "adscheduleid": "12345",
+        "schedule": {
+            "preroll": {
+                "custParams": {
+                    "testkey1": "testval1",
+                    "testkey2": "testval2"
+                },
+                "tag": "myPreroll.xml",
+                "offset": "pre"
+            }
+        }
+    }
+```
+
 * * *
 <a name="advertising-companiondiv"></a>
 
