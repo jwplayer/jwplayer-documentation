@@ -563,7 +563,7 @@ jwplayer("myElement").setup({
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+|**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
 ```
 "advertising": {
         "debug": true,
