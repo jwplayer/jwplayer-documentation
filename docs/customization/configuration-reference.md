@@ -566,7 +566,6 @@ jwplayer("myElement").setup({
 |**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
 ```
 "advertising": {
-        "debug": true,
         "client": "googima",
         "adscheduleid": "12345",
         "schedule": {
@@ -575,7 +574,7 @@ jwplayer("myElement").setup({
                     "testkey1": "testval1",
                     "testkey2": "testval2"
                 },
-                "tag": "//playertest.longtailvideo.com/pre.xml",
+                "tag": "myPreroll.xml",
                 "offset": "pre"
             }
         }
