@@ -16,20 +16,13 @@
 
 <p>JW Live enables you to easily broadcast and manage your event live to your audience around the world. Best of all, it&#39;s natively integrated into JW Platform and JW Player for desktop, mobile, and OTT.</p>
 
-
-<p><em>NOTE: JW Live is currently an invite-only private beta. Please contact your account manager or <a href="mailto:sales@jwplayer.com">sales@jwplayer.com</a> for more info.</em></p>
-
-<p style="text-align:center;"><img height="319" src="https://lh3.googleusercontent.com/SjzR3i7i_SnIsQbzswytCdGfRc7w4HNJ6oGbkH8Czrd7gmESey18ypMDh28qzH7Mrn3VDxXApC9k0YeY3HQuNM8F8Tsh03G7e98gpYO5z2oX9AvDJHhpiZAPdLEQr4AVWAbPpOJA" width="624" /></p>
-
-
 <p>All you need to get started is a video source (typically a camera or video switcher) and an RTMP encoder. The camera captures the video source of your event and the RTMP encoder encapsulates and transmits (via your internet connection uplink) the video via RTMP to JW Live.</p>
 
-
-<p><em>NOTE: Your encoder only needs to transcode a single rendition of your source stream to send to JW Live (rather than other platforms that require you to transcode various bitrate renditions before transmitting). This optimizes your uplink bandwidth and reduces the required hardware and software CPU time required to transcode and transmit an RTMP feed.</em></p>
+<p><em>NOTE: JW Live is designed for one-off and recurring event-based live streaming and has a maximum of 6 hours per broadcast.</em></p>
 
 <h3>Step 1: Preparing Your Source Stream</h3>
 
-<p>To get started with JW Live, you should first make sure you have a source stream (camera, screen capture, etc.) and encoder that is able to output RTMP with H.264 video. A few supported encoder options include:</p>
+<p>To get started with JW Live, you should first make sure you have a source stream (camera, screen capture, etc.) and encoder that is able to output RTMP with H.264 video. Also make sure you have a stable internet uplink with at least 3-4 times your RTMP video bitrate total as sustained upload throughput. A few supported encoder options include:</p>
 
 <ol>
 	<li><b>Mobile</b>: <a href="https://itunes.apple.com/us/app/broadcast-me/id491982406?mt=8" target="_blank">Broadcast Me app for iOS</a> and <a href="https://play.google.com/store/apps/details?id=eu.agilio.testingrtmp&amp;hl=en" target="_new">Android</a></li>
@@ -39,52 +32,25 @@
 
 <h3>Step 2: Setting Up Your Live Event</h3>
 
-<p>Before setting up your event in JW Live, please make sure you have the following:</p>
-
-<ol>
-	<li>
-	<p>A video source -- typically a camera, screen recording tool, or pre-recorded video file</p>
-	</li>
-	<li>
-	<p>An RTMP encoder -- a software or hardware RTMP encoder that will encode your video to RTMP and allow you to connect your live stream to JW Live.</p>
-	</li>
-	<li>
-	<p>A stable internet uplink -- we recommend a hard-wired connection (no WiFi) and a continuous, uninterrupted minimum uplink of 5Mbps</p>
-	</li>
-</ol>
-
-
-<p>Also, please keep the following in mind about how JW Live works:</p>
-
-<ul>
-	<li>
-	<p>JW Live is designed for event-based live streams only (not for 24/7 broadcasts, real-time video chat applications, or other use cases).</p>
-	</li>
-	<li>
-	<p>JW Live has a maximum duration of 6 hours per event and your event will automatically be ended after this duration is exceeded (if your event is longer than 6hrs, we recommend setting up multiple events to cover the entire duration of your event).</p>
-	</li>
-</ul>
-
 <p>To setup your live event in JW Live, log in to your JW Platform account and click on the &ldquo;Live&rdquo; option in the left navigation under the &ldquo;Content&rdquo; section.</p>
 
 <p>Click the &ldquo;Create Live Stream&rdquo; button which will launch the live stream setup screen.</p>
 
+<p style="text-align:center;"><img height="319" src="https://lh3.googleusercontent.com/SjzR3i7i_SnIsQbzswytCdGfRc7w4HNJ6oGbkH8Czrd7gmESey18ypMDh28qzH7Mrn3VDxXApC9k0YeY3HQuNM8F8Tsh03G7e98gpYO5z2oX9AvDJHhpiZAPdLEQr4AVWAbPpOJA" width="624" /></p>
+
 <p>On the first screen, you can enter your event metadata (title, description, and poster image) as well as your Simulcast end points (optional). <u>All metadata is optional</u>.</p>
 
-<p>For <b>simulcasting</b>, JW Live supports <a href="https://www.facebook.com/facebookmedia/get-started/live#setup-and-preview" target="_blank">Facebook Live</a>, <a href="https://support.google.com/youtube/answer/2474026?hl=en">YouTube Live</a>, <a href="https://help.twitch.tv/customer/en/portal/articles/1253460-broadcast-requirements">Twitch</a>, or any other RTMP end point that uses a stream URL and stream name structure. Please click the links above for instructions on connecting each Simulcast end point. <em>NOTE: If you simulcast you will need to "go live" on JW Live before your simulcast stream starts. At which point you may also need to start or "go live" on the simulcast end point (for example, clicking "Go Live" on Facebook Live).</em></p>
+<p>For <b>simulcasting</b>, JW Live supports <a href="https://www.facebook.com/facebookmedia/get-started/live#setup-and-preview" target="_blank">Facebook Live</a>, <a href="https://support.google.com/youtube/answer/2474026?hl=en">YouTube Live</a>, <a href="https://help.twitch.tv/customer/en/portal/articles/1253460-broadcast-requirements">Twitch</a>, <a href="https://www.periscope.tv/help/external-encoders">Periscope/Twitter</a> or any other RTMP end point that uses a stream URL and stream name structure. Please click the links above for instructions on connecting each Simulcast end point. <em>NOTE: If you simulcast you will need to "go live" on JW Live before your simulcast stream starts. At which point you may also need to start or "go live" on the simulcast end point (for example, clicking "Go Live" on Facebook Live).</em></p>
 
-<p>To enable simulcasting, toggle the "Simulcast" button to the "on" position and copy and paste the Server URL and Stream Key (name) from Facebook, YouTube, Twitch etc. into these fields. <em>NOTE: These values cannot be changed after your event begins.</em></p>
+<p>To enable simulcasting, toggle the "Simulcast" button to the "on" position and copy and paste the Server URL and Stream Key (name) from Facebook, YouTube, Twitch etc. into these fields. You can have up to 5 simulcast endpoints enabled per live broadcast. <em>NOTE: These values cannot be changed after your event begins.</em></p>
 
 <p style="text-align: center;"><img height="279" src="https://lh5.googleusercontent.com/3dRaJimac68Vx2ef3r-FJZwEyuNKwRu2xMxc-7utdMTOIZvLPGcyaszRucPc-Dg2e-RqiHGdzwRgPlZXeg6I5AGJeKDDZHEO1NFEQhE2m_DQtdwpikt413BvLte3rUOerKA1lBrk" width="624" /></p>
-
-<p>Step 1: Setup metadata and simulcast</p>
 
 <p>Once you&rsquo;re on the Connect screen, you will first have to select your geographical location for your broadcast origin. It is best to select an origin location that is closest geographically to your live stream. This will reduce overall latency.</p>
 
 <p style="text-align: center;"><img height="279" src="https://lh6.googleusercontent.com/PK5Obdo1HEk4dPntlukt2Kaa4OxQF5qJzl6KrhR5mdHZ_RZqavll7LiUzGWqoFq7FS_WveKivgF7aXKN1hNXHDkiZkl_ntzHKZ0SE-wleXT2uQhiqSiktzmMhUhV9udbACvPRvZw" width="495" /></p>
 
 <p><em>NOTE: Typical latency is between 15-30 seconds from source to end viewer, depending on the location of your source, the location of the data center (which is what you select in this step), and the location of the viewer.</em></p>
-
 
 <p>Once you&rsquo;ve selected your location, we will automatically allocate and prepare server resources to broadcast your live stream at the data center location you chose. Please allow up to a few minutes for the server resources to allocate once you&rsquo;ve selected your location.</p>
 
@@ -95,7 +61,6 @@
 <p>&nbsp;</p>
 
 <p>Once server resources are allocated you will see an RTMP Entry Point URL and Stream Name that you can use to connect your source stream to JW Live. Some encoders support separate URL and Stream Names and others only take a single URL containing both values. In the latter case, you can concatenate the <b>RTMP Entry Point URL</b> and <b>Stream Name</b> like so:</p>
-
 
 <p><span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 255); vertical-align: baseline; white-space: pre-wrap;">http://001.livestream.jwplatform.com/app-0001<span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;">/<span style="font-size: 14.6667px; font-family: &quot;Proxima Nova&quot;; color: rgb(56, 118, 29); vertical-align: baseline; white-space: pre-wrap;">fw48fhs</p>
 
@@ -134,11 +99,9 @@
 
 <p><em>NOTE: You can also see your RTMP Entry Point info again by clicking the &ldquo;info&rdquo; icon in the player.</em></p>
 
-<p>Once your stream is ready to end, click the &ldquo;End Stream&rdquo; button. You will be prompted to confirm the end of your broadcast. Your stream will automatically be archived. Once your live stream is archived, you can can trim it using in the videos section.</p>
+<p>Once your stream is ready to end, click the &ldquo;End Stream&rdquo; button. You will be prompted to confirm the end of your broadcast. Your stream will automatically be archived. Once your live stream is archived, you can can trim it using in the videos section. (In the trimming step, drag the in-point and out-point to the start and end of the window you wish to trim. You can only trim once. Confirm by clicking &ldquo;Trim and Save&rdquo; to continue.)</p>
 
-<p>In the trimming step, drag the in-point and out-point to the start and end of the window you wish to trim. You can only trim once. Confirm by clicking &ldquo;Trim and Save&rdquo; to continue.</p>
-
-
+<p>Once your stream has ended, you can restart it. This allows you to use the same RTMP entry point information, metadata, and player embed code for a subsequent broadcast.</p>
 
 <p>If you have any questions please don&rsquo;t hesitate to check out our support site or ask your account manager.</p>
 

@@ -4,6 +4,8 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.11](#version711) - 05/10/2017
+*   [Version 7.10](#version710) - 03/22/2017
 *   [Version 7.9](#version79) - 02/02/2017
 *   [Version 7.8](#version78) - 11/30/2016
 *   [Version 7.7](#version77) - 10/4/2016
@@ -24,11 +26,167 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.9.1|02/09/2017|Fixes|
-|Beta|7.9.1|2/08/2017|Fixes|
+|Production|7.11.1|05/17/2017|Fixes|
+|Beta|7.11.2|05/22/2017|Fixes|
 
 * * *
+
+<a name="version711"></a>
+### **JW 7.11.2** - Beta 05/22/2017
+####Fixes
+* Fixed a bug where HLS streams with 6-second segments that were configured with preload: metadata and autostart: true would start playback at the second segment.
+
+####Advertising Updates
+* Improved VPAID 2 resizing in Vast plugin.
+
+####Advertising Fixes
+* Improved handling of click events when a non-linear VPAID2 ad is visible.
+* Fixed a situation where a non-linear VPAID2 would not move up when the controlbar became visible.
+
+### **JW 7.11.1** - 05/17/2017
+####Fixes
+* Fixed an issue where calling .resize() without a valid width and height caused the player to have its height set to 0.
+* Fixed an issue where side-loaded VTT captions in DASH streams disappear when a video is replayed.
+* Fixed a bug where the cursor does not disappear when controls disappear during playback.
+
+####Advertising Fixes
+* Fixed an issue in Freewheel where content on(‘complete’) would fire twice.
+* Fixed an issue where Google IMA pre-rolls do not play on iOS when preload: 'none'.
+* Fixed an issue with Google IMA in iOS where pre-roll ads intermittently load and time out when autostarting.
+* Fixed an issue with VPAID non-linear overlay ads where the overlay creative moves up when the player is hovered over when vpaidcontrols: true.
+* Rolled back a fix from JW 7.10.5 for Google IMA where iOS force-exited fullscreen during ads and prevented users from entering/re-entering during ads. The fix is no longer necessary because it was a response to an issue that was rolled back in Google’s IMA SDK.
+
+### **JW 7.11.0** - 05/10/2017
+To optimize player performance, the UI is no longer packaged as part of the core player javascript in JW Player 7.11.0. This decreases player load and setup time, especially when using controls:false, which ultimately saves bandwidth and eliminates rendering of elements that are never used.
+
+JW 7.11 also has some visual updates to the discovery overlay that improve performance and usability. We have also extended HLS in HTML5 to IE 11 on Windows 8 and higher.
+
+####Updates
+* Moved player controls to its own script to be managed as its own module, or excluded to create a chromeless player, and updated the API accordingly. 
+* Improved controlbar state transitions in the Seven skin by fading elements’ visibility.
+* Added functionality that seamlessly switches the controlbar UI when a manifest changes from live to DVR to VOD.
+* Changed the tooltip for the related playlist overlay to say “Discover” instead of “Related,” and updated its icon.
+* Added functionality that automatically displays the related playlist overlay after a video is paused for seven seconds.
+* Added ARIA labels to all buttons to be fully 508 compliant.
+* Updated captions support in Firefox and Internet Explorer to allow more styling control.
+* Improved captions rendering in IE11 and Firefox.
+
+####Fixes
+* Fixed an issue where the Flash plugin failed to load an HLS stream in IE11 in audio-only mode.
+* Fixed an issue where a manifest with no levels does not throw a level error and buffers infinitely.
+* Fixed an issue where PlayAd withCredentials results in minDvrWindow exception flooding the console.
+* Fixed an issue where a live stream would incorrectly report a negative duration.
+
+####Advertising Fixes
+* Fixed an issue where ads would start muted on iOS when the preload config option was set to none.
+
+<a name="version710"></a>
+### **JW 7.10.7** - 04/19/2017
+####Fixes
+* Fixed an issue with DASH streams not starting unless the user tried to seek
+* Fixed an issue where the Flash plugin failed to load in IE11 when trying to play audio-only HLS streams
+Updated the initially selected audio track in DASH streams to be the first language track when a default is not set
+* Fixed the labeling of 608 captions tracks in HLS streams to use the NAME parameter from the stream or fall back to “Unknown CC” when the language or label is unknown
+
+####Advertising Fixes
+* Fixed an issue where the player would not fallback to supported ad mediafiles after encountering an unsupported VPAID mediafile
+* Fixed an issue where the VMAP breakstart event would not fire in Firefox and IE11
+* Fixed an issue where a nonlinear VPAID 2 would not correctly fire the adImpression event
+* Fixed an issue where the playAd() API call was not taking the vpaidmode property into account
+
+### **JW 7.10.5** - 04/12/2017
+####Fixes:
+* Fixed an issue on the Edge browser where trying to remove the player using jwplayer().remove() would not successfully remove the player for DASH streams with embedded VTT tracks and casting enabled
+
+####Advertising Updates and Fixes
+As of Player version 7.10.5 we will be referencing ad plugin updates in a new, separate section.
+
+####Updates
+* Created a new on(‘adschedule’) event that displays elements of a parsed VMAP prior to ad playback, specifically the schedule of ads that should play.
+* Updated the on(‘adimpression’) event with information from a parsed VMAP that can be tied back to the on(‘adschedule’) event
+* Enabled the IMA config option “setLocale” for skip button language localization via “locale”: “de” in the advertising block. Two-letter language codes should be used.
+* Added a config option custParams to the advertising block for VAST. This allows passing custom parameters to individual ad breaks.
+
+####Fixes
+* Fixed an issue on iPhone with IMA where, if in fullscreen, the ad audio could be heard behind the paused content and exiting fullscreen would allow the ad to be viewed. This change was to force-exit fullscreen during ads and prevent users from entering/re-entering during ads.
+* Fixed an issue with IMA where manually changing playlist items from a video with a postroll to a video with a preroll would cause the player to stall.
+
+### **JW 7.10.4** - 04/04/2017
+####General
+* Service release, no new features
+
+### **JW 7.10.2** - 03/27/2017
+####Fixes
+* Fixed an issue where cookies were not being sent when withCredentials is set with a cookie file
+* Fixed an issue where the player would not display on setup if the player element was not in the DOM
+* Fixed mishandling of Flash VPAID clickthrough
+* Fixed an issue where calling jwplayer().setCaptions({}); would not reset the window color or window opacity
+
+### **JW 7.10.1** -  03/22/17
+JW Player 7.10 supports more DASH streams and features likes DVR windowed live streams, multiple audio tracks, and improved subtitles. 7.10 also adds a viewability api method that you can use to get the viewability of the player or listen to events to determine if the player was viewable during that event.
+
+####Streaming Updates
+* Added ability to display language with captions and audio tracks with DASH
+* Added support for DVR with DASH
+* Added support for multiple audio tracks with DASH
+* Added bitrate to quality labels with DASH to differentiate between levels with the same height but different bitrate
+* Added support for custom quality labels
+* Made general improvements to DASH streaming
+* Made general improvements to HLS streaming
+* Improved handling of Live stream completion by showing the end state
+
+####Flash Version Update
+* JW Player 7.10.1 requires Flash 18 or higher. Previous versions required 11.2 or higher. The change allows us to restore hardware accelerated video playback for HLS with Flash with minimal effort. 
+* This fixes various issues with DVR streams and IE11 memory usage. Flash Plugin 25 is the latest version. Flash Plugin 18 is the last version to receive LTS security patches. Enforcing this requirement ensures greater security on sites that use our player.
+* Players on systems with Flash 11.2-17.x will no longer be able to use Flash. "primary: flash" will be ignored on these systems and html5 playback will be required.
+
+####Viewability
+* Added viewability information to all events coming from the player API.
+* Added a getViewable() method that will return 0 if the player is less than 50% viewable or 1 if it is greater than 50%.
+* Added config option “autostart”: “viewable” which starts playback on desktop devices when the player appears in view rather than on page load or via user click.
+
+####UI
+* Added config option “nextUpDisplay”: false to disable the “Next Up” tooltip
+* Added support for timeslider thumbstrips on mobile
+* Improved default styling of captions
+
+####General Updates
+* Improved handling of VMAP breakstart/breakend events
+* Added support for autoplay muted on iOS Chrome
+
+####Fixes
+* Fixed an issue where DVR stream might not start from the Live edge
+* Changed IMA’s enablePreloading functionality to opt-in rather than on by default due to Google not adequately supporting VPAIDs
+* Fixed an issue where the player would still request manifests after the player was stopped
+* Fixed an issue where sideloaded captions tracks did not display when in-manifest subtitle tracks exist in an HLS manifest.
+* Fixed an intermittent issue where an HLS stream would freeze during playback
+* Fixed an issue where embedded VTT captions were not rendering in some browsers when using DASH
+* Fixed an issue where CSS on the page could bleed into the rightclick and quality menus
+* Fixed an issue where Live multi-audio HLS streams could freeze
+* Fixed an issue that caused HLS streams to crash when switching playlist items, where the new playlist item has fewer quality levels
+* Fixed an issue where a DASH stream with an embedded VTT file wouldn’t display captions
+* Normalized levels API properties across all providers
+* Fixed an issue where the timeslider scrubber could exhibit odd slingshot-like behavior when scrubbing
+* Fixed an issue where embedded VTT captions were not being styled correctly in some cases
+* Fixed an issue where Fairplay Streaming enabled streams were not playing over AirPlay
+* Fixed an issue where players were not autostarting in the Facebook webview browser on iOS
+* Fixed an issue where ID3 would be truncated when parsed in the HTML5 player
+* Improved handling of Flash streaming on IE11 on Windows 7 to reduce stuttering
+* Fixed an issue where a DVR stream would crash when using Flash on Windows with IE11
+
 <a name="version79"></a>
+### **JW 7.9.3** - 2/21/2017
+####Fixes
+* Fixed ad plugin issues when using RequireJS.
+* Fixed an issue when using Flash where playlist switching via the API caused the video audio to play during the preroll.
+* Reduced console errors in Safari when the player is embedded inside of an iframe.
+* Improved handling of cookies when “withCredentials = true” with HLS streams.
+* Fixed an issue where VOD streams could incorrectly display as Live in Chrome.
+* Fixed an issue with the setCaptions API where it was not correctly changing the font size of the captions.
+* Fixed an issue where certain HLS streams might not begin playback.
+* Fixed an issue where the controlbar being visible would bump captions too high.
+* Fixed an issue where Vimeo HLS streams would not play.
+
 ### **JW 7.9.1** - 2/08/2017
 ####Fixes
 * Fixed several issues with HLS where midrolls could case the stream to restart from the beginning or freeze on a black screen and prevent playback from resuming.

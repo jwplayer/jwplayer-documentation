@@ -62,7 +62,7 @@ If only a single playlist item is used, this information can either be configure
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
-|**autostart**|Boolean|Whether the player will attempt to begin playback automatically when a page is loaded|false|
+|**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
 |**nextupoffset**<sup>7.7</sup>|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
@@ -81,7 +81,9 @@ If only a single playlist item is used, this information can either be configure
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
-|**timesliderabove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
+|**timeSliderAbove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
+|**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
+|**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
 ####Stretching Examples:
 ![](//support-static.jwplayer.com/images/stretch-options.png)
@@ -91,7 +93,6 @@ If only a single playlist item is used, this information can either be configure
 ###Rendering and Loading
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**hlshtml**<sup>7.4.2</sup>|Boolean|Set to *true* to enable the JW Player HTML5 HLS provider|false|
 |**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**base**|String|Configures an alternate base path for skins and providers|"/"|
@@ -504,6 +505,9 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays. Note: only supported when using IMA|-|
+|**advertising.setLocale**|String|Two-letter language code for localization of skip-button language. Two-letter language code must be valid. Note: only supported when using IMA|-|
+|**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
+|**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
 
 * * *
 
@@ -556,6 +560,28 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+```
+"advertising": {
+        "debug": true,
+        "client": "googima",
+        "adscheduleid": "12345",
+        "schedule": {
+            "preroll": {
+                "custParams": {
+                    "testkey1": "testval1",
+                    "testkey2": "testval2"
+                },
+                "tag": "//playertest.longtailvideo.com/pre.xml",
+                "offset": "pre"
+            }
+        }
+    }
+```
+
 * * *
 <a name="advertising-companiondiv"></a>
 
