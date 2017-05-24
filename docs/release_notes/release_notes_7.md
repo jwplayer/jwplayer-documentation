@@ -26,13 +26,13 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.11.1|05/17/2017|Fixes|
+|Production|7.11.2|05/24/2017|Fixes|
 |Beta|7.11.2|05/22/2017|Fixes|
 
 * * *
 
 <a name="version711"></a>
-### **JW 7.11.2** - Beta 05/22/2017
+### **JW 7.11.2** - 05/24/2017
 ####Fixes
 * Fixed a bug where HLS streams with 6-second segments that were configured with preload: metadata and autostart: true would start playback at the second segment.
 
@@ -62,7 +62,7 @@ To optimize player performance, the UI is no longer packaged as part of the core
 JW 7.11 also has some visual updates to the discovery overlay that improve performance and usability. We have also extended HLS in HTML5 to IE 11 on Windows 8 and higher.
 
 ####Updates
-* Moved player controls to its own script to be managed as its own module, or excluded to create a chromeless player, and updated the API accordingly. 
+* Moved player controls to its own script to be managed as its own module, or excluded to create a chromeless player, and updated the API accordingly.
 * Improved controlbar state transitions in the Seven skin by fading elements’ visibility.
 * Added functionality that seamlessly switches the controlbar UI when a manifest changes from live to DVR to VOD.
 * Changed the tooltip for the related playlist overlay to say “Discover” instead of “Related,” and updated its icon.
@@ -136,7 +136,7 @@ JW Player 7.10 supports more DASH streams and features likes DVR windowed live s
 * Improved handling of Live stream completion by showing the end state
 
 ####Flash Version Update
-* JW Player 7.10.1 requires Flash 18 or higher. Previous versions required 11.2 or higher. The change allows us to restore hardware accelerated video playback for HLS with Flash with minimal effort. 
+* JW Player 7.10.1 requires Flash 18 or higher. Previous versions required 11.2 or higher. The change allows us to restore hardware accelerated video playback for HLS with Flash with minimal effort.
 * This fixes various issues with DVR streams and IE11 memory usage. Flash Plugin 25 is the latest version. Flash Plugin 18 is the last version to receive LTS security patches. Enforcing this requirement ensures greater security on sites that use our player.
 * Players on systems with Flash 11.2-17.x will no longer be able to use Flash. "primary: flash" will be ignored on these systems and html5 playback will be required.
 
