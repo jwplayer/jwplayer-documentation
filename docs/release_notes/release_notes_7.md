@@ -34,7 +34,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 <a name="version711"></a>
 ### **JW 7.11.3** - 06/05/2017
 ####Improvements
-* Exposed set certificate in config for Widevine DRM.
+* Exposed serverCertificateUrl for Widevine DRM to handle Chrome 59 requesting multiple certificates for each key request to the CDM.
 
 ####Fixes
 * Fixed a bug where the player exited fullscreen mode between playlist items. 
