@@ -67,7 +67,7 @@ If only a single playlist item is used, this information can either be configure
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**|Boolean or Array|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
+|**playbackRateControls**|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
 
 <br/>
 
