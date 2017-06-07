@@ -26,12 +26,21 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.11.2|05/24/2017|Fixes|
-|Beta|7.11.2|05/22/2017|Fixes|
+|Production|7.11.3|06/25/2017|Fixes|
+|Beta|7.11.3|06/02/2017|Fixes|
 
 * * *
 
 <a name="version711"></a>
+### **JW 7.11.3** - 06/05/2017
+####Improvements
+* Exposed set certificate in config for Widevine DRM.
+
+####Fixes
+* Fixed a bug where the player exited fullscreen mode between playlist items. 
+* Fixed an issue with captions not showing in audio-only HLS streams in some browsers.
+* Fixed an issue where the player did not upshift to the highest bitrate available given the width of the player and the viewer's bandwidth.
+
 ### **JW 7.11.2** - 05/24/2017
 ####Fixes
 * Fixed a bug where HLS streams with 6-second segments that were configured with preload: metadata and autostart: true would start playback at the second segment.
