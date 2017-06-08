@@ -46,7 +46,7 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Updated 403 error copy to “You do not have permission to access this content.” 
 * Expose the _PROGRAM-DATE-TIME_ from HLS manifests in the _meta_ event.
 * Improved manual quality switching in DASH streams so that when a viewer chooses a higher quality, the switch happens immediately. If the viewer chooses a lower quality, the existing buffer is played, then the quality switch occurs. 
-* Added a new API method, _[setConfig](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#setconfig)_, to set multiple properties at once. The following properties are supported: repeat, autostart, mute, and volume.
+* Added a new API method, _[setConfig](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayersetconfig)_, to set multiple properties at once. The following properties are supported: repeat, autostart, mute, and volume.
 * Added HLSjs debug output to the player’s debug logs. This is automatically enabled when `jwplayer.debug = true`. 
 * Added the _[viewable](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#viewability)_ event, making it easier to control the user experience based on the player’s visibility. Previously, developers had to rely on the viewable property in other events (eg. _time_, _play_) to know when the players is above the fold in the active tab.
 * Expanded HLS.js usage to Edge. This significantly improves the viewing experience over the native playback of HLS streams. Users can expect to see a reduction in artifacts, better captions display, and support for captions styling.
