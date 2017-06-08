@@ -69,6 +69,10 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Fixed an issue with captions not showing in audio-only HLS streams in some browsers.
 * Fixed an issue where the player did not upshift to the highest bitrate available given the width of the player and the viewer's bandwidth.
 
+####Advertising Fixes
+* Improved handling of VMAP tag requests erroring out when the tag 404s
+* For iOS with IMA, added additional checks to ensure content does not start before ads play
+
 ### **JW 7.11.2** - 05/24/2017
 ####Fixes
 * Fixed a bug where HLS streams with 6-second segments that were configured with preload: metadata and autostart: true would start playback at the second segment.
