@@ -67,6 +67,7 @@ If only a single playlist item is used, this information can either be configure
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
+|**playbackRateControls**|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
 
 <br/>
 
@@ -631,6 +632,7 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
+|**drm.widevine.serverCertificateUrl**|String|**(Required)** The URL of the WideVine service certificate|-|
 |**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
 
 <br/>
