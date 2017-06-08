@@ -46,7 +46,7 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Updated 403 error copy to “You do not have permission to access this content.” 
 * Expose the _PROGRAM-DATE-TIME_ from HLS manifests in the _meta_ event.
 * Improved manual quality switching in DASH streams so that when a viewer chooses a higher quality, the switch happens immediately. If the viewer chooses a lower quality, the existing buffer is played, then the quality switch occurs. 
-* Added a new API method, _[setConfig](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#jwplayersetconfig)_, to set multiple properties at once. The following properties are supported: repeat, autostart, mute, and volume.
+* Added a new API method, _[setConfig](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#setconfig)_, to set multiple properties at once. The following properties are supported: repeat, autostart, mute, and volume.
 * Added HLSjs debug output to the player’s debug logs. This is automatically enabled when `jwplayer.debug = true`. 
 * Added the _[viewable](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#viewability)_ event, making it easier to control the user experience based on the player’s visibility. Previously, developers had to rely on the viewable property in other events (eg. _time_, _play_) to know when the players is above the fold in the active tab.
 * Expanded HLS.js usage to Edge. This significantly improves the viewing experience over the native playback of HLS streams. Users can expect to see a reduction in artifacts, better captions display, and support for captions styling.
@@ -54,7 +54,7 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Added support for multi-track captions in DASH streams, allowing viewers to select any of the captions tracks specified in a DASH manifest.
 
 ####Fixes
-* Fixed a problem where 360 video HLS streams did not not upshifting in quality.
+* Fixed a problem where 360 video HLS streams did not upshift in quality.
 * Fixed a bug that caused an error in Chrome when DASH streams contained embedded VTT files larger than 125 KB.
 * Fixed a bug that caused an error in Safari when resize() is called without specifying _width_ and _height_.
 
@@ -68,6 +68,10 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Fixed a bug where the player exited fullscreen mode between playlist items. 
 * Fixed an issue with captions not showing in audio-only HLS streams in some browsers.
 * Fixed an issue where the player did not upshift to the highest bitrate available given the width of the player and the viewer's bandwidth.
+
+####Advertising Fixes
+* Improved handling of VMAP tag requests erroring out when the tag 404s
+* For iOS with IMA, added additional checks to ensure content does not start before ads play
 
 ### **JW 7.11.2** - 05/24/2017
 ####Fixes
