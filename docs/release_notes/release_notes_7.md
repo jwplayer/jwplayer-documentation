@@ -28,7 +28,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.11.3|06/25/2017|Fixes|
-|Beta|7.12.0 beta|06/08/2017|Playback rate controls, native caption and subtitle support for casting|
+|Beta|7.12.0 beta|06/07/2017|Playback rate controls, native caption and subtitle support for casting|
 
 * * *
 
