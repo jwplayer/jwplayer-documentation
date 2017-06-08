@@ -1,4 +1,4 @@
-#JW Player Configuration Reference
+# JW Player Configuration Reference
 
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
@@ -46,7 +46,7 @@ The following properties are related to media that is loaded into the player.
 
 If only a single playlist item is used, this information can either be configured directly inside of **setup**. If you are planning on using multiple media items, these can also be used inside of a **[playlist](#playlist)** array.
 
-###Media
+### Media
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
@@ -58,7 +58,7 @@ If only a single playlist item is used, this information can either be configure
 
 <br/>
 
-###Behavior
+### Behavior
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
@@ -72,7 +72,7 @@ If only a single playlist item is used, this information can either be configure
 
 <br/>
 
-###Appearance
+### Appearance
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
@@ -88,13 +88,13 @@ If only a single playlist item is used, this information can either be configure
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
-####Stretching Examples:
+#### Stretching Examples:
 
 ![](//support-static.jwplayer.com/images/stretch-options.png)
 
 <br/>
 
-###Rendering and Loading
+### Rendering and Loading
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
@@ -114,7 +114,7 @@ The playlist is a powerful feature of JW Player, used to play multiple video or 
 
 A playlist can be either a **string**, referring to the URL of an RSS feed or JSON file, or an **array** of media objects.
 
-####Configuring Playlist as a String
+#### Configuring Playlist as a String
 
 ```
 jwplayer("myElement").setup({
@@ -122,7 +122,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-####Configuring Playlist as an Array
+#### Configuring Playlist as an Array
 
 ```
 jwplayer("myElement").setup({
@@ -190,7 +190,7 @@ jwplayer("myElement").setup({
   }]
 });
 ```
-####Sources with DRM<sup>7.7</sup>
+#### Sources with DRM<sup>7.7</sup>
 
 When using DRM, we highly suggest placing the drm block inside of the appropriate media source. This ensures the correct media and DRM pair gets chosen for the appropriate browser. For example:
 
@@ -229,7 +229,7 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
 See our [drm](#drm) section for more information.
 
 
-####Quality Toggle for Video Files
+#### Quality Toggle for Video Files
 
 In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection menu in the player control bar. Compared to other streaming methods, it has the following drawbacks:
 
@@ -379,7 +379,7 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 
 This options block controls the **specific** functions of the RTMP streaming protocol. These settings do not apply to HLS or DASH.
 
-####Note: RTMP *requires* the installation of [Adobe Flash](https://get.adobe.com/flashplayer/) and will not work on mobile devices
+#### Note: RTMP *requires* the installation of [Adobe Flash](https://get.adobe.com/flashplayer/) and will not work on mobile devices
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -424,7 +424,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing o
 |**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
-####Available Built-In Social Networks
+#### Available Built-In Social Networks
 |Social Network|Configuration Value| |Social Network|Configuration Value|
 |-|-|-|-|-|
 |**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
@@ -433,7 +433,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing o
 |**Email**|"email"| |**LinkedIn**|"linkedin"|
 
 
-####Example:
+#### Example:
 
 ```
 jwplayer("myElement").setup({
@@ -454,7 +454,7 @@ See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articl
 
 This options block configures the built-in integration with Google Analytics.
 
-####Note: Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player.
+#### Note: Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player.
 
 Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
@@ -520,13 +520,13 @@ This options block configures the video advertising capabilities of JW Player. I
 
 <a name="advertising-schedule"></a>
 
-###advertising.schedule
+### advertising.schedule
 
 Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
 
 <br/>
 
-####Ad Schedules with VMAP Files
+#### Ad Schedules with VMAP Files
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
 ```
 jwplayer("myElement").setup({
@@ -542,7 +542,7 @@ The VMAP schedule will then be applied to each playlist item. See our article ab
 
 <br/>
 
-####Embedded Ad Schedules with JSON
+#### Embedded Ad Schedules with JSON
 In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
 
 |Option|Type|Description|Default|
@@ -591,7 +591,7 @@ jwplayer("myElement").setup({
 * * *
 <a name="advertising-companiondiv"></a>
 
-###advertising.companiondiv
+### advertising.companiondiv
 
 This is a configuration block object with 3 properties: id, width and height. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
 
@@ -631,7 +631,7 @@ Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or hig
 
 <br/>
 
-###drm.widevine
+### drm.widevine
 
 Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also function on Firefox browsers for desktop systems.
 
@@ -645,7 +645,7 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 
 <a name="headers"></a>
 
-###drm.[widevine/playready].headers<sup>7.7</sup>
+### drm.[widevine/playready].headers<sup>7.7</sup>
 
 Adding customized HTTP header data to license requests is possible in JW 7.7+ with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
 
@@ -679,7 +679,7 @@ In previous versions, adding "customData" would look like the following:
 |**headers.value**|String|The value of the http header that will be included|
 
 <br/>
-###drm.fairplay<sup>7.7</sup>
+### drm.fairplay<sup>7.7</sup>
 
 JW Player 7.7 includes new configuration options for custom Fairplay integrations, replacing 'url' and 'keyUrl' options from 7.5. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
 
@@ -695,7 +695,7 @@ JW Player 7.7 includes new configuration options for custom Fairplay integration
 
 <br/>
 
-###drm.clearkey
+### drm.clearkey
 
 A basic form of DRM that lists a decryption key inside of your player configuration. This is the least secure form of DRM, though it is the simplest to implement across browsers. There are no additional server resources required to decrypt content with this method. Clearkey is supported in both Chrome and Firefox browsers.
 
