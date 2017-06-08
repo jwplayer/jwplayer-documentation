@@ -54,7 +54,7 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 * Added support for multi-track captions in DASH streams, allowing viewers to select any of the captions tracks specified in a DASH manifest.
 
 ####Fixes
-* Fixed a problem where 360 video HLS streams did not not upshifting in quality.
+* Fixed a problem where 360 video HLS streams did not upshift in quality.
 * Fixed a bug that caused an error in Chrome when DASH streams contained embedded VTT files larger than 125 KB.
 * Fixed a bug that caused an error in Safari when resize() is called without specifying _width_ and _height_.
 
