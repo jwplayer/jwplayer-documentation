@@ -89,11 +89,13 @@ If only a single playlist item is used, this information can either be configure
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
 ####Stretching Examples:
+
 ![](//support-static.jwplayer.com/images/stretch-options.png)
 
 <br/>
 
 ###Rendering and Loading
+
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
@@ -113,6 +115,7 @@ The playlist is a powerful feature of JW Player, used to play multiple video or 
 A playlist can be either a **string**, referring to the URL of an RSS feed or JSON file, or an **array** of media objects.
 
 ####Configuring Playlist as a String
+
 ```
 jwplayer("myElement").setup({
   "playlist": "http://example.com/myPlaylist.json"
@@ -120,6 +123,7 @@ jwplayer("myElement").setup({
 ```
 
 ####Configuring Playlist as an Array
+
 ```
 jwplayer("myElement").setup({
     "playlist": [{
