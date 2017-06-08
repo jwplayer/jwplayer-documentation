@@ -34,14 +34,14 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 <a name="version712"></a>
 ### **JW 7.12.0** - Beta 06/08/2017
-Designed with publishers of education and sports media in mind, JW Player 7.12.0 introduces a [new configuration option](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) to enable playback rate controls. When enabled, a tooltip menu in the control bar gives viewers the ability to control the playback speed of the video. Publishers can choose to show our pre-set rates or to configure custom values between 0.25x and 4x. Developers can also use the new API getter, setter and event listener to control the _playbackRate_. Playback rate is supported with streaming media sources HLS and DASH, as well as progressive download mp4. 
+Designed with publishers of education and sports media in mind, JW Player 7.12.0 introduces a [new configuration option](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) to enable playback rate controls. When enabled, a tooltip menu in the control bar gives viewers the ability to control the playback speed of the video. Publishers can choose to show our pre-set rates or to configure custom values between 0.25x and 4x. Developers can also use the new API getter, setter and event listener to control the playbackRate. Note that manipulating the playback rate requires the presence of a video element and, as such, is not supported when the Flash provider is being used for playback. 
  
 This release also includes native caption and subtitle support for casting. Be sure to check the full release notes below to review a variety of new methods, configuration options, and events that enhance the developer capabilities of using JW Player. 
  
 ####Improvements
 * Added the _playbackRateControls_ configuration option to enable the playback rate menu in the controlbar. This allows viewers to control the video’s playback speed. Publishers may use default or custom speed values. Read more in our [Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) documentation.
 Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateChanged_ event listener. Read more in our [JavaScript API Reference](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#playback) documentation.
-* Added support for 608 captions, embedded and sideloaded VTT tracks in the default Chromecast receiver. Captions style configuration options are also applied to the receiver. VTT tracks must be loaded from the same domain as the media.
+* Added support for embedded and sideloaded VTT tracks in the default Chromecast receiver. Captions style configuration options are also applied to the receiver. VTT tracks must be loaded from the same domain as the media.
 * Set the `<video>` element’s _title_ attribute so that the media title displays on iOS and Android lock screens during playback.
 * Updated 403 error copy to “You do not have permission to access this content.” 
 * Expose the _PROGRAM-DATE-TIME_ from HLS manifests in the _meta_ event.
