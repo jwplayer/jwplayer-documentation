@@ -4,6 +4,7 @@ This page lists all changes for the various JW Player 7 releases. JW Player 6 re
 
 ## Major Version Releases
 
+*   [Version 7.12](#version712) - 06/07/2017
 *   [Version 7.11](#version711) - 05/10/2017
 *   [Version 7.10](#version710) - 03/22/2017
 *   [Version 7.9](#version79) - 02/02/2017
@@ -27,9 +28,36 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.11.3|06/25/2017|Fixes|
-|Beta|7.11.3|06/02/2017|Fixes|
+|Beta|7.12.0 beta|06/08/2017|Playback rate controls, native caption and subtitle support for casting|
 
 * * *
+
+<a name="version712"></a>
+### **JW 7.12.0** - Beta 06/08/2017
+Designed with publishers of education and sports media in mind, JW Player 7.12.0 introduces a [new configuration option](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) to enable playback rate controls. When enabled, a tooltip menu in the control bar gives viewers the ability to control the playback speed of the video. Publishers can choose to show our pre-set rates or to configure custom values between 0.25x and 4x. Developers can also use the new API getter, setter and event listener to control the _playbackRate_. Playback rate is supported with streaming media sources HLS and DASH, as well as progressive download mp4. 
+ 
+This release also includes native caption and subtitle support for casting. Be sure to check the full release notes below to review a variety of new methods, configuration options, and events that enhance the developer capabilities of using JW Player. 
+ 
+####Improvements
+* Added the _playbackRateControls_ configuration option to enable the playback rate menu in the controlbar. This allows viewers to control the video’s playback speed. Publishers may use default or custom speed values. Read more in our [Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#setup) documentation.
+Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateChanged_ event listener. Read more in our [JavaScript API Reference](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#playback) documentation.
+* Added support for 608 captions, embedded and sideloaded VTT tracks in the default Chromecast receiver. Captions style configuration options are also applied to the receiver. VTT tracks must be loaded from the same domain as the media.
+* Set the <video> element’s _title_ attribute so that the media title displays on iOS and Android lock screens during playback.
+* Updated 403 error copy to “You do not have permission to access this content.” 
+* Expose the _PROGRAM-DATE-TIME_ from HLS manifests in the _meta_ event.
+* Improved manual quality switching in DASH streams so that when a viewer chooses a higher quality, the switch happens immediately. If the viewer chooses a lower quality, the existing buffer is played, then the quality switch occurs. 
+* Added a new API method, _[setConfig]https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#jwplayersetconfig)_, to set multiple properties at once. The following properties are supported: repeat, autostart, mute, and volume.
+* Added HLSjs debug output to the player’s debug logs. This is automatically enabled when `jwplayer.debug = true`. 
+* Added the _[viewable](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#viewability)_ event, making it easier to control the user experience based on the player’s visibility. Previously, developers had to rely on the viewable property in other events (eg. _time_, _play_) to know when the players is above the fold in the active tab.
+* Expanded HLS.js usage to Edge. This significantly improves the viewing experience over the native playback of HLS streams. Users can expect to see a reduction in artifacts, better captions display, and support for captions styling.
+* Improved the user experience of the sharing overlay. It’s now less intrusive at larger player sizes, allowing playback to continue while the viewer makes a selection from the newly redesigned sharing menu.
+* Added support for multi-track captions in DASH streams, allowing viewers to select any of the captions tracks specified in a DASH manifest.
+
+####Fixes
+* Fixed a problem where 360 video HLS streams did not not upshifting in quality.
+* Fixed a bug that caused an error in Chrome when DASH streams contained embedded VTT files larger than 125 KB.
+* Fixed a bug that caused an error in Safari when resize() is called without specifying _width_ and _height_.
+
 
 <a name="version711"></a>
 ### **JW 7.11.3** - 06/05/2017
@@ -40,6 +68,10 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 * Fixed a bug where the player exited fullscreen mode between playlist items. 
 * Fixed an issue with captions not showing in audio-only HLS streams in some browsers.
 * Fixed an issue where the player did not upshift to the highest bitrate available given the width of the player and the viewer's bandwidth.
+
+####Advertising Fixes
+* Improved handling of VMAP tag requests erroring out when the tag 404s.
+* For iOS with IMA, added additional checks to ensure content does not start before ads play.
 
 ### **JW 7.11.2** - 05/24/2017
 ####Fixes
