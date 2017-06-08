@@ -59,6 +59,7 @@ If only a single playlist item is used, this information can either be configure
 <br/>
 
 ###Behavior
+
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
@@ -72,6 +73,7 @@ If only a single playlist item is used, this information can either be configure
 <br/>
 
 ###Appearance
+
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
