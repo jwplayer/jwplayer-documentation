@@ -62,7 +62,7 @@ Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateCha
 <a name="version711"></a>
 ### **JW 7.11.3** - 06/05/2017
 ####Improvements
-* Exposed [set certificate in config](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drmwidevine) for Widevine DRM.
+* Exposed [serverCertificateUrl](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#drmwidevine) for Widevine DRM to handle Chrome 59 requesting multiple certificates for each key request to the CDM.
 
 ####Fixes
 * Fixed a bug where the player exited fullscreen mode between playlist items. 
