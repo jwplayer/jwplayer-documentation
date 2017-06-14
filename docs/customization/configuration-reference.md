@@ -475,7 +475,6 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
-|**related.onclick**|String|What to do when the user clicks a thumbnail <br/> **"link"**: Jump to the page URL of the related video <br/> **"play"**: Play the related video inline.<br/> **Note: If oncomplete is configured to "autoplay", we override onclick behavior to "play"**|"link"|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
 |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
