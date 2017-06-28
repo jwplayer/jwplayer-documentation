@@ -28,11 +28,16 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.12.0|06/21/2017|Playback rate controls, native caption and subtitle support for casting|
-|Beta|7.12.0|06/07/2017|Playback rate controls, native caption and subtitle support for casting|
+|Beta|7.12.1|06/28/2017|Shaka update|
 
 * * *
 
 <a name="version712"></a>
+### **JW 7.12.1** - Beta 06/28/2017
+#### Improvements
+* Added support for custom license request filters with DASH streams using Widevine or PlayReady. 
+* Shaka provider has been updated to version 2.1.4.
+
 ### **JW 7.12.0** - 06/21/2017
 Designed with publishers of education and sports media in mind, JW Player 7.12.0 introduces a [new configuration option](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) to enable playback rate controls. When enabled, a tooltip menu in the control bar gives viewers the ability to control the playback speed of the video. Publishers can choose to show our pre-set rates or to configure custom values between 0.25x and 4x. Developers can also use the new API getter, setter and event listener to control the playbackRate. Check out the creative possibilities in our [demo](https://developer.jwplayer.com/jw-player/demos/advanced/set-playback-rate/). Note that manipulating the playback rate requires the presence of a video element and, as such, is not supported when the Flash provider is being used for playback.
 
