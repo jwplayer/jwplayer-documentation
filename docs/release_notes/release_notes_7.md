@@ -27,13 +27,13 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.12.0|06/21/2017|Playback rate controls, native caption and subtitle support for casting|
+|Production|7.12.1|06/29/2017|Shaka update|
 |Beta|7.12.1|06/28/2017|Shaka update|
 
 * * *
 
 <a name="version712"></a>
-### **JW 7.12.1** - Beta 06/28/2017
+### **JW 7.12.1** - 06/29/2017
 #### Improvements
 * Added support for custom license request filters with DASH streams using Widevine or PlayReady. 
 * Shaka provider has been updated to version 2.1.4.
