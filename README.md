@@ -18,6 +18,12 @@ $ pip install mkdocs
 $ npm install
 ```
 
+#### Install Grunt globally:
+
+```
+$ npm install grunt -g cli
+```
+
 #### Run Grunt and serve via localhost:
 
 ```
