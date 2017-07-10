@@ -33,6 +33,23 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 * * *
 
 <a name="version712"></a>
+### **JW 7.12.2** - Beta 07/10/2017
+#### Fixes
+* Fixed an issue where videos would start from the beginning when resuming playback after a midroll ad. 
+* Fixed a bug causing duplicate captions cues to be displayed in HLS streams after a preroll or midroll ad.
+* Fixed an issue in Firefox where keyboard command shortcuts did not work.
+
+#### Advertising Updates
+* Added clickThroughURL parameter to the adImpression event for the VAST plugin for parity with the IMA plugin.
+* Added config option custParams to the adBreak block for the VAST plugin for parity with the IMA plugin.
+* For the VAST plugin, updated the on(‘adSchedule’) event to display all schedules, not just schedules within a VMAP.
+* Updated the VAST plugin’s ad event order to be consistent with the IMA plugin and more representative of the VAST spec.
+* Added support for the SpotX ad_mute=1 URL parameter with the IMA plugin.
+
+#### Advertising Fixes
+* Fixed an issue with the IMA plugin where setting up a player’s adschedule with a postroll before a preroll could cause video content to display before the preroll.
+* Fixed an issue where non-linear VPAIDs might be pushed off the bottom of the player view.
+
 ### **JW 7.12.1** - 06/29/2017
 #### Improvements
 * Added support for custom license request filters with DASH streams using Widevine or PlayReady. 
