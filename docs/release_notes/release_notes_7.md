@@ -27,13 +27,13 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.12.1|06/29/2017|Shaka update|
-|Beta|7.12.1|06/28/2017|Shaka update|
+|Production|7.12.2|07/12/2017|Fixes; advertising updates for VAST and IMA|
+|Beta|7.12.2|07/10/2017|Fixes; advertising updates for VAST and IMA|
 
 * * *
 
 <a name="version712"></a>
-### **JW 7.12.2** - Beta 07/10/2017
+### **JW 7.12.2** - 07/12/2017
 #### Fixes
 * Fixed an issue where videos would start from the beginning when resuming playback after a midroll ad. 
 * Fixed a bug causing duplicate captions cues to be displayed in HLS streams after a preroll or midroll ad.
