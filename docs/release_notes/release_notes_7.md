@@ -79,6 +79,7 @@ This release also includes native caption and subtitle support for casting. Be s
 * Fixed a problem where 360 video HLS streams did not upshift in quality.
 * Fixed a bug that caused an error in Chrome when DASH streams contained embedded VTT files larger than 125 KB.
 * Fixed a bug that caused an error in Safari when resize() is called without specifying _width_ and _height_.
+* Reverted a feature introduced in 7.11.0 that automatically shows the related playlist overlay when a video is paused for seven seconds while we make UX improvements.  
 
 #### Advertising Updates
 * Updated the adError event to note not just the original tag supplied to the player, but all tags in a wrapped ad chain including the creative that errored
