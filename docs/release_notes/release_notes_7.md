@@ -35,7 +35,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 <a name="version712"></a>
 ### **JW 7.12.2** - 07/12/2017
 #### Fixes
-* Fixed an issue where videos would start from the beginning when resuming playback after a midroll ad. 
+* Fixed an issue where videos would start from the beginning when resuming playback after a midroll ad.
 * Fixed a bug causing duplicate captions cues to be displayed in HLS streams after a preroll or midroll ad.
 * Fixed an issue in Firefox where keyboard command shortcuts did not work.
 
@@ -43,16 +43,18 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 * Added clickThroughURL parameter to the adImpression event for the VAST plugin for parity with the IMA plugin.
 * Added config option custParams to the adBreak block for the VAST plugin for parity with the IMA plugin.
 * For the VAST plugin, updated the on(‘adSchedule’) event to display all schedules, not just schedules within a VMAP.
-* Updated the VAST plugin’s ad event order to be consistent with the IMA plugin and more representative of the VAST spec.
+* Updated the VAST plugin’s ad event order to be consistent with the IMA plugin and more representative of the VAST/VPAID specs.
 * Added support for the SpotX ad_mute=1 URL parameter with the IMA plugin.
+* Added support for VAST macros including [CACHEBUSTING], [ASSETURI], and [TIMESTAMP]
 
 #### Advertising Fixes
 * Fixed an issue with the IMA plugin where setting up a player’s adschedule with a postroll before a preroll could cause video content to display before the preroll.
 * Fixed an issue where non-linear VPAIDs might be pushed off the bottom of the player view.
+* Fixed an issue where adtime event would fire before adimpression on iOS
 
 ### **JW 7.12.1** - 06/29/2017
 #### Improvements
-* Added support for custom license request filters with DASH streams using Widevine or PlayReady. 
+* Added support for custom license request filters with DASH streams using Widevine or PlayReady.
 * Shaka provider has been updated to version 2.1.4.
 
 ### **JW 7.12.0** - 06/21/2017
@@ -62,8 +64,8 @@ This release also includes native caption and subtitle support for casting. Be s
 
 #### Improvements
 * Added the _playbackRateControls_ configuration option to enable the playback rate menu in the controlbar. This allows viewers to control the video’s playback speed. Publishers may use default or custom speed values. Read more in our [Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior) documentation. When playing HLS streams on Android Chrome or using Flash, the menu will be hidden due to unsupported functionality.  
-* Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateChanged_ event listener. Read more in our [JavaScript API Reference](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#playback) documentation. Note that this is not supported in Flash or Android Chrome with HLS streams. 
-* Added support for embedded and sideloaded VTT tracks in the default Chromecast receiver. Captions style configuration options are also applied to the receiver. VTT tracks must be loaded from the same domain as the media. 
+* Added _setPlaybackRate_ and _getPlaybackRate_ API methods and a _playbackRateChanged_ event listener. Read more in our [JavaScript API Reference](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#playback) documentation. Note that this is not supported in Flash or Android Chrome with HLS streams.
+* Added support for embedded and sideloaded VTT tracks in the default Chromecast receiver. Captions style configuration options are also applied to the receiver. VTT tracks must be loaded from the same domain as the media.
 * Set the `<video>` element’s _title_ attribute so that the media title displays on iOS and Android lock screens during playback.
 * Updated 403 error copy to “You do not have permission to access this content.”
 * Expose the _PROGRAM-DATE-TIME_ from HLS manifests in the _meta_ event.
