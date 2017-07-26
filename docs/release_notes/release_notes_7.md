@@ -28,11 +28,16 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.12.2|07/12/2017|Fixes; advertising updates for VAST and IMA|
-|Beta|7.12.2|07/10/2017|Fixes; advertising updates for VAST and IMA|
+|Beta|7.12.3|07/26/2017|Fixes|
 
 * * *
 
 <a name="version712"></a>
+### **JW 7.12.3** - Beta 07/26/2017
+#### Fixes
+* Fixed an issue where PlayReady DRM does not work with Shaka 2.1.1+ in IE11.
+* Fixed a bug where *vpaidcontrols: true* does not show the control bar when hovering over the creative.
+
 ### **JW 7.12.2** - 07/12/2017
 #### Fixes
 * Fixed an issue where videos would start from the beginning when resuming playback after a midroll ad.
