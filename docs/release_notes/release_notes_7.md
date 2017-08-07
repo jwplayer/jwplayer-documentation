@@ -28,11 +28,19 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
 |Production|7.12.3|07/27/2017|Fixes|
-|Beta|7.12.3|07/26/2017|Fixes|
+|Beta|7.12.4|08/07/2017|Fixes|
 
 * * *
 
 <a name="version712"></a>
+### **JW 7.12.4** - Beta 08/07/2017
+#### Fixes
+* Fixed an issue where Akamai-hosted live streams would free\ze mid-stream in Chrome.
+
+#### Advertising Fixes
+* Fixed an issue with VPAID tracking pixels not firing when the VPAID itself wasn’t firing them.
+* Fixed an issue with the IMA plugin where the adplay event would occasionally fire twice.
+
 ### **JW 7.12.3** - 07/27/2017
 #### Fixes
 * Fixed an issue where PlayReady DRM does not work with Shaka 2.1.1+ in IE11.
