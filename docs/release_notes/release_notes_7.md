@@ -27,13 +27,13 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.12.3|07/27/2017|Fixes|
+|Production|7.12.4|08/09/2017|Fixes|
 |Beta|7.12.4|08/07/2017|Fixes|
 
 * * *
 
 <a name="version712"></a>
-### **JW 7.12.4** - Beta 08/07/2017
+### **JW 7.12.4** - 08/09/2017
 #### Fixes
 * Fixed an issue where Akamai-hosted live streams would free\ze mid-stream in Chrome.
 
