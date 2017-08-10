@@ -35,7 +35,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 <a name="version712"></a>
 ### **JW 7.12.4** - 08/09/2017
 #### Fixes
-* Fixed an issue where Akamai-hosted live streams would free\ze mid-stream in Chrome.
+* Fixed an issue where Akamai-hosted live streams would freeze mid-stream in Chrome.
 
 #### Advertising Fixes
 * Fixed an issue with VPAID tracking pixels not firing when the VPAID itself wasn’t firing them.
