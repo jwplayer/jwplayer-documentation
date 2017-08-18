@@ -35,7 +35,7 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 <a name="version712"></a>
 ### **JW 7.12.6** - 08/18/2017
 #### Fixes
-* Fixed an issue where live DVR streams would play from the beginning after an ad break instead of resuming from the playback position before the ad.
+* Fixed an issue where live DVR streams would always play from the live edge after an ad break instead of resuming from the position the stream was at before ad playback.
 
 ### **JW 7.12.5** - 08/17/2017
 #### Fixes
