@@ -27,19 +27,20 @@ Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) list 
 
 |Channel|Player Version|Release Date|Notes|
 |---|---|---|---|
-|Production|7.12.5|08/17/2017|Fixes|
+|Production|7.12.6|08/18/2017|Fixes|
 |Beta|7.12.6|08/17/2017|Fixes|
 
 * * *
 
 <a name="version712"></a>
-### **JW 7.12.6** - Beta 08/17/2017
+### **JW 7.12.6** - 08/18/2017
 #### Fixes
-* Fixed an issue where live DVR streams would play from the beginning after an ad break instead of resuming from the live edge.
+* Fixed an issue where live DVR streams would always play from the live edge after an ad break instead of resuming from the position the stream was at before ad playback.
 
 ### **JW 7.12.5** - 08/17/2017
 #### Fixes
 * Fix an issue where a DASH stream with one captions track displayed two tracks, one of which did not work. 
+* Fixed an issue where live DVR streams would play from the beginning after an ad break instead of resuming from the live edge.
 
 ### **JW 7.12.4** - 08/09/2017
 #### Fixes
