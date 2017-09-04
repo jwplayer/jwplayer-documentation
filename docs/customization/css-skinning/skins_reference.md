@@ -128,23 +128,26 @@ The button container contains playback controls, elapsed and duration time, and 
 
 |CSS Class          | Definition |
 |-------------------|-----------|
-|**.jw-icon-playback**|The container that holds the play/pause icons. The icon is switched depending on the state the player is in|
-|**.jw-icon-rewind**|The container that holds the "rewind" icon|
-|**.jw-text-elapsed**|The container for the elapsed video time|
-|**.jw-text-duration**|Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.|
-|**.jw-icon-next**|The control to toggle to the next playlist item.|
-|**.jw-icon-hd**|This is the class assigned to the div contains the HD icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
-|**.jw-icon-cc**|This is class assigned to the div contains the closed-caption CC icon. The player will automatically add a menu to the hover state of this div if there are more than 2 caption tracks per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
-|**.jw-icon-audio-tracks**|This is class assigned to the div contains the multiple audiotracks icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item.|
-|**.jw-icon-cast**|This class is used to display the Chromecast icon.|
+|**.jw-icon-playback**|Container that holds the play/pause icons. This icon will toggle depending on the state of the player|
+|**.jw-icon-rewind**|Container that holds the "rewind" icon|
+|**.jw-icon-next**|Control to toggle to the next playlist item.|
 |**.jw-icon-volume**|This is class assigned to the div contains the volume icon. The player will automatically add a menu to the hover state of this div that contains the slider volume.|
 |**.jw-icon-volume .jw-off**|When the player is muted the .jw-off class gets added to toggle the volume off icon.|
+|**.jw-icon-live**|Container for live and dvr icons. This icon will toggle depending on the state of the player|
+|**.jw-text-elapsed**|The container for the elapsed video time|
+|**.jw-text-duration**|Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.|
+|**.jw-settings-sharing**|Container for the sharing icon. This will only show when sharing is enabled.|
+|**.jw-playlist-btn**|Container for playlist icon. This icon represents the player using a manual playlist for related content.|
+|**.jw-related-btn**|Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.|
+|**.jw-icon-cc**|Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.|
+|**.jw-icon-cast**|This class is used to display the Chromecast and Airplay icon.|
+|**.jw-icon-settings**|Container for the settings menu icon.|
 |**.jw-icon-fullscreen**|This is class assigned to the div contains the fullscreen icons. The player will add .jw-off class to toggle between fullscreen and exit fullscreen icons.|
 
 
 <a name="breakpoints"></a>
 
-## Break Points (7.7+)
+## Break Points
 Breakpoint classes are added to the player element based on the width of the player, not the device or browser. Because JW Player instances are embedded via an iframe, the usual @media query will not work for defining CSS declarations to make elements responsive. Breakpoints are global classes that can be used to make responsive CSS declarations for any customizable player element.
 
 |Break Point        | Width Intervals (px) |
