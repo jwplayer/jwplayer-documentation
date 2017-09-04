@@ -293,7 +293,7 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 
 <a name="playlist-adschedule"></a>
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
+Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 ### playlist[_index_].adschedule
@@ -492,7 +492,7 @@ See [Display Related Videos](https://support.jwplayer.com/customer/portal/articl
 ## Advertising
 
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
 !!!
 
 This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default.
