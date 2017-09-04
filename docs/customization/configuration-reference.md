@@ -84,7 +84,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (control bar, display icons and dock buttons)|true|
 |**localization**|Object|Changes text for the player in certain locations|-|
-|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
+|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|360|
 |**width**|Number or String|The desired height of your video player (In pixels or percentage)|640|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
@@ -351,8 +351,6 @@ For more information regarding custom skins, see: [Creating a Skin for JW Player
 |**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
 |**skin.name**|String|The name of your custom skin to use for styling the player. If you are specifying **skin.url**, you must specify **skin.name**, which must match the class name in your CSS file.|-|
 
-
-
 <a name="captions"></a>
 
 * * *
@@ -360,8 +358,6 @@ For more information regarding custom skins, see: [Creating a Skin for JW Player
 ## Captions
 
 This options block configures the styling of closed captions in the player for desktop browsers. On iOS/Android, a system settings menu provides exactly the same settings, as these are mandated by the FCC.
-
-#### Note: When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -374,6 +370,10 @@ This options block configures the styling of closed captions in the player for d
 |**captions.edgeStyle**|String|Method by which the captions characters are separated from their background|"none"|
 |**captions.windowColor**|String|Hex color of the background of the entire captions area|"#000000"|
 |**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
+
+!!!
+When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
+!!!
 
 See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
 
@@ -459,13 +459,11 @@ See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articl
 
 This options block configures the built-in integration with Google Analytics.
 
-#### Note: Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player.
-
-Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
-
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**ga.label**|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
+
+Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
@@ -483,7 +481,7 @@ This options block controls an overlay with related videos.
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
 |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
-|**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **Note:** **xx** will be replaced by the countdown timer<br/> **Note:** **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
+|**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
 
@@ -513,11 +511,11 @@ This options block configures the video advertising capabilities of JW Player. I
 |**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in FreeWheel|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|-|
 |**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
-|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
-|**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays. Note: only supported when using IMA|-|
-|**advertising.setLocale**|String|Two-letter language code for localization of skip-button language. Two-letter language code must be valid. Note: only supported when using IMA|-|
-|**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
-|**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
+|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|-|
+|**advertising.forceNonLinearFullSlot**|Boolean|(Only supported when using IMA) For forcing nonlinear ads to be fullsot ads rather than overlays.|-|
+|**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
+|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
+|**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
 
 <br/>
 
