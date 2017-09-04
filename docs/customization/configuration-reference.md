@@ -90,9 +90,12 @@ YouTube and RTMP media formats are not supported.<sup>8.0+</sup>
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
-|**timeSliderAbove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
+
+!!!
+`timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, is deprecated. <sup>8.0+</sup>
+!!!
 
 #### Stretching Examples:
 
