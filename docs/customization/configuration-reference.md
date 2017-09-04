@@ -82,7 +82,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**controls**|Boolean|Whether to display the video controls (control bar, display icons and dock buttons)|true|
+|**controls**|Boolean|Whether to display the video controls (control bar and display icons)|true|
 |**localization**|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|360|
