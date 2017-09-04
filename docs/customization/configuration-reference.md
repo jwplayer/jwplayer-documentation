@@ -21,10 +21,10 @@ Here is an example setup that contains both **setup** options and specific **adv
 
 ```
 jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
+  "file": "https://example.com/myVideo.mp4",
   "height": 360,
   "width": 640,
-  "autostart": true,
+  "autostart": "viewable",
   "advertising": {
 		"client": "vast",
 		"tag": "http://adserver.com/vastTag.xml"
@@ -38,9 +38,7 @@ Web developers will recognize the JavaScript Object Notation ([JSON](https://en.
 
 ## Setup Options
 
-These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player
-
-
+These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player.
 
 The following properties are related to media that is loaded into the player.
 
@@ -64,11 +62,11 @@ If only a single playlist item is used, this information can either be configure
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**<sup>7.7</sup>|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|**nextupoffset**|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**<sup>7.12</sup>|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
+|**playbackRateControls**|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
 
 <br/>
 
@@ -77,7 +75,7 @@ If only a single playlist item is used, this information can either be configure
 |Setting|Type|Description|Default|
 |--|--|--|--|
 |**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
-|**localization**<sup>7.7</sup>|Object|Changes text for the player in certain locations|-|
+|**localization**|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|270|
 |**width**|Number or String|The desired height of your video player (In pixels or percentage)|480|
@@ -143,13 +141,13 @@ jwplayer("myElement").setup({
 |Setting|Type|Description|
 |--|--|--|
 |**playlist[_index_].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
-|**playlist[_index_].withCredentials**<sup>7.5</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
+|**playlist[_index_].withCredentials**|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
 |**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
 |**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|**playlist[_index_].recommendations**<sup>7.6</sup>|String|URL to a feed that contains related items for a particular playlist item|
-|**playlist[_index_].minDvrWindow**<sup>7.7</sup>|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
+|**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
+|**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |**playlist[index].stereomode**|String|Used for playback of a spherical 360 Video. "Monoscopic" is the value supported at this time.|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
@@ -190,7 +188,7 @@ jwplayer("myElement").setup({
   }]
 });
 ```
-#### Sources with DRM<sup>7.7</sup>
+#### Sources with DRM
 
 When using DRM, we highly suggest placing the drm block inside of the appropriate media source. This ensures the correct media and DRM pair gets chosen for the appropriate browser. For example:
 
@@ -261,7 +259,7 @@ In the above example, the player will add an "HD" button, allowing a user to tog
 |**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
 |**playlist[_index_].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
 |**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
-|**playlist[_index_].sources[].drm**<sup>7.7</sup>|Object|An object containing DRM information for a particular source|
+|**playlist[_index_].sources[].drm**|Object|An object containing DRM information for a particular source|
 
 <a name="playlist-tracks"></a>
 <br/>
@@ -615,7 +613,7 @@ Video content protection requires a JW Player Enterprise license. Please [contac
 
 Configuration options related to DRM for MPEG DASH (Playready, Widevine, Clearkey) and HLS streams (Fairplay).
 
-JW Player 7.7 includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
+JW Player includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
 
 For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management)
 
@@ -644,11 +642,11 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 
 <a name="headers"></a>
 
-### drm.[widevine/playready].headers<sup>7.7</sup>
+### drm.[widevine/playready].headers
 
-Adding customized HTTP header data to license requests is possible in JW 7.7+ with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
+Adding customized HTTP header data to license requests is possible with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
 
-In JW 7.7+, this can be configured in the following way:
+DRM can be configured in the following way:
 
 ```
 "drm": {
@@ -678,9 +676,9 @@ In previous versions, adding "customData" would look like the following:
 |**headers.value**|String|The value of the http header that will be included|
 
 <br/>
-### drm.fairplay<sup>7.7</sup>
+### drm.fairplay
 
-JW Player 7.7 includes new configuration options for custom Fairplay integrations, replacing 'url' and 'keyUrl' options from 7.5. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
+JW Player includes configuration options for custom Fairplay integrations. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
 
 |Option|Type|Description|
 |---|---|---|
@@ -701,7 +699,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |Option|Type|Description|
 |---|---|---|
 |**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|
-|**drm.clearkey.keyId<sup>7.7</sup>**|String|**(Required in 7.7+)** The key ID specified in the mpd's **default_KID** value  |
+|**drm.clearkey.keyId**|String|**(Required)** The key ID specified in the mpd's **default_KID** value  |
 
 <br/>
 
@@ -710,7 +708,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 * * *
 
-## Localization<sup>7.7</sup>
+## Localization
 
 Using the localization block in a player configuration allows you to configure certain words and phrases in the JW Player Next Up interface. The available options are below.
 
