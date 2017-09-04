@@ -34,6 +34,7 @@ jwplayer("myElement").setup({
 Web developers will recognize the JavaScript Object Notation ([JSON](https://en.wikipedia.org/wiki/JSON)) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 <a name="setup"></a>
+
 * * *
 
 ## Setup Options
@@ -104,6 +105,7 @@ If only a single playlist item is used, this information can either be configure
 #### *If no preload option is selected in HTML5 mode, JW Player will rely on a browser's default &lt;video&gt; preload behavior
 
 <a name="playlist"></a>
+
 * * *
 
 ## Playlist
@@ -152,8 +154,6 @@ jwplayer("myElement").setup({
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
-
-
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
@@ -275,7 +275,6 @@ Tracks can be attached to media for three possible reasons: **captions**, **thum
 |**playlist[_index_].tracks[].label**|String|Label of the text track. Is only used in setups with multiple captions, where the label is displayed in the CC selection menu.|index|
 |**playlist[_index_].tracks[].default**|Boolean|Only for **captions**. Set this to **true** if you want a captions track to display by default|-|
 
-
 When using the playlist to load an RSS feed, these options are set in the feed. See the [Media Formats Reference](https://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference) for an mapping of all playlist options to RSS format.
 
 
@@ -290,7 +289,6 @@ Video ad insertion requires a JW Player Platinum or Enterprise license. Please [
 ### playlist[_index_].adschedule
 
 The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block.
-
 
 |Config|Type|Information|
 |---|---|---|
@@ -366,7 +364,6 @@ This options block configures the styling of closed captions in the player for d
 |**captions.windowColor**|String|Hex color of the background of the entire captions area|"#000000"|
 |**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
 
-
 See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
 
 <a name="rtmp"></a>
@@ -430,7 +427,6 @@ Setting an empty **"sharing":{}** options block will enable the social sharing o
 |**Pinterest**|"interest"| |**Reddit**|"reddit"|
 |**Email**|"email"| |**LinkedIn**|"linkedin"|
 
-
 #### Example:
 
 ```
@@ -480,7 +476,6 @@ This options block controls an overlay with related videos.
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
 
-
 <a name="advertising"></a>
 
 * * *
@@ -513,10 +508,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
 |**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
 
-* * *
-
 <a name="advertising-schedule"></a>
-
 ### advertising.schedule
 
 Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
@@ -585,9 +577,7 @@ jwplayer("myElement").setup({
     }
 ```
 
-* * *
 <a name="advertising-companiondiv"></a>
-
 ### advertising.companiondiv
 
 This is a configuration block object with 3 properties: id, width and height. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
@@ -641,7 +631,6 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 <br/>
 
 <a name="headers"></a>
-
 ### drm.[widevine/playready].headers
 
 Adding customized HTTP header data to license requests is possible with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
@@ -676,6 +665,7 @@ In previous versions, adding "customData" would look like the following:
 |**headers.value**|String|The value of the http header that will be included|
 
 <br/>
+
 ### drm.fairplay
 
 JW Player includes configuration options for custom Fairplay integrations. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
@@ -700,9 +690,6 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |---|---|---|
 |**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|
 |**drm.clearkey.keyId**|String|**(Required)** The key ID specified in the mpd's **default_KID** value  |
-
-<br/>
-
 
 <a name="localization"></a>
 
