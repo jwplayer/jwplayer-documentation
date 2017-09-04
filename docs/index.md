@@ -10,7 +10,7 @@ Our goal is to provide you with documentation on more advanced uses of JW Player
 This site specifically caters to developers and designers who are using JW Player in their projects. For basic configuration settings or assistance embedding a player, please see our [support site](https://support.jwplayer.com). If you are visiting the developer site, a basic level of Javascript is required to use our API and a knowledge of CSS is necessary in order to customize our skinning model.
 
 ##Licenses
-Certain features of JW Player may require specific license types. For example, HLS and DASH streaming requires a Premium license, DRM and Advertising require an Enterprise license. A more extensive explanation of license types, and their features, can be be found on our [pricing page](https://www.jwplayer.com/pricing/).
+Certain features of JW Player may require specific license types. For example, DRM and Advertising require an Enterprise license. A more extensive explanation of license types, and their features, can be be found on our [pricing page](https://www.jwplayer.com/pricing/).
 
 ##Structure
 Our developer guide offers sections dedicated to developing with JW Player. Namely, we offer sections like:
