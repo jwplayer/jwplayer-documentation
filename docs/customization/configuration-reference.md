@@ -699,6 +699,28 @@ Using the localization block in a player configuration allows you to configure c
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**localization.nextUp**|String|override for the "Next Up" prompt |"Next Up"|
-|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode  |"Playlist"|
-|**localization.related**|String|Title of the Next Up tooltip in Related mode |"Related"|
+|**localization.airplay**|String|Title of the tooltip for the Airplay icon in the control bar |"Airplay"|
+|**localization.audioTracks**|String|Title of the tooltip for the audio track menu |"Audio tracks"|
+|**localization.buffer**|String|Title of the buffer state |"Loading"|
+|**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
+|**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
+|**localization.close**|String|Title of tooltip on close icon in Related mode  |"Close"|
+|**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
+|**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
+|**localization.liveBroadcast**|String|Override for the state of a live stream |"Live broadcast"|
+|**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
+|**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
+|**localization.next**|String|Title of the right arrow in paginated overlays  |"Next"|
+|**localization.nextUp**|String|Override for the "Next Up" prompt |"Next Up"|
+|**localization.nextUpClose**|String|Title of the tooltip to close the "Next Up" prompt  |"Next Up Close"|
+|**localization.pause**|String|Tooltip for the pause button  |"Pause"|
+|**localization.play**|String|Tooltip for the play button |"Play"|
+|**localization.playback**|String|Override for the play button in an idle state |"Start playback"|
+|**localization.playbackRates**|String|Title of the tooltip for the playback rate controls menu  |"Playback rates"|
+|**localization.player**|String|Override for the player application |"Video Player"|
+|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode |"Playlist"|
+|**localization.prev**|String|Title of the left arrow in paginated overlays |"Previous"|
+|**localization.related**|String|Title of the Next Up tooltip in Related mode  |"Discover"|
+|**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
+|**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
+|**localization.volume**|String|Tooltip for the volume controls |"Volume"|
