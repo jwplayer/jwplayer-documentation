@@ -383,17 +383,9 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 
 ## RTMP
 
-This options block controls the **specific** functions of the RTMP streaming protocol. These settings do not apply to HLS or DASH.
-
-#### Note: RTMP *requires* the installation of [Adobe Flash](https://get.adobe.com/flashplayer/) and will not work on mobile devices
-
-|Config|Type|Description|Default|
-|---|---|---|---|
-|**rtmp.bufferlength**|Number|This option controls how much buffer, in seconds, to load before playing back. A small buffer means faster starts/seeks, but a higher chance of re-buffering. |3|
-|**rtmp.subscribe**|Boolean|This option enables the FC Subscribe mechanism use by older streaming servers to manage load balancing|false|
-|**rtmp.securetoken**|String|This option, supported for older Wowza instances, provides a security token to JW Player, which then amends this option to the RTMP application URL|-|
-
-See [Using RTMP Streaming](https://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming) for more information.
+!!!
+The RTMP format was deprecated in JW8. <sup>8.0+</sup> For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
+!!!
 
 <a name="logo"></a>
 
