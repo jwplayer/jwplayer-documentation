@@ -73,8 +73,8 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**|Boolean|Whether to display a settings submenu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
-|**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings submenu.|[0.25, 0.75, 1, 1.25]|
+|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
+|**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
 
 <br/>
 
@@ -239,9 +239,9 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
 ```
 See our [drm](#drm) section for more information.
 
-#### Quality Toggle for Video Files
+#### Quality Settings for Video Files
 
-In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings submenu in the player. Compared to other streaming methods, it has the following drawbacks:
+In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings menu in the player. Compared to other streaming methods, it has the following drawbacks:
 
 * No automatic switching, based on bandwidth or download speed
 * Changing qualities may cause playback stuttering
@@ -263,12 +263,10 @@ jwplayer("myElement").setup({
 });
 ```
 
-In the above example, the player will add an "HD" button, allowing a user to toggle their desired video quality. If more than two sources are used, the player will instead overlay a quality selection menu, rather than a quality toggle.
-
 |Config|Type|Description|
 |---|---|---|
 |**playlist[_index_].sources[].file**|String|URL to the video file, audio file, YouTube video or live stream of this playlist item source.|
-|**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
+|**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual quality selection menu. Set this if you have more than 2 qualities of your video.|
 |**playlist[_index_].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
 |**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
 |**playlist[_index_].sources[].drm**|Object|An object containing DRM information for a particular source|
@@ -401,7 +399,7 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.hide**|Boolean|When this option is set to true, the logo will automatically show and hide along with the other player controls|false|
 |**logo.link**|String|The URL to visit when the watermark image is clicked. Clicking a logo will have no affect unless this is configured|-|
 |**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|20|
-|**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon on the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
+|**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
 See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
 
@@ -411,9 +409,9 @@ See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles
 
 ## Sharing
 
-This options block controls an overlay with social sharing options: copy embed code, copy video link and share video to social networks.
+This options block controls a settings submenu with social sharing options: copy embed code, copy video link and share video to social networks.
 
-Setting an empty **"sharing":{}** options block will enable the social sharing overlay. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
+Setting an empty **"sharing":{}** options block will enable the social sharing menu and icon in the control bar. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -441,7 +439,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) for more information.
+See our [Social Sharing](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) support article for more information.
 
 <a name="ga"></a>
 
