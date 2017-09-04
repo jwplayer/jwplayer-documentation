@@ -58,7 +58,7 @@ If only a single playlist item is used, this information can either be configure
 |**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
 
 !!!
-YouTube and RTMP media formats are not supported.<sup>8.0+</sup>
+YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 !!!
 
 <br/>
@@ -94,7 +94,7 @@ YouTube and RTMP media formats are not supported.<sup>8.0+</sup>
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
 !!!
-`timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, is deprecated. <sup>8.0+</sup>
+`timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
 !!!
 
 #### Stretching Examples:
@@ -107,12 +107,16 @@ YouTube and RTMP media formats are not supported.<sup>8.0+</sup>
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
-|**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**base**|String|Configures an alternate base path for skins and providers|"/"|
-|**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none":** Player will explicitly **not** preload content <br/>**"metadata":** Only basic playback information will be loaded<br/> **"auto":** Browser attempts to load more of the video <br/>If you are concerned about excess content usage, we suggest setting **"preload":"none"**|*|
+|**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none"** — Player will explicitly **not** preload content. **(Recommended if you are concerned about excess content usage.)**<br/>**"metadata"** — Loads the manifest and buffers a maximum of one segment of media for HLS and Dash streams.<br/> **"auto"** — Loads the manifest and buffers approximately 30 seconds worth of media segments.|"metadata"|
+|**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 
-#### *If no preload option is selected in HTML5 mode, JW Player will rely on a browser's default &lt;video&gt; preload behavior
+!!!
+`primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
+<br/>
+<br/>
+The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
+!!!
 
 <a name="playlist"></a>
 
