@@ -89,7 +89,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**width**|Number or String|The desired height of your video player (In pixels or percentage)|640|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
-|**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
+|**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
@@ -97,7 +97,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 `timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
 !!!
 
-#### Stretching Examples:
+#### Stretching Examples
 
 ![](//support-static.jwplayer.com/images/stretch-options.png)
 
@@ -181,7 +181,8 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
  * **Use different file types:** Alternate "fallback" media sources
  * **Use the same file type:** Toggle quality with static video files
 
-####Alternate Media Sources
+#### Alternate Media Sources
+
 If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
 
 ```
@@ -333,7 +334,8 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 Used for configuring JW Player's skin. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).
 
-####Color customization:
+#### Color Customization
+
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**skin.active**|String|The color of "active" skin elements.|"#ff0046"|
@@ -341,7 +343,8 @@ Used for configuring JW Player's skin. Color can be specified as a [hex value](h
 |**skin.background**|String|The color of a skin's background portion|"#000000"|
 |**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
 
-####Custom skins:
+#### Custom Skins
+
 For more information regarding custom skins, see: [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/).
 
 |Config|Type|Description|Default|
@@ -421,6 +424,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
 #### Available Built-In Social Networks
+
 |Social Network|Configuration Value| |Social Network|Configuration Value|
 |-|-|-|-|-|
 |**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
@@ -428,7 +432,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |**Pinterest**|"interest"| |**Reddit**|"reddit"|
 |**Email**|"email"| |**LinkedIn**|"linkedin"|
 
-#### Example:
+#### Example
 
 ```
 jwplayer("myElement").setup({
@@ -515,6 +519,7 @@ This options block configures the video advertising capabilities of JW Player. I
 Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
 
 #### Ad Schedules with VMAP Files
+
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
 ```
 jwplayer("myElement").setup({
@@ -529,6 +534,7 @@ jwplayer("myElement").setup({
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
 
 #### Embedded Ad Schedules with JSON
+
 In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
 
 |Option|Type|Description|Default|
