@@ -51,11 +51,15 @@ If only a single playlist item is used, this information can either be configure
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**file**|String|**(Required)** URL to a single video file, audio file, YouTube video or live stream to play. Can also be configured inside of a [sources](#playlist-sources) array|-|
+|**file**|String|**(Required)** URL to a single video file, audio file, or live stream to play. Can also be configured inside of a [sources](#playlist-sources) array|-|
 |**image**|String|URL to a poster image to display before playback starts. |-|
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
 |**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
+
+!!!
+YouTube and RTMP media formats are not supported.<sup>8.0+</sup>
+!!!
 
 <br/>
 
@@ -69,7 +73,8 @@ If only a single playlist item is used, this information can either be configure
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
+|**playbackRateControls**|Boolean|Whether to display a settings submenu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
+|**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings submenu.|[0.25, 0.75, 1, 1.25]|
 
 <br/>
 
@@ -77,7 +82,7 @@ If only a single playlist item is used, this information can either be configure
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
+|**controls**|Boolean|Whether to display the video controls (control bar, display icons and dock buttons)|true|
 |**localization**|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
 |**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|270|
@@ -229,7 +234,7 @@ See our [drm](#drm) section for more information.
 
 #### Quality Toggle for Video Files
 
-In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection menu in the player control bar. Compared to other streaming methods, it has the following drawbacks:
+In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings submenu in the player. Compared to other streaming methods, it has the following drawbacks:
 
 * No automatic switching, based on bandwidth or download speed
 * Changing qualities may cause playback stuttering
@@ -271,7 +276,7 @@ Tracks can be attached to media for three possible reasons: **captions**, **thum
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**playlist[_index_].tracks[].file**|String|URL to the captions, chapters or thumbnails text track file. See [Adding Closed Captions](https://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions) for an example setup.|-|
-|**playlist[_index_].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video control bar, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the control bar|"captions"|
+|**playlist[_index_].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video er, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the timeslider|"captions"|
 |**playlist[_index_].tracks[].label**|String|Label of the text track. Is only used in setups with multiple captions, where the label is displayed in the CC selection menu.|index|
 |**playlist[_index_].tracks[].default**|Boolean|Only for **captions**. Set this to **true** if you want a captions track to display by default|-|
 
