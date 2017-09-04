@@ -333,24 +333,25 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 ## Skin
 
-Used for configuring JW Player's skins. The below default color values assume that the default **"seven"** skin is being used
+Used for configuring JW Player's skin. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).
 
-#### Note: In these examples, color can be specified as [hex value](http://www.w3schools.com/colors/colors_picker.asp) values or as a [color name](http://www.w3schools.com/colors/colors_names.asp).
-
+####Color customization:
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.name**|String|The skin to use for styling the player. JW Player includes [9 premade skins](https://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins)|"seven"|
 |**skin.active**|String|The color of "active" skin elements.|"#ff0046"|
 |**skin.inactive**|String|The color of "inactive" skin elements|"#ffffff"|
 |**skin.background**|String|The color of a skin's background portion|"#000000"|
 |**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
 
-*If you are specifying **skin.url**, you will still need to specify **skin.name** and it must match the name in your .css file
+####Custom skins:
+For more information regarding custom skins, see: [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/).
 
-More information regarding skins, see the following articles:
+|Config|Type|Description|Default|
+|---|---|---|---|
+|**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
+|**skin.name**|String|The name of your custom skin to use for styling the player. If you are specifying **skin.url**, you must specify **skin.name**, which must match the class name in your CSS file.|-|
 
- * [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/)
- * [Creating your own Font with JW Player](/customization/css-skinning/skins_fonts/)
+
 
 <a name="captions"></a>
 
