@@ -332,9 +332,9 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 ## Skin
 
-Used for configuring JW Player's skin. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).
-
 #### Color Customization
+
+Used for configuring JW Player's skin. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -516,7 +516,7 @@ This options block configures the video advertising capabilities of JW Player. I
 <a name="advertising-schedule"></a>
 ### advertising.schedule
 
-Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
+Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule).
 
 #### Ad Schedules with VMAP Files
 
@@ -613,7 +613,7 @@ For more information regarding DRM, and for examples, please view our [support a
 
 ###drm.playready
 
-Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or higher operating systems
+Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or higher operating systems.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
