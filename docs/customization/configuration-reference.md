@@ -45,6 +45,8 @@ The following properties are related to media that is loaded into the player.
 
 If only a single playlist item is used, this information can either be configured directly inside of **setup**. If you are planning on using multiple media items, these can also be used inside of a **[playlist](#playlist)** array.
 
+<br/>
+
 ### Media
 
 |Setting|Type|Description|Default|
@@ -157,10 +159,9 @@ jwplayer("myElement").setup({
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
-<a name="playlist-sources"></a>
-
 <br/>
 
+<a name="playlist-sources"></a>
 ### playlist[_index_].sources[]
 
 Sources are inserted into playlist objects and are lists of files. Sources serve a dual purpose, depending on the files used:
@@ -226,7 +227,6 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
 ```
 See our [drm](#drm) section for more information.
 
-
 #### Quality Toggle for Video Files
 
 In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection menu in the player control bar. Compared to other streaming methods, it has the following drawbacks:
@@ -261,9 +261,9 @@ In the above example, the player will add an "HD" button, allowing a user to tog
 |**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
 |**playlist[_index_].sources[].drm**|Object|An object containing DRM information for a particular source|
 
-<a name="playlist-tracks"></a>
 <br/>
 
+<a name="playlist-tracks"></a>
 ### playlist[_index_].tracks[]
 
 Tracks can be attached to media for three possible reasons: **captions**, **thumbnails**, or **chapters**. Thumbnail and chapter files **must** be in WEBVTT format. Captions accept **WEBVTT**, **SRT**, and **DFXP** format, though JW Player strongly suggests using **WEBVTT** if possible.
@@ -277,11 +277,9 @@ Tracks can be attached to media for three possible reasons: **captions**, **thum
 
 When using the playlist to load an RSS feed, these options are set in the feed. See the [Media Formats Reference](https://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference) for an mapping of all playlist options to RSS format.
 
-
-<a name="playlist-adschedule"></a>
-
 <br/>
 
+<a name="playlist-adschedule"></a>
 !!!important
 Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
@@ -508,12 +506,12 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
 |**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
 
+<br/>
+
 <a name="advertising-schedule"></a>
 ### advertising.schedule
 
 Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
-
-<br/>
 
 #### Ad Schedules with VMAP Files
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
@@ -528,8 +526,6 @@ jwplayer("myElement").setup({
 ```
 
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
-
-<br/>
 
 #### Embedded Ad Schedules with JSON
 In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
@@ -576,6 +572,7 @@ jwplayer("myElement").setup({
         }
     }
 ```
+<br/>
 
 <a name="advertising-companiondiv"></a>
 ### advertising.companiondiv
