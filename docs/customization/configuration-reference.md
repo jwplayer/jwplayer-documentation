@@ -128,6 +128,7 @@ The playlist is a powerful feature of JW Player, used to play multiple video or 
 
 A playlist can be either a **string**, referring to the URL of an RSS feed or JSON file, or an **array** of media objects.
 
+
 #### Configuring Playlist as a String
 
 ```
@@ -135,6 +136,7 @@ jwplayer("myElement").setup({
   "playlist": "http://example.com/myPlaylist.json"
 });
 ```
+<br/>
 
 #### Configuring Playlist as an Array
 
@@ -202,6 +204,9 @@ jwplayer("myElement").setup({
   }]
 });
 ```
+
+<br/>
+
 #### Sources with DRM
 
 When using DRM, we highly suggest placing the drm block inside of the appropriate media source. This ensures the correct media and DRM pair gets chosen for the appropriate browser. For example:
@@ -239,6 +244,8 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
     }]
 ```
 See our [drm](#drm) section for more information.
+
+<br/>
 
 #### Quality Settings for Video Files
 
@@ -332,9 +339,12 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 ## Skin
 
+JW8 comes with 11 new skin configuration options out of the box. With such granular control over brand identity, it’s easier than ever to customize the player.
+
+
 #### Color Customization
 
-JW8 comes with 11 new skin configuration options out of the box. With such granular control over brand identity, it’s easier than ever to customize the player. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).<sup>8.0+</sup>
+Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).<sup>8.0+</sup>
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -349,6 +359,8 @@ JW8 comes with 11 new skin configuration options out of the box. With such granu
 |**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
 |**skin.tooltips.text**|String|The text color of tooltips.|"#333333|
 |**skin.tooltips.background**|String|The background color of tooltips. |"#FFFFFF"|
+
+<br/>
 
 #### Backward Compatability 
 JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version. 
@@ -368,6 +380,8 @@ The table below shows how the three JW7 customization options map to the new JW8
 |**skin.controlbar.background**| | | X |
 |**skin.menus.background**| | | X |
 |**skin.timeslider.rail**| does not map |
+
+<br/>
 
 #### Custom Skins
 
@@ -454,6 +468,8 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
+<br/>
+
 #### Available Built-In Social Networks
 
 |Social Network|Configuration Value| |Social Network|Configuration Value|
@@ -462,6 +478,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |**Twitter**|"twitter"| |**Google Plus**|"googleplus"|
 |**Pinterest**|"interest"| |**Reddit**|"reddit"|
 |**Email**|"email"| |**LinkedIn**|"linkedin"|
+
 
 #### Example
 
@@ -563,6 +580,7 @@ jwplayer("myElement").setup({
 ```
 
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
+
 
 #### Embedded Ad Schedules with JSON
 
