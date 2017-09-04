@@ -334,14 +334,40 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 #### Color Customization
 
-Used for configuring JW Player's skin. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).
+JW8 comes with 11 new skin configuration options out of the box. With such granular control over brand identity, it’s easier than ever to customize the player. Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).<sup>8.0+</sup>
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.active**|String|The color of "active" skin elements.|"#ff0046"|
-|**skin.inactive**|String|The color of "inactive" skin elements|"#ffffff"|
-|**skin.background**|String|The color of a skin's background portion|"#000000"|
-|**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
+|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#F2F2F2"|
+|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"#CCCCCC"|
+|**skin.controlbar.iconsActive**|String|The color of hovered or selected icons in the control bar.|"#FFFFFF"|
+|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(255,255,255,0)"|
+|**skin.timeslider.progress**|String|The color of the bar in the time slider filled in from the beginning of the video through the current position. The buffer region of the control bar is 50% of the opacity of this color. The color of the volume slider is also controlled by this option.|"#F2F2F2"|
+|**skin.timeslider.rail**|String|The color color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
+|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"#F2F2F2"|
+|**skin.menus.textActive**|String|The color of hovered or selected text in menus. This option also controls the text color in the Discover overlay and the hover state text color in the Next Up overlay.|"#FFFFFF"|
+|**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
+|**skin.tooltips.text**|String|The text color of tooltips.|"#333333|
+|**skin.tooltips.background**|String|The background color of tooltips. |"#FFFFFF"|
+
+#### Backward Compatability 
+JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version. 
+
+The table below shows how the three JW7 customization options map to the new JW8 options. You can use both JW7 and JW8 options in an 8 player, with the more specific JW8 configurations overriding JW7 ones when both apply to the same element. Note that there’s no JW7 mapping to the new `skin.timeslider.rail` option.
+
+|New JW8 Config|skin.active|skin.inactive|skin.background|
+|---|-|-|-|
+|**skin.controlbar.iconsActive**|X| | |
+|**skin.timeslider.progress**|X| | |
+|**skin.menus.textActive**|X| | |
+|**skin.controlbar.text**| | X | |
+|**skin.controlbar.icons**| | X | |
+|**skin.menus.text**| | X | |
+|**skin.tooltips.text**| | X | |
+|**skin.tooltips.background**| | | X |
+|**skin.controlbar.background**| | | X |
+|**skin.menus.background**| | | X |
+|**skin.timeslider.rail**| does not map |
 
 #### Custom Skins
 
@@ -349,8 +375,13 @@ For more information regarding custom skins, see: [Creating a Skin for JW Player
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
+|**skin.url**|String|If using an external CSS file to style your player, this must be specified here.|-|
 |**skin.name**|String|The name of your custom skin to use for styling the player. If you are specifying **skin.url**, you must specify **skin.name**, which must match the class name in your CSS file.|-|
+
+!!!
+The nine skins available in JW7 have been deprecated.<sup>8.0+</sup>
+!!!
+
 
 <a name="captions"></a>
 
