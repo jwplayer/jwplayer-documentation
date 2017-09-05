@@ -353,7 +353,7 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 |**skin.controlbar.iconsActive**|String|The color of hovered or selected icons in the control bar.|"#FFFFFF"|
 |**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(255,255,255,0)"|
 |**skin.timeslider.progress**|String|The color of the bar in the time slider filled in from the beginning of the video through the current position. The buffer region of the control bar is 50% of the opacity of this color. The color of the volume slider is also controlled by this option.|"#F2F2F2"|
-|**skin.timeslider.rail**|String|The color color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
+|**skin.timeslider.rail**|String|The color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
 |**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"#F2F2F2"|
 |**skin.menus.textActive**|String|The color of hovered or selected text in menus. This option also controls the text color in the Discover overlay and the hover state text color in the Next Up overlay.|"#FFFFFF"|
 |**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
