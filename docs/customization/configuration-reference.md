@@ -21,10 +21,10 @@ Here is an example setup that contains both **setup** options and specific **adv
 
 ```
 jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
+  "file": "https://example.com/myVideo.mp4",
   "height": 360,
   "width": 640,
-  "autostart": true,
+  "autostart": "viewable",
   "advertising": {
 		"client": "vast",
 		"tag": "http://adserver.com/vastTag.xml"
@@ -34,27 +34,32 @@ jwplayer("myElement").setup({
 Web developers will recognize the JavaScript Object Notation ([JSON](https://en.wikipedia.org/wiki/JSON)) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 <a name="setup"></a>
+
 * * *
 
 ## Setup Options
 
-These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player
-
-
+These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player.
 
 The following properties are related to media that is loaded into the player.
 
 If only a single playlist item is used, this information can either be configured directly inside of **setup**. If you are planning on using multiple media items, these can also be used inside of a **[playlist](#playlist)** array.
 
+<br/>
+
 ### Media
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**file**|String|**(Required)** URL to a single video file, audio file, YouTube video or live stream to play. Can also be configured inside of a [sources](#playlist-sources) array|-|
+|**file**|String|**(Required)** URL to a single video file, audio file, or live stream to play. Can also be configured inside of a [sources](#playlist-sources) array|-|
 |**image**|String|URL to a poster image to display before playback starts. |-|
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
 |**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
+
+!!!
+YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
+!!!
 
 <br/>
 
@@ -64,11 +69,12 @@ If only a single playlist item is used, this information can either be configure
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**<sup>7.7</sup>|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|**nextupoffset**|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**<sup>7.12</sup>|Boolean or Array of Numbers|Whether to display a button in the controlbar to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. Instead of true, an array can be passed to customize the menu options. For example: "playbackRateControls": [0.25, 0.75, 1, 1.25]. |false|
+|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
+|**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
 
 <br/>
 
@@ -76,19 +82,22 @@ If only a single playlist item is used, this information can either be configure
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**controls**|Boolean|Whether to display the video controls (controlbar, display icons and dock buttons)|true|
-|**localization**<sup>7.7</sup>|Object|Changes text for the player in certain locations|-|
-|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Note:** Must be entered in ratio "x:y" format|-|
-|**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|270|
-|**width**|Number or String|The desired height of your video player (In pixels or percentage)|480|
+|**controls**|Boolean|Whether to display the video controls (control bar and display icons)|true|
+|**localization**|Object|Changes text for the player in certain locations|-|
+|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
+|**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|360|
+|**width**|Number or String|The desired height of your video player (In pixels or percentage)|640|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
-|**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform":** Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill":** Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none":** Displays the actual size of the video file. (Black borders)|"uniform"|
-|**timeSliderAbove**|Boolean|Configures whether the timeslider is dynamic based on size, is always above, or never above|-|
+|**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
 
-#### Stretching Examples:
+!!!
+`timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
+!!!
+
+#### Stretching Examples
 
 ![](//support-static.jwplayer.com/images/stretch-options.png)
 
@@ -98,14 +107,19 @@ If only a single playlist item is used, this information can either be configure
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**primary**|String| Sets the default player rendering mode.<br/>**"flash":** Player will attempt to render with Flash<br/>**"html5":** Player will attempt to render in HTML5| "html5" |
-|**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**base**|String|Configures an alternate base path for skins and providers|"/"|
-|**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none":** Player will explicitly **not** preload content <br/>**"metadata":** Only basic playback information will be loaded<br/> **"auto":** Browser attempts to load more of the video <br/>If you are concerned about excess content usage, we suggest setting **"preload":"none"**|*|
+|**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none"** — Player will explicitly **not** preload content. **(Recommended if you are concerned about excess content usage.)**<br/>**"metadata"** — Loads the manifest and buffers a maximum of one segment of media for HLS and Dash streams.<br/> **"auto"** — Loads the manifest and buffers approximately 30 seconds worth of media segments.|"metadata"|
+|**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 
-#### *If no preload option is selected in HTML5 mode, JW Player will rely on a browser's default &lt;video&gt; preload behavior
+!!!
+`primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
+<br/>
+<br/>
+The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
+!!!
 
 <a name="playlist"></a>
+
 * * *
 
 ## Playlist
@@ -114,6 +128,7 @@ The playlist is a powerful feature of JW Player, used to play multiple video or 
 
 A playlist can be either a **string**, referring to the URL of an RSS feed or JSON file, or an **array** of media objects.
 
+
 #### Configuring Playlist as a String
 
 ```
@@ -121,6 +136,7 @@ jwplayer("myElement").setup({
   "playlist": "http://example.com/myPlaylist.json"
 });
 ```
+<br/>
 
 #### Configuring Playlist as an Array
 
@@ -143,26 +159,23 @@ jwplayer("myElement").setup({
 |Setting|Type|Description|
 |--|--|--|
 |**playlist[_index_].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
-|**playlist[_index_].withCredentials**<sup>7.5</sup>|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
+|**playlist[_index_].withCredentials**|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
 |**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
 |**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|**playlist[_index_].recommendations**<sup>7.6</sup>|String|URL to a feed that contains related items for a particular playlist item|
-|**playlist[_index_].minDvrWindow**<sup>7.7</sup>|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
+|**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
+|**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |**playlist[index].stereomode**|String|Used for playback of a spherical 360 Video. "Monoscopic" is the value supported at this time.|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
 
-
-
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
-
-<a name="playlist-sources"></a>
 
 <br/>
 
+<a name="playlist-sources"></a>
 ### playlist[_index_].sources[]
 
 Sources are inserted into playlist objects and are lists of files. Sources serve a dual purpose, depending on the files used:
@@ -170,7 +183,8 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
  * **Use different file types:** Alternate "fallback" media sources
  * **Use the same file type:** Toggle quality with static video files
 
-####Alternate Media Sources
+#### Alternate Media Sources
+
 If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
 
 ```
@@ -190,7 +204,10 @@ jwplayer("myElement").setup({
   }]
 });
 ```
-#### Sources with DRM<sup>7.7</sup>
+
+<br/>
+
+#### Sources with DRM
 
 When using DRM, we highly suggest placing the drm block inside of the appropriate media source. This ensures the correct media and DRM pair gets chosen for the appropriate browser. For example:
 
@@ -228,10 +245,11 @@ When using DRM, we highly suggest placing the drm block inside of the appropriat
 ```
 See our [drm](#drm) section for more information.
 
+<br/>
 
-#### Quality Toggle for Video Files
+#### Quality Settings for Video Files
 
-In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection menu in the player control bar. Compared to other streaming methods, it has the following drawbacks:
+In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings menu in the player. Compared to other streaming methods, it has the following drawbacks:
 
 * No automatic switching, based on bandwidth or download speed
 * Changing qualities may cause playback stuttering
@@ -253,19 +271,17 @@ jwplayer("myElement").setup({
 });
 ```
 
-In the above example, the player will add an "HD" button, allowing a user to toggle their desired video quality. If more than two sources are used, the player will instead overlay a quality selection menu, rather than a quality toggle.
-
 |Config|Type|Description|
 |---|---|---|
 |**playlist[_index_].sources[].file**|String|URL to the video file, audio file, YouTube video or live stream of this playlist item source.|
-|**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual HD selection menu. Set this if you have more than 2 qualities of your video.|
+|**playlist[_index_].sources[].label**|String|Label of the media source, displayed in the manual quality selection menu. Set this if you have more than 2 qualities of your video.|
 |**playlist[_index_].sources[].type**|String|Forces a media type. Only required when a file extension is missing or not recognized (Using .php or certain tokens, for example|
 |**playlist[_index_].sources[].default**|Boolean|Set this to **true** for the media source you want to play on startup. If this isn't set for any source, the first one is used|
-|**playlist[_index_].sources[].drm**<sup>7.7</sup>|Object|An object containing DRM information for a particular source|
+|**playlist[_index_].sources[].drm**|Object|An object containing DRM information for a particular source|
 
-<a name="playlist-tracks"></a>
 <br/>
 
+<a name="playlist-tracks"></a>
 ### playlist[_index_].tracks[]
 
 Tracks can be attached to media for three possible reasons: **captions**, **thumbnails**, or **chapters**. Thumbnail and chapter files **must** be in WEBVTT format. Captions accept **WEBVTT**, **SRT**, and **DFXP** format, though JW Player strongly suggests using **WEBVTT** if possible.
@@ -273,26 +289,22 @@ Tracks can be attached to media for three possible reasons: **captions**, **thum
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**playlist[_index_].tracks[].file**|String|URL to the captions, chapters or thumbnails text track file. See [Adding Closed Captions](https://support.jwplayer.com/customer/portal/articles/1407438-adding-closed-captions) for an example setup.|-|
-|**playlist[_index_].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video control bar, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the control bar|"captions"|
+|**playlist[_index_].tracks[].kind**|String|The kind of text track. <br/> **"captions":** Captions that display during video playback<br/>**"chapters":** Places markers on the video er, displaying different sections<br/>**"thumbnails":** A list of thumbnails that appear when the mouse cursor hovers on the timeslider|"captions"|
 |**playlist[_index_].tracks[].label**|String|Label of the text track. Is only used in setups with multiple captions, where the label is displayed in the CC selection menu.|index|
 |**playlist[_index_].tracks[].default**|Boolean|Only for **captions**. Set this to **true** if you want a captions track to display by default|-|
 
-
 When using the playlist to load an RSS feed, these options are set in the feed. See the [Media Formats Reference](https://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference) for an mapping of all playlist options to RSS format.
-
-
-<a name="playlist-adschedule"></a>
 
 <br/>
 
+<a name="playlist-adschedule"></a>
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
+Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
 
 ### playlist[_index_].adschedule
 
 The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block.
-
 
 |Config|Type|Information|
 |---|---|---|
@@ -327,24 +339,63 @@ See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644
 
 ## Skin
 
-Used for configuring JW Player's skins. The below default color values assume that the default **"seven"** skin is being used
+JW8 comes with 11 new skin configuration options out of the box. With such granular control over brand identity, it’s easier than ever to customize the player.
 
-#### Note: In these examples, color can be specified as [hex value](http://www.w3schools.com/colors/colors_picker.asp) values or as a [color name](http://www.w3schools.com/colors/colors_names.asp).
+
+#### Color Customization
+
+Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp), [RGBA color value](https://www.w3schools.com/css/css3_colors.asp), or [color name](http://www.w3schools.com/colors/colors_names.asp).<sup>8.0+</sup>
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.name**|String|The skin to use for styling the player. JW Player includes [9 premade skins](https://support.jwplayer.com/customer/portal/articles/1406968-using-jw-player-skins)|"seven"|
-|**skin.active**|String|The color of "active" skin elements.|"#ff0046"|
-|**skin.inactive**|String|The color of "inactive" skin elements|"#ffffff"|
-|**skin.background**|String|The color of a skin's background portion|"#000000"|
-|**skin.url**|String|If using an external CSS file to style your player, this can be specified here*|-|
+|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#F2F2F2"|
+|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"#CCCCCC"|
+|**skin.controlbar.iconsActive**|String|The color of hovered or selected icons in the control bar.|"#FFFFFF"|
+|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(255,255,255,0)"|
+|**skin.timeslider.progress**|String|The color of the bar in the time slider filled in from the beginning of the video through the current position. The buffer region of the control bar is 50% of the opacity of this color. The color of the volume slider is also controlled by this option.|"#F2F2F2"|
+|**skin.timeslider.rail**|String|The color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
+|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"#F2F2F2"|
+|**skin.menus.textActive**|String|The color of hovered or selected text in menus. This option also controls the text color in the Discover overlay and the hover state text color in the Next Up overlay.|"#FFFFFF"|
+|**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
+|**skin.tooltips.text**|String|The text color of tooltips.|"#333333|
+|**skin.tooltips.background**|String|The background color of tooltips. |"#FFFFFF"|
 
-*If you are specifying **skin.url**, you will still need to specify **skin.name** and it must match the name in your .css file
+<br/>
 
-More information regarding skins, see the following articles:
+#### Backward Compatability 
+JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version. 
 
- * [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/)
- * [Creating your own Font with JW Player](/customization/css-skinning/skins_fonts/)
+The table below shows how the three JW7 customization options map to the new JW8 options. You can use both JW7 and JW8 options in an 8 player, with the more specific JW8 configurations overriding JW7 ones when both apply to the same element. Note that there’s no JW7 mapping to the new `skin.timeslider.rail` option.
+
+|New JW8 Config|skin.active|skin.inactive|skin.background|
+|---|-|-|-|
+|**skin.controlbar.iconsActive**|X| | |
+|**skin.timeslider.progress**|X| | |
+|**skin.menus.textActive**|X| | |
+|**skin.controlbar.text**| | X | |
+|**skin.controlbar.icons**| | X | |
+|**skin.menus.text**| | X | |
+|**skin.tooltips.text**| | X | |
+|**skin.tooltips.background**| | | X |
+|**skin.controlbar.background**| | | X |
+|**skin.menus.background**| | | X |
+|**skin.timeslider.rail**| does not map |
+
+<br/>
+
+#### Custom Skins
+
+For more information regarding custom skins, see: [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/).
+
+|Config|Type|Description|Default|
+|---|---|---|---|
+|**skin.url**|String|If using an external CSS file to style your player, this must be specified here.|-|
+|**skin.name**|String|The name of your custom skin to use for styling the player. If you are specifying **skin.url**, you must specify **skin.name**, which must match the class name in your CSS file.|-|
+
+!!!
+The nine skins available in JW7 have been deprecated.<sup>8.0+</sup>
+!!!
+
 
 <a name="captions"></a>
 
@@ -353,8 +404,6 @@ More information regarding skins, see the following articles:
 ## Captions
 
 This options block configures the styling of closed captions in the player for desktop browsers. On iOS/Android, a system settings menu provides exactly the same settings, as these are mandated by the FCC.
-
-#### Note: When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -368,6 +417,9 @@ This options block configures the styling of closed captions in the player for d
 |**captions.windowColor**|String|Hex color of the background of the entire captions area|"#000000"|
 |**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
 
+!!!
+When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
+!!!
 
 See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
 
@@ -377,17 +429,9 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 
 ## RTMP
 
-This options block controls the **specific** functions of the RTMP streaming protocol. These settings do not apply to HLS or DASH.
-
-#### Note: RTMP *requires* the installation of [Adobe Flash](https://get.adobe.com/flashplayer/) and will not work on mobile devices
-
-|Config|Type|Description|Default|
-|---|---|---|---|
-|**rtmp.bufferlength**|Number|This option controls how much buffer, in seconds, to load before playing back. A small buffer means faster starts/seeks, but a higher chance of re-buffering. |3|
-|**rtmp.subscribe**|Boolean|This option enables the FC Subscribe mechanism use by older streaming servers to manage load balancing|false|
-|**rtmp.securetoken**|String|This option, supported for older Wowza instances, provides a security token to JW Player, which then amends this option to the RTMP application URL|-|
-
-See [Using RTMP Streaming](https://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming) for more information.
+!!!
+The RTMP format was deprecated in JW8.<sup>8.0+</sup> For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
+!!!
 
 <a name="logo"></a>
 
@@ -402,8 +446,8 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.file**|String|The URL of an external JPG, PNG or GIF image to be used as watermark (e.g. /assets/logo.png). We recommend using 24 bit PNG images with transparency|-|
 |**logo.hide**|Boolean|When this option is set to true, the logo will automatically show and hide along with the other player controls|false|
 |**logo.link**|String|The URL to visit when the watermark image is clicked. Clicking a logo will have no affect unless this is configured|-|
-|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|8|
-|**logo.position**|String|This sets the corner in which to display the watermark. <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right"**| "top-right" |
+|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|20|
+|**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
 See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
 
@@ -413,9 +457,9 @@ See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles
 
 ## Sharing
 
-This options block controls an overlay with social sharing options: copy embed code, copy video link and share video to social networks.
+This options block controls a settings submenu with social sharing options: copy embed code, copy video link and share video to social networks.
 
-Setting an empty **"sharing":{}** options block will enable the social sharing overlay. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
+Setting an empty **"sharing":{}** options block will enable the social sharing menu and icon in the control bar. Without the nested config options, it will show the page URL link with default sharing sites, but no embed code.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -424,7 +468,10 @@ Setting an empty **"sharing":{}** options block will enable the social sharing o
 |**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
+<br/>
+
 #### Available Built-In Social Networks
+
 |Social Network|Configuration Value| |Social Network|Configuration Value|
 |-|-|-|-|-|
 |**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
@@ -433,7 +480,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing o
 |**Email**|"email"| |**LinkedIn**|"linkedin"|
 
 
-#### Example:
+#### Example
 
 ```
 jwplayer("myElement").setup({
@@ -444,7 +491,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) for more information.
+See our [Social Sharing](https://support.jwplayer.com/customer/portal/articles/1409823-social-sharing-overlay#fndtn-dashboard) support article for more information.
 
 <a name="ga"></a>
 
@@ -454,13 +501,11 @@ See [Social Sharing Overlay](https://support.jwplayer.com/customer/portal/articl
 
 This options block configures the built-in integration with Google Analytics.
 
-#### Note: Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player.
-
-Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
-
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**ga.label**|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
+
+Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
@@ -478,10 +523,9 @@ This options block controls an overlay with related videos.
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
 |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
-|**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **Note:** **xx** will be replaced by the countdown timer<br/> **Note:** **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
+|**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
-
 
 <a name="advertising"></a>
 
@@ -490,7 +534,7 @@ See [Display Related Videos](https://support.jwplayer.com/customer/portal/articl
 ## Advertising
 
 !!!important
-Video ad insertion requires a JW Player Platinum or Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
+Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
 !!!
 
 This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default.
@@ -509,23 +553,21 @@ This options block configures the video advertising capabilities of JW Player. I
 |**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in FreeWheel|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|-|
 |**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
-|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. Note: if the VPAID creative has built-in controls, showing the controls may be redundant|-|
-|**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays. Note: only supported when using IMA|-|
-|**advertising.setLocale**|String|Two-letter language code for localization of skip-button language. Two-letter language code must be valid. Note: only supported when using IMA|-|
-|**advertising.creativeTimeout**|String|In milliseconds, the time between the VAST XML being returned and the adstart event. <br/> Note: only supported when using VAST|15000|
-|**advertising.requestTimeout**|String|In milliseconds, the time between the ad request and a returned VAST file. <br/> Note: only supported when using VAST|5000|
-
-* * *
-
-<a name="advertising-schedule"></a>
-
-### advertising.schedule
-
-Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule)
+|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|-|
+|**advertising.forceNonLinearFullSlot**|Boolean|(Only supported when using IMA) For forcing nonlinear ads to be fullsot ads rather than overlays.|-|
+|**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
+|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
+|**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
 
 <br/>
 
+<a name="advertising-schedule"></a>
+### advertising.schedule
+
+Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule).
+
 #### Ad Schedules with VMAP Files
+
 If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
 ```
 jwplayer("myElement").setup({
@@ -539,9 +581,9 @@ jwplayer("myElement").setup({
 
 The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
 
-<br/>
 
 #### Embedded Ad Schedules with JSON
+
 In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
 
 |Option|Type|Description|Default|
@@ -586,10 +628,9 @@ jwplayer("myElement").setup({
         }
     }
 ```
+<br/>
 
-* * *
 <a name="advertising-companiondiv"></a>
-
 ### advertising.companiondiv
 
 This is a configuration block object with 3 properties: id, width and height. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
@@ -615,13 +656,13 @@ Video content protection requires a JW Player Enterprise license. Please [contac
 
 Configuration options related to DRM for MPEG DASH (Playready, Widevine, Clearkey) and HLS streams (Fairplay).
 
-JW Player 7.7 includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
+JW Player includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
 
 For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management)
 
 ###drm.playready
 
-Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or higher operating systems
+Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or higher operating systems.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
@@ -643,12 +684,11 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 <br/>
 
 <a name="headers"></a>
+### drm.[widevine/playready].headers
 
-### drm.[widevine/playready].headers<sup>7.7</sup>
+Adding customized HTTP header data to license requests is possible with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
 
-Adding customized HTTP header data to license requests is possible in JW 7.7+ with the "headers" configuration. This replaces the static "customData" configuration option in both widevine and playready scenarios. It is also possible to add multiple custom http headers by including multiple objects in the "headers" array.
-
-In JW 7.7+, this can be configured in the following way:
+DRM can be configured in the following way:
 
 ```
 "drm": {
@@ -678,9 +718,10 @@ In previous versions, adding "customData" would look like the following:
 |**headers.value**|String|The value of the http header that will be included|
 
 <br/>
-### drm.fairplay<sup>7.7</sup>
 
-JW Player 7.7 includes new configuration options for custom Fairplay integrations, replacing 'url' and 'keyUrl' options from 7.5. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
+### drm.fairplay
+
+JW Player includes configuration options for custom Fairplay integrations. For more information and examples regarding custom Fairplay DRM integrations, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management-#fairplay).
 
 |Option|Type|Description|
 |---|---|---|
@@ -701,21 +742,40 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |Option|Type|Description|
 |---|---|---|
 |**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|
-|**drm.clearkey.keyId<sup>7.7</sup>**|String|**(Required in 7.7+)** The key ID specified in the mpd's **default_KID** value  |
-
-<br/>
-
+|**drm.clearkey.keyId**|String|**(Required)** The key ID specified in the mpd's **default_KID** value  |
 
 <a name="localization"></a>
 
 * * *
 
-## Localization<sup>7.7</sup>
+## Localization
 
 Using the localization block in a player configuration allows you to configure certain words and phrases in the JW Player Next Up interface. The available options are below.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**localization.nextUp**|String|override for the "Next Up" prompt |"Next Up"|
-|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode  |"Playlist"|
-|**localization.related**|String|Title of the Next Up tooltip in Related mode |"Related"|
+|**localization.airplay**|String|Title of the tooltip for the Airplay icon in the control bar |"Airplay"|
+|**localization.audioTracks**|String|Title of the tooltip for the audio track menu |"Audio tracks"|
+|**localization.buffer**|String|Title of the buffer state |"Loading"|
+|**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
+|**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
+|**localization.close**|String|Title of tooltip on close icon in Related mode  |"Close"|
+|**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
+|**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
+|**localization.liveBroadcast**|String|Override for the state of a live stream |"Live broadcast"|
+|**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
+|**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
+|**localization.next**|String|Title of the right arrow in paginated overlays  |"Next"|
+|**localization.nextUp**|String|Override for the "Next Up" prompt |"Next Up"|
+|**localization.nextUpClose**|String|Title of the tooltip to close the "Next Up" prompt  |"Next Up Close"|
+|**localization.pause**|String|Tooltip for the pause button  |"Pause"|
+|**localization.play**|String|Tooltip for the play button |"Play"|
+|**localization.playback**|String|Override for the play button in an idle state |"Start playback"|
+|**localization.playbackRates**|String|Title of the tooltip for the playback rate controls menu  |"Playback rates"|
+|**localization.player**|String|Override for the player application |"Video Player"|
+|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode |"Playlist"|
+|**localization.prev**|String|Title of the left arrow in paginated overlays |"Previous"|
+|**localization.related**|String|Title of the Next Up tooltip in Related mode  |"Discover"|
+|**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
+|**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
+|**localization.volume**|String|Tooltip for the volume controls |"Volume"|
