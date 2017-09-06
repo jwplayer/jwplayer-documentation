@@ -17,7 +17,7 @@ pages:
   - Analytics:
     - Analytics Integrations: analytics/integrations.md
   - JW 7 Developer Guide:
-        - JW7 Javascript API: /jw7/javascript-api-reference.md
+        - JW7 Javascript API: jw7/javascript-api-reference.md
         - JW7 Configuration Reference: jw7/configuration-reference.md
         - JW7 CSS Skinning Reference: jw7/skins_reference.md
         - JW7 CSS Skinning Model: jw7/css-skinning-model.md
