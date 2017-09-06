@@ -1,17 +1,4 @@
-#JW8 Designer Kit
-
-!!!important
-**Coming Soon** — The JW8 Designer Kit will be available in October, when 8.0.0 is live for a general audience.
-!!!
-
-The **JW8 Designer Kit** will be a starting point for designing and building new skins. The photoshop template will include GUI elements found in the 8.0.0 release of JW8. The purpose of this kit is to encourage designers and developers to fully customize the player to create fully branded experiences for their content.
-
-The PSD will include well-organized and labeled layers that correspond to CSS selectors in our skinning model for easy collaboration between designers and developers. All elements and shapes within the PSD will be fully editable.
-
-[Check out the JW7 Designer Kit](/jw7/designer-kit/)
-
-<!-- Preserving the original copy for later -->
-<!-- #JW7 Designer Kit
+#JW7 Designer Kit
 
 The **JW7 Designer Kit** is a starting point for designing and building new skins. This photoshop template includes GUI elements found in the 7.9.1 release of JW7. The purpose of this kit is to encourage designers and developers to fully customize the player to create fully branded experiences for their content.
 
@@ -31,4 +18,4 @@ Below is a preview of what is included in the **JW7 Designer Kit**.
 
 <h4>Player State Paused</h4>
 
-![Alt text](/img/01-player-paused.png) --> 
+![Alt text](/img/01-player-paused.png)

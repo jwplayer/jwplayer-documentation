@@ -18,6 +18,7 @@ All skin related styles should be namespaced with a class on the main div, of th
 
 `.jw-skin-SKINNAME`
 
+If none are present on initialization, we will add **jw-skin-seven**, which uses the seven skin.
 
 <a name="states"></a>
 
@@ -57,8 +58,11 @@ Sometimes the player needs to signify certain modes of the playback. These flags
 
  We advise only using **.jw-background-color** for color and not other CSS properties. The player will add this class to the following elements:
 
-*   **.jw-display-icon-container**
+*   **.jw-dock-button**
+*   **.jw-icon-display-container**
 *   **.jw-controlbar**
+*   **.jw-menu**
+*   **.jw-slider-volume**
 
 |CSS Class          | Definition |
 |-------------------|-----------|
@@ -76,6 +80,36 @@ These define how the poster image will be stretched to fill the space given. Int
 *   **.jw-stretch-fill**
 *   **.jw-stretch-exactfit**
 
+<a name="icons"></a>
+
+## Icons
+
+All JW Player icons are rendered using the font **jw-six-icons.eot**. Each icon has a character code that is mapped to a corresponding interface element.
+
+|Icon          | Character Code |
+|-------------------|-----------|
+|**Play**|\e60e|
+|**Replay**|\e610|
+|**Pause**|\e60d|
+|**Rewind**|\e900|
+|**Next**|\e60c|
+|**Cuepoint**|\e606|
+|**Buffering**|\e601|
+|**Cast**|\e602|
+|**HD Off**|\e60a|
+|**HD On**|\e609|
+|**CC Off**|\e605|
+|**CC On**|\e604|
+|**Fullscreen**|\e608|
+|**Menu Bullet**|\e606|
+|**Audio Tracks**|\e600|
+|**Volume On**|\e612|
+|**Volume Off**|\e611|
+|**More**|\e614|
+|**Close**|\e615|
+
+The easiest way to modify the default icons is to create a new font based on these character mappings. See [Custom Icons and Fonts](skins_fonts/) for more information.
+
 <a name="controls"></a>
 
 ## Controls
@@ -86,6 +120,7 @@ All player controls are within the **.jw-controls** class. When JW Player is set
 |**[Display](#display)**| The set of icons in the center of the player|
 |**[Controlbar](#controlbar)**| The playback controls for the player|
 |**[Menus](#menus)**| Extensions of the controlbar that display additional information|
+|**[Dock](#dock)**| Buttons displayed at the top right of the player for plugin use|
 |**Logo**| A logo displayed for branding purposes|
 |**Preview**| The video's poster image|
 
@@ -100,20 +135,32 @@ The display component contains the main element container for the (re)play, buff
 
 ## Controlbar
 
-The controlbar component contains all elements for the video controls at the bottom of the player. All elements are contained within the **.jw-controlbar** parent class and broken out into two groups, **.jw-slider-time** and **.jw-button-container**.
+The controlbar component contains all elements for the video controls at the bottom of the player. It is built using three functional groups within the **.jw-controlbar** parent class. This diagram presents an overview:
 
-
-|CSS Class          | Definition |
-|-------------------|-----------|
-|**.jw-slider-time**|Used to position the player timeslider above playback controls|
-|**.jw-button-container**|Used to group and position specific playback controls|
-
-## Slider Time
-
-The center group contains the elements that make up the player's timeslider.
+![](//support-static.jwplayer.com/images/controlbar-update.png)
 
 |CSS Class          | Definition |
 |-------------------|-----------|
+|**.jw-group**|Used to vertically align the timeslider and all icons in the center of the controlbar.|
+
+## Left Group
+
+The left group contains playback controls, the visual playlist, and elapsed time:
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-controlbar-left-group**|The main container that holds the play/pause elements as well as the previous/next and elapsed duration|
+|**.jw-icon-playback**|The container that holds the play/pause icons. The icon is switched depending on the state the player is in|
+|**.jw-icon-rewind**|The container that holds the "rewind" icon|
+|**.jw-text-elapsed**|The container for the elapsed video time|
+
+## Center Group
+
+The center group contains the elements that make up the timeslider.
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-controlbar-center-group**|The main container that holds the time slider|
 |**.jw-slider-horizontal .jw-slider-container**|The containers that hold the timeslider elements|
 |**.jw-rail**|Sets the style for the base layer of the slider|
 |**.jw-buffer**| Sets the style for the how much of video has been buffered, which is layered on top of **.jw-rail**|
@@ -121,33 +168,33 @@ The center group contains the elements that make up the player's timeslider.
 |**.jw-knob**|This marks the tip of the progress rail, used to indicate where playback is currently|
 |**.jw-slider-horizontal .jw-cue**|This class is used for timeslider cuepoints, like chapters and ad breaks|
 
-
-## Button Container
-
-The button container contains playback controls, elapsed and duration time, and the settings menu:
+## Right Group
 
 |CSS Class          | Definition |
 |-------------------|-----------|
-|**.jw-icon-playback**|Container that holds the play/pause icons. This icon will toggle depending on the state of the player|
-|**.jw-icon-rewind**|Container that holds the "rewind" icon|
-|**.jw-icon-next**|Control to toggle to the next playlist item.|
+|**.jw-controlbar-right-group**|The container that holds duration text and icons for various playback options|
+|**.jw-text-duration**|Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.|
+|**.jw-icon-next**|The control to toggle to the next playlist item.|
+|**.jw-icon-hd**|This is the class assigned to the div contains the HD icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
+|**.jw-icon-cc**|This is class assigned to the div contains the closed-caption CC icon. The player will automatically add a menu to the hover state of this div if there are more than 2 caption tracks per playlist item. Otherwise this div will have a state class .jw-toggle to indicate it was toggled on.|
+|**.jw-icon-audio-tracks**|This is class assigned to the div contains the multiple audiotracks icon. The player will automatically add a menu to the hover state of this div if there are more than 2 qualities provided per playlist item.|
+|**.jw-icon-cast**|This class is used to display the Chromecast icon.|
 |**.jw-icon-volume**|This is class assigned to the div contains the volume icon. The player will automatically add a menu to the hover state of this div that contains the slider volume.|
 |**.jw-icon-volume .jw-off**|When the player is muted the .jw-off class gets added to toggle the volume off icon.|
-|**.jw-icon-live**|Container for live and dvr icons. This icon will toggle depending on the state of the player|
-|**.jw-text-elapsed**|The container for the elapsed video time|
-|**.jw-text-duration**|Wrapper for the total duration of the file being played. This allows you style both current time and duration differently.|
-|**.jw-settings-sharing**|Container for the sharing icon. This will only show when sharing is enabled.|
-|**.jw-playlist-btn**|Container for playlist icon. This icon represents the player using a manual playlist for related content.|
-|**.jw-related-btn**|Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.|
-|**.jw-icon-cc**|Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.|
-|**.jw-icon-cast**|This class is used to display the Chromecast and Airplay icon.|
-|**.jw-icon-settings**|Container for the settings menu icon.|
 |**.jw-icon-fullscreen**|This is class assigned to the div contains the fullscreen icons. The player will add .jw-off class to toggle between fullscreen and exit fullscreen icons.|
 
+## Dock
+
+|CSS Class          | Definition |
+|-------------------|-----------|
+|**.jw-controls-right**|This is the parent container that positions the dock elements. In JW 7 the dock elements are on the upper right corner of the player.|
+|**.jw-dock**|This is the container that houses all of the dock buttons.|
+|**.jw-dock-button**|This is the class assigned to the div to style the interface button for dock elements.|
+|**.jw-overlay**|This is the overlay tooltip that appears on hover of the dock buttons.|
 
 <a name="breakpoints"></a>
 
-## Break Points
+## Break Points (7.7+)
 Breakpoint classes are added to the player element based on the width of the player, not the device or browser. Because JW Player instances are embedded via an iframe, the usual @media query will not work for defining CSS declarations to make elements responsive. Breakpoints are global classes that can be used to make responsive CSS declarations for any customizable player element.
 
 |Break Point        | Width Intervals (px) |

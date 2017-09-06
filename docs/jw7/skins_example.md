@@ -1,15 +1,5 @@
 # Example CSS File
 
-!!!important
-**Coming Soon** — We're putting the finishing touches on the example CSS file for JW8, so please check back soon.
-!!!
-
-Below, we'll have the CSS used by JW Player 8 to render the default [skin](//jwplayer.com/video-solutions/branding/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
-
-
-<!--commenting this out in case we don't get it done in time-->
-<!--# Example CSS File
-
 Here is the CSS used by JW Player 7 to render the seven [skin](//jwplayer.com/video-solutions/branding/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
 
 ## Creating Your Own CSS
@@ -341,4 +331,3 @@ active configuration in the skin block.*/
 }
 
 ```
--->
