@@ -208,9 +208,9 @@ The title and description configuration options are displayed in their own class
 |**.jw-title-secondary**|This class is populated with content from the description configuration option in the player setup per-playlist item.|
 |**.jw-preview**|This class styles the preview image from the image configuration option in the player setup per-playlist item.|
 
-## Discovery Overlay <sup>7.6</sup>
+## Discovery Overlay
 
-The discovery overlay replaces the "Related" plugin in JW 7.6, and shows information about other playlist items and recommended content. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
+The discovery overlay displays recommended content related to the current media file. The overlay uses [breakpoints](#breakpoints) to select the proper format and amount of items to display.
 
 ### Customization
 
