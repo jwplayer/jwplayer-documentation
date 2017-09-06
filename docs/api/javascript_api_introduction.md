@@ -81,7 +81,8 @@ alert("Complete fired - Your content has completed!");
 <a href="javascript:alert('The volume of the player is: ' + jwplayer('myElement').getVolume());">Report volume</a>
 ```
 
-Here is a simple example of how our API functions, based on the above code:
+<!--Uncomment when the new 8 player is available-->
+<!--Here is a simple example of how our API functions, based on the above code:
 <div id="myElement"></div>
 <script type="text/javascript">
 jwplayer("myElement").setup({ "file": "https://content.jwplatform.com/videos/C4lp6Dtd-640.mp4"});
@@ -92,7 +93,7 @@ alert("Complete fired - Your content has completed!");
 
 <a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> |
 <a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());">Return Player Volume</a>
-
+-->
 * * *
 
 ## Targeting Multiple Players
