@@ -1,3 +1,7 @@
+!!!
+This page has been updated for JW Player 8, which is currently in beta. Click here to go to the [JW7 Custom Skins reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/skins_creating/).
+!!!
+
 # Custom Skins
 
 The nine complimentary skins offered in JW7 have been deprecated in JW8, but customizing JW Player is easy with JW Player 8's CSS-based skinning model. 
