@@ -1,3 +1,7 @@
+!!!
+This page has been updated for JW Player 8, which is currently in beta. Click here to go to the [JW7 CSS Skinning Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/skins_reference/).
+!!!
+
 # CSS Skinning Reference
 
 This article acts as a reference for styling all interface components of JW Player 8. This skinning model uses CSS and web fonts, and all controls are overlaid on top of the player with HTML.
