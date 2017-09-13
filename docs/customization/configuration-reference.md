@@ -1,3 +1,7 @@
+!!!
+This page has been updated for JW Player 8, which is currently in beta. Click here to go to the [JW7 Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/configuration-reference/).
+!!!
+
 # JW Player Configuration Reference
 
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
