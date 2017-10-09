@@ -7,338 +7,269 @@
 Below, we'll have the CSS used by JW Player 8 to render the default [skin](//jwplayer.com/video-solutions/branding/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
 
 
-<!--commenting this out in case we don't get it done in time-->
-<!--# Example CSS File
+# Example CSS File
 
-Here is the CSS used by JW Player 7 to render the seven [skin](//jwplayer.com/video-solutions/branding/). This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
+Here is the CSS used by JW Player 8 to render the player UI. This skin is designed to fit any website with just a few quick color changes and is built into the player itself. You can use this skin as a reference for building out your own custom CSS.
 
 ## Creating Your Own CSS
 
 1.  Duplicate the CSS from this reference.
-2.  Replace all mentions of "seven" with your custom skin name.
+2.  Replace all mentions of "alaska" with your custom skin name.
 3.  Make any changes and customizations that you require.
 4.  Host your CSS file on your web server.
 5.  Include your CSS in the head of your page or provide JW Player with the URL in setup.
 6.  Update your player embed to include the name of your custom skin.
 
-!!!
-This CSS does not take into account the state classes that were defined in the full class reference. If you want to override the style for a specific state you will need to include styles here with those classes.
-!!!
-
-!!!
-Every skin file is included the download package found in the Downloads section of your player account.
-!!!
 
 ## Sample Skin
 
 ```
 
-.jw-icon {
-    font-family: 'jw-icons';
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    text-transform: none;
-    background-color: transparent;
-    font-variant: normal;
-    -webkit-font-feature-settings: "liga";
-    -moz-font-feature-settings: "liga=1";
-    -moz-font-feature-settings: "liga";
-    -ms-font-feature-settings: "liga" 1;
-    -o-font-feature-settings: "liga";
-    font-feature-settings: "liga";
-    -moz-osx-font-smoothing: grayscale
+/* Set the idle overlay to transparent white */
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-controls {
+  background: rgba(255, 255, 255, .7);
 }
 
-/* Use this class to set a global background color for all elemnts. */
-.jw-skin-seven .jw-background-color {
-  background: #000;
+/* Hide titles on complete */
+.jwplayer.jw-skin-alaska.jw-state-complete .jw-title .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-state-complete .jw-title .jw-title-secondary {
+  display: none;
 }
 
-/* This is the class that houses all controls. Use this to adjust the appearance of the entire controlbar. */
-.jw-skin-seven .jw-controlbar {
-  border-top: #333 1px solid;
-  height: 2.5em;
+/* Round, white play & restart buttons with black icons */
+.jwplayer.jw-skin-alaska .jw-display-controls .jw-display-icon-container,
+.jwplayer.jw-skin-alaska .jw-display-controls .jw-display-icon-container {
+  background-color: white;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
-/* Vertically aligns the timeslider and icons in the center of the controlbar. */
-.jw-skin-seven .jw-group {
-  vertical-align: middle;
+.jwplayer.jw-skin-alaska .jw-display-controls .jw-display-icon-container .jw-icon,
+.jwplayer.jw-skin-alaska .jw-display-controls .jw-display-icon-container .jw-icon {
+  color: #1E1E1E;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
 }
 
-/* Sets the style for the visual playlist. */
-
-.jw-skin-seven .jw-playlist {
-  background-color: rgba(0, 0, 0, 0.8);
+/* Change play button colors on idle state, handle hover transitions */
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container {
+  background-color: #e5322c;
+  height: 80px;
+  width: 80px;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
 }
 
-/* Aligns the visual playlist above its icon. */
-
-.jw-skin-seven .jw-playlist-container {
-  left: -43%;
-  background-color: rgba(0, 0, 0, 0.8);
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container .jw-icon {
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  padding: 20px;
 }
 
-/* Sets the style for the visual playlist items. */
-.jw-skin-seven .jw-playlist-container .jw-option {
-  border-bottom: 1px solid #444;
+
+/* Shrink play button on smaller breakpoints */
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-3 .jw-display-controls .jw-display-icon-container,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-2 .jw-display-controls .jw-display-icon-container  {
+  height: 60px;
+  width: 60px;
 }
 
-/* Allows you to adjust the color of the playlist item when hovering and has a different active style.*/
-
-.jw-skin-seven .jw-playlist-container .jw-option:hover,
-.jw-skin-seven .jw-playlist-container .jw-option.jw-active-option {
-  background-color: black;
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-1 .jw-display-controls .jw-display-icon-container,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-0 .jw-display-controls .jw-display-icon-container {
+  height: 40px;
+  width: 40px;
 }
 
-/* Changes the color of the label when hovering.*/
-
-.jw-skin-seven .jw-playlist-container .jw-option:hover .jw-label {
-  color: #ff0046;
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-3 .jw-display-controls .jw-display-icon-container .jw-icon,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-2 .jw-display-controls .jw-display-icon-container .jw-icon {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
 }
 
-/* Aligns the playlist header icon with the items in the playlist. */
-.jw-skin-seven .jw-playlist-container .jw-icon-playlist {
-  margin-left: 0;
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-1 .jw-display-controls .jw-display-icon-container .jw-icon,
+.jwplayer.jw-skin-alaska.jw-state-idle.jw-breakpoint-0 .jw-display-controls .jw-display-icon-container .jw-icon {
+  height: 20px;
+  width: 20px;
+  padding: 10px;
 }
 
-/* Sets the color of the play icon of the currently playing playlist item.*/
-.jw-skin-seven .jw-playlist-container .jw-label .jw-icon-play {
-  color: #ff0046;
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container:hover {
+   background-color: #92DCE5;
 }
 
-/* Aligns the playlist play icon with the items in the playlist. */
-.jw-skin-seven .jw-playlist-container .jw-label .jw-icon-play:before {
-    padding-left: 0
-}
-
-/* Sets the color of the playlist title */
-.jw-skin-seven .jw-tooltip-title {
-    background-color: #000;
-    color: #fff
-}
-
-/* Style for playlist item, current time, qualities, and caption text.*/
-.jw-skin-seven .jw-text {
-  color: #ffffff;
-}
-
-/* Color for all buttons when they are inactive. This is over-ridden with the
-inactive configuration in the skin block.*/
-.jw-skin-seven .jw-button-color {
-  color: #ffffff;
-}
-
-/* Color for all buttons for when they are hovered on. This is over-ridden with the
-active configuration in the skin block.*/
-
-.jw-skin-seven .jw-button-color:hover {
-  color: #ff0046;
-}
-
-/* Color for when HD/CD icons are toggled on. */
-.jw-skin-seven .jw-toggle {
-  color: #ff0046;
-}
-
-/* Color for when HD/CD icons are toggled off. */
-.jw-skin-seven .jw-toggle.jw-off {
-  color: #ffffff;
-}
-
-/* Sets spacing between controlbar icons and text */
-.jw-skin-seven .jw-controlbar .jw-icon:before,
-.jw-skin-seven .jw-text-elapsed,
-.jw-skin-seven .jw-text-duration {
-    padding: 0 .7em;
-}
-
-/* Removes icon padding to align the playlist header icon with the items in the playlist. */
-.jw-skin-seven .jw-controlbar .jw-icon-prev:before {
-    padding-right: .25em;
-}
-
-/* Removes icon padding to align the playlist header icon with the items in the playlist. */
-.jw-skin-seven .jw-controlbar .jw-icon-playlist:before {
-    padding: 0 .45em;
-}
-
-.jw-skin-seven .jw-controlbar .jw-icon-next:before {
-    padding-left: .25em
-}
-
-/* Sets the style for the prev and next icons. */
-.jw-skin-seven .jw-icon-prev,
-.jw-skin-seven .jw-icon-next {
-    font-size: .7em
-}
-
-/* Adds the spacer style to between the play icon and the previous icon. */
-.jw-skin-seven .jw-icon-prev:before {
-  border-left: 1px solid #666;
-}
-
-/* Adds the spacer style to between the next item and current time.  */
-.jw-skin-seven .jw-icon-next:before {
-  border-right: 1px solid #666;
-}
-
-/* Color of the display icon */
-.jw-skin-seven .jw-icon-display {
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-display-controls .jw-display-icon-container .jw-icon:hover {
   color: #fff;
 }
 
-/* Centers the display icon in it's container */
-.jw-skin-seven .jw-icon-display:before {
-  padding-left: 0;
+.jwplayer.jw-skin-alaska.jw-state-paused .jw-controls {
+  background-color: rgba(147, 221, 230, .3);
 }
 
-/* Turns the display icon container into a circle. */
-.jw-skin-seven .jw-display-icon-container {
-    border-radius: 50%;
-    border: 1px solid #333
+
+/* Customize font style and positioning for titles */
+.jwplayer.jw-skin-alaska.jw-state-idle .jw-title {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Styles the timeslider rail */
-.jw-skin-seven .jw-rail {
-  background-color: #384154;
+/* Apply new styles to video title and description, handle transitions */
+.jwplayer.jw-skin-alaska .jw-title-primary {
+  font-size: 48px;
+  padding: 30px;
+  color: #1E1E1E;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  padding-bottom: 15px;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+}
+
+/* Apple new styles to video description */
+.jwplayer.jw-skin-alaska .jw-title-secondary {
+  font-size: 18px;
+  max-width: 70%;
+  font-weight: 500;
+  opacity: 0;
+  margin: 0 auto;
+  color: #1E1E1E;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  white-space: normal;
+  line-height: 1.3;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+  transition: opacity 0.2s, transform 0.35s;
+  -webkit-transition-delay: 0.08s;
+  transition-delay: 0.08s;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+}
+
+/* Decrease font size on medium-small breakpoints */
+.jwplayer.jw-skin-alaska.jw-breakpoint-3 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-2 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-1 .jw-title-primary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-0 .jw-title-primary {
+  font-size: 22px;
+}
+
+.jwplayer.jw-skin-alaska.jw-breakpoint-3 .jw-title-secondary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-2 .jw-title-secondary {
+  font-size: 14px;
+}
+
+/* Hide the description on smallest breakpoints */
+.jwplayer.jw-skin-alaska.jw-breakpoint-1 .jw-title-secondary,
+.jwplayer.jw-skin-alaska.jw-breakpoint-0 .jw-title-secondary {
+  display: none;
+}
+
+/* Change colors and remove gradient shadow for control bar, change icon color on pause */
+.jwplayer.jw-skin-alaska .jw-display {
+  padding-bottom: 45px;
+}
+
+.jwplayer.jw-skin-alaska .jw-controlbar {
+  background-color: #fff;
+}
+
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-button-container .jw-button-color {
+  color: #1E1E1E;
+}
+
+.jwplayer.jw-skin-alaska.jw-state-paused .jw-controlbar .jw-button-container .jw-button-color {
+  color: #e5322c;
+}
+
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-button-container .jw-button-color:hover {
+  color: #92DCE5;
+}
+
+
+/* Move tooltips closer to control bar with inline timeslider, change colors, round corners, remove shadow */
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-tooltip {
+  bottom: 70%;
   box-shadow: none;
 }
 
-/* Sets the color for the buffer of the timeslider rail. */
-.jw-skin-seven .jw-buffer {
-    background-color: #666f82
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-tooltip.jw-open {
+  border-radius: 5px;
+  color: #92DCE5;
 }
 
-/* Sets the style for the elaspesd progress. */
-.jw-skin-seven .jw-progress {
-    background: #ff0046
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-tooltip .jw-text {
+  background-color: #92DCE5;
+  border-radius: 5px;
+  border: 0;
 }
 
-/* Sets the width of the knob's container */
-.jw-skin-seven .jw-knob {
-    width: .6em;
-    height: .6em;
-    background-color: #fff;
-    box-shadow: 0 0 0 1px #000;
-    border-radius: 1em
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-text {
+  color: #1E1E1E;
 }
 
-/* Sets the height for the horizontal slider container. */
-.jw-skin-seven .jw-slider-horizontal .jw-slider-container {
-    height: .95em
+.jwplayer.jw-skin-alaska .jw-volume-tip,
+.jwplayer.jw-skin-alaska .jw-time-tip {
+  padding-bottom: 0;
 }
 
-/* Sets the height for the horizontal slider elements. */
-.jw-skin-seven .jw-slider-horizontal .jw-rail,
-.jw-skin-seven .jw-slider-horizontal .jw-buffer,
-.jw-skin-seven .jw-slider-horizontal .jw-progress {
-    height: .2em;
-    border-radius: 0
+
+/* Customize colors of volume control knob */
+.jwplayer.jw-skin-alaska .jw-overlay .jw-slider-volume .jw-slider-container .jw-knob {
+  background-color: #e5322c;
 }
 
-/* Centers the knob vertically. */
-.jw-skin-seven .jw-slider-horizontal .jw-knob {
-    top: -0.19999999999999998em
+
+/* Customize colors of timeslider */
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-slider-time .jw-slider-container .jw-rail {
+  background-color: #1E1E1E;
 }
 
-/* Cetners the timeslider cuepoints vertically. */
-.jw-skin-seven .jw-slider-horizontal .jw-cue {
-    top: -0.04999999999999999em;
-    width: .3em;
-    height: .3em;
-    background-color: #fff;
-    border-radius: 50%
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-slider-time .jw-slider-container .jw-buffer {
+  background-color: #92DCE5;
 }
 
-/* Sets the width for the vertical slider elements. */
-.jw-skin-seven .jw-slider-vertical .jw-rail,
-.jw-skin-seven .jw-slider-vertical .jw-buffer,
-.jw-skin-seven .jw-slider-vertical .jw-progress {
-    width: .2em
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-slider-time .jw-slider-container .jw-progress {
+  background-color: #e5322c;
 }
 
-/* Sets the position of the volume slider container. */
-.jw-skin-seven .jw-volume-tip {
-    width: 100%;
-    left: -45%;
-    padding-bottom: .7em
+.jwplayer.jw-skin-alaska .jw-controlbar .jw-slider-time .jw-slider-container .jw-knob {
+  background-color: #e5322c;
 }
 
-/* Sets the color of the duration text in the controlbar. */
-.jw-skin-seven .jw-text-duration {
-    color: #666f82
+
+/* Customize colors/opacity of the settings menu */
+.jwplayer.jw-skin-alaska .jw-settings-menu {
+  background-color: transparent;
 }
 
-/* Adds a left border as a spacer between all controlbar icons. */
-.jw-skin-seven .jw-controlbar-right-group .jw-icon-tooltip:before,
-.jw-skin-seven .jw-controlbar-right-group .jw-icon-inline:before {
-    border-left: 1px solid #666
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-topbar {
+  background-color: #92DCE5;
 }
 
-/* Removes the border from the first icon after the time duration text. */
-.jw-skin-seven .jw-controlbar-right-group .jw-icon-inline:first-child:before {
-    border: 0
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-topbar .jw-icon:hover {
+  color: #1E1E1E;
 }
 
-/* This styles the dock icons into a circle. */
-.jw-skin-seven .jw-dock .jw-dock-button {
-    border-radius: 50%;
-    border: 1px solid #333
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-submenu {
+  background-color: rgba(255, 255, 255, .65);
 }
 
-/* This styles tooltip for dock text background. */
-.jw-skin-seven .jw-dock .jw-overlay {
-    border-radius: 2.5em
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-content-item {
+  color: #1E1E1E;
 }
 
-/*This sets the font color and background color for the active item in HD and CC menus. */
-.jw-skin-seven .jw-icon-tooltip .jw-active-option {
-    background-color: #ff0046;
-    color: #fff
-}
-
-/* Sets a min width for the volume container so that when it changes between mute and volume, the controlbar does not shift. */
-.jw-skin-seven .jw-icon-volume {
-    min-width: 2.6em
-}
-
-/* Sets the style for the time tooltip, menu, volume. */
-.jw-skin-seven .jw-time-tip,
-.jw-skin-seven .jw-menu,
-.jw-skin-seven .jw-volume-tip,
-.jw-skin-seven .jw-skip {
-    border: 1px solid #333
-}
-
-/* Sets the position for the time tooltip. */
-.jw-skin-seven .jw-time-tip {
-    padding: .2em;
-    bottom: 1.3em
-}
-
-/* Sets the position for the vertical volume slider. */
-.jw-skin-seven .jw-menu,
-.jw-skin-seven .jw-volume-tip {
-    bottom: .24em
-}
-
-/* Sets the shape of the skip icon. */
-.jw-skin-seven .jw-skip {
-    padding: .4em;
-    border-radius: 1.75em
-}
-
-/* Sets the style for the skip text. */
-.jw-skin-seven .jw-skip .jw-text,
-.jw-skin-seven .jw-skip .jw-icon-inline {
-    color: #fff;
-    line-height: 1.75em
-}
-.jw-skin-seven .jw-skip.jw-skippable:hover .jw-text,
-.jw-skin-seven .jw-skip.jw-skippable:hover .jw-icon-inline {
-    color: #ff0046
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-content-item:hover,
+.jwplayer.jw-skin-alaska .jw-settings-menu .jw-settings-item-active {
+  color: #e5322c;
+  font-weight: bold;
 }
 
 ```
--->
