@@ -1,6 +1,6 @@
 # Example CSS File
 
-Here is an example CSS file for a skin used to customize the player UI. You can use this skin as a reference for building out your own custom CSS.
+Here is an example CSS file for a skin used to customize the player UI in JW8. You can use this skin as a reference for building out your own custom CSS. Check out our [demo](https://developer.jwplayer.com/jw-player/demos/customization/custom-css-demo/) of this custom skin in action.
 
 ## Creating Your Own CSS
 
