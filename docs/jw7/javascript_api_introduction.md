@@ -2,7 +2,7 @@
 <script src='//content.jwplatform.com/libraries/XeGdlzmk.js'></script>
 # Introduction to the Javascript API
 
-This article explains the basics of how to use the [JavaScript API](//jwplayer.com/products/jwplayer/javascript/) component of JW Player. This API can be used to enhance the functionality of your video embeds, or to implement rich page-level video interactions. Unless noted, there are no differences between HTML5 and Flash API calls, so the code you write will work across multiple technologies.
+This article explains the basics of how to use the [JavaScript API](//jwplayer.com/products/jwplayer/javascript/) component of JW Player. This API can be used to enhance the functionality of your video embeds, or to implement rich page-level video interactions. Unless noted, there are no differences between Flash and HTML5 API calls, so the code you write will work across multiple technologies.
 
 ###Note: We strongly suggest that all API calls be made after the player is considered ready.
 
@@ -34,7 +34,7 @@ These types of API calls are used to control player behavior. Many of these call
 
 ## Event listening with the JW Player API
 
-Certain events are triggered when the player _does_ something. JW Player 8 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](//developer.jwplayer.com/jw-player/docs/javascript-api-reference/) document.
+Certain events are triggered when the player _does_ something. JW Player 7 bases its event structure on [backbone.events](http://backbonejs.org/#Events). This allows a player instance to be used as an event router and gives developers better options and control. Certain events also return information. We list this expected information in the full [JavaScript API Reference](//developer.jwplayer.com/jw-player/docs/javascript-api-reference/) document.
 
 Currently, JW Player events support the following event triggers:
 
@@ -81,8 +81,7 @@ alert("Complete fired - Your content has completed!");
 <a href="javascript:alert('The volume of the player is: ' + jwplayer('myElement').getVolume());">Report volume</a>
 ```
 
-<!--Uncomment when the new 8 player is available-->
-<!--Here is a simple example of how our API functions, based on the above code:
+Here is a simple example of how our API functions, based on the above code:
 <div id="myElement"></div>
 <script type="text/javascript">
 jwplayer("myElement").setup({ "file": "https://content.jwplatform.com/videos/C4lp6Dtd-640.mp4"});
@@ -93,7 +92,7 @@ alert("Complete fired - Your content has completed!");
 
 <a href="javascript:jwplayer('myElement').play();">Toggle Playback</a> |
 <a href="javascript:alert('The volume of the player is: '+jwplayer('myElement').getVolume());">Return Player Volume</a>
--->
+
 * * *
 
 ## Targeting Multiple Players
