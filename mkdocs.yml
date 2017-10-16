@@ -11,6 +11,7 @@ pages:
     - Using Release Channels: release_notes/release_channels.md
   - Customization:
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
+    - CSS Skinning Model: customization/css-skinning-model.md
     - Custom Skins: customization/css-skinning/skins_creating.md
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
