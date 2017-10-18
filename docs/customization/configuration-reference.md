@@ -1,5 +1,5 @@
 !!!
-This page has been updated for JW Player 8, which is currently in beta. Click here to go to the [JW7 Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/configuration-reference/).
+This page has been updated for JW Player 8. Click here to go to the [JW7 Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/configuration-reference/).
 !!!
 
 # JW Player Configuration Reference
