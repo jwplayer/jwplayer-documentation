@@ -411,6 +411,7 @@ This options block configures the styling of closed captions in the player for d
 
 |Config|Type|Description|Default|
 |---|---|---|---|
+|**renderCaptionsNatively**|Boolean|If true, captions render using the browser's renderer. If false, the player's renderer will be used in all browsers, except for Safari. **Note:** This configuration is not contained within the captions block.|false<sup>&nbsp; 8.0.1+</sup>|
 |**captions.color**|String|Hex color of the captions text|"#ffffff"|
 |**captions.fontSize**|Number|Size of the captions text (Will not affect text size when rendering captions via browser)|15|
 |**captions.fontFamily**|String|[Font Family](http://www.w3schools.com/cssref/pr_font_font-family.asp) of the captions text|"sans"|
@@ -422,7 +423,7 @@ This options block configures the styling of closed captions in the player for d
 |**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
 
 !!!
-When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
+When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp).
 !!!
 
 See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
