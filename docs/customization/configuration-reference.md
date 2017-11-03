@@ -189,7 +189,9 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
 
 #### Alternate Media Sources
 
-If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
+If using different file types, sources prioritizes which file to play only in the case when a provider (HTML5, HLS, or DASH) fails to load. If there is an error with a stream, the player will not failover to the next provider. In the example below, the player will attempt to play myVideo.m3u8 as a first choice. 
+
+In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error. 
 
 ```
 jwplayer("myElement").setup({
