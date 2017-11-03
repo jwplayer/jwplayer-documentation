@@ -77,7 +77,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
+|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`. **Note:** This feature is not currently supported in Android with HLS streams.|false|
 |**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
 
 <br/>
@@ -189,7 +189,9 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
 
 #### Alternate Media Sources
 
-If using different file types, sources prioritizes which file to play, based on order. For example, the player will attempt to play myVideo.m3u8 as a first choice. In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
+If using different file types, sources prioritizes which file to play only in the case when a provider (HTML5, HLS, or DASH) fails to load. If there is an error with a stream, the player will not failover to the next provider. In the example below, the player will attempt to play myVideo.m3u8 as a first choice. 
+
+In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error. 
 
 ```
 jwplayer("myElement").setup({
@@ -352,16 +354,16 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#F2F2F2"|
-|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"#CCCCCC"|
+|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#FFFFFF"|
+|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"rgba(255,255,255,0.8)"|
 |**skin.controlbar.iconsActive**|String|The color of hovered or selected icons in the control bar.|"#FFFFFF"|
-|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(255,255,255,0)"|
+|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(0,0,0,0)"|
 |**skin.timeslider.progress**|String|The color of the bar in the time slider filled in from the beginning of the video through the current position. The buffer region of the control bar is 50% of the opacity of this color. The color of the volume slider is also controlled by this option.|"#F2F2F2"|
 |**skin.timeslider.rail**|String|The color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
-|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"#F2F2F2"|
+|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"rgba(255,255,255,0.8)"|
 |**skin.menus.textActive**|String|The color of hovered or selected text in menus. This option also controls the text color in the Discover overlay and the hover state text color in the Next Up overlay.|"#FFFFFF"|
 |**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
-|**skin.tooltips.text**|String|The text color of tooltips.|"#333333|
+|**skin.tooltips.text**|String|The text color of tooltips.|"#000000"|
 |**skin.tooltips.background**|String|The background color of tooltips. |"#FFFFFF"|
 
 <br/>
@@ -411,6 +413,7 @@ This options block configures the styling of closed captions in the player for d
 
 |Config|Type|Description|Default|
 |---|---|---|---|
+|**renderCaptionsNatively**|Boolean|If true, captions render using the browser's renderer. If false, the player's renderer will be used in all browsers, except for Safari. **Note:** This configuration is not contained within the captions block.|false<sup>&nbsp; 8.0.1+</sup>|
 |**captions.color**|String|Hex color of the captions text|"#ffffff"|
 |**captions.fontSize**|Number|Size of the captions text (Will not affect text size when rendering captions via browser)|15|
 |**captions.fontFamily**|String|[Font Family](http://www.w3schools.com/cssref/pr_font_font-family.asp) of the captions text|"sans"|
@@ -422,7 +425,7 @@ This options block configures the styling of closed captions in the player for d
 |**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
 
 !!!
-When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp)
+When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp).
 !!!
 
 See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/portal/articles/1482067-styling-captions-for-fcc-compliance) for more information.
@@ -525,9 +528,11 @@ This options block controls an overlay with related videos.
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
-|**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"|
+|**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the link field in **related.file**.|"play"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
 |**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
+
+<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
 
@@ -662,7 +667,11 @@ Configuration options related to DRM for MPEG DASH (Playready, Widevine, Clearke
 
 JW Player includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
 
-For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management)
+!!!
+HTTPS is required for all DRM-protected content.
+!!!
+
+For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management).
 
 ###drm.playready
 
