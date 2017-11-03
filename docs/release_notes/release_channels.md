@@ -1,25 +1,40 @@
-#Using JW Player Release Channels
+# Using JW Player Release Channels
 
-JW Player supports two release channels. We use these channels to roll out updates to cloud-hosted players for integration testing, starting with Beta channel builds every two weeks, all the way up to a Production channel releases that happens roughly every six weeks. Choosing the Beta release channel from the Player Builder allows you try upcoming versions of JW Player earlier and gives you more insight into the new features and bug fixes applied throughout the development process.
+JW Player supports two release channels. Each channel is automatically updated with the latest player versions available.
 
-New features and bug fixes are bundled into minor releases of JW Player. These are labeled as 8.x and can contain new API methods. Patches are only bug fixes and do not add any new functionality. These are indicated by incrementing the patch number 8.x.patch.  
+* **Production channel:** This is the default and recommended channel for most customers. The production channel always hosts is the latest stable and tested version. The release has passed our QA team's rigorous manual and automated tests and was already live on the beta channel for a period of time.
 
-Sign up to our [release-candidate](//jwplayer.com/release-candidate-sign/) mailing list to get notified when we update these channels.
+* **Beta channel:** This channel has passed our automated tests, but has not been fully verified by the JW Player QA team yet. The beta channel is the place to be if you're interested in previewing releases before they're available to everyone, since the vast majority of players are set to use the the production channel.
 
-## Channels
+Sign up for our [release candidate](https://www.jwplayer.com/release-candidate-sign/) mailing list to get notified when we update the beta channel with a new minor or major release, so you can test and verify new functionality. We don't want to overload your inbox, so we don't send out emails for patch releases.​
 
-Release channels for JW Player range from the most stable and tested version (Production channel) to early testing and likely least stable (Beta channel). Channels allow you to test and play with our latest code, without affecting your live cloud-hosted version of JW Player. Each channel is automatically updated with new player versions and generally adhere to the following rolling schedule:
+## Releases
 
-*   **Production channel:** This channel has gotten the full testing and blessing of the JW Player QA team and was live on the staging channel for up to four weeks, allowing time for minor patches. It's only updated every 6-8 weeks for feature releases.
-*   **Beta channel:** This channel has passed all automated tests, but has not been fully verified by the JW Player QA team. If you are interested in seeing a preview of what's next, with minimal risk, Beta channel is the place to be. It's roughly updated bi-weekly during the start of a feature release and more frequently as full testing progresses. 
+Here is an outline of what our releases contain and approximately how often they occur.
 
-## Choosing a Channel
+|Type|Release frequency|Time on beta channel before production|Contents|Example version|
+|--|--|-|--------|--|
+|Major release|Every 1-2 years|4-8 weeks|Innovative new features, breaking changes|8.0.0|
+|Minor release|Every 4-8 weeks|1-2 weeks|Improved and new features, bug fixes|8.1.0|
+|Patch release|Every 1-4 weeks|1-3 days|Quick, generally urgent bug fixes with no new functionality|8.1.1|
+ 
+## Selecting a Channel
 
-Channels can easily be set at the player level, directly within the Player Builder.
+Channels can easily be set at the player level directly within the Player Builder.
 
-1.  Navigate to your Players.
-2.  Create or edit an existing player.
-3.  Under the advanced tab you can select a channel.
+**Using JW8:**
+
+1. Navigate to your Players.
+1. Create or edit an existing player.
+1. Select a channel beneath the player preview on the right side.
+
+![](https://assistly-production.s3.amazonaws.com/150942/portal_attachments/830679/Screenshot_2017-10-30_16.18.00_original.png?AWSAccessKeyId=AKIAJNSFWOZ6ZS23BMKQ&Expires=1509798703&Signature=kRMVRYCD6Tjm7Qr3ySo6ge0Kro0%3D&response-content-disposition=filename%3D%22Screenshot_2017-10-30_16.18.00.png%22&response-content-type=image%2Fpng)
+
+**Using JW7:**
+
+1. Navigate to your Players.
+1. Create or edit an existing player.
+1. Select a channel under the Advanced tab.
 
 ![](http://support-static.jwplayer.com/images/developer/releasechannels.png)
 
