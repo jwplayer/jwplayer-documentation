@@ -352,16 +352,16 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#F2F2F2"|
-|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"#CCCCCC"|
+|**skin.controlbar.text**|String|The color of any plain text in the control bar, such as the time. |"#FFFFFF"|
+|**skin.controlbar.icons**|String|The default, inactive color of all icons in the control bar. This option also controls the color of the play, pause, and replay icons in the inactive and complete states.|"rgba(255,255,255,0.8)"|
 |**skin.controlbar.iconsActive**|String|The color of hovered or selected icons in the control bar.|"#FFFFFF"|
-|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(255,255,255,0)"|
+|**skin.controlbar.background**|String|TThe background color of the control bar and the volume slider. The default background is transparent.|"rgba(0,0,0,0)"|
 |**skin.timeslider.progress**|String|The color of the bar in the time slider filled in from the beginning of the video through the current position. The buffer region of the control bar is 50% of the opacity of this color. The color of the volume slider is also controlled by this option.|"#F2F2F2"|
 |**skin.timeslider.rail**|String|The color of the base of the timeslider, known as the rail.|"rgba(255,255,255,0.3)"|
-|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"#F2F2F2"|
+|**skin.menus.text**|String|The color of inactive, default text in menus and the Next Up overlay. |"rgba(255,255,255,0.8)"|
 |**skin.menus.textActive**|String|The color of hovered or selected text in menus. This option also controls the text color in the Discover overlay and the hover state text color in the Next Up overlay.|"#FFFFFF"|
 |**skin.menus.background**|String|The background color of menus and the Next Up overlay.|"#333333"|
-|**skin.tooltips.text**|String|The text color of tooltips.|"#333333|
+|**skin.tooltips.text**|String|The text color of tooltips.|"#000000"|
 |**skin.tooltips.background**|String|The background color of tooltips. |"#FFFFFF"|
 
 <br/>
