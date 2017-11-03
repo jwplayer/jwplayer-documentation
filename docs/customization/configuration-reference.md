@@ -77,7 +77,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
-|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`.|false|
+|**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`. **Note:** This feature is not currently supported in Android with HLS streams.|false|
 |**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
 
 <br/>
@@ -663,7 +663,11 @@ Configuration options related to DRM for MPEG DASH (Playready, Widevine, Clearke
 
 JW Player includes the ability to add DRM to a specific playlist source. Using this method will allow your browser to choose the correct DRM method when multiple DRM types are configured. We **highly** suggest updating any configurations to use this new method.
 
-For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management)
+!!!
+HTTPS is required for all DRM-protected content.
+!!!
+
+For more information regarding DRM, and for examples, please view our [support article](https://support.jwplayer.com/customer/portal/articles/2561182-drm-digital-rights-management).
 
 ###drm.playready
 
