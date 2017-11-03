@@ -528,9 +528,11 @@ This options block controls an overlay with related videos.
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
-|**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"|
+|**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the link field in **related.file**.|"play"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
 |**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
+
+<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
 
 See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
 
