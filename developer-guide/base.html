@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="mkdocs-jwplayer {% if config.extra.singlePage %}mkdocs-jwplayer-single-page{% endif %}">
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+
+    {% if config.extra.noindex %}
+      <meta name="robots" content="noindex, follow">
+    {% endif %}
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description }}" />
+    {% else %}
+      <meta name="description" content="JW Developers provides tools and resources for developers using JW Player, JW Platform and the Android and iOS SDKs." />
+    {% endif %}
+
+    {% if favicon %}
+      <link rel="shortcut icon" href="{{ favicon }}">
+    {% else %}
+      <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ base_url }}/css/mkdocs-jwplayer.min.css">
+
+    {% if extra_css %}
+      {% for path in extra_css %}
+        <link href="{{ path }}" rel="stylesheet">
+      {% endfor %}
+    {% endif %}
+
+    {% block extrahead %}
+    {% endblock %}
+
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
+
+  </head>
+  <body>
+    <div class="site">
+
+				<div class="site-top">
+					{% include "site-header.html" %}
+	        {% include "site-secondary-header.html" %}
+	        {% include "page-header.html" %}
+				</div>
+
+        <div class="site-bottom">
+
+					<div class="site-body">
+
+	          <div class="page">
+
+	            <div class="page-body">
+
+	              {% include "scroll-btn.html" %}
+
+	              <div class="aside">
+									{% if config.extra.singlePage %}
+										<ul class="toc">
+											{% include "toc.html" %}
+										</ul>
+							    {% else %}
+										<ul>
+											{% for nav_item in nav %}
+		                    {% include "nav.html" %}
+		                  {% endfor %}
+										</ul>
+							    {% endif %}
+	              </div>
+
+	              <div class="main">
+	                {% block content %}
+	                  {{ content }}
+	                {% endblock %}
+	                {% if next_page or previous_page %}
+	                  <div class="pagination prev-next">
+	                    {% if previous_page %}
+	                      <a class="btn md" href="{{ previous_page.url }}" title="{{ previous_page.title }}">Previous Page</a>
+	                    {% endif %}
+	                    {% if next_page %}
+	                      <a class="btn md" href="{{ next_page.url }}" title="{{ next_page.title }}"/>Next Page</a>
+	                    {% endif %}
+	                  </div>
+	                {% endif %}
+	              </div>
+
+	            </div>
+
+	          </div>
+	        </div>
+
+	        {% include "global-site-footer.html" %}
+
+        </div>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{{ base_url }}/js/mkdocs-jwplayer.min.js"></script>
+
+    {% for path in extra_javascript %}
+      <script src="{{ path }}"></script>
+    {% endfor %}
+
+  </body>
+</html>
