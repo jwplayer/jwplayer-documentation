@@ -35,3 +35,7 @@ Run `grunt` to for a full build without serving. This may be useful at times bec
 ## CDN Purge
 
 Use the following URL to purge the CDN for release notes: /data/release-notes/jw-player.json
+
+## Release Notes Build Process
+
+![Release Notes Build Process](release-notes-build.png);
