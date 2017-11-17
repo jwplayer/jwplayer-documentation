@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="mkdocs-jwplayer ">
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Using Release Channels - JW Player Developer Guide</title>
+
+    
+
+    
+      <meta name="description" content="JW Developers provides tools and resources for developers using JW Player, JW Platform and the Android and iOS SDKs." />
+    
+
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+    
+
+    <link rel="stylesheet" href="../../css/mkdocs-jwplayer.min.css">
+
+    
+
+    
+    
+
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
+
+  </head>
+  <body>
+    <div class="site">
+
+				<div class="site-top">
+					<div class="site-header">
+  <div class="site-header-container">
+    <a class="logo" href="/">
+      <img src="/img/jw-logo-mark-white.svg">
+      <img src="/img/jw-logo-text-white.svg">
+      <span class="developer">Developer</span>
+    </a>
+    <a class="menu-toggle" href="#">Menu</a>
+    <ul class="menu">
+      <li><a class="link" href="https://www.jwplayer.com">Company</a></li>
+      <li><a class="link" href="https://www.jwplayer.com/blog">Blog</a></li>
+      <li><a class="link" href="https://support.jwplayer.com">Support</a></li>
+      <li><a class="link" href="https://dashboard.jwplayer.com">Sign-In</a></li>
+      <li><a class="link" href="/search/"><img class="search-icon" src="//icons.jwplayer.com/icons/white/search.svg" width="15" /></a></li>
+      <li><a class="btn md red" href="https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade">Upgrade</a></li>
+    </ul>
+  </div>
+</div>
+	        <div class="site-secondary-header">
+  <div class="site-secondary-header-container">
+    <div class="site-secondary-header-group">
+      <div class="site-secondary-header-dropdown">
+				<a class="site-secondary-header-dropdown-arrow" href="#"></a>
+				<a href="/jw-player/" class="site-secondary-header-dropdown-link is-selected">JW Player</a>
+        <a href="/jw-platform/" class="site-secondary-header-dropdown-link ">JW Platform</a>
+        <a href="/android-sdk/" class="site-secondary-header-dropdown-link ">Android SDK</a>
+        <a href="/ios-sdk/" class="site-secondary-header-dropdown-link ">iOS SDK</a>
+        <a href="/tools/" class="site-secondary-header-dropdown-link ">Developer Tools</a>
+        <a href="/release-notes/" class="site-secondary-header-dropdown-link">Release Notes</a>
+      </div>
+    </div>
+		
+			<a href="/jw-player/docs/javascript-api-reference/">API Reference</a>
+			<a href="/jw-player/docs/developer-guide/">Developer Guide</a>
+			<a href="/jw-player/demos">Demos</a>
+			<a href="/jw-player/docs/developer-guide/release_notes/release_notes_7/">Release Notes</a>
+		
+		
+		
+		
+		
+  </div>
+</div>
+	        <div class="page-header">
+	<div class="page-label">
+		
+			Using Release Channels
+		
+	</div>
+	<form class="search" action="../../search.html" method="get">
+		<input type="search" name="q" placeholder="Search documentation..." />
+	</form>
+</div>
+				</div>
+
+        <div class="site-bottom">
+
+					<div class="site-body">
+
+	          <div class="page">
+
+	            <div class="page-body">
+
+	              <div class="scroll-to-top">
+	<img src="//icons.jwplayer.com/icons/white/change-arrow-up.svg">
+</div>
+
+	              <div class="aside">
+									
+										<ul>
+											
+		                    
+  <li>
+    
+      <span>Getting Started</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../..">Introduction</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../api/javascript_api_introduction/">Intro to Javascript API</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../customization/configuration-reference/">Configuration Reference</a>
+  </li>
+
+      
+        
+  <li class="active">
+    <a href="./">Using Release Channels</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>Customization</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../customization/css-skinning/skins_reference/">CSS Skinning Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../customization/css-skinning-model/">CSS Skinning Model</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../customization/css-skinning/skins_creating/">Custom Skins</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../customization/css-skinning/skins_example/">Example CSS File</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../customization/designer-kit/">JW8 Designer Kit</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>Analytics</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../analytics/integrations/">Analytics Integrations</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>JW 7 Developer Guide</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../jw7/javascript-api-reference/">JW7 Javascript API</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/configuration-reference/">JW7 Configuration Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/skins_reference/">JW7 CSS Skinning Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/css-skinning-model/">JW7 CSS Skinning Model</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/skins_creating/">JW7 Custom Skins</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/skins_fonts/">JW7 Custom Icons and Fonts</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/skins_example/">JW7 Example CSS File</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/designer-kit/">JW7 Designer Kit</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../jw7/integrations/">JW7 Analytics Integrations</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+										</ul>
+							    
+	              </div>
+
+	              <div class="main">
+	                
+	                  <h1 id="using-jw-player-release-channels">Using JW Player Release Channels</h1>
+<p>JW Player supports two release channels. Each channel is automatically updated with the latest player versions available.</p>
+<ul>
+<li>
+<p><strong>Production channel:</strong> This is the default and recommended channel for most customers. The production channel always hosts is the latest stable and tested version. The release has passed our QA team's rigorous manual and automated tests and was already live on the beta channel for a period of time.</p>
+</li>
+<li>
+<p><strong>Beta channel:</strong> This channel has passed our automated tests, but has not been fully verified by the JW Player QA team yet. The beta channel is the place to be if you're interested in previewing releases before they're available to everyone, since the vast majority of players are set to use the the production channel.</p>
+</li>
+</ul>
+<p>Sign up for our <a href="https://www.jwplayer.com/release-candidate-sign/">release candidate</a> mailing list to get notified when we update the beta channel with a new minor or major release, so you can test and verify new functionality. We don't want to overload your inbox, so we don't send out emails for patch releases.​</p>
+<h2 id="releases">Releases</h2>
+<p>Here is an outline of what our releases contain and approximately how often they occur.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Release frequency</th>
+<th>Time on beta channel before production</th>
+<th>Contents</th>
+<th>Example version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Major release</td>
+<td>Every 1-2 years</td>
+<td>4-8 weeks</td>
+<td>Innovative new features, breaking changes</td>
+<td>8.0.0</td>
+</tr>
+<tr>
+<td>Minor release</td>
+<td>Every 4-8 weeks</td>
+<td>1-2 weeks</td>
+<td>Improved and new features, bug fixes</td>
+<td>8.1.0</td>
+</tr>
+<tr>
+<td>Patch release</td>
+<td>Every 1-4 weeks</td>
+<td>1-3 days</td>
+<td>Quick, generally urgent bug fixes with no new functionality</td>
+<td>8.1.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="selecting-a-channel">Selecting a Channel</h2>
+<p>Channels can easily be set at the player level directly within the Player Builder.</p>
+<p><strong>Using JW8:</strong></p>
+<ol>
+<li>Navigate to your Players.</li>
+<li>Create or edit an existing player.</li>
+<li>Select a channel beneath the player preview on the right side.</li>
+</ol>
+<p><img alt="" src="https://assistly-production.s3.amazonaws.com/150942/portal_attachments/830679/Screenshot_2017-10-30_16.18.00_original.png?AWSAccessKeyId=AKIAJNSFWOZ6ZS23BMKQ&amp;Expires=1509798703&amp;Signature=kRMVRYCD6Tjm7Qr3ySo6ge0Kro0%3D&amp;response-content-disposition=filename%3D%22Screenshot_2017-10-30_16.18.00.png%22&amp;response-content-type=image%2Fpng" /></p>
+<p><strong>Using JW7:</strong></p>
+<ol>
+<li>Navigate to your Players.</li>
+<li>Create or edit an existing player.</li>
+<li>Select a channel under the Advanced tab.</li>
+</ol>
+<p><img alt="" src="http://support-static.jwplayer.com/images/developer/releasechannels.png" /></p>
+<p>You can also use our <a href="https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/update.html">Platform API</a> to set the channel for a particular player.</p>
+	                
+	                
+	                  <div class="pagination prev-next">
+	                    
+	                      <a class="btn md" href="../../customization/configuration-reference/" title="Configuration Reference">Previous Page</a>
+	                    
+	                    
+	                      <a class="btn md" href="../../customization/css-skinning/skins_reference/" title="CSS Skinning Reference"/>Next Page</a>
+	                    
+	                  </div>
+	                
+	              </div>
+
+	            </div>
+
+	          </div>
+	        </div>
+
+	        <footer class="global-site-footer">
+  <div class="global-site-footer-container">
+    <ul class="global-site-footer-row">
+      <li>
+        <a href="//www.jwplayer.com">
+          <strong>JW Player</strong>
+          <span>Browse our products, company,<br> resources, and pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="//dashboard.jwplayer.com">
+          <strong>Dashboard</strong>
+          <span>Content, players, analytics,<br> and account management</span>
+        </a>
+      </li>
+      <li>
+        <a class="selected" href="//developer.jwplayer.com">
+          <strong>Developer</strong>
+          <span>Join the community, demos,<br> references, dev guides, and tools.</span>
+        </a>
+      </li>
+      <li>
+        <a href="//support.jwplayer.com">
+          <strong>Support</strong>
+          <span>Search the articles, ask the<br> community, or give feedback</span>
+        </a>
+      </li>
+    </ul>
+    <div class="global-site-footer-row">
+      <p>&copy; 2016 - <script>document.write(new Date().getFullYear())</script> | Longtail Ad Solutions, Inc. All Rights Reserved.<br>
+        JW Player is a registered trademark.</p>
+      <ul>
+        <li><a href="//www.jwplayer.com/tos/">Terms of Service</a></li>
+        <li><a href="//www.jwplayer.com/privacy/">Privacy Policy</a></li>
+        <li><a href="//www.jwplayer.com/dmca/">DMCA</a></li>
+        <li><a href="//www.jwplayer.com/privacy/#ad-choices">Ad Choices</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+        </div>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../js/mkdocs-jwplayer.min.js"></script>
+
+    
+
+  </body>
+</html>

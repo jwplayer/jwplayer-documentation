@@ -1,0 +1,44 @@
+<div class="site-secondary-header">
+  <div class="site-secondary-header-container">
+    <div class="site-secondary-header-group">
+      <div class="site-secondary-header-dropdown">
+				<a class="site-secondary-header-dropdown-arrow" href="#"></a>
+				<a href="/jw-player/" class="site-secondary-header-dropdown-link {% if config.extra.product == 'player' %}is-selected{% endif %}">JW Player</a>
+        <a href="/jw-platform/" class="site-secondary-header-dropdown-link {% if config.extra.product == 'platform' %}is-selected{% endif %}">JW Platform</a>
+        <a href="/android-sdk/" class="site-secondary-header-dropdown-link {% if config.extra.product == 'android' %}is-selected{% endif %}">Android SDK</a>
+        <a href="/ios-sdk/" class="site-secondary-header-dropdown-link {% if config.extra.product == 'ios' %}is-selected{% endif %}">iOS SDK</a>
+        <a href="/tools/" class="site-secondary-header-dropdown-link {% if config.extra.product == 'devtools' %}is-selected{% endif %}">Developer Tools</a>
+        <a href="/release-notes/" class="site-secondary-header-dropdown-link">Release Notes</a>
+      </div>
+    </div>
+		{% if config.extra.product == 'player' %}
+			<a href="/jw-player/docs/javascript-api-reference/">API Reference</a>
+			<a href="/jw-player/docs/developer-guide/">Developer Guide</a>
+			<a href="/jw-player/demos">Demos</a>
+			<a href="/jw-player/docs/developer-guide/release_notes/release_notes_7/">Release Notes</a>
+		{% endif %}
+		{% if config.extra.product == 'platform' %}
+	      <a href="/jw-platform/docs/delivery-api-reference/">Delivery API</a>      
+	      <a href="/jw-platform/reference/v1/">Management API</a>
+	      <a href="/jw-platform/docs/developer-guide/">Developer Guide</a>
+	      <a href="/jw-platform/docs/developer-guide/release-notes/">Release Notes</a>
+		{% endif %}
+		{% if config.extra.product == 'android' %}
+	    <a href="/sdk/android/reference/">API Reference</a>
+	    <a href="/sdk/android/docs/developer-guide/">Developer Guide</a>
+	    <a href="/android-sdk/demos/">Best Practice Apps</a>
+	    <a href="/sdk/android/docs/developer-guide/about/release-notes/">Release Notes</a>
+		{% endif %}
+		{% if config.extra.product == 'ios' %}
+			<a href="/sdk/ios/reference/">API Reference</a>
+			<a href="/sdk/ios/docs/developer-guide/">Developer Guide</a>
+			<a href="/ios-sdk/demos/">Best Practice Apps</a>
+			<a href="/sdk/ios/docs/developer-guide/about/release-notes/">Release Notes</a>
+		{% endif %}
+		{% if config.extra.product == 'devtools' %}
+			<a href="/jw-player/demos">JW Player Demos</a>
+			<a href="/android-sdk/demos/">Android Apps</a>
+			<a href="/ios-sdk/demos/">iOS Apps</a>
+		{% endif %}
+  </div>
+</div>

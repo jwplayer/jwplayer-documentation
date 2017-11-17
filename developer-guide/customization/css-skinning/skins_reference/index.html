@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html class="mkdocs-jwplayer ">
+  <head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CSS Skinning Reference - JW Player Developer Guide</title>
+
+    
+
+    
+      <meta name="description" content="JW Developers provides tools and resources for developers using JW Player, JW Platform and the Android and iOS SDKs." />
+    
+
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+    
+
+    <link rel="stylesheet" href="../../../css/mkdocs-jwplayer.min.css">
+
+    
+
+    
+    
+
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
+
+  </head>
+  <body>
+    <div class="site">
+
+				<div class="site-top">
+					<div class="site-header">
+  <div class="site-header-container">
+    <a class="logo" href="/">
+      <img src="/img/jw-logo-mark-white.svg">
+      <img src="/img/jw-logo-text-white.svg">
+      <span class="developer">Developer</span>
+    </a>
+    <a class="menu-toggle" href="#">Menu</a>
+    <ul class="menu">
+      <li><a class="link" href="https://www.jwplayer.com">Company</a></li>
+      <li><a class="link" href="https://www.jwplayer.com/blog">Blog</a></li>
+      <li><a class="link" href="https://support.jwplayer.com">Support</a></li>
+      <li><a class="link" href="https://dashboard.jwplayer.com">Sign-In</a></li>
+      <li><a class="link" href="/search/"><img class="search-icon" src="//icons.jwplayer.com/icons/white/search.svg" width="15" /></a></li>
+      <li><a class="btn md red" href="https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade">Upgrade</a></li>
+    </ul>
+  </div>
+</div>
+	        <div class="site-secondary-header">
+  <div class="site-secondary-header-container">
+    <div class="site-secondary-header-group">
+      <div class="site-secondary-header-dropdown">
+				<a class="site-secondary-header-dropdown-arrow" href="#"></a>
+				<a href="/jw-player/" class="site-secondary-header-dropdown-link is-selected">JW Player</a>
+        <a href="/jw-platform/" class="site-secondary-header-dropdown-link ">JW Platform</a>
+        <a href="/android-sdk/" class="site-secondary-header-dropdown-link ">Android SDK</a>
+        <a href="/ios-sdk/" class="site-secondary-header-dropdown-link ">iOS SDK</a>
+        <a href="/tools/" class="site-secondary-header-dropdown-link ">Developer Tools</a>
+        <a href="/release-notes/" class="site-secondary-header-dropdown-link">Release Notes</a>
+      </div>
+    </div>
+		
+			<a href="/jw-player/docs/javascript-api-reference/">API Reference</a>
+			<a href="/jw-player/docs/developer-guide/">Developer Guide</a>
+			<a href="/jw-player/demos">Demos</a>
+			<a href="/jw-player/docs/developer-guide/release_notes/release_notes_7/">Release Notes</a>
+		
+		
+		
+		
+		
+  </div>
+</div>
+	        <div class="page-header">
+	<div class="page-label">
+		
+			CSS Skinning Reference
+		
+	</div>
+	<form class="search" action="../../../search.html" method="get">
+		<input type="search" name="q" placeholder="Search documentation..." />
+	</form>
+</div>
+				</div>
+
+        <div class="site-bottom">
+
+					<div class="site-body">
+
+	          <div class="page">
+
+	            <div class="page-body">
+
+	              <div class="scroll-to-top">
+	<img src="//icons.jwplayer.com/icons/white/change-arrow-up.svg">
+</div>
+
+	              <div class="aside">
+									
+										<ul>
+											
+		                    
+  <li>
+    
+      <span>Getting Started</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../..">Introduction</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../api/javascript_api_introduction/">Intro to Javascript API</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../configuration-reference/">Configuration Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../release_notes/release_channels/">Using Release Channels</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>Customization</span>
+    
+    <ul>
+      
+        
+  <li class="active">
+    <a href="./">CSS Skinning Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../css-skinning-model/">CSS Skinning Model</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../skins_creating/">Custom Skins</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../skins_example/">Example CSS File</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../designer-kit/">JW8 Designer Kit</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>Analytics</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../../analytics/integrations/">Analytics Integrations</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+		                    
+  <li>
+    
+      <span>JW 7 Developer Guide</span>
+    
+    <ul>
+      
+        
+  <li >
+    <a href="../../../jw7/javascript-api-reference/">JW7 Javascript API</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/configuration-reference/">JW7 Configuration Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/skins_reference/">JW7 CSS Skinning Reference</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/css-skinning-model/">JW7 CSS Skinning Model</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/skins_creating/">JW7 Custom Skins</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/skins_fonts/">JW7 Custom Icons and Fonts</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/skins_example/">JW7 Example CSS File</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/designer-kit/">JW7 Designer Kit</a>
+  </li>
+
+      
+        
+  <li >
+    <a href="../../../jw7/integrations/">JW7 Analytics Integrations</a>
+  </li>
+
+      
+    </ul>
+  </li>
+
+		                  
+										</ul>
+							    
+	              </div>
+
+	              <div class="main">
+	                
+	                  <div class="alert default">This page has been updated for JW Player 8. Click here to go to the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/skins_reference/">JW7 CSS Skinning Reference</a>.</div>
+<h1 id="css-skinning-reference">CSS Skinning Reference</h1>
+<p>This article acts as a reference for styling all interface components of JW Player 8. This skinning model uses CSS, and all controls are overlaid on top of the player with HTML. JW8 uses inline SVGs for all icons.</p>
+<p>When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with <strong>jw-</strong> in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div.</p>
+<p>A <a href="//jwplayer.com/video-solutions/branding/">JW Player skin</a> CSS file contains classes that are grouped into functional elements. This reference provides an elaborate overview the classes used. For additional information, check out a reference css file.</p>
+<p><a name="main"></a></p>
+<h2 id="main-div">Main Div</h2>
+<p>The main div will be given a class <strong>jwplayer</strong>. It is strongly advised to <strong>not</strong> add any additional inline styling on this div besides what is included in your skin css file.</p>
+<p><a name="states"></a></p>
+<h2 id="player-states">Player States</h2>
+<p>The state of the player is reflected in the DOM by a class on the main div. It will always contain one of the following:</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-state-playing</strong></td>
+<td>While content is playing</td>
+</tr>
+<tr>
+<td><strong>.jw-state-paused</strong></td>
+<td>While content is paused</td>
+</tr>
+<tr>
+<td><strong>.jw-state-buffering</strong></td>
+<td>While content is buffering</td>
+</tr>
+<tr>
+<td><strong>.jw-state-idle</strong></td>
+<td>Before pressing play</td>
+</tr>
+<tr>
+<td><strong>.jw-state-complete</strong></td>
+<td>After playlist completes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="flags">Flags</h2>
+<p>Sometimes the player needs to signify certain modes of the playback. These flags will be present on the main div and can be:</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-flag-fullscreen</strong></td>
+<td>When the player is in fullscreen</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-live</strong></td>
+<td>When the player is playing back live video</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-user-inactive</strong></td>
+<td>Added after a few minutes of inactivity</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-controlbar-only</strong></td>
+<td>Player is less than 30 pixels tall</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-media-audio</strong></td>
+<td>Content being played is an audio file</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-dragging</strong></td>
+<td>Mouse down with cursor over control bar</td>
+</tr>
+<tr>
+<td><strong>.jw-flag-aspect-mode</strong></td>
+<td>Enable a padding to create an aspect ratio</td>
+</tr>
+</tbody>
+</table>
+<p><a name="colors"></a></p>
+<h2 id="colors">Colors</h2>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-background-color</strong></td>
+<td>This is a class that will add a set of style to all interface elements without having to change it for each individual class.</td>
+</tr>
+</tbody>
+</table>
+<p>We advise only using <strong>.jw-background-color</strong> for color and not other CSS properties. The player will add this class to the following elements:</p>
+<ul>
+<li><strong>.jw-display-icon-container</strong></li>
+<li><strong>.jw-controlbar</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-button-color</strong></td>
+<td>This is a class that player will add to specific elements when color is overridden from within the player configuration setup. You can also use this to easily change all button colors in your skin. The player will add this class all icons.</td>
+</tr>
+<tr>
+<td><strong>.jw-button-color:hover</strong></td>
+<td>This will adjust the color of all buttons when they are hovered on.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="posters"></a></p>
+<h2 id="poster-images">Poster Images</h2>
+<p>These define how the poster image will be stretched to fill the space given. Internally this state is used to stretch the player using JS.</p>
+<ul>
+<li><strong>.jw-stretch-none</strong></li>
+<li><strong>.jw-stretch-uniform</strong></li>
+<li><strong>.jw-stretch-fill</strong></li>
+<li><strong>.jw-stretch-exactfit</strong></li>
+</ul>
+<p><a name="controls"></a></p>
+<h2 id="controls">Controls</h2>
+<p>All player controls are within the <strong>.jw-controls</strong> class. When JW Player is set to <strong>controls: false</strong>, this entire class has a visibility of hidden. To not include a specific item in your skin, you will need to override the style with a visibility or display of none.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="#display">Display</a></strong></td>
+<td>The set of icons in the center of the player</td>
+</tr>
+<tr>
+<td><strong><a href="#controlbar">Controlbar</a></strong></td>
+<td>The playback controls for the player</td>
+</tr>
+<tr>
+<td><strong><a href="#menus">Menus</a></strong></td>
+<td>Extensions of the controlbar that display additional information</td>
+</tr>
+<tr>
+<td><strong>Logo</strong></td>
+<td>A logo displayed for branding purposes</td>
+</tr>
+<tr>
+<td><strong>Preview</strong></td>
+<td>The video's poster image</td>
+</tr>
+</tbody>
+</table>
+<h2 id="display">Display</h2>
+<p>The display component contains the main element container for the (re)play, buffer and error icons in the middle of the screen. To add styles to these containers based on states you will need to add the state classes in your stylesheet.</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-display-icon-container</strong></td>
+<td>Used to style the container in which the display icons are.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-display</strong></td>
+<td>Used to style icons that appear in the display container. The icon that is rendered depends on the state the player is in.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controlbar">Controlbar</h2>
+<p>The controlbar component contains all elements for the video controls at the bottom of the player. All elements are contained within the <strong>.jw-controlbar</strong> parent class and broken out into two groups, <strong>.jw-slider-time</strong> and <strong>.jw-button-container</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-slider-time</strong></td>
+<td>Used to position the player timeslider above playback controls</td>
+</tr>
+<tr>
+<td><strong>.jw-button-container</strong></td>
+<td>Used to group and position specific playback controls</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slider-time">Slider Time</h2>
+<p>The center group contains the elements that make up the player's timeslider.</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-slider-horizontal .jw-slider-container</strong></td>
+<td>The containers that hold the timeslider elements</td>
+</tr>
+<tr>
+<td><strong>.jw-rail</strong></td>
+<td>Sets the style for the base layer of the slider</td>
+</tr>
+<tr>
+<td><strong>.jw-buffer</strong></td>
+<td>Sets the style for the how much of video has been buffered, which is layered on top of <strong>.jw-rail</strong></td>
+</tr>
+<tr>
+<td><strong>.jw-progress</strong></td>
+<td>Sets the style for the elapsed video, which is layered on top of <strong>.jw-buffer</strong></td>
+</tr>
+<tr>
+<td><strong>.jw-knob</strong></td>
+<td>This marks the tip of the progress rail, used to indicate where playback is currently</td>
+</tr>
+<tr>
+<td><strong>.jw-slider-horizontal .jw-cue</strong></td>
+<td>This class is used for timeslider cuepoints, like chapters and ad breaks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="button-container">Button Container</h2>
+<p>The button container contains playback controls, elapsed and duration time, and the settings menu:</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-icon-playback</strong></td>
+<td>Container that holds the play/pause icons. This icon will toggle depending on the state of the player</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-rewind</strong></td>
+<td>Container that holds the "rewind" icon</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-next</strong></td>
+<td>Playback control to advance to the next playlist item.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-volume</strong></td>
+<td>Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-volume .jw-off</strong></td>
+<td>When the player is muted the .jw-off class gets added to toggle the volume off icon.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-live</strong></td>
+<td>Container for live and dvr icons. This icon will toggle depending on the state of the player.</td>
+</tr>
+<tr>
+<td><strong>.jw-text-elapsed</strong></td>
+<td>Container for the elapsed video time.</td>
+</tr>
+<tr>
+<td><strong>.jw-text-duration</strong></td>
+<td>Container for the total duration of the media file.</td>
+</tr>
+<tr>
+<td><strong>.jw-settings-sharing</strong></td>
+<td>Container for the sharing icon. This will only show when sharing is enabled.</td>
+</tr>
+<tr>
+<td><strong>.jw-playlist-btn</strong></td>
+<td>Container for playlist icon. This icon represents the player using a manual playlist for related content.</td>
+</tr>
+<tr>
+<td><strong>.jw-related-btn</strong></td>
+<td>Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-cc</strong></td>
+<td>Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-cast</strong></td>
+<td>This container will display the Chromecast or Airplay icon depending on which feature is available.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-settings</strong></td>
+<td>Container for the settings menu icon.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-fullscreen</strong></td>
+<td>Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="breakpoints"></a></p>
+<h2 id="break-points">Break Points</h2>
+<p>Breakpoint classes are added to the player element based on the width of the player, not the device or browser. Because JW Player instances are embedded via an iframe, the usual @media query will not work for defining CSS declarations to make elements responsive. Breakpoints are global classes that can be used to make responsive CSS declarations for any customizable player element.</p>
+<table>
+<thead>
+<tr>
+<th>Break Point</th>
+<th>Width Intervals (px)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-breakpoint-0</strong></td>
+<td>Player width: 0-319</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-1</strong></td>
+<td>Player width: 320-419</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-2</strong></td>
+<td>Player width: 420-539</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-3</strong></td>
+<td>Player width: 540-639</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-4</strong></td>
+<td>Player width: 640-799</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-5</strong></td>
+<td>Player width: 800-959</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-6</strong></td>
+<td>Player width: 960-1279</td>
+</tr>
+<tr>
+<td><strong>.jw-breakpoint-7</strong></td>
+<td>Player width: 1280+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples</h3>
+<p>Make font size smaller only when player width is under 420px wide:</p>
+<pre><code>.jw-breakpoint-0 .jw-related-item-description {
+font-size: 11px;
+}
+</code></pre>
+
+<p>For medium-sized player widths, make the font size bigger:</p>
+<pre><code>.jw-breakpoint-3 .jw-related-item-description,
+.jw-breakpoint-4 .jw-related-item-description {
+  font-size: 16px;
+}
+</code></pre>
+
+<p><a name="menus"></a></p>
+<h2 id="settings-menu-and-submenus">Settings Menu and Submenus</h2>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-settings-menu</strong></td>
+<td>This container creates a menu based on what playback features are enabled for the player.</td>
+</tr>
+<tr>
+<td><strong>.jw-settings-submenu</strong></td>
+<td>A submenu is created to list available options for each menu feature.</td>
+</tr>
+<tr>
+<td><strong>.jw-settings-content-item</strong></td>
+<td>This container is populated with the options related to each submenu.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tooltips-and-overlays">Tooltips and Overlays</h2>
+<p>JW Player will automatically populate overlay divs on mouseover/touch of certain interface elements. These include the timeslider thumbnail preview, volume slider and on-hover tooltips for controlbar icons.</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-overlay</strong></td>
+<td>All overlays are wrapped in this class. It is not advised to modify this class but rather the containers within this class. This class when appended to the parent controlbar class will position the overlays.</td>
+</tr>
+<tr>
+<td><strong>.jw-tooltip</strong></td>
+<td>On-hover tooltips containning labels for controlbar icons.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="title-and-preview-image">Title and Preview Image</h2>
+<p>The title and description configuration options are displayed in their own classes overlaid on the player.</p>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-title</strong></td>
+<td>This is the wrapper class the text overlays.</td>
+</tr>
+<tr>
+<td><strong>.jw-title-primary</strong></td>
+<td>This class is populated with content from the title configuration option from the player setup.</td>
+</tr>
+<tr>
+<td><strong>.jw-title-secondary</strong></td>
+<td>This class is populated with content from the description configuration option in the player setup per-playlist item.</td>
+</tr>
+<tr>
+<td><strong>.jw-preview</strong></td>
+<td>This class styles the preview image from the image configuration option in the player setup per-playlist item.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="discovery-overlay">Discovery Overlay</h2>
+<p>The discovery overlay displays recommended content related to the current media file. The overlay uses <a href="#breakpoints">breakpoints</a> to select the proper format and amount of items to display.</p>
+<h3 id="customization">Customization</h3>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-plugin-related</strong></td>
+<td>Customize the background color of the related overlay</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-content</strong></td>
+<td>Customize the background and border color of related items</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-content:hover</strong></td>
+<td>Customize the background and border color of related items when hovering</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-duration</strong></td>
+<td>Customize the next-up related item duration text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-play</strong></td>
+<td>Customize the next-up related item play button</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-title strong</strong></td>
+<td>Customize the next-up related item "Next Up" text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-title span</strong></td>
+<td>Customize related item title text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-title .jw-item-index-text em</strong></td>
+<td>Customize related item title (for playlists) text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-description</strong></td>
+<td>Customize related item description text (Auto-advance only)</td>
+</tr>
+<tr>
+<td><strong>.jw-related-autoplay-frame</strong></td>
+<td>Customize related item autoplay progress (Auto-advance only)</td>
+</tr>
+<tr>
+<td><strong>.jw-related-autoplay-frame-progress</strong></td>
+<td>Customize related item autoplay progress (Auto-advance only)</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-content:hover .jw-related-autoplay-frame-progress</strong></td>
+<td>Customize elements in hover state (falls under .jw-related-item-content:hover)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="selectors">Selectors</h3>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-plugin-related</strong></td>
+<td>Parent container for related overlay plugin that covers the player viewport when visible.</td>
+</tr>
+<tr>
+<td><strong>.jw-related-close</strong></td>
+<td>Related overlay close icon button</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-content</strong></td>
+<td>Item content area</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-poster</strong></td>
+<td>Poster image container (poster image is set via inline style background image on this element)</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-duration</strong></td>
+<td>Item duration text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-play</strong></td>
+<td>Next-up item play button container</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-play .jw-display-icon</strong></td>
+<td>Next-up item play button icon</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-title-content</strong></td>
+<td>Title text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-item-description-content</strong></td>
+<td>Description text</td>
+</tr>
+<tr>
+<td><strong>.jw-related-autoplay-frame</strong></td>
+<td>Item autoplay border</td>
+</tr>
+<tr>
+<td><strong>.jw-related-autoplay-frame-progress</strong></td>
+<td>Item autoplay progress border</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next-up-card">Next Up Card</h2>
+<p>The next up card displays prior to a video's completion, showing information about the following media item.</p>
+<h3 id="customization_1">Customization</h3>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-nextup-header</strong></td>
+<td>Customize the top bar with "Next Up" label</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-body</strong></td>
+<td>Customize the thumbnail/title group container</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-thumbnail</strong></td>
+<td>Customize the next up item thumbnail</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-title</strong></td>
+<td>Customize the next up item title</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-close</strong></td>
+<td>Customize the close button</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-close:hover</strong></td>
+<td>Customize the close button hover state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="selectors_1">Selectors</h3>
+<table>
+<thead>
+<tr>
+<th>CSS Class</th>
+<th>Definition</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.jw-nextup-container</strong></td>
+<td>Parent container for next up (hidden by default) that positions the next up display in the player.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-container-visible</strong></td>
+<td>Add-on class for next up parent container that transitions the next up display to visible state.</td>
+<td>state</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup</strong></td>
+<td>Second container element for next up with <code>position: relative</code> CSS property set to enable absolute positioning of the close button.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-header</strong></td>
+<td>Top bar element for next up that contains the "Next Up" label text.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-body</strong></td>
+<td>Grouping container element for the next up thumbnail and title.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-thumbnail</strong></td>
+<td>Thumbnail element for next up display (hidden by default). Element uses inline style <code>background-image: url(thumbnail.jpg);</code> in addition to <code>background-size: cover</code> to accommodate displaying any thumbnail size in an elegant way.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-thumbnail-visible</strong></td>
+<td>Modifier class that makes the next up thumbnail element visible (set when next up item has a thumbnail).</td>
+<td>state</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-title</strong></td>
+<td>Title text element for next up display.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-close</strong></td>
+<td>Close button for next up (hidden by default) which hides the display when clicked.</td>
+<td>default</td>
+</tr>
+<tr>
+<td><strong>.jw-nextup-sticky .jw-nextup-close</strong></td>
+<td>State to show close button for next up display (shown when nearing end of current video).</td>
+<td>state</td>
+</tr>
+</tbody>
+</table>
+	                
+	                
+	                  <div class="pagination prev-next">
+	                    
+	                      <a class="btn md" href="../../../release_notes/release_channels/" title="Using Release Channels">Previous Page</a>
+	                    
+	                    
+	                      <a class="btn md" href="../../css-skinning-model/" title="CSS Skinning Model"/>Next Page</a>
+	                    
+	                  </div>
+	                
+	              </div>
+
+	            </div>
+
+	          </div>
+	        </div>
+
+	        <footer class="global-site-footer">
+  <div class="global-site-footer-container">
+    <ul class="global-site-footer-row">
+      <li>
+        <a href="//www.jwplayer.com">
+          <strong>JW Player</strong>
+          <span>Browse our products, company,<br> resources, and pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="//dashboard.jwplayer.com">
+          <strong>Dashboard</strong>
+          <span>Content, players, analytics,<br> and account management</span>
+        </a>
+      </li>
+      <li>
+        <a class="selected" href="//developer.jwplayer.com">
+          <strong>Developer</strong>
+          <span>Join the community, demos,<br> references, dev guides, and tools.</span>
+        </a>
+      </li>
+      <li>
+        <a href="//support.jwplayer.com">
+          <strong>Support</strong>
+          <span>Search the articles, ask the<br> community, or give feedback</span>
+        </a>
+      </li>
+    </ul>
+    <div class="global-site-footer-row">
+      <p>&copy; 2016 - <script>document.write(new Date().getFullYear())</script> | Longtail Ad Solutions, Inc. All Rights Reserved.<br>
+        JW Player is a registered trademark.</p>
+      <ul>
+        <li><a href="//www.jwplayer.com/tos/">Terms of Service</a></li>
+        <li><a href="//www.jwplayer.com/privacy/">Privacy Policy</a></li>
+        <li><a href="//www.jwplayer.com/dmca/">DMCA</a></li>
+        <li><a href="//www.jwplayer.com/privacy/#ad-choices">Ad Choices</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+        </div>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../../js/mkdocs-jwplayer.min.js"></script>
+
+    
+
+  </body>
+</html>
