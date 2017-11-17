@@ -38,4 +38,4 @@ Use the following URL to purge the CDN for release notes: /data/release-notes/jw
 
 ## Release Notes Build Process
 
-![Release Notes Build Process](release-notes-build.png);
+![Release Notes Build Process](release-notes-build.png)
