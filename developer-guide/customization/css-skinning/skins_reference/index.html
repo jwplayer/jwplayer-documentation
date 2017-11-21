@@ -544,7 +544,7 @@
 <table>
 <thead>
 <tr>
-<th>Div Class</th>
+<th>CSS Class</th>
 <th>SVG Classes</th>
 <th>Definition</th>
 </tr>
@@ -553,7 +553,7 @@
 <tr>
 <td><strong>.jw-icon-playback</strong></td>
 <td>.jw-svg-icon-pause <br/> .jw-svg-icon-play</td>
-<td>Container that holds the play/pause icons. This icon will toggle depending on the state of the player</td>
+<td>Container that holds the play/pause icons. This icon will toggle depending on the state of the player.</td>
 </tr>
 <tr>
 <td><strong>.jw-icon-rewind</strong></td>
@@ -568,7 +568,7 @@
 <tr>
 <td><strong>.jw-icon-volume</strong></td>
 <td>.jw-svg-icon-volume-50<br/> .jw-svg-icon-volume-100</td>
-<td>Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume.</td>
+<td>Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume. The icon will toggle depending on the volume level: volume-100 displays when the volume is set to 75% or greater.</td>
 </tr>
 <tr>
 <td><strong>.jw-icon-volume .jw-off</strong></td>
@@ -612,17 +612,27 @@
 </tr>
 <tr>
 <td><strong>.jw-icon-cast</strong></td>
-<td></td>
-<td>This container will display the Chromecast or Airplay icon depending on which feature is available.</td>
+<td>n/a - does not follow pattern</td>
+<td>This container will display the Chromecast icon if available.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-airplay</strong></td>
+<td>.jw-svg-icon-airplay-on</td>
+<td>This container will display Airplay icon if it is connected.</td>
+</tr>
+<tr>
+<td><strong>.jw-icon-airplay .jw-off</strong></td>
+<td>.jw-svg-icon-airplay-off</td>
+<td>This container will display the Airplay icon if it is available.</td>
 </tr>
 <tr>
 <td><strong>.jw-icon-settings</strong></td>
-<td>.jw-icon-settings</td>
+<td>.jw-svg-icon-settings</td>
 <td>Container for the settings menu icon.</td>
 </tr>
 <tr>
 <td><strong>.jw-icon-fullscreen</strong></td>
-<td>.jw-icon-fullscreen</td>
+<td>.jw-svg-icon-fullscreen</td>
 <td>Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.</td>
 </tr>
 </tbody>
@@ -707,6 +717,43 @@ font-size: 11px;
 <tr>
 <td><strong>.jw-settings-content-item</strong></td>
 <td>This container is populated with the options related to each submenu.</td>
+</tr>
+</tbody>
+</table>
+<p>The following icons are nested within <code>.jw-settings-topbar</code>, a child of <code>.jw-settings-menu</code>. Icons appear only if the submenu is enabled or avaialble The additional classes <code>.jw-icon</code> <code>.jw-icon-inline</code> <code>.jw-button-color</code> are all required within the button container. Within the SVG element, <code>.jw-svg-icon</code> is required.   </p>
+<table>
+<thead>
+<tr>
+<th>CSS Classes</th>
+<th>SVG Class</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.jw-settings-quality .jw-submenu-quality</td>
+<td>.jw-svg-icon-quality-100</td>
+<td>Container for the quality/rendition selection submenu.</td>
+</tr>
+<tr>
+<td>.jw-settings-playbackRates .jw-submenu-playbackRates</td>
+<td>.jw-svg-icon-playback-rate</td>
+<td></td>
+</tr>
+<tr>
+<td>.jw-settings-captions .jw-submenu-captions</td>
+<td>.jw-svg-icon-cc-off</td>
+<td></td>
+</tr>
+<tr>
+<td>.jw-settings-audioTracks .jw-submenu-audioTracks</td>
+<td>.jw-svg-icon-audio-tracks</td>
+<td></td>
+</tr>
+<tr>
+<td>.jw-settings-sharing .jw-submenu-sharing</td>
+<td>.jw-svg-icon-sharing</td>
+<td></td>
 </tr>
 </tbody>
 </table>

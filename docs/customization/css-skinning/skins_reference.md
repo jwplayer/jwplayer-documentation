@@ -134,12 +134,12 @@ The center group contains the elements that make up the player's timeslider.
 
 The button container contains playback controls, elapsed and duration time, and the settings menu. The additional classes `.jw-icon` `.jw-icon-inline` `.jw-button-color` are all required within the button container. Within the SVG element, `.jw-svg-icon` is required. 
 
-|Div Class          | SVG Classes | Definition |
-|-------------------|--------------|--|
-|**.jw-icon-playback**|.jw-svg-icon-pause <br/> .jw-svg-icon-play|Container that holds the play/pause icons. This icon will toggle depending on the state of the player|
+|CSS Class |SVG Classes    |Definition|
+|-------------|----------|-----------|
+|**.jw-icon-playback**|.jw-svg-icon-pause <br/> .jw-svg-icon-play|Container that holds the play/pause icons. This icon will toggle depending on the state of the player.|
 |**.jw-icon-rewind**|.jw-svg-icon-rewind| Container that holds the "rewind" icon|
 |**.jw-icon-next**|.jw-svg-icon-next|Playback control to advance to the next playlist item.|
-|**.jw-icon-volume**|.jw-svg-icon-volume-50<br/> .jw-svg-icon-volume-100|Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume.|
+|**.jw-icon-volume**|.jw-svg-icon-volume-50<br/> .jw-svg-icon-volume-100|Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume. The icon will toggle depending on the volume level: volume-100 displays when the volume is set to 75% or greater.|
 |**.jw-icon-volume .jw-off**|.jw-svg-icon-volume-0| When the player is muted the .jw-off class gets added to toggle the volume off icon.|
 |**.jw-icon-live**|.jw-svg-icon-live<br/>.jw-svg-icon-dvr|Container for live and dvr icons. This icon will toggle depending on the state of the player.|
 |**.jw-text-elapsed**|n/a| Container for the elapsed video time.|
@@ -148,9 +148,11 @@ The button container contains playback controls, elapsed and duration time, and 
 |**.jw-playlist-btn**|.jw-svg-icon-playlist|Container for playlist icon. This icon represents the player using a manual playlist for related content.|
 |**.jw-related-btn**|.jw-svg-icon-related|Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.|
 |**.jw-icon-cc**|.jw-svg-icon-cc-on<br/>.jw-svg-icon-cc-off|Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.|
-|**.jw-icon-cast**||This container will display the Chromecast or Airplay icon depending on which feature is available.|
-|**.jw-icon-settings**|.jw-icon-settings|Container for the settings menu icon.|
-|**.jw-icon-fullscreen**|.jw-icon-fullscreen|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
+|**.jw-icon-cast**|n/a - does not follow pattern|This container will display the Chromecast icon if available.|
+|**.jw-icon-airplay**|.jw-svg-icon-airplay-on|This container will display Airplay icon if it is connected.|
+|**.jw-icon-airplay .jw-off**|.jw-svg-icon-airplay-off|This container will display the Airplay icon if it is available.|
+|**.jw-icon-settings**|.jw-svg-icon-settings|Container for the settings menu icon.|
+|**.jw-icon-fullscreen**|.jw-svg-icon-fullscreen|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
 
 
 <a name="breakpoints"></a>
@@ -193,6 +195,16 @@ For medium-sized player widths, make the font size bigger:
 |**.jw-settings-menu**|This container creates a menu based on what playback features are enabled for the player.|
 |**.jw-settings-submenu**|A submenu is created to list available options for each menu feature.|
 |**.jw-settings-content-item**|This container is populated with the options related to each submenu.|
+
+The following icons are nested within `.jw-settings-topbar`, a child of `.jw-settings-menu`. Icons appear only if the submenu is enabled or avaialble The additional classes `.jw-icon` `.jw-icon-inline` `.jw-button-color` are all required within the button container. Within the SVG element, `.jw-svg-icon` is required.   
+
+|CSS Classes |SVG Class    |Definition|
+|-------------|----------|-----------|
+|.jw-settings-quality .jw-submenu-quality|.jw-svg-icon-quality-100|Container for the quality/rendition selection submenu.|
+|.jw-settings-playbackRates .jw-submenu-playbackRates|.jw-svg-icon-playback-rate| |
+|.jw-settings-captions .jw-submenu-captions|.jw-svg-icon-cc-off| |
+|.jw-settings-audioTracks .jw-submenu-audioTracks|.jw-svg-icon-audio-tracks| |
+|.jw-settings-sharing .jw-submenu-sharing|.jw-svg-icon-sharing| |
 
 
 ## Tooltips and Overlays
