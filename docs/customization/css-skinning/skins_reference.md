@@ -88,12 +88,23 @@ All player controls are within the **.jw-controls** class. When JW Player is set
 
 ## Display
 
-The display component contains the main element container for the (re)play, buffer and error icons in the middle of the screen. To add styles to these containers based on states you will need to add the state classes in your stylesheet.
+The display component contains the main element container for the (re)play, buffer and error icons in the middle of the screen, as well as the rewind and next buttons that appear on pause for small breakpoints. To add styles to these containers based on states you will need to add the state classes in your stylesheet.
+
+The display component has a container and an additional inner wrapper. Both are required to contain the display icon containers below. 
 
 |CSS Class          | Definition |
 |-------------------|-----------|
-|**.jw-display-icon-container**|Used to style the container in which the display icons are.|
-|**.jw-icon-display**|Used to style icons that appear in the display container. The icon that is rendered depends on the state the player is in.|
+|**.jw-display-icon-container**|Parent div used to style the container in which the display icons are.|
+|**.jw-display-controls**|Child div of `.jw-display-icon-cotainer`. Used to style icons that appear in the display container. The icons thatrender depend on the state the player is in. |
+
+At smaller breakpoints, up to three icons can be displayed in the middle of the screen at one time. The three slots for icons have a container, an inner div, and an SVG. Each element requires specific classes, as well as a class referencing the name of the icon:
+
+|.jw-display-icon-container | .jw-icon <br> .jw-button-color| .jw-svg-icon|
+|----------------------------------|---------------------------------|--------------------|
+|.jw-display-icon-rewind|.jw-icon-rewind|.jw-svg-icon-rewind|
+|.jw-display-icon-display|.jw-icon-display|.jw-svg-icon-buffer <br/> .jw-svg-icon-replay <br/> .jw-svg-icon-play <br/> .jw-svg-icon-pause|
+|.jw-display-icon-next|.jw-icon-next|.jw-svg-icon-next|
+
 
 ## Controlbar
 
@@ -101,7 +112,7 @@ The controlbar component contains all elements for the video controls at the bot
 
 
 |CSS Class          | Definition |
-|-------------------|-----------|
+|----------------------------|-----------|
 |**.jw-slider-time**|Used to position the player timeslider above playback controls|
 |**.jw-button-container**|Used to group and position specific playback controls|
 
@@ -121,25 +132,25 @@ The center group contains the elements that make up the player's timeslider.
 
 ## Button Container
 
-The button container contains playback controls, elapsed and duration time, and the settings menu:
+The button container contains playback controls, elapsed and duration time, and the settings menu. The additional classes `.jw-icon` `.jw-icon-inline` `.jw-button-color` are all required within the button container. Within the SVG element, `.jw-svg-icon` is required. 
 
-|CSS Class          | Definition |
-|-------------------|-----------|
-|**.jw-icon-playback**|Container that holds the play/pause icons. This icon will toggle depending on the state of the player|
-|**.jw-icon-rewind**|Container that holds the "rewind" icon|
-|**.jw-icon-next**|Playback control to advance to the next playlist item.|
-|**.jw-icon-volume**|Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume.|
-|**.jw-icon-volume .jw-off**|When the player is muted the .jw-off class gets added to toggle the volume off icon.|
-|**.jw-icon-live**|Container for live and dvr icons. This icon will toggle depending on the state of the player.|
-|**.jw-text-elapsed**|Container for the elapsed video time.|
-|**.jw-text-duration**|Container for the total duration of the media file.|
-|**.jw-settings-sharing**|Container for the sharing icon. This will only show when sharing is enabled.|
-|**.jw-playlist-btn**|Container for playlist icon. This icon represents the player using a manual playlist for related content.|
-|**.jw-related-btn**|Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.|
-|**.jw-icon-cc**|Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.|
-|**.jw-icon-cast**|This container will display the Chromecast or Airplay icon depending on which feature is available.|
-|**.jw-icon-settings**|Container for the settings menu icon.|
-|**.jw-icon-fullscreen**|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
+|Div Class          | SVG Classes | Definition |
+|-------------------|--------------|--|
+|**.jw-icon-playback**|.jw-svg-icon-pause <br/> .jw-svg-icon-play|Container that holds the play/pause icons. This icon will toggle depending on the state of the player|
+|**.jw-icon-rewind**|.jw-svg-icon-rewind| Container that holds the "rewind" icon|
+|**.jw-icon-next**|.jw-svg-icon-next|Playback control to advance to the next playlist item.|
+|**.jw-icon-volume**|.jw-svg-icon-volume-50<br/> .jw-svg-icon-volume-100|Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume.|
+|**.jw-icon-volume .jw-off**|.jw-svg-icon-volume-0| When the player is muted the .jw-off class gets added to toggle the volume off icon.|
+|**.jw-icon-live**|.jw-svg-icon-live<br/>.jw-svg-icon-dvr|Container for live and dvr icons. This icon will toggle depending on the state of the player.|
+|**.jw-text-elapsed**|n/a| Container for the elapsed video time.|
+|**.jw-text-duration**|n/a| Container for the total duration of the media file.|
+|**.jw-settings-sharing**|.jw-svg-icon-sharing|Container for the sharing icon. This will only show when sharing is enabled.|
+|**.jw-playlist-btn**|.jw-svg-icon-playlist|Container for playlist icon. This icon represents the player using a manual playlist for related content.|
+|**.jw-related-btn**|.jw-svg-icon-related|Container for discover icon. This icon represents the player using recommendations for related content based on the mediaID.|
+|**.jw-icon-cc**|.jw-svg-icon-cc-on<br/>.jw-svg-icon-cc-off|Container for the closed-caption CC icon. This icon will toggle to an on and off state depending on whether closed captions are enabled or not.|
+|**.jw-icon-cast**||This container will display the Chromecast or Airplay icon depending on which feature is available.|
+|**.jw-icon-settings**|.jw-icon-settings|Container for the settings menu icon.|
+|**.jw-icon-fullscreen**|.jw-icon-fullscreen|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
 
 
 <a name="breakpoints"></a>
