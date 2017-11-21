@@ -101,9 +101,9 @@ At smaller breakpoints, up to three icons can be displayed in the middle of the 
 
 |.jw-display-icon-container | .jw-icon <br> .jw-button-color| .jw-svg-icon|
 |----------------------------------|---------------------------------|--------------------|
-|.jw-display-icon-rewind|.jw-icon-rewind|.jw-svg-icon-rewind|
-|.jw-display-icon-display|.jw-icon-display|.jw-svg-icon-buffer <br/> .jw-svg-icon-replay <br/> .jw-svg-icon-play <br/> .jw-svg-icon-pause|
-|.jw-display-icon-next|.jw-icon-next|.jw-svg-icon-next|
+|**.jw-display-icon-rewind|.jw-icon-rewind**|.jw-svg-icon-rewind|
+|**.jw-display-icon-display|.jw-icon-display**|.jw-svg-icon-buffer <br/> .jw-svg-icon-replay <br/> .jw-svg-icon-play <br/> .jw-svg-icon-pause|
+|**.jw-display-icon-next|.jw-icon-next**|.jw-svg-icon-next|
 
 
 ## Controlbar
@@ -200,11 +200,11 @@ The following icons are nested within `.jw-settings-topbar`, a child of `.jw-set
 
 |CSS Classes |SVG Class    |Definition|
 |-------------|----------|-----------|
-|.jw-settings-quality .jw-submenu-quality|.jw-svg-icon-quality-100|Container for the quality/rendition selection submenu.|
-|.jw-settings-playbackRates .jw-submenu-playbackRates|.jw-svg-icon-playback-rate| |
-|.jw-settings-captions .jw-submenu-captions|.jw-svg-icon-cc-off| |
-|.jw-settings-audioTracks .jw-submenu-audioTracks|.jw-svg-icon-audio-tracks| |
-|.jw-settings-sharing .jw-submenu-sharing|.jw-svg-icon-sharing| |
+|**.jw-settings-quality .jw-submenu-quality**|.jw-svg-icon-quality-100|Container for the quality icon.|
+|**.jw-settings-playbackRates .jw-submenu-playbackRates**|.jw-svg-icon-playback-rate| Container for the playback rate icon. |
+|**.jw-settings-captions .jw-submenu-captions**|.jw-svg-icon-cc-off| Container for the captions icon. |
+|**.jw-settings-audioTracks .jw-submenu-audioTracks**|.jw-svg-icon-audio-tracks| Container for the audio tracks icon. |
+|**.jw-settings-sharing .jw-submenu-sharing**|.jw-svg-icon-sharing| Container for the sharing icon. |
 
 
 ## Tooltips and Overlays
@@ -254,7 +254,6 @@ The discovery overlay displays recommended content related to the current media 
 |CSS Class          | Definition |
 |-------------------|-----------|
 |**.jw-plugin-related**|Parent container for related overlay plugin that covers the player viewport when visible.|
-|**.jw-related-close**|Related overlay close icon button|
 |**.jw-related-item-content**|Item content area|
 |**.jw-related-item-poster**|Poster image container (poster image is set via inline style background image on this element)|
 |**.jw-related-item-duration**|Item duration text|
@@ -264,6 +263,15 @@ The discovery overlay displays recommended content related to the current media 
 |**.jw-related-item-description-content**|Description text|
 |**.jw-related-autoplay-frame**|Item autoplay border|
 |**.jw-related-autoplay-frame-progress**|Item autoplay progress border|
+
+### Buttons
+The following icons are nested within `.jw-related`. The additional class `.jw-button-color` is required within the button container. Within the SVG element, `.jw-svg-icon` is required.   
+
+|Button Class |SVG Classes    |Definition|
+|-------------|----------|-----------|
+|**.jw-related-close**|.jw-svg-icon-close|Related overlay close icon button|
+|**.jw-related-page-left**|.jw-svg-icon-arrow-left|Related overlay page left button|
+|**.jw-related-page-right**|.jw-svg-icon-arrow-right|Related overlay page right button|
 
 ## Next Up Card
 
