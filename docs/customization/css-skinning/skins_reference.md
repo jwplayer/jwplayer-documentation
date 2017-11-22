@@ -101,9 +101,9 @@ At smaller breakpoints, up to three icons can be displayed in the middle of the 
 
 |.jw-display-icon-container | .jw-icon <br> .jw-button-color| .jw-svg-icon|
 |----------------------------------|---------------------------------|--------------------|
-|**.jw-display-icon-rewind|.jw-icon-rewind**|.jw-svg-icon-rewind|
-|**.jw-display-icon-display|.jw-icon-display**|.jw-svg-icon-buffer <br/> .jw-svg-icon-replay <br/> .jw-svg-icon-play <br/> .jw-svg-icon-pause|
-|**.jw-display-icon-next|.jw-icon-next**|.jw-svg-icon-next|
+|**.jw-display-icon-rewind**|.jw-icon-rewind|.jw-svg-icon-rewind|
+|**.jw-display-icon-display**|.jw-icon-display|.jw-svg-icon-buffer <br/> .jw-svg-icon-replay <br/> .jw-svg-icon-play <br/> .jw-svg-icon-pause|
+|**.jw-display-icon-next**|.jw-icon-next|.jw-svg-icon-next|
 
 
 ## Controlbar
