@@ -6,7 +6,7 @@ This page has been updated for JW Player 8. Click here to go to [JW7 Custom Icon
 
 JW8 uses inline SVGs for all icons. This solution is performant, but is more advanced to customize than JW7's webfont implementation. We're working improving the ease of customizing icons in JW8 in 2018. In the meantime, here are two ways of switching out icons in your player.
 
-## Option 1: Javascript
+## Option 1: Javascript with innerHTML
 
 Here is an example of what a typical SVG icon looks like in the player:
 ```
@@ -22,7 +22,7 @@ getElementsByClassName('jw-icon-fullscreen')[0]
 
 Then, set the innerHTML to equal your new inlined SVG. The SVG should be set up like ours, ideally with the same viewbox. It's critical that all of the original classes present in that exact SVG are used, or else it may not work as expected. The specific class name differs by icon, but `jw-svg-icon` is a required class.
 
-## Option 2: CSS
+## Option 2: CSS with :after pseudo-element
 
 An alternate method would be to target and hide the SVG's `path` in CSS with `display:none`. Then, add an `:after` pseudo-element with a background image. You'll also need to add a second `:after` pseudo-element for the hover state, using a separate background image.
 
