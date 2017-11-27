@@ -4,60 +4,26 @@
     
         
     <url>
-     <loc>None/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/api/javascript_api_introduction/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/api/javascript_api_introduction/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/customization/configuration-reference/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/customization/configuration-reference/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/release_notes/release_channels/</loc>
-     <lastmod>2017-11-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/customization/css-skinning/skins_reference/</loc>
-     <lastmod>2017-11-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/customization/css-skinning-model/</loc>
-     <lastmod>2017-11-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/customization/css-skinning/skins_creating/</loc>
-     <lastmod>2017-11-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/customization/css-skinning/skins_example/</loc>
-     <lastmod>2017-11-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/customization/designer-kit/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/release_notes/release_channels/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -66,8 +32,32 @@
     
         
     <url>
-     <loc>None/analytics/integrations/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/customization/css-skinning/skins_reference/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/customization/css-skinning-model/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/customization/css-skinning/skins_creating/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/customization/css-skinning/skins_example/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/customization/designer-kit/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -76,56 +66,66 @@
     
         
     <url>
-     <loc>None/jw7/javascript-api-reference/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/analytics/integrations/</loc>
+     <lastmod>2017-11-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/jw7/javascript-api-reference/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/configuration-reference/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/configuration-reference/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/skins_reference/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/skins_reference/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/css-skinning-model/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/css-skinning-model/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/skins_creating/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/skins_creating/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/skins_fonts/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/skins_fonts/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/skins_example/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/skins_example/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/designer-kit/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/designer-kit/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/jw7/integrations/</loc>
-     <lastmod>2017-11-16</lastmod>
+     <loc>/jw7/integrations/</loc>
+     <lastmod>2017-11-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
