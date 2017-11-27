@@ -253,6 +253,29 @@ See our [drm](#drm) section for more information.
 
 <br/>
 
+#### DRM with Custom Headers
+
+You can add custom headers to an XHR request by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()`.
+
+```
+jwplayer().setup({
+    playlist: [{
+        sources: [{
+            file: 'video.m3u8',
+            onXhrOpen: function(xhr, url) {
+                xhr.setRequestHeader('customHeader', 'customHeaderValue');
+            }
+        }]
+    }]
+})
+```
+
+!!!
+For HLSjs playback only.
+!!!
+
+<br/>
+
 #### Quality Settings for Video Files
 
 In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings menu in the player. Compared to other streaming methods, it has the following drawbacks:
