@@ -4,25 +4,57 @@ This page has been updated for JW Player 8. Click here to go to [JW7 Custom Icon
 
 # Custom Icons
 
-JW8 uses inline SVGs for all icons. This solution is performant, but is more advanced to customize than JW7's webfont implementation. We're working improving the ease of customizing icons in JW8 in 2018. In the meantime, here are two ways of switching out icons in your player.
+JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our [CSS Skinning Reference](/customization/css-skinning/skins_reference/) lists all SVG class names.
 
-## Option 1: Javascript with innerHTML
+To override the player's default icons, use CSS to target and hide the `<svg>`'s child `<path>` with `display:none`. Then, set the background image attribute on the SVG's selector to reference your own custom icon.
 
-Here is an example of what a typical SVG icon looks like in the player:
+**Example for replacing the Play icon:**
 ```
-<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-play" viewBox="0 0 240 240">
-    <path d="M62.8,199.5c-1,0.8-2.4,0.6-3.3-0.4c-0.4-0.5-0.6-1.1-0.5-1.8V42.6c-0.2-1.3,0.7-2.4,1.9-2.6c0.7-0.1,1.3,0.1,1.9,0.4l154.7,77.7c2.1,1.1,2.1,2.8,0,3.8L62.8,199.5z"></path>
-</svg>
+.jw-svg-icon-play path {	
+	display: none;
+}
+.jw-svg-icon-play {
+	background-image: url('//icons.jwplayer.com/icons/play.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+```
+**Example for replacing the Buffer icon:**
+
+(The rotating animation will still be applied to any custom icon.)
+```
+.jw-svg-icon-buffer path {
+	display: none;
+}
+
+.jw-svg-icon-buffer {
+	background-image: url('//icons.jwplayer.com/icons/buffer.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+```
+**Example for replacing the Replay icon:**
+```s
+.jw-svg-icon-replay path {	
+	display: none;
+}
+
+.jw-svg-icon-replay {
+	background-image: url('//icons.jwplayer.com/icons/replay.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 ```
 
-Our [skinning reference](http://127.0.0.1:8000/customization/css-skinning/skins_reference/) lists all the div container and SVG class names. You can use javascript to select the SVG's div container by class name. 
+To isolate an icon in a specific state of the player that will not affect other instances of that icon, simply add a flag as a prefix. The following example shows how to replace the large play icon on idle state without affecting the play icon in the controlbar using the explicit flag `.jw-state-idle`. See our [CSS Skinning Reference](/customization/css-skinning/skins_reference/#player-states) for a list of all player states.
+
 ```
-getElementsByClassName('jw-icon-fullscreen')[0]
+.jw-state-idle .jw-svg-icon-play path {	
+	display: none;
+}
+.jw-state-idle .jw-svg-icon-play {
+	background-image: url('//icons.jwplayer.com/icons/play.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 ```
-
-Then, set the innerHTML to equal your new inlined SVG. The SVG should be set up like ours, ideally with the same viewbox. It's critical that all of the original classes present in that exact SVG are used, or else it may not work as expected. The specific class name differs by icon, but `jw-svg-icon` is a required class.
-
-## Option 2: CSS with :after pseudo-element
-
-An alternate method would be to target and hide the SVG's `path` in CSS with `display:none`. Then, add an `:after` pseudo-element with a background image. You'll also need to add a second `:after` pseudo-element for the hover state, using a separate background image.
-
