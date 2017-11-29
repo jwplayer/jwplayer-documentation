@@ -721,6 +721,22 @@ The default <code>preload</code> configuration has been updated to "metadata", a
 
 <p>See our <a href="#drm">drm</a> section for more information.</p>
 <p><br/></p>
+<h4 id="drm-with-custom-headers">DRM with Custom Headers</h4>
+<p>You can add custom headers to an XHR request by using the <code>onXhrOpen</code> callback. This gets executed after <code>XMLHTTPRequest.open()</code> and before <code>XMLHTTPRequest.send()</code>.</p>
+<pre><code>jwplayer().setup({
+    playlist: [{
+        sources: [{
+            file: 'video.m3u8',
+            onXhrOpen: function(xhr, url) {
+                xhr.setRequestHeader('customHeader', 'customHeaderValue');
+            }
+        }]
+    }]
+})
+</code></pre>
+
+<div class="alert default">For HLSjs playback only.</div>
+<p><br/></p>
 <h4 id="quality-settings-for-video-files">Quality Settings for Video Files</h4>
 <p>In the event that a streaming technology like HLS or DASH cannot be used, listing video files of different qualities will enable a quality selection settings menu in the player. Compared to other streaming methods, it has the following drawbacks:</p>
 <ul>
