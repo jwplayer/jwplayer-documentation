@@ -281,7 +281,8 @@
 	                
 	                  <div class="alert default">This page has been updated for JW Player 8. Click here to go to <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/skins_fonts/">JW7 Custom Icons and Fonts</a>.</div>
 <h1 id="custom-icons">Custom Icons</h1>
-<p>JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our <a href="../../../customization/css-skinning/skins_reference/">CSS Skinning Reference</a> lists all SVG class names.</p>
+<p>JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our <a href="../../../customization/css-skinning/skins_reference/">CSS Skinning Reference</a> lists all SVG class names and you can view our <a href="https:/developer.jwplayer.com/jw-player/demos/customization/custom-icons/">Custom Icons Demo</a> for an example on how to replace all icons in the player using the following guidelines.</p>
+<h2 id="replacing-default-icons-with-custom-icons">Replacing Default Icons with Custom Icons</h2>
 <p>To override the player's default icons, use CSS to target and hide the <code>&lt;svg&gt;</code>'s child <code>&lt;path&gt;</code> with <code>display:none</code>. Then, set the background image attribute on the SVG's selector to reference your own custom icon.</p>
 <p><strong>Example for replacing the Play icon:</strong></p>
 <pre><code>.jw-svg-icon-play path {    
@@ -308,7 +309,7 @@
 </code></pre>
 
 <p><strong>Example for replacing the Replay icon:</strong></p>
-<pre><code class="s">.jw-svg-icon-replay path {  
+<pre><code>.jw-svg-icon-replay path {  
     display: none;
 }
 
