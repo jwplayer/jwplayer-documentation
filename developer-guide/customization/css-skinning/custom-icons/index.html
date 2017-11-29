@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>JW7 Javascript API - JW Player Developer Guide</title>
+    <title>Custom Icons - JW Player Developer Guide</title>
 
     
 
@@ -15,10 +15,10 @@
     
 
     
-      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="shortcut icon" href="../../../favicon.ico">
     
 
-    <link rel="stylesheet" href="../../css/mkdocs-jwplayer.min.css">
+    <link rel="stylesheet" href="../../../css/mkdocs-jwplayer.min.css">
 
     
 
@@ -84,10 +84,10 @@
 	        <div class="page-header">
 	<div class="page-label">
 		
-			JW7 Javascript API
+			Custom Icons
 		
 	</div>
-	<form class="search" action="../../search.html" method="get">
+	<form class="search" action="../../../search.html" method="get">
 		<input type="search" name="q" placeholder="Search documentation..." />
 	</form>
 </div>
@@ -118,25 +118,25 @@
       
         
   <li >
-    <a href="../..">Introduction</a>
+    <a href="../../..">Introduction</a>
   </li>
 
       
         
   <li >
-    <a href="../../api/javascript_api_introduction/">Intro to Javascript API</a>
+    <a href="../../../api/javascript_api_introduction/">Intro to Javascript API</a>
   </li>
 
       
         
   <li >
-    <a href="../../customization/configuration-reference/">Configuration Reference</a>
+    <a href="../../configuration-reference/">Configuration Reference</a>
   </li>
 
       
         
   <li >
-    <a href="../../release_notes/release_channels/">Using Release Channels</a>
+    <a href="../../../release_notes/release_channels/">Using Release Channels</a>
   </li>
 
       
@@ -153,37 +153,37 @@
       
         
   <li >
-    <a href="../../customization/css-skinning/skins_reference/">CSS Skinning Reference</a>
+    <a href="../skins_reference/">CSS Skinning Reference</a>
   </li>
 
       
         
   <li >
-    <a href="../../customization/css-skinning-model/">CSS Skinning Model</a>
+    <a href="../../css-skinning-model/">CSS Skinning Model</a>
   </li>
 
       
         
   <li >
-    <a href="../../customization/css-skinning/skins_creating/">Custom Skins</a>
+    <a href="../skins_creating/">Custom Skins</a>
+  </li>
+
+      
+        
+  <li class="active">
+    <a href="./">Custom Icons</a>
   </li>
 
       
         
   <li >
-    <a href="../../customization/css-skinning/custom-icons/">Custom Icons</a>
+    <a href="../skins_example/">Example CSS File</a>
   </li>
 
       
         
   <li >
-    <a href="../../customization/css-skinning/skins_example/">Example CSS File</a>
-  </li>
-
-      
-        
-  <li >
-    <a href="../../customization/designer-kit/">JW8 Designer Kit</a>
+    <a href="../../designer-kit/">JW8 Designer Kit</a>
   </li>
 
       
@@ -200,7 +200,7 @@
       
         
   <li >
-    <a href="../../analytics/integrations/">Analytics Integrations</a>
+    <a href="../../../analytics/integrations/">Analytics Integrations</a>
   </li>
 
       
@@ -216,56 +216,56 @@
     <ul>
       
         
-  <li class="active">
-    <a href="./">JW7 Javascript API</a>
+  <li >
+    <a href="../../../jw7/javascript-api-reference/">JW7 Javascript API</a>
   </li>
 
       
         
   <li >
-    <a href="../configuration-reference/">JW7 Configuration Reference</a>
+    <a href="../../../jw7/configuration-reference/">JW7 Configuration Reference</a>
   </li>
 
       
         
   <li >
-    <a href="../skins_reference/">JW7 CSS Skinning Reference</a>
+    <a href="../../../jw7/skins_reference/">JW7 CSS Skinning Reference</a>
   </li>
 
       
         
   <li >
-    <a href="../css-skinning-model/">JW7 CSS Skinning Model</a>
+    <a href="../../../jw7/css-skinning-model/">JW7 CSS Skinning Model</a>
   </li>
 
       
         
   <li >
-    <a href="../skins_creating/">JW7 Custom Skins</a>
+    <a href="../../../jw7/skins_creating/">JW7 Custom Skins</a>
   </li>
 
       
         
   <li >
-    <a href="../skins_fonts/">JW7 Custom Icons and Fonts</a>
+    <a href="../../../jw7/skins_fonts/">JW7 Custom Icons and Fonts</a>
   </li>
 
       
         
   <li >
-    <a href="../skins_example/">JW7 Example CSS File</a>
+    <a href="../../../jw7/skins_example/">JW7 Example CSS File</a>
   </li>
 
       
         
   <li >
-    <a href="../designer-kit/">JW7 Designer Kit</a>
+    <a href="../../../jw7/designer-kit/">JW7 Designer Kit</a>
   </li>
 
       
         
   <li >
-    <a href="../integrations/">JW7 Analytics Integrations</a>
+    <a href="../../../jw7/integrations/">JW7 Analytics Integrations</a>
   </li>
 
       
@@ -279,15 +279,65 @@
 
 	              <div class="main">
 	                
-	                  <p><meta http-equiv="refresh" content="0; URL='../../../../docs/javascript-api-reference/jw7/'" /></p>
+	                  <div class="alert default">This page has been updated for JW Player 8. Click here to go to <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/jw7/skins_fonts/">JW7 Custom Icons and Fonts</a>.</div>
+<h1 id="custom-icons">Custom Icons</h1>
+<p>JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our <a href="../../../customization/css-skinning/skins_reference/">CSS Skinning Reference</a> lists all SVG class names, and you can view our <a href="https:/developer.jwplayer.com/jw-player/demos/customization/custom-icons/">Custom Icons Demo</a> for an example of how to replace all icons in the player using the following guidelines.</p>
+<h2 id="replacing-default-icons-with-custom-icons">Replacing Default Icons with Custom Icons</h2>
+<p>To override the player's default icons, use CSS to target and hide the <code>&lt;svg&gt;</code>'s child <code>&lt;path&gt;</code> with <code>display:none</code>. Then, set the background image attribute on the SVG's selector to reference your own custom icon.</p>
+<p><strong>Example for replacing the Play icon:</strong></p>
+<pre><code>.jw-svg-icon-play path {    
+    display: none;
+}
+.jw-svg-icon-play {
+    background-image: url('//icons.jwplayer.com/icons/play.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+</code></pre>
+
+<p><strong>Example for replacing the Buffer icon:</strong></p>
+<p>(The rotating animation will still be applied to any custom icon.)</p>
+<pre><code>.jw-svg-icon-buffer path {
+    display: none;
+}
+
+.jw-svg-icon-buffer {
+    background-image: url('//icons.jwplayer.com/icons/buffer.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+</code></pre>
+
+<p><strong>Example for replacing the Replay icon:</strong></p>
+<pre><code>.jw-svg-icon-replay path {  
+    display: none;
+}
+
+.jw-svg-icon-replay {
+    background-image: url('//icons.jwplayer.com/icons/replay.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+</code></pre>
+
+<p>To isolate an icon in a specific state of the player that will not affect other instances of that icon, simply add a flag as a prefix. The following example shows how to replace the large play icon on idle state without affecting the play icon in the controlbar using the explicit flag <code>.jw-state-idle</code>. See our <a href="../../../customization/css-skinning/skins_reference/#player-states">CSS Skinning Reference</a> for a list of all player states.</p>
+<pre><code>.jw-state-idle .jw-svg-icon-play path { 
+    display: none;
+}
+.jw-state-idle .jw-svg-icon-play {
+    background-image: url('//icons.jwplayer.com/icons/play.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+</code></pre>
 	                
 	                
 	                  <div class="pagination prev-next">
 	                    
-	                      <a class="btn md" href="../../analytics/integrations/" title="Analytics Integrations">Previous Page</a>
+	                      <a class="btn md" href="../skins_creating/" title="Custom Skins">Previous Page</a>
 	                    
 	                    
-	                      <a class="btn md" href="../configuration-reference/" title="JW7 Configuration Reference"/>Next Page</a>
+	                      <a class="btn md" href="../skins_example/" title="Example CSS File"/>Next Page</a>
 	                    
 	                  </div>
 	                
@@ -344,7 +394,7 @@
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="../../js/mkdocs-jwplayer.min.js"></script>
+    <script src="../../../js/mkdocs-jwplayer.min.js"></script>
 
     
 
