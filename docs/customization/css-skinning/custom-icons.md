@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to [JW7 Custom Icon
 
 # Custom Icons
 
-JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our [CSS Skinning Reference](/customization/css-skinning/skins_reference/) lists all SVG class names, and you can view our [Custom Icons Demo](https:/developer.jwplayer.com/jw-player/demos/customization/custom-icons/) for an example of how to replace all icons in the player using the following guidelines.
+JW8 uses inline SVGs for all player icons to allow for styling flexibility with CSS. Our [CSS Skinning Reference](/customization/css-skinning/skins_reference/) lists all SVG class names, and you can view our [Custom Icons Demo](https://developer.jwplayer.com/jw-player/demos/customization/custom-icons/) for an example of how to replace all icons in the player using the following guidelines.
 
 ## Replacing Default Icons with Custom Icons
 
