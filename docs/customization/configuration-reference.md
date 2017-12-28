@@ -717,7 +717,7 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
-|**drm.widevine.serverCertificateUrl**|String|**(Required)** The URL of the WideVine service certificate|-|
+|**drm.widevine.serverCertificateUrl**|String|The URL of the WideVine service certificate|-|
 |**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
 
 <br/>
