@@ -7,7 +7,8 @@
 #### Install [MkDocs](http://www.mkdocs.org/)
 
 ```
-$ pip install mkdocs
+$ pip install mkdocs==0.16.3 --upgrade
+$ pip install git+ssh://git@github.com/jwplayer/mkdocs-jwplayer --upgrade --force-reinstall
 ```
 
 #### Install Node modules:
