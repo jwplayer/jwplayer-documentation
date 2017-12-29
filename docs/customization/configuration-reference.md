@@ -538,7 +538,7 @@ This options block configures the built-in integration with Google Analytics.
 |---|---|---|---|
 |**ga.label**|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
 
-Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
+Google's separate [JavaScript library](https://developers.google.com/analytics/devguides/collection/gtagjs/) and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
