@@ -60,7 +60,7 @@ If only a single playlist item is used, this information can either be configure
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
 |**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
-|**type**|String|When using a media file url that does not have an extension, defining the video file type is required (otherwise, the player automatically detects the file type from the extension). Possible values: aac, mp4, f4v, m4v, mov, mp3, mpeg, ogv, ogg, oga, vorbis, webm, f4a, m3u8, m3u, hls. |-|
+|**type**|String|Defining the video file type is required when using a media file url that does not have an extension. Possible values: aac, mp4, f4v, m4v, mov, mp3, mpeg, ogv, ogg, oga, vorbis, webm, f4a, m3u8, m3u, hls. |-|
 
 !!!
 YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
