@@ -60,6 +60,7 @@ If only a single playlist item is used, this information can either be configure
 |**title**|String|The title of your video or audio item|-|
 |**description**|String|A description of your video or audio item|-|
 |**mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|-|
+|**type**|String|Defining the video file type is required when using a media file url that does not have an extension. Possible values: aac, mp4, f4v, m4v, mov, mp3, mpeg, ogv, ogg, oga, vorbis, webm, f4a, m3u8, m3u, hls. |-|
 
 !!!
 YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
@@ -114,6 +115,8 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**base**|String|Configures an alternate base path for skins and providers|"/"|
 |**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none"** — Player will explicitly **not** preload content. **(Recommended if you are concerned about excess content usage.)**<br/>**"metadata"** — Loads the manifest and buffers a maximum of one segment of media for HLS and Dash streams.<br/> **"auto"** — Loads the manifest and buffers approximately 30 seconds worth of media segments.|"metadata"|
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
+|**hlsjsdefault**|Boolean|Makes HLSjs the default provider when supported. Disable to use the browser's default provider.|true|
+
 
 !!!
 `primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
@@ -535,7 +538,7 @@ This options block configures the built-in integration with Google Analytics.
 |---|---|---|---|
 |**ga.label**|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
 
-Google's separate [analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/) JavaScript library and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
+Google's separate [JavaScript library](https://developers.google.com/analytics/devguides/collection/gtagjs/) and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
@@ -714,7 +717,7 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
-|**drm.widevine.serverCertificateUrl**|String|**(Required)** The URL of the WideVine service certificate|-|
+|**drm.widevine.serverCertificateUrl**|String|The URL of the WideVine service certificate|-|
 |**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
 
 <br/>
