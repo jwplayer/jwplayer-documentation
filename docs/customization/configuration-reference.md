@@ -593,7 +593,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
 |**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
 |**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
-|**[advertising.bids](#advertising-bids)**|Object|(Only supported when using IMA) Try header bidding with the given settings and bidders.|5000|
+|**[advertising.bids](#advertising-bids)**|Object|(Only supported when using IMA) Enable video player bidding with the given settings and bidders.|-|
 
 <br/>
 
@@ -671,28 +671,28 @@ jwplayer("myElement").setup({
 <a name="advertising-bids"></a>
 ### advertising.bids
 
-Use this option to try header bidding with supported bidders.
+Use this option to try video player bidding with supported bidders.
 
-#### Header Bidding with JW
+#### Video Player Bidding with JW
 
-In order for JW Player to work as mediation layer, the following options need to be set in **settings**, and **bidders** need to have at least one supported bidder.
+In order for JW Player to work as mediation layer, the following options need to be set in **settings**, and **bidders** needs to have at least one supported bidder.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JW the medation layer|JW|
-|**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents that the bids have to beat to be played|-|
-|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents per CPM. Must be set to "usd" for Facebook bids to work with JW mediation layer|-|
+|**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
+|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with JW as the mediation layer|usd|
 |**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play|1000|
-|**advertising.bids.*bidders*[index].name**|String|The name of the bidder. |-|
-|**advertising.bids.*bidders*[index].id**|Number|The id of the bid|-|
+|**advertising.bids.*bidders*[index].name**|String|The name of the bidder|-|
+|**advertising.bids.*bidders*[index].id**|String|The id of the publisher|-|
 
 
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
-    "client": "vast",
-    "schedule": "myvmap.xml",
+    "client": "googima",
+    "tag": "mytag.xml",
     "bids": {
       "settings": {
         "mediationLayerAdServer": 'JW',
@@ -702,7 +702,7 @@ jwplayer("myElement").setup({
       },
       "bidders": [
         {
-          "name": "SpotX",
+          "name": "BIDDER",
           "id": 12345
         }
       ]
@@ -713,14 +713,14 @@ jwplayer("myElement").setup({
 
 #### Header Bidding with DFP
 
-When DFP is set as the mediation layer, "floorPriceCents" and "floorPriceCurrency" does not need to be set.
+When DFP is set as the mediation layer, "floorPriceCents" and "floorPriceCurrency" do not need to be set.
 
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
-    "client": "vast",
-    "schedule": "myvmap.xml",
+    "client": "googima",
+    "tag": "mytag.xml",
     "bids": {
       "settings": {
         "mediationLayerAdServer": 'dfp',
@@ -728,7 +728,7 @@ jwplayer("myElement").setup({
       },
       "bidders": [
         {
-          "name": "SpotX",
+          "name": "BIDDER",
           "id": 12345
         }
       ]
