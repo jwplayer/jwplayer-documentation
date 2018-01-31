@@ -593,6 +593,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
 |**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
 |**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
+|**[advertising.bids](#advertising-bids)**|Object|(Only supported when using IMA) Try header bidding with the given settings and bidders.|5000|
 
 <br/>
 
@@ -664,6 +665,148 @@ jwplayer("myElement").setup({
     }
 ```
 <br/>
+
+<br/>
+
+<a name="advertising-schedule"></a>
+### advertising.schedule
+
+Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule).
+
+#### Ad Schedules with VMAP Files
+
+If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": "myvmap.xml"
+  }
+});
+```
+
+The VMAP schedule will then be applied to each playlist item. See our article about VMAP schedules for more information.
+
+
+#### Embedded Ad Schedules with JSON
+
+In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
+|**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": {
+      "adbreak-preroll":{
+        "tag": "myPreroll.xml",
+        "offset": "pre"
+      },
+      "adbreak-midroll":{
+        "tag": "myMidroll.xml",
+        "offset": "50%"
+      }
+    }
+  }
+});
+```
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+```
+"advertising": {
+        "client": "googima",
+        "adscheduleid": "12345",
+        "schedule": {
+            "preroll": {
+                "custParams": {
+                    "testkey1": "testval1",
+                    "testkey2": "testval2"
+                },
+                "tag": "myPreroll.xml",
+                "offset": "pre"
+            }
+        }
+    }
+```
+<br/>
+
+<br/>
+
+<a name="advertising-bids"></a>
+### advertising.bids
+
+Use this option to try header bidding with supported bidders.
+
+#### Header Bidding with JW
+
+In order for JW Player to work as mediation layer, the following options need to be set in **settings**, and **bidders** need to have at least one supported bidder.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JW the medation layer|JW|
+|**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents that the bids have to beat to be played|-|
+|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Must be set to "usd" for Facebook bids to work with JW mediation layer|-|
+|**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play|1000|
+|**advertising.bids.*bidders*[index].name**|String|The name of the bidder. |-|
+|**advertising.bids.*bidders*[index].id**|Number|The id of the bid|-|
+
+
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": "myvmap.xml",
+    "bids": {
+      "settings": {
+        "mediationLayerAdServer": 'JW',
+        "floorPriceCents": 10,
+        "floorPriceCurrency": "usd",
+        "bidTimeout": 1000
+      },
+      "bidders": [
+        {
+          "name": "SpotX",
+          "id": 12345
+        }
+      ]
+    }
+  }
+});
+```
+
+#### Header Bidding with DFP
+
+When DFP is set as the mediation layer, "floorPriceCents" and "floorPriceCurrency" does not need to be set.
+
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "vast",
+    "schedule": "myvmap.xml",
+    "bids": {
+      "settings": {
+        "mediationLayerAdServer": 'dfp',
+        "bidTimeout": 1000
+      },
+      "bidders": [
+        {
+          "name": "SpotX",
+          "id": 12345
+        }
+      ]
+    }
+  }
+});
+```
 
 <a name="advertising-companiondiv"></a>
 ### advertising.companiondiv
