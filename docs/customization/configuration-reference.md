@@ -752,7 +752,7 @@ In order for JW Player to work as mediation layer, the following options need to
 |---|---|---|---|
 |**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JW the medation layer|JW|
 |**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents that the bids have to beat to be played|-|
-|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Must be set to "usd" for Facebook bids to work with JW mediation layer|-|
+|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents per cpm. Must be set to "usd" for Facebook bids to work with JW mediation layer|-|
 |**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play|1000|
 |**advertising.bids.*bidders*[index].name**|String|The name of the bidder. |-|
 |**advertising.bids.*bidders*[index].id**|Number|The id of the bid|-|
