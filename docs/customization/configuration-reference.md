@@ -576,16 +576,16 @@ This options block configures the video advertising capabilities of JW Player. I
 
 |Option|Type|Description|Client|Default|
 |---|---|---|---|---|
-|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast":** Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the FreeWheel client|All|-|
+|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast":** Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
 |**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement|All|"Advertisement"|
 |**advertising.skipmessage**|String|This is used to provide a customized countdown message|VAST, Freewheel|"Skip ad in xx"|
 |**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over|VAST, Freewheel|"Skip"|
-|**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled":** VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iframe. The VPAID ad cannot access the site. VPAID ads that depend on friendly iframe access may not play<br/>**"insecure":** The VPAID ad will load in a friendly iframe. This allows the ad access to the site via javascript <br/> Not supported in FreeWheel|IMA|"insecure"|
+|**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled":** VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iframe. The VPAID ad cannot access the site. VPAID ads that depend on friendly iframe access may not play<br/>**"insecure":** The VPAID ad will load in a friendly iframe. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
-|**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in FreeWheel|VAST, IMA|-|
+|**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in Freewheel|VAST, IMA|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
 |**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|IMA|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
