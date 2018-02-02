@@ -591,11 +591,11 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|(Only supported when using IMA) For forcing nonlinear ads to be fullsot ads rather than overlays.|-|
 |**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
-|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event.|15000|
-|**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
-|**advertising.loadVideoTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the VAST XML being returned and the adstart event.|15000|
-|**advertising.adsRequestTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the ad request and a returned VAST file.|10000|
-|**advertising.maxRedirects**|String|(Only supported when using IMA) The number of redirects the player should follow before timing out.|4|
+|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out.|15000|
+|**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out.|5000|
+|**advertising.loadVideoTimeout**|String|(Only supported when using IMA) In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out.|15000|
+|**advertising.adsRequestTimeout**|String|(Only supported when using IMA) In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out.|10000|
+|**advertising.maxRedirects**|String|(Only supported when using IMA) The maximum number of redirects the player should follow before timing out.|4|
 |**advertising.conditionaladoptout**|Boolean|(Only supported when using VMAP 4.0 VPAID ads) This is used to tell the player to not play ads with the `conditionalAd` attribute inside of the VAST response.|false|
 |**advertising.podmessage**|String|(Only supported when using VAST) Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|"Ad xx of yy."|
 
