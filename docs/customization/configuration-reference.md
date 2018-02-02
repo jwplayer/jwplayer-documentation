@@ -596,7 +596,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.loadVideoTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the VAST XML being returned and the adstart event.|15000|
 |**advertising.adsRequestTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the ad request and a returned VAST file.|10000|
 |**advertising.maxRedirects**|String|(Only supported when using IMA) The number of redirects the player should follow before timing out.|4|
-|**advertising.conditionaladoptout**|Boolean|This is used to tell the player to not play ads with the `conditionalAd` attribute inside of the VAST response.|false|
+|**advertising.conditionaladoptout**|Boolean|(Only supported when using VMAP 4.0 VPAID ads) This is used to tell the player to not play ads with the `conditionalAd` attribute inside of the VAST response.|false|
 |**advertising.podmessage**|String|(Only supported when using VAST) Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|"Ad xx of yy."|
 
 <br/>
