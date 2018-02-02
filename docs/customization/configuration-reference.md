@@ -591,8 +591,13 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|(Only supported when using IMA) For forcing nonlinear ads to be fullsot ads rather than overlays.|-|
 |**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
-|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
+|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event.|15000|
 |**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
+|**advertising.loadVideoTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the VAST XML being returned and the adstart event.|15000|
+|**advertising.adsRequestTimeout**|String|(Only supported when using IMA) In milliseconds, the time between the ad request and a returned VAST file.|10000|
+|**advertising.maxRedirects**|String|(Only supported when using IMA) The number of redirects the player should follow before timing out.|4|
+|**advertising.conditionaladoptout**|Boolean|This is used to tell the player to not play ads with the `conditionalAd` attribute inside of the VAST response.|false|
+|**advertising.podmessage**|String|(Only supported when using VAST) Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|"Ad xx of yy."|
 
 <br/>
 
@@ -625,6 +630,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 |---|---|---|---|
 |**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+|**advertising.schedule.*adbreak*.type**|String|This should be set to `nonlinear` if you want to force the player to render a nonlinear ad in the ad response.|-|
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
