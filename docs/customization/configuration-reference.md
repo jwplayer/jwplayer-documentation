@@ -574,25 +574,30 @@ Video ad insertion requires a JW Player Enterprise license. Please [contact our 
 
 This options block configures the video advertising capabilities of JW Player. If no **schedule** is specified, the ad will play as a preroll by default.
 
-|Option|Type|Description|Default|
-|---|---|---|---|
-|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast":** Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the FreeWheel client|-|
-|**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the FreeWheel tag to display|-|
-|**advertising.admessage**|String|Text that displays during ad playback|"The ad will end in xx seconds"|
-|**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|-|
-|**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement|"Advertisement"|
-|**advertising.skipmessage**|String|This is used to provide a customized countdown message|"Skip ad in xx"|
-|**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over|"Skip"|
-|**advertising.vpaidmode**|String|Used exclusively for [Google IMA VPAID ads](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled":** VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iframe. The VPAID ad cannot access the site. VPAID ads that depend on friendly iframe access may not play<br/>**"insecure":** The VPAID ad will load in a friendly iframe. This allows the ad access to the site via javascript <br/> Not supported in FreeWheel|"insecure"|
-|**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|-|
-|**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads. <br/> Not supported in FreeWheel|-|
-|**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|-|
-|**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|-|
-|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|-|
-|**advertising.forceNonLinearFullSlot**|Boolean|(Only supported when using IMA) For forcing nonlinear ads to be fullsot ads rather than overlays.|-|
-|**advertising.setLocale**|String|(Only supported when using IMA) Two-letter language code for localization of skip-button language. Two-letter language code must be valid.|-|
-|**advertising.creativeTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the VAST XML being returned and the adstart event. |15000|
-|**advertising.requestTimeout**|String|(Only supported when using VAST) In milliseconds, the time between the ad request and a returned VAST file.|5000|
+|Option|Type|Description|Client|Default|
+|---|---|---|---|---|
+|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
+|**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
+|**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
+|**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
+|**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement|All|"Advertisement"|
+|**advertising.skipmessage**|String|This is used to provide a customized countdown message|VAST, Freewheel|"Skip ad in xx"|
+|**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over|VAST, Freewheel|"Skip"|
+|**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled"**: VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/>**"insecure"**: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
+|**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
+|**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads <br/> Not supported in Freewheel|VAST, IMA|-|
+|**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
+|**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|IMA|-|
+|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
+|**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
+|**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+|**advertising.creativeTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|VAST|15000|
+|**advertising.requestTimeout**|String|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|VAST|5000|
+|**advertising.loadVideoTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA|15000|
+|**advertising.adsRequestTimeout**|String|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
+|**advertising.maxRedirects**|String|The maximum number of redirects the player should follow before timing out|IMA|4|
+|**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
+|**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
 
 <br/>
 
@@ -625,6 +630,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 |---|---|---|---|
 |**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+|**advertising.schedule.*adbreak*.type**|String|This should be set to **nonlinear** if you want to force the player to render a nonlinear ad in the ad response.|-|
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
