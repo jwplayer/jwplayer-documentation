@@ -672,8 +672,6 @@ jwplayer("myElement").setup({
 ```
 <br/>
 
-<br/>
-
 <a name="advertising-bids"></a>
 ### advertising.bids
 
@@ -742,6 +740,8 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+<br/>
 
 <a name="advertising-companiondiv"></a>
 ### advertising.companiondiv
