@@ -631,6 +631,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 |---|---|---|---|
 |**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+|**advertising.schedule.*adbreak*.type**|String|This should be set to **nonlinear** if you want to force the player to render a nonlinear ad in the ad response.|-|
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
