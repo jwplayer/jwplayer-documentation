@@ -192,9 +192,9 @@ Sources are inserted into playlist objects and are lists of files. Sources serve
 
 #### Alternate Media Sources
 
-If using different file types, sources prioritizes which file to play only in the case when a provider (HTML5, HLS, or DASH) fails to load. If there is an error with a stream, the player will not failover to the next provider. In the example below, the player will attempt to play myVideo.m3u8 as a first choice. 
+If using different file types, sources prioritizes which file to play only in the case when a provider (HTML5, HLS, or DASH) fails to load. If there is an error with a stream, the player will not failover to the next provider. In the example below, the player will attempt to play myVideo.m3u8 as a first choice.
 
-In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error. 
+In the event that a browser cannot play an m3u8, the player is intelligent enough to choose myVideo.mp4 instead. In the event that an mp4 cannot be played, the player will attempt the webm format before producing an error.
 
 ```
 jwplayer("myElement").setup({
@@ -394,8 +394,8 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 
 <br/>
 
-#### Backward Compatability 
-JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version. 
+#### Backward Compatability
+JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version.
 
 The table below shows how the three JW7 customization options map to the new JW8 options. You can use both JW7 and JW8 options in an 8 player, with the more specific JW8 configurations overriding JW7 ones when both apply to the same element. Note that there’s no JW7 mapping to the new `skin.timeslider.rail` option.
 
@@ -598,6 +598,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.maxRedirects**|String|The maximum number of redirects the player should follow before timing out|IMA|4|
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
+|**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
 
 <br/>
 
@@ -669,6 +670,77 @@ jwplayer("myElement").setup({
         }
     }
 ```
+<br/>
+
+<a name="advertising-bids"></a>
+### advertising.bids
+
+Use this option to try video player bidding with supported bidders.
+
+#### Video Player Bidding with JW
+
+In order for JW Player to work as mediation layer, the following options need to be set in **settings**, and **bidders** needs to have at least one supported bidder.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JW the medation layer|JW|
+|**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
+|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with JW as the mediation layer|usd|
+|**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play|1000|
+|**advertising.bids.*bidders*[index].name**|String|The name of the bidder|-|
+|**advertising.bids.*bidders*[index].id**|String|The id of the publisher|-|
+
+
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "googima",
+    "tag": "mytag.xml",
+    "bids": {
+      "settings": {
+        "mediationLayerAdServer": 'JW',
+        "floorPriceCents": 10,
+        "floorPriceCurrency": "usd",
+        "bidTimeout": 1000
+      },
+      "bidders": [
+        {
+          "name": "BIDDER",
+          "id": 12345
+        }
+      ]
+    }
+  }
+});
+```
+
+#### Header Bidding with DFP
+
+When DFP is set as the mediation layer, "floorPriceCents" and "floorPriceCurrency" do not need to be set.
+
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "advertising": {
+    "client": "googima",
+    "tag": "mytag.xml",
+    "bids": {
+      "settings": {
+        "mediationLayerAdServer": 'dfp',
+        "bidTimeout": 1000
+      },
+      "bidders": [
+        {
+          "name": "BIDDER",
+          "id": 12345
+        }
+      ]
+    }
+  }
+});
+```
+
 <br/>
 
 <a name="advertising-companiondiv"></a>
