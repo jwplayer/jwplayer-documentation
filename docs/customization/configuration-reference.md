@@ -598,6 +598,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
+|**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
 
 <br/>
 
@@ -741,6 +742,48 @@ jwplayer("myElement").setup({
 ```
 
 <br/>
+
+<a name="advertising-rules"></a>
+### advertising.rules
+
+Use this option to control how frequently ads play back.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|startOn|integer|The first playlist item that will allow ad playback, index starting at 1.  Use 0 to only play ads on the first playlist item.|1|
+|frequency|integer|Play ads only on every X playlist item.  i.e. frequency 3 means only play on ads on every third playlist item.|1|
+|timeBetweenAds|integer|Minimum number of seconds to wait before allowing an ad to play.  This resets each time an ad plays through to the end and when the playlist item changes. **VAST only**.|0|
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "http://example.com/myVideo.mp4"
+    },
+    {
+      "file": "http://example.com/myVideo2.mp4"
+    }
+  ],  
+  "advertising": {
+    "client": "vast",
+    "schedule": {
+      "adBreak1": {
+        "tag": "mytag.xml",
+        "offset": 10
+      },
+      "adBreak2": {
+        "tag": "mytag2.xml",
+        "offset": 20
+      }
+    }
+    "rules": {
+      "startOn": 2,
+      "frequency": 1,
+      "timeBetweenAds": 300
+    }
+  }
+});
+```
 
 <a name="advertising-companiondiv"></a>
 ### advertising.companiondiv
