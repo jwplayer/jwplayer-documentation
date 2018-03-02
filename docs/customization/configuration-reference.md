@@ -491,7 +491,7 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 ## RTMP
 
 !!!
-The RTMP format was deprecated in JW8.<sup>8.0+</sup> For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
+The RTMP format was deprecated in JW8. For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
 !!!
 
 <a name="logo"></a>
@@ -581,6 +581,7 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
+|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/> **"overlay"** (default): Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player, pausing playback. <br/>**"shelf"**: Adds a horizontal bar of thumbnails above the control bar, which allows viewers to browse recommended videos throughout the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode.|"overlay"|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
 |**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the link field in **related.file**.|"play"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
@@ -904,7 +905,7 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
 |**localization.close**|String|Close text and title of close icons  |"Close"|
-|**localization.copied** <sup>JW8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
+|**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
 |**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
 |**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
