@@ -141,7 +141,8 @@ The button container contains playback controls, elapsed and duration time, and 
 |**.jw-icon-next**|.jw-svg-icon-next|Playback control to advance to the next playlist item.|
 |**.jw-icon-volume**|.jw-svg-icon-volume-50<br/> .jw-svg-icon-volume-100|Container that holds the volume icon. The player will automatically add an overlay to the hover state of this div that contains the slider volume. The icon will toggle depending on the volume level: volume-100 displays when the volume is set to 75% or greater.|
 |**.jw-icon-volume .jw-off**|.jw-svg-icon-volume-0| When the player is muted the .jw-off class gets added to toggle the volume off icon.|
-|**.jw-text-live**|n/a|**Note:** As of JW8.1.8, the live/DVR icons are plain text instead of SVGs.<br>Container for live and dvr buttons. This icon will toggle depending on the state of the player.|
+|<sup>JW8.1.8+</sup> **.jw-text-live** |n/a|As of JW8.1.8, the live/DVR icons are plain text instead of SVGs.<br>Container for live and dvr buttons. This icon will toggle depending on the state of the player.|
+|<sup><=JW8.1.7</sup> **.jw-icon-live**|.jw-svg-icon-live<br/>.jw-svg-icon-dvr|Container for live and dvr icons. This icon will toggle depending on the state of the player.|
 |**.jw-text-elapsed**|n/a| Container for the elapsed video time.|
 |**.jw-text-duration**|n/a| Container for the total duration of the media file.|
 |**.jw-settings-sharing**|.jw-svg-icon-sharing|Container for the sharing icon. This will only show when sharing is enabled.|
