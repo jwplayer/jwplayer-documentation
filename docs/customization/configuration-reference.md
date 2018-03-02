@@ -904,7 +904,7 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
 |**localization.close**|String|Close text and title of close icons  |"Close"|
-|**localization.copied**|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
+|**localization.copied** <sup>JW8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
 |**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
 |**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
