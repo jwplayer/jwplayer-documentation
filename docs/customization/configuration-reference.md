@@ -12,7 +12,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 
 |Table Of Contents| | |
 |--|--|--|
-|[Setup Options](#setup)|[The Playlist](#playlist)|[Skin](#skin)|
+|[Setup Options](#setup)|[Playlists](#playlist)|[Skin](#skin)|
 |[Captions](#captions)|[RTMP](#rtmp)|[Logo](#logo)|
 |[Sharing](#sharing)|[Google Analytics](#ga)|[Related](#related)|
 |[Advertising](#advertising)|[DRM](#drm)|[Localization](#localization)|
@@ -117,7 +117,6 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**hlsjsdefault**|Boolean|Makes HLSjs the default provider when supported. Disable to use the browser's default provider.|true|
 
-
 !!!
 `primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
 <br/>
@@ -125,11 +124,26 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
 !!!
 
+### Casting
+
+Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup. 
+
+```
+jwplayer("myElement").setup({
+  "file": "https://example.com/myVideo.mp4",
+  "height": "auto"
+  "width": "100%",
+  "cast": {}
+});
+```
+If you have a custom receiver, specify the ID as a string with `cast.appid`. 
+
+
 <a name="playlist"></a>
 
 * * *
 
-## Playlist
+## Playlists
 
 The playlist is a powerful feature of JW Player, used to play multiple video or audio files.
 
@@ -173,7 +187,6 @@ jwplayer("myElement").setup({
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
 |**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
-|**playlist[index].stereomode**|String|Used for playback of a spherical 360 Video. "Monoscopic" is the value supported at this time.|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
@@ -364,6 +377,21 @@ jwplayer("myElement").setup({
 });
 ```
 See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644-advertising/articles) section for more articles and examples
+
+<a name="playlist-360"></a>
+
+### 360 videos
+
+!!!important
+360/VR videos require a playlist block in order to work, even for single items. They will not work at the global level using "file." Playlists can contain a mix of 360 and non-360 items.
+!!!
+
+Playlist configuration options described above can be used with spherical videos. Below are 360-specific options.
+
+|Config|Type|Description|Default|
+|---|---|---|---|
+|**playlist.stereomode**|String| **(Required)** This field is required for each 360 item in a playlist. If it is undefined, the video will not render in 360 mode. Supported values are "monoscopic", "stereoscopicTopBottom", and "stereoscopicLeftRight".|-|
+
 
 <a name="skin"></a>
 
