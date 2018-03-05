@@ -269,9 +269,9 @@ See our [drm](#drm) section for more information.
 
 <br/>
 
-#### Manifest and Segment Requests with Custom Headers
+#### DRM with Custom Headers
 
-You can add custom headers to media XHR requests by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()` for HLS manifest, key and segment requests made by the player. This is not available in Safari browsers where HLS is played natively.
+You can add custom headers to an XHR request by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()`.
 
 ```
 jwplayer().setup({
@@ -813,8 +813,8 @@ Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or hig
 |---|---|---|---|
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
 |**drm.playready.headers**|Array| Specifies the custom http headers to send to your playready license server. See [headers](#headers) for more information|-|
-|**drm.playready.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
-|**drm.playready.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
+|**drm.playready.headers.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.playready.headers.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
@@ -827,8 +827,8 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
 |**drm.widevine.serverCertificateUrl**|String|The URL of the WideVine service certificate|-|
 |**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
-|**drm.widevine.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
-|**drm.widevine.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
+|**drm.widevine.headers.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.widevine.headers.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
@@ -881,8 +881,8 @@ JW Player includes configuration options for custom Fairplay integrations. For m
 |**drm.fairplay.licenseResponseType**|String|Specifies the data type returned by the XHR request to the license server. The default value is 'arraybuffer'. Other options include 'blob', 'json', and 'text'. This option impacts how “licenseRequestMessage” will be processed|
 |**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the license key message and returns the message to be sent to the license server. With the default “licenseResponseType” of ArrayBuffer this function passes through keymessage event message property without any changes|
 |**drm.fairplay.extractKey**|Function|Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a ‘blob’ response), this function can return a promise|
-|**drm.fairplay.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
-|**drm.fairplay.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
+|**drm.fairplay.headers.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.fairplay.headers.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
