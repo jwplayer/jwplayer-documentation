@@ -12,7 +12,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 
 |Table Of Contents| | |
 |--|--|--|
-|[Setup Options](#setup)|[The Playlist](#playlist)|[Skin](#skin)|
+|[Setup Options](#setup)|[Playlists](#playlist)|[Skin](#skin)|
 |[Captions](#captions)|[RTMP](#rtmp)|[Logo](#logo)|
 |[Sharing](#sharing)|[Google Analytics](#ga)|[Related](#related)|
 |[Advertising](#advertising)|[DRM](#drm)|[Localization](#localization)|
@@ -117,7 +117,6 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**hlsjsdefault**|Boolean|Makes HLSjs the default provider when supported. Disable to use the browser's default provider.|true|
 
-
 !!!
 `primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
 <br/>
@@ -125,11 +124,26 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
 !!!
 
+### Casting
+
+Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup. 
+
+```
+jwplayer("myElement").setup({
+  "file": "https://example.com/myVideo.mp4",
+  "height": "auto"
+  "width": "100%",
+  "cast": {}
+});
+```
+If you have a custom receiver, specify the ID as a string with `cast.appid`. 
+
+
 <a name="playlist"></a>
 
 * * *
 
-## Playlist
+## Playlists
 
 The playlist is a powerful feature of JW Player, used to play multiple video or audio files.
 
@@ -173,7 +187,6 @@ jwplayer("myElement").setup({
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
 |**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
-|**playlist[index].stereomode**|String|Used for playback of a spherical 360 Video. "Monoscopic" is the value supported at this time.|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
 |[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
@@ -256,9 +269,9 @@ See our [drm](#drm) section for more information.
 
 <br/>
 
-#### DRM with Custom Headers
+#### Manifest and Segment Requests with Custom Headers
 
-You can add custom headers to an XHR request by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()`.
+You can add custom headers to media XHR requests by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()` for HLS manifest, key and segment requests made by the player. This is not available in Safari browsers where HLS is played natively.
 
 ```
 jwplayer().setup({
@@ -365,6 +378,21 @@ jwplayer("myElement").setup({
 ```
 See our [Advertising](https://support.jwplayer.com/customer/portal/topics/605644-advertising/articles) section for more articles and examples
 
+<a name="playlist-360"></a>
+
+### 360 videos
+
+!!!important
+360/VR videos require a playlist block in order to work, even for single items. They will not work at the global level using "file." Playlists can contain a mix of 360 and non-360 items.
+!!!
+
+Playlist configuration options described above can be used with spherical videos. Below are 360-specific options.
+
+|Config|Type|Description|Default|
+|---|---|---|---|
+|**playlist.stereomode**|String| **(Required)** This field is required for each 360 item in a playlist. If it is undefined, the video will not render in 360 mode. Supported values are "monoscopic", "stereoscopicTopBottom", and "stereoscopicLeftRight".|-|
+
+
 <a name="skin"></a>
 
 * * *
@@ -463,7 +491,7 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 ## RTMP
 
 !!!
-The RTMP format was deprecated in JW8.<sup>8.0+</sup> For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
+The RTMP format was deprecated in JW8. For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
 !!!
 
 <a name="logo"></a>
@@ -553,6 +581,7 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
+|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/> **"overlay"** (default): Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player, pausing playback. <br/>**"shelf"**: Adds a horizontal bar of thumbnails above the control bar, which allows viewers to browse recommended videos throughout the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode.|"overlay"|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
 |**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the link field in **related.file**.|"play"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
@@ -827,6 +856,8 @@ Playready DRM is specific to Internet Explorer 11 and Edge on Windows 8.1 or hig
 |---|---|---|---|
 |**drm.playready.url**|String|**(Required)** The URL of the PlayReady license server|-|
 |**drm.playready.headers**|Array| Specifies the custom http headers to send to your playready license server. See [headers](#headers) for more information|-|
+|**drm.playready.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.playready.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
@@ -839,6 +870,8 @@ Widevine DRM is specific to Google Chrome on non-iOS devices. Widevine will also
 |**drm.widevine.url**|String|**(Required)** The URL of the WideVine license server|-|
 |**drm.widevine.serverCertificateUrl**|String|The URL of the WideVine service certificate|-|
 |**drm.widevine.headers**|Array| Specifies the custom http headers to send to your widevine license server requests. See [headers](#headers) for more information |-|
+|**drm.widevine.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.widevine.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
@@ -891,6 +924,8 @@ JW Player includes configuration options for custom Fairplay integrations. For m
 |**drm.fairplay.licenseResponseType**|String|Specifies the data type returned by the XHR request to the license server. The default value is 'arraybuffer'. Other options include 'blob', 'json', and 'text'. This option impacts how “licenseRequestMessage” will be processed|
 |**drm.fairplay.licenseRequestMessage**|Function|Expects a function that receives the license key message and returns the message to be sent to the license server. With the default “licenseResponseType” of ArrayBuffer this function passes through keymessage event message property without any changes|
 |**drm.fairplay.extractKey**|Function|Expects a function that receives the ckc returned by the license server and returns the key used to update the active key session. If the key can only be extracted asynchronously (for example reading bytes from a ‘blob’ response), this function can return a promise|
+|**drm.fairplay.licenseRequestFilter**|Function| Expects a function which takes a single request argument. License request filters intercept license requests before 'licenseRequestHeaders' are added.|-|
+|**drm.fairplay.licenseResponseFilter**|Function| Expects a function which takes a single response argument. License response filters intercept license responses before updating the session with the license key.|-|
 
 <br/>
 
@@ -918,10 +953,11 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.buffer**|String|Title of the buffer state |"Loading"|
 |**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
-|**localization.close**|String|Title of tooltip on close icon in Related mode  |"Close"|
+|**localization.close**|String|Close text and title of close icons  |"Close"|
+|**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
 |**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
-|**localization.liveBroadcast**|String|Override for the state of a live stream |"Live broadcast"|
+|**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
 |**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
 |**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
 |**localization.next**|String|Title of the right arrow in paginated overlays  |"Next"|
@@ -932,9 +968,9 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.playback**|String|Override for the play button in an idle state |"Start playback"|
 |**localization.playbackRates**|String|Title of the tooltip for the playback rate controls menu  |"Playback rates"|
 |**localization.player**|String|Override for the player application |"Video Player"|
-|**localization.playlist**|String|Title of the Next Up tooltip in Playlist mode |"Playlist"|
+|**localization.playlist**|String|Title of the icon tooltip and overlay heading in Playlist mode |"Playlist"|
 |**localization.prev**|String|Title of the left arrow in paginated overlays |"Previous"|
-|**localization.related**|String|Title of the Next Up tooltip in Related mode  |"Discover"|
+|**localization.related**|String|Title of recommended video screen headings and tooltips |"More Videos"|
 |**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
 |**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
 |**localization.volume**|String|Tooltip for the volume controls |"Volume"|
