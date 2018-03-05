@@ -269,9 +269,9 @@ See our [drm](#drm) section for more information.
 
 <br/>
 
-#### DRM with Custom Headers
+#### Manifest and Segment Requests with Custom Headers
 
-You can add custom headers to an XHR request by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()`.
+You can add custom headers to media XHR requests by using the `onXhrOpen` callback. This gets executed after `XMLHTTPRequest.open()` and before `XMLHTTPRequest.send()` for HLS manifest, key and segment requests made by the player. This is not available in Safari browsers where HLS is played natively.
 
 ```
 jwplayer().setup({
