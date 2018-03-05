@@ -598,6 +598,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
+|**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
 
 <br/>
 
@@ -735,6 +736,48 @@ jwplayer("myElement").setup({
           "id": 12345
         }
       ]
+    }
+  }
+});
+```
+
+<br/>
+
+<a name="advertising-rules"></a>
+### advertising.rules
+
+Use this option to control how frequently ads play back.
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|startOn|Number|The first playlist item that will allow ad playback, index starting at 1.  Use 0 to only play ads on the first playlist item.|1|
+|frequency|Number|Play ads only on every X playlist item.  i.e. frequency 3 means only play on ads on every third playlist item.|1|
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "http://example.com/myVideo.mp4"
+    },
+    {
+      "file": "http://example.com/myVideo2.mp4"
+    }
+  ],  
+  "advertising": {
+    "client": "vast",
+    "schedule": {
+      "adBreak1": {
+        "tag": "mytag.xml",
+        "offset": 10
+      },
+      "adBreak2": {
+        "tag": "mytag2.xml",
+        "offset": 20
+      }
+    }
+    "rules": {
+      "startOn": 2,
+      "frequency": 1
     }
   }
 });
