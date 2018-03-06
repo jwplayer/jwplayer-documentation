@@ -779,8 +779,8 @@ Use this option to control how frequently ads play back.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|startOn|Number|The first playlist item that will allow ad playback, index starting at 1.  Use 0 to only play ads on the first playlist item.|1|
-|frequency|Number|Play ads only on every X playlist item.  i.e. frequency 3 means only play on ads on every third playlist item.|1|
+|startOn|Number|The first playlist item that will allow ad playback, index starting at 1.|1|
+|frequency|Number|Play ads only on every X playlist item. i.e. frequency 3 means only play on ads on every third playlist item. Use 0 to only play ads on the first playlist item.|1|
 
 ```
 jwplayer("myElement").setup({
