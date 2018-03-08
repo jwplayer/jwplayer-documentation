@@ -621,8 +621,8 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
 |**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
 |**advertising.creativeTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|VAST|15000|
-|**advertising.requestTimeout**|String|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|VAST, IMA|5000 (VAST), 10000 (IMA)|
-|**advertising.loadVideoTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA|15000|
+|**advertising.requestTimeout**|String|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
+|**advertising.loadVideoTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
 |**advertising.maxRedirects**|String|The maximum number of redirects the player should follow before timing out|IMA|4|
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
