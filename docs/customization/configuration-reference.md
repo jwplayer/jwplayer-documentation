@@ -126,7 +126,7 @@ The default `preload` configuration has been updated to "metadata", and the _met
 
 ### Casting
 
-Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup. 
+Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup.
 
 ```
 jwplayer("myElement").setup({
@@ -136,7 +136,7 @@ jwplayer("myElement").setup({
   "cast": {}
 });
 ```
-If you have a custom receiver, specify the ID as a string with `cast.appid`. 
+If you have a custom receiver, specify the ID as a string with `cast.appid`.
 
 
 <a name="playlist"></a>
@@ -712,11 +712,11 @@ In order for JW Player to work as mediation layer, the following options need to
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JW the medation layer|JW|
+|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make JWP the medation layer|JWP|
 |**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
-|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with JW as the mediation layer|usd|
+|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with JWP as the mediation layer|usd|
 |**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play|1000|
-|**advertising.bids.*bidders*[index].name**|String|The name of the bidder|-|
+|**advertising.bids.*bidders*[index].name**|String|The name of the bidder (ex. "SpotX")|-|
 |**advertising.bids.*bidders*[index].id**|String|The id of the publisher|-|
 
 
@@ -728,7 +728,7 @@ jwplayer("myElement").setup({
     "tag": "mytag.xml",
     "bids": {
       "settings": {
-        "mediationLayerAdServer": 'JW',
+        "mediationLayerAdServer": 'JWP',
         "floorPriceCents": 10,
         "floorPriceCurrency": "usd",
         "bidTimeout": 1000
@@ -791,7 +791,7 @@ jwplayer("myElement").setup({
     {
       "file": "http://example.com/myVideo2.mp4"
     }
-  ],  
+  ],
   "advertising": {
     "client": "vast",
     "schedule": {
