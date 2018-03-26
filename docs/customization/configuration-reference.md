@@ -628,6 +628,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
 |**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
+|**advertising.adManagerURL**|String|Freewheel-supplied Ad Manager URL|Freewheel|-|
 
 <br/>
 
