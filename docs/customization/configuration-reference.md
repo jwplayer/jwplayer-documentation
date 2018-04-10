@@ -620,10 +620,11 @@ This options block configures the video advertising capabilities of JW Player. I
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
 |**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
-|**advertising.creativeTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|VAST|15000|
-|**advertising.requestTimeout**|String|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
-|**advertising.loadVideoTimeout**|String|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
-|**advertising.maxRedirects**|String|The maximum number of redirects the player should follow before timing out|IMA|4|
+|**advertising.creativeTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
+|**advertising.requestTimeout**|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
+|**advertising.vastLoadTimeout**|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000
+|**advertising.loadVideoTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
+|**advertising.maxRedirects**|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
 |**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
