@@ -976,4 +976,6 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.related**|String|Title of recommended video screen headings and tooltips |"More Videos"|
 |**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
 |**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
+|**localization.stop**|String|Title of tooltip for the stop button in the control bar for live streams |"Stop"|
+|**localization.videoInfo**|String|Label for the video info overlay accessible via the right click menu |"About this video"|
 |**localization.volume**|String|Tooltip for the volume controls |"Volume"|
