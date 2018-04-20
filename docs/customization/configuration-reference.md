@@ -79,7 +79,8 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
 |**playbackRateControls**|Boolean|Whether to display a settings menu to adjust playback speed. If true, the pre-defined options available in the menu are 0.5x, 1x, 1.25x, 1.5x, and 2x. An array can be passed to customize the menu options using `playbackRates`. **Note:** This feature is not currently supported in Android with HLS streams.|false|
-|**playbackRates** <sup>8.0+</sup>|Array of Numbers|(Optional) Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
+|**playbackRates** <sup>8.0+</sup>|Array of Numbers|Custom playback rate options to display in the settings menu.|[0.25, 0.75, 1, 1.25]|
+|**defaultBandwidthEstimate** <sup>8.3+</sup>|Number|Sets an initial bandwidth estimate, in bits per second, for all viewers. All values, including negative ones, below the minimum of 1 will be rounded up, whereas  `Math.max()` can be used to set the initial estimate to the highest possible.|-|
 
 <br/>
 
@@ -975,4 +976,6 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.related**|String|Title of recommended video screen headings and tooltips |"More Videos"|
 |**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
 |**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
+|**localization.stop**|String|Title of tooltip for the stop button in the control bar for live streams |"Stop"|
+|**localization.videoInfo**|String|Label for the video info overlay accessible via the right click menu |"About this video"|
 |**localization.volume**|String|Tooltip for the volume controls |"Volume"|
