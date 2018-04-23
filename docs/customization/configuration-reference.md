@@ -715,7 +715,7 @@ In order for JW Player to work as mediation layer, the following options need to
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. See the table below for the available choices for the mediation layer.|jwp|
+|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer, which is the decision-maker in what ad to run. See the table below for the available choices for the mediation layer.|jwp|
 |**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
 |**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with "jwp" as the mediation layer|usd|
 |**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play, in milliseconds|2000|
