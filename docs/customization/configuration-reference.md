@@ -741,7 +741,7 @@ jwplayer("myElement").setup({
     "tag": "mytag.xml",
     "bids": {
       "settings": {
-        "mediationLayerAdServer": 'jwp',
+        "mediationLayerAdServer": "jwp",
         "floorPriceCents": 10,
         "floorPriceCurrency": "usd",
         "bidTimeout": 1000
@@ -769,7 +769,7 @@ jwplayer("myElement").setup({
     "tag": "mytag.xml",
     "bids": {
       "settings": {
-        "mediationLayerAdServer": 'dfp',
+        "mediationLayerAdServer": "dfp",
         "bidTimeout": 1000
       },
       "bidders": [
