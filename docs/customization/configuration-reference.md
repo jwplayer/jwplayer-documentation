@@ -707,7 +707,7 @@ jwplayer("myElement").setup({
 <a name="advertising-bids"></a>
 ### advertising.bids
 
-Use this option to try video player bidding with supported bidders.
+Use this option to try video player bidding with supported bidders. Click [here](https://support.jwplayer.com/articles/how-to-setup-video-player-bidding) for more information on how to get started.
 
 #### Video Player Bidding with JW
 
@@ -715,14 +715,24 @@ In order for JW Player to work as mediation layer, the following options need to
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer. Setting this to anything rather than "dfp" will make "jwp" the medation layer|jwp|
+|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer, which is the decision-maker in what ad to run. See the table below for the available choices for the mediation layer.|jwp|
 |**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
 |**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with "jwp" as the mediation layer|usd|
 |**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play, in milliseconds|2000|
 |**advertising.bids.*bidders*[index].name**|String|The name of the bidder (ex. "SpotX")|-|
 |**advertising.bids.*bidders*[index].id**|String|The id of the publisher|-|
 
+<br/>
+#### Available Mediation Layers
 
+|Option|Supported Clients|Description|
+|---|---|---|
+|**jwp**|VAST, Google IMA|The default mediation layer. Compares bid prices against the floor price with the higher bid winning. If the floor wins, the fallback ad tag is used.|
+|**jwpspotx**|VAST, Google IMA|Similar to the "jwp" mediation layer but ignores the floor price, allowing SpotX to easily be used as the primary ad server by always winning the bid.|
+|**dfp**|Google IMA|Uses DFP as your mediation layer by adding key value pairs to the DFP tag to match up with the bidder's line items within DFP|
+|**jwpdfp**|Google IMA|Combines the "jwp" and "dfp" mediation layers in that order. If the floor price isn't beaten, the key value pairs are added to the DFP tag.|
+
+<br/>
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
@@ -731,7 +741,7 @@ jwplayer("myElement").setup({
     "tag": "mytag.xml",
     "bids": {
       "settings": {
-        "mediationLayerAdServer": 'jwp',
+        "mediationLayerAdServer": "jwp",
         "floorPriceCents": 10,
         "floorPriceCurrency": "usd",
         "bidTimeout": 1000
@@ -759,7 +769,7 @@ jwplayer("myElement").setup({
     "tag": "mytag.xml",
     "bids": {
       "settings": {
-        "mediationLayerAdServer": 'dfp',
+        "mediationLayerAdServer": "dfp",
         "bidTimeout": 1000
       },
       "bidders": [
