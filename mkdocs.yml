@@ -16,6 +16,8 @@ pages:
     - Custom Icons: customization/css-skinning/custom-icons.md
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
+  - Advertising:
+    - Ads Errors Reference: advertising/ads_errors_reference.md
   - Analytics:
     - Analytics Integrations: analytics/integrations.md
   - JW 7 Developer Guide:
