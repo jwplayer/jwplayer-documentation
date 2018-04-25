@@ -35,7 +35,7 @@ A `bids` block must be present within the `advertising` block. The `bids` block 
     "client": "googima",
     "schedule": {
       "adBreak": {
-        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/137679306/HB_Dev_Center_Example&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&correlator=",
+        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480...",
         "offset": "pre"
       }
     },
@@ -71,7 +71,7 @@ If you require additional custom parameters to be appended to the ad tag prior t
     "client": "googima",
     "schedule": {
       "adBreak": {
-        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/137679306/HB_Dev_Center_Example&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&correlator=",
+        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480...",
         "offset": "pre"
       }
     },
@@ -106,10 +106,12 @@ If you require additional custom parameters to be appended to the ad tag prior t
 * For VAST, check the network tab for `"vast.js"` and ensure that the request was successful.
 * For IMA, check the network tab for `"imasdk.googleapis"`. If the ad plugin is not loaded, first ensure that you do not have an ad blocker enabled. If you do not, please contact [our Support Team](https://support.jwplayer.com).
 
+
 #### Confirm that the bidder script has loaded
 
 * In the network tab, filter for `"jw.spotx.tv/directsdk"` or `"search.spotx"`.
 * If the script is not loaded please ensure that your configuration is correct according to the provided examples. If it is, please contact the [our Support Team](https://support.jwplayer.com) or SpotX.
+
 
 #### Ensure parameters are being passed correctly in the ad request
 
@@ -128,6 +130,7 @@ _JWP_
 
 ![Parameters - JWP](../img/vpb/vpb2_jwp_ad_request.png)
 
+
 #### Confirm that the bid request occurred and the parameters are passed through correctly
 
 * In the Network tab, filter for `search.spotx`.
@@ -136,11 +139,13 @@ _JWP_
 
 ![Request Payload](../img/vpb/vpb3_req_payload.png)
 
+
 #### Confirm that the bid response occurred
 
 * In the Network tab, filter on `abr` for a request sent to `dev.jwpltx`. This request is a ping to our Analytics service. If there are no requests matching this description, then the event likely did not happen.
 * If you do not see the ping, please contact [our Support Team](https://support.jwplayer.com).
 * If the ping is present, and an issue is still occurring, please reach out to SpotX.
+
 
 #### Confirm that a timeout is not causing the issue
 
@@ -154,11 +159,13 @@ Within the `settings` block, explicitly set the `bidTimeout` property to `10000`
 |No bid response|JW Player/SpotX|
 |Bid request does not include all parameters|JW Player|
 
+
 ## Configuring Video Player Bidding to Work with an Existing Header Bidding Solution
 
 If you already have a home-grown header bidding solution, converting to using the JW Player Video Player Bidding solution is a simple process that most likely follows a similar workflow to your existing process.
 
 In our experience, most custom solutions utilize the following workflow:
+
 
 1. The webpage is requested
 2. Each header bidding partner’s script is requested, often from the `<head>` of the page
@@ -169,7 +176,9 @@ In our experience, most custom solutions utilize the following workflow:
 7. The IMA SDK loads
 8. The player looks at the ad schedule then makes the request to DFP using the modified tag.
 
+
 When using the SpotX Video Player integration, the workflow is largely the same, but a few additional steps are handled by JW Player. Specifically, the following occurs between items #7 and #8 above:
+
 
 1. The player loads the SpotX bidding script
 2. The player will make a bid request to SpotX
@@ -177,7 +186,5 @@ When using the SpotX Video Player integration, the workflow is largely the same,
 4. JW Player appends the custom parameters to the DFP tag
 
 !!!
-The JW Player Video Player Bidding solution requires line items for each bidder to be created in DFP.
-
-Given how many network requests will be going out for the bidders, click-to-play or auto starting when the player is viewable (with the player below the fold) is likely to be a more successful strategy than setting `autostart: true`.
+The JW Player Video Player Bidding solution requires line items for each bidder to be created in DFP.<br/><br/>Given how many network requests will be going out for the bidders, click-to-play or auto starting when the player is viewable (with the player below the fold) is likely to be a more successful strategy than setting `autostart: true`.
 !!!
