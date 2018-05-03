@@ -149,8 +149,8 @@ _JWP_
 #### Confirm that your channel is enabled with SpotX
 
 * In the Network tab, filter on the channel ID for a request sent to SpotX. 
-* In the Headers section of the Network tab, look for "X-spotx-Exception-conf-Message".
-* If the value is "Affiliate ID 'XXXXXX' is not enabled.", please reach out to SpotX to enable your channel.
+* In the Headers section of the Network tab, look for `X-spotx-Exception-conf-Message`.
+* If the value is `Affiliate ID 'XXXXXX' is not enabled.`, please reach out to SpotX to enable your channel.
 
 ![Request Payload](../img/vpb/vpb4_channel_id_enablement.png)
 
