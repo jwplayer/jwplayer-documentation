@@ -164,6 +164,7 @@ Within the `settings` block, explicitly set the `bidTimeout` property to `10000`
 |Ad plugin is not loading|JW Player|
 |Bidder script is not loading|JW Player/SpotX|
 |No bid response|JW Player/SpotX|
+|Channel not enabled|SpotX|
 |Bid request does not include all parameters|JW Player|
 
 
