@@ -74,7 +74,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|**nextupoffset**|Number|Configures when the Next Up card displays during playback. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
