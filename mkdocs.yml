@@ -8,7 +8,7 @@ pages:
     - Introduction: index.md
     - Using Release Channels: release_notes/release_channels.md
     - Intro to Javascript API: api/javascript_api_introduction.md
-    - Error Reference: api/error-reference.md
+    - Errors Reference: api/errors-reference.md
   - Customization:
     - Configuration Reference: customization/configuration-reference.md
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
