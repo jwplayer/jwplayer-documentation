@@ -74,7 +74,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**|Number|Configures when the Next Up card displays when transitioning between playlist items. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|**nextupoffset**|Number|Configures when the Next Up card displays during playback. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
@@ -582,9 +582,9 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
-|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/> **"overlay"** (default): Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player, pausing playback. <br/>**"shelf"**: Adds a horizontal bar of thumbnails above the control bar, which allows viewers to browse recommended videos throughout the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode.|"overlay"|
+|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/> **"overlay"**: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player, pausing playback. <br/>**"shelf"** (default): Adds a horizontal bar of thumbnails above the control bar, which allows viewers to browse recommended videos throughout the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode.|"shelf"|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
-|**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the link field in **related.file**.|"play"|
+|**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the related item's link field.|"play"|
 |**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
 |**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
 
