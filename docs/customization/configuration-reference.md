@@ -508,7 +508,7 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.file**|String|The URL of an external JPG, PNG or GIF image to be used as watermark (e.g. /assets/logo.png). We recommend using 24 bit PNG images with transparency|-|
 |**logo.hide**|Boolean|When this option is set to true, the logo will automatically show and hide along with the other player controls|false|
 |**logo.link**|String|The URL to visit when the watermark image is clicked. Clicking a logo will have no affect unless this is configured|-|
-|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|20|
+|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|8|
 |**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
 See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
