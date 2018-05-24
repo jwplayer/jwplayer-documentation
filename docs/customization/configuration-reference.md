@@ -513,6 +513,10 @@ This options block configures a clickable watermark that is overlayed on the vid
 
 See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
 
+!!!
+We highly recommend using low-resolution images for logos in the player, as Internet Explorer may not resize an image, especially if it is high-resolution.
+!!!
+
 <a name="sharing"></a>
 
 * * *
