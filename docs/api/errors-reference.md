@@ -23,13 +23,13 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 These errors are dispatched in a "setupError" error event, after calling jwplayer().setup() when an error occurs. These errors prevent the player from setting up successfully. In these scenarios the player will not dispatch a "ready" event.
 
 <a name="timeout"></a>
-### Timeout Errors
+### Timeout
 |Event|Error Code|Reason|
 |---|---|---|
 |"setupError"|100001|Setup took longer than 30 seconds to complete.|
 
 <a name="license-key"></a>
-### License Key Errors
+### License Key
 |Event|Error Code|Reason|
 |---|---|---|
 |"setupError"|100011|Missing license key. "key" not found in config or "jwplayer.key" global.|
@@ -41,7 +41,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 These errors are dispatched in an "error" event after the player is setup and after the "ready" event. In these scenarios, any active playback is stopped, and an error message is displayed in the video player to the viewer.
 
 <a name="load-new-playlist"></a>
-### Loading New Playlist Errors
+### Loading New Playlist
 These errors are dispatched after calling jwplayer().load(content) when the content cannot be loaded or played.
 
 |Event|Error Code|Reason|
@@ -49,7 +49,7 @@ These errors are dispatched after calling jwplayer().load(content) when the cont
 |"error"|202002|The browser failed to make the request because XMLHttpRequest not supported.|
 
 <a name="empty-playlist"></a>
-### Empty Playlist Errors
+### Empty Playlist
 |Event|Error Code|Reason|
 |---|---|---|
 |"error"|202630|Happens when the playlist is empty: <ul><li>before filtering items and source</li><li>after filtering items and source</li></ul>|
