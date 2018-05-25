@@ -18,7 +18,7 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 
 <br/>
 <a name="setup"></a>
-## Setup Error Events
+## Setup Errors
 
 These errors are dispatched in a "setupError" error event, after calling jwplayer().setup() when an error occurs. These errors prevent the player from setting up successfully. In these scenarios the player will not dispatch a "ready" event.
 
@@ -36,7 +36,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <br/>
 <a name="player"></a>
-## Player Error Events
+## Player Errors
 
 These errors are dispatched in an "error" event after the player is setup and after the "ready" event. In these scenarios, any active playback is stopped, and an error message is displayed in the video player to the viewer.
 
@@ -56,7 +56,7 @@ These errors are dispatched after calling jwplayer().load(content) when the cont
 
 <br/>
 <a name="warning"></a>
-## Warning Events
+## Warnings
 
 These errors are dispatched in a "warning" event after the player is setup and after the "ready" event. In these scenarios, the viewer is not notified of the error. Video player functionality is not inturrupted, but may be degraded, depending on the error.
 
