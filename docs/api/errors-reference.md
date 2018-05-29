@@ -5,7 +5,7 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 <br/>
 ## Jump to Specific Error Event
 
-|Category|Type|
+|Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Timeout](#timeout) \| [License Key](#license-key)|
 |[Player Errors](#player)|[Loading New Playlist](#load-new-playlist) \| [Empty Playlist](#empty-playlist)|
