@@ -9,7 +9,7 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
-|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Media Playback Flash](#media-flash) \| [Media Playback HTML5](#media-html5) \| [Media Playback HLS.JS](#media-hlsjs) \| [Media Playback Shaka-Player](#media-shaka)|
+|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
 
 <br/>
 <a name="setup"></a>
@@ -92,7 +92,7 @@ These errors occur when then player has trouble streaming content.
 
 
 <a name="media-shaka"></a>
-### Media Playback Shaka-Player
+### Media Playback Shaka Player
 |Event|Error Code|Reason|
 |---|---|---|
 
