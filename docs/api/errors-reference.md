@@ -8,7 +8,7 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 
 |Category|Types|
 |---|---|
-|[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist) \| [100003](#100013)|
+|[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
 |[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
 
 <br/>
@@ -22,17 +22,13 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 ### Miscellaneous
 |Event|Error Code|Reason|
 |---|---|---|
-|"setupError" | <a name="100000"></a> 100000 | An unknown setup error occurred.|
-|"setupError" | <a name="100001"></a> 100001 | Setup took longer than 30 seconds to complete.|
-|"setupError" | <a name="100011"></a> 100011 | Missing license key. "key" not found in config or "jwplayer.key" global.|
-|"setupError" | <a name="100012"></a> 100012 | Invalid license key.|
-|"setupError" | <a name='100013'></a> 100013 | Expired license key.|
+
 
 <a name="loading-js"></a>
 ### Loading JS Component
 |Event|Error Code|Reason|
 |---|---|---|
-|"setupError"|100011|Missing license key. "key" not found in config or "jwplayer.key" global.|
+
 
 <a name="loading-external-playlist"></a>
 ### Loading External Playlist
