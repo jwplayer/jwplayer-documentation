@@ -26,7 +26,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 |"setupError" | <a name="100001"></a> 100001 | Setup took longer than 30 seconds to complete.|
 |"setupError" | <a name="100011"></a> 100011 | Missing license key. "key" not found in config or "jwplayer.key" global.|
 |"setupError" | <a name="100012"></a> 100012 | Invalid license key.|
-|"setupError" | <a name="100013-100014"></a> 100013 | Expired license key.|
+|"setupError" | <a name='100013'></a> 100013 | Expired license key.|
 
 <a name="loading-js"></a>
 ### Loading JS Component
