@@ -7,14 +7,9 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 
 |Category|Type|
 |---|---|
-|[Setup Errors](#setup)||
-||[Timeout](#timeout)|
-||[License Key](#license-key)|
-|[Player Errors](#player)||
-||[Loading New Playlist](#load-new-playlist)|
-||[Empty Playlist](#empty-playlist)|
-|[Warnings](#warning)||
-||[Loading JS Component](#load-js-component)|
+|[Setup Errors](#setup)|[Timeout](#timeout),[License Key](#license-key)|
+|[Player Errors](#player)|[Loading New Playlist](#load-new-playlist),[Empty Playlist](#empty-playlist)|
+|[Warnings](#warning)|[Loading JS Component](#load-js-component)|
 
 <br/>
 <a name="setup"></a>
