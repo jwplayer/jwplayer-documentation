@@ -7,9 +7,8 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 
 |Category|Types|
 |---|---|
-|[Setup Errors](#setup)|[Timeout](#timeout) \| [License Key](#license-key)|
-|[Player Errors](#player)|[Loading New Playlist](#load-new-playlist) \| [Empty Playlist](#empty-playlist)|
-|[Warnings](#warning)|[Loading JS Component](#load-js-component)|
+|[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
+|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Media Playback Flash](#media-flash) \| [Media Playback HTML5](#media-html5) \| [Media Playback HLS.JS](#media-hlsjs) \| [Media Playback Shaka-Player](#media-shaka)|
 
 <br/>
 <a name="setup"></a>
@@ -17,17 +16,27 @@ Placeholder for exciting introduction to our new Player Errors Reference.
 
 These errors are dispatched in a "setupError" error event, after calling jwplayer().setup() when an error occurs. These errors prevent the player from setting up successfully. In these scenarios the player will not dispatch a "ready" event.
 
-<a name="timeout"></a>
-### Timeout
+<a name="misc"></a>
+### Miscellaneous
 |Event|Error Code|Reason|
 |---|---|---|
 |"setupError"|100001|Setup took longer than 30 seconds to complete.|
 
-<a name="license-key"></a>
-### License Key
+<a name="loading-js"></a>
+### Loading JS Component
 |Event|Error Code|Reason|
 |---|---|---|
 |"setupError"|100011|Missing license key. "key" not found in config or "jwplayer.key" global.|
+
+<a name="loading-external-playlist"></a>
+### Loading External Playlist
+|Event|Error Code|Reason|
+|---|---|---|
+
+<a name="empty-playlist"></a>
+### Empty Playlist
+|Event|Error Code|Reason|
+|---|---|---|
 
 <br/>
 <a name="player"></a>
@@ -35,29 +44,52 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 These errors are dispatched in an "error" event after the player is setup and after the "ready" event. In these scenarios, any active playback is stopped, and an error message is displayed in the video player to the viewer.
 
-<a name="load-new-playlist"></a>
+<a name="loading-new-playlist"></a>
 ### Loading New Playlist
 These errors are dispatched after calling jwplayer().load(content) when the content cannot be loaded or played.
 
 |Event|Error Code|Reason|
 |---|---|---|
-|"error"|202002|The browser failed to make the request because XMLHttpRequest not supported.|
 
-<a name="empty-playlist"></a>
-### Empty Playlist
+
+<a name="playlist-item"></a>
+### Playlist Item
+These errors occur when the player attempts to set, load or play a new playlist item. This can be the result of calling jwplayer().load(content) or normal playlist progression (one item ends and another is about to begin).
+
+Note: Technically these only fire with "Playlist error: " as a result of calling load() but that should change. The player could get into a bad state inbetween items if these are not cause (playAttemptFailed).
+
 |Event|Error Code|Reason|
 |---|---|---|
-|"error"|202630|Happens when the playlist is empty: <ul><li>before filtering items and source</li><li>after filtering items and source</li></ul>|
 
-<br/>
-<a name="warning"></a>
-## Warnings
 
-These errors are dispatched in a "warning" event after the player is setup and after the "ready" event. In these scenarios, the viewer is not notified of the error. Video player functionality is not inturrupted, but may be degraded, depending on the error.
+<a name="media-setup"></a>
+### Media Playback Setup
+These errors occur when then player has trouble streaming content.
 
-<a name="load-js-component"></a>
-### Loading JS Component
 |Event|Error Code|Reason|
 |---|---|---|
-|"warning"|xxxxxx|vttparser.js failed to load. VTT captions cannot be displayed.|
+
+
+<a name="media-flash"></a>
+### Media Playback Flash
+|Event|Error Code|Reason|
+|---|---|---|
+
+
+<a name="media-html5"></a>
+### Media Playback HTML5
+|Event|Error Code|Reason|
+|---|---|---|
+
+
+<a name="media-hlsjs"></a>
+### Media Playback HLS.JS
+|Event|Error Code|Reason|
+|---|---|---|
+
+
+<a name="media-shaka"></a>
+### Media Playback Shaka-Player
+|Event|Error Code|Reason|
+|---|---|---|
 
