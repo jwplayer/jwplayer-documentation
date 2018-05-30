@@ -33,7 +33,7 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 ```
 
 <br/>
-<a name='error-object'></a>
+<a name='error-msgs'></a>
 
 ## Error Messages
 
