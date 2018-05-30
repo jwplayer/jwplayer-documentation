@@ -1,6 +1,7 @@
 # JW Player Errors Reference (JW Player 8.4+)
 
 JW Player 8.4 introduces a new and improved error system in the player.  We have revamped error codes from the ground up to be more comprehensive, descriptive, and consistent.  This will enable faster troubleshooting and programmatic handling of errors by developers. Here's a summary of our new JW Player error system:
+
 * Designed a new system of classifying errors into error codes & categories
 * Identified all existing player errors and categorized them
 * Applied error codes to all identified errors and mapped them to friendlier, relevant messages displayed to the viewer
