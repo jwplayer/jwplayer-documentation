@@ -12,18 +12,14 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 
 <br/>
 
-## Error Object
+## Player Error Object
 
-Class used to create `setupError` and `error` event instances
-```javascript
-class PlayerError(string, ErrorCode, Error){}
-```
 ### Parameters
 |Name|Type|Attributes|Description|
 |---|---|---|---|
-|string|message| |The error message.|
-|ErrorCode|code|optional|The error code.|
-|Error|sourceError|optional|The lower level error, caught by the player, which resulted in this error.|
+|message|string| |The error message.|
+|code|ErrorCode|optional|The error code.|
+|sourceError|Error|optional|The lower level error, caught by the player, which resulted in this error.|
 
 ### Example
 ```javascript
@@ -38,6 +34,8 @@ class PlayerError(string, ErrorCode, Error){}
 <br/>
 
 ## Error Messages
+
+Each error will contain a ```message```, which is the viewer-friendly text displayed in the player. The range of error codes that map to a specific error message is detailed below.
 
 |Error Message | Error Codes | Localization Property|
 |---|---|---|
@@ -221,5 +219,3 @@ These errors occur when then player has trouble streaming content.
 |<a name='241011'></a> 241011 | A network request was made without proper crossdomain credentials. | Error loading media: Crossdomain access denied|
 |<a name='241012'></a> 241012 | A network request was made to an HTTP resource from HTTPS. | Error loading media: Unable to fetch HTTP resource over HTTPS|
 |<a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | Error loading media: <statusCode> <responseText> Error loading media: You do not have permission to access this content Error loading media: 404 Not Found|
-
-
