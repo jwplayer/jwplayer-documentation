@@ -35,7 +35,7 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 
 ## Error Messages
 
-Each error will contain a ```message```, which is the viewer-friendly text displayed in the player. The range of error codes that map to a specific error message is detailed below.
+Each error will contain a ```message```, which is the viewer-friendly text displayed in the player. The range of error codes that map to a specific error message are detailed below, along with the localization property used to customize that message.
 
 |Error Message | Error Codes | Localization Property|
 |---|---|---|
