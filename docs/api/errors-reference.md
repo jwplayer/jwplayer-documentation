@@ -184,14 +184,28 @@ These errors occur when then player has trouble streaming content.
 
 <br/>
 
+## Viewer-Friendly Error Messages
+
+|Viewer-Friendly Message | Error Codes | Localization Property|
+|---|---|---|
+|This video file cannot be played. | 102630, 102640, 203100-214154 | localization.errors.cantPlayVideo|
+|This video cannot be played because of a problem with your internet connection. | 230002, 232002 | localization.errors.badConnection|
+|Sorry, the video player failed to load. | 100000-100013, 101100-101120, 102000-102621, 104100-104154, 202000-202630 | localization.errors.cantLoadPlayer|
+|The video cannot be played in this browser. | 210001 | localization.errors.cantPlayInBrowser|
+|The live stream is either down or has ended. | 220001, 230001 | localization.errors.liveStreamEnded|
+|There was a problem providing access to protected content. | 225400-226599 | localization.errors.protectedContent|
+|This video cannot be played because of a technical error. | 221000-224003, 232000, 232011-233599, 240000-241599 | localization.errors.technicalError|
+
+
+<br/>
+
 ## PlayerError Class
 
 Class used to create `setupError` and `error` event instances
 ```javascript
 class PlayerError(string, ErrorCode, Error){}
 ```
-Parameters
-
+### Parameters
 |Name|Type|Attributes|Description|
 |---|---|---|---|
 |string|message| |The error message.|
