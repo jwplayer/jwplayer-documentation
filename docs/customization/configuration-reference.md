@@ -117,6 +117,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**preload**|String|Tells the player if content should be loaded prior to playback. Useful for faster playback speed or if certain metadata should be loaded prior to playback: <br/>**"none"** — Player will explicitly **not** preload content. **(Recommended if you are concerned about excess content usage.)**<br/>**"metadata"** — Loads the manifest and buffers a maximum of one segment of media for HLS and Dash streams.<br/> **"auto"** — Loads the manifest and buffers approximately 30 seconds worth of media segments.|"metadata"|
 |**flashplayer**|String|Specifies an alternate directory of **jwplayer.flash.swf**|"/"|
 |**hlsjsdefault**|Boolean|Makes HLSjs the default provider when supported. Disable to use the browser's default provider.|true|
+|**liveTimeout** <sup>8.1.9+</sup>|Number|Configure how a stalled live manifest is handled. Accepts a positive number in seconds, but values between 1-10 are ignored. Set to 0 to configure a stream to never time out. The player will continue requesting manifests until it times out. If a live manifest does not update after being requested for longer than liveTimeout, the stream will end with an error event. If you want a stream to end immediately, include an end tag in the manifest. This configuration option only handles stalled manifests, not issues with segment loading. A chunk that results in a 404, for example, will still error out. |30|
 
 !!!
 `primary`, which set the default player rendering mode, has been deprecated.<sup>8.0+</sup> Flash is no longer supported in JW Player except to play HLS streams in IE11 on Windows 7.
@@ -508,10 +509,14 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.file**|String|The URL of an external JPG, PNG or GIF image to be used as watermark (e.g. /assets/logo.png). We recommend using 24 bit PNG images with transparency|-|
 |**logo.hide**|Boolean|When this option is set to true, the logo will automatically show and hide along with the other player controls|false|
 |**logo.link**|String|The URL to visit when the watermark image is clicked. Clicking a logo will have no affect unless this is configured|-|
-|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|20|
+|**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|8|
 |**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
 See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
+
+!!!
+We highly recommend using low-resolution images for logos in the player, as Internet Explorer may not resize an image, especially if it is high-resolution.
+!!!
 
 <a name="sharing"></a>
 
