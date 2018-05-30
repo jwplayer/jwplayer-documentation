@@ -11,6 +11,7 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 
 
 <br/>
+<a name='error-object'></a>
 
 ## Player Error Object
 
@@ -32,6 +33,7 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 ```
 
 <br/>
+<a name='error-object'></a>
 
 ## Error Messages
 
