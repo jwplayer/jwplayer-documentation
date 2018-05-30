@@ -143,7 +143,7 @@ These errors occur when then player has trouble streaming content.
 |"error" | <a name='224001'></a> 224001 | video.error.code = 1MEDIA_ERR_ABORTED | Error loading media: Unknown operation aborted|
 |"error" | <a name='224002'></a> 224002 | video.error.code = 3MEDIA_ERR_DECODE | Error loading media: Unknown decode error|
 |"error" | <a name='224003'></a> 224003 | video.error.code = 4MEDIA_ERR_SRC_NOT_SUPPORTED | Error loading media: File could not be played|
-|"error" | <a name='225400- 225599'></a> 225400- 225599 | The drm.fairplay.certificateUrl could not be loaded. (jwplayer ajax XHR Error) | Error loading media: Failed to retrieve the server certificate|
+|"error" | <a name='225400-225599'></a> 225400-225599 | The drm.fairplay.certificateUrl could not be loaded. (jwplayer ajax XHR Error) | Error loading media: Failed to retrieve the server certificate|
 |"error" | <a name='225650'></a> 225650 | Safari dispatched a "webkitkeyerror" event. | Error loading media: Decryption key error was encountered|
 |"error" | <a name='226400-226599'></a> 226400-226599 | XHR error loading the drm.fairplay.processSpcUrl | Error loading media: The license request failed|
 
