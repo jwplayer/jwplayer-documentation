@@ -1,15 +1,22 @@
-# JW Player Errors Reference
+# JW Player Errors Reference (JW Player 8.4+)
 
-Placeholder for exciting introduction to our new Player Errors Reference.
+JW Player 8.4 introduces a new and improved error system in the player.  We have revamped error codes from the ground up to be more comprehensive, descriptive, and consistent.  This will enable faster troubleshooting and programmatic handling of errors by developers. Here's a summary of our new JW Player error system:
+* Designed a new system of classifying errors into error codes & categories
+* Identified all existing player errors and categorized them
+* Applied error codes to all identified errors and mapped them to friendlier, relevant messages displayed to the viewer
+* Provide a call-to-action or suggestion for recoverable errors so that users can get the player back to a playable state
+* Maintain this document for referencing error codes and understanding what they mean
+* Display errors to developers in log events with hyperlinks to this document
 
 <br/>
 
-## Jump to Specific Error Event
+## Jump to Specific Error Type
 
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
 |[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
+
 
 <br/>
 <a name="setup"></a>
@@ -20,7 +27,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <a name="misc"></a>
 ### Miscellaneous
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"setupError" | <a name='100000'></a> 100000 | An unknown setup error occurred. | none |
 |"setupError" | <a name='100001'></a> 100001 | Setup took longer than 30 seconds to complete. | Setup Timeout Error: Setup took longer than <SETUP_TIMEOUT_SECONDS> seconds to complete.|
@@ -30,7 +37,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <a name="loading-js"></a>
 ### Loading JS Component
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"setupError" | <a name='101100'></a> 101100 | A component of the player failed to load. | Network error|
 |"setupError" | <a name='101101'></a> 101101 | A component of the player failed to load: jwplayer.core | Network error|
@@ -48,7 +55,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <a name="loading-external-playlist"></a>
 ### Loading External Playlist
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"setupError" | <a name='102000'></a> 102000 | Exception thrown parsing content or XHR error unknown. | Error loading playlist: Error loading file|
 |"setupError" | <a name='102001'></a> 102001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout|
@@ -65,7 +72,7 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <a name="empty-playlist"></a>
 ### Empty Playlist
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"setupError" | <a name='102630'></a> 102630 | Happens when the playlist is empty: before filtering items and source after filtering items and source | No playable sources found|
 |"setupError" | <a name='102640'></a> 102640 | The first playlist item could not be loaded because it is undefined or missing a valid source. | No media|
@@ -81,7 +88,7 @@ These errors are dispatched in an "error" event after the player is setup and af
 ### Loading New Playlist
 These errors are dispatched after calling jwplayer().load(content) when the content cannot be loaded or played.
 
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='202000'></a> 202000 | Exception thrown parsing content or XHR error unknown. | Error loading playlist: Error loading file|
 |"error" | <a name='202001'></a> 202001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout|
@@ -103,7 +110,7 @@ These errors occur when the player attempts to set, load or play a new playlist 
 
 Note: Technically these only fire with "Playlist error: " as a result of calling load() but that should change. The player could get into a bad state inbetween items if these are not cause (playAttemptFailed).
 
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='203100'></a> 203100 | A playback component of the player (the provider) failed to load between playlist items. | Playlist error: Failed to load media|
 |"error" | <a name='203151'></a> 203151 | A playback component of the player (the provider) failed to load between playlist items: provider.flash.js | Playlist error: Failed to load media|
@@ -117,7 +124,7 @@ Note: Technically these only fire with "Playlist error: " as a result of calling
 ### Media Playback Setup
 These errors occur when then player has trouble streaming content.
 
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='204100'></a> 204100 | A playback component of the player (the provider) failed to load after calling load(playlist). | Could not play video: Failed to load media|
 |"error" | <a name='204151'></a> 204151 | A playback component of the player (the provider) failed to load after calling load(playlist): provider.flash.js | Could not play video: Failed to load media|
@@ -127,7 +134,7 @@ These errors occur when then player has trouble streaming content.
 
 <a name="media-flash"></a>
 ### Media Playback Flash
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='210000'></a> 210000 | A playback error occurred in the flash player. | <event.message>|
 |"error" | <a name='210001'></a> 210001 | The flash player could not setup properly using the given player config in the current browser. | Failed to setup flash|
@@ -135,7 +142,7 @@ These errors occur when then player has trouble streaming content.
 
 <a name="media-html5"></a>
 ### Media Playback HTML5
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
 |"error" | <a name='221000'></a> 221000 | video.error.code = 2MEDIA_ERR_NETWORK | Error loading media: Unknown network error|
@@ -149,7 +156,7 @@ These errors occur when then player has trouble streaming content.
 
 <a name="media-hlsjs"></a>
 ### Media Playback HLS.JS
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
 |"error" | <a name='230002'></a> 230002 | Playback stalled after going offline. | Network Error: No Internet Connection|
@@ -165,7 +172,7 @@ These errors occur when then player has trouble streaming content.
 
 <a name="media-shaka"></a>
 ### Media Playback Shaka Player
-|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|---|
 |"error" | <a name='240000'></a> 240000 | Unhandled shaka-player error. Note: We should look at Shaka's error list, and assign specific codes for errors we do not handle (DRM errors for example.) | Error playing file: Unknown playback error|
 |"error" | <a name='241000'></a> 241000 | Unhandled network error. | Error loading media: File could not be played|
@@ -173,3 +180,22 @@ These errors occur when then player has trouble streaming content.
 |"error" | <a name='241011'></a> 241011 | A network request was made without proper crossdomain credentials. | Error loading media: Crossdomain access denied|
 |"error" | <a name='241012'></a> 241012 | A network request was made to an HTTP resource from HTTPS. | Error loading media: Unable to fetch HTTP resource over HTTPS|
 |"error" | <a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | Error loading media: <statusCode> <responseText> Error loading media: You do not have permission to access this content Error loading media: 404 Not Found|
+
+
+<br/>
+
+## PlayerError Class
+
+Class used to create `setupError` and `error` event instances
+```javascript
+class PlayerError(string, ErrorCode, Error){}
+```
+Parameters
+
+|Name|Type|Attributes|Description|
+|---|---|---|---|
+|string|message| |The error message.|
+|ErrorCode|code|optional|The error code.|
+|Error|sourceError|optional|The lower level error, caught by the player, which resulted in this error.|
+
+
