@@ -20,25 +20,29 @@ These errors are dispatched in a "setupError" error event, after calling jwplaye
 
 <a name="misc"></a>
 ### Miscellaneous
-|Event|Error Code|Reason|
-|---|---|---|
-
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
+|"setupError" | <a name='100000'></a> 100000 | An unknown setup error occurred. | <none>|
+|"setupError" | <a name='100001'></a> 100001 | Setup took longer than 30 seconds to complete. | Setup Timeout Error: Setup took longer than <SETUP_TIMEOUT_SECONDS> seconds to complete.|
+|"setupError" | <a name='100011'></a> 100011 | Missing license key. "key" not found in config or "jwplayer.key" global. | Error setting up player: Missing license key|
+|"setupError" | <a name='100012'></a> 100012 | Invalid license key. | Error setting up player: Invalid license key|
+|"setupError" | <a name='100013'></a> 100013 | Expired license key. | Error setting up player: Invalid license key|
 
 <a name="loading-js"></a>
 ### Loading JS Component
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="loading-external-playlist"></a>
 ### Loading External Playlist
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 <a name="empty-playlist"></a>
 ### Empty Playlist
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 <br/>
 <a name="player"></a>
@@ -51,8 +55,8 @@ These errors are dispatched in an "error" event after the player is setup and af
 ### Loading New Playlist
 These errors are dispatched after calling jwplayer().load(content) when the content cannot be loaded or played.
 
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="playlist-item"></a>
@@ -61,38 +65,38 @@ These errors occur when the player attempts to set, load or play a new playlist 
 
 Note: Technically these only fire with "Playlist error: " as a result of calling load() but that should change. The player could get into a bad state inbetween items if these are not cause (playAttemptFailed).
 
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="media-setup"></a>
 ### Media Playback Setup
 These errors occur when then player has trouble streaming content.
 
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="media-flash"></a>
 ### Media Playback Flash
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="media-html5"></a>
 ### Media Playback HTML5
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="media-hlsjs"></a>
 ### Media Playback HLS.JS
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
 
 <a name="media-shaka"></a>
 ### Media Playback Shaka Player
-|Event|Error Code|Reason|
-|---|---|---|
+|Event|Error Code|Reason|Deprecated Error Message (Prior to v8.4.0)|
+|---|---|---|---|
 
