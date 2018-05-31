@@ -20,7 +20,7 @@ To summarize, our new error system:
 |Name|Type|Attributes|Description|
 |---|---|---|---|
 |message|string| |The error message.|
-|code|ErrorCode|optional|The error code.|
+|code|number|optional|The error code.|
 |sourceError|Error|optional|The lower level error, caught by the player, which resulted in this error.|
 
 ### Example
