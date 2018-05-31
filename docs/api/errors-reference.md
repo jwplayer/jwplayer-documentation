@@ -80,6 +80,8 @@ These errors prevent the player from setting up successfully; they occur after j
 
 <a name="loading-js"></a>
 ### Loading Javascript Components
+Setup failed because the player could not load a necessary javascript component.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='101100'></a> 101100 | A component of the player failed to load. | Network error|
@@ -97,20 +99,22 @@ These errors prevent the player from setting up successfully; they occur after j
 
 <a name="loading-external-playlist"></a>
 ### Loading External Playlist
+Setup failed because the playlist could not be loaded. The following errors can cause a playlist load failure:
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='102000'></a> 102000 | Exception thrown parsing content or XHR error unknown. | Error loading playlist: Error loading file|
-|<a name='102001'></a> 102001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout|
-|<a name='102002'></a> 102002 | The browser failed to make the request because:XMLHttpRequest not supported IE 8-9 XDomainRequest cannot be used with crossdomain URL (deprecated in 8.3.0-beta.4) | Error loading playlist: Error loading file|
-|<a name='102003'></a> 102003 | Exception thrown calling xhr.open. Reasons vary depending on browser. This one is usually a malformed URL. | Error loading playlist: Error loading file|
-|<a name='102004'></a> 102004 | Exception thrown calling xhr.send. Reasons vary depending on browser. | Error loading playlist: Error loading file|
-|<a name='102005'></a> 102005 | Exception thrown calling requestFilter. | Error loading playlist: Error loading file|
-|<a name='102006'></a> 102006 | XHR request failed with status code outside of 400 and 500 range. | Error loading playlist: Error loading file|
-|<a name='102400-102599'></a> 102400-102599 | HTTP status error (eg. 102404 is HTTP status code 404). Limit error handling to xhr.status >= 400 && xhr.status < 600. | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
-|<a name='102601'></a> 102601 | DOMParser parser error. | Error loading playlist: Invalid XML|
-|<a name='102602'></a> 102602 | No xml response. | Error loading playlist: Invalid XML|
-|<a name='102611'></a> 102611 | JSON.parse(response) threw an exception. | Error loading playlist: Invalid JSON|
-|<a name='102621'></a> 102621 | The response did not contain a valid playlist. | Error loading playlist: Not a valid RSS/JSON feed|
+|<a name='102000'></a> 102000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file|
+|<a name='102001'></a> 102001 | The XHR request exceeded the timeout argument or the default of 60 seconds. | Error loading playlist: Timeout|
+|<a name='102002'></a> 102002 | The browser failed to make the XHR request because it does not support `XMLHttpRequest`. | Error loading playlist: Error loading file|
+|<a name='102003'></a> 102003 | An exception was thrown while calling `xhr.open`. The reason varies depending on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file|
+|<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
+|<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
+|<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: Error loading file|
+|<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
+|<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be invalid. | Error loading playlist: Invalid XML|
+|<a name='102602'></a> 102602 | The XML did not return a response; it must be invalid. | Error loading playlist: Invalid XML|
+|<a name='102611'></a> 102611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
+|<a name='102621'></a> 102621 | The requested playlist is not a valid RSS or JSON feed. | Error loading playlist: Not a valid RSS/JSON feed|
 
 <a name="empty-playlist"></a>
 ### Empty Playlist
