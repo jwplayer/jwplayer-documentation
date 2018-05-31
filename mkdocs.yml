@@ -6,10 +6,11 @@ extra:
 pages:
   - Getting Started:
     - Introduction: index.md
-    - Intro to Javascript API: api/javascript_api_introduction.md
-    - Configuration Reference: customization/configuration-reference.md
     - Using Release Channels: release_notes/release_channels.md
+    - Intro to Javascript API: api/javascript_api_introduction.md
+    - Errors Reference: api/errors-reference.md
   - Customization:
+    - Configuration Reference: customization/configuration-reference.md
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
     - CSS Skinning Model: customization/css-skinning-model.md
     - Custom Skins: customization/css-skinning/skins_creating.md
