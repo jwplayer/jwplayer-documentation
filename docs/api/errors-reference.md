@@ -38,7 +38,7 @@ To summarize, our new error system:
 
 ## Error Messages
 
-Each error will contain a ```message```, which is the viewer-friendly text displayed in the player. The range of error codes that map to a specific error message are detailed below, along with the localization property used to customize that message.
+Each error contains a `message`, which is the viewer-friendly text displayed on the player's error screen. The range of error codes that map to a specific error message are detailed below, along with the localization property used to customize that message.
 
 |Error Message | Error Codes | Localization Property|
 |---|---|---|
@@ -66,7 +66,7 @@ Each error will contain a ```message```, which is the viewer-friendly text displ
 
 ## Setup Errors
 
-These errors are dispatched in a "setupError" error event, after calling jwplayer().setup() when an error occurs. These errors prevent the player from setting up successfully. In these scenarios the player will not dispatch a "ready" event.
+These errors prevent the player from setting up successfully; they occur after jwplayer().setup() is called, are dispatched in a "setupError" event and prevent the dispatch of the "ready" event.
 
 <a name="misc"></a>
 ### Miscellaneous
