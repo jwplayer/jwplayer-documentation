@@ -15,7 +15,7 @@ JW Player 8.4 introduces a new and improved error system in the player.  We have
 
 ## Player Error Object
 
-### Parameters
+### Properties
 |Name|Type|Attributes|Description|
 |---|---|---|---|
 |message|string| |The error message.|
