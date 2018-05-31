@@ -57,7 +57,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 
 |Category|Types|
 |---|---|
-|[Setup Errors](#setup)|[Misc](#misc) \| [Loading JS Component](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
+|[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
 |[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
 
 
@@ -73,27 +73,27 @@ These errors prevent the player from setting up successfully; they occur after j
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='100000'></a> 100000 | An unknown setup error occurred. | none|
-|<a name='100001'></a> 100001 | Setup took longer than 30 seconds to complete. | Setup Timeout Error: Setup took longer than <SETUP_TIMEOUT_SECONDS> seconds to complete.|
-|<a name='100011'></a> 100011 | Missing license key. "key" not found in config or "jwplayer.key" global. | Error setting up player: Missing license key|
+|<a name='100001'></a> 100001 | Setup took longer than 30 seconds to complete. | Setup Timeout Error: Setup took longer than 30 seconds to complete.|
+|<a name='100011'></a> 100011 | Missing license key: the key was not found in the setup config or the "jwplayer.key" global. | Error setting up player: Missing license key|
 |<a name='100012'></a> 100012 | Invalid license key. | Error setting up player: Invalid license key|
 |<a name='100013'></a> 100013 | Expired license key. | Error setting up player: Invalid license key|
 
 <a name="loading-js"></a>
-### Loading JS Component
+### Loading Javascript Components
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='101100'></a> 101100 | A component of the player failed to load. | Network error|
-|<a name='101101'></a> 101101 | A component of the player failed to load: jwplayer.core | Network error|
-|<a name='101102'></a> 101102 | A component of the player failed to load: jwplayer.core.controls | Network error|
-|<a name='101103'></a> 101103 | A component of the player failed to load: jwplayer.core.controls.polyfills | Network error|
-|<a name='101104'></a> 101104 | A component of the player failed to load: jwplayer.core.controls.html5 | Network error|
-|<a name='101105'></a> 101105 | A component of the player failed to load: jwplayer.core.controls.polyfills.html5 | Network error|
-|<a name='101120'></a> 101120 | A component of the player failed to load: polyfills.intersection-observer | Network error|
-|<a name='104100'></a> 104100 | A playback component of the player (the provider) failed to load during setup. | Failed to load media|
-|<a name='104151'></a> 104151 | A playback component of the player (the provider) failed to load during setup: provider.flash.js | Failed to load media|
-|<a name='104152'></a> 104152 | A playback component of the player (the provider) failed to load during setup: provider.html5.js | Failed to load media|
-|<a name='104153'></a> 104153 | A playback component of the player (the provider) failed to load during setup: provider.hlsjs.js | Failed to load media|
-|<a name='104154'></a> 104154 | A playback component of the player (the provider) failed to load during setup: provider.shaka.js | Failed to load media|
+|<a name='101101'></a> 101101 | Failed to load the `jwplayer.core` component | Network error|
+|<a name='101102'></a> 101102 | Failed to load the `jwplayer.core.controls` component | Network error|
+|<a name='101103'></a> 101103 | Failed to load the `jwplayer.core.controls.polyfills` component | Network error|
+|<a name='101104'></a> 101104 | Failed to load the `jwplayer.core.controls.html5` component | Network error|
+|<a name='101105'></a> 101105 | Failed to load the `jwplayer.core.controls.polyfills.html5` component | Network error|
+|<a name='101120'></a> 101120 | Failed to load the `polyfills.intersection-observer` component | Network error|
+|<a name='104100'></a> 104100 | A playback component of the player (provider) failed to load | Failed to load media|
+|<a name='104151'></a> 104151 | The `provider.flash.js` playback component of the player (Flash provider) failed to load | Failed to load media|
+|<a name='104152'></a> 104152 | The `provider.html5.js` playback component of the player (HTML5 provider) failed to load | Failed to load media|
+|<a name='104153'></a> 104153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider) failed to load | Failed to load media|
+|<a name='104154'></a> 104154 | The `provider.shaka.js` playback component of the player (Shaka provider) failed to load | Failed to load media|
 
 <a name="loading-external-playlist"></a>
 ### Loading External Playlist
