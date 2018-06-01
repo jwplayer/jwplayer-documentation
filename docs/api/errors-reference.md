@@ -57,7 +57,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 
 |Category|Types|
 |---|---|
-|[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Loading External Playlist](#loading-external-playlist) \| [Empty Playlist](#empty-playlist)|
+|[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Playlist Parsing](#playlist-parsing) \| [Empty Playlist](#empty-playlist)|
 |[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
 
 
@@ -97,9 +97,9 @@ Setup failed because the player could not load a necessary javascript component.
 |<a name='104153'></a> 104153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider) failed to load | Failed to load media|
 |<a name='104154'></a> 104154 | The `provider.shaka.js` playback component of the player (Shaka provider) failed to load | Failed to load media|
 
-<a name="loading-external-playlist"></a>
-### Loading External Playlist
-Setup failed because the playlist could not be loaded. The following errors can cause a playlist load failure:
+<a name="playlist-parsing"></a>
+### Playlist Parsing
+Setup failed because the requested playlist could not be parsed.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
@@ -109,19 +109,21 @@ Setup failed because the playlist could not be loaded. The following errors can 
 |<a name='102003'></a> 102003 | An exception was thrown while calling `xhr.open`. The reason varies depending on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file|
 |<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
 |<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
-|<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: Error loading file|
 |<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
-|<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be invalid. | Error loading playlist: Invalid XML|
-|<a name='102602'></a> 102602 | The XML did not return a response; it must be invalid. | Error loading playlist: Invalid XML|
+|<a name='102600'></a> 102600 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)|
+|<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML|
+|<a name='102602'></a> 102602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='102611'></a> 102611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
 |<a name='102621'></a> 102621 | The requested playlist is not a valid RSS or JSON feed. | Error loading playlist: Not a valid RSS/JSON feed|
 
 <a name="empty-playlist"></a>
 ### Empty Playlist
+Setup failed because an invalid playlist was requested.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='102630'></a> 102630 | Happens when the playlist is empty: before filtering items and source after filtering items and source | No playable sources found|
-|<a name='102640'></a> 102640 | The first playlist item could not be loaded because it is undefined or missing a valid source. | No media|
+|<a name='102630'></a> 102630 | Either an empty playlist was requested or none of the items passed our filter for valid files. | No playable sources found|
+|<a name='102640'></a> 102640 | The playlist item could not be loaded because it is undefined or missing a valid source. | No media|
 
 
 <br/>
