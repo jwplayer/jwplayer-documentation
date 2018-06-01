@@ -232,9 +232,9 @@ An error occured while reproducing content with our Shaka Provider.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='240000'></a> 240000 | Unhandled shaka-player error. Note: We should look at Shaka's error list, and assign specific codes for errors we do not handle (DRM errors for example.) | Error playing file: Unknown playback error|
-|<a name='241000'></a> 241000 | Unhandled network error. | Error loading media: File could not be played|
-|<a name='241010'></a> 241010 | Unhandled network error with bad http status code. (shakaCode.BAD_HTTP_STATUS) | Error loading media: Unknown Network Error|
+|<a name='240000'></a> 240000 | Unknown shaka error; for more context we recommend checking the source error. | Error playing file: Unknown playback error|
+|<a name='241000'></a> 241000 | Unknown network error. | Error loading media: File could not be played|
+|<a name='241010'></a> 241006 | A network request returned with an HTTP status indicating failure; the code was outside of the 400 and 500 ranges. | Error loading media: Unknown Network Error|
 |<a name='241011'></a> 241011 | A network request was made without proper crossdomain credentials. | Error loading media: Crossdomain access denied|
 |<a name='241012'></a> 241012 | A network request was made to an HTTP resource from HTTPS. | Error loading media: Unable to fetch HTTP resource over HTTPS|
 |<a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | Error loading media: <statusCode> <responseText> Error loading media: You do not have permission to access this content Error loading media: 404 Not Found|
