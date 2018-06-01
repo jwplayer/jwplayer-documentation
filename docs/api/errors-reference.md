@@ -47,7 +47,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 |Sorry, the video player failed to load. | 100000-100013, 101100-101120, 102000-102621, 104100-104154, 202000-202630 | localization.errors.cantLoadPlayer|
 |The video cannot be played in this browser. | 210001 | localization.errors.cantPlayInBrowser|
 |The live stream is either down or has ended. | 220001, 230001 | localization.errors.liveStreamEnded|
-|There was a problem providing access to protected content. | 225400-226599 | localization.errors.protectedContent|
+|There was a problem providing access to protected content. | 225000-226999 | localization.errors.protectedContent|
 |This video cannot be played because of a technical error. | 221000-224003, 232000, 232011-233599, 240000-241599 | localization.errors.technicalError|
 
 
@@ -184,9 +184,9 @@ An error occured while reproducing content with our Flash Provider.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='210000'></a> 210000 | A playback error occurred in the flash player. | <event.message>|
-|<a name='210001'></a> 210001 | The flash player could not setup properly using the given player config in the current browser. | Failed to setup flash|
-|<a name='214000'></a> 214000 | an unknown media error occurred in the flash player. | <event.message>|
+|<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | <event.message>|
+|<a name='210001'></a> 210001 | The Flash player could not setup properly using the given player config. This error is generally browser specific. | Failed to setup flash|
+|<a name='214000'></a> 214000 | A media playback error occurred in the flash player. | <event.message>|
 
 <a name="media-html5"></a>
 ### Media Playback HTML5
@@ -194,15 +194,17 @@ An error occured while reproducing content with our HTML5 Provider.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
-|<a name='221000'></a> 221000 | video.error.code = 2MEDIA_ERR_NETWORK | Error loading media: Unknown network error|
-|<a name='224000'></a> 224000 | Other video.error.code. | Error loading media: Unknown|
-|<a name='224001'></a> 224001 | video.error.code = 1MEDIA_ERR_ABORTED | Error loading media: Unknown operation aborted|
-|<a name='224002'></a> 224002 | video.error.code = 3MEDIA_ERR_DECODE | Error loading media: Unknown decode error|
-|<a name='224003'></a> 224003 | video.error.code = 4MEDIA_ERR_SRC_NOT_SUPPORTED | Error loading media: File could not be played|
-|<a name='225400-225599'></a> 225400-225599 | The drm.fairplay.certificateUrl could not be loaded. (jwplayer ajax XHR Error) | Error loading media: Failed to retrieve the server certificate|
-|<a name='225650'></a> 225650 | Safari dispatched a "webkitkeyerror" event. | Error loading media: Decryption key error was encountered|
-|<a name='226400-226599'></a> 226400-226599 | XHR error loading the drm.fairplay.processSpcUrl | Error loading media: The license request failed|
+|<a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended|
+|<a name='221000'></a> 221000 | An unknown network error occurred. Equivalent to the HTML5 `MEDIA_ERR_NETWORK` mediaError. | Error loading media: Unknown network error|
+|<a name='224000'></a> 224000 | An unknown media error occurred. | Error loading media: Unknown|
+|<a name='224001'></a> 224001 | Failed to fetch the associated resource. Equivalent to the HTML5 `MEDIA_ERR_ABORTED` mediaError. | Error loading media: Unknown operation aborted|
+|<a name='224002'></a> 224002 | Failed to decode the associated resource. Equivalent to the HTML5 `MEDIA_ERR_DECODE` mediaError. | Error loading media: Unknown decode error|
+|<a name='224003'></a> 224003 | Failed to reproduce the associated resource because its playback is not supported by this provider. Equivalent to the HTML5 `MEDIA_ERR_SRC_NOT_SUPPORTED` mediaError. | Error loading media: File could not be played|
+|<a name='225006'></a> 225006 | The Certificate URL required to decrypt a Fairplay stream could not be loaded. The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading media: Failed to retrieve the server certificate|
+|<a name='225400-225599'></a> 225400-225599 | The Server Certificate required to decrypt a Fairplay stream could not be loaded. The last 3 digits of the error code indicate the HTTP status code (eg. 225404 is HTTP status code 404). | Error loading media: Failed to retrieve the server certificate|
+|<a name='225650'></a> 225650 | An error occurred when attempting to decrypt the Fairplay stream with the session key. Equivalent to Safari's "webkitkeyerror" event. | Error loading media: Decryption key error was encountered|
+|<a name='225006'></a> 225006 | The License required to decrypt a Fairplay stream could not be loaded. The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading media: The license request failed|
+|<a name='226400-226599'></a> 226400-226599 | The License required to decrypt a Fairplay stream could not be loaded. The last 3 digits of the error code indicate the HTTP status code (eg. 226404 is HTTP status code 404). | Error loading media: The license request failed|
 
 <a name="media-hlsjs"></a>
 ### Media Playback HLS.JS
