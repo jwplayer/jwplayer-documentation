@@ -146,6 +146,13 @@ _JWP_
 * If you do not see the ping, please contact [our Support Team](https://support.jwplayer.com).
 * If the ping is present, and an issue is still occurring, please reach out to SpotX.
 
+#### Confirm that your channel is enabled with SpotX
+
+* In the Network tab, filter on the channel ID for a request sent to SpotX. 
+* In the Headers section of the Network tab, look for `X-spotx-Exception-conf-Message`.
+* If the value is `Affiliate ID 'XXXXXX' is not enabled.`, please reach out to SpotX to enable your channel.
+
+![Request Payload](../img/vpb/vpb4_channel_id_enablement.png)
 
 #### Confirm that a timeout is not causing the issue
 
@@ -157,6 +164,7 @@ Within the `settings` block, explicitly set the `bidTimeout` property to `10000`
 |Ad plugin is not loading|JW Player|
 |Bidder script is not loading|JW Player/SpotX|
 |No bid response|JW Player/SpotX|
+|Channel not enabled|SpotX|
 |Bid request does not include all parameters|JW Player|
 
 
