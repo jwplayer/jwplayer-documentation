@@ -58,7 +58,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Playlist Parsing](#playlist-parsing) \| [Empty Playlist](#empty-playlist)|
-|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Media Playback Setup](#media-setup) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
+|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
 
 
 <br/>
@@ -166,17 +166,17 @@ These errors occur when the player attempts to switch playlist items, either via
 |<a name='203154'></a> 203154 | The `provider.shaka.js` playback component of the player (Shaka provider), required to play the requested item, failed to load | Playlist error: Failed to load media|
 |<a name='203640'></a> 203640 | The playlist item could not be loaded because it is undefined or missing a valid source. | Playlist error: No media|
 
-<a name="media-setup"></a>
-### Media Playback Setup
-These errors occur when then player has trouble streaming content.
+<a name="player-loading-js"></a>
+### Loading Javascript Components
+These errors occur when `jwplayer().load(content)` is called but the provider required to reproduce the media failed to load.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='204100'></a> 204100 | A playback component of the player (the provider) failed to load after calling load(playlist). | Could not play video: Failed to load media|
-|<a name='204151'></a> 204151 | A playback component of the player (the provider) failed to load after calling load(playlist): provider.flash.js | Could not play video: Failed to load media|
-|<a name='204152'></a> 204152 | A playback component of the player (the provider) failed to load after calling load(playlist): provider.html5.js | Could not play video: Failed to load media|
-|<a name='204153'></a> 204153 | A playback component of the player (the provider) failed to load after calling load(playlist): provider.hlsjs.js | Could not play video: Failed to load media|
-|<a name='204154'></a> 204154 | A playback component of the player (the provider) failed to load after calling load(playlist): provider.shaka.js | Could not play video: Failed to load media|
+|<a name='204100'></a> 204100 | A playback component of the player (the provider) failed to load. | Could not play video: Failed to load media|
+|<a name='204151'></a> 204151 | The `provider.flash.js` playback component of the player (Flash provider) failed to load. | Could not play video: Failed to load media|
+|<a name='204152'></a> 204152 | The `provider.html5.js` playback component of the player (HTML5 provider) failed to load. | Could not play video: Failed to load media|
+|<a name='204153'></a> 204153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider) failed to load. | Could not play video: Failed to load media|
+|<a name='204154'></a> 204154 | The `provider.shaka.js` playback component of the player (Shaka provider) failed to load. | Could not play video: Failed to load media|
 
 <a name="media-flash"></a>
 ### Media Playback Flash
