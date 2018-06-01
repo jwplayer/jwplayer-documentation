@@ -58,7 +58,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Playlist Parsing](#playlist-parsing) \| [Empty Playlist](#empty-playlist)|
-|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka Player](#media-shaka)|
+|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
 
 
 <br/>
@@ -180,6 +180,8 @@ These errors occur when `jwplayer().load(content)` is called but the provider re
 
 <a name="media-flash"></a>
 ### Media Playback Flash
+An error occured while reproducing content with our Flash Provider.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='210000'></a> 210000 | A playback error occurred in the flash player. | <event.message>|
@@ -188,6 +190,8 @@ These errors occur when `jwplayer().load(content)` is called but the provider re
 
 <a name="media-html5"></a>
 ### Media Playback HTML5
+An error occured while reproducing content with our HTML5 Provider.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
@@ -202,6 +206,8 @@ These errors occur when `jwplayer().load(content)` is called but the provider re
 
 <a name="media-hlsjs"></a>
 ### Media Playback HLS.JS
+An error occured while reproducing content with our HLS.JS Provider.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
@@ -217,7 +223,9 @@ These errors occur when `jwplayer().load(content)` is called but the provider re
 |<a name='233400-233599'></a> 233400-233599 | A media request returned with an HTTP status indicating failure (eg. 233404 is HTTP status code 404). | Media Error: <statusCode> <responseText> Media Error: You do not have permission to access this content Media Error: 404 Not Found|
 
 <a name="media-shaka"></a>
-### Media Playback Shaka Player
+### Media Playback Shaka
+An error occured while reproducing content with our Shaka Provider.
+
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
 |<a name='240000'></a> 240000 | Unhandled shaka-player error. Note: We should look at Shaka's error list, and assign specific codes for errors we do not handle (DRM errors for example.) | Error playing file: Unknown playback error|
