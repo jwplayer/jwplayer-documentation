@@ -110,7 +110,7 @@ Setup failed because the requested playlist could not be parsed.
 |<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
 |<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
 |<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)|
-|<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
+|<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | * Error loading playlist: File not found (http status code 404) <br/>* Error loading playlist: `<xhr.status>` (`<xhr.statusText>`)|
 |<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='102602'></a> 102602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='102611'></a> 102611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
@@ -146,7 +146,7 @@ These errors are dispatched when `jwplayer().load(content)` is called and the co
 |<a name='202004'></a> 202004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
 |<a name='202005'></a> 202005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
 |<a name='202006'></a> 202006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: Error loading file|
-|<a name='202400-202599'></a> 202400-202599 | The XHR request failed and returned a valid HTTP status error (eg. 202404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
+|<a name='202400-202599'></a> 202400-202599 | The XHR request failed and returned a valid HTTP status error (eg. 202404 is HTTP status code 404). | * Error loading playlist: File not found (http status code 404) <br/>* Error loading playlist: `<xhr.status>` (`<xhr.statusText>`)|
 |<a name='202601'></a> 202601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='202602'></a> 202602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='202611'></a> 202611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
@@ -184,9 +184,9 @@ An error occured while reproducing content with our Flash Provider.
 
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | <event.message>|
+|<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | `<event.message>`|
 |<a name='210001'></a> 210001 | The Flash player could not setup properly using the given player config. This error is generally browser specific. | Failed to setup flash|
-|<a name='214000'></a> 214000 | A media playback error occurred in the flash player. | <event.message>|
+|<a name='214000'></a> 214000 | A media playback error occurred in the flash player. | `<event.message>`|
 
 <a name="media-html5"></a>
 ### Media Playback HTML5
@@ -214,17 +214,17 @@ An error occured while reproducing content with our HLS.JS Provider.
 |---|---|---|
 |<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended|
 |<a name='230002'></a> 230002 | Playback stalled after going offline, resulting in an unrecoverable error. | Network Error: No Internet Connection|
-|<a name='232000'></a> 232000 | Unknown manifest loading error. | Cannot load M3U8: <data.reason>Cannot load M3U8: <data.details>Cannot load M3U8: Unknown Network Error|
+|<a name='232000'></a> 232000 | Unknown manifest loading error. | * Cannot load M3U8: `<data.reason>` <br/>* Cannot load M3U8: `<data.details>` <br/>* Cannot load M3U8: Unknown Network Error|
 |<a name='232002'></a> 232002 | A manifest request failed as a result of having been offline. | Network Error: Internet Connection Lost|
 |<a name='232006'></a> 232006 | A manifest request returned with an HTTP status indicating failure. The code was outside of the 400 and 500 ranges. | Cannot load M3U8: <statusCode> <responseText>|
 |<a name='232011'></a> 232011 | A manifest request was made without proper crossdomain credentials. | Cannot load M3U8: Crossdomain access denied|
 |<a name='232012'></a> 232012 | A manifest request was made to an HTTP resource from HTTPS. | Cannot load M3U8: Unable to fetch HTTP resource over HTTPS|
-|<a name='232400-232599'></a> 232400-232599 | A manifest request returned with an HTTP status indicating failure. | Cannot load M3U8: <statusCode> <responseText> or Cannot load M3U8: 404 Not Found|
-|<a name='233000'></a> 233000 | An unknown media loading error occurred. | Media Error: <data.reason> Media Error: <data.details> Media Error: Unknown Network Error|
-|<a name='233006'></a> 233006 | A media request returned with an HTTP status indicating failure. The code was outside of the 400 and 500 ranges. | Media Error: <statusCode> <responseText>|
+|<a name='232400-232599'></a> 232400-232599 | A manifest request returned with an HTTP status indicating failure. | * Cannot load M3U8: `<statusCode>` `<responseText>` <br/>* Cannot load M3U8: You do not have permission to access this content <br/>* Cannot load M3U8: 404 Not Found|
+|<a name='233000'></a> 233000 | An unknown media loading error occurred. | * Media Error: `<data.reason>` <br/>* Media Error: `<data.details>` <br/>* Media Error: Unknown Network Error|
+|<a name='233006'></a> 233006 | A media request returned with an HTTP status indicating failure. The code was outside of the 400 and 500 ranges. | Media Error: `<statusCode>` `<responseText>`|
 |<a name='233011'></a> 233011 | A media request was made without proper crossdomain credentials. | Media Error: Crossdomain access denied|
 |<a name='233012'></a> 233012 | A media request was made to an HTTP resource from HTTPS. | Media Error: Unable to fetch HTTP resource over HTTPS|
-|<a name='233400-233599'></a> 233400-233599 | A media request returned with an HTTP status indicating failure (eg. 233404 is HTTP status code 404). | Media Error: <statusCode> <responseText> or Media Error: 404 Not Found|
+|<a name='233400-233599'></a> 233400-233599 | A media request returned with an HTTP status indicating failure (eg. 233404 is HTTP status code 404). | * Media Error: `<statusCode>` `<responseText>` <br/>* Media Error: You do not have permission to access this content <br/>* Media Error: 404 Not Found|
 
 <a name="media-shaka"></a>
 ### Media Playback Shaka
@@ -237,4 +237,4 @@ An error occured while reproducing content with our Shaka Provider.
 |<a name='241010'></a> 241006 | A network request returned with an HTTP status indicating failure; the code was outside of the 400 and 500 ranges. | Error loading media: Unknown Network Error|
 |<a name='241011'></a> 241011 | A network request was made without proper crossdomain credentials. | Error loading media: Crossdomain access denied|
 |<a name='241012'></a> 241012 | A network request was made to an HTTP resource from HTTPS. | Error loading media: Unable to fetch HTTP resource over HTTPS|
-|<a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | Error loading media: <statusCode> <responseText> Error loading media: You do not have permission to access this content Error loading media: 404 Not Found|
+|<a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | * Error loading media: `<statusCode>` `<responseText>` <br/>* Error loading media: You do not have permission to access this content <br/>* Error loading media: 404 Not Found|
