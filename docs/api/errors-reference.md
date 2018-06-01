@@ -212,17 +212,19 @@ An error occured while reproducing content with our HLS.JS Provider.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using config.liveTimeout. | The live stream is either down or has ended|
-|<a name='230002'></a> 230002 | Playback stalled after going offline. | Network Error: No Internet Connection|
-|<a name='232000'></a> 232000 | Unhandled manifest loading error. | Cannot load M3U8: <data.reason>Cannot load M3U8: <data.details>Cannot load M3U8: Unknown Network Error|
-|<a name='232002'></a> 232002 | A manifest request failed as the result of going offline. | Network Error: Internet Connection Lost|
+|<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended|
+|<a name='230002'></a> 230002 | Playback stalled after going offline, resulting in an unrecoverable error. | Network Error: No Internet Connection|
+|<a name='232000'></a> 232000 | Unknown manifest loading error. | Cannot load M3U8: <data.reason>Cannot load M3U8: <data.details>Cannot load M3U8: Unknown Network Error|
+|<a name='232002'></a> 232002 | A manifest request failed as a result of having been offline. | Network Error: Internet Connection Lost|
+|<a name='232006'></a> 232006 | A manifest request returned with an HTTP status indicating failure. The code was outside of the 400 and 500 ranges. | Cannot load M3U8: <statusCode> <responseText>|
 |<a name='232011'></a> 232011 | A manifest request was made without proper crossdomain credentials. | Cannot load M3U8: Crossdomain access denied|
 |<a name='232012'></a> 232012 | A manifest request was made to an HTTP resource from HTTPS. | Cannot load M3U8: Unable to fetch HTTP resource over HTTPS|
-|<a name='232400-232599'></a> 232400-232599 | A manifest request returned with an HTTP status indicating failure. | Cannot load M3U8: <statusCode> <responseText>Cannot load M3U8: You do not have permission to access this content Cannot load M3U8: 404 Not Found|
-|<a name='233000'></a> 233000 | Unhandled media loading error. | Media Error: <data.reason> Media Error: <data.details> Media Error: Unknown Network Error|
+|<a name='232400-232599'></a> 232400-232599 | A manifest request returned with an HTTP status indicating failure. | Cannot load M3U8: <statusCode> <responseText> or Cannot load M3U8: 404 Not Found|
+|<a name='233000'></a> 233000 | An unknown media loading error occurred. | Media Error: <data.reason> Media Error: <data.details> Media Error: Unknown Network Error|
+|<a name='233006'></a> 233006 | A media request returned with an HTTP status indicating failure. The code was outside of the 400 and 500 ranges. | Media Error: <statusCode> <responseText>|
 |<a name='233011'></a> 233011 | A media request was made without proper crossdomain credentials. | Media Error: Crossdomain access denied|
 |<a name='233012'></a> 233012 | A media request was made to an HTTP resource from HTTPS. | Media Error: Unable to fetch HTTP resource over HTTPS|
-|<a name='233400-233599'></a> 233400-233599 | A media request returned with an HTTP status indicating failure (eg. 233404 is HTTP status code 404). | Media Error: <statusCode> <responseText> Media Error: You do not have permission to access this content Media Error: 404 Not Found|
+|<a name='233400-233599'></a> 233400-233599 | A media request returned with an HTTP status indicating failure (eg. 233404 is HTTP status code 404). | Media Error: <statusCode> <responseText> or Media Error: 404 Not Found|
 
 <a name="media-shaka"></a>
 ### Media Playback Shaka
