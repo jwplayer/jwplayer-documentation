@@ -66,7 +66,7 @@ Each error contains a `message`, which is the viewer-friendly text displayed on 
 
 ## Setup Errors
 
-These errors prevent the player from setting up successfully; they occur after jwplayer().setup() is called, are dispatched in a "setupError" event and prevent the dispatch of the "ready" event.
+These errors prevent the player from setting up successfully; they occur after `jwplayer().setup()` is called, are dispatched in a "setupError" event and prevent the dispatch of the "ready" event.
 
 <a name="misc"></a>
 ### Miscellaneous
@@ -109,8 +109,8 @@ Setup failed because the requested playlist could not be parsed.
 |<a name='102003'></a> 102003 | An exception was thrown while calling `xhr.open`. The reason varies depending on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file|
 |<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
 |<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
+|<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)|
 |<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
-|<a name='102600'></a> 102600 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)|
 |<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='102602'></a> 102602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML|
 |<a name='102611'></a> 102611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
@@ -131,42 +131,40 @@ Setup failed because an invalid playlist was requested.
 
 ## Player Errors
 
-These errors are dispatched in an "error" event after the player is setup and after the "ready" event. In these scenarios, any active playback is stopped, and an error message is displayed in the video player to the viewer.
+These errors stop playback and display an error message on the player's UI. They occur after the "ready" event is triggered, and are dispatched in an "error" event.
 
 <a name="loading-new-playlist"></a>
 ### Loading New Playlist
-These errors are dispatched after calling jwplayer().load(content) when the content cannot be loaded or played.
+These errors are dispatched when `jwplayer().load(content)` is called and the content cannot be loaded or played.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='202000'></a> 202000 | Exception thrown parsing content or XHR error unknown. | Error loading playlist: Error loading file|
+|<a name='202000'></a> 202000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file|
 |<a name='202001'></a> 202001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout|
-|<a name='202002'></a> 202002 | The browser failed to make the request because:XMLHttpRequest not supported IE 8-9 XDomainRequest cannot be used with crossdomain URL (deprecated in 8.3.0-beta.4) | Error loading playlist: Error loading file|
-|<a name='202003'></a> 202003 | Exception thrown calling xhr.open. Reasons vary depending on browser. This one is usually a malformed URL. | Error loading playlist: Error loading file|
-|<a name='202004'></a> 202004 | Exception thrown calling xhr.send. Reasons vary depending on browser. | Error loading playlist: Error loading file|
-|<a name='202005'></a> 202005 | Exception thrown calling requestFilter. | Error loading playlist: Error loading file|
-|<a name='202006'></a> 202006 | XHR request failed with status code outside of 400 and 500 range | Error loading playlist: Error loading file|
-|<a name='202400-202599'></a> 202400-202599 | HTTP status error (eg. 202404 is HTTP status code 404). Limit error handling to xhr.status >= 400 && xhr.status < 600. | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
-|<a name='202601'></a> 202601 | DOMParser parser error. | Error loading playlist: Invalid XML|
-|<a name='202602'></a> 202602 | No xml response. | Error loading playlist: Invalid XML|
-|<a name='202611'></a> 202611 | JSON.parse(response) threw an exception. | Error loading playlist: Invalid JSON|
-|<a name='202621'></a> 202621 | The response did not contain a valid playlist. | Error loading playlist: Not a valid RSS/JSON feed|
-|<a name='202630'></a> 202630 | Happens when the playlist is empty: before filtering items and source after filtering items and source | Playlist error: No playable sources found|
+|<a name='202002'></a> 202002 | The browser failed to make the XHR request because it does not support `XMLHttpRequest`. | Error loading playlist: Error loading file|
+|<a name='202003'></a> 202003 | An exception was thrown while calling `xhr.open`. The reason varies depending on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file|
+|<a name='202004'></a> 202004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file|
+|<a name='202005'></a> 202005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file|
+|<a name='202006'></a> 202006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: Error loading file|
+|<a name='202400-202599'></a> 202400-202599 | The XHR request failed and returned a valid HTTP status error (eg. 202404 is HTTP status code 404). | Error loading playlist: File not found (http status code 404) or Error loading playlist: <xhr.status> (<xhr.statusText>)|
+|<a name='202601'></a> 202601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML|
+|<a name='202602'></a> 202602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML|
+|<a name='202611'></a> 202611 | The JSON could not be parsed; it must be invalid. | Error loading playlist: Invalid JSON|
+|<a name='202621'></a> 202621 | The requested playlist is not a valid RSS or JSON feed. | Error loading playlist: Not a valid RSS/JSON feed|
+|<a name='202630'></a> 202630 | Either an empty playlist was requested or none of the items passed our filter for valid files. | Playlist error: No playable sources found|
 
 <a name="playlist-item"></a>
 ### Playlist Item
-These errors occur when the player attempts to set, load or play a new playlist item. This can be the result of calling jwplayer().load(content) or normal playlist progression (one item ends and another is about to begin).
-
-Note: Technically these only fire with "Playlist error: " as a result of calling load() but that should change. The player could get into a bad state inbetween items if these are not cause (playAttemptFailed).
+These errors occur when the player attempts to switch playlist items, either via normal playlist progression (an item ends and the following one loads) or when calling `jwplayer().next()`.
 
 |Error Code|Reason|Deprecated Error Message (Prior to 8.4.0)|
 |---|---|---|
-|<a name='203100'></a> 203100 | A playback component of the player (the provider) failed to load between playlist items. | Playlist error: Failed to load media|
-|<a name='203151'></a> 203151 | A playback component of the player (the provider) failed to load between playlist items: provider.flash.js | Playlist error: Failed to load media|
-|<a name='203152'></a> 203152 | A playback component of the player (the provider) failed to load between playlist items: provider.html5.js | Playlist error: Failed to load media|
-|<a name='203153'></a> 203153 | A playback component of the player (the provider) failed to load between playlist items: provider.hlsjs.js | Playlist error: Failed to load media|
-|<a name='203154'></a> 203154 | A playback component of the player (the provider) failed to load between playlist items: provider.shaka.js | Playlist error: Failed to load media|
-|<a name='203640'></a> 203640 | The playlist item could not be loaded because it is undefined or missing a valid source. (Usually caused by a regression in playlist loading and filtering). | Playlist error: No media|
+|<a name='203100'></a> 203100 | A playback component of the player (the provider), required to play the requested item, failed to load between playlist items. | Playlist error: Failed to load media|
+|<a name='203151'></a> 203151 | The `provider.flash.js` playback component of the player (Flash provider), required to play the requested item, failed to load | Playlist error: Failed to load media|
+|<a name='203152'></a> 203152 | The `provider.html5.js` playback component of the player (HTML5 provider), required to play the requested item, failed to load | Playlist error: Failed to load media|
+|<a name='203153'></a> 203153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider), required to play the requested item, failed to load | Playlist error: Failed to load media|
+|<a name='203154'></a> 203154 | The `provider.shaka.js` playback component of the player (Shaka provider), required to play the requested item, failed to load | Playlist error: Failed to load media|
+|<a name='203640'></a> 203640 | The playlist item could not be loaded because it is undefined or missing a valid source. | Playlist error: No media|
 
 <a name="media-setup"></a>
 ### Media Playback Setup
