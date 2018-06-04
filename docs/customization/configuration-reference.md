@@ -635,6 +635,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
 |**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
 |**advertising.freewheel.adManagerURL**|String|Freewheel-supplied Ad Manager URL|Freewheel|-|
+|**advertising.preloadAds**|Boolean|Enable pre-loading of midrolls and postrolls in click-to-play and `autostart: 'viewable'` scenarios|VAST, IMA|"false"|
 
 <br/>
 
