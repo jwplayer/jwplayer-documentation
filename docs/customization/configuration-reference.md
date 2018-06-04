@@ -622,7 +622,6 @@ This options block configures the video advertising capabilities of JW Player. I
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
 |**[advertising.companiondiv](#advertising-schedule)**|Object|Gives information to the player related to which div(s) to populate with companion ads <br/> Not supported in Freewheel|VAST, IMA|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
-|**advertising.enablepreloading**|Boolean|For disabling ad preloading when using IMA|IMA|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
 |**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
