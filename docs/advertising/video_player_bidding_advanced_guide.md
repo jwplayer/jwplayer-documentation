@@ -4,6 +4,10 @@
 Ensure all ad blockers are disabled before proceeding.
 !!!
 
+!!!
+`playAd` is not supported when using Video Player Bidding due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete.
+!!!
+
 ## Configuration Requirements
 
 A `bids` block must be present within the `advertising` block. The `bids` block should point to an object, with the following _required_ options:
@@ -148,7 +152,7 @@ _JWP_
 
 #### Confirm that your channel is enabled with SpotX
 
-* In the Network tab, filter on the channel ID for a request sent to SpotX. 
+* In the Network tab, filter on the channel ID for a request sent to SpotX.
 * In the Headers section of the Network tab, look for `X-spotx-Exception-conf-Message`.
 * If the value is `Affiliate ID 'XXXXXX' is not enabled.`, please reach out to SpotX to enable your channel.
 
