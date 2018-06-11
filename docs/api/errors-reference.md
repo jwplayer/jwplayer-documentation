@@ -19,16 +19,16 @@ To summarize, our new error system:
 ### Properties
 |Name|Type|Attributes|Description|
 |---|---|---|---|
-|message|string| |The error message.|
-|code|Number|optional|The error code.|
-|sourceError|Error|optional|The lower level error, caught by the player, which resulted in this error.|
+|message|string| |The error message displayed to the user.|
+|code|Number|optional|The error code used to identify the error. Error code descriptions are listed on this page.|
+|sourceError|Error or Event|optional|The lower level error or event, caught by the player, which resulted in this error.|
 
 ### Example
 ```javascript
 {
   "code": 104153,
   "message": "Sorry, the video player failed to load.",
-  "sourceError": null,
+  "sourceError": { Error object or null },
   "type": "setupError"
 }
 ```
