@@ -973,8 +973,15 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
 |**localization.close**|String|Close text and title of close icons  |"Close"|
 |**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
+|**localization.errors.badConnection** <sup>8.4.0+|String|Error message shown with network issues|"This video cannot be played because of a problem with your internet connection"|
+|**localization.errors.cantLoadPlayer** <sup>8.4.0+|String|Error message shown when the player fails to load|"Sorry, the video player failed to load"|
+|**localization.errors.cantPlayInBrowser** <sup>8.4.0+|String|Error message shown when the video cannot be played in current browser|"The video cannot be played in this browser"|
+|**localization.errors.cantPlayVideo** <sup>8.4.0+|String|Error message shown when the video file cannot be played|"This video file cannot be played"|
+|**localization.errors.liveStreamEnded** <sup>8.4.0+|String|Error message shown when the live stream had ended or is unavailable|"The live stream is either down or has ended"|
+|**localization.errors.protectedContent** <sup>8.4.0+|String|Error message shown when there is a problem providing access to protected content|"There was a problem providing access to protected content"|
+|**localization.errors.technicalError** <sup>8.4.0+|String|Error message shown when the video cannot be played because of a technical error|"This video cannot be played because of a technical error"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
-|**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
+|**localization.hd**|String|Title of the tooltip for the quality menu |"Quality"|
 |**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
 |**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
 |**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
