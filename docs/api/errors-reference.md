@@ -149,11 +149,8 @@ These errors occur when the player attempts to switch playlist items, either via
 
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
 |---|---|---|---|
+|<a name='203000'></a> 203000 | An error occurred when switching playlist items. | N/A| This video file cannot be played.|
 |<a name='203100'></a> 203100 | A playback component of the player (the provider), required to play the requested item, failed to load between playlist items. | Playlist error: Failed to load media| This video file cannot be played.|
-|<a name='203151'></a> 203151 | The `provider.flash.js` playback component of the player (Flash provider), required to play the requested item, failed to load | Playlist error: Failed to load media| This video file cannot be played.|
-|<a name='203152'></a> 203152 | The `provider.html5.js` playback component of the player (HTML5 provider), required to play the requested item, failed to load | Playlist error: Failed to load media| This video file cannot be played.|
-|<a name='203153'></a> 203153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider), required to play the requested item, failed to load | Playlist error: Failed to load media| This video file cannot be played.|
-|<a name='203154'></a> 203154 | The `provider.shaka.js` playback component of the player (Shaka provider), required to play the requested item, failed to load | Playlist error: Failed to load media| This video file cannot be played.|
 |<a name='203640'></a> 203640 | The playlist item could not be loaded because it is undefined or missing a valid source. | Playlist error: No media| This video file cannot be played.|
 
 <a name="player-loading-js"></a>
