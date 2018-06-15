@@ -961,7 +961,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 ## Localization
 
-Using the localization block in a player configuration allows you to configure text used in the player's user interface for titles, descriptions, aria labels and tool tips. The available options are below.
+Using the localization block in a player configuration allows you to configure text used in the player's user interface for titles, descriptions, ARIA labels and tool tips. The available options are below.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
