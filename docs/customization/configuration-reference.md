@@ -611,7 +611,7 @@ This options block configures the video advertising capabilities of JW Player. I
 
 |Option|Type|Description|Client|Default|
 |---|---|---|---|---|
-|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client <br/> **"dai"**: Use the DAI client|All|-|
+|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
@@ -793,12 +793,14 @@ jwplayer("myElement").setup({
 <a name="advertising-rules"></a>
 ### advertising.rules
 
-Use this option to control how frequently ads play back.
+Use this option to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |startOn|Number|The first playlist item that will allow ad playback, index starting at 1.|1|
 |frequency|Number|Play ads only on every X playlist item. i.e. frequency 3 means only play on ads on every third playlist item. Use 0 to only play ads on the first playlist item.|1|
+|startOnSeek|String|If automatically seeking on a visitor’s return visit, this option specifies whether or not a preroll ad should be served. If this rule is not set, both the preroll and most recent midroll will play.|-|
+|timeBetweenAds|Number|After displaying an ad in a schedule with multiple ad breaks, require a minimum of X seconds to pass before playing the next scheduled ad.|0|
 
 ```
 jwplayer("myElement").setup({
@@ -824,7 +826,9 @@ jwplayer("myElement").setup({
     }
     "rules": {
       "startOn": 2,
-      "frequency": 1
+      "frequency": 1,
+      "timeBetweenAds": 300,
+      "startOnSeek": "pre"
     }
   }
 });
