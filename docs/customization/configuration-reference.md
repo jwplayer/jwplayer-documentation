@@ -977,8 +977,16 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
 |**localization.close**|String|Close text and title of close icons  |"Close"|
 |**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
+|**localization.errors.badConnection** <sup>8.4.0+</sup>|String|Shown for errors caused by the viewer's connection.|"This video cannot be played because of a problem with your internet connection"|
+|**localization.errors.cantLoadPlayer** <sup>8.4.0+</sup>|String|Shown when there's a failed attempt to load the player or one of its components|"Sorry, the video player failed to load"|
+|**localization.errors.cantPlayInBrowser** <sup>8.4.0+</sup>|String|Displayed for browser-specific errors|"The video cannot be played in this browser"|
+|**localization.errors.cantPlayVideo** <sup>8.4.0+</sup>|String|Shown when there is no playable media|"This video file cannot be played"|
+|**localization.errors.errorCode** <sup>8.4.0+</sup>|String|Text shown before the error code|"Error Code"|
+|**localization.errors.liveStreamDown** <sup>8.4.0+</sup>|String|Shown when a live stream has ended or is no longer available|"The live stream is either down or has ended"|
+|**localization.errors.protectedContent** <sup>8.4.0+</sup>|String|Shown when there is a problem providing access to protected content|"There was a problem providing access to protected content"|
+|**localization.errors.technicalError** <sup>8.4.0+</sup>|String|Shown for technical errors where the exact cause is unknown|"This video cannot be played because of a technical error"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
-|**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
+|**localization.hd**|String|Title of the tooltip for the quality menu |"Quality"|
 |**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
 |**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
 |**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
