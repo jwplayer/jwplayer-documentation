@@ -4,10 +4,10 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
+This article contains all configuration options JW Player supports. 
 
 !!!important
-Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
+Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if your license does not support the features or configuration options you need.
 !!!
 
 |Table Of Contents| | |
@@ -19,7 +19,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 
 ## Introduction
 
-JW Player contains a large number of features and options that can be configured inside of the player setup.  Some options, like **width** or **mute**, are directly placed into the setup. Other, more advanced options, are grouped into nested blocks, like **skin** or **advertising**.
+JW Player contains a number of configurable options.  Some options, like **width** or **mute**, are top level, while other more advanced options may be nested, such as the ones used for skin customizations and advertising.
 
 Here is an example setup that contains both **setup** options and specific **advertising** options:
 
@@ -35,7 +35,6 @@ jwplayer("myElement").setup({
 	}
 });
 ```
-Web developers will recognize the JavaScript Object Notation ([JSON](https://en.wikipedia.org/wiki/JSON)) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 <a name="setup"></a>
 
@@ -966,7 +965,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 ## Localization
 
-Using the localization block in a player configuration allows you to configure certain words and phrases in the JW Player Next Up interface. The available options are below.
+Using the localization block in a player configuration allows you to configure text used in the player's user interface for titles, descriptions, ARIA labels and tool tips. The available options are below.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
