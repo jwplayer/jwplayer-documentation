@@ -7,7 +7,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 This article contains all configuration options JW Player supports. 
 
 !!!important
-Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to if your license does not support the features or configuration options you need.
+Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if your license does not support the features or configuration options you need.
 !!!
 
 |Table Of Contents| | |
