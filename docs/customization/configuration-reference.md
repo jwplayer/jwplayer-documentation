@@ -4,10 +4,10 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
+This article contains all configuration options JW Player supports. 
 
 !!!important
-Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
+Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if your license does not support the features or configuration options you need.
 !!!
 
 |Table Of Contents| | |
@@ -19,7 +19,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 
 ## Introduction
 
-JW Player contains a large number of features and options that can be configured inside of the player setup.  Some options, like **width** or **mute**, are directly placed into the setup. Other, more advanced options, are grouped into nested blocks, like **skin** or **advertising**.
+JW Player contains a number of configurable options.  Some options, like **width** or **mute**, are top level, while other more advanced options may be nested, such as the ones used for skin customizations and advertising.
 
 Here is an example setup that contains both **setup** options and specific **advertising** options:
 
@@ -35,7 +35,6 @@ jwplayer("myElement").setup({
 	}
 });
 ```
-Web developers will recognize the JavaScript Object Notation ([JSON](https://en.wikipedia.org/wiki/JSON)) syntax of these setup blocks. While configuring player setups, beware of common JSON requirements, like the need for a comma after all but the last element in a list.
 
 <a name="setup"></a>
 
@@ -611,7 +610,7 @@ This options block configures the video advertising capabilities of JW Player. I
 
 |Option|Type|Description|Client|Default|
 |---|---|---|---|---|
-|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client <br/> **"dai"**: Use the DAI client|All|-|
+|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
@@ -793,12 +792,14 @@ jwplayer("myElement").setup({
 <a name="advertising-rules"></a>
 ### advertising.rules
 
-Use this option to control how frequently ads play back.
+Use this option to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
 |startOn|Number|The first playlist item that will allow ad playback, index starting at 1.|1|
 |frequency|Number|Play ads only on every X playlist item. i.e. frequency 3 means only play on ads on every third playlist item. Use 0 to only play ads on the first playlist item.|1|
+|startOnSeek|String|If automatically seeking on a visitor’s return visit, this option specifies whether or not a preroll ad should be served. If this rule is not set, both the preroll and most recent midroll will play.|-|
+|timeBetweenAds|Number|After displaying an ad in a schedule with multiple ad breaks, require a minimum of X seconds to pass before playing the next scheduled ad.|0|
 
 ```
 jwplayer("myElement").setup({
@@ -824,7 +825,9 @@ jwplayer("myElement").setup({
     }
     "rules": {
       "startOn": 2,
-      "frequency": 1
+      "frequency": 1,
+      "timeBetweenAds": 300,
+      "startOnSeek": "pre"
     }
   }
 });
@@ -962,7 +965,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 ## Localization
 
-Using the localization block in a player configuration allows you to configure certain words and phrases in the JW Player Next Up interface. The available options are below.
+Using the localization block in a player configuration allows you to configure text used in the player's user interface for titles, descriptions, ARIA labels and tool tips. The available options are below.
 
 |Option|Type|Description|Default|
 |---|---|---|---|
@@ -973,8 +976,16 @@ Using the localization block in a player configuration allows you to configure c
 |**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
 |**localization.close**|String|Close text and title of close icons  |"Close"|
 |**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
+|**localization.errors.badConnection** <sup>8.4.0+</sup>|String|Shown for errors caused by the viewer's connection.|"This video cannot be played because of a problem with your internet connection"|
+|**localization.errors.cantLoadPlayer** <sup>8.4.0+</sup>|String|Shown when there's a failed attempt to load the player or one of its components|"Sorry, the video player failed to load"|
+|**localization.errors.cantPlayInBrowser** <sup>8.4.0+</sup>|String|Displayed for browser-specific errors|"The video cannot be played in this browser"|
+|**localization.errors.cantPlayVideo** <sup>8.4.0+</sup>|String|Shown when there is no playable media|"This video file cannot be played"|
+|**localization.errors.errorCode** <sup>8.4.0+</sup>|String|Text shown before the error code|"Error Code"|
+|**localization.errors.liveStreamDown** <sup>8.4.0+</sup>|String|Shown when a live stream has ended or is no longer available|"The live stream is either down or has ended"|
+|**localization.errors.protectedContent** <sup>8.4.0+</sup>|String|Shown when there is a problem providing access to protected content|"There was a problem providing access to protected content"|
+|**localization.errors.technicalError** <sup>8.4.0+</sup>|String|Shown for technical errors where the exact cause is unknown|"This video cannot be played because of a technical error"|
 |**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
-|**localization.hd **|String|Title of the tooltip for the quality menu |"Quality"|
+|**localization.hd**|String|Title of the tooltip for the quality menu |"Quality"|
 |**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
 |**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
 |**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|

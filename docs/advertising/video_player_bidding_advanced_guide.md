@@ -19,7 +19,7 @@ A `bids` block must be present within the `advertising` block. The `bids` block 
         * `"dfp"`
         * `"jwpdfp"`
     * `floorPriceCents` (type: _integer_)
-        * Note: Currence defaults to USD, but is configurable through `floorPriceCurrency`.
+        * Note: Currency defaults to USD, but is configurable through `floorPriceCurrency`.
 * `bidders` (type: _array_)
     * An array of objects containing the names and IDs for each bidder.
 
