@@ -173,6 +173,7 @@ An error occured while reproducing content with our Flash Provider.
 |---|---|---|---|
 |<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | `<event.message>`| This video file cannot be played.|
 |<a name='210001'></a> 210001 | The Flash player could not setup properly using the given player config. This error is generally browser specific. | Failed to setup flash| The video cannot be played in this browser.|
+|<a name='210002'></a> 210002 | The Flash plugin was blocked from loading by the browser; the viewer must unblock the plugin to allow playback. This error is most likely to occur on IE11 for Windows 7, or when using a legacy media type that can only be played with Flash (e.g. FLV files). | Flash plugin failed to load| The video cannot be played in this browser.|
 |<a name='214000'></a> 214000 | A media playback error occurred in the flash player. | `<event.message>`| This video file cannot be played.|
 
 <a name="media-html5"></a>
