@@ -48,7 +48,7 @@ The `message` property contains the viewer-friendly text displayed on the player
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Playlist Parsing](#playlist-parsing) \| [Empty Playlist](#empty-playlist)|
-|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
+|[Player Errors](#player)|[Misc](#misc-error) \|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
 
 
 <br/>
@@ -123,6 +123,12 @@ Setup failed because an invalid playlist was requested.
 
 These errors stop playback and display an error message on the player's UI. They occur after the "ready" event is triggered, and are dispatched in an "error" event.
 
+<a name="misc-error"></a>
+### Miscellaneous
+|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|---|---|---|---|
+|<a name='200001'></a> 200001 | An exception occurred while completing the player's setup. | none| This video cannot be played because of a technical error.|
+
 <a name="loading-new-playlist"></a>
 ### Loading New Playlist
 These errors are dispatched when `jwplayer().load(content)` is called and the content cannot be loaded or played.
@@ -173,6 +179,7 @@ An error occured while reproducing content with our Flash Provider.
 |---|---|---|---|
 |<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | `<event.message>`| This video file cannot be played.|
 |<a name='210001'></a> 210001 | The Flash player could not setup properly using the given player config. This error is generally browser specific. | Failed to setup flash| The video cannot be played in this browser.|
+|<a name='210002'></a> 210002 | The Flash plugin was blocked from loading by the browser; the viewer must unblock the plugin to allow playback. This error is most likely to occur on IE11 for Windows 7, or when using a legacy media type that can only be played with Flash (e.g. FLV files). | Flash plugin failed to load| The video cannot be played in this browser.|
 |<a name='214000'></a> 214000 | A media playback error occurred in the flash player. | `<event.message>`| This video file cannot be played.|
 
 <a name="media-html5"></a>
