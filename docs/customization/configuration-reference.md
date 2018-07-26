@@ -719,6 +719,7 @@ In order for JW Player to work as mediation layer, the following options need to
 
 |Option|Type|Description|Default|
 |---|---|---|---|
+|**advertising.bids.bidOnBreaks**|Number|The number of ad breaks for which bid requests are sent. <br/><br/> **NOTE**: For content with more than three ad breaks, change the default setting to `3` and adjust this value depending on performance. <br/><br/> By default, a bid request is made for each ad break.|-|
 |**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer, which is the decision-maker in what ad to run. See the table below for the available choices for the mediation layer.|jwp|
 |**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
 |**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with "jwp" as the mediation layer|usd|
