@@ -48,7 +48,7 @@ The `message` property contains the viewer-friendly text displayed on the player
 |Category|Types|
 |---|---|
 |[Setup Errors](#setup)|[Misc](#misc) \| [Loading Javascript Components](#loading-js) \| [Playlist Parsing](#playlist-parsing) \| [Empty Playlist](#empty-playlist)|
-|[Player Errors](#player)|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
+|[Player Errors](#player)|[Misc](#misc-error) \|[Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
 
 
 <br/>
@@ -122,6 +122,12 @@ Setup failed because an invalid playlist was requested.
 ## Player Errors
 
 These errors stop playback and display an error message on the player's UI. They occur after the "ready" event is triggered, and are dispatched in an "error" event.
+
+<a name="misc-error"></a>
+### Miscellaneous
+|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|---|---|---|---|
+|<a name='200001'></a> 200001 | An exception occurred while completing the player's setup. | none| This video cannot be played because of a technical error.|
 
 <a name="loading-new-playlist"></a>
 ### Loading New Playlist
