@@ -738,6 +738,7 @@ In order for JW Player to work as mediation layer, the following options need to
 |**jwpdfp**|Google IMA|Combines the "jwp" and "dfp" mediation layers in that order. If the floor price isn't beaten, the key value pairs are added to the DFP tag.|
 
 <br/>
+
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
@@ -745,6 +746,7 @@ jwplayer("myElement").setup({
     "client": "googima",
     "tag": "mytag.xml",
     "bids": {
+      "bidOnBreaks": 3,
       "settings": {
         "mediationLayerAdServer": "jwp",
         "floorPriceCents": 10,
@@ -773,6 +775,7 @@ jwplayer("myElement").setup({
     "client": "googima",
     "tag": "mytag.xml",
     "bids": {
+      "bidOnBreaks": 3,
       "settings": {
         "mediationLayerAdServer": "dfp",
         "bidTimeout": 1000
