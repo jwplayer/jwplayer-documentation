@@ -738,6 +738,7 @@ In order for JW Player to work as mediation layer, the following options need to
 |**jwpdfp**|Google IMA|Combines the "jwp" and "dfp" mediation layers in that order. If the floor price isn't beaten, the key value pairs are added to the DFP tag.|
 
 <br/>
+
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
@@ -745,6 +746,7 @@ jwplayer("myElement").setup({
     "client": "googima",
     "tag": "mytag.xml",
     "bids": {
+      "bidOnBreaks": 3,
       "settings": {
         "mediationLayerAdServer": "jwp",
         "floorPriceCents": 10,
@@ -773,6 +775,7 @@ jwplayer("myElement").setup({
     "client": "googima",
     "tag": "mytag.xml",
     "bids": {
+      "bidOnBreaks": 3,
       "settings": {
         "mediationLayerAdServer": "dfp",
         "bidTimeout": 1000
@@ -795,12 +798,12 @@ jwplayer("myElement").setup({
 
 Use this option to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
 
-|Option|Type|Description|Default|
-|---|---|---|---|
-|startOn|Number|The first playlist item that will allow ad playback, index starting at 1.|1|
-|frequency|Number|Play ads only on every X playlist item. i.e. frequency 3 means only play on ads on every third playlist item. Use 0 to only play ads on the first playlist item.|1|
-|startOnSeek|String|If automatically seeking on a visitor’s return visit, this option specifies whether or not a preroll ad should be served. If this rule is not set, both the preroll and most recent midroll will play.|-|
-|timeBetweenAds|Number|After displaying an ad in a schedule with multiple ad breaks, require a minimum of X seconds to pass before playing the next scheduled ad.|0|
+|Option|Type|Ad client|Description|Default|
+|---|---|---|---|---|
+|startOn|Number|Google IMA, <br> VAST|The first playlist item that will allow ad playback, index starting at 1.|1|
+|frequency|Number|Google IMA, <br> VAST|Play ads only on every X playlist item. i.e. frequency 3 means only play on ads on every third playlist item. Use 0 to only play ads on the first playlist item.|1|
+|startOnSeek|String|VAST|If automatically seeking on a visitor’s return visit, this option specifies whether or not a preroll ad should be served. If this rule is not set, both the preroll and most recent midroll will play.|-|
+|timeBetweenAds|Number|VAST|After displaying an ad in a schedule with multiple ad breaks, require a minimum of X seconds to pass before playing the next scheduled ad.|0|
 
 ```
 jwplayer("myElement").setup({
