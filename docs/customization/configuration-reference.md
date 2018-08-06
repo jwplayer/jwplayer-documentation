@@ -611,6 +611,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |Option|Type|Description|Client|Default|
 |---|---|---|---|---|
 |**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
+|**advertising.adscheduleid**|Number|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail.|All|-|
 |**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
