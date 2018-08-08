@@ -586,15 +586,15 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
-|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/> **"overlay"**: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player, pausing playback. <br/>**"shelf"** (default): Adds a horizontal bar of thumbnails above the control bar, which allows viewers to browse recommended videos throughout the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode.|"shelf"|
-|**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed <br/> **"hide"**: Replay button and related icon will appear <br/> **"show"**: Display the related overlay <br/> **"autoplay"**: automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|"show"|
-|**related.onclick**|String|The behavior when a related video is selected.<br/> **"play":** Plays the next video within the current player. <br/> **"link":**  Redirects the page to the url specified in the related item's link field.|"play"|
-|**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to 0 to have your next related content to play immediately|10|
+|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. |`shelf`|
+|**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
+|**related.onclick**|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
+|**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
 |**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
 
 <!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
 
-See [Display Related Videos](https://support.jwplayer.com/customer/portal/articles/1409745-display-related-videos) for more information.
+See [Display Related Videos](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) for more information.
 
 <a name="advertising"></a>
 
@@ -611,6 +611,7 @@ This options block configures the video advertising capabilities of JW Player. I
 |Option|Type|Description|Client|Default|
 |---|---|---|---|---|
 |**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
+|**advertising.adscheduleid**|String|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
 |**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
@@ -651,6 +652,7 @@ jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
     "client": "vast",
+    "adscheduleid": "t4Xk5tsF",
     "schedule": "myvmap.xml"
   }
 });
@@ -673,6 +675,7 @@ jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
   "advertising": {
     "client": "vast",
+    "adscheduleid": "p4Xk5lsZ",
     "schedule": {
       "adbreak-preroll":{
         "tag": "myPreroll.xml",
@@ -692,19 +695,19 @@ jwplayer("myElement").setup({
 |**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
 ```
 "advertising": {
-        "client": "googima",
-        "adscheduleid": "12345",
-        "schedule": {
-            "preroll": {
-                "custParams": {
-                    "testkey1": "testval1",
-                    "testkey2": "testval2"
-                },
-                "tag": "myPreroll.xml",
-                "offset": "pre"
-            }
-        }
+  "client": "googima",
+  "adscheduleid": "e2Xk5lqY",
+  "schedule": {
+    "preroll": {
+      "custParams": {
+        "testkey1": "testval1",
+        "testkey2": "testval2"
+      },
+      "tag": "myPreroll.xml",
+      "offset": "pre"
     }
+  }
+}
 ```
 <br/>
 
@@ -817,6 +820,7 @@ jwplayer("myElement").setup({
   ],
   "advertising": {
     "client": "vast",
+    "adscheduleid": "b6Wd5tsW",
     "schedule": {
       "adBreak1": {
         "tag": "mytag.xml",
