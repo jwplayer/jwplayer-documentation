@@ -187,7 +187,7 @@ jwplayer("myElement").setup({
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
-|<a name="startTime"></a>**playlist[_index_].startTime**|Number|Time in seconds to start a media item.|
+|<a name="startTime"></a>**playlist[_index_].startTime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
 |**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
