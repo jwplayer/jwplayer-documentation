@@ -153,11 +153,11 @@ A `bids` block must be present within the `advertising` block. The `bids` block 
 }
 ```
 
-### Custom Parameters
+## Custom Parameters
 
 If you require additional custom parameters to be appended to the ad tag prior to it being requested, you can include these in a custom block within an `optionalParams` block that is contained within a bidder object.
 
-#### Example Configuration
+### Example Configuration
 
 ```
 {
