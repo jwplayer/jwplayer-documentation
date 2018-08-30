@@ -1,13 +1,5 @@
 # Video Player Bidding Advanced Guide
 
-!!!
-Ensure all ad blockers are disabled before proceeding.
-!!!
-
-!!!
-`playAd` is not supported when using Video Player Bidding due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete.
-!!!
-
 Video Player Bidding is a market-changing solution from JW Player, built to reduce latency and boost monetization by gaining access to additional advertising demand. By making an addition to the `advertising` object of the player, you can access the benefits of header bidding.
 
 !!!important
@@ -98,58 +90,6 @@ advertising: {
     ]
   }
   vpaidmode: "insecure"
-}
-```
-## Configuration Requirements
-
-A `bids` block must be present within the `advertising` block. The `bids` block should point to an object, with the following _required_ options:
-
-* `settings` (type: _object_)
-    * `mediationLayerAdSever` (type: _string_)
-        * `"jwp"`
-        * `"jwpspotx"`
-        * `"dfp"`
-        * `"jwpdfp"`
-    * `floorPriceCents` (type: _integer_)
-        * Note: Currency defaults to USD, but is configurable through `floorPriceCurrency`.
-* `bidders` (type: _array_)
-    * An array of objects containing the names and IDs for each bidder.
-
-
-!!!
-`mediationLayerAdServer` and bidder name settings are case sensitive.
-!!!
-
-
-#### Example Configuration
-
-```
-{
-  "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
-  "image": "http://d3el35u4qe4frz.cloudfront.net/bkaovAYt-480.jpg",
-  "advertising": {
-    "client": "googima",
-    "schedule": {
-      "adBreak": {
-        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480...",
-        "offset": "pre"
-      }
-    },
-    "bids": {
-      "settings": {
-        "mediationLayerAdServer": "dfp",
-          "floorPriceCents": 2,
-          "floorPriceCurrency": "usd",
-          "bidTimeout": 2000
-        },
-        "bidders": [
-          {
-            "name": "SpotX",
-            "id": "85394"
-          }
-        ]
-    }
-  }
 }
 ```
 
