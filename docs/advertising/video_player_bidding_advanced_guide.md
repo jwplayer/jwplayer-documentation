@@ -8,6 +8,98 @@ Ensure all ad blockers are disabled before proceeding.
 `playAd` is not supported when using Video Player Bidding due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete.
 !!!
 
+Video Player Bidding is a market-changing solution from JW Player, built to reduce latency and boost monetization by gaining access to additional advertising demand. By making an addition to the `advertising` object of the player, you can access the benefits of header bidding.
+
+!!!important
+Due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
+!!!
+
+**1.** Choose and configure one of the `bids` objects below. Each `bids` object is configured for a specific mediation partner.
+```
+// Mediation Layer: JW Player
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwp",
+      floorPriceCents: 1000
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345678"
+      }
+   ]
+}
+```
+```
+// Mediation Layer: SpotX as Primary Adserver
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwpspotx"
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345679"
+      }
+   ]
+}
+```
+```
+// Mediation Layer: DoubleClick for Publishers
+bids: {
+   settings: {
+      mediationLayerAdServer: "dfp"
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345680"
+      }
+   ]
+}
+```
+```
+// Mediation Layer: JW Player + DFP
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwpdfp",
+      floorPriceCents: 1000
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345681"
+      }
+   ]
+}
+```
+**2.** (Optional) Use the [JW Player Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#advertisingbids) to set additional Video Player Bidding options.
+
+**3.** Add the `bids` object to the `advertising` object of the player. The example below uses the SpotX Direct Integration mediation layer with the Google IMA ad client.
+```
+advertising: {
+  adscheduleid: "1234abcd"
+  client:  "googima",
+  schedule: {
+    pre:{
+      offset: "pre",  
+      tag: "myPreroll.xml"
+    }
+  },
+  bids: {
+    settings: {
+      mediationLayerAdServer: "jwpspotx"
+    },
+    bidders: [
+      {
+        name: "SpotX",
+        id: "12345679"
+      }
+    ]
+  }
+  vpaidmode: "insecure"
+}
+```
 ## Configuration Requirements
 
 A `bids` block must be present within the `advertising` block. The `bids` block should point to an object, with the following _required_ options:
@@ -48,7 +140,7 @@ A `bids` block must be present within the `advertising` block. The `bids` block 
         "mediationLayerAdServer": "dfp",
           "floorPriceCents": 2,
           "floorPriceCurrency": "usd",
-          "bidTimeout": 1000
+          "bidTimeout": 2000
         },
         "bidders": [
           {
@@ -84,7 +176,7 @@ If you require additional custom parameters to be appended to the ad tag prior t
         "mediationLayerAdServer": "dfp",
           "floorPriceCents": 2,
           "floorPriceCurrency": "usd",
-          "bidTimeout": 1000
+          "bidTimeout": 2000
       },
       "bidders": [
         {
@@ -160,7 +252,7 @@ _JWP_
 
 #### Confirm that a timeout is not causing the issue
 
-Within the `settings` block, explicitly set the `bidTimeout` property to `10000` (10 seconds). The default is 1,000 ms.
+Within the `settings` block, explicitly set the `bidTimeout` property to `10000` (10 seconds). The default is 2000 ms.
 
 |Issue Description|Recommended Support Channel|
 |---|---|
