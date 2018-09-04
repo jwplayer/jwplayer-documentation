@@ -1,71 +1,103 @@
 # Video Player Bidding Advanced Guide
 
-!!!
-Ensure all ad blockers are disabled before proceeding.
-!!!
+Video Player Bidding is a market-changing solution from JW Player, built to reduce latency and boost monetization by gaining access to additional advertising demand. By making an addition to the `advertising` object of the player, you can access the benefits of header bidding.
 
-!!!
-`playAd` is not supported when using Video Player Bidding due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete.
+!!!important
+Due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
 !!!
 
-## Configuration Requirements
-
-A `bids` block must be present within the `advertising` block. The `bids` block should point to an object, with the following _required_ options:
-
-* `settings` (type: _object_)
-    * `mediationLayerAdSever` (type: _string_)
-        * `"jwp"`
-        * `"jwpspotx"`
-        * `"dfp"`
-        * `"jwpdfp"`
-    * `floorPriceCents` (type: _integer_)
-        * Note: Currency defaults to USD, but is configurable through `floorPriceCurrency`.
-* `bidders` (type: _array_)
-    * An array of objects containing the names and IDs for each bidder.
-
-
-!!!
-`mediationLayerAdServer` and bidder name settings are case sensitive.
-!!!
-
-
-#### Example Configuration
-
+**1.** Choose and configure one of the `bids` objects below. Each `bids` object is configured for a specific mediation partner.
 ```
-{
-  "file": "https://content.jwplatform.com/videos/1g8jjku3-cIp6U8lV.mp4",
-  "image": "http://d3el35u4qe4frz.cloudfront.net/bkaovAYt-480.jpg",
-  "advertising": {
-    "client": "googima",
-    "schedule": {
-      "adBreak": {
-        "tag": "//pubads.g.doubleclick.net/gampad/ads?sz=640x480...",
-        "offset": "pre"
+// Mediation Layer: JW Player
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwp",
+      floorPriceCents: 1000
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345678"
       }
-    },
-    "bids": {
-      "settings": {
-        "mediationLayerAdServer": "dfp",
-          "floorPriceCents": 2,
-          "floorPriceCurrency": "usd",
-          "bidTimeout": 1000
-        },
-        "bidders": [
-          {
-            "name": "SpotX",
-            "id": "85394"
-          }
-        ]
+   ]
+}
+```
+```
+// Mediation Layer: SpotX as Primary Adserver
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwpspotx"
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345679"
+      }
+   ]
+}
+```
+```
+// Mediation Layer: DoubleClick for Publishers
+bids: {
+   settings: {
+      mediationLayerAdServer: "dfp"
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345680"
+      }
+   ]
+}
+```
+```
+// Mediation Layer: JW Player + DFP
+bids: {
+   settings: {
+      mediationLayerAdServer: "jwpdfp",
+      floorPriceCents: 1000
+   },
+   bidders: [
+      {
+         name: "SpotX",
+         id: "12345681"
+      }
+   ]
+}
+```
+**2.** (Optional) Use the [JW Player Configuration Reference](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#advertisingbids) to set additional Video Player Bidding options.
+
+**3.** Add the `bids` object to the `advertising` object of the player. The example below uses the SpotX Direct Integration mediation layer with the Google IMA ad client.
+```
+advertising: {
+  adscheduleid: "1234abcd"
+  client:  "googima",
+  schedule: {
+    pre:{
+      offset: "pre",  
+      tag: "myPreroll.xml"
     }
+  },
+  bids: {
+    settings: {
+      mediationLayerAdServer: "jwpspotx"
+    },
+    bidders: [
+      {
+        name: "SpotX",
+        id: "12345679"
+      }
+    ]
   }
+  vpaidmode: "insecure"
 }
 ```
 
-### Custom Parameters
+## Custom Parameters
 
 If you require additional custom parameters to be appended to the ad tag prior to it being requested, you can include these in a custom block within an `optionalParams` block that is contained within a bidder object.
 
-#### Example Configuration
+### Example Configuration
 
 ```
 {
@@ -84,7 +116,7 @@ If you require additional custom parameters to be appended to the ad tag prior t
         "mediationLayerAdServer": "dfp",
           "floorPriceCents": 2,
           "floorPriceCurrency": "usd",
-          "bidTimeout": 1000
+          "bidTimeout": 2000
       },
       "bidders": [
         {
@@ -160,7 +192,7 @@ _JWP_
 
 #### Confirm that a timeout is not causing the issue
 
-Within the `settings` block, explicitly set the `bidTimeout` property to `10000` (10 seconds). The default is 1,000 ms.
+Within the `settings` block, explicitly set the `bidTimeout` property to `10000` (10 seconds). The default is 2000 ms.
 
 |Issue Description|Recommended Support Channel|
 |---|---|
