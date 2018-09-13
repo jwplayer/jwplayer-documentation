@@ -187,7 +187,7 @@ jwplayer("myElement").setup({
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
-|<a name="startTime"></a>**playlist[_index_].startTime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
+|<a name="starttime"></a>**playlist[_index_].starttime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
 |**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
@@ -818,7 +818,7 @@ Use this option to control how frequently ads play back. See our [Ad Rules Refer
 |---|---|---|---|---|
 |startOn|Number|Google IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
 |frequency|Number|Google IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|startOnSeek<sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [startTime](#startTime) to pass the time location to resume playback.|-|
+|startOnSeek<sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
 |timeBetweenAds|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
 
 ```
@@ -826,7 +826,7 @@ jwplayer("myElement").setup({
   "playlist": [
     {
       "file": "http://example.com/myVideo.mp4",
-      "startTime": 90
+      "starttime": 90
     },
     {
       "file": "http://example.com/myVideo2.mp4"
