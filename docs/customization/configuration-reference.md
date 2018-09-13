@@ -512,7 +512,19 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|8|
 |**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
-See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
+#### Example
+
+```
+jwplayer("myElement").setup({
+  file: "http://example.com/myVideo.mp4",
+  logo: {
+    file: "/assets/jw-logo-red-46px.png",
+    link: "https://www.jwplayer.com",
+    hide: "true",
+    position: "top-left"
+  }
+});
+```
 
 !!!
 We highly recommend using low-resolution images for logos in the player, as Internet Explorer may not resize an image, especially if it is high-resolution.
