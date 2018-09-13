@@ -516,12 +516,12 @@ This options block configures a clickable watermark that is overlayed on the vid
 
 ```
 jwplayer("myElement").setup({
-  file: "http://example.com/myVideo.mp4",
-  logo: {
-    file: "/assets/jw-logo-red-46px.png",
-    link: "https://www.jwplayer.com",
-    hide: "true",
-    position: "top-left"
+  "file": "http://example.com/myVideo.mp4",
+  "logo": {
+    "file": "/assets/jw-logo-red-46px.png",
+    "link": "https://www.jwplayer.com",
+    "hide": "true",
+    "position": "top-left"
   }
 });
 ```
