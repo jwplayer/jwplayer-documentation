@@ -187,7 +187,7 @@ jwplayer("myElement").setup({
 |**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
 |**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
 |**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
-|<a name="startTime"></a>**playlist[_index_].startTime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
+|<a name="starttime"></a>**playlist[_index_].starttime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
 |**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
 |[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
@@ -512,7 +512,19 @@ This options block configures a clickable watermark that is overlayed on the vid
 |**logo.margin**|Number|The distance, in pixels, of the logo from the edges of the display|8|
 |**logo.position**|String|This sets the corner in which to display the watermark. **"control-bar"** adds the logo as the leftmost icon in the right grouping of buttons in the control bar.<sup>8.0+</sup> <br/> **"top-left" <br/> "top-right" <br/>"bottom-left"<br/> "bottom-right" <br/> "control-bar"**| "top-right" |
 
-See [Branding Your Player](https://support.jwplayer.com/customer/portal/articles/1406865-branding-your-player) for more information.
+#### Example
+
+```
+jwplayer("myElement").setup({
+  "file": "http://example.com/myVideo.mp4",
+  "logo": {
+    "file": "/assets/jw-logo-red-46px.png",
+    "link": "https://www.jwplayer.com",
+    "hide": "true",
+    "position": "top-left"
+  }
+});
+```
 
 !!!
 We highly recommend using low-resolution images for logos in the player, as Internet Explorer may not resize an image, especially if it is high-resolution.
@@ -586,7 +598,7 @@ This options block controls an overlay with related videos.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos|-|
+|**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
 |**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. |`shelf`|
 |**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
 |**related.onclick**|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
@@ -806,7 +818,7 @@ Use this option to control how frequently ads play back. See our [Ad Rules Refer
 |---|---|---|---|---|
 |startOn|Number|Google IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
 |frequency|Number|Google IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|startOnSeek<sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [startTime](#startTime) to pass the time location to resume playback.|-|
+|startOnSeek<sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
 |timeBetweenAds|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
 
 ```
@@ -814,7 +826,7 @@ jwplayer("myElement").setup({
   "playlist": [
     {
       "file": "http://example.com/myVideo.mp4",
-      "startTime": 90
+      "starttime": 90
     },
     {
       "file": "http://example.com/myVideo2.mp4"
