@@ -189,11 +189,12 @@ An error occured while reproducing content with our HTML5 Provider.
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
 |---|---|---|---|
 |<a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended| The live stream is either down or has ended.|
-|<a name='221000'></a> 221000 | An unknown network error occurred. Equivalent to the HTML5 `MEDIA_ERR_NETWORK` mediaError. | Error loading media: Unknown network error| This video cannot be played because of a technical error.|
+|<a name='221000'></a> 221000 | An unknown network error occurred. Equivalent to the HTML5 `MEDIA_ERR_NETWORK` mediaError. | Error loading media: Unknown network error| This video cannot be played because of a problem with your internet connection.|
 |<a name='224000'></a> 224000 | An unknown media error occurred. | Error loading media: Unknown| This video cannot be played because of a technical error.|
-|<a name='224001'></a> 224001 | Failed to fetch the associated resource. Equivalent to the HTML5 `MEDIA_ERR_ABORTED` mediaError. | Error loading media: Unknown operation aborted| This video cannot be played because of a technical error.|
-|<a name='224002'></a> 224002 | Failed to decode the associated resource. Equivalent to the HTML5 `MEDIA_ERR_DECODE` mediaError. | Error loading media: Unknown decode error| This video cannot be played because of a technical error.|
-|<a name='224003'></a> 224003 | Failed to reproduce the associated resource because its playback is not supported by this provider. Equivalent to the HTML5 `MEDIA_ERR_SRC_NOT_SUPPORTED` mediaError. | Error loading media: File could not be played| This video cannot be played because of a technical error.|
+|<a name='224001'></a> 224001 | Failed to fetch the associated resource. Equivalent to the HTML5 `MEDIA_ERR_ABORTED` mediaError. | Error loading media: Unknown operation aborted| This video file cannot be played.|
+|<a name='224002'></a> 224002 | Failed to decode the associated resource. Equivalent to the HTML5 `MEDIA_ERR_DECODE` mediaError. | Error loading media: Unknown decode error| This video file cannot be played.|
+|<a name='224003'></a> 224003 | Failed to reproduce the associated resource because its playback is not supported by this provider. Equivalent to the HTML5 `MEDIA_ERR_SRC_NOT_SUPPORTED` mediaError. | Error loading media: File could not be played| This video file cannot be played.|
+|<a name='224005'></a> 224005 | The video tag `src` was set to empty (`""`) which resolved to the current page URL.  | - |This video file cannot be played.|
 |<a name='225006'></a> 225006 | The License required to decrypt a Fairplay stream could not be loaded. The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading media: The license request failed| There was a problem providing access to protected content.|
 |<a name='225400-225599'></a> 225400-225599 | The Server Certificate required to decrypt a Fairplay stream could not be loaded. The last 3 digits of the error code indicate the HTTP status code (eg. 225404 is HTTP status code 404). | Error loading media: Failed to retrieve the server certificate| There was a problem providing access to protected content.|
 |<a name='225650'></a> 225650 | An error occurred when attempting to decrypt the Fairplay stream with the session key. Equivalent to Safari's "webkitkeyerror" event. | Error loading media: Decryption key error was encountered| There was a problem providing access to protected content.|
@@ -205,6 +206,7 @@ An error occured while reproducing content with our HLS.JS Provider.
 
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
 |---|---|---|---|
+|<a name='230000'></a> 230000 | An unknown error occurred handling HLS media.| - | This video file cannot be played.|
 |<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended| The live stream is either down or has ended.|
 |<a name='230002'></a> 230002 | Playback stalled after going offline, resulting in an unrecoverable error. | Network Error: No Internet Connection| This video cannot be played because of a problem with your internet connection.|
 |<a name='232000'></a> 232000 | Unknown manifest loading error. | * Cannot load M3U8: `<data.reason>` <br/>* Cannot load M3U8: `<data.details>` <br/>* Cannot load M3U8: Unknown Network Error| This video cannot be played because of a technical error.|
