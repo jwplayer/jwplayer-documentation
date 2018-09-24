@@ -637,7 +637,7 @@ This options block configures the video advertising capabilities of JW Player an
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
-|**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+|**advertising.locale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
 |**advertising.creativeTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
 |**advertising.requestTimeout**|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |**advertising.vastLoadTimeout**|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000
