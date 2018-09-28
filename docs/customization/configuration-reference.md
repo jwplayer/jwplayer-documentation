@@ -90,8 +90,8 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**controls**|Boolean|Whether to display the video controls (control bar and display icons)|true|
 |**localization**|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
-|**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|360|
-|**width**|Number or String|The desired height of your video player (In pixels or percentage)|640|
+|**height**|Number|The desired height of your video player (in pixels). Should be omitted when `aspectratio` is configured|360|
+|**width**|Number or String|The desired width of your video player (in pixels or percentage)|640|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
