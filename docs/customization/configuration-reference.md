@@ -990,11 +990,11 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 
 The `intl` object allows you to add new language translations, customize translations for player text and `aria-label` values, and access the benefits of the [automated player localization](https://support.jwplayer.com/articles/translate-video-player-text) feature.
 
-For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
-
 !!!important
 Any existing `localization` object customizations will override both automated player localization and `intl` object customizations. If you currently use the `localization` object for localization, use the [table](#intlloctable) below to copy the `localization.<property>` value into the corresponding `intl.<lang>.<property>`. 
 !!!
+
+For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
 
 ```
 jwplayer("myElement").setup({
@@ -1035,8 +1035,8 @@ jwplayer("myElement").setup({
 |`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
 |`errors`|Object|See: [errors object](#intlerrors).|-|
 |`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
-|`hd`|String|Tooltip text for and aria-label HTML attribute of the video quality options menu icon|Quality|
-|`liveBroadcast`|String|In the control bar, label text and aria-label HTML attribute for live streams|Live|
+|`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video quality options menu icon|Quality|
+|`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
 |`logo`|String|`aria-label` HTML attribute of the logo in the player|Logo|
 |`next`|String|`aria-label` HTML attribute of the right arrow in overlays with multiple pages of videos|Next|
 |`nextUp`|String|Title text and `aria-label` HTML attribute of the overlay that displays the next item to automatically play in a playlist|Next Up|
@@ -1044,7 +1044,7 @@ jwplayer("myElement").setup({
 |`off`|String|Menu option text for turning an option off|Off|
 |`pause`|String|`aria-label` HTML attribute of the pause icon in the control bar|Pause|
 |`play`|String|`aria-label` HTML attribute of the play icon in the control bar|Play|
-|`playback`|String|Call-to-action text beneath the play button on the player idle screen.|Play|
+|<a name="intlplayback"></a>`playback`|String|Call-to-action text beneath the play button on the player idle screen.|Play|
 |`playbackRates`|String|Tooltip text for and `aria-label` HTML attribute of the playback rate controls menu|Playback Rates|
 |`player`|String|`aria-label` HTML attribute of the video player application|Video Player|
 |`playlist`|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay|Playlist|
@@ -1052,7 +1052,7 @@ jwplayer("myElement").setup({
 |`prev`|String|`aria-label` HTML attribute of the left arrow in overlays with multiple pages of videos|Previous|
 |`quality`|String|Tooltip text for and `aria-label` HTML attribute of the **Quality** menu.|Quality|
 |`related`|Object|See: [related object](#intlrelated).|-|
-|`replay`|String|Tooltip text for and `aria-label` HTML attribute of the replay button in the control bar, display at the completion of video playback.|Replay|
+|`replay`|String|Tooltip text for and `aria-label` HTML attribute of the replay button in the control bar, displayed at the completion of video playback.|Replay|
 |`rewind`|String|Tooltip text for and `aria-label` HTML attribute of the rewind button in the control bar|Rewind 10 Seconds|
 |`settings`|String|Tooltip text for and `aria-label` HTML attribute of the **Settings** menu icon|Settings|
 |`sharing`|Object|See: [sharing object](#intlsharing).|-|
@@ -1062,9 +1062,9 @@ jwplayer("myElement").setup({
 |`volume`|String|Tooltip text for and `aria-label` HTML attribute of the volume in the control bar.|Volume|
 |`volumeSlider`|String|`aria-label` HTML attribute of the volume slider in the control bar.|Volume Slider|
 
- <a name="intladvertising"></a>
+<a name="intladvertising"></a>
 
- ### advertising object
+### advertising object
 
 This object localizes the player text and ARIA labels of the [advertising object](#advertising).
 
@@ -1073,7 +1073,7 @@ This object localizes the player text and ARIA labels of the [advertising object
 |<a name="intladmessage"></a>`admessage`|String|Countdown message text that displays the remaining duration of an ad|This ad will end in xx|
 |<a name="intlcuetext"></a>`cuetext`|String|Tooltip text for and `aria-label` HTML attribute that indicates the content is an advertisement. Appears when a user mouses over a scheduled advertisement cue marker in the time slider.|Advertisement|
 |<a name="intlloadingad"></a>`loadingAd`|String|Text displayed when an ad is loading|Loading ad|
-|<a name="intlpodmessage"></a>`podmessage`|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|Ad xx of yy|
+|<a name="intlpodmessage"></a>`podmessage`|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|Ad xx of yy|
 |<a name="intlskipmessage"></a>`skipmessage`|String|Skip countdown message text that displays the remaining duration before an ad can be skipped|Skip ad in xx|
 |<a name="intlskiptext"></a>`skiptext`|String|Button text for and `aria-label` HTML attribute that indicates when an ad can be skipped|Skip|
 
@@ -1089,7 +1089,7 @@ Option|Type|Description|Default|
 |`cantLoadPlayer`|String|Error message text displayed when a player fails to instantiate due to a non-network reason. For example: incorrect JSON or license keys|Sorry, the video player failed to load.|
 |`cantPlayInBrowser`|String|Error message text displayed when a video fails to start playback due to a browser support reason. For example:  such as Flash or DASH error or browser support|The video cannot be played in this browser.|
 |`cantPlayVideo`|String|Error message text displayed when a media item fails to load|This video file cannot be played.|
-|`errorCode`|String|Label text for a numeric error code. (E.g. Error code: 50244402)|Error code|
+|`errorCode`|String|Label text for a numeric error code. (For example: Error code: 50244402)|Error code|
 |`liveStreamEnded`|String|Error message text displayed when a live stream has technical issues or has ended|The live stream is either down or has ended.|
 |`protectedContent`|String|Error message text displayed when DRM or protected content fails|There was a problem providing access to protected content.|
 |`technicalError`|String|Fallback error message text displayed when no other error message is applicable|This video cannot be played because of a technical error.|
