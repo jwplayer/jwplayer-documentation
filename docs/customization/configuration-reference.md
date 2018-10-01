@@ -15,7 +15,7 @@ Certain JW Player features may require a specific license. Please [contact our t
 |[Setup Options](#setup)|[Playlists](#playlist)|[Skin](#skin)|
 |[Captions](#captions)|[RTMP](#rtmp)|[Logo](#logo)|
 |[Sharing](#sharing)|[Google Analytics](#ga)|[Related](#related)|
-|[Advertising](#advertising)|[DRM](#drm)|[Localization](#localization)|
+|[Advertising](#advertising)|[DRM](#drm)|[Internationalization](#internationalization)|
 
 ## Introduction
 
@@ -30,9 +30,9 @@ jwplayer("myElement").setup({
   "width": 640,
   "autostart": "viewable",
   "advertising": {
-		"client": "vast",
-		"tag": "http://adserver.com/vastTag.xml"
-	}
+    "client": "vast",
+    "tag": "http://adserver.com/vastTag.xml"
+  }
 });
 ```
 
@@ -90,13 +90,14 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**controls**|Boolean|Whether to display the video controls (control bar and display icons)|true|
 |**localization**|Object|Changes text for the player in certain locations|-|
 |**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
-|**height**|Number|The desired height of your video player (In pixels). Can be omitted when aspectratio is configured|360|
-|**width**|Number or String|The desired height of your video player (In pixels or percentage)|640|
+|**height**|Number|The desired height of your video player (in pixels). Should be omitted when `aspectratio` is configured|360|
+|**width**|Number or String|The desired width of your video player (in pixels or percentage)|640|
 |**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
 |**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
+|**displayPlaybackLabel**|Boolean|Enables call-to-action text beneath the play button on the player idle screen.<br/><br/> When set to `true`, you can potentially see up to a 5% increase in the number of times viewers click the play button to watch a video. <br/><br/>The default call-to-action text is "Play." You can also [localize](#intlplayback) this message for your viewers.|false|
 
 !!!
 `timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
@@ -542,9 +543,9 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**sharing.link**|String|URL to display in the video link field|URL of the current page|
+|**sharing.link**|String|URL to display in the video link field<br/><br/>You can also [localize](#intllink) this message for your viewers.|URL of the current page|
 |**sharing.code**|String|Embed code to display in the embed code field. If no code is set, the field is not shown|-|
-|**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen|"Share Video"|
+|**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen<br/><br/>You can also [localize](#intlheading) this message for your viewers.|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
 <br/>
@@ -598,12 +599,13 @@ This options block controls an overlay with related videos.
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**related.file**|String|**(Required)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
-|**related.displayMode** <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. |`shelf`|
-|**related.oncomplete**|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
-|**related.onclick**|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
-|**related.autoplaytimer**|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
-|**related.autoplaymessage**|String|A custom message that appears during autoplay. <br/> **xx** will be replaced by the countdown timer<br/> **__title__** will be replaced by the next title in the related feed.| "&#95;_title__ will play in xx seconds"|
+|`file`|String|**(REQUIRED)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
+|`autoplaymessage`|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/>You can also [localize](#intlautoplaymessage) this message for your viewers.| "&#95;_title__ will play in xx seconds"|
+|`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
+|`displayMode` <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. Use [`selector`](#relatedselector) to configure shelf location.|`shelf`|
+|`onclick`|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
+|`oncomplete`|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
+|<a name="relatedselector"></a>`selector`|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
 
 <!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
 
@@ -625,26 +627,26 @@ This options block configures the video advertising capabilities of JW Player an
 |---|---|---|---|---|
 |**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.adscheduleid**|String|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
-|**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
-|**advertising.admessage**|String|Text that displays during ad playback|All|"The ad will end in xx seconds"|
+|**advertising.tag**|String or Array|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
+|**advertising.admessage**|String|Text that displays during ad playback<br/><br/>You can also [localize](#intladmessage) this message for your viewers.|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
-|**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement|All|"Advertisement"|
-|**advertising.skipmessage**|String|This is used to provide a customized countdown message|VAST, Freewheel|"Skip ad in xx"|
-|**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over|VAST, Freewheel|"Skip"|
+|**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/>You can also [localize](#intlcuetext) this message for your viewers.|All|"Advertisement"|
+|**advertising.skipmessage**|String|This is used to provide a customized countdown message<br/><br/>You can also [localize](#intlskipmessage) this message for your viewers.|VAST, Freewheel|"Skip ad in xx"|
+|**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over<br/><br/>You can also [localize](#intlskiptext) this message for your viewers.|VAST, Freewheel|"Skip"|
 |**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled"**: VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/>**"insecure"**: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
 |**[advertising.companiondiv](#advertising-companiondiv)**|Object|Gives information to the player related to which div(s) to populate with companion ads <br/> Not supported in Freewheel|VAST, IMA|-|
 |**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
 |**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
 |**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
-|**advertising.setLocale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+|**advertising.locale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
 |**advertising.creativeTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
 |**advertising.requestTimeout**|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |**advertising.vastLoadTimeout**|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000
 |**advertising.loadVideoTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
 |**advertising.maxRedirects**|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
-|**advertising.podmessage**|String|Text that displays during playback of an ad pod. Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|VAST|"Ad xx of yy."|
+|**advertising.podmessage**|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/>You can also [localize](#intlpodmessage) this message for your viewers.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
 |**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
 |**advertising.freewheel.adManagerURL**|String|Freewheel-supplied Ad Manager URL|Freewheel|-|
@@ -680,7 +682,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
+|**advertising.schedule.*adbreak*.tag**|String or Array|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
 |**advertising.schedule.*adbreak*.type**|String|This should be set to **nonlinear** if you want to force the player to render a nonlinear ad in the ad response.|-|
 ```
@@ -981,49 +983,184 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |**drm.clearkey.key**|String|**(Required)** The key required to decrypt DRM content|
 |**drm.clearkey.keyId**|String|**(Required)** The key ID specified in the mpd's **default_KID** value  |
 
-<a name="localization"></a>
+<a name="internationalization"></a>
 
 * * *
 
-## Localization
+## Internationalization <sup>8.6.0+</sup>
 
-Using the localization block in a player configuration allows you to configure text used in the player's user interface for titles, descriptions, ARIA labels and tool tips. The available options are below.
+The `intl` object allows you to add new language translations, customize translations for player text and `aria-label` values, and access the benefits of the [automated player localization](https://support.jwplayer.com/articles/translate-video-player-text) feature.
+
+!!!important
+Any existing `localization` object customizations will override both automated player localization and `intl` object customizations. If you currently use the `localization` object for localization, use the [table](#intlloctable) below to copy the `localization.<property>` value into the corresponding `intl.<lang>.<property>`. 
+!!!
+
+For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
+
+```
+jwplayer("myElement").setup({
+  . . .
+  "intl": {
+    // Quebec french sub-block
+    "fr-ca": {
+      "play": "reproduire"
+    },
+    // french sub-block 
+    "fr": {
+      "replay": "Répéter",
+      "play": "jouer"
+    },  
+    // spanish sub-block
+    "es": {
+      "replay": "Repetir"
+    }
+    // frisian sub-block
+    "fy": {
+      "advertising": {
+        "loadingAd": "Advertinsje lade"
+      }
+    }
+  }
+});
+```
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**localization.airplay**|String|Title of the tooltip for the Airplay icon in the control bar |"Airplay"|
-|**localization.audioTracks**|String|Title of the tooltip for the audio track menu |"Audio tracks"|
-|**localization.buffer**|String|Title of the buffer state |"Loading"|
-|**localization.cast **|String|Title of the tooltip for the Chromecast icon in the control bar |"Chromecast"|
-|**localization.cc**|String|Title of the tooltip for the captions menu  |"Closed captions"|
-|**localization.close**|String|Close text and title of close icons  |"Close"|
-|**localization.copied** <sup>8.1.8+</sup>|String|Text when a link is copied to the clipboard in the sharing menu |"Copied"|
-|**localization.errors.badConnection** <sup>8.4.0+</sup>|String|Shown for errors caused by the viewer's connection.|"This video cannot be played because of a problem with your internet connection"|
-|**localization.errors.cantLoadPlayer** <sup>8.4.0+</sup>|String|Shown when there's a failed attempt to load the player or one of its components|"Sorry, the video player failed to load"|
-|**localization.errors.cantPlayInBrowser** <sup>8.4.0+</sup>|String|Displayed for browser-specific errors|"The video cannot be played in this browser"|
-|**localization.errors.cantPlayVideo** <sup>8.4.0+</sup>|String|Shown when there is no playable media|"This video file cannot be played"|
-|**localization.errors.errorCode** <sup>8.4.0+</sup>|String|Text shown before the error code|"Error Code"|
-|**localization.errors.liveStreamDown** <sup>8.4.0+</sup>|String|Shown when a live stream has ended or is no longer available|"The live stream is either down or has ended"|
-|**localization.errors.protectedContent** <sup>8.4.0+</sup>|String|Shown when there is a problem providing access to protected content|"There was a problem providing access to protected content"|
-|**localization.errors.technicalError** <sup>8.4.0+</sup>|String|Shown for technical errors where the exact cause is unknown|"This video cannot be played because of a technical error"|
-|**localization.fullscreen**|String|Title of tooltip to enter fullscreen mode |"Fullscreen"|
-|**localization.hd**|String|Title of the tooltip for the quality menu |"Quality"|
-|**localization.liveBroadcast**|String|Override for the state of a live stream |"Live"|
-|**localization.loadingAd**|String|Override for the text shown when an ad is loading |"Loading ad"|
-|**localization.more**|String|Override for uses of a prompt to load addition items  |"More"|
-|**localization.next**|String|Title of the right arrow in paginated overlays  |"Next"|
-|**localization.nextUp**|String|Override for the "Next Up" prompt |"Next Up"|
-|**localization.nextUpClose**|String|Title of the tooltip to close the "Next Up" prompt  |"Next Up Close"|
-|**localization.pause**|String|Tooltip for the pause button  |"Pause"|
-|**localization.play**|String|Tooltip for the play button |"Play"|
-|**localization.playback**|String|Override for the play button in an idle state |"Start playback"|
-|**localization.playbackRates**|String|Title of the tooltip for the playback rate controls menu  |"Playback rates"|
-|**localization.player**|String|Override for the player application |"Video Player"|
-|**localization.playlist**|String|Title of the icon tooltip and overlay heading in Playlist mode |"Playlist"|
-|**localization.prev**|String|Title of the left arrow in paginated overlays |"Previous"|
-|**localization.related**|String|Title of recommended video screen headings and tooltips |"More Videos"|
-|**localization.replay**|String|Title of the tooltip for the replay button shown on completion  |"Replay"|
-|**localization.rewind**|String|Title of tooltip for the rewind button in the control bar |"Rewind 10s"|
-|**localization.stop**|String|Title of tooltip for the stop button in the control bar for live streams |"Stop"|
-|**localization.videoInfo**|String|Label for the video info overlay accessible via the right click menu |"About this video"|
-|**localization.volume**|String|Tooltip for the volume controls |"Volume"|
+|`advertising`|Object|See: [advertising object](#intladvertising).| - |
+|`airplay`|String|Tooltip text and `aria-label` for Apple AirPlay casting icon in the control bar|Airplay|
+|`audioTracks`|String|Tooltip text for and `aria-label` HTML attribute of the audio tracks menu icon|Audio Tracks|
+|`auto`|String|Label text and `aria-label` HTML attribute of the default quality selection option that allows the player to automatically select the best quality level for the viewer|Auto|
+|`buffer`|String|`aria-label` for when player is in buffering state |Loading|
+|`cast`|String|Tooltip text for and `aria-label` HTML attribute of the Google Chromecast casting icon in the control bar|Chromecast|
+|`cc`|String|Tooltip text for and `aria-label` HTML attribute of the closed captions menu icon|Closed Captions|
+|`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
+|`errors`|Object|See: [errors object](#intlerrors).|-|
+|`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
+|`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video quality options menu icon|Quality|
+|`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
+|`logo`|String|`aria-label` HTML attribute of the logo in the player|Logo|
+|`next`|String|`aria-label` HTML attribute of the right arrow in overlays with multiple pages of videos|Next|
+|`nextUp`|String|Title text and `aria-label` HTML attribute of the overlay that displays the next item to automatically play in a playlist|Next Up|
+|`notLive`|String|In the control bar, label text and `aria-label` HTML attribute that indicates the current video position in a live stream lags behind the real-time stream|Not Live|
+|`off`|String|Menu option text for turning an option off|Off|
+|`pause`|String|`aria-label` HTML attribute of the pause icon in the control bar|Pause|
+|`play`|String|`aria-label` HTML attribute of the play icon in the control bar|Play|
+|<a name="intlplayback"></a>`playback`|String|Call-to-action text beneath the play button on the player idle screen.|Play|
+|`playbackRates`|String|Tooltip text for and `aria-label` HTML attribute of the playback rate controls menu|Playback Rates|
+|`player`|String|`aria-label` HTML attribute of the video player application|Video Player|
+|`playlist`|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay|Playlist|
+|`poweredBy`|String|Text displayed before the JW Player name and logo on a button in the Right-click menu.|Powered by|
+|`prev`|String|`aria-label` HTML attribute of the left arrow in overlays with multiple pages of videos|Previous|
+|`quality`|String|Tooltip text for and `aria-label` HTML attribute of the **Quality** menu.|Quality|
+|`related`|Object|See: [related object](#intlrelated).|-|
+|`replay`|String|Tooltip text for and `aria-label` HTML attribute of the replay button in the control bar, displayed at the completion of video playback.|Replay|
+|`rewind`|String|Tooltip text for and `aria-label` HTML attribute of the rewind button in the control bar|Rewind 10 Seconds|
+|`settings`|String|Tooltip text for and `aria-label` HTML attribute of the **Settings** menu icon|Settings|
+|`sharing`|Object|See: [sharing object](#intlsharing).|-|
+|`slider`|String|`aria-label` HTML attribute of the video scrub bar|Seek Slider|
+|`stop`|String|`aria-label` HTML attribute of the stop button in the control bar for live streams.|Stop|
+|`videoInfo`|String|Label text and `aria-label` HTML attribute of the Right-click menu button.|About This Video|
+|`volume`|String|Tooltip text for and `aria-label` HTML attribute of the volume in the control bar.|Volume|
+|`volumeSlider`|String|`aria-label` HTML attribute of the volume slider in the control bar.|Volume Slider|
+
+<a name="intladvertising"></a>
+
+### advertising object
+
+This object localizes the player text and ARIA labels of the [advertising object](#advertising).
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|<a name="intladmessage"></a>`admessage`|String|Countdown message text that displays the remaining duration of an ad|This ad will end in xx|
+|<a name="intlcuetext"></a>`cuetext`|String|Tooltip text for and `aria-label` HTML attribute that indicates the content is an advertisement. Appears when a user mouses over a scheduled advertisement cue marker in the time slider.|Advertisement|
+|<a name="intlloadingad"></a>`loadingAd`|String|Text displayed when an ad is loading|Loading ad|
+|<a name="intlpodmessage"></a>`podmessage`|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.|Ad xx of yy|
+|<a name="intlskipmessage"></a>`skipmessage`|String|Skip countdown message text that displays the remaining duration before an ad can be skipped|Skip ad in xx|
+|<a name="intlskiptext"></a>`skiptext`|String|Button text for and `aria-label` HTML attribute that indicates when an ad can be skipped|Skip|
+
+<a name="intlerrors"></a>
+
+### errors object
+
+This object localizes the error messages displayed in the player.
+
+Option|Type|Description|Default|
+|---|---|---|---|
+|`badConnection`|String|Error message text displayed when a connection issue prevents playback|This video cannot be played because of a problem with your internet connection.|
+|`cantLoadPlayer`|String|Error message text displayed when a player fails to instantiate due to a non-network reason. For example: incorrect JSON or license keys|Sorry, the video player failed to load.|
+|`cantPlayInBrowser`|String|Error message text displayed when a video fails to start playback due to a browser support reason. For example:  such as Flash or DASH error or browser support|The video cannot be played in this browser.|
+|`cantPlayVideo`|String|Error message text displayed when a media item fails to load|This video file cannot be played.|
+|`errorCode`|String|Label text for a numeric error code. (For example: Error code: 50244402)|Error code|
+|`liveStreamEnded`|String|Error message text displayed when a live stream has technical issues or has ended|The live stream is either down or has ended.|
+|`protectedContent`|String|Error message text displayed when DRM or protected content fails|There was a problem providing access to protected content.|
+|`technicalError`|String|Fallback error message text displayed when no other error message is applicable|This video cannot be played because of a technical error.|
+
+<a name="intlrelated"></a>
+
+### related object
+
+This object localizes the player text and ARIA labels of the [related object](#related).
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|<a name="intlautoplaymessage"></a>`autoplaymessage`|String|Countdown message text that displays the remaining duration before the next video begins to play|Next up in xx|
+|`heading`|String|Button text for, overlay heading for, and `aria-label` HTML attribute of recommended video interfaces|More Videos|
+
+<a name="intlsharing"></a>
+
+### sharing object
+
+This object localizes the player text and ARIA labels of the [sharing object](#sharing).
+
+|Option|Type|Description|Default|
+|---|---|---|---|
+|`copied`|String|In the **Sharing** menu, tooltip text and `aria-label` HTML attribute for when a link is copied to the clipboard|Copied|
+|`email`|String|In the **Sharing** menu, label text for and `aria-label` HTML attribute of the option to email a video link in the sharing menu|Email|
+|`embed`|String|In the **Sharing** menu, label text for and `aria-label` HTML attribute of the option to copy embed code to clipboard|Embed|
+|<a name="intlheading"></a>`heading`|String|Tooltip text for and `aria-label` HTML attribute of the Sharing button in the control bar|Share|
+|<a name="intllink"></a>`link`|String|In the **Sharing** menu, label text for and `aria-label` HTML attribute of the option to copy a link to clipboard|Link|
+
+<a name="intlloctable"></a>
+
+### Transition table: localization object to intl object
+
+Use the table below to copy `localization.<property>` values to the corresponding `intl.<lang>.<property>`.
+
+|`localization` object|`intl` object|
+|---|---|
+|`localization.airplay`|`intl.<lang>.airplay`|
+|`localization.audioTracks`|`intl.<lang>.audioTracks`|
+|`localization.buffer`|`intl.<lang>.buffer`|
+|`localization.cast`|`intl.<lang>.cast`|
+|`localization.cc`|`intl.<lang>.cc`|
+|`localization.close`|`intl.<lang>.close`|
+|`localization.copied` <sup>8.1.8+</sup>|`intl.<lang>.sharing.copied`|
+|`localization.errors.badConnection`<sup>8.4.0+</sup>|`intl.<lang>.errors.badConnection`|
+|`localization.errors.cantLoadPlayer` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantLoadPlayer`|
+|`localization.errors.cantPlayInBrowser` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayInBrowser`|
+|`localization.errors.cantPlayVideo` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayVideo`|
+|`localization.errors.errorCode` <sup>8.4.0+</sup>|`intl.<lang>.errors.errorCode`|
+|`localization.errors.liveStreamDown` <sup>8.4.0+</sup>|`intl.<lang>.errors.liveStreamEnded`|
+|`localization.errors.protectedContent` <sup>8.4.0+</sup>|`intl.<lang>.errors.protectedContent`|
+|`localization.errors.technicalError` <sup>8.4.0+</sup>|`intl.<lang>.errors.technicalError`|
+|`localization.fullscreen`|`intl.<lang>.fullscreen`|
+|`localization.hd`|`intl.<lang>.hd`|
+|`localization.liveBroadcast`|`intl.<lang>.liveBroadcast`|
+|`localization.loadingAd`|`intl.<lang>.advertising.loadingAd`|
+|`localization.more`|`intl.<lang>.next`|
+|`localization.next`|`intl.<lang>.next`|
+|`localization.nextUp`|`intl.<lang>.nextUp`|
+|`localization.nextUpClose`|`intl.<lang>.close`|
+|`localization.pause`|`intl.<lang>.pause`|
+|`localization.play`|`intl.<lang>.play`|
+|`localization.playback`|`intl.<lang>.playback`|
+|`localization.playbackRates`|`intl.<lang>.playbackRates`|
+|`localization.player`|`intl.<lang>.player`|
+|`localization.playlist`|`intl.<lang>.playlist`|
+|`localization.prev`|`intl.<lang>.prev`|
+|`localization.related`|`intl.<lang>.related.heading`|
+|`localization.replay`|`intl.<lang>.replay`|
+|`localization.rewind`|`intl.<lang>.rewind`|
+|`localization.stop`|`intl.<lang>.stop`|
+|`localization.videoInfo`|`intl.<lang>.videoInfo`|
+|`localization.volume`|`intl.<lang>.volume`|
