@@ -984,6 +984,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 |**drm.clearkey.keyId**|String|**(Required)** The key ID specified in the mpd's **default_KID** value  |
 
 <a name="internationalization"></a>
+<a name="localization"></a>
 
 * * *
 
@@ -1091,7 +1092,7 @@ Option|Type|Description|Default|
 |`cantPlayInBrowser`|String|Error message text displayed when a video fails to start playback due to a browser support reason. For example:  such as Flash or DASH error or browser support|The video cannot be played in this browser.|
 |`cantPlayVideo`|String|Error message text displayed when a media item fails to load|This video file cannot be played.|
 |`errorCode`|String|Label text for a numeric error code. (For example: Error code: 50244402)|Error code|
-|`liveStreamEnded`|String|Error message text displayed when a live stream has technical issues or has ended|The live stream is either down or has ended.|
+|`liveStreamDown`|String|Error message text displayed when a live stream has technical issues or has ended|The live stream is either down or has ended.|
 |`protectedContent`|String|Error message text displayed when DRM or protected content fails|There was a problem providing access to protected content.|
 |`technicalError`|String|Fallback error message text displayed when no other error message is applicable|This video cannot be played because of a technical error.|
 
@@ -1140,7 +1141,7 @@ Use the table below to copy `localization.<property>` values to the correspondin
 |`localization.errors.cantPlayInBrowser` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayInBrowser`|
 |`localization.errors.cantPlayVideo` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayVideo`|
 |`localization.errors.errorCode` <sup>8.4.0+</sup>|`intl.<lang>.errors.errorCode`|
-|`localization.errors.liveStreamDown` <sup>8.4.0+</sup>|`intl.<lang>.errors.liveStreamEnded`|
+|`localization.errors.liveStreamDown` <sup>8.4.0+</sup>|`intl.<lang>.errors.liveStreamDown`|
 |`localization.errors.protectedContent` <sup>8.4.0+</sup>|`intl.<lang>.errors.protectedContent`|
 |`localization.errors.technicalError` <sup>8.4.0+</sup>|`intl.<lang>.errors.technicalError`|
 |`localization.fullscreen`|`intl.<lang>.fullscreen`|
