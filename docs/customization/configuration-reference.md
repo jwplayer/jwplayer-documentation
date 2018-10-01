@@ -627,7 +627,7 @@ This options block configures the video advertising capabilities of JW Player an
 |---|---|---|---|---|
 |**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.adscheduleid**|String|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
-|**advertising.tag**|String|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
+|**advertising.tag**|String or Array|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
 |**advertising.admessage**|String|Text that displays during ad playback<br/><br/>You can also [localize](#intladmessage) this message for your viewers.|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
 |**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/>You can also [localize](#intlcuetext) this message for your viewers.|All|"Advertisement"|
@@ -682,7 +682,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 
 |Option|Type|Description|Default|
 |---|---|---|---|
-|**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
+|**advertising.schedule.*adbreak*.tag**|String or Array|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
 |**advertising.schedule.*adbreak*.type**|String|This should be set to **nonlinear** if you want to force the player to render a nonlinear ad in the ad response.|-|
 ```
