@@ -97,7 +97,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
 |**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
 |**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
-|**displayPlaybackLabel**|Boolean|Enables call-to-action text beneath the play button on the player idle screen.<br/><br/> When set to `true`, you can potentially see up to a 5% increase in the number of times viewers click the play button to watch a video. <br/><br/>The default call-to-action text is "Play." You can also [localize](#intlplayback) this message for your viewers.|false|
+|**displayPlaybackLabel** <sup>8.6.0+</sup>|Boolean|Enables call-to-action text beneath the play button on the player idle screen.<br/><br/> When set to `true`, you can potentially see up to a 5% increase in the number of times viewers click the play button to watch a video. <br/><br/>The default call-to-action text is "Play." You can also [localize](#intlplayback) this message for your viewers.|false|
 
 !!!
 `timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
@@ -543,9 +543,9 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**sharing.link**|String|URL to display in the video link field<br/><br/>You can also [localize](#intllink) this message for your viewers.|URL of the current page|
+|**sharing.link** <sup>< 8.6.0</sup>|String|URL to display in the video link field<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intllink) to set this property.|URL of the current page|
 |**sharing.code**|String|Embed code to display in the embed code field. If no code is set, the field is not shown|-|
-|**sharing.heading**|String|Short, instructive text to display at the top of the sharing screen<br/><br/>You can also [localize](#intlheading) this message for your viewers.|"Share Video"|
+|**sharing.heading** <sup>< 8.6.0</sup>|String|Short, instructive text to display at the top of the sharing screen<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlheading) to set this property.|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
 
 <br/>
@@ -600,7 +600,7 @@ This options block controls an overlay with related videos.
 |Config|Type|Description|Default|
 |---|---|---|---|
 |`file`|String|**(REQUIRED)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
-|`autoplaymessage`|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/>You can also [localize](#intlautoplaymessage) this message for your viewers.| "&#95;_title__ will play in xx seconds"|
+|`autoplaymessage` <sup>< 8.6.0</sup>|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlautoplaymessage) to set this property.| "&#95;_title__ will play in xx seconds"|
 |`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
 |`displayMode` <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. Use [`selector`](#relatedselector) to configure shelf location.|`shelf`|
 |`onclick`|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
@@ -628,11 +628,11 @@ This options block configures the video advertising capabilities of JW Player an
 |**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
 |**advertising.adscheduleid**|String|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
 |**advertising.tag**|String or Array|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
-|**advertising.admessage**|String|Text that displays during ad playback<br/><br/>You can also [localize](#intladmessage) this message for your viewers.|All|"The ad will end in xx seconds"|
+|**advertising.admessage** <sup>< 8.6.0</sup>|String|Text that displays during ad playback<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intladmessage) to set this property.|All|"The ad will end in xx seconds"|
 |**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
-|**advertising.cuetext**|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/>You can also [localize](#intlcuetext) this message for your viewers.|All|"Advertisement"|
-|**advertising.skipmessage**|String|This is used to provide a customized countdown message<br/><br/>You can also [localize](#intlskipmessage) this message for your viewers.|VAST, Freewheel|"Skip ad in xx"|
-|**advertising.skiptext**|String|This sets the text of the Skip button after the countdown is over<br/><br/>You can also [localize](#intlskiptext) this message for your viewers.|VAST, Freewheel|"Skip"|
+|**advertising.cuetext** <sup>< 8.6.0|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlcuetext) to set this property.|All|"Advertisement"|
+|**advertising.skipmessage** <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|VAST, Freewheel|"Skip ad in xx"|
+|**advertising.skiptext** <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|VAST, Freewheel|"Skip"|
 |**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled"**: VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/>**"insecure"**: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 |**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
 |**[advertising.companiondiv](#advertising-companiondiv)**|Object|Gives information to the player related to which div(s) to populate with companion ads <br/> Not supported in Freewheel|VAST, IMA|-|
@@ -646,7 +646,7 @@ This options block configures the video advertising capabilities of JW Player an
 |**advertising.loadVideoTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
 |**advertising.maxRedirects**|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
 |**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
-|**advertising.podmessage**|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/>You can also [localize](#intlpodmessage) this message for your viewers.|VAST|"Ad xx of yy."|
+|**advertising.podmessage** <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
 |**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
 |**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
 |**advertising.freewheel.adManagerURL**|String|Freewheel-supplied Ad Manager URL|Freewheel|-|
@@ -1037,7 +1037,7 @@ jwplayer("myElement").setup({
 |`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
 |`errors`|Object|See: [errors object](#intlerrors).|-|
 |`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
-|`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video quality options menu icon|Quality|
+|`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video **Quality** options menu icon|Quality|
 |`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
 |`logo`|String|`aria-label` HTML attribute of the logo in the player|Logo|
 |`next`|String|`aria-label` HTML attribute of the right arrow in overlays with multiple pages of videos|Next|
@@ -1052,7 +1052,6 @@ jwplayer("myElement").setup({
 |`playlist`|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay|Playlist|
 |`poweredBy`|String|Text displayed before the JW Player name and logo on a button in the Right-click menu.|Powered by|
 |`prev`|String|`aria-label` HTML attribute of the left arrow in overlays with multiple pages of videos|Previous|
-|`quality`|String|Tooltip text for and `aria-label` HTML attribute of the **Quality** menu.|Quality|
 |`related`|Object|See: [related object](#intlrelated).|-|
 |`replay`|String|Tooltip text for and `aria-label` HTML attribute of the replay button in the control bar, displayed at the completion of video playback.|Replay|
 |`rewind`|String|Tooltip text for and `aria-label` HTML attribute of the rewind button in the control bar|Rewind 10 Seconds|
