@@ -72,10 +72,10 @@ These errors stop playback and display an error message on the player's UI. They
 
 |Code|Reason|
 |---|---|
-|<a name='200001'></a> 200001 |An exception occurred while completing the player's setup.<br/><br/>This video cannot be played because of a technical error.<sup> 8.4.0+</sup> |
-|<a name='202000'></a> 202000 |Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error.<br/><br/>Error loading playlist: Error loading file<sup> < 8.4.0</sup><br/><br/>Sorry, the video player failed to load.<sup> 8.4.0+</sup> |
+|<a name='200001'></a> 200001 |An exception occurred while completing the player's setup.<br/><br/>**Error message**:<br/>This video cannot be played because of a technical error.<sup> 8.4.0+</sup> |
+|<a name='202000'></a> 202000 |Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error.<br/><br/>**Error message**:<br/>- Error loading playlist: Error loading file<sup> < 8.4.0</sup><br/>- Sorry, the video player failed to load.<sup> 8.4.0+</sup> |
 
-
+<br/><br/>
 
 |Code|Reason|`message` <sup>< 8.4.0</sup>|`message` <sup> 8.40+|
 |---|---|---|---|
