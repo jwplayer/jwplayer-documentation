@@ -16,15 +16,17 @@ All errors and warnings relating to the player are returned in a player error ob
 |`code` | Number | Identifier for the error <br/><br/>Error code descriptions are listed on this page.|
 |`message` | String | Viewer-friendly error text displayed displayed to the user<br/><br/> This property can be [localized](../customization/configuration-reference/#intlerrors). |
 |`sourceError` | Object or null | Lower level error or event, caught by the player, which resulted in this error |
-|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/> - `error`<br/>- `playAttemptFailed`<br/>- `setupError`<br/>- `warning` 
+|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning` 
 
 An _error_ has the following behaviors:
+
 * Stops player functionality
 * Displays the `code` and `message` to the viewer
 * In log events, displays the `code` with a link to this document
 * Returns a `type` value of `error` or `setupError` 
 
 An _warning_ has the following behaviors:
+
 * In log events, displays the `code` with a link to this document 
 * May degrade player functionality
 * Does not display the `code` and `message` to the viewer
@@ -39,8 +41,6 @@ Use the sections below to help you troubleshoot and programmatically handle play
 |[Player Errors (`error`)](#player)|[Misc](#misc-error) \| [Loading New Playlist](#loading-new-playlist) \| [Playlist Item](#playlist-item) \| [Loading Javascript Components](#player-loading-js) \| [Flash](#media-flash) \| [HTML5](#media-html5) \| [HLS.JS](#media-hlsjs) \| [Shaka](#media-shaka)|
 |[playAttemptFailed warnings (`playAttemptFailed`)](#playattemptedfailed-warnings)||
 |[Warnings (`warning`)](#warnings)| [Loading Javascript Components](#loading-js-warnings) \|  [Related](#related-warnings) \| [Captions](#captions-warnings) \| [VR](#vr-warnings) \| [Localization](#localization-warnings) \| [Casting](#casting-warnings) |
-
-
 
 
 <br/>
@@ -262,8 +262,10 @@ An error occured while reproducing content with our Shaka Provider.
 |<a name='249000'></a> 249000 | A miscellaneous DASH-related player error occurred. | Error loading media: File could not be played | This video file cannot be played. |
 |<a name='340000'></a> 340000  |A recoverable DASH-related error has been thrown. | Error loading media: File could not be played | This video file cannot be played. |
 
-## playAttemptFailed Warnings
 
+<br/>
+
+## playAttemptFailed Warnings
 <a name="playattemptedfailed-warnings"></a>
 
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
@@ -275,10 +277,11 @@ An error occured while reproducing content with our Shaka Provider.
 |<a name='303220'></a> 303220 | The play attempt failed because the user didn't interact with the document first, or disabled auto-play completely. | - | - | 
 |<a name='303230'></a> 303230 | The play attempt failed because no supported source was found. | - | - |
 
+
+<br/>
 <a name="warnings"></a>
 
 ## Warnings
-
 When a warning occurs, video player functionality is not interrupted, but may be degraded.
 
 <a name="loading-js-warnings"></a>
