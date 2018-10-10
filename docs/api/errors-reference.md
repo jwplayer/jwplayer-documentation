@@ -28,6 +28,8 @@
 
 ## setupError property
 
+<table style="width:400px">
+
 |Code|Reason|`message` <sup>< 8.4.0</sup>|`message` <sup> 8.4.0+|
 |---|---|---|---|
 |<a name='100000'></a> 100000 | An unknown setup error occurred. | none| Sorry, the video player failed to load.|
@@ -61,6 +63,8 @@
 |<a name='104152'></a> 104152 | The `provider.html5.js` playback component of the player (HTML5 provider) failed to load | Failed to load media| Sorry, the video player failed to load.|
 |<a name='104153'></a> 104153 | The `provider.hlsjs.js` playback component of the player (HLS.JS provider) failed to load | Failed to load media| Sorry, the video player failed to load.|
 |<a name='104154'></a> 104154 | The `provider.shaka.js` playback component of the player (Shaka provider) failed to load | Failed to load media| Sorry, the video player failed to load.|
+
+</table>
 <br/><br/>
 ***
 <a name='setuperror'></a>
@@ -68,6 +72,11 @@
 ## error property
 
 These errors stop playback and display an error message on the player's UI. They occur after the "ready" event is triggered, and are dispatched in an "error" event.
+<table>
+<col width="10%">
+<col width="30%">
+<col width="30%">
+<col width="30%">
 
 |Code|Reason|`message` <sup>< 8.4.0</sup>|`message` <sup> 8.40+|
 |---|---|---|---|
@@ -128,3 +137,5 @@ These errors stop playback and display an error message on the player's UI. They
 |<a name='241011'></a> 241011 | A network request was made without proper crossdomain credentials. | Error loading media: Crossdomain access denied|This video cannot be played because of a technical error.|
 |<a name='241012'></a> 241012 | A network request was made to an HTTP resource from HTTPS. | Error loading media: Unable to fetch HTTP resource over HTTPS|This video cannot be played because of a technical error.|
 |<a name='241400-241599'></a> 241400-241599 | A network request returned with an HTTP status indicating failure (eg. 241404 is HTTP status code 404). | * Error loading media: `<statusCode>` `<responseText>` <br/>* Error loading media: You do not have permission to access this content <br/>* Error loading media: 404 Not Found|This video cannot be played because of a technical error.|
+
+</table>
