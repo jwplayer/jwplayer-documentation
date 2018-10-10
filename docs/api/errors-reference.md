@@ -70,9 +70,16 @@
 
 These errors stop playback and display an error message on the player's UI. They occur after the "ready" event is triggered, and are dispatched in an "error" event.
 
+|Code|Reason|
+|---|---|
+|<a name='200001'></a> 200001 |An exception occurred while completing the player's setup.<br/><br/>This video cannot be played because of a technical error.<sup> 8.4.0+</sup> |
+|<a name='202000'></a> 202000 |Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error.<br/><br/>Error loading playlist: Error loading file<sup> < 8.4.0</sup><br/><br/>Sorry, the video player failed to load.<sup> 8.4.0+</sup> |
+
+
+
 |Code|Reason|`message` <sup>< 8.4.0</sup>|`message` <sup> 8.40+|
 |---|---|---|---|
-|<a name='200001'></a> 200001 |< An exception occurred while completing the player's setup.  none|| This video cannot be played because of a technical error.|
+|<a name='200001'></a> 200001 |An exception occurred while completing the player's setup.  | none | This video cannot be played because of a technical error.|
 |<a name='202000'></a> 202000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='202001'></a> 202001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout| Sorry, the video player failed to load.|
 |<a name='202002'></a> 202002 | The browser failed to make the XHR request because it does not support `XMLHttpRequest`. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
