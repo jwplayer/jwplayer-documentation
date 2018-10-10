@@ -42,10 +42,10 @@
 |<a name='101104'></a> 101104 | Failed to load the `jwplayer.core.controls.html5` component | Network error| Sorry, the video player failed to load.|
 |<a name='101105'></a> 101105 | Failed to load the `jwplayer.core.controls.polyfills.html5` component | Network error| Sorry, the video player failed to load.|
 |<a name='101120'></a> 101120 | Failed to load the `polyfills.intersection-observer` component | Network error| Sorry, the video player failed to load.|
-|<a name='102000'></a> 102000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while<br/> parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
+|<a name='102000'></a> 102000 | Unknown error. This is generally caused by an unknown XHR error or an<br/> exception thrown while parsing the content; for more context we recommend<br/> checking the source error. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102001'></a> 102001 | The XHR request exceeded the timeout argument or the default of 60 seconds. | Error loading playlist: Timeout| Sorry, the video player failed to load.|
 |<a name='102002'></a> 102002 | The browser failed to make the XHR request because it does not support `XMLHttpRequest`. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
-|<a name='102003'></a> 102003 | An exception was thrown while calling `xhr.open`. The reason varies depending on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
+|<a name='102003'></a> 102003 | An exception was thrown while calling `xhr.open`. The reason varies depending<br/> on the browser, but the cause is usually a malformed URL. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)| Sorry, the video player failed to load.|
