@@ -87,7 +87,7 @@ These errors stop playback and display an error message on the player's UI. They
     <td>This video cannot be played because of a technical error.<sup> 8.4.0+</sup></td>
   </tr>
   <tr>
-    <td><a name='202000'></a> 202000</td>
+    <td><a name='202000'></a> 202400-202599</td>
     <td>Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error.</td>
     <td>- Error loading playlist: Error loading file<sup> < 8.4.0</sup><br/>- Sorry, the video player failed to load.<sup> 8.4.0+</sup></td>
   </tr>
@@ -100,9 +100,9 @@ These errors stop playback and display an error message on the player's UI. They
     <th>Message</th>
   </tr>
   <tr>
-    <td width="10%">January</td>
-    <td width="60%">$100</td>
-    <td width="30%">$100</td>
+    <td width="7%">January</td>
+    <td width="50%">$100</td>
+    <td width="43%">$100</td>
   </tr>
   <tr>
     <td><a name='200001'></a> 200001</td>
