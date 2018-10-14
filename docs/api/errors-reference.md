@@ -77,9 +77,9 @@ These errors stop playback and display an error message on the player's UI. They
     <th>Message</th>
   </tr>
   <tr>
-    <td width="10%">January</td>
-    <td width="60%">$100</td>
-    <td width="30%">$100</td>
+    <td width="7%">January</td>
+    <td width="50%">$100</td>
+    <td width="43%">$100</td>
   </tr>
   <tr>
     <td><a name='200001'></a> 200001</td>
