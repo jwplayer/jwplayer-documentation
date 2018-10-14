@@ -20,7 +20,6 @@ pages:
   - Advertising:
     - Ads Errors Reference: advertising/ads_errors_reference.md
     - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
-    - Test: j
   - Analytics:
     - Analytics Integrations: analytics/integrations.md
   - JW 7 Developer Guide:
