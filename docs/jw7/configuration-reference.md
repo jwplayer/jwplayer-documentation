@@ -548,6 +548,7 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 |---|---|---|---|
 |**advertising.schedule.*adbreak*.tag**|String|The ad tag that is called during the configured ad break|-|
 |**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/>**"pre":** Ad plays as a preroll <br/>**"post":** Ad plays as a postroll<br/>**"xx%":** Ad plays after xx% of the content<br/>**number:** Ad plays after the specified number of seconds|"pre"|
+|**advertising.schedule.*adbreak*.type**|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: (Default) Video ad that interrupts video content playback <br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|-|
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
