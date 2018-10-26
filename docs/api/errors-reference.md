@@ -294,7 +294,7 @@ When a warning occurs, video player functionality is not interrupted, but may be
 |<a name='301129'></a> 301129 | The related.js file failed to load. | - | - |
 |<a name='301130'></a> 301130 | The jwplayer.controls.js failed to load. Controls will not be displayed. | Controls failed to load | - |
 |<a name='301131'></a> 301131 | The vttparser.js file failed to load. VTT captions cannot be displayed. | Captions failed to load | - |
-|<a name='301132'></a> 301132 | The jwplayer.vr.js file failed to load. 360 VR video may still play, but cannot not be rendered in 360 mode. | The VR ("360") module failed to load | - |
+|<a name='301132'></a> 301132 | The jwplayer.vr.js file failed to load. 360 VR video may still play, but cannot be rendered in 360 mode. | The VR ("360") module failed to load | - |
 |<a name='301161'></a> 301161 | The provider.cast.js file failed to load. Chromecast cannot be enabled. | Casting failed to load | - |
 |<a name='301162'></a> 301162 | The provider.airplay.js file failed to load. Airplay cannot be enabled. | Casting failed to load | - |
 |<a name='305000'></a> 305000 | An unknown plugin file failed to load. | - | - |
