@@ -57,7 +57,7 @@ These errors prevent the player from setting up successfully; they occur after `
 |Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
 |---|---|---|---|
 |<a name='100000'></a> 100000 | An unknown setup error occurred. | none| Sorry, the video player failed to load.|
-|<a name='100001'></a> 100001 | Setup took longer than 30 seconds to complete. | Setup Timeout Error: Setup took longer than 30 seconds to complete.| Sorry, the video player failed to load.|
+|<a name='100001'></a> 100001 | Setup took longer than 60 seconds to complete. | Setup Timeout Error: Setup took longer than 30 seconds to complete.| Sorry, the video player failed to load.|
 |<a name='100011'></a> 100011 | Missing license key: the key was not found in the setup config or the `jwplayer.key` global. | Error setting up player: Missing license key| Sorry, the video player failed to load.|
 |<a name='100012'></a> 100012 | Invalid license key. | Error setting up player: Invalid license key| Sorry, the video player failed to load.|
 |<a name='100013'></a> 100013 | Expired license key. | Error setting up player: Invalid license key| Sorry, the video player failed to load.|
@@ -294,6 +294,7 @@ When a warning occurs, video player functionality is not interrupted, but may be
 |<a name='301129'></a> 301129 | The related.js file failed to load. | - | - |
 |<a name='301130'></a> 301130 | The jwplayer.controls.js failed to load. Controls will not be displayed. | Controls failed to load | - |
 |<a name='301131'></a> 301131 | The vttparser.js file failed to load. VTT captions cannot be displayed. | Captions failed to load | - |
+|<a name='301132'></a> 301132 | The jwplayer.vr.js file failed to load. 360 VR video may still play, but cannot not be rendered in 360 mode. | The VR ("360") module failed to load | - |
 |<a name='301161'></a> 301161 | The provider.cast.js file failed to load. Chromecast cannot be enabled. | Casting failed to load | - |
 |<a name='301162'></a> 301162 | The provider.airplay.js file failed to load. Airplay cannot be enabled. | Casting failed to load | - |
 |<a name='305000'></a> 305000 | An unknown plugin file failed to load. | - | - |
