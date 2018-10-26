@@ -993,7 +993,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 The `intl` object allows you to add new language translations, customize translations for player text and `aria-label` values, and access the benefits of the [automated player localization](https://support.jwplayer.com/articles/translate-video-player-text) feature.
 
 !!!important
-Any existing language customizations or translations made outside of the `intl` object will override both automated player localization and `intl` object customizations. If you have configured language customizations or translations outside of the `intl` object, use the [table](#intlloctable) below to copy those values into the corresponding `intl.{lang}.<property>`. 
+Any existing language customizations or translations made outside of the `intl` object will override both automated player localization and `intl` object customizations. If you have configured language customizations or translations outside of the `intl` object, use the [table](#intltranstable) below to copy those values into the corresponding `intl.{lang}.{property}`. 
 !!!
 
 For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
@@ -1120,9 +1120,9 @@ This object localizes the player text and ARIA labels of the [sharing object](#s
 |<a name="intlheading"></a>`heading`|String|Tooltip text for and `aria-label` HTML attribute of the Sharing button in the control bar|Share|
 |<a name="intllink"></a>`link`|String|In the **Sharing** menu, label text for and `aria-label` HTML attribute of the option to copy a link to clipboard|Link|
 
-<a name="intlloctable"></a>
+<a name="intltranstable"></a>
 
-### Transition table: localization object to intl object
+### Transition table
 
 Use the table below to copy old customization or translation values to the corresponding `intl.{lang}.{property}`.
 
