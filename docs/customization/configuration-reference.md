@@ -993,7 +993,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 The `intl` object allows you to add new language translations, customize translations for player text and `aria-label` values, and access the benefits of the [automated player localization](https://support.jwplayer.com/articles/translate-video-player-text) feature.
 
 !!!important
-Any existing `localization` object customizations will override both automated player localization and `intl` object customizations. If you currently use the `localization` object for localization, use the [table](#intlloctable) below to copy the `localization.<property>` value into the corresponding `intl.<lang>.<property>`. 
+Any existing `localization` object customizations will override both automated player localization and `intl` object customizations. If you currently use the `localization` object for localization, use the [table](#intlloctable) below to copy the `localization.<property>` value into the corresponding `intl.{lang}.<property>`. 
 !!!
 
 For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
@@ -1124,43 +1124,51 @@ This object localizes the player text and ARIA labels of the [sharing object](#s
 
 ### Transition table: localization object to intl object
 
-Use the table below to copy `localization.<property>` values to the corresponding `intl.<lang>.<property>`.
+Use the table below to copy old customization values to the corresponding `intl.{lang}.{property}`.
 
-|`localization` object|`intl` object|
+|Old property | New property|
 |---|---|
-|`localization.airplay`|`intl.<lang>.airplay`|
-|`localization.audioTracks`|`intl.<lang>.audioTracks`|
-|`localization.buffer`|`intl.<lang>.buffer`|
-|`localization.cast`|`intl.<lang>.cast`|
-|`localization.cc`|`intl.<lang>.cc`|
-|`localization.close`|`intl.<lang>.close`|
-|`localization.copied` <sup>8.1.8+</sup>|`intl.<lang>.sharing.copied`|
-|`localization.errors.badConnection`<sup>8.4.0+</sup>|`intl.<lang>.errors.badConnection`|
-|`localization.errors.cantLoadPlayer` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantLoadPlayer`|
-|`localization.errors.cantPlayInBrowser` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayInBrowser`|
-|`localization.errors.cantPlayVideo` <sup>8.4.0+</sup>|`intl.<lang>.errors.cantPlayVideo`|
-|`localization.errors.errorCode` <sup>8.4.0+</sup>|`intl.<lang>.errors.errorCode`|
-|`localization.errors.liveStreamDown` <sup>8.4.0+</sup>|`intl.<lang>.errors.liveStreamDown`|
-|`localization.errors.protectedContent` <sup>8.4.0+</sup>|`intl.<lang>.errors.protectedContent`|
-|`localization.errors.technicalError` <sup>8.4.0+</sup>|`intl.<lang>.errors.technicalError`|
-|`localization.fullscreen`|`intl.<lang>.fullscreen`|
-|`localization.hd`|`intl.<lang>.hd`|
-|`localization.liveBroadcast`|`intl.<lang>.liveBroadcast`|
-|`localization.loadingAd`|`intl.<lang>.advertising.loadingAd`|
-|`localization.more`|`intl.<lang>.next`|
-|`localization.next`|`intl.<lang>.next`|
-|`localization.nextUp`|`intl.<lang>.nextUp`|
-|`localization.nextUpClose`|`intl.<lang>.close`|
-|`localization.pause`|`intl.<lang>.pause`|
-|`localization.play`|`intl.<lang>.play`|
-|`localization.playback`|`intl.<lang>.playback`|
-|`localization.playbackRates`|`intl.<lang>.playbackRates`|
-|`localization.player`|`intl.<lang>.player`|
-|`localization.playlist`|`intl.<lang>.playlist`|
-|`localization.prev`|`intl.<lang>.prev`|
-|`localization.related`|`intl.<lang>.related.heading`|
-|`localization.replay`|`intl.<lang>.replay`|
-|`localization.rewind`|`intl.<lang>.rewind`|
-|`localization.stop`|`intl.<lang>.stop`|
-|`localization.videoInfo`|`intl.<lang>.videoInfo`|
-|`localization.volume`|`intl.<lang>.volume`|
+|`advertising.admessage`|`intl.{lang}.advertising.admessage`|
+|`advertising.cuetext`|`intl.{lang}.advertising.cuetext`|
+|`advertising.podmessage`|`intl.{lang}.advertising.podmessage`|
+|`advertising.skipmessage`|`intl.{lang}.advertising.skipmessage`|
+|`advertising.skiptext`|`intl.{lang}.advertising.skiptext`| 
+|`localization.airplay`|`intl.{lang}.airplay`|
+|`localization.audioTracks`|`intl.{lang}.audioTracks`|
+|`localization.buffer`|`intl.{lang}.buffer`|
+|`localization.cast`|`intl.{lang}.cast`|
+|`localization.cc`|`intl.{lang}.cc`|
+|`localization.close`|`intl.{lang}.close`|
+|`localization.copied` <sup>8.1.8+</sup>|`intl.{lang}.sharing.copied`|
+|`localization.errors.badConnection`<sup>8.4.0+</sup>|`intl.{lang}.errors.badConnection`|
+|`localization.errors.cantLoadPlayer` <sup>8.4.0+</sup>|`intl.{lang}.errors.cantLoadPlayer`|
+|`localization.errors.cantPlayInBrowser` <sup>8.4.0+</sup>|`intl.{lang}.errors.cantPlayInBrowser`|
+|`localization.errors.cantPlayVideo` <sup>8.4.0+</sup>|`intl.{lang}.errors.cantPlayVideo`|
+|`localization.errors.errorCode` <sup>8.4.0+</sup>|`intl.{lang}.errors.errorCode`|
+|`localization.errors.liveStreamDown` <sup>8.4.0+</sup>|`intl.{lang}.errors.liveStreamDown`|
+|`localization.errors.protectedContent` <sup>8.4.0+</sup>|`intl.{lang}.errors.protectedContent`|
+|`localization.errors.technicalError` <sup>8.4.0+</sup>|`intl.{lang}.errors.technicalError`|
+|`localization.fullscreen`|`intl.{lang}.fullscreen`|
+|`localization.hd`|`intl.{lang}.hd`|
+|`localization.liveBroadcast`|`intl.{lang}.liveBroadcast`|
+|`localization.loadingAd`|`intl.{lang}.advertising.loadingAd`|
+|`localization.more`|`intl.{lang}.next`|
+|`localization.next`|`intl.{lang}.next`|
+|`localization.nextUp`|`intl.{lang}.nextUp`|
+|`localization.nextUpClose`|`intl.{lang}.close`|
+|`localization.pause`|`intl.{lang}.pause`|
+|`localization.play`|`intl.{lang}.play`|
+|`localization.playback`|`intl.{lang}.playback`|
+|`localization.playbackRates`|`intl.{lang}.playbackRates`|
+|`localization.player`|`intl.{lang}.player`|
+|`localization.playlist`|`intl.{lang}.playlist`|
+|`localization.prev`|`intl.{lang}.prev`|
+|`localization.related`|`intl.{lang}.related.heading`|
+|`localization.replay`|`intl.{lang}.replay`|
+|`localization.rewind`|`intl.{lang}.rewind`|
+|`localization.stop`|`intl.{lang}.stop`|
+|`localization.videoInfo`|`intl.{lang}.videoInfo`|
+|`localization.volume`|`intl.{lang}.volume`|
+|`related.autoplaymessage`|`intl.{lang}.related.autoplaymessage`|
+|`sharing.heading`|`intl.{lang}.sharing.heading`|
+|`sharing.link`|`intl.{lang}.sharing.link`|
