@@ -682,11 +682,12 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 ```
 jwplayer("myElement").setup({
   "file": "http://example.com/myVideo.mp4",
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4",
   "advertising": {
     "client": "vast",
     "adscheduleid": "p4Xk5lsZ",
     "schedule": {
-      "adbreak-preroll":{
+      "adbreak-preroll": {
         "tag": "myPreroll.xml",
         "offset": "pre"
         "custParams": {
@@ -694,8 +695,8 @@ jwplayer("myElement").setup({
           "testkey2": "testval2"
         },
       },
-      "adbreak-midroll":{
-        "tag": "myMidroll.xml",
+      "adbreak-midroll": {
+        "vastxml": "<VAST version='2.0'> ... </VAST>",
         "offset": "50%"
       }
     }
@@ -705,10 +706,11 @@ jwplayer("myElement").setup({
 
 |Property|Type|Description|Default|
 |---|---|---|---|
-|**advertising.schedule.*adbreak*.custParams**|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
-|**advertising.schedule.*adbreak*.offset**|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
-|**advertising.schedule.*adbreak*.tag**|String or Array|The ad tag that is called during the configured ad break|-|
-|**advertising.schedule.*adbreak*.type**|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
+|`{adbreak}.custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+|`{adbreak}.offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
+|`{adbreak}.tag`|String or Array|URL location of the ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `{adbreak}.vastxml` within the same ad break.|-|
+|`{adbreak}.type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
+|`{adbreak}.vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `{adbreak}.tag` within the same ad break.|-|
 
 <br/>
 
