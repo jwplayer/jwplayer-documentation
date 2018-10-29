@@ -1170,4 +1170,4 @@ Use the table below to copy old customization or translation values to the corre
 |`localization.volume`|`intl.{lang}.volume`|
 |`related.autoplaymessage`|`intl.{lang}.related.autoplaymessage`|
 |`sharing.heading`|`intl.{lang}.sharing.heading`|
-|`sharing.link`|`intl.{lang}.sharing.link`|
+|`sharing.link`|`intl.{lang}.sharing.link`| 
