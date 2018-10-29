@@ -681,7 +681,6 @@ In order to use a JSON-formatted schedule, you'll need at least one **ad break**
 
 ```
 jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
   "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4",
   "advertising": {
     "client": "vast",
