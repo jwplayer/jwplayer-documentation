@@ -141,7 +141,7 @@ jwplayer("myElement").setup({
   "cast": {}
 });
 ```
-If you are using a custom receiver, assign the identifier of the custom receiver have a custom receiver to the `cast.customAppId` property.
+If you are using a custom receiver, assign the identifier of the custom receiver to the `cast.customAppId` property.
 
 ```
 jwplayer("myElement").setup({
