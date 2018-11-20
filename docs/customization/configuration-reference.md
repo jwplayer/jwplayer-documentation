@@ -127,18 +127,35 @@ The default `preload` configuration has been updated to "metadata", and the _met
 
 ### Casting
 
-Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup.
+Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears. 
+
+See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs)
+
+To enable casting, add an empty `cast` object in your setup.
 
 ```
 jwplayer("myElement").setup({
-  "file": "https://example.com/myVideo.mp4",
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/1a2Bc3d4",
   "height": "auto"
   "width": "100%",
   "cast": {}
 });
 ```
-If you have a custom receiver, specify the ID as a string with `cast.appid`.
+If you are using a custom receiver, assign the identifier of the custom receiver have a custom receiver to the `cast.customAppId` property.
 
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/1a2Bc3d4",
+  "height": "auto"
+  "width": "100%",
+  "cast": {
+    "customAppId": "XXXXXX"
+  }
+});
+```
+| Property | Type | Description |
+| --- | --- | --- |
+| `customAppId` | String | (Optional) When using a [custom receiver](https://developers.google.com/cast/docs/registration), the identifier of the receiver app |
 
 <a name="playlist"></a>
 
