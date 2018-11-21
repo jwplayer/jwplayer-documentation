@@ -54,7 +54,7 @@ These errors prevent the player from setting up successfully; they occur after `
 
 ### Miscellaneous
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='100000'></a> 100000 | An unknown setup error occurred. | none| Sorry, the video player failed to load.|
 |<a name='100001'></a> 100001 | Setup took longer than 60 seconds to complete. | Setup Timeout Error: Setup took longer than 30 seconds to complete.| Sorry, the video player failed to load.|
@@ -67,7 +67,7 @@ These errors prevent the player from setting up successfully; they occur after `
 ### Loading Javascript Components
 Setup failed because the player could not load a necessary javascript component.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='101100'></a> 101100 | A component of the player failed to load. | Network error| Sorry, the video player failed to load.|
 |<a name='101101'></a> 101101 | Failed to load the `jwplayer.core` component | Network error| Sorry, the video player failed to load.|
@@ -87,7 +87,7 @@ Setup failed because the player could not load a necessary javascript component.
 ### Playlist Parsing
 Setup failed because the requested playlist could not be parsed.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='102000'></a> 102000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102001'></a> 102001 | The XHR request exceeded the timeout argument or the default of 60 seconds. | Error loading playlist: Timeout| Sorry, the video player failed to load.|
@@ -107,7 +107,7 @@ Setup failed because the requested playlist could not be parsed.
 ### Empty Playlist
 Setup failed because an invalid playlist was requested.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='102630'></a> 102630 | Either an empty playlist was requested or none of the items passed our filter for valid files. | No playable sources found|This video file cannot be played.|
 |<a name='102640'></a> 102640 | The playlist item could not be loaded because it is undefined or missing a valid source. | No media|This video file cannot be played.|
@@ -122,7 +122,7 @@ These errors stop playback and display an error message on the player's UI. They
 <a name="misc-error"></a>
 
 ### Miscellaneous
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='200001'></a> 200001 | An exception occurred while completing the player's setup. | none| This video cannot be played because of a technical error.|
 
@@ -131,7 +131,7 @@ These errors stop playback and display an error message on the player's UI. They
 ### Loading New Playlist
 These errors are dispatched when `jwplayer().load(content)` is called and the content cannot be loaded or played.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='202000'></a> 202000 | Unknown error. This is generally caused by an unknown XHR error or an exception thrown while parsing the content; for more context we recommend checking the source error. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='202001'></a> 202001 | Request exceeded timeout argument or default of 60 seconds. | Error loading playlist: Timeout| Sorry, the video player failed to load.|
@@ -152,7 +152,7 @@ These errors are dispatched when `jwplayer().load(content)` is called and the co
 ### Playlist Item
 These errors occur when the player attempts to switch playlist items, either via normal playlist progression (an item ends and the following one loads) or when calling `jwplayer().next()`.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='203000'></a> 203000 | An error occurred when switching playlist items. | N/A| This video file cannot be played.|
 |<a name='203100'></a> 203100 | A playback component of the player (the provider), required to play the requested item, failed to load between playlist items. | Playlist error: Failed to load media| This video file cannot be played.|
@@ -163,7 +163,7 @@ These errors occur when the player attempts to switch playlist items, either via
 ### Loading Javascript Components
 These errors occur when `jwplayer().load(content)` is called but the provider required to reproduce the media failed to load.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='204100'></a> 204100 | A playback component of the player (the provider) failed to load. | Could not play video: Failed to load media| This video file cannot be played.|
 |<a name='204151'></a> 204151 | The `provider.flash.js` playback component of the player (Flash provider) failed to load. | Could not play video: Failed to load media| This video file cannot be played.|
@@ -176,7 +176,7 @@ These errors occur when `jwplayer().load(content)` is called but the provider re
 ### Media Playback Flash
 An error occured while reproducing content with our Flash Provider.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='210000'></a> 210000 | An unknown error occurred in the Flash player. | `<event.message>`| This video file cannot be played.|
 |<a name='210001'></a> 210001 | The Flash player could not setup properly using the given player config. This error is generally browser specific. | Failed to setup flash| The video cannot be played in this browser.|
@@ -188,7 +188,7 @@ An error occured while reproducing content with our Flash Provider.
 ### Media Playback HTML5
 An error occured while reproducing content with our HTML5 Provider.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='220001'></a> 220001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended| The live stream is either down or has ended.|
 |<a name='221000'></a> 221000 | An unknown network error occurred. Equivalent to the HTML5 `MEDIA_ERR_NETWORK` mediaError. | Error loading media: Unknown network error| This video cannot be played because of a problem with your internet connection.|
@@ -207,7 +207,7 @@ An error occured while reproducing content with our HTML5 Provider.
 ### Media Playback HLS.JS
 An error occured while reproducing content with our HLS.JS Provider.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='230000'></a> 230000 | An unknown error occurred handling HLS media.| - | This video file cannot be played.|
 |<a name='230001'></a> 230001 | Occurs when a live stream has stalled for more than 30 seconds. The timeout can be configured at setup using `config.liveTimeout`. | The live stream is either down or has ended| The live stream is either down or has ended.|
@@ -240,7 +240,7 @@ An error occured while reproducing content with our HLS.JS Provider.
 ### Media Playback Shaka
 An error occured while reproducing content with our Shaka Provider.
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='240000'></a> 240000 | A miscellaneous and uncategorized DASH related error occurred. | Error loading media: File could not be played | This video file cannot be played. |
 |<a name='241000'></a> 241000 | Unknown network error. | Error loading media: File could not be played|This video cannot be played because of a technical error.|
@@ -268,7 +268,7 @@ An error occured while reproducing content with our Shaka Provider.
 ## playAttemptFailed Warnings
 <a name="playattemptedfailed-warnings"></a>
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='303200'></a> 303200 | The play attempt failed for unknown reasons. | - | - | 
 |<a name='303210'></a> 303210 | The play attempt was interrupted for unknown reasons. | - | - | 
@@ -288,7 +288,7 @@ When a warning occurs, video player functionality is not interrupted, but may be
 
 ### Loading Javascript Components
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='301121'></a> 301121 | The polyfills.webvtt.js file failed to load. VTT captions cannot be displayed. | Captions renderer failed to load | - |
 |<a name='301129'></a> 301129 | The related.js file failed to load. | - | - |
@@ -304,19 +304,19 @@ When a warning occurs, video player functionality is not interrupted, but may be
 |<a name='305004'></a> 305004 | The freewheel.js file failed to load. | - | - |
 |<a name='305005'></a> 305005 | The dai.js file failed to load. | - | - |
 |<a name='305006'></a> 305006 | The gapro.js file failed to load. | - | - |
-|<a name='305100'></a> 305000 | An unknown plugin file loaded, but was not registered. | - | - |
-|<a name='305001'></a> 305001 | The jwpsrv.js file loaded, but was not registered. | - | - |
-|<a name='305002'></a> 305002 | The googima.js file loaded, but was not registered. | - | - |
-|<a name='305003'></a> 305003 | The vast.js file loaded, but was not registered. | - | - |
-|<a name='305004'></a> 305004 | The freewheel.js file loaded, but was not registered. | - | - |
-|<a name='305005'></a> 305005 | The dai.js file loaded, but was not registered. | - | - |
-|<a name='305006'></a> 305006 | The gapro.js file loaded, but was not registered. | - | - |
+|<a name='305100'></a> 305100 | An unknown plugin file loaded, but was not registered. | - | - |
+|<a name='305001'></a> 305101 | The jwpsrv.js file loaded, but was not registered. | - | - |
+|<a name='305002'></a> 305102 | The googima.js file loaded, but was not registered. | - | - |
+|<a name='305003'></a> 305103 | The vast.js file loaded, but was not registered. | - | - |
+|<a name='305004'></a> 305104 | The freewheel.js file loaded, but was not registered. | - | - |
+|<a name='305005'></a> 305105 | The dai.js file loaded, but was not registered. | - | - |
+|<a name='305006'></a> 305106 | The gapro.js file loaded, but was not registered. | - | - |
 
 <a name="related-warnings"></a>
 
 ### Related
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='302001'></a> 302001 | Request exceeded timeout argument or default of 60 seconds. | - | - |
 |<a name='302002'></a> 302002 | The browser failed to make the request because `XMLHttpRequest` is not supported. | - | - |
@@ -331,7 +331,7 @@ When a warning occurs, video player functionality is not interrupted, but may be
 
 ### Captions
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='306001'></a> 306001 | Request exceeded timeout argument or default of 60 seconds. | Captions failed to load | - |
 |<a name='306002'></a> 306002 | The browser failed to make the request because `XMLHttpRequest` is not supported. | Captions failed to load | - |
@@ -348,15 +348,17 @@ When a warning occurs, video player functionality is not interrupted, but may be
 
 ### VR
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
+|<a name='307000'></a> 307000 | Unknown VR plugin error.| - | - |
 |<a name='307001'></a> 307001 | The browser does not support WebGL, which is required to render 360 video. Video will be rendered without 3D transformation. | 360° video playback is not supported in this browser. | - |
+|<a name='307012'></a> 307012 | VR cannot be rendered from a cross-origin resource.<br/><br/> If using a resource hosted by JW Player make sure to use an adaptive m3u8 or mpd files. An mp4 file redirect should not be used as a VR source. This type of redirect will cause this error.| - | - |
 
 <a name="localization-warnings"></a>
 
 ### Localization
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='308000'></a> 308000 |An unknown error occurred while trying to load one of the translation JSON files. | - | - |
 |<a name='308001'></a> 308001 |Request exceeded timeout argument or default of 60 seconds. | - | - |
@@ -368,6 +370,6 @@ When a warning occurs, video player functionality is not interrupted, but may be
 
 ### Casting
 
-|Code|Reason|Deprecated Error Message (Prior to 8.4.0)|Displayed Message|
+|Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
 |<a name='350000'></a> 350000 | A cast server error has occurred. | - | - |
