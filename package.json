@@ -1,9 +1,9 @@
 {
   "name": "jwplayer-docs-new",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-mkdocs-jwplayer": "github:jwplayer/grunt-mkdocs-jwplayer",
-    "grunt-contrib-connect": "~0.3.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt": "^1.0.3",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mkdocs-jwplayer": "github:jwplayer/grunt-mkdocs-jwplayer"
   }
 }
