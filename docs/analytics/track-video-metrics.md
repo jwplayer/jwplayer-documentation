@@ -8,7 +8,7 @@ Below is a visual representation of player events in a timeline. The table below
 
 <br/><br/>
 
-![player event metrics](../img/analytics/player-event-metrics.png)
+![player event metrics](../img/analytics/player-event-metrics.svg)
 
 <sup>_This timeline does not include all events and the events listed may not appear for all player setups._</sup>
 
