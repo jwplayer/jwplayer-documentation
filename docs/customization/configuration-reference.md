@@ -129,7 +129,7 @@ The default `preload` configuration has been updated to "metadata", and the _met
 
 Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears. 
 
-See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs)
+See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs) 
 
 To enable casting, add an empty `cast` object in your setup.
 
