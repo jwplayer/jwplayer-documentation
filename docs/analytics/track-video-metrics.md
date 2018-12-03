@@ -6,6 +6,13 @@ When viewers interact with a video player on your site, their actions trigger pl
 
 Below is a visual representation of player events in a timeline. The table below explains all the bold items. The gray events are included as reference points.
 
+<br/><br/>
+
+![player event metrics](../img/analytics/player-event-metrics.png)
+
+<sup>_This timeline does not include all events and the events listed may not appear for all player setups._</sup>
+
+<br/><br/>
 
 | Event | Metric | Description |
 | -- | -- | -- |
