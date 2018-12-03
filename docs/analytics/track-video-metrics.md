@@ -1,6 +1,6 @@
 # Track video metrics
 
-_Last Updated: December 5, 2018_
+<sup>_Last Updated: December 5, 2018_</sup>
 
 When viewers interact with a video player on your site, their actions trigger player events. Some of the player events return video metrics that you can use to analyze and improve your viewers' video experiences.
 
