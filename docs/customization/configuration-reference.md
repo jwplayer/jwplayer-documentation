@@ -1041,12 +1041,12 @@ jwplayer("myElement").setup({
 |`cc`|String|Tooltip text for and `aria-label` HTML attribute of the closed captions menu icon|Closed Captions|
 |`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
 |`errors`|Object|See: [errors object](#intlerrors).|-|
-|`exitFullscreen`|String|When in fullscreen mode, tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Exit Fullscreen| 
+|`exitFullscreen` <sup>8.7.0 +</sup>|String|When in fullscreen mode, tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Exit Fullscreen| 
 |`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
 |`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video **Quality** options menu icon|Quality|
 |`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
 |`logo`|String|`aria-label` HTML attribute of the logo in the player|Logo|
-|`mute`|String|When the player is not muted, tooltip text for and `aria-label` HTML attribute of the volume icon in the control bar|Mute|
+|`mute` <sup>8.7.0 +</sup>|String|When the player is not muted, tooltip text for and `aria-label` HTML attribute of the volume icon in the control bar|Mute|
 |`next`|String|`aria-label` HTML attribute of the right arrow in overlays with multiple pages of videos|Next|
 |`nextUp`|String|Title text and `aria-label` HTML attribute of the overlay that displays the next item to automatically play in a playlist|Next Up|
 |`notLive`|String|In the control bar, label text and `aria-label` HTML attribute that indicates the current video position in a live stream lags behind the real-time stream|Not Live|
@@ -1066,7 +1066,7 @@ jwplayer("myElement").setup({
 |`sharing`|Object|See: [sharing object](#intlsharing).|-|
 |`slider`|String|`aria-label` HTML attribute of the video scrub bar|Seek Slider|
 |`stop`|String|`aria-label` HTML attribute of the stop button in the control bar for live streams.|Stop|
-|`unmute`|String|When the player is muted, tooltip text for and aria-label HTML attribute of the volume icon in the control bar|Unmute|
+|`unmute` <sup>8.7.0 +</sup>|String|When the player is muted, tooltip text for and aria-label HTML attribute of the volume icon in the control bar|Unmute|
 |`videoInfo`|String|Label text and `aria-label` HTML attribute of the Right-click menu button.|About This Video|
 |`volume`|String|Tooltip text for and `aria-label` HTML attribute of the volume in the control bar.|Volume|
 |`volumeSlider`|String|`aria-label` HTML attribute of the volume slider in the control bar.|Volume Slider|
