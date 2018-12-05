@@ -1,5 +1,7 @@
 # JW Player Configuration Reference
 
+<sup>_Last Updated: December 5, 2018_</sup>
+
 This article acts a reference to all configuration options JW Player supports. Configuration options tell a player instance which media to play and how to layout and behave on your page.
 
 !!!important
