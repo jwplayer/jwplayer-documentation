@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-_Last Updated: December 5, 2018_
+<sup>_Last Updated: December 5, 2018_</sup>
 
 This article contains all configuration options JW Player supports. 
 
@@ -1180,6 +1180,7 @@ Use the table below to copy old customization or translation values to the corre
 |`related.autoplaymessage`|`intl.{lang}.related.autoplaymessage`|
 |`sharing.heading`|`intl.{lang}.sharing.heading`|
 |`sharing.link`|`intl.{lang}.sharing.link`|
+
 <br/><br/>
 <div id="wufoo-mff60sc1xnn4cu">
 Use this <a href="https://jwplayerdocs.wufoo.com/forms/mff60sc1xnn4cu">form</a> to provide your feedback.
