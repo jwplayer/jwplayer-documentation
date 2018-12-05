@@ -387,8 +387,6 @@ This options block controls the **specific** functions of the RTMP streaming pro
 |**rtmp.subscribe**|Boolean|This option enables the FC Subscribe mechanism use by older streaming servers to manage load balancing|false|
 |**rtmp.securetoken**|String|This option, supported for older Wowza instances, provides a security token to JW Player, which then amends this option to the RTMP application URL|-|
 
-See [Using RTMP Streaming](https://support.jwplayer.com/customer/portal/articles/1430358-using-rtmp-streaming) for more information.
-
 <a name="logo"></a>
 
 * * *
