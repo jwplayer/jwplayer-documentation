@@ -3,6 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
+<sup>_Last Updated: December 5, 2018_</sup>
 
 This article contains all configuration options JW Player supports. 
 
@@ -127,18 +128,35 @@ The default `preload` configuration has been updated to "metadata", and the _met
 
 ### Casting
 
-Enable casting from directly within the video. This configuration option places either a Chromecast or Airplay icon in the controlbar, depending on the browser and device used. If casting is unavailable, the icon will be hidden. To enable casting, simply include an empty `cast` block in your setup.
+Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears. 
+
+See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs) 
+
+To enable casting, add an empty `cast` object in your setup.
 
 ```
 jwplayer("myElement").setup({
-  "file": "https://example.com/myVideo.mp4",
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/1a2Bc3d4",
   "height": "auto"
   "width": "100%",
   "cast": {}
 });
 ```
-If you have a custom receiver, specify the ID as a string with `cast.appid`.
+If you are using a custom receiver, assign the identifier of the custom receiver to the `cast.customAppId` property.
 
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/1a2Bc3d4",
+  "height": "auto"
+  "width": "100%",
+  "cast": {
+    "customAppId": "XXXXXX"
+  }
+});
+```
+| Property | Type | Description |
+| --- | --- | --- |
+| `customAppId` | String | (Optional) When using a [custom receiver](https://developers.google.com/cast/docs/registration), the identifier of the receiver app |
 
 <a name="playlist"></a>
 
@@ -1023,10 +1041,12 @@ jwplayer("myElement").setup({
 |`cc`|String|Tooltip text for and `aria-label` HTML attribute of the closed captions menu icon|Closed Captions|
 |`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
 |`errors`|Object|See: [errors object](#intlerrors).|-|
+|`exitFullscreen` <sup>8.7.0 +</sup>|String|When in fullscreen mode, tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Exit Fullscreen| 
 |`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
 |`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video **Quality** options menu icon|Quality|
 |`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
 |`logo`|String|`aria-label` HTML attribute of the logo in the player|Logo|
+|`mute` <sup>8.7.0 +</sup>|String|When the player is not muted, tooltip text for and `aria-label` HTML attribute of the volume icon in the control bar|Mute|
 |`next`|String|`aria-label` HTML attribute of the right arrow in overlays with multiple pages of videos|Next|
 |`nextUp`|String|Title text and `aria-label` HTML attribute of the overlay that displays the next item to automatically play in a playlist|Next Up|
 |`notLive`|String|In the control bar, label text and `aria-label` HTML attribute that indicates the current video position in a live stream lags behind the real-time stream|Not Live|
@@ -1046,6 +1066,7 @@ jwplayer("myElement").setup({
 |`sharing`|Object|See: [sharing object](#intlsharing).|-|
 |`slider`|String|`aria-label` HTML attribute of the video scrub bar|Seek Slider|
 |`stop`|String|`aria-label` HTML attribute of the stop button in the control bar for live streams.|Stop|
+|`unmute` <sup>8.7.0 +</sup>|String|When the player is muted, tooltip text for and aria-label HTML attribute of the volume icon in the control bar|Unmute|
 |`videoInfo`|String|Label text and `aria-label` HTML attribute of the Right-click menu button.|About This Video|
 |`volume`|String|Tooltip text for and `aria-label` HTML attribute of the volume in the control bar.|Volume|
 |`volumeSlider`|String|`aria-label` HTML attribute of the volume slider in the control bar.|Volume Slider|
@@ -1159,3 +1180,25 @@ Use the table below to copy old customization or translation values to the corre
 |`related.autoplaymessage`|`intl.{lang}.related.autoplaymessage`|
 |`sharing.heading`|`intl.{lang}.sharing.heading`|
 |`sharing.link`|`intl.{lang}.sharing.link`|
+
+<br/><br/>
+<div id="wufoo-mff60sc1xnn4cu">
+Use this <a href="https://jwplayerdocs.wufoo.com/forms/mff60sc1xnn4cu">form</a> to provide your feedback.
+</div>
+<script type="text/javascript">var mff60sc1xnn4cu;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'jwplayerdocs',
+'formHash':'mff60sc1xnn4cu',
+'autoResize':true,
+'height':'288',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':true,
+'defaultValues': 'field118=' + location.pathname};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { mff60sc1xnn4cu = new WufooForm();mff60sc1xnn4cu.initialize(options);mff60sc1xnn4cu.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
