@@ -3,6 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 CSS Ski
 !!!
 
 # CSS Skinning Reference
+<sup>_Last Updated: January 19, 2019_</sup>
 
 This article acts as a reference for styling all interface components of JW Player 8. This skinning model uses CSS, and all controls are overlaid on top of the player with HTML. JW8 uses inline SVGs for all icons.
 
@@ -153,7 +154,7 @@ The button container contains playback controls, elapsed and duration time, and 
 |**.jw-icon-airplay**|.jw-svg-icon-airplay-on|This container will display Airplay icon if it is connected.|
 |**.jw-icon-airplay .jw-off**|.jw-svg-icon-airplay-off|This container will display the Airplay icon if it is available.|
 |**.jw-icon-settings**|.jw-svg-icon-settings|Container for the settings menu icon.|
-|**.jw-icon-fullscreen**|.jw-svg-icon-fullscreen|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
+|**.jw-icon-fullscreen**|.jw-svg-icon-fullscreen-on<br/><br/>.jw-svg-icon-fullscreen-off|Container for entering and exiting fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
 
 
 <a name="breakpoints"></a>
@@ -304,3 +305,24 @@ The next up card displays prior to a video's completion, showing information abo
 |**.jw-nextup-close**|Close button for next up (hidden by default) which hides the display when clicked.|default|
 |**.jw-nextup-sticky .jw-nextup-close**|State to show close button for next up display (shown when nearing end of current video).|state|
 
+<br/><br/>
+<div id="wufoo-mff60sc1xnn4cu">
+Use this <a href="https://jwplayerdocs.wufoo.com/forms/mff60sc1xnn4cu">form</a> to provide your feedback.
+</div>
+<script type="text/javascript">var mff60sc1xnn4cu;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'jwplayerdocs',
+'formHash':'mff60sc1xnn4cu',
+'autoResize':true,
+'height':'288',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':true,
+'defaultValues': 'field118=' + location.pathname};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { mff60sc1xnn4cu = new WufooForm();mff60sc1xnn4cu.initialize(options);mff60sc1xnn4cu.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
