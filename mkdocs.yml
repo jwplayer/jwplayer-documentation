@@ -36,3 +36,5 @@ pages:
         - JW7 Analytics Integrations: jw7/integrations.md
 
 site_dir: developer-guide
+markdown_extensions:
+   - markdown_fenced_code_tabs
