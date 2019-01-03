@@ -1,6 +1,6 @@
 # JW Player Errors Reference
 
-All errors and warnings relating to the player are returned in a player error object. 
+All errors and warnings relating to the player are returned in a player error object.
 
 ```javascript
 {
@@ -16,24 +16,24 @@ All errors and warnings relating to the player are returned in a player error ob
 |`code` | Number | Identifier for the error <br/><br/>Error code descriptions are listed on this page.|
 |`message` | String | Error text displayed displayed to the user<br/><br/> This property can be [localized](../customization/configuration-reference/#intlerrors). |
 |`sourceError` | Object or null | Lower level error or event, caught by the player, which resulted in this error |
-|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning` 
+|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning`
 
 An _error_ has the following behaviors:
 
 * Stops player functionality
 * Displays the `code` and `message` to the viewer
 * In log events, displays the `code` with a link to this document
-* Returns a `type` value of `error` or `setupError` 
+* Returns a `type` value of `error` or `setupError`
 
 An _warning_ has the following behaviors:
 
-* In log events, displays the `code` with a link to this document 
+* In log events, displays the `code` with a link to this document
 * May degrade player functionality
 * Does not display the `code` and `message` to the viewer
 * Returns a `type` value of `playAttemptFailed` or `warning`
 
 
-Use the sections below to help you troubleshoot and programmatically handle player-related issues. 
+Use the sections below to help you troubleshoot and programmatically handle player-related issues.
 
 |Type | Category|
 |---|---|
@@ -270,11 +270,11 @@ An error occured while reproducing content with our Shaka Provider.
 
 |Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
-|<a name='303200'></a> 303200 | The play attempt failed for unknown reasons. | - | - | 
-|<a name='303210'></a> 303210 | The play attempt was interrupted for unknown reasons. | - | - | 
-|<a name='303212'></a> 303212 | The play attempt was interrupted by a new load request. | - | - | 
-|<a name='303213'></a> 303213 | The play attempt was interrupted by a call to pause(). | - | - | 
-|<a name='303220'></a> 303220 | The play attempt failed because the user didn't interact with the document first, or disabled auto-play completely. | - | - | 
+|<a name='303200'></a> 303200 | The play attempt failed for unknown reasons. | - | - |
+|<a name='303210'></a> 303210 | The play attempt was interrupted for unknown reasons. | - | - |
+|<a name='303212'></a> 303212 | The play attempt was interrupted by a new load request. | - | - |
+|<a name='303213'></a> 303213 | The play attempt was interrupted by a call to pause(). | - | - |
+|<a name='303220'></a> 303220 | The play attempt failed because the user didn't interact with the document first, or disabled auto-play completely. | - | - |
 |<a name='303230'></a> 303230 | The play attempt failed because no supported source was found. | - | - |
 
 
