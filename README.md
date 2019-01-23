@@ -8,6 +8,7 @@
 
 ```
 $ pip install mkdocs
+$ pip install markdown-fenced-code-tabs
 ```
 
 #### Install Node modules:
