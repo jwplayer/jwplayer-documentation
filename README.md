@@ -7,14 +7,13 @@
 #### Install [MkDocs](http://www.mkdocs.org/)
 
 ```
-$ pip install mkdocs==0.16.3 --upgrade
-$ pip install git+ssh://git@github.com/jwplayer/mkdocs-jwplayer --upgrade --force-reinstall
+$ pip install mkdocs
 ```
 
 #### Install Node modules:
 
 ```
-$ npm install
+$ yarn install
 ```
 
 #### Install Grunt globally:
@@ -23,9 +22,10 @@ $ npm install
 $ npm install grunt -g cli
 ```
 
-#### Run Grunt and serve via localhost:
+#### Build docs and serve via localhost:
 
 ```
+$ mkdocs build
 $ grunt serve
 ```
 

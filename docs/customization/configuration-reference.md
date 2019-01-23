@@ -5,7 +5,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 # JW Player Configuration Reference
 <sup>_Last Updated: December 5, 2018_</sup>
 
-This article contains all configuration options JW Player supports. 
+This article contains all configuration options JW Player supports.
 
 !!!important
 Certain JW Player features may require a specific license. Please [contact our team](//www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if your license does not support the features or configuration options you need.
@@ -128,9 +128,9 @@ The default `preload` configuration has been updated to "metadata", and the _met
 
 ### Casting
 
-Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears. 
+Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears.
 
-See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs) 
+See also: [FAQs](https://support.jwplayer.com/articles/how-to-enable-casting-and-airplay/#faqs)
 
 To enable casting, add an empty `cast` object in your setup.
 
@@ -998,7 +998,7 @@ A basic form of DRM that lists a decryption key inside of your player configurat
 The `intl` object allows you to add new language translations, customize translations for player text and `aria-label` values, and access the benefits of the [automated player localization](https://support.jwplayer.com/articles/translate-video-player-text) feature.
 
 !!!important
-Any existing language customizations or translations made outside of the `intl` object will override both automated player localization and `intl` object customizations. If you have configured language customizations or translations outside of the `intl` object, use the [table](#intltranstable) below to copy those values into the corresponding `intl.{lang}.{property}`. 
+Any existing language customizations or translations made outside of the `intl` object will override both automated player localization and `intl` object customizations. If you have configured language customizations or translations outside of the `intl` object, use the [table](#intltranstable) below to copy those values into the corresponding `intl.{lang}.{property}`.
 !!!
 
 For each language, use a two-letter or locale-specific language code to define language-specific objects. Use the code example and tables below to configure the `intl` object.
@@ -1011,9 +1011,9 @@ jwplayer("myElement").setup({
     "fr-ca": {
       "play": "reproduire"
     },
-    // french sub-block 
+    // french sub-block
     "fr": {
-      "replay": "Répéter",
+      "replay": "Repeter",
       "play": "jouer"
     },  
     // spanish sub-block
@@ -1041,7 +1041,7 @@ jwplayer("myElement").setup({
 |`cc`|String|Tooltip text for and `aria-label` HTML attribute of the closed captions menu icon|Closed Captions|
 |`close`|String|Tooltip text for and `aria-label` HTML attribute of the icon to close a menu or overlay.|Close|
 |`errors`|Object|See: [errors object](#intlerrors).|-|
-|`exitFullscreen` <sup>8.7.0 +</sup>|String|When in fullscreen mode, tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Exit Fullscreen| 
+|`exitFullscreen` <sup>8.7.0 +</sup>|String|When in fullscreen mode, tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Exit Fullscreen|
 |`fullscreen`|String|Tooltip text for and `aria-label` HTML attribute of the fullscreen icon in the control bar|Fullscreen|
 |`hd`|String|Tooltip text for and `aria-label` HTML attribute of the video **Quality** options menu icon|Quality|
 |`liveBroadcast`|String|In the control bar, label text and `aria-label` HTML attribute for live streams|Live|
@@ -1140,7 +1140,7 @@ Use the table below to copy old customization or translation values to the corre
 |`advertising.cuetext`|`intl.{lang}.advertising.cuetext`|
 |`advertising.podmessage`|`intl.{lang}.advertising.podmessage`|
 |`advertising.skipmessage`|`intl.{lang}.advertising.skipmessage`|
-|`advertising.skiptext`|`intl.{lang}.advertising.skiptext`| 
+|`advertising.skiptext`|`intl.{lang}.advertising.skiptext`|
 |`localization.airplay`|`intl.{lang}.airplay`|
 |`localization.audioTracks`|`intl.{lang}.audioTracks`|
 |`localization.buffer`|`intl.{lang}.buffer`|
