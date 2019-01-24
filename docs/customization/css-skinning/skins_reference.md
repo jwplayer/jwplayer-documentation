@@ -153,7 +153,7 @@ The button container contains playback controls, elapsed and duration time, and 
 |**.jw-icon-airplay**|.jw-svg-icon-airplay-on|This container will display Airplay icon if it is connected.|
 |**.jw-icon-airplay .jw-off**|.jw-svg-icon-airplay-off|This container will display the Airplay icon if it is available.|
 |**.jw-icon-settings**|.jw-svg-icon-settings|Container for the settings menu icon.|
-|**.jw-icon-fullscreen**|.jw-svg-icon-fullscreen|Container for enter and exit fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
+|**.jw-icon-fullscreen**|.jw-svg-icon-fullscreen-on<br/><br/>.jw-svg-icon-fullscreen-off|Container for entering and exiting fullscreen icons. This icon will toggle between fullscreen on and off depending on the state of the player.|
 
 
 <a name="breakpoints"></a>
