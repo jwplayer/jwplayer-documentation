@@ -4,6 +4,8 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 CSS Ski
 
 # CSS Skinning Reference
 
+<sup>Last Updated: January 24, 2019</sup>
+
 This article acts as a reference for styling all interface components of JW Player 8. This skinning model uses CSS, and all controls are overlaid on top of the player with HTML. JW8 uses inline SVGs for all icons.
 
 When styling these elements, there are a few conventions to keep in mind. All internal classes are prefixed with **jw-** in order to protect the player from external stylesheets. The original DOM element that we initialize is called the Main Div.
