@@ -1,6 +1,6 @@
 # JW Player Errors Reference
 
-All errors and warnings relating to the player are returned in a player error object. 
+All errors and warnings relating to the player are returned in a player error object.
 
 ```javascript
 {
@@ -16,24 +16,24 @@ All errors and warnings relating to the player are returned in a player error ob
 |`code` | Number | Identifier for the error <br/><br/>Error code descriptions are listed on this page.|
 |`message` | String | Error text displayed displayed to the user<br/><br/> This property can be [localized](../customization/configuration-reference/#intlerrors). |
 |`sourceError` | Object or null | Lower level error or event, caught by the player, which resulted in this error |
-|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning` 
+|`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning`
 
 An _error_ has the following behaviors:
 
 * Stops player functionality
 * Displays the `code` and `message` to the viewer
 * In log events, displays the `code` with a link to this document
-* Returns a `type` value of `error` or `setupError` 
+* Returns a `type` value of `error` or `setupError`
 
 An _warning_ has the following behaviors:
 
-* In log events, displays the `code` with a link to this document 
+* In log events, displays the `code` with a link to this document
 * May degrade player functionality
 * Does not display the `code` and `message` to the viewer
 * Returns a `type` value of `playAttemptFailed` or `warning`
 
 
-Use the sections below to help you troubleshoot and programmatically handle player-related issues. 
+Use the sections below to help you troubleshoot and programmatically handle player-related issues.
 
 |Type | Category|
 |---|---|
@@ -96,6 +96,7 @@ Setup failed because the requested playlist could not be parsed.
 |<a name='102004'></a> 102004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102005'></a> 102005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='102006'></a> 102006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: <xhr.status> (<xhr.statusText>)| Sorry, the video player failed to load.|
+|<a name='102007'></a> 102007 | The XHR request of a relative or protocol-relative URL failed because the page is hosted over the `file://` protocol. We recommend either hosting your pages on the web, or using absolute paths with defined protocols. | Error loading playlist: <xhr.status> (<xhr.statusText>)| Sorry, the video player failed to load.|
 |<a name='102400-102599'></a> 102400-102599 | The XHR request failed and returned a valid HTTP status error (eg. 102404 is HTTP status code 404). | * Error loading playlist: File not found (http status code 404) <br/>* Error loading playlist: `<xhr.status>` (`<xhr.statusText>`)| Sorry, the video player failed to load.|
 |<a name='102601'></a> 102601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML| Sorry, the video player failed to load.|
 |<a name='102602'></a> 102602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML| Sorry, the video player failed to load.|
@@ -140,6 +141,7 @@ These errors are dispatched when `jwplayer().load(content)` is called and the co
 |<a name='202004'></a> 202004 | An exception was thrown while calling `xhr.send`. The reason varies depending on the browser. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='202005'></a> 202005 | An exception was thrown in the XHR `requestFilter`. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
 |<a name='202006'></a> 202006 | The XHR request failed with a status code outside of the 400 and 500 ranges. | Error loading playlist: Error loading file| Sorry, the video player failed to load.|
+|<a name='202007'></a> 202007 | The XHR request of a relative or protocol-relative URL failed because the page is hosted over the `file://` protocol. We recommend either hosting your pages on the web, or using absolute paths with defined protocols. | Error loading playlist: <xhr.status> (<xhr.statusText>)| Sorry, the video player failed to load.|
 |<a name='202400-202599'></a> 202400-202599 | The XHR request failed and returned a valid HTTP status error (eg. 202404 is HTTP status code 404). | * Error loading playlist: File not found (http status code 404) <br/>* Error loading playlist: `<xhr.status>` (`<xhr.statusText>`)| Sorry, the video player failed to load.|
 |<a name='202601'></a> 202601 | The DOMParser could not parse the XML; it must be malformed. | Error loading playlist: Invalid XML| Sorry, the video player failed to load.|
 |<a name='202602'></a> 202602 | The XML did not return a response; it must be malformed. | Error loading playlist: Invalid XML| Sorry, the video player failed to load.|
@@ -270,11 +272,11 @@ An error occured while reproducing content with our Shaka Provider.
 
 |Code|Reason|Deprecated Error Message <sup> < 8.4.0</sup>|Displayed Message|
 |---|---|---|---|
-|<a name='303200'></a> 303200 | The play attempt failed for unknown reasons. | - | - | 
-|<a name='303210'></a> 303210 | The play attempt was interrupted for unknown reasons. | - | - | 
-|<a name='303212'></a> 303212 | The play attempt was interrupted by a new load request. | - | - | 
-|<a name='303213'></a> 303213 | The play attempt was interrupted by a call to pause(). | - | - | 
-|<a name='303220'></a> 303220 | The play attempt failed because the user didn't interact with the document first, or disabled auto-play completely. | - | - | 
+|<a name='303200'></a> 303200 | The play attempt failed for unknown reasons. | - | - |
+|<a name='303210'></a> 303210 | The play attempt was interrupted for unknown reasons. | - | - |
+|<a name='303212'></a> 303212 | The play attempt was interrupted by a new load request. | - | - |
+|<a name='303213'></a> 303213 | The play attempt was interrupted by a call to pause(). | - | - |
+|<a name='303220'></a> 303220 | The play attempt failed because the user didn't interact with the document first, or disabled auto-play completely. | - | - |
 |<a name='303230'></a> 303230 | The play attempt failed because no supported source was found. | - | - |
 
 
