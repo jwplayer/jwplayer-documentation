@@ -2,7 +2,7 @@
 
 <sup>Last Updated: February 6, 2019</sup>
 
-https://img.shields.io/badge/%20-Beta-green.svg
+<img src="https://img.shields.io/badge/%20-Beta-green.svg" />
 	
 <sup>If you would like to try this Beta product, please [contact our team](https://www.jwplayer.com/contact-us/).</sup>
 
