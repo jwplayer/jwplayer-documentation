@@ -24,7 +24,7 @@ Now that you have the URL for your player library, you can add a library referen
 
 1. In the `<head>` of your page, add a reference to the player library JavaScript file.
 2. Create a named `<div>` in the `<body>` of your page in the location where the player should appear.
-3. Call `setup()` with the <a href="https://staging-developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist" target="_blank">playlist</a> property to instantiate the player in the named `<div>`.<br/><br/>In addition to instantiating an instance of a player, `setup()` allows you to [enable and configure player features](../customization/configuration-reference.md). `setup()` is one of <a href="https://staging-developer.jwplayer.com/jw-player/docs/javascript-api-reference/" target="_blank">several methods</a> that can be used to interact with the player.
+3. Call `setup()` with the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist" target="_blank">playlist</a> property to instantiate the player in the named `<div>`.<br/><br/>In addition to instantiating an instance of a player, `setup()` allows you to [enable and configure player features](../customization/configuration-reference.md). `setup()` is one of <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/" target="_blank">several methods</a> that can be used to interact with the player.
 
 <br/>
 Use the [Code examples](#code-examples) section to validate your implementation.
