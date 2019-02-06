@@ -26,7 +26,7 @@ Use the following steps to implement Article Matching:
 
 1. Create a <a href="https://support.jwplayer.com/articles/create-a-playlist#create-a-video-search-playlist" target="_blank">video search playlist</a> in your <a href="https://dashboard.jwplayer.com/" target="_blank">JW Player dashboard</a>.
 2. On the **DEVELOPER RESOURCES** tab of the video search playlist, copy the **JSON URL**.
-3. In the JSON URL, replace `?search={video-name}` with `?contextual=true&search=__CONTEXTUAL__`. The `contextual` and `search` parameters **must not** be changed. <br/><br/>`contextual`: Query parameter that enables Article Matching<br/>Must always be `true`.<br/><br/>`search`: Search query that uses `__CONTEXTUAL__` to populate the Opengraph or HTML title at runtime.<br/><br/>Additional parameters from the <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Playlists/get_v2_playlists__playlist_id_" target="_blank">/v2/playlist/{playlist_id}</a> route can be added to the URL to refine results.
+3. In the JSON URL, replace `?search={video-name}` with `?contextual=true&search=__CONTEXTUAL__`.<br/><br/> The `contextual` and `search` parameters **must not** be changed. These parameters enable Article Matching and populate the Opengraph or HTML title at runtime.<br/><br/>Additional parameters from the <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Playlists/get_v2_playlists__playlist_id_" target="_blank">/v2/playlist/{playlist_id}</a> route can be added to the URL to refine results.
 4. Add the updated JSON URL to the `playlist` object of a player that is in your article or template.
 
 For example:
