@@ -3,3 +3,4 @@ node_modules
 npm-debug.log
 .self-update-info
 developer-guide/developer-guide
+api-reference/javascript-api-reference
