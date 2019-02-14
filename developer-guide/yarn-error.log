@@ -1,0 +1,40 @@
+Arguments: 
+  /Users/monicaparra/.nvm/versions/node/v8.14.0/bin/node /Users/monicaparra/.yarn/bin/yarn.js install
+
+PATH: 
+  /Users/monicaparra/.nvm/versions/node/v8.14.0/bin:/Users/monicaparra/.yarn/bin:/Users/monicaparra/.config/yarn/global/node_modules/.bin:/Users/monicaparra/.npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  8.14.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/monicaparra/jwplayer-docs-new/developer-guide/package.json: Unexpected token } in JSON at position 227
+      at JSON.parse (<anonymous>)
+      at /Users/monicaparra/.yarn/lib/cli.js:1631:59
+      at Generator.next (<anonymous>)
+      at step (/Users/monicaparra/.yarn/lib/cli.js:304:30)
+      at /Users/monicaparra/.yarn/lib/cli.js:315:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "jwplayer-docs-new",
+    "devDependencies": {
+      "grunt": "^1.0.3",
+      "grunt-contrib-connect": "^1.0.1",
+      "grunt-contrib-watch": "^1.1.0",
+      "grunt-mkdocs-jwplayer": "github:jwplayer/grunt-mkdocs-jwplayer",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

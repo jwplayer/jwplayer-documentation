@@ -1,7 +1,10 @@
 site_name: JW Player Developer Guide
+site_favicon: ../favicon.png
+docs_dir: docs
+site_dir: developer-guide
 theme:
   name: null
-  custom_dir: node_modules/mkdocs-jwplayer/jwplayer
+  custom_dir: ../node_modules/mkdocs-jwplayer/jwplayer
   include_search_page: true
   search_index_only: false
 extra:
@@ -39,7 +42,5 @@ nav:
         - JW7 Example CSS File: jw7/skins_example.md
         - JW7 Designer Kit: jw7/designer-kit.md
         - JW7 Analytics Integrations: jw7/integrations.md
-
-site_dir: developer-guide
 markdown_extensions:
    - markdown_fenced_code_tabs

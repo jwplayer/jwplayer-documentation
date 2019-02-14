@@ -1,0 +1,9 @@
+{
+  "name": "jwplayer-api-reference",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mkdocs-jwplayer": "github:jwplayer/grunt-mkdocs-jwplayer"
+  }
+}

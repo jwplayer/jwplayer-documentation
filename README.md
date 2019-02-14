@@ -1,41 +1,27 @@
 # JW Player Developer Guide
 
-[Onboarding Docs](https://github.com/jwplayer/jwplayer-docs-new/tree/master/Onboarding%20Documents)
-
 ## Developing Locally
-
-#### Install [MkDocs](http://www.mkdocs.org/)
-
-```
-$ pip install mkdocs
-$ pip install markdown-fenced-code-tabs
-```
-
-#### Install Node modules:
+If you haven't already installed **MKdocs** on your machine, run the following commands to install using pip:
 
 ```
-$ yarn install
+pip install mkdocs
+pip install markdown-fenced-code-tabs
 ```
 
-#### Install Grunt globally:
+Install Node dependencies:
 
 ```
-$ npm install grunt -g cli
+yarn install
 ```
 
-#### Build docs and serve via localhost:
+### Contributing Documentation
+
+The source markdown files located in the `docs/` directory within each project can be edited using standard Markdown for basic formatting.
+
+### Build and Preview:
+
+Run the following commands to preview your edits at `http://127.0.0.1:8000/`:
 
 ```
-$ mkdocs build
-$ grunt serve
+grunt serve
 ```
-
-Run `grunt` to for a full build without serving. This may be useful at times because `grunt serve` builds via Grunt's watch task, which may not always be perfect.
-
-## CDN Purge
-
-Use the following URL to purge the CDN for release notes: /data/release-notes/jw-player.json
-
-## Release Notes Build Process
-
-![Release Notes Build Process](release-notes-build.png)
