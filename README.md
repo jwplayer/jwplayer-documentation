@@ -8,7 +8,7 @@ pip install mkdocs
 pip install markdown-fenced-code-tabs
 ```
 
-Install Node dependencies:
+Install Global Dependency for Docs Theme:
 
 ```
 yarn install
@@ -17,6 +17,13 @@ yarn install
 ### Contributing Documentation
 
 The source markdown files located in the `docs/` directory within each project can be edited using standard Markdown for basic formatting.
+
+### Install Project Dependencies
+
+```
+yarn install
+```
+
 
 ### Build and Preview:
 
