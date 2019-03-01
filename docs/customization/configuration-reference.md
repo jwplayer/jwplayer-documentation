@@ -669,8 +669,6 @@ This object configures the video advertising capabilities of JW Player and overr
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
 |`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 
-<br/>
-
 <a name="advertising-bids"></a>
 ### advertising.bids
 
@@ -696,8 +694,6 @@ jwplayer("myElement").setup({
 |`bidders` | Array| **(Required)** Defines each bidding partner<br/><br/>See: [advertising.bids.bidders](#advertising-bids-bidders)|
 |`settings` | Object | **(Required)** Defines the mediation layer, floor price, and timeout<br/><br/>See: [advertising.bids.settings](#advertising-bids-settings)|
 |`bidOnBreaks` | Number | Number of ad breaks for which bid requests are sent.<br/><br/> **NOTE**: For content with more than three ad breaks, change the default setting to `3` and adjust this value depending on performance. <br/><br/>By default, a bid request is made for each ad break.|
-
-<br/>
 
 <a name="advertising-bids-bidders"></a>
 
@@ -725,8 +721,6 @@ jwplayer("myElement").setup({
 |---|---|---|
 |`id`| String | **(Required)** Identifier issued by the bidding partner that represents a segment of a publisher's inventory|
 |`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`Facebook`<br/><br/>`SpotX`|
-
-<br/>
 
 <a name="advertising-bids-settings"></a>
 
@@ -757,8 +751,6 @@ jwplayer("myElement").setup({
 |`floorPriceCents` | Number | Price in cents (CPM) that a bid has to beat in order to win<br/><br/>This property does not need to be set when `mediationLayerAdServer` is set to `dfp` or `jwpspotx`.|
 |`floorPriceCurrency`| String | Currency of the `floorPriceCents` <br/><br/>Currently only usd is supported with `jwp` as the mediation layer.|
 
-<br/>
-
 <a name="advertising-companiondiv"></a>
 
 ### advertising.companiondiv
@@ -775,8 +767,6 @@ This is an object with 3 properties: `id`, `width` and `height`. Set these to ha
 <!-- NOTE: Need to figure out where to link the following.
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles). -->
-
-<br/>
 
 <a name="advertising-rules"></a>
 ### advertising.rules
@@ -804,8 +794,6 @@ jwplayer("myElement").setup({
 |`frequency`|Number|IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
 |`startOnSeek` <sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
 |`timeBetweenAds`|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
-
-<br/>
 
 <a name="advertising-schedule"></a>
 
