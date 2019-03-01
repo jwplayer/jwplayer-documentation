@@ -443,7 +443,7 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 <br/>
 
 #### Backward Compatability
-JW8 continues to support the three [color customization options](../../jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version.
+JW8 continues to support the three [color customization options](../../jw7/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version.
 
 The table below shows how the three JW7 customization options map to the new JW8 options. You can use both JW7 and JW8 options in an 8 player, with the more specific JW8 configurations overriding JW7 ones when both apply to the same element. Note that there’s no JW7 mapping to the new `skin.timeslider.rail` option.
 
