@@ -465,7 +465,7 @@ The table below shows how the three JW7 customization options map to the new JW8
 
 #### Custom Skins
 
-For more information regarding custom skins, see: [Creating a Skin for JW Player](../customization/css-skinning/skins_creating/).
+For more information regarding custom skins, see: [Creating a Skin for JW Player](../css-skinning/skins_creating/).
 
 |Config|Type|Description|Default|
 |---|---|---|---|
