@@ -443,7 +443,7 @@ Color can be specified as a [hex value](http://www.w3schools.com/colors/colors_p
 <br/>
 
 #### Backward Compatability
-JW8 continues to support the three [color customization options](/jw7/customization/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version.
+JW8 continues to support the three [color customization options](../../jw7/configuration-reference/#skin) from 7.x, `skin.active`, `skin.inactive`, `skin.background`, though the colors may map slightly differently in the new major version.
 
 The table below shows how the three JW7 customization options map to the new JW8 options. You can use both JW7 and JW8 options in an 8 player, with the more specific JW8 configurations overriding JW7 ones when both apply to the same element. Note that there’s no JW7 mapping to the new `skin.timeslider.rail` option.
 
@@ -465,7 +465,7 @@ The table below shows how the three JW7 customization options map to the new JW8
 
 #### Custom Skins
 
-For more information regarding custom skins, see: [Creating a Skin for JW Player](/customization/css-skinning/skins_creating/).
+For more information regarding custom skins, see: [Creating a Skin for JW Player](../css-skinning/skins_creating/).
 
 |Config|Type|Description|Default|
 |---|---|---|---|
@@ -511,7 +511,7 @@ See [Styling Captions for FCC Compliance](https://support.jwplayer.com/customer/
 ## RTMP
 
 !!!
-The RTMP format was deprecated in JW8. For 7.x players, see the [JW7 RTMP Configuration Reference](/jw7/configuration-reference/#rtmp) documentation.
+The RTMP format was deprecated in JW8. For 7.x players, see the [JW7 RTMP Configuration Reference](../../jw7/configuration-reference/#rtmp) documentation.
 !!!
 
 <a name="logo"></a>
@@ -755,7 +755,7 @@ jwplayer("myElement").setup({
 
 ### advertising.companiondiv
 
-This is an object with 3 properties: `id`, `width` and `height`. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
+This is an object with 3 properties: `id`, `width` and `height`. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/articles/how-to-monetize-content-with-video-ads#companion-ads) for more info.
 
 |Property|Type|Description|
 |---|---|---|
@@ -764,7 +764,9 @@ This is an object with 3 properties: `id`, `width` and `height`. Set these to ha
 |`id`|String|The ID of the div to replace with a companion ad|
 
 
-For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles).
+<!-- NOTE: Need to figure out where to link the following.
+
+For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles). -->
 
 <a name="advertising-rules"></a>
 ### advertising.rules
