@@ -44,6 +44,7 @@ Sometimes the player needs to signify certain modes of the playback. These flags
 |**.jw-flag-media-audio**| Content being played is an audio file|
 |**.jw-flag-dragging**| Mouse down with cursor over control bar|
 |**.jw-flag-aspect-mode**| Enable a padding to create an aspect ratio|
+|<a name="floating-flag"></a>**.jw-flag-floating .jw-wrapper** <sup>8.8.0+</sup>| Wrapper for the floating player|
 
 <a name="colors"></a>
 
@@ -208,6 +209,13 @@ The following icons are nested within `.jw-settings-topbar`, a child of `.jw-set
 |**.jw-settings-audioTracks .jw-submenu-audioTracks**|.jw-svg-icon-audio-tracks| Container for the audio tracks icon. |
 |**.jw-settings-sharing .jw-submenu-sharing**|.jw-svg-icon-sharing| Container for the sharing icon. |
 
+<a name="floating"></a>
+
+## Float on scroll <sup>8.8.0+</sup>
+
+|CSS Classes |SVG Classes    |Definition|
+|-------------|----------|-----------|
+|**.jw-float-icon**|.jw-svg-icon<br/>.jw-svg-icon-close|Container for the SVG icon to dismiss the floating player.|
 
 ## Tooltips and Overlays
 
