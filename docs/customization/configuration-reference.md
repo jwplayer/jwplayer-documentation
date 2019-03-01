@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>_Last Updated: December 5, 2018_</sup>
+<sup>Last Updated: March 1, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -638,50 +638,178 @@ See [Display Related Videos](https://support.jwplayer.com/articles/how-to-enable
 Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/get-started/) to upgrade your account.
 !!!
 
-This options block configures the video advertising capabilities of JW Player and overrides advertising settings configured in the dashboard. If no **schedule** is specified, the ad will play as a preroll by default.
+This object configures the video advertising capabilities of JW Player and overrides advertising settings configured in the dashboard. If no **schedule** is specified, the ad will play as a preroll by default.
 
-|Option|Type|Description|Client|Default|
+|Property|Type|Description|Client|Default|
 |---|---|---|---|---|
-|**advertising.client**|String|**(Required for Advertising)**<br/> Chooses the ad client that will be used to display advertisements:<br/>**"vast"**: Use the JW Player VAST client <br/> **"googima"**: Use the Google IMA SDK - Required for certain ad tags <br/> **"freewheel"**: Use the Freewheel client|All|-|
-|**advertising.adscheduleid**|String|Unique identifier for an ad (break) schedule. This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
-|**advertising.tag**|String or Array|The URL of the VAST tag to display, or custom string of the Freewheel tag to display|All|-|
-|**advertising.admessage** <sup>< 8.6.0</sup>|String|Text that displays during ad playback<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intladmessage) to set this property.|All|"The ad will end in xx seconds"|
-|**advertising.skipoffset**|Number|If not present in the VAST file, adds a skip offset to static VAST ads|VAST, Freewheel|-|
-|**advertising.cuetext** <sup>< 8.6.0|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlcuetext) to set this property.|All|"Advertisement"|
-|**advertising.skipmessage** <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|VAST, Freewheel|"Skip ad in xx"|
-|**advertising.skiptext** <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|VAST, Freewheel|"Skip"|
-|**advertising.vpaidmode**|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/>**"disabled"**: VPAID ads will not play and an error will be returned if VPAID is requested <br/> **"enabled"**: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/>**"insecure"**: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
-|**[advertising.schedule](#advertising-schedule)**|String or Object|Load an ad schedule from an external VMAP XML or JSON block. **advertising.tag** is ignored if this option is set|All|-|
-|**[advertising.companiondiv](#advertising-companiondiv)**|Object|Gives information to the player related to which div(s) to populate with companion ads <br/> Not supported in Freewheel|VAST, IMA|-|
-|**advertising.autoplayadsmuted**|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
-|**advertising.vpaidcontrols**|Boolean|For forcing controls to show for VPAID ads. If the VPAID creative has built-in controls, showing the controls may be redundant|VAST, IMA|-|
-|**advertising.forceNonLinearFullSlot**|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
-|**advertising.locale**|String|Valid two-letter language code for localization of skip-button language|IMA|-|
-|**advertising.creativeTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
-|**advertising.requestTimeout**|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|VAST, IMA, Freewheel|5000 (VAST), 10000 (IMA), 15000 (FW)|
-|**advertising.vastLoadTimeout**|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000
-|**advertising.loadVideoTimeout**|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|IMA, Freewheel|15000|
-|**advertising.maxRedirects**|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
-|**advertising.conditionaladoptout**|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
-|**advertising.podmessage** <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
-|**[advertising.bids](#advertising-bids)**|Object|Enable video player bidding with the given settings and bidders.|IMA|-|
-|**[advertising.rules](#advertising-rules)**|Object|Enable ad rules with the given settings and bidders.|VAST, IMA|-|
-|**advertising.freewheel.adManagerURL**|String|Freewheel-supplied Ad Manager URL|Freewheel|-|
-|**advertising.preloadAds**|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|VAST, IMA|"false"|
+|`client`|String|**(Required)** Chooses the ad client that will be used to display advertisements<br/><br/>Possible values include:<br/>`vast`: Use the JW Player VAST client <br/><br/>`googima`: Use the Google IMA SDK - Required for certain ad tags <br/><br/> `freewheel`: Use the Freewheel client|All|-|
+|`adscheduleid`|String|**(Recommended)** Unique identifier for an ad (break) schedule<br/><br/> This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
+|`admessage` <sup>< 8.6.0</sup>|String|Text that displays during ad playback<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intladmessage) to set this property.|All|"The ad will end in xx seconds"|
+|`autoplayadsmuted`|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
+|`bids` |Object|Enable video player bidding with the given settings and bidders<br/><br/>See: [advertising.bids](#advertising-bids)|IMA|-|
+|`companiondiv`|Object|Gives information to the player related to which div(s) to populate with companion ads <br/><br/> See: [advertising.companiondiv](#advertising-companiondiv)|IMA,<br/> VAST|-|
+`conditionaladoptout`|Boolean|(VPAID-only) Used to tell the player to not play ads with the **conditionalAd** attribute inside of the VAST response|VAST|false|
+|`cuetext` <sup>< 8.6.0|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlcuetext) to set this property.|All|"Advertisement"|
+`creativeTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
+|`forceNonLinearFullSlot`|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
+`freewheel.adManagerURL`|String|Freewheel-supplied Ad Manager URL|FreeWheel|-|
+`loadVideoTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|FreeWheel,<br/> IMA|15000|
+`locale`|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+`maxRedirects`|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
+`podmessage` <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
+`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
+`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
+|`rules`|Object|Enable ad rules with the given settings and bidders.<br/><br/>See: [advertising.rules](#advertising-rules)|IMA,<br/> VAST|-|
+|`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string) <br/><br/>`advertising.tag` is ignored if this option is set<br/><br/>See: [advertising.schedule](#advertising-schedule)|All|-|
+|`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
+|`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
+|`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
+|`tag`|String or Array|The URL of the VAST tag to display or custom string of the Freewheel tag to display|All|-|
+`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
+|`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
+|`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 
-<br/>
+<a name="advertising-bids"></a>
+### advertising.bids
+
+Use this property to enable and configure [Video Player Bidding](../../advertising/video_player_bidding_advanced_guide) with supported bidders.
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
+  "advertising": {
+    ...
+    "bids": {
+      "bidOnBreaks": 3,
+      "settings": {...},
+      "bidders": [...]
+    }
+  ...
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`bidders` | Array| **(Required)** Defines each bidding partner<br/><br/>See: [advertising.bids.bidders](#advertising-bids-bidders)|
+|`settings` | Object | **(Required)** Defines the mediation layer, floor price, and timeout<br/><br/>See: [advertising.bids.settings](#advertising-bids-settings)|
+|`bidOnBreaks` | Number | Number of ad breaks for which bid requests are sent.<br/><br/> **NOTE**: For content with more than three ad breaks, change the default setting to `3` and adjust this value depending on performance. <br/><br/>By default, a bid request is made for each ad break.|
+
+<a name="advertising-bids-bidders"></a>
+
+### advertising.bids.bidders[]
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
+  "advertising": {
+    "bids": {
+      ...
+      "bidders": [
+        {
+          "name": "SpotX",
+          "id": "85394"
+        }
+      ]
+    }
+  ...
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`id`| String | **(Required)** Identifier issued by the bidding partner that represents a segment of a publisher's inventory|
+|`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`Facebook`<br/><br/>`SpotX`|
+
+<a name="advertising-bids-settings"></a>
+
+### advertising.bids.settings
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
+  "advertising": {
+    ...
+    "bids": {
+      ...
+      "settings": {
+        "mediationLayerAdServer": "jwp",
+        "floorPriceCents": 10,
+        "floorPriceCurrency": "usd",
+        "bidTimeout": 1000  
+      }
+    }
+  ...
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`mediationLayerAdServer` | String | **(Required)** Mediation layer that decides which ad runs<br/><br/> `jwp`: (VAST/IMA) An auction is conducted by the player. You must specify a floor price. If a winner is selected, the winner's ad is called. If no winner is selected, the fallback tag is called.<br/><br/> `jwpspotx`: (VAST) No auction is conducted by the player. The player asks SpotX for a bid and calls the returned ad response regardless of price. This option is equivalent to using JW Player mediation with a $.01 floor price. You must <a href="https://developer.spotxchange.com/content/local/docs/HeaderBidding/lisa.md" target="_blank">set up SpotX line items</a>.<br/><br/>`dfp`: (IMA) No auction is conducted by the player. All bids are sent to Google Ad Manager (GAM) and rendered as line items that compete against other line items. GAM serves the winning line item.<br/><br/>`jwpdfp`: (IMA) An initial auction is conducted by the player. You must specify a floor price. If a winner is selected, that winner's ad will is called. If no winner is selected, the fallback tag is called serve. If no winner is selected for any reason, all valid bids are sent to DFP where the bid values are rendered as line items to compete against other line items. The winning line item is served by DFP.<br/><br/>Default value: `jwp`|
+|`bidTimeout` | String | Timeout for bid response after the user clicks to play, in milliseconds<br/><br/>Default value: `2000`|
+|`floorPriceCents` | Number | Price in cents (CPM) that a bid has to beat in order to win<br/><br/>This property does not need to be set when `mediationLayerAdServer` is set to `dfp` or `jwpspotx`.|
+|`floorPriceCurrency`| String | Currency of the `floorPriceCents` <br/><br/>Currently only usd is supported with `jwp` as the mediation layer.|
+
+<a name="advertising-companiondiv"></a>
+
+### advertising.companiondiv
+
+This is an object with 3 properties: `id`, `width` and `height`. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
+
+|Property|Type|Description|
+|---|---|---|
+|`height`|Number|The targeted desired height of a companion ad that exists in a VAST ad|
+|`width`|Number|The targeted desired width of a companion ad that exists in a VAST ad|
+|`id`|String|The ID of the div to replace with a companion ad|
+
+
+For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles).
+
+<a name="advertising-rules"></a>
+### advertising.rules
+
+Use this property to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
+
+```
+jwplayer("myElement").setup({
+  "playlist": [...],
+  "advertising": {
+    ...
+    "rules": {
+      "startOn": 2,
+      "frequency": 1,
+      "timeBetweenAds": 300,
+      "startOnSeek": "pre"
+    }
+  }
+});
+```
+
+|Property|Type|Ad client|Description|Default|
+|---|---|---|---|---|
+|`startOn`|Number|IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
+|`frequency`|Number|IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
+|`startOnSeek` <sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
+|`timeBetweenAds`|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
 
 <a name="advertising-schedule"></a>
+
 ### advertising.schedule
 
-Use this option to load an entire advertising schedule to JW Player, containing multiple ad breaks. The option can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule).
+Use this property to load an entire advertising schedule to JW Player, containing multiple ad breaks. The property value can be a URL to a VMAP schedule or an inline JSON block with ads. This schedule will then be applied to each playlist item. For scheduling ads for individual playlist items, see [scheduling ads for playlist items](#playlist-adschedule).
 
 #### Ad Schedules with VMAP Files
 
-If you are planning on using a VMAP file, simply link to a VMAP .xml file within the advertising block.
+If you are planning on using a VMAP file, add the link to a VMAP .xml file as the value for `schedule`:
+
 ```
 jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
+  "playlist": [
+    {
+      "file": "http://example.com/myVideo.mp4"
+    }
+  ],
   "advertising": {
     "client": "vast",
     "adscheduleid": "t4Xk5tsF",
@@ -695,7 +823,7 @@ The VMAP schedule will then be applied to each playlist item. See our article ab
 
 #### Embedded Ad Schedules with JSON
 
-In order to use a JSON-formatted schedule, you'll need at least one **ad break** configured inside of an **advertising** block. Each ad break is required to have a unique name, and should include a tag and offset.
+In order to use a JSON-formatted schedule, you must define at least **one** ad break configured inside of the `schedule` property. Each ad break should include an `offset` and a `tag` or `vastxml`.
 
 ```
 jwplayer("myElement").setup({
@@ -703,8 +831,8 @@ jwplayer("myElement").setup({
   "advertising": {
     "client": "vast",
     "adscheduleid": "p4Xk5lsZ",
-    "schedule": {
-      "adbreak-preroll": {
+    "schedule": [
+      {
         "tag": "myPreroll.xml",
         "offset": "pre",
         "custParams": {
@@ -712,171 +840,24 @@ jwplayer("myElement").setup({
           "testkey2": "testval2"
         },
       },
-      "adbreak-midroll": {
+      {
         "vastxml": "<VAST version='2.0'> ... </VAST>",
         "offset": "50%"
       }
-    }
+    ]
   }
 });
 ```
 
 |Property|Type|Description|Default|
 |---|---|---|---|
-|`{adbreak}.custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
-|`{adbreak}.offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
-|`{adbreak}.tag`|String or Array|URL location of the ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `{adbreak}.vastxml` within the same ad break.|-|
-|`{adbreak}.type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
-|`{adbreak}.vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `{adbreak}.tag` within the same ad break.|-|
+|`custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
+|`offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
+|`tag`|String or Array|URL location of the ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `vastxml` within the same ad break.|-|
+|`type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
+|`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `tag` within the same ad break.|-|
 
 <br/>
-
-<a name="advertising-bids"></a>
-### advertising.bids
-
-Use this option to try video player bidding with supported bidders. Click [here](https://support.jwplayer.com/articles/how-to-setup-video-player-bidding) for more information on how to get started.
-
-#### Video Player Bidding with JW
-
-In order for JW Player to work as mediation layer, the following options need to be set in **settings**, and **bidders** needs to have at least one supported bidder.
-
-|Option|Type|Description|Default|
-|---|---|---|---|
-|**advertising.bids.bidOnBreaks**|Number|The number of ad breaks for which bid requests are sent. <br/><br/> **NOTE**: For content with more than three ad breaks, change the default setting to `3` and adjust this value depending on performance. <br/><br/> By default, a bid request is made for each ad break.|-|
-|**advertising.bids.*settings*.mediationLayerAdServer**|String|The mediation layer, which is the decision-maker in what ad to run. See the table below for the available choices for the mediation layer.|jwp|
-|**advertising.bids.*settings*.floorPriceCents**|Number|The price in cents (CPM) that a bid has to beat in order to win|-|
-|**advertising.bids.*settings*.floorPriceCurrency**|String|The currency of the floorPriceCents. Currently only usd is supported with "jwp" as the mediation layer|usd|
-|**advertising.bids.*settings*.bidTimeout**|String|Timeout for bid response after the user clicks to play, in milliseconds|2000|
-|**advertising.bids.*bidders*[index].name**|String|The name of the bidder (ex. "SpotX")|-|
-|**advertising.bids.*bidders*[index].id**|String|The id of the publisher|-|
-
-<br/>
-#### Available Mediation Layers
-
-|Option|Supported Clients|Description|
-|---|---|---|
-|**jwp**|VAST, Google IMA|The default mediation layer. Compares bid prices against the floor price with the higher bid winning. If the floor wins, the fallback ad tag is used.|
-|**jwpspotx**|VAST, Google IMA|Similar to the "jwp" mediation layer but ignores the floor price, allowing SpotX to easily be used as the primary ad server by always winning the bid.|
-|**dfp**|Google IMA|Uses DFP as your mediation layer by adding key value pairs to the DFP tag to match up with the bidder's line items within DFP|
-|**jwpdfp**|Google IMA|Combines the "jwp" and "dfp" mediation layers in that order. If the floor price isn't beaten, the key value pairs are added to the DFP tag.|
-
-<br/>
-
-```
-jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
-  "advertising": {
-    "client": "googima",
-    "tag": "mytag.xml",
-    "bids": {
-      "bidOnBreaks": 3,
-      "settings": {
-        "mediationLayerAdServer": "jwp",
-        "floorPriceCents": 10,
-        "floorPriceCurrency": "usd",
-        "bidTimeout": 1000
-      },
-      "bidders": [
-        {
-          "name": "BIDDER",
-          "id": 12345
-        }
-      ]
-    }
-  }
-});
-```
-
-#### Header Bidding with DFP
-
-When DFP is set as the mediation layer, "floorPriceCents" and "floorPriceCurrency" do not need to be set.
-
-```
-jwplayer("myElement").setup({
-  "file": "http://example.com/myVideo.mp4",
-  "advertising": {
-    "client": "googima",
-    "tag": "mytag.xml",
-    "bids": {
-      "bidOnBreaks": 3,
-      "settings": {
-        "mediationLayerAdServer": "dfp",
-        "bidTimeout": 1000
-      },
-      "bidders": [
-        {
-          "name": "BIDDER",
-          "id": 12345
-        }
-      ]
-    }
-  }
-});
-```
-
-<br/>
-
-<a name="advertising-rules"></a>
-### advertising.rules
-
-Use this option to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
-
-|Option|Type|Ad client|Description|Default|
-|---|---|---|---|---|
-|startOn|Number|Google IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|frequency|Number|Google IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|startOnSeek<sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
-|timeBetweenAds|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
-
-```
-jwplayer("myElement").setup({
-  "playlist": [
-    {
-      "file": "http://example.com/myVideo.mp4",
-      "starttime": 90
-    },
-    {
-      "file": "http://example.com/myVideo2.mp4"
-    }
-  ],
-  "advertising": {
-    "client": "vast",
-    "adscheduleid": "b6Wd5tsW",
-    "schedule": {
-      "adBreak1": {
-        "tag": "mytag.xml",
-        "offset": 10
-      },
-      "adBreak2": {
-        "tag": "mytag2.xml",
-        "offset": 20
-      }
-    }
-    "rules": {
-      "startOn": 2,
-      "frequency": 1,
-      "timeBetweenAds": 300,
-      "startOnSeek": "pre"
-    }
-  }
-});
-```
-
-<br/>
-
-<a name="advertising-companiondiv"></a>
-### advertising.companiondiv
-
-This is a configuration block object with 3 properties: id, width and height. Set these to have JW Player load a companion ad from your VAST/IMA tag into a div on your page. See [Companion Ads](https://support.jwplayer.com/customer/portal/articles/1433869-companion-ads) for more info.
-
-|Option|Type|Description|
-|---|---|---|
-|**advertising.companiondiv.height**|Number|The targeted desired height of a companion ad that exists in a VAST ad|
-|**advertising.companiondiv.width**|Number|The targeted desired width of a companion ad that exists in a VAST ad|
-|**advertising.companiondiv.id**|String|The ID of the div to replace with a companion ad|
-
-
-For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles).
 
 <a name="drm"></a>
 
