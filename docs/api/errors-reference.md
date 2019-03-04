@@ -1,5 +1,7 @@
 # JW Player Errors Reference
 
+<sup>Last Updated: March 4, 2019</sup>
+
 All errors and warnings relating to the player are returned in a player error object.
 
 ```javascript

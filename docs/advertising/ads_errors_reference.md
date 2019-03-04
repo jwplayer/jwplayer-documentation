@@ -1,5 +1,7 @@
 # Ads Errors Reference
 
+<sup>Last Updated: March 4, 2019</sup>
+
 JW Player is excited to help you monetize your content. With that being said, the complex nature of video advertising means that ad-related errors will happen from time to time. We hope that this list of error codes provides some insight into possible reasons that you are seeing these errors. We also have included possible solutions that may lead you to being able to resolve the issue.
 
 If you are still seeing ad-related issue after trying any applicable solutions, we highly recommend contacting your ad provider for further troubleshooting. This is because the player is primarily making the ad request using the URL you embed in the player and it is the responsibility of the ad provider to respond with a VAST-compatible response that the player can then display to your viewers. If they determine that they believe the issue is with the player, please open a case with [our Support Team](https://support.jwplayer.com/).
