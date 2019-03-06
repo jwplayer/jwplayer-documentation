@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: March 1, 2019</sup>
+<sup>Last Updated: March 7, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -197,7 +197,7 @@ Keeps the player visible when the original player location is scrolled out of vi
 
 On devices in portrait orientation, the player becomes fixed to the top of the page using its original dimensions.
 
-When floating, the viewer can drag the player to reposition it. This functionality is disabled during ad playback with the Google IMA and FreeWheel ad clients.
+When floating, the viewer can drag the player to reposition it. This functionality is disabled during ad playback.
 
 By default, adding an empty `floating` object enables the floating player functionality and also sets `dismissible: true`.
 
