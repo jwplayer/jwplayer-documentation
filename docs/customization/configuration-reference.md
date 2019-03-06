@@ -754,7 +754,7 @@ jwplayer("myElement").setup({
 
 |Property|Type|Description|
 |---|---|---|
-|`content`| Object | OpenRTB content object. See: 3.2.16 Object: Content in the [OpenRTB 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) specification.
+|`content`| Object | OpenRTB content object. See: 3.2.16 Object: Content in the <a href="https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf" target="_blank">OpenRTB 2.5</a> specification.
 |`custom`| Object | Publisher-defined custom key-value pairs|
 |`price_floor`| Number | Price floor of this opportunity|
 |`token`| Object | Publisher-defined custom pass-through macros |
