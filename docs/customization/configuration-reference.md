@@ -721,6 +721,43 @@ jwplayer("myElement").setup({
 |---|---|---|
 |`id`| String | **(Required)** Identifier issued by the bidding partner that represents a segment of a publisher's inventory|
 |`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`Facebook`<br/><br/>`SpotX`|
+|`optionalParams`| Object | Additional parameters that can be appended to the ad tag when SpotX is the the ad partner<br/><br/> See: <a href="#advertising-bids-bidders-optionalparams">advertising.bids.bidders[].optionalParams</a> |
+
+<a name="advertising-bids-bidders-optionalparams"></a>
+
+### advertising.bids.bidders[].optionalParams
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
+  "advertising": {
+    "bids": {
+      ...
+      "bidders": [
+        {
+          "name": "SpotX",
+          "id": "85395"
+          "optionalParams": {
+            "price_floor": 5.30,
+            "custom": {
+              "name": "custom_param_name_goes_here",
+              "value": "custom_param_value_goes_here"
+            }
+          }
+        }
+      ]
+    }
+  ...
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`content`| Object | OpenRTB content object. See: 3.2.16 Object: Content in the [OpenRTB 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) specification.
+|`custom`| Object | Publisher-defined custom key-value pairs|
+|`price_floor`| Number | Price floor of this opportunity|
+|`token`| Object | Publisher-defined custom pass-through macros |
 
 <a name="advertising-bids-settings"></a>
 
