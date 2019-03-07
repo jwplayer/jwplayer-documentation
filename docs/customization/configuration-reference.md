@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: March 1, 2019</sup>
+<sup>Last Updated: March 7, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -770,33 +770,6 @@ This is an object with 3 properties: `id`, `width` and `height`. Set these to ha
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles). -->
 
-<a name="advertising-rules"></a>
-### advertising.rules
-
-Use this property to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
-
-```
-jwplayer("myElement").setup({
-  "playlist": [...],
-  "advertising": {
-    ...
-    "rules": {
-      "startOn": 2,
-      "frequency": 1,
-      "timeBetweenAds": 300,
-      "startOnSeek": "pre"
-    }
-  }
-});
-```
-
-|Property|Type|Ad client|Description|Default|
-|---|---|---|---|---|
-|`startOn`|Number|IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|`frequency`|Number|IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
-|`startOnSeek` <sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
-|`timeBetweenAds`|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
-
 <a name="advertising-freewheel"></a>
 
 ### advertising.freewheel
@@ -826,6 +799,33 @@ jwplayer("myElement").setup({
 |`profileid`|String|FreeWheel identifier of a particular application environment |
 |`sectionid`|String|FreeWheel identifier of a location where the video content plays|
 |`serverid`|String| URL of FreeWheel ad server |
+
+<a name="advertising-rules"></a>
+### advertising.rules
+
+Use this property to control how frequently ads play back. See our [Ad Rules Reference support article](https://support.jwplayer.com/articles/ad-rules-reference) for more information.
+
+```
+jwplayer("myElement").setup({
+  "playlist": [...],
+  "advertising": {
+    ...
+    "rules": {
+      "startOn": 2,
+      "frequency": 1,
+      "timeBetweenAds": 300,
+      "startOnSeek": "pre"
+    }
+  }
+});
+```
+
+|Property|Type|Ad client|Description|Default|
+|---|---|---|---|---|
+|`startOn`|Number|IMA, <br> VAST|First playlist item allowing ad playback.  <br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
+|`frequency`|Number|IMA, <br> VAST|Regularity of ads within a playlist. For example, if `frequency: 3`, ads play before every third playlist item. <br><br>Use 0 to only play ads on the first playlist item.<br><br>In the dashboard, this is one of the **Ad Frequency Rules**.|1|
+|`startOnSeek` <sup>8.5.0+</sup>|String|VAST|Setting that defines if a returning visitor is served a pre-roll ad when resuming previously-watched video content. <br/><br/> `pre`: Player shows returning visitor a pre-roll ad before resuming video playback.<br/><br>`none`: Player shows returning visitor no ads and resumes video playback. <br/><br/>In the dashboard, this is one of the **Long-form Engagement Rules**.<br><br> **NOTE**: Each of the following must be tracked: the unique viewer, the unique piece of content the viewer was watching, and the time when the viewer left the page during playback of the video content. During the player setup, this information must be passed into the player. Use [starttime](#starttime) to pass the time location to resume playback.|-|
+|`timeBetweenAds`|Number|VAST|Minimum time in seconds that must elapse after displaying an ad in a schedule before playing the next scheduled ad.<br><br>In the dashboard, this is one of the **Long-form Engagement Rules**.|0|
 
 <a name="advertising-schedule"></a>
 
