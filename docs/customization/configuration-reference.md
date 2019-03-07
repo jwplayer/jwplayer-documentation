@@ -126,6 +126,36 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
 !!!
 
+<br/>
+
+<a name="autopause"></a>
+
+### Auto pause <sup>8.8.0+</sup>
+
+Automatically pauses the player based on certain rules
+
+By default, adding an empty `autoPause` object enables the auto pause player functionality and also sets `viewability: true`.
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "https://example.com/myVideo.mp4",
+    }
+  ]
+  ...
+  "autoPause": {
+    "viewability": true
+  }
+});
+```
+
+|Setting|Type|Description|Default|
+|--|--|--|--|
+|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|true|
+
+<br/>
+
 ### Casting
 
 Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears.
@@ -157,6 +187,45 @@ jwplayer("myElement").setup({
 | Property | Type | Description |
 | --- | --- | --- |
 | `customAppId` | String | (Optional) When using a [custom receiver](https://developers.google.com/cast/docs/registration), the identifier of the receiver app |
+
+<br/>
+<a name="floating"></a>
+
+### Float on scroll <sup>8.8.0+</sup>
+
+Keeps the player visible when the original player location is scrolled out of view by minimizing it to a corner of the screen
+
+On devices in portrait orientation, the player becomes fixed to the top of the page using its original dimensions.
+
+When floating, the viewer can drag the player to reposition it. This functionality is disabled during ad playback.
+
+By default, adding an empty `floating` object enables the floating player functionality and also sets `dismissible: true`.
+
+Use the following CSS classes to customize the floating player: 
+
+* [.jw-flag-floating .jw-wrapper](../css-skinning/skins_reference/#floating-flag)
+* [.jw-float-icon](../css-skinning/skins_reference/#floating)
+
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "https://example.com/myVideo.mp4",
+    }
+  ]
+  ...
+  "floating": {
+    "dismissible": true
+  }
+});
+```
+
+|Setting|Type|Description|Default|
+|--|--|--|--|
+|`dismissible`|Boolean|Permits or prohibits closing the floating player <br/><br/>`true`: The floating player can be closed by a viewer.<br/><br/>`false`: The floating player cannot be closed by a viewer.|true|
+
+<br/>
 
 <a name="playlist"></a>
 
