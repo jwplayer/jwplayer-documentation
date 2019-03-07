@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 CSS Ski
 !!!
 
 # CSS Skinning Reference
-<sup>Last Updated: March 6, 2019</sup>
+<sup>Last Updated: March 7, 2019</sup>
 
 This article acts as a reference for styling all interface components of JW Player 8. This skinning model uses CSS, and all controls are overlaid on top of the player with HTML. JW8 uses inline SVGs for all icons.
 
