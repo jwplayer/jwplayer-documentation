@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: March 1, 2019</sup>
+<sup>Last Updated: March 7, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -126,6 +126,36 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 The default `preload` configuration has been updated to "metadata", and the _metadata_ and _auto_ settings have been redefined.<sup>8.0+</sup>
 !!!
 
+<br/>
+
+<a name="autopause"></a>
+
+### Auto pause <sup>8.8.0+</sup>
+
+Automatically pauses the player based on certain rules
+
+By default, adding an empty `autoPause` object enables the auto pause player functionality and also sets `viewability: true`.
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "https://example.com/myVideo.mp4",
+    }
+  ]
+  ...
+  "autoPause": {
+    "viewability": true
+  }
+});
+```
+
+|Setting|Type|Description|Default|
+|--|--|--|--|
+|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|true|
+
+<br/>
+
 ### Casting
 
 Casting enables a viewer to use Google Cast or Apple AirPlay technologies to stream video and audio content to a compatible TV or sound system. By enabling the casting feature for a player, a viewer can tap an icon in the control bar to stream your content on a cast-compatible device. If no compatible device is detected by the player, no cast icon appears.
@@ -157,6 +187,45 @@ jwplayer("myElement").setup({
 | Property | Type | Description |
 | --- | --- | --- |
 | `customAppId` | String | (Optional) When using a [custom receiver](https://developers.google.com/cast/docs/registration), the identifier of the receiver app |
+
+<br/>
+<a name="floating"></a>
+
+### Float on scroll <sup>8.8.0+</sup>
+
+Keeps the player visible when the original player location is scrolled out of view by minimizing it to a corner of the screen
+
+On devices in portrait orientation, the player becomes fixed to the top of the page using its original dimensions.
+
+When floating, the viewer can drag the player to reposition it. This functionality is disabled during ad playback.
+
+By default, adding an empty `floating` object enables the floating player functionality and also sets `dismissible: true`.
+
+Use the following CSS classes to customize the floating player: 
+
+* [.jw-flag-floating .jw-wrapper](../css-skinning/skins_reference/#floating-flag)
+* [.jw-float-icon](../css-skinning/skins_reference/#floating)
+
+
+```
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "https://example.com/myVideo.mp4",
+    }
+  ]
+  ...
+  "floating": {
+    "dismissible": true
+  }
+});
+```
+
+|Setting|Type|Description|Default|
+|--|--|--|--|
+|`dismissible`|Boolean|Permits or prohibits closing the floating player <br/><br/>`true`: The floating player can be closed by a viewer.<br/><br/>`false`: The floating player cannot be closed by a viewer.|true|
+
+<br/>
 
 <a name="playlist"></a>
 
@@ -652,20 +721,22 @@ This object configures the video advertising capabilities of JW Player and overr
 |`cuetext` <sup>< 8.6.0|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlcuetext) to set this property.|All|"Advertisement"|
 `creativeTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
 |`forceNonLinearFullSlot`|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
-`freewheel.adManagerURL`|String|Freewheel-supplied Ad Manager URL|FreeWheel|-|
-`loadVideoTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|FreeWheel,<br/> IMA|15000|
-`locale`|String|Valid two-letter language code for localization of skip-button language|IMA|-|
-`maxRedirects`|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
-`podmessage` <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
-`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
-`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
+|`freewheel`|Object|FreeWheel ad client settings<br/><br/>See: [advertising.freewheel](#advertising-freewheel)|FreeWheel|-|
+|`fwassetid`|String|FreeWheel identifier for content configured in FreeWheel MRM| FreeWheel|-|
+|`fwduration`|Number|FreeWheel-provided length of the content|FreeWheel|-|
+|`loadVideoTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|FreeWheel,<br/> IMA|15000|
+|`locale`|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+|`maxRedirects`|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
+|`podmessage` <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
+|`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
+|`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |`rules`|Object|Enable ad rules with the given settings and bidders.<br/><br/>See: [advertising.rules](#advertising-rules)|IMA,<br/> VAST|-|
 |`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string) <br/><br/>`advertising.tag` is ignored if this option is set<br/><br/>See: [advertising.schedule](#advertising-schedule)|All|-|
 |`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
 |`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
 |`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
 |`tag`|String or Array|The URL of the VAST tag to display or custom string of the Freewheel tag to display|All|-|
-`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
+|`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
 |`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 
@@ -721,6 +792,43 @@ jwplayer("myElement").setup({
 |---|---|---|
 |`id`| String | **(Required)** Identifier issued by the bidding partner that represents a segment of a publisher's inventory|
 |`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`Facebook`<br/><br/>`SpotX`|
+|`optionalParams`| Object | Additional parameters that can be appended to the ad tag when SpotX is the the ad partner<br/><br/> See: <a href="#advertising-bids-bidders-optionalparams">advertising.bids.bidders[].optionalParams</a> |
+
+<a name="advertising-bids-bidders-optionalparams"></a>
+
+### advertising.bids.bidders[].optionalParams
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
+  "advertising": {
+    "bids": {
+      ...
+      "bidders": [
+        {
+          "name": "SpotX",
+          "id": "85395"
+          "optionalParams": {
+            "price_floor": 5.30,
+            "custom": {
+              "name": "custom_param_name_goes_here",
+              "value": "custom_param_value_goes_here"
+            }
+          }
+        }
+      ]
+    }
+  ...
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`content`| Object | OpenRTB content object. See: 3.2.16 Object: Content in the <a href="https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf" target="_blank">OpenRTB 2.5</a> specification.
+|`custom`| Object | Publisher-defined custom key-value pairs|
+|`price_floor`| Number | Price floor of this opportunity|
+|`token`| Object | Publisher-defined custom pass-through macros |
 
 <a name="advertising-bids-settings"></a>
 
@@ -747,7 +855,7 @@ jwplayer("myElement").setup({
 |Property|Type|Description|
 |---|---|---|
 |`mediationLayerAdServer` | String | **(Required)** Mediation layer that decides which ad runs<br/><br/> `jwp`: (VAST/IMA) An auction is conducted by the player. You must specify a floor price. If a winner is selected, the winner's ad is called. If no winner is selected, the fallback tag is called.<br/><br/> `jwpspotx`: (VAST) No auction is conducted by the player. The player asks SpotX for a bid and calls the returned ad response regardless of price. This option is equivalent to using JW Player mediation with a $.01 floor price. You must <a href="https://developer.spotxchange.com/content/local/docs/HeaderBidding/lisa.md" target="_blank">set up SpotX line items</a>.<br/><br/>`dfp`: (IMA) No auction is conducted by the player. All bids are sent to Google Ad Manager (GAM) and rendered as line items that compete against other line items. GAM serves the winning line item.<br/><br/>`jwpdfp`: (IMA) An initial auction is conducted by the player. You must specify a floor price. If a winner is selected, that winner's ad will is called. If no winner is selected, the fallback tag is called serve. If no winner is selected for any reason, all valid bids are sent to DFP where the bid values are rendered as line items to compete against other line items. The winning line item is served by DFP.<br/><br/>Default value: `jwp`|
-|`bidTimeout` | String | Timeout for bid response after the user clicks to play, in milliseconds<br/><br/>Default value: `2000`|
+|`bidTimeout` | String | Timeout for bid response after the user clicks to play, in milliseconds<br/><br/>If you use SpotX as an ad partner, be sure to make a time allowance for the SpotX SDK to load.<br/><br/>Default value: `2000`|
 |`floorPriceCents` | Number | Price in cents (CPM) that a bid has to beat in order to win<br/><br/>This property does not need to be set when `mediationLayerAdServer` is set to `dfp` or `jwpspotx`.|
 |`floorPriceCurrency`| String | Currency of the `floorPriceCents` <br/><br/>Currently only usd is supported with `jwp` as the mediation layer.|
 
@@ -767,6 +875,36 @@ This is an object with 3 properties: `id`, `width` and `height`. Set these to ha
 <!-- NOTE: Need to figure out where to link the following.
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles). -->
+
+<a name="advertising-freewheel"></a>
+
+### advertising.freewheel
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4",
+  "fwassetid": "test_asset",
+  "duration": 600,
+  "advertising": {
+    ...
+    "freewheel": {
+      "networkid": 12345,
+      "adManagerUrl": "https://mssl.fwmrm.net/libs/adm/6.24.0/AdManager.js"
+      "serverid": "http://demo.v.fwmrm.net/ad/g/1",
+      "profileid": "12345:html5_test",
+      "sectionid": "test_site_section"
+    }
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`adManagerURl`|String|The targeted desired height of a companion ad that exists in a VAST ad<br/><br/>Your FreeWheel Solution Engineer or Account Representative can provide you with a versioned AdManager URL.|
+|`networkid`|Number|FreeWheel identifier of a network |
+|`profileid`|String|FreeWheel identifier of a particular application environment |
+|`sectionid`|String|FreeWheel identifier of a location where the video content plays|
+|`serverid`|String| URL of FreeWheel ad server |
 
 <a name="advertising-rules"></a>
 ### advertising.rules
@@ -1039,7 +1177,7 @@ jwplayer("myElement").setup({
 |<a name="intlplayback"></a>`playback`|String|Call-to-action text beneath the play button on the player idle screen.|Play|
 |`playbackRates`|String|Tooltip text for and `aria-label` HTML attribute of the playback rate controls menu|Playback Rates|
 |`player`|String|`aria-label` HTML attribute of the video player application|Video Player|
-|`playlist`|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay|Playlist|
+|`playlist` <sup>< 8.8.0</sup>|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay<br/><br/>**DEPRECATED**: Starting with JW Player 8.8.0, use the [related.heading](#intlrelatedheading) property to set this property.|Playlist|
 |`poweredBy`|String|Text displayed before the JW Player name and logo on a button in the Right-click menu.|Powered by|
 |`prev`|String|`aria-label` HTML attribute of the left arrow in overlays with multiple pages of videos|Previous|
 |`related`|Object|See: [related object](#intlrelated).|-|
@@ -1095,7 +1233,7 @@ This object localizes the player text and ARIA labels of the [related object](#r
 |Option|Type|Description|Default|
 |---|---|---|---|
 |<a name="intlautoplaymessage"></a>`autoplaymessage`|String|Countdown message text that displays the remaining duration before the next video begins to play|Next up in xx|
-|`heading`|String|Button text for, overlay heading for, and `aria-label` HTML attribute of recommended video interfaces|More Videos|
+|<a name="intlrelatedheading"></a>`heading`|String|Button text for, overlay heading for, and `aria-label` HTML attribute of recommended video interfaces|More Videos|
 
 <a name="intlsharing"></a>
 
