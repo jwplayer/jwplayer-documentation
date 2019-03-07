@@ -1039,7 +1039,7 @@ jwplayer("myElement").setup({
 |<a name="intlplayback"></a>`playback`|String|Call-to-action text beneath the play button on the player idle screen.|Play|
 |`playbackRates`|String|Tooltip text for and `aria-label` HTML attribute of the playback rate controls menu|Playback Rates|
 |`player`|String|`aria-label` HTML attribute of the video player application|Video Player|
-|`playlist` <sup>< 8.8.0</sup>|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.8.0, use the [related.heading](#intlrelatedheading) property to set this property.|Playlist|
+|`playlist` <sup>< 8.8.0</sup>|String|Tooltip text for, overlay heading for, and `aria-label` HTML attribute of a playlist overlay<br/><br/>**DEPRECATED**: Starting with JW Player 8.8.0, use the [related.heading](#intlrelatedheading) property to set this property.|Playlist|
 |`poweredBy`|String|Text displayed before the JW Player name and logo on a button in the Right-click menu.|Powered by|
 |`prev`|String|`aria-label` HTML attribute of the left arrow in overlays with multiple pages of videos|Previous|
 |`related`|Object|See: [related object](#intlrelated).|-|
