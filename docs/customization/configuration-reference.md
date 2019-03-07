@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: March 1, 2019</sup>
+<sup>Last Updated: March 7, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -652,20 +652,22 @@ This object configures the video advertising capabilities of JW Player and overr
 |`cuetext` <sup>< 8.6.0|String|Specify the text that appears when a user mouses over a scheduled advertisement<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlcuetext) to set this property.|All|"Advertisement"|
 `creativeTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adStart event before timing out|VAST|15000|
 |`forceNonLinearFullSlot`|Boolean|For forcing nonlinear ads to be fullsot ads rather than overlays|IMA|-|
-`freewheel.adManagerURL`|String|Freewheel-supplied Ad Manager URL|FreeWheel|-|
-`loadVideoTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|FreeWheel,<br/> IMA|15000|
-`locale`|String|Valid two-letter language code for localization of skip-button language|IMA|-|
-`maxRedirects`|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
-`podmessage` <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
-`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
-`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
+|`freewheel`|Object|FreeWheel ad client settings<br/><br/>See: [advertising.freewheel](#advertising-freewheel)|FreeWheel|-|
+|`fwassetid`|String|FreeWheel identifier for content configured in FreeWheel MRM| FreeWheel|-|
+|`fwduration`|Number|FreeWheel-provided length of the content|FreeWheel|-|
+|`loadVideoTimeout`|Number|In milliseconds, the maximum amount of time between the VAST XML being returned and the adstart event before timing out|FreeWheel,<br/> IMA|15000|
+|`locale`|String|Valid two-letter language code for localization of skip-button language|IMA|-|
+|`maxRedirects`|Number|The maximum number of redirects the player should follow before timing out|IMA|4|
+|`podmessage` <sup>< 8.6.0</sup>|String|Text that displays during playback of an ad pod. <br/><br/>Use `__AD_POD_CURRENT__` to denote the currently playing item in the pod and `__AD_POD_LENGTH__` for the total number of ads in the pod.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlpodmessage) to set this property.|VAST|"Ad xx of yy."|
+|`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
+|`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the ad request and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the ad request and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |`rules`|Object|Enable ad rules with the given settings and bidders.<br/><br/>See: [advertising.rules](#advertising-rules)|IMA,<br/> VAST|-|
 |`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string) <br/><br/>`advertising.tag` is ignored if this option is set<br/><br/>See: [advertising.schedule](#advertising-schedule)|All|-|
 |`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
 |`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
 |`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
 |`tag`|String or Array|The URL of the VAST tag to display or custom string of the Freewheel tag to display|All|-|
-`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
+|`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
 |`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 
@@ -804,6 +806,36 @@ This is an object with 3 properties: `id`, `width` and `height`. Set these to ha
 <!-- NOTE: Need to figure out where to link the following.
 
 For an overview of JW Player's advertising capabilities, see its dedicated [Video Ads section](https://support.jwplayer.com/customer/portal/topics/605644-video-ads/articles). -->
+
+<a name="advertising-freewheel"></a>
+
+### advertising.freewheel
+
+```
+jwplayer("myElement").setup({
+  "playlist": "https://cdn.jwplayer.com/v2/playlists/a12bc3D4",
+  "fwassetid": "test_asset",
+  "duration": 600,
+  "advertising": {
+    ...
+    "freewheel": {
+      "networkid": 12345,
+      "adManagerUrl": "https://mssl.fwmrm.net/libs/adm/6.24.0/AdManager.js"
+      "serverid": "http://demo.v.fwmrm.net/ad/g/1",
+      "profileid": "12345:html5_test",
+      "sectionid": "test_site_section"
+    }
+  }
+});
+```
+
+|Property|Type|Description|
+|---|---|---|
+|`adManagerURl`|String|The targeted desired height of a companion ad that exists in a VAST ad<br/><br/>Your FreeWheel Solution Engineer or Account Representative can provide you with a versioned AdManager URL.|
+|`networkid`|Number|FreeWheel identifier of a network |
+|`profileid`|String|FreeWheel identifier of a particular application environment |
+|`sectionid`|String|FreeWheel identifier of a location where the video content plays|
+|`serverid`|String| URL of FreeWheel ad server |
 
 <a name="advertising-rules"></a>
 ### advertising.rules
