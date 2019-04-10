@@ -281,7 +281,7 @@ jwplayer("myElement").setup({
 |`sources` |Array|Used for quality toggling and alternate sources<br/><br/>See: [playlist.sources](#playlist-sources)|
 |`tracks` |Array|Include **captions**, **chapters**, and **thumbnails** for media<br/><br/>See: [playlist.tracks](#playlist-tracks)|
 |`adschedule`|Object|Schedule advertising for a specific media file<br/><br/>See: [playlist.adschedule](#playlist-adschedule)|
-|`variations`|Object|Properties of the [Intelligent Thumbnails](https://support.jwplayer.com/articles/learn-about-intelligent-thumbnails) feature for a media item that is hosted on your account.<br/><br/>See: [playlist.variations](playlist-variations)|
+|`variations`|Object|Properties of the [Intelligent Thumbnails](https://support.jwplayer.com/articles/learn-about-intelligent-thumbnails) feature for a media item that is hosted on your account.<br/><br/>See: [playlist.variations](#playlist-variations)|
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
