@@ -436,11 +436,11 @@ When using the playlist to load an RSS feed, these options are set in the feed. 
 
 <a name="playlist-adschedule"></a>
 
+### playlist[_index_].adschedule
+
 !!!important
 Video ad insertion requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) to upgrade your account.
 !!!
-
-### playlist[_index_].adschedule
 
 The **playlist[_index_].adschedule** block is used for scheduling ad breaks throughout specific playlist items. Each **adbreak** should be given a unique name, and needs to be nested inside of an **adschedule** block.
 
