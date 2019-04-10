@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: March 7, 2019</sup>
+<sup>Last Updated: April 12, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -247,6 +247,8 @@ jwplayer("myElement").setup({
 ```
 <br/>
 
+### playlist[]
+
 #### Configuring Playlist as an Array
 
 ```
@@ -267,18 +269,19 @@ jwplayer("myElement").setup({
 
 |Setting|Type|Description|
 |--|--|--|
-|**playlist[_index_].file**|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
-|**playlist[_index_].withCredentials**|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
-|**playlist[_index_].title**|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
-|**playlist[_index_].description**|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
-|**playlist[_index_].image**|String|Poster image URL. Displayed before and after playback.|
-|**playlist[_index_].mediaid**|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|**playlist[_index_].recommendations**|String|URL to a feed that contains related items for a particular playlist item|
-|<a name="starttime"></a>**playlist[_index_].starttime** |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
-|**playlist[_index_].minDvrWindow**|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
-|[playlist&#91;_index_&#93;.sources&#91;&#93;](#playlist-sources) |Array|Used for quality toggling and alternate sources|
-|[playlist&#91;_index_&#93;.tracks&#91;&#93;](#playlist-tracks) |Array|Include **captions**, **chapters**, and **thumbnails** for media|
-|[playlist&#91;_index_&#93;.adschedule](#playlist-adschedule)|Object|Schedule advertising for a specific media file|
+|`file`|String|**(Required)** If no file is specified in your setup or sources, this is a required configuration option|
+|`withCredentials`|Boolean|If true, "withCredentials" will be used to request a media file rather than CORS|false|
+|`title`|String|Title of the item. This is displayed inside of the player prior to playback, as well as in the visual playlist. This can be hidden with the displaytitle option|
+|`description`|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
+|`image`|String|Poster image URL. Displayed before and after playback.|
+|`mediaid`|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
+|`recommendations`|String|URL to a feed that contains related items for a particular playlist item|
+|<a name="starttime"></a>`starttime` |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
+|`minDvrWindow`|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
+|`sources` |Array|Used for quality toggling and alternate sources<br/><br/>See: [playlist.sources](#playlist-sources)|
+|`tracks` |Array|Include **captions**, **chapters**, and **thumbnails** for media<br/><br/>See: [playlist.tracks](#playlist-tracks)|
+|`adschedule`|Object|Schedule advertising for a specific media file<br/><br/>See: [playlist.adschedule](#playlist-adschedule)|
+|`variations`|Object|Properties of the [Intelligent Thumbnails](https://support.jwplayer.com/articles/learn-about-intelligent-thumbnails) feature for a media item that is hosted on your account.<br/><br/>See: [playlist.variations](playlist-variations)|
 
 In addition to standard media information, ("title", "description", "mediaid") it is also possible to insert additional metadata, using custom properties. This information **must** be entered inside of a playlist, and cannot be set directly inside of a setup block.
 
@@ -481,8 +484,64 @@ Playlist configuration options described above can be used with spherical videos
 |---|---|---|---|
 |**playlist.stereomode**|String| **(Required)** This field is required for each 360 item in a playlist. If it is undefined, the video will not render in 360 mode. Supported values are "monoscopic", "stereoscopicTopBottom", and "stereoscopicLeftRight".|-|
 
+<a name="playlist-variations"></a>
 
-<a name="skin"></a>
+### playlist[].variations
+
+!!!warning
+Manually updating the `variations` object will compromise [Intelligent Thumbnails](https://support.jwplayer.com/articles/learn-about-intelligent-thumbnails) functionality. This section is provided only to explain the information returned within this object.
+!!! 
+
+```json
+jwplayer("myElement").setup({
+  "playlist": [
+    {
+      "file": "https://content.jwplatform.com/v2/media/zyXw4321",
+      "image": "https://cdn.jwplayer.com/thumbs/zyXw4321-720.jpg",
+      "variations": {
+        "images": [
+          {
+            "image": "https://content.jwplatform.com/v2/media/zyXw4321/thumbnails/63a2zb84.jpg?width=720",
+            "id": "63a2zb84",
+            "weight": 0.25
+          },
+          {
+            "image": "https://content.jwplatform.com/v2/media/zyXw4321/thumbnails/oig5z424.jpg?width=720",
+            "id": "oig5z424",
+            "weight": 0.25
+          },
+          {
+            "image": "https://content.jwplatform.com/v2/media/zyXw4321/thumbnails/6067i00p.jpg?width=720",
+            "id": "6067i00p",
+            "weight": 0.25
+          },
+          {
+            "image": "https://content.jwplatform.com/v2/media/zyXw4321/thumbnails/w1zluc60.jpg?width=720",
+            "id": "w1zluc60",
+            "weight": 0.25
+          }
+        ]
+      },
+      ...
+    }
+  ]
+});
+```
+
+|Property|Type|Description|
+|--|--|--|
+|`images`|Array|Thumbnail candidates for Intelligent Thumbnails functionality<br/><br/>See: [playlist.variations.images](#playlist-variations-images)|
+
+### playlist[].variations.images
+
+<a name="playlist-variations-images"></a>
+
+|Property|Type|Description|
+|--|--|--|
+|`id`|String|Unique identifier for an individual thumbnail candidate|
+|`image`|String|URL of an individual thumbnail candidate|
+|`weight`|Number|Dynamic weight as calculated by the Intelligent Thumbnails algorithm|
+
 
 * * *
 
