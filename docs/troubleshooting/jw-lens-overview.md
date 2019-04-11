@@ -25,23 +25,15 @@ Once installed, JW Lens captures information emitted by the player and groups si
 You can select the location where the extension window appears. You can always change the location from any tab of JW Lens.
 
 1. Open JW Lens.
-2. From any tab, select a location from the **Position** drop-down menu.
+2. Select a location from the **Position** drop-down menu.
 
 <br/>
 
 ## JW Lens tabs
 
-All player information is grouped into seven tabs:
+All player information is grouped into seven tabs. The following sections explain the layout and information that can be obtained from each tab.
 
-- [Overview](#overview)
-- [Config](#config)
-- [Errors](#errors)
-- [Events](#events)
-- [Analytics](#analytics)
-- [QoE](#qoe) 
-- [Report](#report)
-
-The following sections explain the layout and information that can be obtained from each tab.
+[Overview](#overview) | [Config](#config) | [Errors](#errors) | [Events](#events) | [Analytics](#analytics) | [QoE](#qoe) | [Report](#report)
 
 <br/>
 
@@ -63,7 +55,7 @@ On the **Overview** tab, you can view general information about a JW Player inst
 
 ### Config
 
-On the **Config** tab, configuration used to instantiate the player is displayed. You can copy the configuration to your clipboard or edit the configuration and re-initialize the player with a modified configuration.
+On the **Config** tab, the configuration used to instantiate the player is displayed. You can copy the configuration to your clipboard or edit the configuration and re-initialize the player with a modified configuration.
 
 <img src="../../img/jw-lens/jw-lens-config.png">
 
@@ -74,13 +66,13 @@ On the **Config** tab, configuration used to instantiate the player is displayed
 
 #### Modify the player configuration
 
-!!!
-Modifying the player configuration in JW Lens does not change the player configuration used to initiate the player when a viewer visits your page.
-!!!
-
 1. Click the **Config** tab.
 2. Edit the player configuration.
 3. Click **SETUP NEW PLAYER**.
+
+!!!
+Modifying the player configuration in JW Lens does not change the player configuration used to initiate the player when a viewer visits your page.
+!!!
 
 <br/>
 
@@ -111,6 +103,8 @@ On the **Events** tab, you can view a real-time, filterable feed of the events a
 2. In the **Filter by Play Session** drop-down menu, choose an option to filter the listed events.
 3. In the **Filter By Event** list, click an event. The details of the event appear.
 
+<br/>
+
 After clicking an event, you can perform several tasks:
 
 - Click **API Documentation** to read about a specific event.
@@ -129,6 +123,8 @@ On the **Analytics** tab, you can view a real-time, filterable feed of Google An
 
 1. Click the **Analytics** tab.
 2. In the **Filter By Type** list, click a Google Analytics item. The details of the item appear.
+
+<br/>
 
 After clicking an item, you can perform several tasks:
 
@@ -187,13 +183,15 @@ Use the **Report** tab to create a .json file to include with your submission wh
 6. [Submit a support case](https://support.jwplayer.com/submit-support-case).
 7. In the Reproduction page field, add the URL of the .json file.
 
+<br/><br/>
+
 ## Upload Report and Open Test Page
 
-The **Upload Report** and **Open Test Page** features allow to review the player on a page that does not have external CSS or JavaScript. This can help you determine if a player issue is caused because of a player configuration or a conflict with an element on your page.
+The **Upload Report** and **Open Test Page** features allow you to review the player on a page that does not have external CSS or JavaScript. This can help you determine if a player issue is caused due to a player configuration setting or a conflict with an element on your page.
 
 ### Upload Report
 
-You can upload a .json file generated from the Report tab. The .json file is used to load a player in a new browser tab. This can be useful if your JW Player Support team member sends you a revised .json file to review or test.
+You can upload a .json file generated from the **Report** tab. The .json file is used to load a player in a new browser tab. This can be useful if your JW Player Support team member sends you a revised .json file to review or test.
 
 1. From any tab, click **UPLOAD REPORT**.
 2. Select the .json file from your computer. A new browser tab opens with the player and relevant information displayed.
