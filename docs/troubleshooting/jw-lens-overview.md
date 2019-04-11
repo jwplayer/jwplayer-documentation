@@ -31,7 +31,7 @@ You can select the location where the extension window appears. You can always c
 
 ## JW Lens tabs
 
-All player information is grouped into seven tabs. The following sections explain the layout and information that can be obtained from each tab.
+Player information is grouped into multiple tabs. The following sections explain the layout and information that can be obtained from each tab.
 
 [Overview](#overview) | [Config](#config) | [Errors](#errors) | [VPB](#vpb) | [Events](#events) | [Analytics](#analytics) | [QoE](#qoe) | [Report](#report)
 
