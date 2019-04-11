@@ -33,7 +33,7 @@ You can select the location where the extension window appears. You can always c
 
 All player information is grouped into seven tabs. The following sections explain the layout and information that can be obtained from each tab.
 
-[Overview](#overview) | [Config](#config) | [Errors](#errors) | [Events](#events) | [Analytics](#analytics) | [QoE](#qoe) | [Report](#report)
+[Overview](#overview) | [Config](#config) | [Errors](#errors) | [VPB](#vpb) | [Events](#events) | [Analytics](#analytics) | [QoE](#qoe) | [Report](#report)
 
 <br/>
 
@@ -88,6 +88,19 @@ On the **Errors** tab, a summary of critical media, ads, and player configuratio
 2. To view detected errors, click the boxed number that appears next an error type. An error screen appears.
 3. Review the errors and linked JW Player error documentation. Errors are listed based on JW Player best practices. If you have a unique use case, some of the listed errors may not be applicable. 
 4. Click **Return to Troubleshooting** to view the **Errors** tab main screen.
+
+<br/>
+
+<a name="vpb"></a>
+
+### VPB
+
+On the **VPB** (Video Player Bidding) tab, a summary of bidding partner performance is displayed. Only the bidder partners who been defined in the [advertising.bids.bidder](../../customization/configuration-reference/#advertising-bids-bidders) property of the player or [set in the JW Player dashboard](https://support.jwplayer.com/articles/how-to-set-up-video-player-bidding) are displayed.
+
+<img src="../../img/jw-lens/jw-lens-vpb.png">
+
+1. Click the **VPB** tab.
+2. (Optional) Select a play session from the **Results for** drop-down menu.
 
 <br/>
 
