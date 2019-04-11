@@ -1,6 +1,6 @@
 # JW Lens overview
 
-<sup>Last Updated: April 15, 2019</sup>
+<sup>Last Updated: April 17, 2019</sup>
 
 After reading our documentation, reviewing our code samples, and examining our demos, you may still be unable to resolve an implementation issue. JW Lens is a browser extension that can help simplify how you troubleshoot your player implementation. 
 
