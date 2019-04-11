@@ -35,8 +35,6 @@ Player information is grouped into multiple tabs. The following sections explain
 
 [Overview](#overview) | [Config](#config) | [Errors](#errors) | [VPB](#vpb) | [Events](#events) | [Analytics](#analytics) | [QoE](#qoe) | [Report](#report)
 
-<br/>
-
 <a name="overview"></a>
 
 ### Overview
