@@ -51,7 +51,7 @@ The following sections explain the layout and information that can be obtained f
 
 On the **Overview** tab, you can view general information about a JW Player instance and its implementation.
 
-<img src="../img/jw-lens/jw-lens-overview.png">
+<img src="../../img/jw-lens/jw-lens-overview.png">
 
 1. Click the **Overview** tab.
 2. Select a **PLAYER ELEMENT ID** from the drop-down menu. This focuses JW Lens on this unique player instance.
@@ -65,7 +65,7 @@ On the **Overview** tab, you can view general information about a JW Player inst
 
 On the **Config** tab, configuration used to instantiate the player is displayed. You can copy the configuration to your clipboard or edit the configuration and re-initialize the player with a modified configuration.
 
-<img src="../img/jw-lens/jw-lens-config.png">
+<img src="../../img/jw-lens/jw-lens-config.png">
 
 #### Copy the player configuration
 
@@ -90,7 +90,7 @@ Modifying the player configuration in JW Lens does not change the player configu
 
 On the **Errors** tab, a summary of critical media, ads, and player configuration errors is displayed.
 
-<img src="../img/jw-lens/jw-lens-errors.png">
+<img src="../../img/jw-lens/jw-lens-errors.png">
 
 1. Click the **Errors** tab.
 2. To view detected errors, click the boxed number that appears next an error type. An error screen appears.
@@ -105,7 +105,7 @@ On the **Errors** tab, a summary of critical media, ads, and player configuratio
 
 On the **Events** tab, you can view a real-time, filterable feed of the events and accompanying data of the player.
 
-<img src="../img/jw-lens/jw-lens-events.png">
+<img src="../../img/jw-lens/jw-lens-events.png">
 
 1. Click the **Events** tab.
 2. In the **Filter by Play Session** drop-down menu, choose an option to filter the listed events.
@@ -125,7 +125,7 @@ After clicking an event, you can perform several tasks:
 
 On the **Analytics** tab, you can view a real-time, filterable feed of Google Analytics pings.
 
-<img src="../img/jw-lens/jw-lens-analytics.png">
+<img src="../../img/jw-lens/jw-lens-analytics.png">
 
 1. Click the **Analytics** tab.
 2. In the **Filter By Type** list, click a Google Analytics item. The details of the item appear.
@@ -146,7 +146,7 @@ On the **QoE** (Quality of Experience) tab, you can view the performance of both
 
 You can also click **VIEW GOOGLE PAGE SPEED ANALYSIS** to view additional page speed information.
 
-<img src="../img/jw-lens/jw-lens-qoe.png">
+<img src="../../img/jw-lens/jw-lens-qoe.png">
 
 The following tables list and define the measurements that are displayed on this tab.
 
@@ -177,7 +177,7 @@ The following tables list and define the measurements that are displayed on this
 
 Use the **Report** tab to create a .json file to include with your submission when you submit a support ticket for the JW Player Support team to troubleshoot your player issues.
 
-<img src="../img/jw-lens/jw-lens-report.png">
+<img src="../../img/jw-lens/jw-lens-report.png">
 
 1. Click the **Report** tab.
 2. If an issue occurs in more than one browser, add the additional browsers in the **What browsers does this issue appear in?** text box. <br/><br/>**NOTE**: JW Lens automatically populates the Chrome browser information of the open active tab.
