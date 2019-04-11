@@ -100,7 +100,7 @@ On the **VPB** (Video Player Bidding) tab, a summary of bidding partner performa
 <img src="../../img/jw-lens/jw-lens-vpb.png">
 
 1. Click the **VPB** tab.
-2. (Optional) Select a play session from the **Results for** drop-down menu.
+2. (Optional) Select a play session from the **Results for** drop-down menu. The bidder partner information updates.
 
 <br/>
 
@@ -194,7 +194,7 @@ Use the **Report** tab to create a .json file to include with your submission wh
 4. Click **DOWNLOAD**.
 5. Upload the .json file to an online location like Dropbox, Google Drive, or your own server.
 6. [Submit a support case](https://support.jwplayer.com/submit-support-case).
-7. In the Reproduction page field, add the URL of the .json file.
+7. In the **Reproduction page** field, add the URL of the .json file.
 
 <br/><br/>
 
