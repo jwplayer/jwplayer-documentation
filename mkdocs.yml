@@ -30,7 +30,7 @@ nav:
     - Analytics Integrations: analytics/integrations.md
     - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
   - Troubleshooting:
-    - Troubleshoot you player with JW Lens: troubleshooting/troubleshoot-with-jw-lens.md
+    - Troubleshoot you player with JW Lens: troubleshooting/jw-lens-overview.md
   - JW 7 Developer Guide:
         - JW7 Javascript API: jw7/javascript-api-reference.md
         - JW7 Configuration Reference: jw7/configuration-reference.md
