@@ -8,7 +8,7 @@ When comparing metrics from multiple sources, discrepancies of less than 15% can
 
 If you experience a discrepancy that is greater than 15%, follow these steps:
 
-1. Confirm that your third-party analytics solution has been accurately configured with the player [events you want to track](track-video-metrics).
+1. Confirm that your third-party analytics solution has been accurately configured with the player [events you want to track](../track-video-metrics).
 2. If you continue to see a discrepancy, submit a support ticket. Be sure to include answers to the questions in the _Submit a support ticket_ section below.
 
 ## Submit a support ticket
