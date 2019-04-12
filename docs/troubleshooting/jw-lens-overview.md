@@ -15,7 +15,7 @@ Once installed, JW Lens captures information emitted by the player and groups si
 
 <br/>
 
-<a named="install"></a>
+<a name="install"></a>
 
 ## Install JW Lens
 
