@@ -2,6 +2,9 @@
 
 <sup>Last Updated: April 17, 2019</sup>
 
+<img src="https://img.shields.io/badge/%20-Beta-green.svg" />
+	 <sup>If you would like to try this Beta product, <a href="#install">install the browser extension</a>.</sup>
+
 After reading our documentation, reviewing our code samples, and examining our demos, you may still be unable to resolve an implementation issue. JW Lens is a browser extension that can help simplify how you troubleshoot your player implementation. 
 
 Once installed, JW Lens captures information emitted by the player and groups similar information together. This helps you to explore and troubleshoot your HTML5 player implementation:
@@ -11,6 +14,8 @@ Once installed, JW Lens captures information emitted by the player and groups si
 - Understand the player event lifecycle
 
 <br/>
+
+<a named="install"></a>
 
 ## Install JW Lens
 
