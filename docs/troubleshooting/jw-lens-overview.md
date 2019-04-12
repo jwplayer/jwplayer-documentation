@@ -14,7 +14,7 @@ Once installed, JW Lens captures information emitted by the player and groups si
 - Understand the player event lifecycle
 
 !!!important
-JW Lens cannot be used with players in iframes, including Accelerated Mobile Pages (AMP)
+JW Lens cannot be used with players in iframes, including Accelerated Mobile Pages (AMP).
 !!!
 
 <br/>
