@@ -29,20 +29,19 @@ nav:
   - Troubleshooting:
       - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
   - Reference:
-    - JW Player Javascript API: test.md
     - Configuration Reference: customization/configuration-reference.md
     - Ads Errors Reference: advertising/ads_errors_reference.md
     - Errors Reference: api/errors-reference.md
   - JW 7 Developer Guide:
-        - JW7 Javascript API: jw7/javascript-api-reference.md
-        - JW7 Configuration Reference: jw7/configuration-reference.md
-        - JW7 CSS Skinning Reference: jw7/skins_reference.md
-        - JW7 CSS Skinning Model: jw7/css-skinning-model.md
-        - JW7 Custom Skins: jw7/skins_creating.md
-        - JW7 Custom Icons and Fonts: jw7/skins_fonts.md
-        - JW7 Example CSS File: jw7/skins_example.md
-        - JW7 Designer Kit: jw7/designer-kit.md
-        - JW7 Analytics Integrations: jw7/integrations.md
+    - JW7 Javascript API: jw7/javascript-api-reference.md
+    - JW7 Configuration Reference: jw7/configuration-reference.md
+    - JW7 CSS Skinning Reference: jw7/skins_reference.md
+    - JW7 CSS Skinning Model: jw7/css-skinning-model.md
+    - JW7 Custom Skins: jw7/skins_creating.md
+    - JW7 Custom Icons and Fonts: jw7/skins_fonts.md
+    - JW7 Example CSS File: jw7/skins_example.md
+    - JW7 Designer Kit: jw7/designer-kit.md
+    - JW7 Analytics Integrations: jw7/integrations.md
 
 site_dir: developer-guide
 markdown_extensions:
