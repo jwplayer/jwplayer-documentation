@@ -62,4 +62,4 @@ jwplayer('myElement').setup({
 
 Due to possibly impacting rendering speed, option 2 should only be used if you do not have access to the HTML on the page where your player will be rendered.
 
-For a complete list of class names that are able to be overridden, please see our [CSS Skin Reference](../customization/css-skinning/skins_reference.md).
+For a complete list of class names that are able to be overridden, please see our [CSS Skin Reference](../css-skinning/skins_reference.md).
