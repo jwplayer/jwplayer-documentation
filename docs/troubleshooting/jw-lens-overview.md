@@ -170,7 +170,7 @@ The following tables list and define the measurements that are displayed on this
 
 | Measurement | Description |
 | -- | -- |
-| Total Setup Time | Time required to instantiate the player, as defined in the [on(‘ready’)](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronready) event|
+| Total Setup Time | Time required to instantiate the player, as defined in the [on(‘ready’)](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronready) event<br/><br/>This value is the duration between the start of `setup()` to `ready`.|
 | Player Resource Fetch Range | Time range in which JW Player resources are requested<br/><br/>This range begins with the request of jwplayer.js and ends with the last module required for setting up the player.<br/><br> <strong>NOTE</strong>: In some cases, this measure will not be available. In particular, if the player scripts are bundled or renamed, this range will not be detected.|
 |Page Request to Ready | Time (starting from 0) after which the JW Player [ready](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronready) event is fired|
 |Time to First Frame | Time between the `playAttempt` to [firstFrame](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronfirstframe) events |
