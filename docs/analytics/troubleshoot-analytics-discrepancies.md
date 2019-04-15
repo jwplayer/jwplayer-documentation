@@ -1,6 +1,6 @@
 # Troubleshoot analytics discrepancies
 
-<sup>_Last Updated: December 5, 2018_</sup>
+<sup>Last Updated: April 15, 2019</sup>
 
 When comparing metrics from multiple sources, discrepancies of less than 15% can be expected. Discrepancies can occur due to ad blockers that can prevent analytics tracking or different methods used to calculate metrics. 
 
