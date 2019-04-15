@@ -4,9 +4,11 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Custom 
 
 # Custom Skins
 
+<sup>Last Updated: April 15, 2019</sup>
+
 The nine complimentary skins offered in JW7 have been deprecated in JW8, but customizing JW Player is easy with JW Player 8's CSS-based skinning model. 
 
-To configure colors only, our [11 skin color configuration options](../configuration-reference/#skin), which can be defined inside the player setup, may be sufficient. For more advanced users, the rest of this page will explain how to create your own custom skin and load it into your JW Player.
+To configure colors only, our [11 skin color configuration options](../../configuration-reference/#skin), which can be defined inside the player setup, may be sufficient. For more advanced users, the rest of this page will explain how to create your own custom skin and load it into your JW Player.
 
 ## Creating your Style
 
@@ -21,7 +23,7 @@ First, you will need to give your custom skin a name, which will be used to enab
 }
 ```
 
-Upon embedding the player, you *must* ensure to set your "skin" configuration option to the name specified in your skin. Read more in our [configuration options reference](../configuration-reference). 
+Upon embedding the player, you *must* ensure to set your "skin" configuration option to the name specified in your skin. Read more in our [configuration options reference](../../configuration-reference). 
 
 ## Implementing your CSS
 
@@ -60,4 +62,4 @@ jwplayer('myElement').setup({
 
 Due to possibly impacting rendering speed, option 2 should only be used if you do not have access to the HTML on the page where your player will be rendered.
 
-For a complete list of class names that are able to be overridden, please see our [CSS Skin Reference](/customization/css-skinning/skins_reference.md).
+For a complete list of class names that are able to be overridden, please see our [CSS Skin Reference](../customization/css-skinning/skins_reference.md).
