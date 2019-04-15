@@ -1,6 +1,6 @@
 # Add an HTML5 player to a site
 
-<sup>Last Updated: February 5, 2019</sup>
+<sup>Last Updated: April 15, 2019</sup>
 
 To add a player to your site, you must add a reference to the player library, embed the player, and configure the player with content.
 
@@ -12,9 +12,9 @@ To add a player to your site, you must add a reference to the player library, em
 
 | Approach | Process |
 |---|---|
-| Cloud-hosted by JW Player without API calls | 1. From your <a href="https://dashboard.jwplayer.com/" target="_blank">dashboard</a>, click **PUBLISH > Tools**.<br/>2. In the **Cloud Hosted Player Libraries** section, select a **Player Title** from the dropdown menu.<br/>3. Copy the **Cloud Player Library Url**.|
+| Cloud-hosted by JW Player without API calls | 1. From your <a href="https://dashboard.jwplayer.com/" target="_blank">dashboard</a>,  click **Players > PLAYER DOWNLOADS & KEYS**.<br/>2. In the **Cloud Hosted Player Libraries** section, select a **Player Title** from the dropdown menu.<br/>3. Copy the **Cloud Player Library Url**.|
 | Cloud-hosted by JW Player with API calls | 1. Make a call to `api.jwplatform.com` using `GET /players/list` to list the players in your account. If this is your first time using the Management API, read our documentation on [authentication](https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html) and [call syntax](https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html).<br/><br/>2. Locate the `key` in the response, for example: `{key: "aBCdE12G"}`.<br/><br/>3. Construct the cloud-hosted player library URL with the `key`: `https://cdn.jwplayer.com/libraries/{key}.js`.|
-| Self-hosted | Use of a self-hosted JW Player library requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if you would like to upgrade your account.<br/><br/>1. From your dashboard, click **PUBLISH > Tools**.<br/>2. In the **Downloads** section, select a **VERSION** of the self-hosted JW Player library from the dropdown menu.<br/>3. Click the **DOWNLOAD** icon.<br/>4. Copy the **LICENSE KEY** for the JW Player library.<br/>5. Rename and upload the unzipped library folder to your server. When renaming the folder, remove the periods from the folder name.
+| Self-hosted | Use of a self-hosted JW Player library requires a JW Player Enterprise license. Please [contact our team](https://www.jwplayer.com/contact-us/?utm_source=developer&utm_medium=CTA&utm_campaign=player-docs) if you would like to upgrade your account.<br/><br/>1. From your dashboard,  click **Players > PLAYER DOWNLOADS & KEYS**..<br/>2. In the **Downloads** section, select a **VERSION** of the self-hosted JW Player library from the dropdown menu.<br/>3. Click the icon in the **DOWNLOAD** column.<br/>4. Copy the **LICENSE KEY** for the JW Player library.<br/>5. Rename and upload the unzipped library folder to your server. When renaming the folder, remove the periods from the folder name.
 
 <br/>
 

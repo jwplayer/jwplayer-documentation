@@ -10,12 +10,11 @@ nav:
   - Getting Started:
     - Introduction: index.md
     - Intro to Javascript API: api/javascript_api_introduction.md
-    - Errors Reference: api/errors-reference.md
     - Using Release Channels: release_notes/release_channels.md
     - Add an HTML5 player to a site: getting-started/add-an-html5-player.md
-  - Player customization:
+  - Content:
     - Embed videos with Article Matching: customization/embed-relevant-videos-with-article-matching.md
-    - Configuration Reference: customization/configuration-reference.md
+  - Branding:
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
     - CSS Skinning Model: customization/css-skinning-model.md
     - Custom Skins: customization/css-skinning/skins_creating.md
@@ -23,22 +22,26 @@ nav:
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
   - Advertising:
-    - Ads Errors Reference: advertising/ads_errors_reference.md
     - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
   - Analytics:
     - Track video metrics: analytics/track-video-metrics.md
     - Analytics Integrations: analytics/integrations.md
-    - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
+  - Troubleshooting:
+      - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
+  - Reference:
+    - Configuration Reference: customization/configuration-reference.md
+    - Ads Errors Reference: advertising/ads_errors_reference.md
+    - Errors Reference: api/errors-reference.md
   - JW 7 Developer Guide:
-        - JW7 Javascript API: jw7/javascript-api-reference.md
-        - JW7 Configuration Reference: jw7/configuration-reference.md
-        - JW7 CSS Skinning Reference: jw7/skins_reference.md
-        - JW7 CSS Skinning Model: jw7/css-skinning-model.md
-        - JW7 Custom Skins: jw7/skins_creating.md
-        - JW7 Custom Icons and Fonts: jw7/skins_fonts.md
-        - JW7 Example CSS File: jw7/skins_example.md
-        - JW7 Designer Kit: jw7/designer-kit.md
-        - JW7 Analytics Integrations: jw7/integrations.md
+    - JW7 Javascript API: jw7/javascript-api-reference.md
+    - JW7 Configuration Reference: jw7/configuration-reference.md
+    - JW7 CSS Skinning Reference: jw7/skins_reference.md
+    - JW7 CSS Skinning Model: jw7/css-skinning-model.md
+    - JW7 Custom Skins: jw7/skins_creating.md
+    - JW7 Custom Icons and Fonts: jw7/skins_fonts.md
+    - JW7 Example CSS File: jw7/skins_example.md
+    - JW7 Designer Kit: jw7/designer-kit.md
+    - JW7 Analytics Integrations: jw7/integrations.md
 
 site_dir: developer-guide
 markdown_extensions:
