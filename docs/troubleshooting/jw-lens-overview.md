@@ -1,6 +1,6 @@
 # JW Lens overview
 
-<sup>Last Updated: April 17, 2019</sup>
+<sup>Last Updated: April 17, 2019 </sup>
 
 <img src="https://img.shields.io/badge/%20-Beta-green.svg" />
 	 <sup>If you would like to try this Beta product, <a href="#install">install the browser extension</a>.</sup>
