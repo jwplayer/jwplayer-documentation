@@ -1,6 +1,6 @@
 # Ads Errors Reference
 
-<sup>Last Updated: March 4, 2019</sup>
+<sup>Last Updated: April 15, 2019</sup>
 
 JW Player is excited to help you monetize your content. With that being said, the complex nature of video advertising means that ad-related errors will happen from time to time. We hope that this list of error codes provides some insight into possible reasons that you are seeing these errors. We also have included possible solutions that may lead you to being able to resolve the issue.
 
@@ -28,7 +28,6 @@ Errors often happen because ad tags or creatives are out of spec with either VAS
 <br/>
 <a name="vast"></a>
 ## VAST General Error Codes (1xxxx)
-Updated January 30, 2018
 
 |VAST Error Code|JW Error Code|Error|Possible Causes|Possible Solutions|
 |---|---|---|---|---|
@@ -53,7 +52,6 @@ Updated January 30, 2018
 <br/>
 <a name="vpaid"></a>
 ## VAST VPAID Error Codes (5xxxx)
-Updated January 30, 2018
 
 |VAST Error Code|JW Error Code|Error|Possible Causes|Possible Solutions|
 |---|---|---|---|---|
@@ -64,11 +62,11 @@ Updated January 30, 2018
 |`405`|<a name='50405'></a>`50405`|VPAID file could not be played|||
 |`900`|<a name='50004'></a>`50004`|VPAID ad request reached a timeout|<p>Issue with CDN server.</p><p>Timeout (in milliseconds) when loading a VPAID ad. If loading takes longer than this timeout, the ad playback is canceled.</p><p>Can be caused by low bandwidth, or poor website implementation with competing requests that delay the loading of the VPAID ad.</p>|<p>The timeout is configurable for using the [creativeTimeout and requestTimeout configuration options](https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#advertising). However, increasing the timeout could potentially negatively affect user experience.</p>|
 |`901`|<a name='50901'></a>`50901`|VPAID general error|<p>This is a general error that may be fired for a number of reasons due to the fact that VPAID ads often do not provide the player with a lot of information about errors.</p>||
+|`901`|<a name='51901'></a>`51901`|VPAID general error|<p>VPAID creative fired a JavaScript exception that prevented successful playback. This can be, but is not limited to, syntax errors within the VPAID's JavaScript.</p>|Reach out to your ad provider.|
 
 <br/>
 <a name="ima"></a>
 ## IMA Error Codes (2xxxx)
-Updated January 30, 2018
 
 |IMA Error Code|JW Error Code|Error|Possible Causes|Possible Solutions|
 |---|---|---|---|---|
@@ -111,7 +109,6 @@ Updated January 30, 2018
 <br/>
 <a name="jw"></a>
 ## JW Player-specific Error Codes (6xxxx)
-Updated January 30, 2018
 
 |VAST Error Code|JW Error Code|Error|Possible Causes|Possible Solutions|
 |---|---|---|---|---|
