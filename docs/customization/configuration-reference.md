@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: April 16, 2019</sup>
+<sup>Last Updated: May 1, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -43,7 +43,7 @@ jwplayer("myElement").setup({
 
 ## Setup Options
 
-These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the **setup** of the player.
+These are the options for configuring the layout and playback behavior of a player. Each is placed directly into the `setup` of the player.
 
 The following properties are related to media that is loaded into the player.
 
@@ -88,16 +88,17 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 
 |Setting|Type|Description|Default|
 |--|--|--|--|
-|**controls**|Boolean|Whether to display the video controls (control bar and display icons)|true|
-|**aspectratio**|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
-|**height**|Number|The desired height of your video player (in pixels). Should be omitted when `aspectratio` is configured|360|
-|**width**|Number or String|The desired width of your video player (in pixels or percentage)|640|
-|**displaytitle**|Boolean|Configures if the title of a media file should be displayed|true|
-|**displaydescription**|Boolean|Configures if the description title of a media file should be displayed|true|
-|**stretching**|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
-|**nextUpDisplay**|Boolean|Configures whether the Next Up modal is displayed |-|
-|**qualityLabels**|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
-|**displayPlaybackLabel** <sup>8.6.0+</sup>|Boolean|Enables call-to-action text beneath the play button on the player idle screen.<br/><br/> When set to `true`, you can potentially see up to a 5% increase in the number of times viewers click the play button to watch a video. <br/><br/>The default call-to-action text is "Play." You can also [localize](#intlplayback) this message for your viewers.|false|
+|`aspectratio`|String|Maintains proportions when width is a percentage. Will not be used if the player is a static size. <br/> **Must be entered in ratio "x:y" format.**|-|
+|`controls`|Boolean|Whether to display the video controls (control bar and display icons)|true|
+|`displaydescription`|Boolean|Configures if the description title of a media file should be displayed|true|
+|`displayPlaybackLabel` <sup>8.6.0+</sup>|Boolean|Enables call-to-action text beneath the play button on the player idle screen.<br/><br/> When set to `true`, you can potentially see up to a 5% increase in the number of times viewers click the play button to watch a video. <br/><br/>The default call-to-action text is "Play." You can also [localize](#intlplayback) this message for your viewers.|false|
+|`displaytitle`|Boolean|Configures if the title of a media file should be displayed|true|
+|`height`|Number|The desired height of your video player (in pixels). Should be omitted when `aspectratio` is configured|360|
+|`qualityLabels`|Array|By default, the JW Player will set video quality levels using information from the manifest files. Use this configuration option to apply a custom quality label to a desired bandwidth in kbps, works for HLS and DASH. For example: "qualityLabels":{"2500":"High","1000":"Medium"} |-|
+|`nextUpDisplay`|Boolean|Configures whether the Next Up modal is displayed |-|
+|<a name="render-captions-natively"></a>`renderCaptionsNatively` <sup>8.0.1+</sup>|Boolean| (Chrome and Safari only) Determines if the renderer of the browser or of the player is used to display captions<br/><br/>Possible values include:<br/><br/>`true`: Captions render using the renderer of the browser.<br/><br/>`false`: Captions render using the renderer of the player.<br/><br/>**Note:** See also: [captions](#captions)|`false` (Chrome)<br/><br/>`true` (Safari)|
+|`stretching`|String| Resize images and video to fit player dimensions. See graphic below for examples <br/> **"uniform"** — Fits JW Player dimensions while maintaining aspect ratio <br/> **"exactfit":** Will fit JW Player dimensions without maintaining aspect ratio <br/>**"fill"**— Will zoom and crop video to fill dimensions, maintaining aspect ratio <br/> **"none"** — Displays the actual size of the video file. (Black borders)|"uniform"|
+|`width`|Number or String|The desired width of your video player (in pixels or percentage)|640|
 
 !!!
 `timeSliderAbove`, which configures whether the timeslider dynamically appears above the control bar, has been deprecated. <sup>8.0+</sup>
@@ -614,18 +615,21 @@ The nine skins available in JW7 have been deprecated.<sup>8.0+</sup>
 
 This options block configures the styling of closed captions in the player for desktop browsers. On iOS/Android, a system settings menu provides exactly the same settings, as these are mandated by the FCC.
 
+!!!
+If you want to control if captions are rendered using the renderer of the browser or the player, set the [renderCaptionsNatively](#render-captions-natively) property at the global level of `setup()`.
+!!! 
+
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**renderCaptionsNatively**|Boolean|If true, captions render using the browser's renderer. If false, the player's renderer will be used in all browsers, except for Safari. **Note:** This configuration is not contained within the captions block.|false<sup>&nbsp; 8.0.1+</sup>|
-|**captions.color**|String|Hex color of the captions text|"#ffffff"|
-|**captions.fontSize**|Number|Size of the captions text (Will not affect text size when rendering captions via browser)|15|
-|**captions.fontFamily**|String|[Font Family](http://www.w3schools.com/cssref/pr_font_font-family.asp) of the captions text|"sans"|
-|**captions.fontOpacity**|Number|Alpha percentage of the captions text|100|
-|**captions.backgroundColor**|String|Hex color of the caption characters background|"#000000"|
-|**captions.backgroundOpacity**|Number|Alpha percentage of the caption characters background|75|
-|**captions.edgeStyle**|String|Method by which the captions characters are separated from their background|"none"|
-|**captions.windowColor**|String|Hex color of the background of the entire captions area|"#000000"|
-|**captions.windowOpacity**|Number|Alpha percentage of the background of the entire captions area|0|
+|`backgroundColor`|String|Hex color of the caption characters background|"#000000"|
+|`backgroundOpacity`|Number|Alpha percentage of the caption characters background|75|
+|`color`|String|Hex color of the captions text|"#ffffff"|
+|`edgeStyle`|String|Method by which the captions characters are separated from their background|"none"|
+|`fontFamily`|String|[Font Family](http://www.w3schools.com/cssref/pr_font_font-family.asp) of the captions text|"sans"|
+|`fontOpacity`|Number|Alpha percentage of the captions text|100|
+|`fontSize`|Number|Size of the captions text (Will not affect text size when rendering captions via browser)|15|
+|`windowColor`|String|Hex color of the background of the entire captions area|"#000000"|
+|`windowOpacity`|Number|Alpha percentage of the background of the entire captions area|0|
 
 !!!
 When setting caption styles, color *must* be specified as a [hex value](http://www.w3schools.com/colors/colors_picker.asp).
