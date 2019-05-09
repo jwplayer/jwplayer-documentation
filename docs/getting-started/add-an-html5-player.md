@@ -1,6 +1,6 @@
 # Add an HTML5 player to a site
 
-<sup>Last Updated: April 15, 2019</sup>
+<sup>Last Updated: May 9, 2019</sup>
 
 To add a player to your site, you must add a reference to the player library, embed the player, and configure the player with content.
 
@@ -22,7 +22,7 @@ To add a player to your site, you must add a reference to the player library, em
 
 Now that you have the URL for your player library, you can add a library reference to a page and embed a player.
 
-1. In the `<head>` of your page, add a reference to the player library JavaScript file.
+1. In the `<head>` of your page, add a reference to the player library JavaScript file. If you are self-hosting your player, also add your license key: `jwplayer.key="{license_key}"`.
 2. Create a named `<div>` in the `<body>` of your page in the location where the player should appear.
 3. Call `setup()` with the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#playlist" target="_blank">playlist</a> property to instantiate the player in the named `<div>`.<br/><br/>In addition to instantiating an instance of a player, `setup()` allows you to [enable and configure player features](../customization/configuration-reference.md). `setup()` is one of <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/" target="_blank">several methods</a> that can be used to interact with the player.
 
@@ -70,6 +70,7 @@ The following code examples illustrate the code structure of a cloud-hosted or s
   <head>
     ...
     <script src="https://www.yourdomain.com/jwplayer863/jwplayer.js"></script>
+    <script>jwplayer.key="ABCdeFG123456SeVenABCdeFG123456SeVen=="></script>
     ...
   </head>
   <body>
