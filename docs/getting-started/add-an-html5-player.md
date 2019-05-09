@@ -70,7 +70,7 @@ The following code examples illustrate the code structure of a cloud-hosted or s
   <head>
     ...
     <script src="https://www.yourdomain.com/jwplayer863/jwplayer.js"></script>
-    <script>jwplayer.key="XYzabc123456dE="></script>
+    <script>jwplayer.key="ABCdeFG123456SeVenABCdeFG123456SeVen=="></script>
     ...
   </head>
   <body>
