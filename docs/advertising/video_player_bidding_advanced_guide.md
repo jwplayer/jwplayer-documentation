@@ -6,7 +6,7 @@ Video Player Bidding is a market-changing solution from JW Player, built to redu
 Due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
 !!!
 
-**1.** Choose and configure one of the `bids` objects below. Each `bids` object is configured for a specific mediation partner.
+**1.** Choose and configure one of the four `bids` objects below. Each `bids` object is configured for a specific mediation partner.
 ```
 // Mediation Layer: JW Player
 bids: {
@@ -21,8 +21,7 @@ bids: {
       }
    ]
 }
-```
-```
+
 // Mediation Layer: SpotX as Primary Adserver
 bids: {
    settings: {
@@ -35,8 +34,7 @@ bids: {
       }
    ]
 }
-```
-```
+
 // Mediation Layer: DoubleClick for Publishers
 bids: {
    settings: {
@@ -49,8 +47,7 @@ bids: {
       }
    ]
 }
-```
-```
+
 // Mediation Layer: JW Player + DFP
 bids: {
    settings: {
