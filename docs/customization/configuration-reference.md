@@ -705,9 +705,9 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |Social Network|Configuration Value| |Social Network|Configuration Value|
 |-|-|-|-|-|
 |**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
-|**Twitter**|"twitter"| |**Google Plus**|"googleplus"|
+|**Twitter**|"twitter"| |**LinkedIn**|"linkedin"|
 |**Pinterest**|"interest"| |**Reddit**|"reddit"|
-|**Email**|"email"| |**LinkedIn**|"linkedin"|
+|**Email**|"email"| | | |
 
 
 #### Example
