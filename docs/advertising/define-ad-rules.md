@@ -10,7 +10,7 @@ In addition to adding ads to your content, you can define ad rules that control 
 You can read [Ad rule reference](https://support.jwplayer.com/articles/ad-rules-reference) to learn more how each ad rule impacts a user's experience.
 
 !!!important
-&bull; When using a VAST (`vast`) ad client, you can define any of the four `advertising.rules` properties.<br/><br/>&bull; When using an IMA (`googima`) or a FreeWheel (`freewheel`) ad client, you can only define `startOn` and `frequency`. <br/><br/>&bull; When using a dynamic ad insertion (`dai`), **none** of the `advertising.rules` properties are applicable. 
+&bull; When using a VAST (`vast`) ad client, you can define any of the four `advertising.rules` properties.<br/><br/>&bull; When using an IMA (`googima`) or a FreeWheel (`freewheel`) ad client, you can only define `startOn` and `frequency`. <br/><br/>&bull; When using a dynamic ad insertion (`dai`) ad client, **none** of the `advertising.rules` properties are applicable. 
 !!!
 
 <br/>
@@ -92,4 +92,4 @@ jwplayer("myElement").setup({
 });
 ```
 
-You can build upon this basic implementation by configuring [Video Player Bidding](../advertising/video_player_bidding_advanced_guide).
+You can build upon this basic implementation by configuring [Video Player Bidding](../video_player_bidding_advanced_guide).

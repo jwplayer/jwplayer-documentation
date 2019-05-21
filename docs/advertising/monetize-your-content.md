@@ -43,6 +43,8 @@ Use the following steps to add a pre-roll to an [embedded player](../../getting-
 As a shortcut, you can define `advertising.tag` (String) to create a single pre-roll ad break. If you use this shortcut, you cannot add multiple ad breaks.<br/><br/> The `advertising.tag` property and `advertising.schedule[]` property cannot be used in the same `advertising` object.
 !!!
 
+<br/>
+
 ```html
 jwplayer("myElement").setup({
   playlist: "https://cdn.jwplayer.com/v2/playlists/a12bc3D4", 
@@ -59,7 +61,10 @@ jwplayer("myElement").setup({
 });
 ```
 
+You can build on this basic implementation by [adding more ad breaks](#multiple-ad-breaks), [defining ad rules](../define-ad-rules) or configuring [Video Player Bidding](../video_player_bidding_advanced_guide/).
+
 <br/>
+<a name="multiple-ad-breaks"></a>
 
 ## Add multiple ad breaks to a player
 
@@ -101,4 +106,4 @@ jwplayer("myElement").setup({
 });
 ```
 
-You can build on this basic implementation by defining ad rules or configuring [Video Player Bidding](../video_player_bidding_advanced_guide/).
+You can build on this basic implementation by [defining ad rules](../define-ad-rules) or configuring [Video Player Bidding](../video_player_bidding_advanced_guide/).
