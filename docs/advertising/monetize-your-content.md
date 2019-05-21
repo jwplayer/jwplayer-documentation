@@ -2,11 +2,13 @@
 
 <sup>Last Updated: May 27, 2019</sup>
 
-JW Player's advertising features help you to monetize your content with video ads while keeping your viewers engaged JW Player supports standard ad types (VAST, VPAID, VMAP), accommodates third-party technologies (Google IMA SDK, FreeWheel SDK), and supports any ad server. You can customize your viewers' ad experiences with ad rules, ad breaks, and localized player messaging. With Video Player Bidding, you can improve the yield from programmatic advertisers. 
+JW Player's advertising features help you to monetize your content with video ads while keeping your viewers engaged. JW Player supports standard ad types (VAST, VPAID, VMAP), accommodates third-party technologies (Google IMA SDK, FreeWheel SDK), and supports any ad server. You can customize your viewers' ad experiences with ad rules, ad breaks, and localized player messaging. With Video Player Bidding, you can improve the yield from programmatic advertisers. 
 
 !!!important
 To monetize your content with advertising, you must have a JW Player Business or Enterprise license. Please [contact our team](https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade) to upgrade your account.
 !!!
+
+<br/>
 
 ## Get the required items
 
@@ -27,6 +29,8 @@ The most basic advertising implementation is to run a single VAST ad tag as a pr
 !!!tip
 If you are using a cloud-hosted player, you can [create an ad schedule](https://support.jwplayer.com/articles/how-to-schedule-ad-breaks) in your JW Player dashboard and associate the ad schedule with your cloud-hosted player. The ad schedule will play in every instance of the embedded player.
 !!!
+
+<br/>
 
 Use the following steps to add a pre-roll to an [embedded player](../../getting-started/add-an-html5-player): 
 
@@ -57,13 +61,13 @@ jwplayer("myElement").setup({
 
 <br/>
 
-## Add multiple ad breaks to player
+## Add multiple ad breaks to a player
 
 Use the following steps to add multiple ad breaks to the previous VAST pre-roll example:
 
 1. Define an additional index within the <a href="../../customization/configuration-reference/#advertising-schedule" target="_blank">advertising.schedule</a> array. 
 2. Assign an ad tag to the `tag` property. 
-3. When defining the `offset` property, choose one of the following values to schedule a mid-roll or post-roll ad:<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (Number) Ad plays after the specified number of seconds<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time (hh:mm:ss:mmm)<br/>&nbsp;&nbsp;- **{xx%}**: (String) Ad plays after xx% of the content has played<br/><br/>**Post-roll**<br/>&nbsp;&nbsp;- `post`: (String) Ad plays after the content as a post-roll ad
+3. When defining the `offset` property, choose one of the following values to schedule a mid-roll or post-roll ad:<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (Number) Ad plays after the specified number of seconds.<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time, in `hh:mm:ss:mmm` format.<br/>&nbsp;&nbsp;- **{xx%}**: (String) Ad plays after xx% of the content has played.<br/><br/>**Post-roll**<br/>&nbsp;&nbsp;- `post`: (String) Ad plays after the content.
 
 ```html
 jwplayer("myElement").setup({
@@ -97,4 +101,4 @@ jwplayer("myElement").setup({
 });
 ```
 
-You can build on this basic implementation by defining ad rules or configuring [Video Player Bidding](../advertising/video_player_bidding_advanced_guide/).
+You can build on this basic implementation by defining ad rules or configuring [Video Player Bidding](../video_player_bidding_advanced_guide/).
