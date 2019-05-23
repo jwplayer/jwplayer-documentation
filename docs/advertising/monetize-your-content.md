@@ -1,6 +1,6 @@
 # Monetize your content
 
-<sup>Last Updated: May 27, 2019</sup>
+<sup>Last Updated: May 29, 2019</sup>
 
 JW Player's advertising features help you to monetize your content with video ads while keeping your viewers engaged. JW Player supports standard ad types (VAST, VPAID, VMAP), accommodates third-party technologies (Google IMA SDK, FreeWheel SDK), and supports any ad server. You can customize your viewers' ad experiences with ad rules, ad breaks, and localized player messaging. With Video Player Bidding, you can improve the yield from programmatic advertisers. 
 
