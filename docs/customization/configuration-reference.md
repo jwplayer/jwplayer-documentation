@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: May 15, 2019</sup>
+<sup>Last Updated: May 29, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -74,7 +74,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**|Number|Configures when the Next Up card displays during playback. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|**nextupoffset**|Number or String<sup>8.9.0</sup>|Configures when the Next Up card displays during playback<br/><br/>A positive value is an offset from the start of the video. A negative value is an offset from the end of the video. This property can be defined either as a number (`-10`) or a percentage as a string (`"-2%"`)|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
