@@ -1,6 +1,6 @@
 # Define ad rules
 
-<sup>Last Updated: May 29, 2019</sup>
+<sup>Last Updated: May 29, 2019</sup> 
 
 In addition to adding ads to your content, you can define ad rules that control how often a viewer sees ads while viewing your video content. 
 
