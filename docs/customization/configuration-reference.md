@@ -552,7 +552,7 @@ jwplayer("myElement").setup({
 
 ## Related
 
-This object controls the playlist [overlay](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) appearance and behaviors.
+This object controls the playlist appearance and behaviors.
 
 |Property|Type|Description|Default|
 |---|---|---|---|
