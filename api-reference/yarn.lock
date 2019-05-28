@@ -22,7 +22,7 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-argparse@^1.0.7:
+argparse@^1.0.2, argparse@^1.0.7:
   version "1.0.10"
   resolved "https://npm-registry.longtailvideo.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
@@ -34,12 +34,24 @@ array-find-index@^1.0.1:
   resolved "https://npm-registry.longtailvideo.com/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
 
+assert@1.4.1:
+  version "1.4.1"
+  resolved "https://npm-registry.longtailvideo.com/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
+  integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
+  dependencies:
+    util "0.10.3"
+
+async-limiter@~1.0.0:
+  version "1.0.0"
+  resolved "https://npm-registry.longtailvideo.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
+  integrity sha512-jp/uFnooOiO+L211eZOoSyzpOITMXx1rBITauYykG3BRYPu8h0UcxsPNB04RR5vo4Tyz3+ay17tR6JVf9qzYWg==
+
 async@1.5.2, async@^1.5.2, async@~1.5.2:
   version "1.5.2"
   resolved "https://npm-registry.longtailvideo.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
 
-async@^2.6.0:
+async@^2.6.0, async@^2.6.1:
   version "2.6.1"
   resolved "https://npm-registry.longtailvideo.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
   integrity sha512-fNEiL2+AZt6AlAw/29Cr0UDe4sRAHCpEHh54WMz+Bb7QfNcFw4h3loofyJpLeQs4Yx7yuqu/2dLgM5hKOs6HlQ==
@@ -150,7 +162,12 @@ connect-livereload@^0.5.0:
   resolved "https://npm-registry.longtailvideo.com/connect-livereload/-/connect-livereload-0.5.4.tgz#80157d1371c9f37cc14039ab1895970d119dc3bc"
   integrity sha1-gBV9E3HJ83zBQDmrGJWXDRGdw7w=
 
-connect@^3.4.0:
+connect-livereload@^0.6.0:
+  version "0.6.1"
+  resolved "https://npm-registry.longtailvideo.com/connect-livereload/-/connect-livereload-0.6.1.tgz#1ac0c8bb9d9cfd5b28b629987a56a9239db9baaa"
+  integrity sha512-3R0kMOdL7CjJpU66fzAkCe6HNtd3AavCS4m+uW4KtJjrdGPT0SQEZieAYd+cm+lJoBznNQ4lqipYWkhBMgk00g==
+
+connect@^3.4.0, connect@^3.6.6:
   version "3.6.6"
   resolved "https://npm-registry.longtailvideo.com/connect/-/connect-3.6.6.tgz#09eff6c55af7236e137135a72574858b6786f524"
   integrity sha1-Ce/2xVr3I24TcTWnJXSFi2eG9SQ=
@@ -164,6 +181,11 @@ continuable-cache@^0.3.1:
   version "0.3.1"
   resolved "https://npm-registry.longtailvideo.com/continuable-cache/-/continuable-cache-0.3.1.tgz#bd727a7faed77e71ff3985ac93351a912733ad0f"
   integrity sha1-vXJ6f67XfnH/OYWskzUakSczrQ8=
+
+core-util-is@~1.0.0:
+  version "1.0.2"
+  resolved "https://npm-registry.longtailvideo.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+  integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -209,6 +231,16 @@ destroy@~1.0.4:
   resolved "https://npm-registry.longtailvideo.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
+duplexify@^3.5.1:
+  version "3.6.1"
+  resolved "https://npm-registry.longtailvideo.com/duplexify/-/duplexify-3.6.1.tgz#b1a7a29c4abfd639585efaecce80d666b1e34125"
+  integrity sha512-vM58DwdnKmty+FSPzT14K9JXb90H+j5emaR4KYbr2KTIz00WHGbWOe5ghQTx233ZCLZtrGDALzKwcjEtSt35mA==
+  dependencies:
+    end-of-stream "^1.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.0.0"
+    stream-shift "^1.0.0"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://npm-registry.longtailvideo.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -218,6 +250,13 @@ encodeurl@~1.0.1, encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://npm-registry.longtailvideo.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+
+end-of-stream@^1.0.0:
+  version "1.4.1"
+  resolved "https://npm-registry.longtailvideo.com/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
+  integrity sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==
+  dependencies:
+    once "^1.4.0"
 
 error-ex@^1.2.0:
   version "1.3.2"
@@ -244,10 +283,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://npm-registry.longtailvideo.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-esprima@^4.0.0:
-  version "4.0.1"
-  resolved "https://npm-registry.longtailvideo.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
-  integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
+esprima@^2.6.0:
+  version "2.7.3"
+  resolved "https://npm-registry.longtailvideo.com/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
+  integrity sha1-luO3DVd59q1JzQMmc9HDEnZ7pYE=
 
 etag@~1.8.1:
   version "1.8.1"
@@ -258,6 +297,11 @@ eventemitter2@~0.4.13:
   version "0.4.14"
   resolved "https://npm-registry.longtailvideo.com/eventemitter2/-/eventemitter2-0.4.14.tgz#8f61b75cde012b2e9eb284d4545583b5643b61ab"
   integrity sha1-j2G3XN4BKy6esoTUVFWDtWQ7Yas=
+
+events@1.1.1:
+  version "1.1.1"
+  resolved "https://npm-registry.longtailvideo.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+  integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
 
 exec-sh@^0.2.0:
   version "0.2.2"
@@ -407,6 +451,21 @@ grunt-contrib-connect@^1.0.1:
     serve-index "^1.7.1"
     serve-static "^1.10.0"
 
+grunt-contrib-connect@^2.0.0:
+  version "2.0.0"
+  resolved "https://npm-registry.longtailvideo.com/grunt-contrib-connect/-/grunt-contrib-connect-2.0.0.tgz#7ee86838f351f72c12186143ebc60823d8d524dd"
+  integrity sha512-JVjM9UDP84WbT2S7swkyuwPuxFtT+zry/RUBuP3IT8LZPEQjtzzMwiM+qimswNKQ9plh5WhcFWaaqz2ruB9/DA==
+  dependencies:
+    async "^2.6.1"
+    connect "^3.6.6"
+    connect-livereload "^0.6.0"
+    morgan "^1.9.0"
+    node-http2 "^4.0.1"
+    opn "^5.3.0"
+    portscanner "^2.2.0"
+    serve-index "^1.9.1"
+    serve-static "^1.13.2"
+
 grunt-contrib-watch@^1.0.0, grunt-contrib-watch@^1.1.0:
   version "1.1.0"
   resolved "https://npm-registry.longtailvideo.com/grunt-contrib-watch/-/grunt-contrib-watch-1.1.0.tgz#c143ca5b824b288a024b856639a5345aedb78ed4"
@@ -464,10 +523,10 @@ grunt-legacy-util@~1.1.1:
     watch "^0.17.1"
     yamljs "^0.2.7"
 
-grunt@^1.0.4:
-  version "1.0.4"
-  resolved "https://npm-registry.longtailvideo.com/grunt/-/grunt-1.0.4.tgz#c799883945a53a3d07622e0737c8f70bfe19eb38"
-  integrity sha512-PYsMOrOC+MsdGEkFVwMaMyc6Ob7pKmq+deg1Sjr+vvMWp35sztfwKE7qoN51V+UEtHsyNuMcGdgMLFkBHvMxHQ==
+grunt@^1.0.3:
+  version "1.0.3"
+  resolved "https://npm-registry.longtailvideo.com/grunt/-/grunt-1.0.3.tgz#b3c99260c51d1b42835766e796527b60f7bba374"
+  integrity sha512-/JzmZNPfKorlCrrmxWqQO4JVodO+DVd5XX4DkocL/1WlLlKVLE9+SdEIempOAxDhWPysLle6afvn/hg7Ck2k9g==
   dependencies:
     coffeescript "~1.10.0"
     dateformat "~1.0.12"
@@ -480,7 +539,7 @@ grunt@^1.0.4:
     grunt-legacy-log "~2.0.0"
     grunt-legacy-util "~1.1.1"
     iconv-lite "~0.4.13"
-    js-yaml "~3.13.0"
+    js-yaml "~3.5.2"
     minimatch "~3.0.2"
     mkdirp "~0.5.1"
     nopt "~3.0.6"
@@ -522,6 +581,11 @@ http2@^3.3.4:
   resolved "https://npm-registry.longtailvideo.com/http2/-/http2-3.3.7.tgz#78396eb1e0bcd1db1f4b138d997c682e23414fbc"
   integrity sha512-puSi8M8WNlFJm9Pk4c/Mbz9Gwparuj3gO9/RRO5zv6piQ0FY+9Qywp0PdWshYgsMJSalixFY7eC6oPu0zRxLAQ==
 
+https-browserify@0.0.1:
+  version "0.0.1"
+  resolved "https://npm-registry.longtailvideo.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
+  integrity sha1-P5E2XKvmC3ftDruiS0VOPgnZWoI=
+
 iconv-lite@~0.4.13:
   version "0.4.24"
   resolved "https://npm-registry.longtailvideo.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -544,10 +608,15 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3:
+inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://npm-registry.longtailvideo.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+
+inherits@2.0.1:
+  version "2.0.1"
+  resolved "https://npm-registry.longtailvideo.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
+  integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -568,23 +637,40 @@ is-finite@^1.0.0:
   dependencies:
     number-is-nan "^1.0.0"
 
+is-number-like@^1.0.3:
+  version "1.0.8"
+  resolved "https://npm-registry.longtailvideo.com/is-number-like/-/is-number-like-1.0.8.tgz#2e129620b50891042e44e9bbbb30593e75cfbbe3"
+  integrity sha512-6rZi3ezCyFcn5L71ywzz2bS5b2Igl1En3eTlZlvKjpz1n3IZLAYMbKYAIQgFmEu0GENg92ziU/faEOA/aixjbA==
+  dependencies:
+    lodash.isfinite "^3.3.2"
+
 is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://npm-registry.longtailvideo.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
+
+is-wsl@^1.1.0:
+  version "1.1.0"
+  resolved "https://npm-registry.longtailvideo.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
+  integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
+
+isarray@~1.0.0:
+  version "1.0.0"
+  resolved "https://npm-registry.longtailvideo.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+  integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://npm-registry.longtailvideo.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-js-yaml@~3.13.0:
-  version "3.13.1"
-  resolved "https://npm-registry.longtailvideo.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
-  integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+js-yaml@~3.5.2:
+  version "3.5.5"
+  resolved "https://npm-registry.longtailvideo.com/js-yaml/-/js-yaml-3.5.5.tgz#0377c38017cabc7322b0d1fbcd25a491641f2fbe"
+  integrity sha1-A3fDgBfKvHMisNH7zSWkkWQfL74=
   dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
+    argparse "^1.0.2"
+    esprima "^2.6.0"
 
 livereload-js@^2.3.0:
   version "2.4.0"
@@ -601,6 +687,11 @@ load-json-file@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
+
+lodash.isfinite@^3.3.2:
+  version "3.3.2"
+  resolved "https://npm-registry.longtailvideo.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
+  integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
 
 lodash@^4.17.10, lodash@~4.17.10, lodash@~4.17.5:
   version "4.17.11"
@@ -682,7 +773,7 @@ mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-morgan@^1.6.1:
+morgan@^1.6.1, morgan@^1.9.0:
   version "1.9.1"
   resolved "https://npm-registry.longtailvideo.com/morgan/-/morgan-1.9.1.tgz#0a8d16734a1d9afbc824b99df87e738e58e2da59"
   integrity sha512-HQStPIV4y3afTiCYVxirakhlCfGkI161c76kKFca7Fk1JusM//Qeo1ej2XaMniiNeaZklMVrh3vTtIzpzwbpmA==
@@ -707,6 +798,20 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://npm-registry.longtailvideo.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
+
+node-http2@^4.0.1:
+  version "4.0.1"
+  resolved "https://npm-registry.longtailvideo.com/node-http2/-/node-http2-4.0.1.tgz#164ff53b5dd22c84f0af142b877c5eaeb6809959"
+  integrity sha1-Fk/1O13SLITwrxQrh3xerraAmVk=
+  dependencies:
+    assert "1.4.1"
+    events "1.1.1"
+    https-browserify "0.0.1"
+    setimmediate "^1.0.5"
+    stream-browserify "2.0.1"
+    timers-browserify "2.0.2"
+    url "^0.11.0"
+    websocket-stream "^5.0.1"
 
 nopt@~3.0.6:
   version "3.0.6"
@@ -760,7 +865,7 @@ on-headers@~1.0.1:
   resolved "https://npm-registry.longtailvideo.com/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
   integrity sha1-ko9dD0cNSTQmUepnlLCFfBAGk/c=
 
-once@^1.3.0:
+once@^1.3.0, once@^1.4.0:
   version "1.4.0"
   resolved "https://npm-registry.longtailvideo.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
@@ -774,6 +879,13 @@ opn@^4.0.0:
   dependencies:
     object-assign "^4.0.1"
     pinkie-promise "^2.0.0"
+
+opn@^5.3.0:
+  version "5.4.0"
+  resolved "https://npm-registry.longtailvideo.com/opn/-/opn-5.4.0.tgz#cb545e7aab78562beb11aa3bfabc7042e1761035"
+  integrity sha512-YF9MNdVy/0qvJvDtunAOzFw9iasOQHpVthTCvGzxt61Il64AYSGdK+rYwld7NAfk9qJ7dt+hymBNSc9LNYS+Sw==
+  dependencies:
+    is-wsl "^1.1.0"
 
 parse-json@^2.2.0:
   version "2.2.0"
@@ -832,10 +944,33 @@ portscanner@^1.0.0:
   dependencies:
     async "1.5.2"
 
+portscanner@^2.2.0:
+  version "2.2.0"
+  resolved "https://npm-registry.longtailvideo.com/portscanner/-/portscanner-2.2.0.tgz#6059189b3efa0965c9d96a56b958eb9508411cf1"
+  integrity sha512-IFroCz/59Lqa2uBvzK3bKDbDDIEaAY8XJ1jFxcLWTqosrsc32//P4VuSB2vZXoHiHqOmx8B5L5hnKOxL/7FlPw==
+  dependencies:
+    async "^2.6.0"
+    is-number-like "^1.0.3"
+
+process-nextick-args@~2.0.0:
+  version "2.0.0"
+  resolved "https://npm-registry.longtailvideo.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
+  integrity sha512-MtEC1TqN0EU5nephaJ4rAtThHtC86dNN9qCuEhtshvpVBkAW5ZO7BASN9REnF9eoXGcRub+pFuKEpOHE+HbEMw==
+
+punycode@1.3.2:
+  version "1.3.2"
+  resolved "https://npm-registry.longtailvideo.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
+  integrity sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
+
 qs@^6.4.0:
   version "6.6.0"
   resolved "https://npm-registry.longtailvideo.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
   integrity sha512-KIJqT9jQJDQx5h5uAVPimw6yVg2SekOKu959OCtktD3FjzbpvaPr8i4zzg07DOMz+igA4W/aNM7OV8H37pFYfA==
+
+querystring@0.2.0:
+  version "0.2.0"
+  resolved "https://npm-registry.longtailvideo.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
+  integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
 range-parser@~1.2.0:
   version "1.2.0"
@@ -867,6 +1002,19 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
+readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.3.3:
+  version "2.3.6"
+  resolved "https://npm-registry.longtailvideo.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+  integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://npm-registry.longtailvideo.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -894,7 +1042,7 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-safe-buffer@5.1.2:
+safe-buffer@5.1.2, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://npm-registry.longtailvideo.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
@@ -933,7 +1081,7 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
-serve-index@^1.7.1:
+serve-index@^1.7.1, serve-index@^1.9.1:
   version "1.9.1"
   resolved "https://npm-registry.longtailvideo.com/serve-index/-/serve-index-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
   integrity sha1-03aNabHn2C5c4FD/9bRTvqEqkjk=
@@ -946,7 +1094,7 @@ serve-index@^1.7.1:
     mime-types "~2.1.17"
     parseurl "~1.3.2"
 
-serve-static@^1.10.0:
+serve-static@^1.10.0, serve-static@^1.13.2:
   version "1.13.2"
   resolved "https://npm-registry.longtailvideo.com/serve-static/-/serve-static-1.13.2.tgz#095e8472fd5b46237db50ce486a43f4b86c6cec1"
   integrity sha512-p/tdJrO4U387R9oMjb1oj7qSMaMfmOyd4j9hOFoxZe2baQszgHcSWjuya/CiT5kgZZKRudHNOA0pYXOl8rQ5nw==
@@ -955,6 +1103,11 @@ serve-static@^1.10.0:
     escape-html "~1.0.3"
     parseurl "~1.3.2"
     send "0.16.2"
+
+setimmediate@^1.0.4, setimmediate@^1.0.5:
+  version "1.0.5"
+  resolved "https://npm-registry.longtailvideo.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
+  integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
 
 setprototypeof@1.1.0:
   version "1.1.0"
@@ -1022,6 +1175,19 @@ statuses@~1.4.0:
   resolved "https://npm-registry.longtailvideo.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   integrity sha512-zhSCtt8v2NDrRlPQpCNtw/heZLtfUDqxBM1udqikb/Hbk52LK4nQSwr10u77iopCW5LsyHpuXS0GnEc48mLeew==
 
+stream-browserify@2.0.1:
+  version "2.0.1"
+  resolved "https://npm-registry.longtailvideo.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
+  integrity sha1-ZiZu5fm9uZQKTkUUyvtDu3Hlyds=
+  dependencies:
+    inherits "~2.0.1"
+    readable-stream "^2.0.2"
+
+stream-shift@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm-registry.longtailvideo.com/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
+  integrity sha1-1cdSgl5TZ+eG944Y5EXqIjoVWVI=
+
 string-template@~0.2.1:
   version "0.2.1"
   resolved "https://npm-registry.longtailvideo.com/string-template/-/string-template-0.2.1.tgz#42932e598a352d01fc22ec3367d9d84eec6c9add"
@@ -1031,6 +1197,13 @@ string_decoder@0.10:
   version "0.10.31"
   resolved "https://npm-registry.longtailvideo.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
   integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+
+string_decoder@~1.1.1:
+  version "1.1.1"
+  resolved "https://npm-registry.longtailvideo.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
+  integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
+  dependencies:
+    safe-buffer "~5.1.0"
 
 strip-bom@^2.0.0:
   version "2.0.0"
@@ -1053,6 +1226,13 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
+timers-browserify@2.0.2:
+  version "2.0.2"
+  resolved "https://npm-registry.longtailvideo.com/timers-browserify/-/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"
+  integrity sha1-q0iDz1l9zVCvIRNJoA+8pWrIa4Y=
+  dependencies:
+    setimmediate "^1.0.4"
+
 tiny-lr@^1.1.1:
   version "1.1.1"
   resolved "https://npm-registry.longtailvideo.com/tiny-lr/-/tiny-lr-1.1.1.tgz#9fa547412f238fedb068ee295af8b682c98b2aab"
@@ -1070,6 +1250,11 @@ trim-newlines@^1.0.0:
   resolved "https://npm-registry.longtailvideo.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
   integrity sha1-WIeWa7WCpFA6QetST301ARgVphM=
 
+ultron@~1.1.0:
+  version "1.1.1"
+  resolved "https://npm-registry.longtailvideo.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
+  integrity sha512-UIEXBNeYmKptWH6z8ZnqTeS8fV74zG0/eRU9VGkpzz+LIJNs8W/zM/L+7ctCkRrgbNnnR0xxw4bKOr0cW0N0Og==
+
 underscore.string@~3.3.4:
   version "3.3.5"
   resolved "https://npm-registry.longtailvideo.com/underscore.string/-/underscore.string-3.3.5.tgz#fc2ad255b8bd309e239cbc5816fd23a9b7ea4023"
@@ -1083,10 +1268,25 @@ unpipe@~1.0.0:
   resolved "https://npm-registry.longtailvideo.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-util-deprecate@^1.0.2:
+url@^0.11.0:
+  version "0.11.0"
+  resolved "https://npm-registry.longtailvideo.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
+  integrity sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=
+  dependencies:
+    punycode "1.3.2"
+    querystring "0.2.0"
+
+util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://npm-registry.longtailvideo.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+
+util@0.10.3:
+  version "0.10.3"
+  resolved "https://npm-registry.longtailvideo.com/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
+  integrity sha1-evsa/lCAUkZInj23/g7TeTNqwPk=
+  dependencies:
+    inherits "2.0.1"
 
 utils-merge@1.0.1:
   version "1.0.1"
@@ -1122,6 +1322,18 @@ websocket-extensions@>=0.1.1:
   resolved "https://npm-registry.longtailvideo.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
+websocket-stream@^5.0.1:
+  version "5.1.2"
+  resolved "https://npm-registry.longtailvideo.com/websocket-stream/-/websocket-stream-5.1.2.tgz#1c31c627bcdf34f1a9bdacc9daa15bfa4816d9ad"
+  integrity sha512-lchLOk435iDWs0jNuL+hiU14i3ERSrMA0IKSiJh7z6X/i4XNsutBZrtqu2CPOZuA4G/zabiqVAos0vW+S7GEVw==
+  dependencies:
+    duplexify "^3.5.1"
+    inherits "^2.0.1"
+    readable-stream "^2.3.3"
+    safe-buffer "^5.1.1"
+    ws "^3.2.0"
+    xtend "^4.0.0"
+
 which@~1.3.0:
   version "1.3.1"
   resolved "https://npm-registry.longtailvideo.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
@@ -1134,7 +1346,16 @@ wrappy@1:
   resolved "https://npm-registry.longtailvideo.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
-xtend@~4.0.0:
+ws@^3.2.0:
+  version "3.3.3"
+  resolved "https://npm-registry.longtailvideo.com/ws/-/ws-3.3.3.tgz#f1cf84fe2d5e901ebce94efaece785f187a228f2"
+  integrity sha512-nnWLa/NwZSt4KQJu51MYlCcSQ5g7INpOrOMt4XV8j4dqTXdmlUmSHQ8/oLC069ckre0fRsgfvsKwbTdtKLCDkA==
+  dependencies:
+    async-limiter "~1.0.0"
+    safe-buffer "~5.1.0"
+    ultron "~1.1.0"
+
+xtend@^4.0.0, xtend@~4.0.0:
   version "4.0.1"
   resolved "https://npm-registry.longtailvideo.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
