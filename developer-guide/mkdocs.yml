@@ -1,7 +1,7 @@
 site_name: JW Player Developer Guide
 theme:
   name: null
-  custom_dir: node_modules/mkdocs-jwplayer/jwplayer
+  custom_dir: ../node_modules/mkdocs-jwplayer/jwplayer
   include_search_page: true
   search_index_only: false
 extra:
