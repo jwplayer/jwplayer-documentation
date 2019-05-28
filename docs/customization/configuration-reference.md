@@ -3,6 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
+
 <sup>Last Updated: May 29, 2019</sup>
 
 This article contains all configuration options JW Player supports.
@@ -276,7 +277,7 @@ jwplayer("myElement").setup({
 |`description`|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |`image`|String|Poster image URL. Displayed before and after playback.|
 |`mediaid`|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|`recommendations`|String|URL to a feed that contains related items for a particular playlist item|
+|<a name="playlist-recommendations"></a>`recommendations`|String|URL to a feed that contains related items for a particular playlist item|
 |<a name="starttime"></a>`starttime` |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
 |`minDvrWindow`|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |`sources` |Array|Used for quality toggling and alternate sources<br/><br/>See: [playlist.sources](#playlist-sources)|
@@ -544,8 +545,31 @@ jwplayer("myElement").setup({
 |`image`|String|URL of an individual thumbnail candidate|
 |`weight`|Number|Dynamic weight as calculated by the Intelligent Thumbnails algorithm|
 
+<br/>
+
+<a name="related"></a>
 
 * * *
+
+## Related
+
+This object controls the playlist appearance and behaviors.
+
+|Property|Type|Description|Default|
+|---|---|---|---|
+|`autoplaymessage` <sup>< 8.6.0</sup>|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlautoplaymessage) to set this property.| "&#95;_title__ will play in xx seconds"|
+|`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
+|`displayMode` <sup>8.1.9+</sup>|String| Configures the playlist user interface<br/><br/>`none`<sup>8.9.0+</sup>: With the exception of the next up button in the control bar, removes all aspects of the playlist interface<br/><br/>Set this value when using a custom external playlist user interface.<br/><br/><br/>`overlay`: Adds a "more videos" icon to the control bar<br/><br/>When clicked, an overlay takes over the player and pauses playback. <br/><br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience<br/><br/>The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience<br/><br/>Use [selector](#relatedselector) to configure shelf location.|`overlay` (manual, dynamic, and trending playlists)<br/><br/>`shelf` (recommendations playlists)|
+|`file`|String|  Location of a JSON or RSS file that contains a recommendations playlist<br/><br/>Use this property to associate a recommendations playlist with all playlists in a player. To associate a recommendations playlist with a specific playlist or playlist item, use <a href="#playlist-recommendations">playlist[].recommendations</a>.|-|
+|`onclick`|String|Behavior when a related video is selected<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
+|`oncomplete`|String|Behavior of the related videos overlay when a single video or playlist is completed<br/><br/> `autoplay`: Displays the related overlay and automatically plays the next video in your related feed after 10 seconds<br/><br/>This option also automatically sets the onclick behavior to `play`.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/>`none`: No overlay appears and player automatically advances to the next playlist item<br/><br/>If there is no media item to advance to, the replay button appears.<br/><br/>`show`: Display the related overlay|`none`|
+|<a name="relatedselector"></a>`selector`  <sup>8.6.0+</sup>|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
+
+<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
+
+* * *
+
+<a name="skin"></a>
 
 ## Skin
 
@@ -739,27 +763,6 @@ Google's separate [JavaScript library](https://developers.google.com/analytics/d
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
-<a name="related"></a>
-
-* * *
-
-## Related
-
-This options block controls an overlay with related videos.
-
-|Config|Type|Description|Default|
-|---|---|---|---|
-|`file`|String|**(REQUIRED)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
-|`autoplaymessage` <sup>< 8.6.0</sup>|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlautoplaymessage) to set this property.| "&#95;_title__ will play in xx seconds"|
-|`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
-|`displayMode` <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. Use [`selector`](#relatedselector) to configure shelf location.|`shelf`|
-|`onclick`|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
-|`oncomplete`|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
-|<a name="relatedselector"></a>`selector`  <sup>8.6.0+</sup>|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
-
-<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
-
-See [Display Related Videos](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) for more information.
 
 <a name="advertising"></a>
 
