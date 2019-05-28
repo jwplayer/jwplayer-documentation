@@ -681,9 +681,9 @@ jwplayer("myElement").setup({
 We highly recommend using low-resolution images for logos in the player, as Internet Explorer may not resize an image, especially if it is high-resolution.
 !!!
 
-<a name="sharing"></a>
-
 * * *
+
+<a name="sharing"></a>
 
 ## Sharing
 
