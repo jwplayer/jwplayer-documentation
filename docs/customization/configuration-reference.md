@@ -3,7 +3,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: May 15, 2019</sup>
+<sup>Last Updated: May 29, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -799,7 +799,7 @@ This object configures the video advertising capabilities of JW Player and overr
 |`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
 |`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
 |`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
-|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel|All|-|
+|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.|All|-|
 |`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
 |`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
@@ -1057,7 +1057,7 @@ jwplayer("myElement").setup({
 |---|---|---|---|
 |`custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
 |`offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
-|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>Do not use this property and `vastxml` within the same ad break.|-|
+|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `vastxml` within the same ad break.|-|
 |`type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
 |`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `tag` within the same ad break.|-|
 
