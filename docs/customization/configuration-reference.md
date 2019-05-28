@@ -552,7 +552,7 @@ jwplayer("myElement").setup({
 
 ## Related
 
-This object controls playlist overlay appearance and behaviors.
+This object controls the playlist [overlay](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) appearance and behaviors.
 
 |Property|Type|Description|Default|
 |---|---|---|---|
@@ -565,8 +565,6 @@ This object controls playlist overlay appearance and behaviors.
 |<a name="relatedselector"></a>`selector`  <sup>8.6.0+</sup>|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
 
 <!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
-
-See [Display Related Videos](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) for more information.
 
 * * *
 
