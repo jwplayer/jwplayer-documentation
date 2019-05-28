@@ -39,7 +39,7 @@ Use the following steps to add a pre-roll to an [embedded player](../../getting-
 3. Define the `adscheduleid` property within the `advertising` object. Assign a randomly-generated, eight character, alpha-numeric value to this property.
 4. Define a <a href="../../customization/configuration-reference/#advertising-schedule" target="_blank">schedule</a> array within the `advertising` object. At the minimum, you must assign an ad tag to the `tag` property. You can also assign the URL of a VMAP tag to the `schedule` property.
 
-!!!
+!!!tip
 As a shortcut, you can define `advertising.tag` (String) to create a single pre-roll ad break. If you use this shortcut, you cannot add multiple ad breaks.<br/><br/> The `advertising.tag` property and `advertising.schedule[]` property cannot be used in the same `advertising` object.
 !!!
 

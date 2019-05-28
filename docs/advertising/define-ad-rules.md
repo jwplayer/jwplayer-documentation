@@ -7,7 +7,7 @@ After [adding ads](../monetize-your-content) to your content, you can define ad 
 * If you are publishing playlists that consist of short-duration videos, like tutorials or product reviews, you can define `startOn` (the first playlist item allowing ad playback) and `frequency` (the regularity of ads within a playlist). 
 * If you are publishing long-form content, like webinars or interviews, you can define `startOnSeek` (which determines if a returning visitor is served a pre-roll before resuming content playback) and `timeBetweenAds` (which sets the minimum time that must elapse between ads playback).
 
-You can read [Ad rules reference](https://support.jwplayer.com/articles/ad-rules-reference) to learn more about how each ad rule impacts a user's experience.
+You can read the [Ad rules reference](https://support.jwplayer.com/articles/ad-rules-reference) to learn more about how each ad rule impacts a user's experience.
 
 !!!important
 &bull; When using a VAST (`vast`) ad client, you can define any of the four `advertising.rules` properties.<br/><br/>&bull; When using an IMA (`googima`) or a FreeWheel (`freewheel`) ad client, you can only define `startOn` and `frequency`. <br/><br/>&bull; When using Google's Dynamic Ad Insertion (`dai`) ad client, **none** of the `advertising.rules` properties are applicable. 
