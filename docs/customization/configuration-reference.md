@@ -208,6 +208,9 @@ Use the following CSS classes to customize the floating player:
 * [.jw-flag-floating .jw-wrapper](../css-skinning/skins_reference/#floating-flag)
 * [.jw-float-icon](../css-skinning/skins_reference/#floating)
 
+!!!important
+Float on scroll cannot be used with a player that is embedded in an iframe.
+!!!
 
 ```
 jwplayer("myElement").setup({
