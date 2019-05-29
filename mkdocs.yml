@@ -22,6 +22,8 @@ nav:
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
   - Advertising:
+    - Monetize your content: advertising/monetize-your-content.md
+    - Define ad rules: advertising/define-ad-rules.md
     - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
   - Analytics:
     - Track video metrics: analytics/track-video-metrics.md
