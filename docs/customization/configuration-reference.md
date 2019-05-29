@@ -753,7 +753,7 @@ See our [Social Sharing](https://support.jwplayer.com/customer/portal/articles/1
 
 ## Google Analytics (ga)
 
-This options block configures the built-in integration with Google Analytics.
+This object configures the built-in integration with Google Analytics.
 
 |Property|Type|Description|Default|
 |---|---|---|---|
