@@ -1,5 +1,5 @@
 #Introduction
-Hello World! (test)
+Hello World!
 
 We’re JW Player. We strive to enable developers and designers (like you!) to build, customize, and deliver the best video experiences for viewers across web, mobile, and OTT devices.
 
