@@ -1,7 +1,7 @@
 #Introduction
-Hello World! 
+Hello World!
 
-We’re JW Player. We strive to enable developers and designers (like you!) to build, customize, and deliver the best video experiences for viewers across web, mobile, and OTT devices. 
+We’re JW Player. We strive to enable developers and designers (like you!) to build, customize, and deliver the best video experiences for viewers across web, mobile, and OTT devices.
 
 ##Purpose
 Our goal is to provide you with documentation on more advanced uses of JW Player. Here you will find a consolidated reference of API calls and design resources to accelerate your development process with our player.

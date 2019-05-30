@@ -2,4 +2,7 @@
 node_modules
 npm-debug.log
 .self-update-info
-developer-guide
+developer-guide/developer-guide
+api-reference/javascript-api-reference
+developer-guide/node_modules/
+api-reference/node_modules/
