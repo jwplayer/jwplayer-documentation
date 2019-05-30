@@ -3,7 +3,8 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 !!!
 
 # JW Player Configuration Reference
-<sup>Last Updated: May 15, 2019</sup>
+
+<sup>Last Updated: May 29, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -74,7 +75,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 |--|--|--|--|
 |**mute**|Boolean|Configures if the player should be muted during playback|false|
 |**autostart**|String|Whether the player will attempt to begin playback automatically when a page is loaded. Set to 'viewable' to have player autostart if 50% is viewable. |false|
-|**nextupoffset**|Number|Configures when the Next Up card displays during playback. A positive value is an offset from the start of the video. A negative number is an offset from the end of the video|-10|
+|<a name="nextupoffset"></a>**nextupoffset**|Number or String<sup>8.9.0</sup>|Configures when the Next Up card displays during playback<br/><br/>A positive value is an offset from the start of the video. A negative value is an offset from the end of the video. This property can be defined either as a number (`-10`) or a percentage as a string (`"-2%"`)|-10|
 |**repeat**|Boolean|Configures if the player should loop content after a playlist completes|false|
 |**abouttext**|String|Custom text to display in the right-click menu|-|
 |**aboutlink**|String|Custom URL to link to when clicking the right-click menu|"https://www.jwplayer.com/learn-more"|
@@ -207,6 +208,9 @@ Use the following CSS classes to customize the floating player:
 * [.jw-flag-floating .jw-wrapper](../css-skinning/skins_reference/#floating-flag)
 * [.jw-float-icon](../css-skinning/skins_reference/#floating)
 
+!!!important
+Float on scroll cannot be used with a player that is embedded in an iframe.
+!!!
 
 ```
 jwplayer("myElement").setup({
@@ -276,7 +280,7 @@ jwplayer("myElement").setup({
 |`description`|String|Short description of the item. It is displayed below the title. This can be hidden with the displaydescription option.|
 |`image`|String|Poster image URL. Displayed before and after playback.|
 |`mediaid`|String|Unique identifier of this item. Used by advertising, analytics and discovery services|
-|`recommendations`|String|URL to a feed that contains related items for a particular playlist item|
+|<a name="playlist-recommendations"></a>`recommendations`|String|URL to a feed that contains related items for a particular playlist item|
 |<a name="starttime"></a>`starttime` |Number|Time in seconds to start a media item.<br><br> **NOTE**: When used with an MP4 video file, both [seek](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseek) and [seeked](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronseeked) events are triggered. Neither event is triggered when used with a DASH or HLS stream.|
 |`minDvrWindow`|Number|**HLS-only** In seconds, the minimum amount of content in an M3U8 required to trigger DVR mode. Set to 0 to always display DVR mode.(Defaults to **120**)|
 |`sources` |Array|Used for quality toggling and alternate sources<br/><br/>See: [playlist.sources](#playlist-sources)|
@@ -544,8 +548,31 @@ jwplayer("myElement").setup({
 |`image`|String|URL of an individual thumbnail candidate|
 |`weight`|Number|Dynamic weight as calculated by the Intelligent Thumbnails algorithm|
 
+<br/>
+
+<a name="related"></a>
 
 * * *
+
+## Related
+
+This object controls the playlist appearance and behaviors.
+
+|Property|Type|Description|Default|
+|---|---|---|---|
+|`autoplaymessage` <sup>< 8.6.0</sup>|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlautoplaymessage) to set this property.| "&#95;_title__ will play in xx seconds"|
+|`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
+|`displayMode` <sup>8.1.9+</sup>|String| Configures the playlist user interface<br/><br/>`none`<sup>8.9.0+</sup>: With the exception of the next up button in the control bar, removes all aspects of the playlist interface<br/><br/>Set this value when using a custom external playlist user interface.<br/><br/><br/>`overlay`: Adds a "more videos" icon to the control bar<br/><br/>When clicked, an overlay takes over the player and pauses playback. <br/><br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience<br/><br/>The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience<br/><br/>Use [selector](#relatedselector) to configure shelf location.|`overlay` (manual, dynamic, and trending playlists)<br/><br/>`shelf` (recommendations playlists)|
+|`file`|String|  Location of a JSON or RSS file that contains a recommendations playlist<br/><br/>Use this property to associate a recommendations playlist with all playlists in a player. To associate a recommendations playlist with a specific playlist or playlist item, use <a href="#playlist-recommendations">playlist[].recommendations</a>.|-|
+|`onclick`|String|Behavior when a related video is selected<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
+|`oncomplete`|String|Behavior of the related videos overlay when a single video or playlist is completed<br/><br/> `autoplay`: Displays the related overlay and automatically plays the next video in your related feed after 10 seconds<br/><br/>This option also automatically sets the onclick behavior to `play`.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/>`none`: No overlay appears and player automatically advances to the next playlist item<br/><br/>If there is no media item to advance to, the replay button appears.<br/><br/>`show`: Display the related overlay|`none` <sup>8.9.0+</sup><br/><br/>`show` <sup>< 8.9.0 (excluding 8.9.0)</sup>|
+|<a name="relatedselector"></a>`selector`  <sup>8.6.0+</sup>|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
+
+<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
+
+* * *
+
+<a name="skin"></a>
 
 ## Skin
 
@@ -705,9 +732,9 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 |Social Network|Configuration Value| |Social Network|Configuration Value|
 |-|-|-|-|-|
 |**Facebook**|"facebook"| |**Tumblr**|"tumblr"|
-|**Twitter**|"twitter"| |**Google Plus**|"googleplus"|
+|**Twitter**|"twitter"| |**LinkedIn**|"linkedin"|
 |**Pinterest**|"interest"| |**Reddit**|"reddit"|
-|**Email**|"email"| |**LinkedIn**|"linkedin"|
+|**Email**|"email"| | | |
 
 
 #### Example
@@ -729,37 +756,18 @@ See our [Social Sharing](https://support.jwplayer.com/customer/portal/articles/1
 
 ## Google Analytics (ga)
 
-This options block configures the built-in integration with Google Analytics.
+This object configures the built-in integration with Google Analytics.
 
-|Config|Type|Description|Default|
+|Property|Type|Description|Default|
 |---|---|---|---|
-|**ga.label**|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
+|`label`|String|Send another playlist property, like "title" or "mediaid", as your event label in Google Analytics|"file"|
+|`trackerName` <sup>8.9.0+</sup>|String|When using an analytics.js Google Analytics implementation, the name of a user-generated custom tracker which segments player events that appear in reporting<br/><br/>Custom trackers with gtag.js implementations are not supported.| - |
 
 Google's separate [JavaScript library](https://developers.google.com/analytics/devguides/collection/gtagjs/) and config needs to be included in your page's head in order to send events with JW Player. Setting an empty **"ga":{}** options block will enable basic Google Analytics integration. No additional nested config options are required.
 
 See [Connecting Google Analytics](https://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) for more information.
 
-<a name="related"></a>
-
-* * *
-
-## Related
-
-This options block controls an overlay with related videos.
-
-|Config|Type|Description|Default|
-|---|---|---|---|
-|`file`|String|**(REQUIRED)** Location of an RSS or JSON file containing a feed of related videos<br/><br/>You can find the `file` URL in the dashboard:<br/>1. Click **MANAGE > Recommendations**. <br/>2. Click the playlist name. <br/>3. On the **DEVELOPER RESOURCES** tab, copy either the **RSS URL** or **JSON URL**.|-|
-|`autoplaymessage` <sup>< 8.6.0</sup>|String|A custom message that appears during autoplay. <br/><br/> `xx` will be replaced by the countdown timer<br/> `__title__` will be replaced by the next title in the related feed.<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlautoplaymessage) to set this property.| "&#95;_title__ will play in xx seconds"|
-|`autoplaytimer`|Number|The number of seconds to wait before playing the next related video in your content list. Set to `0` to have your next related content to play immediately|`10`|
-|`displayMode` <sup>8.1.9+</sup>|String| Configure the recommendations user interface. Does not apply to manual playlists. <br/><br/>`overlay`: Adds a "more videos" icon to the control bar. When clicked, an overlay takes over the player and pauses playback. <br/><br/>`shelf`: Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience. The shelf can be collapsed into a "More Videos" button, which appears above the control bar. Due to size constraints, small players fall back to "overlay" mode. <br/><br/><a name="shelfwidget"></a>`shelfWidget`<sup>8.5.0+</sup>: Adds a persistent horizontal bar of thumbnails outside and beneath the player that allows viewers to browse recommended videos during the playback experience. Use [`selector`](#relatedselector) to configure shelf location.|`shelf`|
-|`onclick`|String|The behavior when a related video is selected.<br/><br/> `play`: Plays the next video within the current player. <br/><br/> `link`: Redirects the page to the url specified in the related item's link field.|`play`|
-|`oncomplete`|String|The behavior of our related videos overlay when a single video or playlist is completed.<br/><br/> `hide`: Replay button and related icon will appear <br/><br/> `show`: Display the related overlay <br/><br/> `autoplay`: Automatically play the next video in your related feed after 10 seconds. Automatically sets onclick behavior to **"play"**|`show`|
-|<a name="relatedselector"></a>`selector`  <sup>8.6.0+</sup>|String|CSS selector that points to an HTML element that is used as the container when `displayMode` is set to [`shelfWidget`](#shelfwidget). <br/><br/> This property can be configured in the following ways:<br/><br/>**Undefined HTML element and selector**: An element with `id="{playerID}-shelf-widget"` is created. By default, the shelf widget displays in `<div id="{playerID}-shelf-widget">` directly below the player. The shelf widget size is responsive to the player.<br/><br/>You can also assign this ID to a different HTML element on your page. This allows you to set the widget location without defining a new selector. If you assign this ID to a different HTML element, the shelf widget size is responsive to the HTML element.<br/><br/>**Defined HTML element and selector**: If the HTML element has an ID (`myDefinedID`) and `"selector": "#myDefinedID"`, shelf widget is placed inside the of HTML element with `id="myDefinedId"`. The shelf widget size is responsive to the HTML element.|-|
-
-<!-- removed until this functionality comes back |**related.heading**|String|Single line heading displayed above the grid with related videos. Generally contains a short call-to-action|"Related Videos"| -->
-
-See [Display Related Videos](https://support.jwplayer.com/articles/how-to-enable-the-discovery-overlay) for more information.
+<br/>
 
 <a name="advertising"></a>
 
@@ -795,12 +803,13 @@ This object configures the video advertising capabilities of JW Player and overr
 |`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
 |`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the [start of the ad break](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart) and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the [start of the ad break](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart) and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |`rules`|Object|Enable ad rules with the given settings and bidders.<br/><br/>See: [advertising.rules](#advertising-rules)|IMA,<br/> VAST|-|
-|`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string) <br/><br/>`advertising.tag` is ignored if this option is set<br/><br/>See: [advertising.schedule](#advertising-schedule)|All|-|
+|`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string)|All|-|
 |`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
 |`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
 |`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
-|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel|All|-|
+|`tag`|String or Array|When a string, URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>(VAST plugin only) When an array, URLs of the VAST ad tags to be used as fallbacks in the event that one or multiple ad tags fail to render<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `advertising.vastxml` within the same ad break.<br/><br/>`advertising.schedule` is ignored if this option is set.|All|-|
 |`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
+|`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `advertising.tag` within the same ad break.<br/><br/>`advertising.schedule` is ignored if this option is set|IMA, VAST|-|
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
 |`vpaidmode`|String|[(IMA VPAID-only)](https://developers.google.com/interactive-media-ads/docs/sdks/html5/v3/apis#ima.ImaSdkSettings.VpaidMode)<br/><br/>`disabled`: VPAID ads will not play and an error will be returned if VPAID is requested <br/><br/>`enabled`: VPAID is enabled using a cross domain iFrame. The VPAID ad cannot access the site. VPAID ads that depend on friendly iFrame access may not play<br/><br/>`insecure`: The VPAID ad will load in a friendly iFrame. This allows the ad access to the site via javascript <br/> Not supported in Freewheel|IMA|"insecure"|
 
@@ -1057,9 +1066,10 @@ jwplayer("myElement").setup({
 |---|---|---|---|
 |`custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
 |`offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
-|`tag`|String or Array|URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>Do not use this property and `vastxml` within the same ad break.|-|
+|`pod`|Array|Configures a single ad break to play two or more VAST ads consecutively<br/><br/>Do not use use this property with `advertising.schedule[].tag` or `advertising.schedule[].vastxml` within the same ad break. Instead of using this property, we strongly recommend using a [VAST 3.0 template](https://support.jwplayer.com/articles/vast3-ad-pod-reference) to configure ad pods. |-|
+|`tag`|String or Array|When a string, URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>(VAST plugin only) When an array, URLs of the VAST ad tags to be used as fallbacks in the event that one or multiple ad tags fail to render<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `advertising.schedule[].vastxml` within the same ad break.|-|
 |`type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
-|`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `tag` within the same ad break.|-|
+|`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `advertising.schedule[].tag` within the same ad break.|-|
 
 <br/>
 
