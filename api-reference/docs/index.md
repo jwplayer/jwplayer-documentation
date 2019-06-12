@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 JavaScr
 
 
 # Introduction
-<sup>Last Updated: January 17, 2019</sup>
+<sup>Last Updated: June 12, 2019</sup>
 
 This article provides a reference to all available JW Player JavaScript API calls. For an introduction to JW8's API, see our [Introduction to the JavaScript API](//developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/). For more in-depth instructions on implementation, see our [JW Player Developer Guide](//developer.jwplayer.com/jw-player/docs/developer-guide/). To see example code for each API call, visit our [JW Player Demos](//developer.jwplayer.com/jw-player/demos/) and search by call.
 
@@ -1816,7 +1816,17 @@ Triggered whenever somebody shares content from within the sharing plugin.
 
 ## Related
 
-Similar to sharing, the related API examples below will assume that the following code is implemented:
+Similar to sharing, the related API examples below will assume that one of the following code samples is implemented:
+
+<strong>JW 8.9.0+</strong>
+
+```
+jwplayer().on('relatedReady', function(event){
+  relatedPlugin = jwplayer().getPlugin('related');
+});
+```
+
+<strong>&#8804; JW 8.8.6</strong>
 
 ```
 jwplayer().on('ready', function(event){
@@ -1868,6 +1878,8 @@ Triggers when a user selects an object in a related feed.
 |item|Metadata for the chosen item specified in the feed.|Object|
 |auto|Returns true if started via autoplay; false if manually started.|Boolean|
 |position|Ordinal position of the related video that has been chosen.|Number|
+
+<br/>
 
 ## v7 API Reference
 
