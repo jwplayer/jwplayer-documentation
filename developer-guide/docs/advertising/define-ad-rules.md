@@ -1,6 +1,6 @@
 # Define ad rules
 
-<sup>Last Updated: May 29, 2019</sup> 
+<sup>Last Updated: June 12, 2019</sup> 
 
 After [adding ads](../monetize-your-content) to your content, you can define ad rules that control how often a viewer sees ads while watching your video content. 
 
@@ -55,7 +55,7 @@ jwplayer("myElement").setup({
 
 ### Example 2: Long-form content
 
-The following example illustrates a long-form media item with multiple ad breaks. The `startOnSeek` and `timeBeetweenAds` (set to 300 seconds) ad rules have been defined.
+The following example illustrates a long-form media item with multiple ad breaks. The `startOnSeek` and `timeBetweenAds` (set to 300 seconds) ad rules have been defined.
 
 ```html
 jwplayer("myElement").setup({
