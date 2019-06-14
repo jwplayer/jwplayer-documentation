@@ -53,7 +53,7 @@ The following code examples illustrate the code structure of a cloud-hosted or s
     <script type="text/JavaScript">
 
       jwplayer("myElement").setup({ 
-        "playlist": "https://cdn.jwplayer.com/v2/media/xxxxYYYY"
+        "playlist": "https://cdn.jwplayer.com/v2/playlists/xxxxYYYY"
       });
 
     </script>
