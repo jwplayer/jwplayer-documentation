@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 JavaScr
 
 
 # Introduction
-<sup>Last Updated: June 12, 2019</sup>
+<sup>Last Updated: June 17, 2019</sup>
 
 This article provides a reference to all available JW Player JavaScript API calls. For an introduction to JW8's API, see our [Introduction to the JavaScript API](//developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/). For more in-depth instructions on implementation, see our [JW Player Developer Guide](//developer.jwplayer.com/jw-player/docs/developer-guide/). To see example code for each API call, visit our [JW Player Demos](//developer.jwplayer.com/jw-player/demos/) and search by call.
 
@@ -189,7 +189,7 @@ Triggered when the player is taken off of a page via `jwplayer().remove();`
 
 ### jwplayer().on('all')
 
-This singular API call can be used to gather all events from the player's API.
+This singular API call can be used to listen to all events from the player's API that are listed in the following sections on this page.
 
 !!!warning
 This will output a large amount of information and may degrade browser performance if it is used for an extended period of time.!!!
