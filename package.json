@@ -1,6 +1,0 @@
-{
-  "name": "web-player-documentation",
-  "devDependencies": {
-    "mkdocs-jwplayer": "github:jwplayer/mkdocs-jwplayer"
-  }
-}
