@@ -4,28 +4,15 @@
 
 <sup>Last updated: June 26, 2019</sup>
 
-JW Player's advertising features help you to monetize your content with video ads while keeping your viewers engaged. JW Player supports standard ad types (VAST, VPAID, VMAP), accommodates third-party technologies (Google IMA SDK, FreeWheel SDK), and supports any ad server that returns the previously-mentioned ad types. You can customize your viewers' ad experiences with ad rules, ad breaks, and localized player messaging.
-
-<br/>
-
-## Get started
-
-To begin running advertising through your JW Player, you need the following three items:
-
-| Item | Description |
-| --- | --- |
-| Embedded JW Player | JW Player with content<br/><br/>If you have not already, [add a player to your view](../../getting-started/add-a-player-to-your-view).|
-| Ad tag | URL of the ad tag for VAST and IMA plugins, or a string placeholder for FreeWheel<br/><br/>The ad tag should be an active tag generated from an advertising platform. |
-
-<br/>
-
-## Add a pre-roll ad to a player
-
 The most basic advertising implementation is to run a single VAST ad tag as a pre-roll that runs before each playlist.
 
 !!!important
 If you are using IMA ad tags, follow the steps in [Enable Google IMA](../enable-google-ima). If you are using FreeWheel, follow the steps in [Enable FreeWheel Ad Manager](../enable-freewheel-ad-manager).
 !!!
+
+<br/>
+
+## Add a pre-roll ad to a player
 
 Use the following steps to add a pre-roll ad to <a href="../../getting-started/add-a-player-to-your-view" target="_blank">the player you added to your view</a>:
 
