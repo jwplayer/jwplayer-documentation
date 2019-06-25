@@ -7,7 +7,7 @@
 The most basic advertising implementation is to run a single VAST ad tag as a pre-roll that runs before each playlist.
 
 !!!important
-If you are using IMA ad tags, follow the steps in [Enable Google IMA](../enable-google-ima). If you are using FreeWheel, follow the steps in [Enable FreeWheel Ad Manager](../enable-freewheel-ad-manager).
+If you are using IMA ad tags, follow the steps in [Enable Google IMA](../enable-google-ima-ios). If you are using FreeWheel, follow the steps in [Enable FreeWheel Ad Manager](../enable-freewheel-ad-manager-ios).
 !!!
 
 <br/>
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 }
 ```
 
-You can build upon this basic implementation by [adding more ad breaks](#add-multiple-ad-breaks-to-a-player) or [defining ad rules](../define-ad-rules).
+You can build upon this basic implementation by [adding more ad breaks](#add-multiple-ad-breaks-to-a-player) or [defining ad rules](../define-ad-rules-ios).
 
 <br/>
 
@@ -154,4 +154,4 @@ class ViewController: UIViewController {
     }
 }
 ```
-You can build on this basic implementation by [defining ad rules](../define-ad-rules).
+You can build on this basic implementation by [defining ad rules](../define-ad-rules-ios).
