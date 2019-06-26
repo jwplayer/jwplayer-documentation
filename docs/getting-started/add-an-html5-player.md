@@ -1,6 +1,6 @@
 # Add an HTML5 player to a site
 
-<sup>Last Updated: May 9, 2019</sup>
+<sup>Last Updated: June 26, 2019</sup>
 
 To add a player to your site, you must add a reference to the player library, embed the player, and configure the player with content.
 
