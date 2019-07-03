@@ -1,6 +1,6 @@
 # JW Player Errors Reference
 
-<sup>Last Updated: March 4, 2019</sup>
+<sup>Last Updated: July 3, 2019</sup>
 
 All errors and warnings relating to the player are returned in a player error object.
 
@@ -16,7 +16,7 @@ All errors and warnings relating to the player are returned in a player error ob
 |Name|Type|Description|
 |---|---|---|
 |`code` | Number | Identifier for the error <br/><br/>Error code descriptions are listed on this page.|
-|`message` | String | Error text displayed displayed to the user<br/><br/> This property can be [localized](../customization/configuration-reference/#intlerrors). |
+|`message` | String | Error text displayed displayed to the user<br/><br/> This property can be [localized](../../customization/configuration-reference/#intlerrors). |
 |`sourceError` | Object or null | Lower level error or event, caught by the player, which resulted in this error |
 |`type` | String | Category of error or warning <br/><br/> Possible values include: <br/><br/> - `error`<br/><br/>- `playAttemptFailed`<br/><br/>- `setupError`<br/><br/>- `warning`
 
