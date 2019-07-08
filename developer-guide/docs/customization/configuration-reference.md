@@ -973,7 +973,7 @@ jwplayer("myElement").setup({
 
 |Property|Type|Description|
 |---|---|---|
-|`adManagerURl`|String|The targeted desired height of a companion ad that exists in a VAST ad<br/><br/>Your FreeWheel Solution Engineer or Account Representative can provide you with a versioned AdManager URL.|
+|`adManagerURl`|String|URL of FreeWheel AdManager<br/><br/>Your FreeWheel Solution Engineer or Account Representative can provide you with a versioned AdManager URL.|
 |`networkid`|Number|FreeWheel identifier of a network |
 |`profileid`|String|FreeWheel identifier of a particular application environment |
 |`sectionid`|String|FreeWheel identifier of a location where the video content plays|
