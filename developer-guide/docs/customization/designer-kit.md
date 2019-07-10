@@ -14,12 +14,12 @@ Below is a preview of what is included in the **JW8 Designer Kit**.
 
 <h4>Player State Idle</h4>
 
-![Alt text](/img/jw8-player-state-idle.png)
+![Alt text](../../img/jw8-player-state-idle.png)
 
 <h4>Player State Playing</h4>
 
-![Alt text](/img/jw8-player-state-playing.png)
+![Alt text](../../img/jw8-player-state-playing.png)
 
 <h4>Player State Complete</h4>
 
-![Alt text](/img/jw8-player-state-complete.png)
+![Alt text](../../img/jw8-player-state-complete.png)
