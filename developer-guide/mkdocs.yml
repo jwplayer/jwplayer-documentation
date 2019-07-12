@@ -24,6 +24,7 @@ nav:
   - Advertising:
     - Monetize your content: advertising/monetize-your-content.md
     - Define ad rules: advertising/define-ad-rules.md
+    - Enable FreeWheel Ad Manager: advertising/enable-freewheel-ad-manager.md
     - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
   - Analytics:
     - Track video metrics: analytics/track-video-metrics.md
