@@ -4,6 +4,8 @@
 
 If you have an existing relationship with FreeWheel, you can configure JW Player's FreeWheel plugin to gain access to their video ad inventory.
 
+<br/>
+
 ## Get required items
 
 Before you add the FreeWheel Ad Manager to your app, you need the following values from your FreeWheel account.  If you do not know where to find these values, contact your FreeWheel account representative.
@@ -16,6 +18,8 @@ Before you add the FreeWheel Ad Manager to your app, you need the following valu
 | `profileid` | FreeWheel identifier of a particular application environment | `global-js` |
 | `sectionid` | FreeWheel identifier of a location where the video content plays | `DemoSiteGroup.01` |
 | `serverid` | URL of FreeWheel ad server | `http://demo.v.fwmrm.net/ad/g/1` |
+
+<br/>
 
 ## Add a pre-roll ad to a player
 
@@ -63,6 +67,8 @@ jwplayer("myElement").setup({
 
 You can build upon this basic implementation by adding adding multiple ad breaks or [defining ad rules](../define-ad-rules). Currently, Video Player Bidding cannot be configured when using FreeWheel.
 
+<br/>
+
 ## Add multiple ad breaks to a player
 
 Use the following steps to add multiple ad breaks to the previous FreeWheel pre-roll example:
@@ -75,6 +81,7 @@ Use the following steps to add multiple ad breaks to the previous FreeWheel pre-
 ```javascript
 jwplayer("myElement").setup({
   playlist: "https://cdn.jwplayer.com/v2/media/123acb4e",
+  fwassetid: "DemoVideoGroup.01",
   advertising: {
     client: "freewheel",
     freewheel: {
