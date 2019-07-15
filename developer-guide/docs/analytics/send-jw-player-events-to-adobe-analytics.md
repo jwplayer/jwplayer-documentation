@@ -6,7 +6,9 @@ The JW Player Analytics extension enables you to create a configuration that all
 
 The following table lists events that are automatically sent.
 
-| `adBreakEnd` | `adBreakStart` | `adComplete` |
+| Events | | |
+| --- | --- | --- |
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakend" target="_blank">adBreakEnd</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart" target="_blank">adBreakStart</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadcomplete" target="blank">adComplete</a>` |
 | `adSkipped` | `adStarted` | `bufferChange.position` |
 | `complete` | `meta.seekRange.end` | `meta.seekRange.start` |
 | `pause` | `play` | `playAttemptFailed` |
@@ -87,8 +89,6 @@ You will also need to install the following Adobe Launch extensions. The install
 1. From **Extensions > Catalog**, locate JW Player Analytics.
 2. Click **Install**.
 
-<br/>
-
 ### Define property rules
 
 1. Click **Rules > Create New Rule**.
@@ -160,7 +160,7 @@ Use the following steps and code sample to add the JW Player Adapter for Adobe e
 
 <br/>
 
-<strong>3.</strong>Initialize the Adobe Launch extension when the player is ready.  On setup, the JW Player extension listens for the `jwplayerready` browser event. Then, the extension initializes itself with the player instance information.
+<strong>3.</strong> Initialize the Adobe Launch extension when the player is ready.  On setup, the JW Player extension listens for the `jwplayerready` browser event. Then, the extension initializes itself with the player instance information.
 
 If you instantiate your player using `jwplayer("myElement").setup`, we suggest assigning `jwplayer("myElement")` to a variable like `playerInstance` to simplify this implementation, as shown in the following example. 
 
@@ -177,8 +177,10 @@ If you instantiate your player using `jwplayer("myElement").setup`, we suggest a
   // Initialize Adobe Launch extension, after player fires 'ready' event.
   jwplayer("myElement").on('ready', function (e) {
 
-                // Create 'jwplayerready' custom window event.
-                // Enable Launch extension to listen for player events by sending playerInstance to the Launch extension.
+    /* 
+    Create 'jwplayerready' custom window event.
+    Enable Launch extension to listen for player events by sending playerInstance to the Launch extension. 
+    */
     var event = new CustomEvent('jwplayerready', {detail : {'jwplayer' : playerInstance}});
     window.dispatchEvent(event);            
   });
@@ -234,8 +236,10 @@ The events from your embedded JW Player will be sent to your Adobe Analytics rep
       // Initialize Adobe Launch extension, after player fires 'ready' event.
       jwplayer("myElement").on('ready', function (e) {
 
-        // Create 'jwplayerready' custom window event.
-        // Enable Launch extension to listen for player events by sending playerInstance to the Launch extension.
+        /* 
+        Create 'jwplayerready' custom window event.
+        Enable Launch extension to listen for player events by sending playerInstance to the Launch extension.
+        */
         var event = new CustomEvent('jwplayerready', {detail : {'jwplayer' : playerInstance}});
         window.dispatchEvent(event);            
       });
