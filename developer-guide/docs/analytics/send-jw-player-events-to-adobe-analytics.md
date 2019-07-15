@@ -8,11 +8,11 @@ The following table lists events that are automatically sent.
 
 | Events | | |
 | --- | --- | --- |
-| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakend" target="_blank">adBreakEnd</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart" target="_blank">adBreakStart</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadcomplete" target="blank">adComplete</a>` |
-| `adSkipped` | `adStarted` | `bufferChange.position` |
-| `complete` | `meta.seekRange.end` | `meta.seekRange.start` |
-| `pause` | `play` | `playAttemptFailed` |
-| `time.duration ` | `visualQuality`|
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakend" target="_blank">adBreakEnd</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart" target="_blank">adBreakStart</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadcomplete" target="blank">adComplete</a> |
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadskipped" target="_blank">adSkipped</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadstarted" target="_blank">adStarted</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronbufferchange" target="_blank">bufferChange.position</a> |
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeroncomplete" target="_blank">complete</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#media-metadata" target="_blank">meta.seekRange.end</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#media-metadata" target="_blank">meta.seekRange.start</a> |
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronpause" target="_blank">pause</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronplay" target="_blank">play</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronplayattemptfailed" target="_blank">playAttemptFailed</a> |
+| <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayerontime" target="_blank">time.duration</a> | <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronvisualquality" target="_blank">visualQuality</a>|
 
 The following sections explain how to enable this functionality by configuring Adobe Launch and adding several lines of code on a page with an embedded JW Player web player.  
 
@@ -32,7 +32,7 @@ Before starting this process, you need the following information that can be fou
 - Adobe Heartbeat tracking server
 - Marketing Cloud Organization ID
 
-You will also need to install the following Adobe Launch extensions. The installation steps are explained in the following sections.
+You will also need to install the following Adobe Launch extensions.
 
 | Extension | Description |
 | --- | --- |
@@ -41,6 +41,8 @@ You will also need to install the following Adobe Launch extensions. The install
 | Core | Core provides default event, condition, and data element types available to all Adobe Launch users. |
 | Experience Cloud ID Service | Experience Cloud ID Service implements the Experience Cloud ID Service which identifies visitors across all Experience Cloud solutions. |
 | JW Player Analytics | JW Player Analytics connects JW Player events to Adobe Video Analytics |
+
+The installation steps are explained in the following sections.
 
 <br/>
 
@@ -143,12 +145,12 @@ Use the following steps and code sample to add the JW Player Adapter for Adobe e
 <script>
   (function () {
     if ( typeof window.CustomEvent === "function" ) return false;
-      function CustomEvent ( event, params ) {
-        console.log('Using custom code for event');
-        params = params || { bubbles: false, cancelable: false, detail: undefined };
-        var evt = document.createEvent( 'CustomEvent' );
-        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-        return evt;
+    function CustomEvent ( event, params ) {
+      console.log('Using custom code for event');
+      params = params || { bubbles: false, cancelable: false, detail: undefined };
+      var evt = document.createEvent( 'CustomEvent' );
+      evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+      return evt;
     }
                 
     CustomEvent.prototype = window.Event.prototype;
@@ -209,12 +211,12 @@ The events from your embedded JW Player will be sent to your Adobe Analytics rep
     <script>
       (function () {
         if ( typeof window.CustomEvent === "function" ) return false;
-          function CustomEvent ( event, params ) {
-            console.log('Using custom code for event');
-            params = params || { bubbles: false, cancelable: false, detail: undefined };
-            var evt = document.createEvent( 'CustomEvent' );
-            evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
-            return evt;
+        function CustomEvent ( event, params ) {
+          console.log('Using custom code for event');
+          params = params || { bubbles: false, cancelable: false, detail: undefined };
+          var evt = document.createEvent( 'CustomEvent' );
+          evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+          return evt;
         }
                 
         CustomEvent.prototype = window.Event.prototype;
