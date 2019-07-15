@@ -28,6 +28,7 @@ nav:
   - Analytics:
     - Track video metrics: analytics/track-video-metrics.md
     - Analytics Integrations: analytics/integrations.md
+    - Send events to Adobe Analytics: analytics/send-jw-player-events-to-adobe-analytics.md
   - Troubleshooting:
     - JW Lens overview: troubleshooting/jw-lens-overview.md
     - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
