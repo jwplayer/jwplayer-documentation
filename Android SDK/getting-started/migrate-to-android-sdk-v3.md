@@ -33,7 +33,7 @@ The 3.x release of the JW Player SDK for Android contain some API changes, most 
 
 ### Modified API Methods
 
-| 1.x                                       | 2.x                                     | Description of Changes                          |
+| 2.x                                       | 3.x                                     | Description of Changes                          |
 |:------------------------------------------|:----------------------------------------|:------------------------------------------------|
 | `long getPosition()`                      | `double getPosition()`                  | Changed time unit from milliseconds to seconds. |
 | `long getDuration()`                      | `double getDuration()`                  | Changed time unit from milliseconds to seconds. |
