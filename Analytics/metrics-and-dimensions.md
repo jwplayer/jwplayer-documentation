@@ -354,7 +354,7 @@ A *dimension* is an attribute of your metrics.  For example, each Play Event has
     <td><strong>Platform*</strong></td>
     <td><code>platform_id</code></td> 
     <td>String</td>
-    <td>SDK platform in which the player was embedded</td>
+    <td>SDK platform in which the player was embedded<br/><br/>Possible values include:<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>android</code><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>chromecast</code> (Chromecast Receiver)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>fireos</code> (Fire OS)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>ios</code><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>roku</code><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>tvos</code> (tvOS)<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>unknown</code><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>web</code></td>
   </tr>
 </table>
 
