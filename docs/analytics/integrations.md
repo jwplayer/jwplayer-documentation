@@ -1,8 +1,10 @@
 # Analytics System Integrations
 
-<sup>Last Updated: August 6, 2019</sup> 
+<sup>Last Updated: August 6, 2019</sup>
 
 By default, JW Player tracks only playback data with [Google Analytics](http://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) as an integrated solution. However, there are many more potential analytics services that can be used with our API. Provided that your analytics service is capable of sending this information via Javascript, all API events can hypothetically be tracked and measured.
+
+<br/>
 
 ## Listening for Events
 
@@ -16,6 +18,8 @@ jwplayer().on('mute',function(){
 ```
 
 ​For a full list of trackable player events grouped by category, please visit our [API reference page](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/).
+
+<br/>
 
 ## Sending Events With Google Analytics
 
@@ -32,6 +36,8 @@ ga('send', 'event', 'JW Player Events', 'Errors', event.message);
 Once triggering an error state, we are able to check into our Google Analytics page and see our tracked event(Under realtime events). In this case, **Errors** will populate in the **JW Player Events** category, and the error itself will be listed under **Actions**. The exact error message will be listed under the **Label** section.  
 
 More information about tracking events with the above code can be found [here](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) in Google's own analytics documentation.
+
+<br/>
 
 ## Sending Events With comScore
 
