@@ -1,29 +1,27 @@
 # Enable Google IMA
 
-<img src="https://img.shields.io/badge/SDK-iOS%20v3-0AAC29.svg?logo=apple">
+<img src="https://img.shields.io/badge/SDK-iOS%20v3-0AAC29.svg?logo=android">
 
-<sup>Last updated: June 26, 2019</sup>
-
-The JW Player SDK for iOS integrates Google's IMA iOS SDK. With this SDK integration, you can use the Google IMA ad client to request and track ads.
+The JW Player SDK for iOS integrates Google's IMA iOS SDK. With this SDK integration, you can use the Google IMA ad client to request ads.
 
 <br/>
 
 ## Add the Google IMA dependency
 
-To begin using the Google IMA ad client, you must first add the dependency to your app.
+To begin using the Google IMA ad client, you must first add a dependency to your app.
 
 ### CocoaPods
 
 #### Edit Podfile
 
 1. In a text editor, open the **Podfile** for your app.
-2. Add `GoogleAds-IMA-iOS-SDK` as a dependency. Be sure to use IMA SDK version located in the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWPlayerController.html#//api/name/googleIMAVersion" target="_blank">googleIMAVersion</a> property.
+2. Add `GoogleAds-IMA-iOS-SDK` as a dependency. Be sure to use IMA SDK version located in the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWPlayerController.html#//api/name/googleIMAVersion" target="_blank">googleIMAVersion</a> property. You can also review to the plugin support table.
 3. Save **Podfile** and close the text editor.
 
 ```groovy
 # Pods for MyAwesomeProject
-pod 'JWPlayer-SDK', '~> 3.0'
-pod 'GoogleAds-IMA-iOS-SDK', x.x
+pod 'JWPlayer-SDK', '~> 3.6'
+pod 'GoogleAds-IMA-iOS-SDK', '~> 3.8.1'
 ```
 
 #### Install SDK
@@ -33,23 +31,19 @@ pod 'GoogleAds-IMA-iOS-SDK', x.x
 
 ### Local
 
-#### Import SDK
-
 Now that you have the required items listed in the previous subsection, you can add JW Player SDK for iOS to your project.
 
-1. Download and unzip the <a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download" target="_blank">Google IMA iOS SDK</a>.
+1. Download and unzip the Google IMA iOS SDK.
 2. From within Xcode, expand the project in the navigator.
 3. Drag the **GoogleInteractiveMediaAds.framework** file from your desktop into the **Frameworks** folder in Xcode. In the pop-up screen that appears, be sure to select your target.
 4. Click **Finish**.
 5. Select the target in the project editor.
-6. Click **General**.
-7. Verify that the **GoogleInteractiveMediaAds.framework** appears in both the **Embedded Binaries** and **Linked Frameworks and Libraries** sections. If the framework does not appear in both sections, delete the instance of the framework. Then, drag the **GoogleInteractiveMediaAds.framework** folder from the Xcode navigation to the **Embedded Binaries** section. The framework should appear in both sections.
-
-<br/>
+6. Click General.
+7. Verify that the **GoogleInteractiveMediaAds.framework** appears in both the **Embedded Binaries** and **Linked Frameworks and Libraries** sections. <br/><br/>If the framework does not appear in both sections, delete the instance of the framework. Then, drag the **GoogleInteractiveMediaAds.framework** folder from the Xcode navigation to the **Embedded Binaries** section. The framework should appear in both sections.
 
 ## Add a pre-roll ad to a player
 
-Use the following steps to add a pre-roll ad to the [player your added to your view](../../getting-started/add-a-player-to-your-view):
+Use the following steps to add a pre-roll ad to the player you added to your view:
 
 1. Instantiate a <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html" target="_blank">JWAdBreak</a> object called `adBreak`. At a minimum, you must assign an ad tag URL to the `tag` property.
 2. Instantiate a <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdConfig.html" target="_blank">JWAdConfig</a> object and assign it to `config.advertising`.
@@ -57,6 +51,8 @@ Use the following steps to add a pre-roll ad to the [player your added to your v
 4. Add `adBreak` to the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdConfig.html#//api/name/schedule" target="_blank">schedule</a> array property of the `JWAdConfig`. This adds the ad schedule to the player's `config` property.
 
 ```Obj-C
+...
+
 @property (nonatomic) JWPlayerController *player;
 @property (nonatomic, weak) IBOutlet UIView *playerContainerView;
 @end
@@ -79,6 +75,8 @@ Use the following steps to add a pre-roll ad to the [player your added to your v
     [super viewDidAppear];
     [self.view addSubview:self.player.view];
 }
+
+...
 ```
 ```Swift
 class ViewController: UIViewController {
@@ -103,12 +101,11 @@ class ViewController: UIViewController {
     }
 }
 ```
-
 You can build upon this basic implementation by [adding more ad breaks](#add-multiple-ad-breaks-to-a-player).
 
 <br/>
 
-<a name="add-multiple-ad-breaks-to-a-player"></a>
+<a name="add-multiple-ad-breaks-to-a-player"></a> 
 
 ## Add multiple ad breaks to a player
 
@@ -116,7 +113,7 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 
 1. Instantiate an additional `JWAdBreak` object.
 2. Assign an ad tag to the `tag` property.
-3. When defining the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html#//api/name/offset" target="_blank">offset</a> property, choose one of the following values to schedule a mid-roll or post-roll ad:<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (String) Ad plays after the specified number of seconds.<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time, in `hh:mm:ss:mmm` format.<br/><br/>**Post-roll**<br/>&nbsp;&nbsp;- `post`: (String) Ad plays after the content.<br/><br/>
+3. When defining the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html#//api/name/offset" target="_blank">offset</a> property, choose one of the following values to schedule a mid-roll or post-roll ad:<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (String) Ad plays after the specified number of seconds.<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time, in `hh:mm:ss:mmm` format.<br/>&nbsp;&nbsp;- **{xx%}**: (String) Ad plays after xx% of the content has played.<br/><br/>**Post-roll**<br/>&nbsp;&nbsp;- `post`: (String) Ad plays after the content.<br/><br/>
 4. Add the additional `AdBreak` object to the `schedule` array.
 
 ```Obj-C
@@ -125,7 +122,6 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 @end
 
 @implementation ObjCViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -140,7 +136,7 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 
     JWAdBreak *adBreak5 = [JWAdBreak initWithTags:@"https://www.domain.com/adtag-post-roll.xml" offset:@"post"];
 
-    JWConfig *config = [JWConfig configWithContentURL:@"http://example.com/hls.m3u8"];
+    JWConfig *config = [JWConfig configWithContentURL:@"https://example.com/hls.m3u8"];
     config.advertising = [JWAdConfig new];
     config.advertising.client = JWAdClientGoogima;
     config.advertising.schedule = @[adBreak,
@@ -174,7 +170,7 @@ class ViewController: UIViewController {
 
         var adBreak5 = JWAdBreak(tag: "https://www.domain.com/adtag-post-roll.xml", offset: "post")
 
-        var config = JWConfig(contentURL: "http://example.com/hls.m3u8")
+        var config = JWConfig(contentURL: "https://example.com/hls.m3u8")
         config.advertising = JWAdConfig()
         config.advertising.client = .googima
         config.advertising.schedule = [adBreak, adBreak2, adBreak3, adBreak4, adBreak5]
@@ -183,7 +179,7 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.addSubview(player!.view)
+        playerContainerView.addSubview(player!.view)
     }
 }
 ```

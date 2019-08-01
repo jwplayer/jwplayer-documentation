@@ -1,10 +1,8 @@
 # Enable FreeWheel Ad Manager
 
-<img src="https://img.shields.io/badge/SDK-iOS%20v3-0AAC29.svg?logo=android">
+The JW Player SDK for iOS integrates FreeWheel's SDK. With this SDK integration, you can use the FreeWheel ad client to request ads.
 
-<sup>Last Updated: June 26, 2019</sup>
-
-The JW Player SDK for iOS integrates FreeWheel's SDK. With this SDK integration, you can use the FreeWheel ad client to request and track ads.
+<br/>
 
 ## Get required items
 
@@ -12,7 +10,7 @@ Before you add the FreeWheel Ad Manager to your app, you need the following valu
 
 | Parameter | Description | Example |
 | --- | --- | --- |
-| `mediaId` | FreeWheel identifier of a particular media item | `DemoVideoGroup.01`|
+| `mediaId` | FreeWheel identifier of a particular media item | `DemoVideoGroup.01` |
 | `networkId` | FreeWheel identifier of a network | `96749` |
 | `profileId` | FreeWheel identifier of a particular application environment | `96749:global-cocoa` |
 | `sectionId` | FreeWheel identifier of a location where the video content plays | `DemoSiteGroup.01` |
@@ -22,32 +20,28 @@ Before you add the FreeWheel Ad Manager to your app, you need the following valu
 
 ## Add the FreeWheel Ad Manager dependency
 
-To begin using the FreeWheel ad client, you must first add the dependency to your app.
-
-### Local
-
-#### Import and configure the SDK
+To begin using the FreeWheel ad client, you must first add a dependency to your app.
 
 !!!important
- If you are using Swift instead of Objective-C, use to the <a href="https://hub.freewheel.tv/display/techdocs/Use+AdManager+in+a+Swift+Project" target="_blank">FreeWheel guide</a> to set up your library.
+If you are using Swift instead of Objective-C, use the <a href="https://hub.freewheel.tv/display/techdocs/Use+AdManager+in+a+Swift+Project" target="_blank">FreeWheel guide</a> to set up your library.
 !!!
 
-1. From you FreeWheel representative, request the FreeWheel Ad Manager iOS that is bitcode-enabled with dynamic libraries.
+1. From your FreeWheel representative, request the FreeWheel Ad Manager SDK for iOS that is bitcode-enabled with dynamic libraries.
 2. From within Xcode, expand the project in the navigator.
-3. Drag FreeWheel's **AdManager.framework** file from your desktop into the **Frameworks** folder in Xcode. In the pop-up screen appears, be sure to select your target.
+3. Drag FreeWheel's **AdManager.framework** file from your desktop into the **Frameworks** folder in Xcode. In the pop-up screen that appears, be sure to select your target.
 4. Click **Finish**.
 5. Select the target in the project editor.
 6. Click **General**.
-7. Verify that the **AdManager.framework** appears in both the **Embedded Binaries** and **Linked Frameworks and Libraries** sections. If the framework does not appear in both sections, delete the instance of the framework. Then, drag the **AdManager.framework** folder from the Xcode navigation to the **Embedded Binaries** section. The framework should appear in both sections.
+7. Verify that the **AdManager.framework** appears in both the **Embedded Binaries** and **Linked Frameworks and Libraries** sections. <br/><br/>If the framework does not appear in both sections, delete the instance of the framework. Then, drag the **AdManager.framework** folder from the Xcode navigation to the **Embedded Binaries** section. The framework should appear in both sections.<br/>
 8. Highlight your target and in **Build Settings > Linking > Other Linker Flags**, add `-ObjC`. This is <a href="https://hub.freewheel.tv/pages/viewpage.action?spaceKey=techdocs&title=How+to+Compile+FreeWheel+iOS+SDK+and+Optional+Modules+into+App#HowtoCompileFreeWheeliOSSDKandOptionalModulesintoApp-Enable-ObjCLinkerFlag" target="_blank">required to compile the app against the FreeWheel iOS SDK</a>.
 
 <br/>
 
 ## Add a pre-roll ad to a player
 
-Use the following steps to add a pre-roll ad to the [player your added to your view](../../getting-started/add-a-player-to-your-view):
+Use the following steps to add a pre-roll ad to [the player you added to your view](../../getting-started/add-a-player-to-your-view/):
 
-1. Instantiate a <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html" target="_blank">JWAdBreak</a> object called `adBreak`. At a minimum, you must assign an ad tag URL to the `tag` property
+1. Instantiate a <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html" target="_blank">JWAdBreak</a> object called adBreak. At a minimum, you must assign an ad tag URL to the `tag` property
 2. Create a `JWFreeWheelConfig` object called `fwConf` that contains your FreeWheel account settings.
 3. Instantiate a <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdConfig.html" target="_blank">JWAdConfig</a> object and assign it to `config.advertising`.
 4. Define `config.advertising.client` as `JWAdClientFreewheel` (Obj-C) or `.freewheel` (Swift). This defines the ad client.
@@ -116,11 +110,8 @@ class ViewController: UIViewController {
     }
 }
 ```
-You can build upon this basic implementation by [adding more ad breaks](#add-multiple-ad-breaks-to-a-player).
 
 <br/>
-
-<a name="add-multiple-ad-breaks-to-a-player"></a>
 
 ## Add multiple ad breaks to a player
 
@@ -128,8 +119,9 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 
 1. Instantiate an additional `JWAdBreak` object.
 2. Assign an ad tag to the `tag` property.
-3. When defining the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html#//api/name/offset" target="_blank">offset</a> property, choose one of the following values to schedule a mid-roll ad. **Post-roll ads are not currently supported for FreeWheel ad implementations**.<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (String) Ad plays after the specified number of seconds.<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time, in `hh:mm:ss:mmm` format.<br/><br/>
+3. When defining the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdBreak.html#//api/name/offset" target="_blank">offset</a> property, choose one of the following values to schedule a mid-roll ad. **Post-roll ads are not currently supported for FreeWheel ad implementations.**<br/><br/>**Mid-roll**<br/>&nbsp;&nbsp;- **{number}**: (String) Ad plays after the specified number of seconds.<br/>&nbsp;&nbsp;- **{timecode}**: (String) Ad plays at a specific time, in `hh:mm:ss:mmm` format.<<br/><br/>
 4. Add the additional `AdBreak` object to the `schedule` array.
+
 
 ```Obj-C
 @property (nonatomic) JWPlayerController *player;
@@ -148,8 +140,6 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 
     JWAdBreak *adBreak3 = [JWAdBreak initWithTags:@"https://www.domain.com/adtag-mid-roll2.xml" offset:@"00:00:15:000"];
 
-    JWAdBreak *adBreak4 = [JWAdBreak initWithTags:@"https://www.domain.com/adtag-mid-roll3.xml" offset:@"25%"];
-
     JWFreewheelConfig *fwConf = [[JWFreewheelConfig alloc] init];
     fwConf.mediaId = @"DemoVideoGroup.01";
     fwConf.serverId = @"http://demo.v.fwmrm.net/ad/g/1";
@@ -163,8 +153,7 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
     config.advertising.freewheel = fwConf;
     config.advertising.schedule = @[adBreak,
         adBreak2,
-        adBreak3,
-        adBreak4];
+        adBreak3];
     self.player = [[JWPlayerController alloc] initWithConfig:config];
 }
 
@@ -174,7 +163,6 @@ Use the following steps to add multiple ad breaks to the previous pre-roll examp
 }
 ```
 ```Swift
-
 class ViewController: UIViewController {
     @IBOutlet weak var playerContainerView: UIView!
     var player: JWPlayerController?
@@ -188,8 +176,6 @@ class ViewController: UIViewController {
 
         var adBreak3 = JWAdBreak(tag: "https://www.domain.com/adtag-mid-roll2.xml", offset: "00:00:15:000")
 
-        var adBreak4 = JWAdBreak(tag: "https://www.domain.com/adtag-mid-roll3.xml", offset: "25%")
-
         var fwConf = JWFreewheelConfig()
         fwConf.mediaId = "DemoVideoGroup.01"
         fwConf.serverId = "http://demo.v.fwmrm.net/ad/g/1"
@@ -200,7 +186,7 @@ class ViewController: UIViewController {
         var config = JWConfig(contentURL: "http://example.com/hls.m3u8")
         config.advertising = JWAdConfig()
         config.advertising.client = .freewheel
-        config.advertising.schedule = [adBreak, adBreak2, adBreak3, adBreak4]
+        config.advertising.schedule = [adBreak, adBreak2, adBreak3]
         player = JWPlayerController(config: config)
     }
 
