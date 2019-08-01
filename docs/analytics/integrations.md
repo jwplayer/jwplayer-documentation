@@ -1,6 +1,6 @@
 # Analytics System Integrations
 
-<sup>Last Updated: August 6, 2019</sup>
+<sup>Last Updated: August 6, 2019</sup> 
 
 By default, JW Player tracks only playback data with [Google Analytics](http://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) as an integrated solution. However, there are many more potential analytics services that can be used with our API. Provided that your analytics service is capable of sending this information via Javascript, all API events can hypothetically be tracked and measured.
 
