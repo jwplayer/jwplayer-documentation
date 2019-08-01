@@ -2,26 +2,42 @@
 
 <img src="https://img.shields.io/badge/SDK-Android%20v3-0AAC29.svg?logo=android">
 
-The JW Player SDK for Android is a media player for the Android Operating System that supports Apple HTTP Live Streaming (HLS), Dynamic Adaptive Streaming over HTTP (DASH), Smooth Streaming, WebM and MP4 playback. The SDK has video specific methods / classes to aid developers in creating custom video applications for Android mobile devices.
+## About the SDK
 
-The SDK package includes a demo application to demonstrate functionality to non-developers.
+The JW Player SDK for Android is a media player for the Android Operating System. Apps built with this SDK integrate with video hosting, streaming, and analytics services. These services allow you to incorporate a video experience, monetize your app, and discover ways to increase viewer engagement. You can also use this SDK with video content that is hosted with non-JW Player services.
 
-Source code for a simple sample application to help you get started is available on [GitHub](https://github.com/jwplayer/jwplayer-sdk-android-demo).
+### Key Features
 
+* HLS, DASH, SmoothStreaming, WebM and MP4 playback
+* Rich configuration options including playlists, content title and poster image
+* Fullscreen video playback
+* Full-featured API to monitor player, playlist, playback, and content state
+* API to monitor and set video and audio qualities.
+* VAST, VMAP, and VPAID advertising
+* FreeWheel and Google IMA advertising support
+* API design that enables native control creation and can be applied to iOS and web player implementations 
 
-## Supported Features
+<br/>
 
-JW Player for Android supports the following features:
+## Requirements
 
-1.	HLS, DASH, SS, WebM and MP4 playback.
-2.	Attribute to provide a poster image in the player (local image file or URL).  
-3.	Fullscreen video playback.
-4.	API to monitor player state, buffering, seeking, errors, etc.  
-5.	API to monitor and set video and audio qualities.
-6.	VAST Advertising.
-7.	VMAP Advertising.
-8.	Player user interface customization using CSS skinning.
+* JW Player [Enterprise](https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade/) or [Developer](https://developer.jwplayer.com/sign-up/) license
+* Android 4.1 (API level 16)
 
-## Intended Audience
+<br/>
 
-This guide assumes that you have the necessary Java and Android development skills to work successfully with the JW Player for Android. You should know how to build and compile Android applications using Android Studio and the latest tools from the Android Developers Kit.
+## Documentation
+
+This developer guide provides best practice approaches for implementing this SDK. We also provide comprehensive documentation for each class in our [SDK reference](https://developer.jwplayer.com/sdk/android/reference/). 
+
+<br/>
+
+## Intended audience
+
+This guide assumes that you have the necessary Android and Java development skills to work successfully with this SDK. You should know how to build and compile Android applications using Android Studio and the latest tools from the Android Developers Kit.
+
+<br/>
+
+## Terms of service
+
+By adding the JW Player SDK for Android to your app, you agree to the [JW Player Terms of Service](https://www.jwplayer.com/tos/).
