@@ -11,9 +11,9 @@ By default, JW Player tracks only playback data with [Google Analytics](http://s
 A full introduction to our player's API can be found on our [API Introduction](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/) page. In a nutshell, JW Player's API is capable of listening for specific changes, either initiated by user or by API, and then returning information about its use. A very basic example of detecting when a user initiates a mute would be:
 
 ```javascript
-jwplayer().on('mute',function(){
+jwplayer().on('mute', function(){
 	// I would fire my mute tracker here!
-	// What happens here would be dependent on your analytics product!
+  // What happens here would be dependent on your analytics product!
 });
 ```
 
@@ -75,9 +75,9 @@ Before you add the JW Adobe Heartbeat plugin to your player, you need the follow
 
 Use the following steps to implement and configure this setup:
 
-1. Clone the JW Adobe Heartbeat plugin repository.
-2. Add your Adobe credentials to **scripts/AppMeasurement.js**
-3. Add your Adobe credentials to **scripts/VisitorAPI.js**
+1. Clone the [JW Adobe Heartbeat plugin repository](https://github.com/jwplayer/jw-adobe-heartbeat-plugin).
+2. Add your Adobe credentials to <a href="https://docs.adobe.com/content/help/en/analytics/implementation/javascript-implementation/javascript-implementation-overview.html" target="_blank">**scripts/AppMeasurement.js**</a>.
+3. Add your Adobe credentials to <a href="https://docs.adobe.com/content/help/en/id-service/using/implementation-guides/setup-analytics.html" target="_blank">**scripts/VisitorAPI.js**</a>.
 4. In the `<head>` of the page with your player, add **VistorAPI.js**, **AppMeasurement.js**, and **VideoHearbear.min.js**.
 5. In the `setup()` for your player, define a `plugins../scripts/JWHeartbeat.js` object and set the values in the table below.
 
