@@ -10,10 +10,10 @@ By default, JW Player tracks only playback data with [Google Analytics](http://s
 
 A full introduction to our player's API can be found on our [API Introduction](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/) page. In a nutshell, JW Player's API is capable of listening for specific changes, either initiated by user or by API, and then returning information about its use. A very basic example of detecting when a user initiates a mute would be:
 
-```
+```javascript
 jwplayer().on('mute',function(){
-	//I would fire my mute tracker here!
-	//What happens here would be dependent on your analytics product!
+	// I would fire my mute tracker here!
+	// What happens here would be dependent on your analytics product!
 });
 ```
 
@@ -27,9 +27,9 @@ Now that you're able to determine that an event occurred on a page, a ping will 
 
 Let's assume that we have a single player on a page. If I would like track with our Google Analytics account when an error has occurred with our player (and the error itself), we can use the following code:
 
-```
+```javascript
 jwplayer().on('error', function(event) {
-ga('send', 'event', 'JW Player Events', 'Errors', event.message);
+  ga('send', 'event', 'JW Player Events', 'Errors', event.message);
 });
 ```
 
@@ -89,40 +89,44 @@ Use the following steps to implement and configure this setup:
 | `debug` | Boolean | Enables debugging within the JWHeartbeat.js plugin |
 | `pageName` | String | Page name |
 
+<br/>
+
+### Full code sample
+
 ```html
 <html>
   <head>
-	  ...
-		<!-- Adobe Heartbeat JS -->
-		<script language="JavaScript" type="text/javascript" src="scripts/VistorAPI.js"></script>
-		<script language="JavaScript" type="text/javascript" src="scripts/AppMeasurement.js"></script>
-		<script language="JavaScript" type="text/javascript" src="scripts/VideoHeartbeat.min.js"></script>
-		...
-	</head>
-	<body>
-	  ...
+    ...
+    <!-- Adobe Heartbeat JS -->
+    <script language="JavaScript" type="text/javascript" src="scripts/VistorAPI.js"></script>
+    <script language="JavaScript" type="text/javascript" src="scripts/AppMeasurement.js"></script>
+    <script language="JavaScript" type="text/javascript" src="scripts/VideoHeartbeat.min.js"></script>
+    ...
+  </head>
+  <body>
+    ...
 
-		<div id="myElement"></div>
+    <div id="myElement"></div>
 
-		<script type="text/JavaScript">
-		  jwplayer("myelement").setup({
-				playlist: "https://cdn.jwplayer.com/v2/playlists/ttttYYYY",
-				plugins: {
-					./scripts/JWHeartbeat.js : {
-						// This is your Adobe HEARTBEAT tracking server domain
-						adobeTrackingDomain: "{TRACKING SERVER DOMAIN}",
-						// The following 3 parameters are sent through to the Adobe Analytics Servers
-						channelName: "{CHANNEL NAME}",
-						channel: "{TYPE OF CHANNEL}",
-						pageName: "{PAGE NAME}",
-						/*  Turns on debugging within the JWHeartbeat.js plugin to see debugging information on the developer console */
-						debug: {true or false}
-					}
-				}
-			});
-	  </script>
-	  ...
-	</body>
+    <script type="text/JavaScript">
+      jwplayer("myElement").setup({
+        playlist: "https://cdn.jwplayer.com/v2/playlists/ttttYYYY",
+        plugins: {
+          ./scripts/JWHeartbeat.js: {
+            // This is your Adobe HEARTBEAT tracking server domain
+            adobeTrackingDomain: "{TRACKING SERVER DOMAIN}",
+            // The following 3 parameters are sent through to the Adobe Analytics Servers
+            channelName: "{CHANNEL NAME}",
+            channel: "{TYPE OF CHANNEL}",
+            pageName: "{PAGE NAME}",
+            /*  Turns on debugging within the JWHeartbeat.js plugin to see debugging information on the developer console */
+            debug: {true or false}
+          }
+        }
+      });
+    </script>
+    ...
+  </body>
 </html>
 ```
 
