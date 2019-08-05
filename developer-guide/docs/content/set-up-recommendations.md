@@ -55,8 +55,6 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 **4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.<br/><br/><img src="../../img/recommendations/recommendations-nextup.png" width="400" />
 
-<br/>
-
 **5.** <a name="displayMode"></a>Define the `related.displayMode` property. This property controls how the recommended video thumbnails are displayed. Choose between the options in the following table.
 
 | Option | Description |
@@ -64,7 +62,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 | `shelf` | (Default) Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience and when playback is paused <br/><br/>The shelf appears when a viewer clicks the recommendation icon located above the control bar during playback or pauses playback. |
 | `shelfWidget` | Adds a persistent horizontal bar of thumbnails beneath the player that allows viewers to browse recommended videos during the playback experience |
 
-<br/>
+<br/><br/><img src="../../img/recommendations/recommendations-shelf-shelf-widget.jpg"/>
 
 **6.** (Optional) Define the `related.autoplaytimer` as `10`. This creates a 10-second break between the playback of videos and enables the countdown overlay to appear.
 
@@ -77,6 +75,8 @@ You can append the same recommendations playlist to multiple players. And, you c
 **8.** (Optional) Use the `intl.en.related.autoplaymessage` property to define the message that displays when the countdown overlay appears. We suggest using `__title__ will play in xx seconds`.
 
 The countdown message appears above the title and description of the next video to play. The default message is *Next up in X*. X represents the number of seconds remaining in the countdown as defined by `related.autoplaytimer`.  As shown in the full code sample at the end of this article, you can [customize this text for other languages](../../customization/configuration-reference/#internationalization) by adding additional language objects: `intl.{lang}.related.autoplaymessage`.
+
+<br/><br/><img src="../../img/recommendations/recommendations-nextup-overlay.png"/>
 
 <br/>
 
