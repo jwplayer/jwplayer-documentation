@@ -22,6 +22,8 @@ nav:
     - Custom Icons: customization/css-skinning/custom-icons.md
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
+  - Behavior:
+    - Set the dimensions of a player: behavior/set-the-dimensions-of-a-player.md
   - Advertising:
     - Monetize your content: advertising/monetize-your-content.md
     - Define ad rules: advertising/define-ad-rules.md
