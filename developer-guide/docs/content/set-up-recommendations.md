@@ -25,10 +25,35 @@ You can also [set up Recommendations](https://support.jwplayer.com/articles/set-
 
 ## Associate Recommendations to specific content
 
-1. Make a call to `api.jwplatform.com/v1` using `GET /channels/create?type=feed&title={title_name}` to create a playlist. Replace `{title_name}` with a name for the playlist. If this is your first time using the Management API, read our documentation on <a href="https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html" target="_blank">authentication</a> and <a href="https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html" target="_blank">call syntax</a>. <br/><br/>`GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed&api_nonce=80684843 &api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1`<br/><br/>**ALTERNATIVE**: You can [create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/><br/> 
-2. Locate the eight-character, alphanumeric `channel.key` in the response. This is the unique identifier for the playlist that you just created.<br/><br/>**ALTERNATIVE**: If you created the recommendations playlist within your JW Player dashboard, copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.<br/><br/>
-3. In the `playlist` parameter of your player code, add a query string for the recommendation playlist (`?recommendations_playlist_id={channel.key}`) to the existing playlist or video URL. Be sure to replace `{channel.key}` with the key from the API response or **Playlist ID**.<br/><br/>`playlist: "https://cdn.jwplayer.com/v2/media/Ly53q8A1?recommendations_playlist_id={key}"`<br/><br/>You can append the same recommendations playlist to multiple players. And, you can also incorporate additional features to the <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Media/get_v2_media__media_id_" target="_blank">media URL</a> (`/v2/media/{media_id}`) or <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Playlists/get_v2_playlists__playlist_id_" target="_blank">playlist URL</a> (`/v2/playlists/{playlist_id}`) endpoint.<br/><br/>
-4. (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.
+**1.** Make a call to `api.jwplatform.com/v1` using `GET /channels/create?type=feed&title={title_name}` to create a playlist. Replace `{title_name}` with a name for the playlist. If this is your first time using the Management API, read our documentation on <a href="https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html" target="_blank">authentication</a> and <a href="https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html" target="_blank">call syntax</a>.
+
+```bash
+GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed&api_nonce=80684843&api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
+```
+
+<br/>
+
+**2.** Locate the eight-character, alphanumeric `channel.key` in the response. This is the unique identifier for the playlist that you just created.
+
+<br/>
+
+!!!tip
+As an alternative to these previous steps you can use the following steps:<br/><br/>**1.** You can [create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/><br/>**2.** Copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.
+!!!
+
+<br/>
+
+**3.** In the `playlist` parameter of your player code, add a query string for the recommendation playlist (`?recommendations_playlist_id={channel.key}`) to the existing playlist or video URL. Be sure to replace `{channel.key}` with the key from the API response or **Playlist ID**.
+
+```javascript
+playlist: "https://cdn.jwplayer.com/v2/media/Ly53q8A1?recommendations_playlist_id={key}"
+```
+
+You can append the same recommendations playlist to multiple players. And, you can also incorporate additional features to the <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Media/get_v2_media__media_id_" target="_blank">media URL</a> (`/v2/media/{media_id}`) or <a href="https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Playlists/get_v2_playlists__playlist_id_" target="_blank">playlist URL</a> (`/v2/playlists/{playlist_id}`) endpoint.
+
+<br/>
+
+**4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.
 
 <br/>
 
@@ -54,8 +79,6 @@ Recommended values include:
 <br/>
 
 **8.** (Optional) Use the `intl.en.related.autoplaymessage` property to define the message that displays when the countdown overlay appears. We suggest using `__title__ will play in xx seconds`.
-
-<br/>
 
 The countdown message appears above the title and description of the next video to play. The default message is *Next up in X*. X represents the number of seconds remaining in the countdown as defined by `related.autoplaytimer`.  As shown in the full code sample at the end of this article, you can [customize this text for other languages](../../customization/configuration-reference/#internationalization) by adding additional language objects: `intl.{lang}.related.autoplaymessage`.
 
