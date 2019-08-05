@@ -181,6 +181,7 @@ api_nonce=80684843&api_timestamp=1237387851&api_format=json
 &api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 
 {
+  "player_key": "kGWxy33Z",
   "related_displaymode": "shelf",
   "related_autoplaytimer": "10",
   "related_videos": "autoplay",
