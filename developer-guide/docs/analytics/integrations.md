@@ -1,6 +1,10 @@
 # Analytics System Integrations
 
+<sup>Last Updated: August 6, 2019</sup>
+
 By default, JW Player tracks only playback data with [Google Analytics](http://support.jwplayer.com/customer/portal/articles/1417179-integration-with-google-analytics) as an integrated solution. However, there are many more potential analytics services that can be used with our API. Provided that your analytics service is capable of sending this information via Javascript, all API events can hypothetically be tracked and measured.
+
+<br/>
 
 ## Listening for Events
 
@@ -14,6 +18,8 @@ jwplayer().on('mute',function(){
 ```
 
 ​For a full list of trackable player events grouped by category, please visit our [API reference page](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/).
+
+<br/>
 
 ## Sending Events With Google Analytics
 
@@ -31,6 +37,8 @@ Once triggering an error state, we are able to check into our Google Analytics p
 
 More information about tracking events with the above code can be found [here](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) in Google's own analytics documentation.
 
+<br/>
+
 ## Sending Events With comScore
 
 Much like a custom GA implementation, if you are utilizing comScore analytics, it is possible to create a setup similar to the above. The below table shows comScore events and their JW Player API equivalents:
@@ -47,21 +55,95 @@ Much like a custom GA implementation, if you are utilizing comScore analytics, i
 |Video Source|getPlaylistItem().file|
 |Current Bitrate|getQualityLevels()[getCurrentQuality()].bitrate|
 
-## Sending Events With Adobe Site Catalyst
+<br/>
 
-As of JW7, integrated Site Catalyst support has been removed. Events can still be tracked using the JW Player API and Site Catalyst's event tracking pings. Further information can be found on Adobe's site:
+## Sending events with Adobe Analytics
 
-*   [HTML5 Video Measurement](http://blogs.adobe.com/digitalmarketing/analytics/html5-video-measurement/)
-*   [Media Monitoring Reference](https://marketing.adobe.com/resources/help/en_US/sc/appmeasurement/video/video_mediamonitor.html)
-*   [Video Measurement Success](http://blogs.adobe.com/digitalmarketing/analytics/initializing-video-measurement-success/)
+You can use the JW Adobe Heartbeat plugin to integrate Adobe Video Analytics with your player events.
 
-Again, the same API events listed above for other implementations can be utilized to send these SiteCatalyst measurement pings as well. The below table shows which JW Player events may correlate with their SiteCatalyst counterparts. Please note that some additional logic may need to be put in place to properly send the correct context for these events.
+### Requirements
 
-|SiteCatalyst Event|JW Player API Event|
-|---|---|
-|s.Media.stop|on('pause');|
-|s.Media.stop|on('buffer');|
-|s.Media.stop|on('idle');|
-|s.Media.close|on('complete');|
-|s.Media.play|on('play');|
-|s.Media.open|getPlaylist()[getPlaylistIndex()].[information](https://developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_reference/#playlist)|
+Before you add the JW Adobe Heartbeat plugin to your player, you need the following items:
+
+- Adobe credentials
+- Adobe Heartbeat tracking server domain
+- Adobe Heartbeat channel name
+- Adobe Heartbeat channel type
+- Page name
+
+### Implementation
+
+Use the following steps to implement and configure this setup:
+
+1. Clone the JW Adobe Heartbeat plugin repository.
+2. Add your Adobe credentials to **scripts/AppMeasurement.js**
+3. Add your Adobe credentials to **scripts/VisitorAPI.js**
+4. In the `<head>` of the page with your player, add **VistorAPI.js**, **AppMeasurement.js**, and **VideoHearbear.min.js**.
+5. In the `setup()` for your player, define a `plugins../scripts/JWHeartbeat.js` object and set the values in the table below.
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `adobeTrackingDomain` | String | Adobe Heartbeat tracking server domain |
+| `channel` | String | Adobe Heartbeat channel name |
+| `channelName` | String | Adobe Heartbeat channel type |
+| `debug` | Boolean | Enables debugging within the JWHeartbeat.js plugin |
+| `pageName` | String | Page name |
+
+```html
+<html>
+  <head>
+	  ...
+		<!-- Adobe Heartbeat JS -->
+		<script language="JavaScript" type="text/javascript" src="scripts/VistorAPI.js"></script>
+		<script language="JavaScript" type="text/javascript" src="scripts/AppMeasurement.js"></script>
+		<script language="JavaScript" type="text/javascript" src="scripts/VideoHeartbeat.min.js"></script>
+		...
+	</head>
+	<body>
+	  ...
+
+		<div id="myElement"></div>
+
+		<script type="text/JavaScript">
+		  jwplayer("myelement").setup({
+				playlist: "https://cdn.jwplayer.com/v2/playlists/ttttYYYY",
+				plugins: {
+					./scripts/JWHeartbeat.js : {
+						// This is your Adobe HEARTBEAT tracking server domain
+						adobeTrackingDomain: "{TRACKING SERVER DOMAIN}",
+						// The following 3 parameters are sent through to the Adobe Analytics Servers
+						channelName: "{CHANNEL NAME}",
+						channel: "{TYPE OF CHANNEL}",
+						pageName: "{PAGE NAME}",
+						/*  Turns on debugging within the JWHeartbeat.js plugin to see debugging information on the developer console */
+						debug: {true or false}
+					}
+				}
+			});
+	  </script>
+	  ...
+	</body>
+</html>
+```
+
+<br/><br/>
+<div id="wufoo-mff60sc1xnn4cu">
+Use this <a href="https://jwplayerdocs.wufoo.com/forms/mff60sc1xnn4cu">form</a> to provide your feedback.
+</div>
+<script type="text/javascript">var mff60sc1xnn4cu;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'jwplayerdocs',
+'formHash':'mff60sc1xnn4cu',
+'autoResize':true,
+'height':'288',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':true,
+'defaultValues': 'field118=' + location.pathname};
+s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { mff60sc1xnn4cu = new WufooForm();mff60sc1xnn4cu.initialize(options);mff60sc1xnn4cu.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
