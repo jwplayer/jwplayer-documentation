@@ -173,8 +173,7 @@ GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+fee
 
 ```bash
 POST https://api.jwplatform.com/v1/player/update?
-api_nonce=80684843
-&api_timestamp=1237387851&api_format=json
+api_nonce=80684843&api_timestamp=1237387851&api_format=json
 &api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 
 {
