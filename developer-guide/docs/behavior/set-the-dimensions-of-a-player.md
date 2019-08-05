@@ -48,6 +48,8 @@ jwplayer("myElement").resize(480, 270);
 
 <br/>
 
+***
+
 ## Set the dimensions of a cloud-hosted player
 
 Use the following steps to set the dimensions for a cloud-hosted responsive or fixed dimension web player. This method allows you to control all instances of the cloud-hosted player.
