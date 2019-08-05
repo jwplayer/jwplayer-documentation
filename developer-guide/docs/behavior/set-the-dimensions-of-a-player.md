@@ -24,7 +24,7 @@ jwplayer("myElement").setup({
   width: "50%",
   aspectratio: "16:9",
 });
- ```
+```
 
 ### Fixed-dimension player
 
@@ -54,6 +54,8 @@ Use the following steps to set the dimensions for a cloud-hosted responsive or f
 
 You can also use your JW Player dashboard to set the dimensions of a player.
 
+<br/>
+
 **1.** Make a call to `api.jwplatform.com/v1` using `GET /players/list`. If this is your first time using the Management API, read our documentation on <a href="https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html" target="_blank">authentication</a> and <a href="https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html" target="_blank">call syntax</a>.
 
 ```bash
@@ -68,6 +70,8 @@ GET https://api.jwplatform.com/v1/players/list?api_nonce=80684812&api_timestamp=
 <br/>
 
 **3.** Make a <a href="https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/update.html#parameters" target="_blank">POST /player/update</a> call to set the dimensions of your player.
+
+<br/>
 
 **Responsive player example**
 
@@ -85,6 +89,8 @@ api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 }
 ```
 
+<br/>
+
 **Fixed-dimensions player example**
 
 When setting the dimensions of a fixed player, both the `height` and `width` properties are required.
@@ -99,6 +105,8 @@ api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
   "height": 360,
 }
 ```
+
+<br/>
 
 !!!tip
 When setting the dimensions of a web player, remember the following points:<br/><br/>&bull; The dimensions of a web player should be greater than 0x0.<br/>&bull; If you are embedding a web player into an iframe, the dimensions of the iframe should be greater than 0x0.<br/>&bull; Responsive web players should be placed into responsive iframes.<br/>&bull; Fixed-dimension players should be placed into fixed-dimensions iframes.
