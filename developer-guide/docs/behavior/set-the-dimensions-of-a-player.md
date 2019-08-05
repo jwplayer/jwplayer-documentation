@@ -75,7 +75,7 @@ GET https://api.jwplatform.com/v1/players/list?api_nonce=80684812&api_timestamp=
 
 **Responsive player example**
 
-When creating a responsive web player, the `responsive` and `aspectratio` properties are required. The width property is optional.
+When creating a responsive web player, the `responsive` and `aspectratio` properties are required. The `width` property is optional.
 
 ```bash
 POST https://api.jwplatform.com/v1/player/update?
