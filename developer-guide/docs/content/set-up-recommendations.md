@@ -101,7 +101,7 @@ The countdown message appears above the title and description of the next video 
 
 <br/>
 
-### Full code sample
+**Full code sample:**
 
 ```javascript
 jwplayer("myElement").setup({
