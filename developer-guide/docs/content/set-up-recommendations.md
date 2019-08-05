@@ -28,17 +28,15 @@ You can also [set up Recommendations](https://support.jwplayer.com/articles/set-
 **1.** Make a call to `api.jwplatform.com/v1` using `GET /channels/create?type=feed&title={title_name}` to create a playlist. Replace `{title_name}` with a name for the playlist. If this is your first time using the Management API, read our documentation on <a href="https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html" target="_blank">authentication</a> and <a href="https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html" target="_blank">call syntax</a>.
 
 ```bash
-GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed&api_nonce=80684843&api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
+GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed
+&api_nonce=80684843&api_timestamp=1237387851&api_format=json
+&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 ```
-
-<br/>
 
 **2.** Locate the eight-character, alphanumeric `channel.key` in the response. This is the unique identifier for the playlist that you just created.
 
-<br/>
-
 !!!tip
-As an alternative to these previous steps you can use the following steps:<br/><br/>**1.** You can [create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/><br/>**2.** Copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.
+As an alternative to these previous steps you can use the following steps:<br/><br/>&nbsp;&nbsp;**1.** You can [create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/>&nbsp;&nbsp;**2.** Copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.
 !!!
 
 <br/>
@@ -59,9 +57,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 **5.** <a name="displayMode"></a>Define the `related.displayMode` property. This property controls how the recommended video thumbnails are displayed.
 
-<br/>
-
-Recommended values include:
+**Choose between the following options:**
 
 | Option | Description |
 | --- | --- |
