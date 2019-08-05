@@ -14,14 +14,16 @@ Use one of the following approaches to add Recommendations to an embedded web pl
 
 <br/>
 
-- **Associate Recommendations to specific content**: This option provides the most flexibility.
-- **Associate Recommendations to a player**: This option allows you to associate the same recommendations playlist logic to all content viewed in a player. However, you cannot customize the `related.autoplaymessage` or `related.heading` for localization.
+- **[Associate Recommendations to specific content](#associate-to-specific-content)**: This option provides the most flexibility.
+- **[Associate Recommendations to a player](#associate-to-specific-player)**: This option allows you to associate the same recommendations playlist logic to all content viewed in a player. However, you cannot customize the `related.autoplaymessage` or `related.heading` for localization.
 
 <br/>
 
 You can also [set up Recommendations](https://support.jwplayer.com/articles/set-up-recommendations) from your JW Player dashboard.
 
 <br/>
+
+<a name="associate-to-specific-content"></a>
 
 ## Associate Recommendations to specific content
 
@@ -132,6 +134,8 @@ You can also use <a href="https://developer.jwplayer.com/jw-player/docs/javascri
 !!!
 
 ***
+
+<a name="associate-to-specific-player"></a>
 
 ## Associate Recommendations to a player
 
