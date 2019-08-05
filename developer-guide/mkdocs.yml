@@ -13,6 +13,7 @@ nav:
     - Using Release Channels: release_notes/release_channels.md
     - Add an HTML5 player to a site: getting-started/add-an-html5-player.md
   - Content:
+    - Set up Recommendations: content/set-up-recommendations.md
     - Embed videos with Article Matching: customization/embed-relevant-videos-with-article-matching.md
   - Branding:
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
