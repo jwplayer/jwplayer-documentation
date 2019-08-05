@@ -53,7 +53,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 <br/>
 
-**4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.
+**4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.<br/><br/>![Image of Next Up display](../../img/recommendations/recommendations-nextup.png)
 
 <br/>
 
