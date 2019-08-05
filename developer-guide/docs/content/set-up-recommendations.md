@@ -33,6 +33,8 @@ GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+fee
 &api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 ```
 
+<br/>
+
 **2.** Locate the eight-character, alphanumeric `channel.key` in the response. This is the unique identifier for the playlist that you just created.
 
 !!!tip
@@ -55,9 +57,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 <br/>
 
-**5.** <a name="displayMode"></a>Define the `related.displayMode` property. This property controls how the recommended video thumbnails are displayed.
-
-**Choose between the following options:**
+**5.** <a name="displayMode"></a>Define the `related.displayMode` property. This property controls how the recommended video thumbnails are displayed. Choose between the options in the following table.
 
 | Option | Description |
 | --- | --- |
@@ -87,11 +87,13 @@ The countdown message appears above the title and description of the next video 
 | `shelf` | &bull; Next to the Recommendations icon above the control bar<br/>&bull; Title of the countdown overlay |
 | `shelfWidget` | &bull; Above the horizontal bar of thumbnails beneath the player<br/>&bull; Title of the countdown overlay |
 
+<br/>
+
 **10.** (Optional) Add other <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#related" target="_blank">related</a> properties to customize the viewing experience.
 
 <br/>
 
-## Full code sample
+### Full code sample
 
 ```javascript
 jwplayer("myElement").setup({
@@ -119,22 +121,25 @@ jwplayer("myElement").setup({
 });
 ```
 
-<br/>
-
 !!!tip
 You can also use <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#related">JavaScript API</a> calls to enhance the functionality of your JW Recommendations viewer experience.
 !!!
+
+<br/>
 
 ## Associate Recommendations to a player
 
 If you use the same cloud-hosted player in multiple locations on your site, you can add Recommendations to the player. This allows you to configure Recommendations in one location and to apply those settings to all content that is viewed in the player. 
 
+<br/>
+
 Use the following steps to add Recommendations to a player:
 
 **1.** Make a call to `api.jwplatform.com/v1` using `GET /players/list`.  If this is your first time using the Management API, read our documentation on <a href="https://developer.jwplayer.com/jw-platform/reference/v1/authentication.html" target="_blank">authentication</a> and <a href="https://developer.jwplayer.com/jw-platform/reference/v1/call_syntax.html" target="_blank">call syntax</a>.
 
-```http
-GET https://api.jwplatform.com/v1/players/list?api_nonce=80684812&api_timestamp=1237387841&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1tz5e93f67cb89&api_key=abC432d1
+```bash
+GET https://api.jwplatform.com/v1/players/list?api_nonce=80684812&api_timestamp=1237387841&api_format=json
+&api_signature=fbdee51a45980f9876834dc5ee1tz5e93f67cb89&api_key=abC432d1
 ```
 
 <br/>
@@ -145,8 +150,9 @@ GET https://api.jwplatform.com/v1/players/list?api_nonce=80684812&api_timestamp=
 
 **3.** Make a `GET /channels/create?type=feed&type={title_name}` call to create a playlist. Replace `{title_name}` with a name for the playlist.
 
-```curl
-GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed&api_nonce=80684843&api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
+```bash
+GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+feed&api_nonce=80684843&api_timestamp=1237387851&api_format=json
+&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 ```
 
 <br/>
@@ -158,7 +164,8 @@ GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+fee
 **5.** Make a <a href="https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/update.html#parameters" target="_blank">POST /player/update</a> call to associate the recommendations playlist you created to the existing player.
 
 ```http
-POST https://api.jwplatform.com/v1/player/update?api_nonce=80684843&api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
+POST https://api.jwplatform.com/v1/player/update?api_nonce=80684843
+&api_timestamp=1237387851&api_format=json&api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 
 {
   "related_displaymode": "shelf",
@@ -168,8 +175,6 @@ POST https://api.jwplatform.com/v1/player/update?api_nonce=80684843&api_timestam
   "related_heading": "More Amazing Videos"
 }
 ```
-
-<br/>
 
 !!!tip
 You can also use <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#related">JavaScript API</a> calls to enhance the functionality of your JW Recommendations viewer experience.
