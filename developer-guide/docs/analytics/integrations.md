@@ -12,7 +12,7 @@ A full introduction to our player's API can be found on our [API Introduction](h
 
 ```javascript
 jwplayer().on('mute', function(){
-	// I would fire my mute tracker here!
+  // I would fire my mute tracker here!
   // What happens here would be dependent on your analytics product!
 });
 ```
@@ -75,7 +75,7 @@ Before you add the JW Adobe Heartbeat plugin to your player, you need the follow
 
 Use the following steps to implement and configure this setup:
 
-1. Clone the [JW Adobe Heartbeat plugin repository](https://github.com/jwplayer/jw-adobe-heartbeat-plugin).
+1. Clone the <a href="https://github.com/jwplayer/jw-adobe-heartbeat-plugin" target="_blank">JW Adobe Heartbeat plugin repository</a>.
 2. Add your Adobe credentials to <a href="https://docs.adobe.com/content/help/en/analytics/implementation/javascript-implementation/javascript-implementation-overview.html" target="_blank">**scripts/AppMeasurement.js**</a>.
 3. Add your Adobe credentials to <a href="https://docs.adobe.com/content/help/en/id-service/using/implementation-guides/setup-analytics.html" target="_blank">**scripts/VisitorAPI.js**</a>.
 4. In the `<head>` of the page with your player, add **VistorAPI.js**, **AppMeasurement.js**, and **VideoHearbear.min.js**.
@@ -103,6 +103,7 @@ Use the following steps to implement and configure this setup:
     <script language="JavaScript" type="text/javascript" src="scripts/VideoHeartbeat.min.js"></script>
     ...
   </head>
+	
   <body>
     ...
 
