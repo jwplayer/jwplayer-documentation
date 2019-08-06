@@ -13,6 +13,7 @@ nav:
     - Using Release Channels: release_notes/release_channels.md
     - Add an HTML5 player to a site: getting-started/add-an-html5-player.md
   - Content:
+    - Set up Recommendations: content/set-up-recommendations.md
     - Embed videos with Article Matching: customization/embed-relevant-videos-with-article-matching.md
   - Branding:
     - CSS Skinning Reference: customization/css-skinning/skins_reference.md
@@ -21,6 +22,8 @@ nav:
     - Custom Icons: customization/css-skinning/custom-icons.md
     - Example CSS File: customization/css-skinning/skins_example.md
     - JW8 Designer Kit: customization/designer-kit.md
+  - Behavior:
+    - Set the dimensions of a player: behavior/set-the-dimensions-of-a-player.md
   - Advertising:
     - Monetize your content: advertising/monetize-your-content.md
     - Define ad rules: advertising/define-ad-rules.md
