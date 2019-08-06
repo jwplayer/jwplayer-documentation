@@ -40,7 +40,7 @@ GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+fee
 **2.** Locate the eight-character, alphanumeric `channel.key` in the response. This is the unique identifier for the playlist that you just created.
 
 !!!tip
-As an alternative to these previous steps you can use the following steps:<br/><br/>&nbsp;&nbsp;**1.** You can [create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/>&nbsp;&nbsp;**2.** Copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.
+As an alternative to these previous steps you can use the following steps:<br/><br/>&nbsp;&nbsp;**1.** [Create a recommendations playlist](https://support.jwplayer.com/articles/create-a-playlist) within your JW Player dashboard.<br/>&nbsp;&nbsp;**2.** Copy the **Playlist ID** from the **DEVELOPER RESOURCES** tab of the recommendations playlist.
 !!!
 
 <br/>
@@ -55,7 +55,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 <br/>
 
-**4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`10`) is not changed, the Next Up display appears 10 secs before the current video ends.
+**4.** (Optional) Define the <a href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#behavior" target="_blank">nextupoffset</a> property to define when the Next Up pop-up appears. The Next Up display shows the name, thumbnail, and duration of the next video. When the default value (`-10`) is not changed, the Next Up display appears 10 secs before the current video ends.
 
 <img src="../../img/recommendations/recommendations-nextup.png" width="400" />
 
@@ -65,7 +65,7 @@ You can append the same recommendations playlist to multiple players. And, you c
 
 | Option | Description |
 | --- | --- |
-| `shelf` | (Default) Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience and when playback is paused <br/><br/>The shelf appears when a viewer clicks the recommendation icon located above the control bar during playback or pauses playback. |
+| `shelf` | (Default) Adds a horizontal bar of thumbnails above the control bar that allows viewers to browse recommended videos during the playback experience and when playback is paused <br/><br/>The shelf appears when a viewer clicks the Recommendations icon located above the control bar during playback or pauses playback. |
 | `shelfWidget` | Adds a persistent horizontal bar of thumbnails beneath the player that allows viewers to browse recommended videos during the playback experience |
 
 <img src="../../img/recommendations/recommendations-shelf-shelf-widget.jpg"/>
@@ -173,7 +173,7 @@ GET https://api.jwplatform.com/v1/channels/create?type=feed&title=An+awesome+fee
 
 <br/>
 
-**5.** Make a <a href="https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/update.html#parameters" target="_blank">POST /player/update</a> call to associate the recommendations playlist you created to the existing player.
+**5.** Make a <a href="https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/update.html#parameters" target="_blank">POST /player/update</a> call to configure the recommendations playlist you created and to associate the recommendations playlist to an existing player.
 
 ```bash
 POST https://api.jwplatform.com/v1/player/update?
