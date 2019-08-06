@@ -22,7 +22,7 @@ When creating a responsive web player, the `responsive` and `aspectratio` proper
 jwplayer("myElement").setup({ 
   playlist: "https://cdn.jwplayer.com/v2/playlists/xxxxYYYY",
   width: "50%",
-  aspectratio: "16:9",
+  aspectratio: "16:9"
 });
 ```
 
