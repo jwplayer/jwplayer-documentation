@@ -4,7 +4,7 @@
 
 Regardless of your use case, JW Player allows you to easily set fixed or responsive dimensions for your web player. 
 
-If you embed a self-hosted player or create a player with an API call to `/players/create`, your player is configured to be a **fixed** player with the dimensions of **640x360**, by default. A fixed player is a good solution if you plan to embed videos in a sidebar, table, or iframe with fixed dimensions. Otherwise, you should configure your player to be a responsive player.
+If you embed a self-hosted player or create a player with an API call to `/players/create`, your player is configured to be a **fixed-dimensions** player with the dimensions of **640x360**, by default. A fixed-dimensions player is a good solution if you plan to embed videos in a sidebar, table, or iframe with fixed dimensions. Otherwise, you should configure your player to be a responsive player.
 
 When you configure your player to be a responsive player, you define the width as a percentage and an aspect ratio. The width of the player dynamically adjusts to the available width on the page. The height of the player adjusts proportionally to the width of the player, maintaining the aspect ratio of your video. 
 
@@ -26,7 +26,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-### Fixed-dimension player
+### Fixed-dimensions player
 
 When setting the dimensions of a fixed player, both the `height` and `width` properties are required.
 
@@ -40,7 +40,7 @@ jwplayer("myElement").setup({
 
 ### Fixed-dimension player after setup
 
-After a player has been instantiated on a page, you can use `resize(width, height)` to change the fixed dimensions of a player. Both the `height` and `width` arguments are required.
+After a player has been instantiated on a page, you can use <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayerresizewidth-height" target="_blank">resize(width, height)</a> to change the fixed dimensions of a player. Both the `height` and `width` arguments are required.
 
 ```javascript
 jwplayer("myElement").resize(480, 270);
@@ -52,7 +52,7 @@ jwplayer("myElement").resize(480, 270);
 
 ## Set the dimensions of a cloud-hosted player
 
-Use the following steps to set the dimensions for a cloud-hosted responsive or fixed dimension web player. This method allows you to control all instances of the cloud-hosted player.
+Use the following steps to set the dimensions for a responsive or a fixed-dimensions web player. This method allows you to control all instances of the cloud-hosted player.
 
 You can also use your JW Player dashboard to [set the dimensions](https://support.jwplayer.com/articles/set-the-dimensions-of-player) of a player.
 
@@ -111,7 +111,7 @@ api_signature=fbdee51a45980f9876834dc5ee1ec5e93f67cb89&api_key=abC432d1
 <br/>
 
 !!!tip
-When setting the dimensions of a web player, remember the following points:<br/><br/>&bull; The dimensions of a web player should be greater than 0x0.<br/>&bull; If you are embedding a web player into an iframe, the dimensions of the iframe should be greater than 0x0.<br/>&bull; Responsive web players should be placed into responsive iframes.<br/>&bull; Fixed-dimension players should be placed into fixed-dimensions iframes.
+When setting the dimensions of a web player, remember the following points:<br/><br/>&bull; The dimensions of a web player should be greater than 0x0.<br/>&bull; If you are embedding a web player into an iframe, the dimensions of the iframe should be greater than 0x0.<br/>&bull; Responsive web players should be placed into responsive iframes.<br/>&bull; Fixed-dimensions players should be placed into fixed-dimensions iframes.
 !!!
 
 <br/><br/>
