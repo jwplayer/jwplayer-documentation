@@ -2,7 +2,6 @@
 
 <img src="https://img.shields.io/badge/SDK-iOS%20v3-0AAC29.svg?logo=apple">
 
-
 ## About the SDK
 
 The JW Player SDK for iOS is built upon the native iOS player framework, AVFoundation.  Apps built with this SDK integrate with video hosting, streaming, and analytics services. These services allow you to incorporate a video experience, monetize your app, and discover ways to increase viewer engagement. You can also use this SDK with video content that is hosted with non-JW Player services.
@@ -16,7 +15,10 @@ The JW Player SDK for iOS is built upon the native iOS player framework, AVFound
 * API to monitor and set video and audio qualities.
 * VAST, VMAP, and VPAID advertising
 * FreeWheel and Google IMA advertising support
-* API design that enables native control creation and can be applied to Android and web player implementations 
+* API design that enables native control creation and can be applied to Android and web player implementations
+* Casting
+* Caption support
+* Analytics
 
 <br/>
 
@@ -26,9 +28,11 @@ The JW Player SDK for iOS is built upon the native iOS player framework, AVFound
 * JW Player [Enterprise](https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade/) or [Developer](https://developer.jwplayer.com/sign-up/) license
 * iOS version 9.0+
 
+<a name="plugin-support"></a>
+
 ### Plugin support
 
-Each version of this SDK has been built to work with a specific plugin version. Use the following table to ensure that you are referencing the correct plugin version in your Podfile.
+Each version of this SDK has been built to work with a specific plugin version. Use the following table to ensure that you are referencing the correct plugin version in your app.
 
 | JW Player iOS SDK | FreeWheel SDK | Google Cast SDK | Google IMA SDK |
 | --- | --- | --- | --- |
@@ -56,3 +60,4 @@ This guide assumes that you have the necessary iOS and Objective-C or Swift deve
 
 ## Terms of service
 By adding the JW Player SDK for iOS to your app, you agree to the [JW Player Terms of Service](https://www.jwplayer.com/tos/).
+

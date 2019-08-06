@@ -15,7 +15,7 @@ To begin using the Google IMA ad client, you must first add a dependency to your
 #### Edit Podfile
 
 1. In a text editor, open the **Podfile** for your app.
-2. Add `GoogleAds-IMA-iOS-SDK` as a dependency. Be sure to use IMA SDK version located in the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWPlayerController.html#//api/name/googleIMAVersion" target="_blank">googleIMAVersion</a> property. You can also review to the plugin support table.
+2. Add `GoogleAds-IMA-iOS-SDK` as a dependency. Be sure to use IMA SDK version located in the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWPlayerController.html#//api/name/googleIMAVersion" target="_blank">googleIMAVersion</a> property. You can also review this <a href="https://developer.jwplayer.com/sdk/ios/docs/developer-guide/#plugin-support" target="_blank">plugin support table</a>.
 3. Save **Podfile** and close the text editor.
 
 ```groovy
@@ -51,8 +51,6 @@ Use the following steps to add a pre-roll ad to the player you added to your vie
 4. Add `adBreak` to the <a href="https://developer.jwplayer.com/sdk/ios/reference/Classes/JWAdConfig.html#//api/name/schedule" target="_blank">schedule</a> array property of the `JWAdConfig`. This adds the ad schedule to the player's `config` property.
 
 ```Obj-C
-...
-
 @property (nonatomic) JWPlayerController *player;
 @property (nonatomic, weak) IBOutlet UIView *playerContainerView;
 @end
@@ -75,8 +73,6 @@ Use the following steps to add a pre-roll ad to the player you added to your vie
     [super viewDidAppear];
     [self.view addSubview:self.player.view];
 }
-
-...
 ```
 ```Swift
 class ViewController: UIViewController {

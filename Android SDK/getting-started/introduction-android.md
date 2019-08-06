@@ -15,7 +15,10 @@ The JW Player SDK for Android is a media player for the Android Operating System
 * API to monitor and set video and audio qualities.
 * VAST, VMAP, and VPAID advertising
 * FreeWheel and Google IMA advertising support
-* API design that enables native control creation and can be applied to iOS and web player implementations 
+* API design that enables native control creation and can be applied to iOS and web player implementations
+* Casting
+* Caption support
+* Analytics 
 
 <br/>
 
