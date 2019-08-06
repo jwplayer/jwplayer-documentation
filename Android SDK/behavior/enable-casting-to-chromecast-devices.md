@@ -58,15 +58,22 @@ Now that you have added the Google Cast dependency, you must configure your app:
 
 **1.** Implement the `OptionsProvider` interface. This interface supplies options needed to initialize `CastContext`. `CastContext` is a global singleton object that coordinates all interactions of the framework.
 
-This interface also creates an instance of `CastOptions` that defines the behavior of the framework. For example, `setReceiverApplicationId()` allows you to filter discovery results and to launch the receiver app when a cast session starts.
+This interface creates an instance of <a href="https://developers.google.com/android/reference/com/google/android/gms/cast/LaunchOptions" target="_blank">LaunchOptions</a> that defines how the receiver application is launched. For example, `setLanguage()` allows you to set the language to be used by the receiver application.
+
+This interface also creates an instance of <a href="https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions.Builder" target="_blank">CastOptions</a> that defines the behavior of the framework. For example, `setReceiverApplicationId()` allows you to filter discovery results and to launch the receiver app when a cast session starts.
 
 ```java
 public class CastOptionsProvider implements OptionsProvider {
 
     @Override
     public CastOptions getCastOptions(Context context) {
+        LaunchOptions launchOptions = new LaunchOptions.Builder()
+            .setLanguage("en-US")
+            .build();
+            
         CastOptions castOptions = new CastOptions.Builder()
             .setReceiverApplicationId(context.getString(R.string.app_id))
+            .setLaunchOptions(launchOptions);
             .build();
 
         return castOptions;
@@ -88,7 +95,7 @@ public class CastOptionsProvider implements OptionsProvider {
 <application>
     ...
     <meta-data
-        android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+        android:name="OPTIONS_PROVIDER_CLASS_NAME"
         android:value="com.foo.CastOptionsProvider" />
 
 </application>
