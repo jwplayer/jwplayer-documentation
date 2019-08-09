@@ -60,12 +60,12 @@ Set one or more of the following video attributes after the player has already s
 
 | Setting | Description | Type | Default |
 | --- | --- | --- | --- |
-| `aspectratio` <sup>8.10.0+</sup> | Maintains proportions when width is a percentage<br/><br/>Will not be used if the player is a static size. **Must be entered in ratio `x:y` format**. | String | - |
+| `aspectratio` <sup>8.10.0+</sup> | Maintains proportions when width is a percentage<br/><br/>This property will not be used if the player has been configured with fixed dimensions. **The value for this property must be entered in ratio `x:y` format**. | String | - |
 | `autostart` |When `true`, playback will start automatically on desktop devices or when the player is 50% visible on mobile devices. When set to `viewable`, playback will start automatically on desktop devices when the player is more than 50% visible in the active tab. | String | `false` |
 | `height` <sup>8.10.0+</sup> | Desired height of your video player (in pixels)<br/><br/> Should not be used with `aspectratio`. | Number | `360` |
 | `mute` | Toggles the player's mute attribute | Boolean | `false` |
 | `repeat` | When `true`, starts playing the first playlist item after the playlist completes | Boolean | `false` |
-| `stretching` <sup>8.10.0+</sup> | Resize images and video to fit player dimensions<br/><br/>&nbsp;&nbsp;`uniform`: Fits JW Player dimensions while maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`exactfit`: Fits JW Player dimensions without maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`fill`: Zooms and crops video to fill dimensions, maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`none`: Displays the actual size of the video file<br/>(Black borders) | String | `uniform` |
+| `stretching` <sup>8.10.0+</sup> | Resize images and video to fit player dimensions<br/><br/>&nbsp;&nbsp;`uniform`: Fits JW Player dimensions while maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`exactfit`: Fits JW Player dimensions without maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`fill`: Zooms and crops video to fill dimensions, maintaining aspect ratio<br/><br/>&nbsp;&nbsp;`none`: Displays the actual size of the video file (Black borders) | String | `uniform` |
 | `volume` | Sets the volume of the player between 1-100 | Number | - |
 | `width` <sup>8.10.0+</sup> | Desired width of your video player (in pixels or percentage) | Number or String | `640` |
 
