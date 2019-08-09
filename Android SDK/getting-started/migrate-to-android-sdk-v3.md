@@ -6,7 +6,7 @@ This Migration Guide will walk you through all major changes from the 2.x versio
 
 ## License Key & Download
 
-Your 2.x license key will not work with the JW Player SDK for Android 3.0 and above. You can get your new mobile-only license key from your JW Player account representative. You may currently use Maven to update to 3.x, or your account rep can also provide you an AAR file. Starting July 9th, 2018 both the AAR & 3.x license keys will be available for download in your JW Player Dashboard.
+A 2.x license key will not work with the JW Player SDK for Android 3.0+. Be sure to follow the steps to [download the SDK](../../getting-started/download-the-sdk).
 
 ## API Summary
 
@@ -15,6 +15,7 @@ The 3.x release of the JW Player SDK for Android contain some API changes, most 
 * The time unit in `seek()`, `getPosition()`, `getDuration()`, `onTime(TimeEvent)`, `onAdTime(AdTimeEvent)`, `onSeek(SeekEvent)`, `onSeeked(SeekedEvent)`, and `onBufferChange(BufferChangeEvent)` has changed from milliseconds to seconds as a `double`.
 * All API callbacks now use the form `onCallbackName(CallbackNameEvent callbackNameEvent)`.  This will allow JW Player to add more callback parameters without breaking existing implementations or maintaining several different implementations of the same callback.  If you were already using an OnCallbackNameV2 listener removing the V2 should make your code work with 3.x.
 * The Ad class has been removed and rolled into the AdBreak class.  The AdBreak has a constructor `AdBreak(String offset, AdSource adSource, String... tags)` that can be used to easily combine Ad and AdBreak creation.
+* All configuration classes now have their own Builders.
 
 ## API Changes
 ### Added API Methods
@@ -24,7 +25,7 @@ The 3.x release of the JW Player SDK for Android contain some API changes, most 
 | `void next()`                             | Tells JW Player to immediately play the next playlist item.                         |
 | `void pauseAd()`                          | Pauses ad playback.                                                                 |
 | `void pauseAd(boolean state)`             | Pauses or resumes ad playback.                                                      |
-| `openSharingOverlay()`                    | Opens the sharing plugin. This will also pause content if it is triggered during playback. |
+| `void openSharingOverlay()`               | Opens the sharing plugin. This will also pause content if it is triggered during playback. |
 | `void closeSharingOverlay()`              | Closes the sharing plugin if it is opened. This will resume playback if the sharing overlay was triggered during content. |
 | `PlaylistItem getPlaylistItem()`          | Returns the currently playing PlaylistItem.                                         |
 | `int getBuffer()`                         | Gets the current buffer percentage of the loaded media.                             |
