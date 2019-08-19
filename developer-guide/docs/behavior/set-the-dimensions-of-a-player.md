@@ -22,7 +22,7 @@ When creating a responsive web player, the `responsive` and `aspectratio` proper
 jwplayer("myElement").setup({ 
   playlist: "https://cdn.jwplayer.com/v2/playlists/xxxxYYYY",
   width: "50%",
-  aspectratio: "16:9",
+  aspectratio: "16:9"
 });
 ```
 
@@ -38,7 +38,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-### Fixed-dimension player after setup
+### Fixed-dimensions player after setup
 
 After a player has been instantiated on a page, you can use <a href="https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayerresizewidth-height" target="_blank">resize(width, height)</a> to change the fixed dimensions of a player. Both the `height` and `width` arguments are required.
 
