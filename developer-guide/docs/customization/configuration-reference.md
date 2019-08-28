@@ -152,7 +152,7 @@ jwplayer("myElement").setup({
 | Property | Type | Description | Default |
 |--|--|--|--|
 | `pauseAds` <sup>8.10.0+</sup> | Boolean | Controls if ad playback stops when the player is no longer viewable.<br /><br />`true`: When the player is no longer viewable, ad playback pauses. Ad playback resumes when the player becomes viewable again.<br /><br />`false`: Only video playback will be paused when the player is no longer viewable. <br /><br />**NOTE**: If `viewability: false`, setting `pauseAds: true` will have no effect. | `false` |
-|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|true|
+|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|`true`|
 
 <br/>
 
