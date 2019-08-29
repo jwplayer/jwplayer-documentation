@@ -138,23 +138,21 @@ Automatically pauses the player based on certain rules
 
 By default, adding an empty `autoPause` object enables the auto pause player functionality and also sets `viewability: true`.
 
-```
+```javascript
 jwplayer("myElement").setup({
-  "playlist": [
-    {
-      "file": "https://example.com/myVideo.mp4",
-    }
-  ]
+  playlist: "https://example.com/myVideo.mp4",
   ...
-  "autoPause": {
-    "viewability": true
+  autoPause: {
+    viewability: true,
+    pauseAds: true
   }
 });
 ```
 
-|Setting|Type|Description|Default|
+| Property | Type | Description | Default |
 |--|--|--|--|
-|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|true|
+| `pauseAds` <sup>8.10.0+</sup> | Boolean | Controls if ad playback stops when the player is no longer viewable.<br /><br />`true`: When the player is no longer viewable, ad playback pauses. Ad playback resumes when the player becomes viewable again.<br /><br />`false`: Only video playback will be paused when the player is no longer viewable. <br /><br />**NOTE**: If `viewability: false`, setting `pauseAds: true` will have no effect. | `false` |
+|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|`true`|
 
 <br/>
 
