@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-<sup>Last Updated: August 6, 2019</sup>
+<sup>Last Updated: August 29, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -138,23 +138,21 @@ Automatically pauses the player based on certain rules
 
 By default, adding an empty `autoPause` object enables the auto pause player functionality and also sets `viewability: true`.
 
-```
+```javascript
 jwplayer("myElement").setup({
-  "playlist": [
-    {
-      "file": "https://example.com/myVideo.mp4",
-    }
-  ]
+  playlist: "https://example.com/myVideo.mp4",
   ...
-  "autoPause": {
-    "viewability": true
+  autoPause: {
+    viewability: true,
+    pauseAds: true
   }
 });
 ```
 
-|Setting|Type|Description|Default|
+| Property | Type | Description | Default |
 |--|--|--|--|
-|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|true|
+| `pauseAds` <sup>8.10.0+</sup> | Boolean | Controls if ad playback stops when the player is no longer viewable.<br /><br />`true`: When the player is no longer viewable, ad playback pauses. Ad playback resumes when the player becomes viewable again.<br /><br />`false`: Only video playback will be paused when the player is no longer viewable. <br /><br />**NOTE**: If `viewability: false`, setting `pauseAds: true` will have no effect. | `false` |
+|`viewability`|Boolean|Controls if video playback stops when player is no longer viewable <br/><br/>`true`: When the player is no longer viewable, video playback pauses. Playback resumes when the player becomes viewable again. If the player is no longer viewable after an ad break begins, the ad break will continue to play to completion before pausing.<br/><br/>`false`: The auto pause functionality is disabled.|`true`|
 
 <br/>
 
@@ -1065,7 +1063,7 @@ jwplayer("myElement").setup({
 |Property|Type|Description|Default|
 |---|---|---|---|
 |`custParams`|Object|Allows for passing custom parameters to an ad break, which then pass through to the URL requested from the ad server|-|
-|`offset`|String or Number|When to play the configured ad tag<br/><br/>`pre`: Ad plays as a preroll <br/><br/>`post`: Ad plays as a postroll<br/><br/>`xx%`: Ad plays after xx% of the content<br/><br/>`number`: Ad plays after the specified number of seconds|`pre`|
+|`offset`|String or Number|When to play the configured ad tag<br /><br />`pre`: Ad plays as a preroll <br /><br />`post`: Ad plays as a postroll<br /><br />`xx%`: (VAST only) Ad plays after xx% of the content<br /><br />`number`: Ad plays after the specified number of seconds|`pre`|
 |`pod`|Array|Configures a single ad break to play two or more VAST ads consecutively<br/><br/>Do not use use this property with `advertising.schedule[].tag` or `advertising.schedule[].vastxml` within the same ad break. Instead of using this property, we strongly recommend using a [VAST 3.0 template](https://support.jwplayer.com/articles/vast3-ad-pod-reference) to configure ad pods. |-|
 |`tag`|String or Array|When a string, URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>(VAST plugin only) When an array, URLs of the VAST ad tags to be used as fallbacks in the event that one or multiple ad tags fail to render<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `advertising.schedule[].vastxml` within the same ad break.|-|
 |`type`|String|Property indicating the format of the ad to be served within the ad break<br/><br/>`linear`: Video ad that interrupts video content playback <br/><br/>`nonlinear`: Static display ad that overlays a portion of the player and does not interrupt playback. No advertisting cuepoint is shown for this ad break.<br/><br/>If a mix of linear and non-linear ads will serve within an ad break, do not set this property. The player will interrupt video playback for linear ads and will not interrupt video playback for non-linear ads.|`linear`|
