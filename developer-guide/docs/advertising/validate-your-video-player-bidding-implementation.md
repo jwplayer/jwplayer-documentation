@@ -8,7 +8,7 @@ After following the steps to [Set up Video Player Bidding](../advertising/set-up
 
 **2**. On the **Console** tab, type `jwplayer().getConfig()` at the prompt. The console returns the configuration of the player similar to the following screenshot.
 
-![](../img/vpb/vpb-getConfig.png)
+<img src="../img/vpb/vpb-getConfig.png" style="width:500px">
 
 You are now prepared to begin the validation process explained in the following sections.
 
@@ -86,7 +86,9 @@ If your mediation layer is not `dfp` or `jwpdfp`, you can skip this section.
 | SpotX | `spotx_bid` | `spotx_ad_key` |
 | Telaria | `vpb_telaria_bid` | `vpb_telaria_key` |
 
-![](../img/vpb/vpb-cust-params.png)
+<br />
+
+<img src="../img/vpb/vpb-cust-params.png" style="width:500px" >
 
 <br />
 <br />
@@ -97,11 +99,13 @@ If your mediation layer is not `dfp` or `jwpdfp`, you can skip this section.
 
 **2**. In the filter field, enter `e=abq` to show the ping request for the bid request. The `vpb` property contains the bid request information.
 
-![](../img/vpb/vpb-network-bid-request.png)
+<br />
+
+<img src="../img/vpb/vpb-network-bid-request.png" style="width:500px" >
 
 **3**. Clear the filter field and enter, enter `e=abr` to show the ping request for the bid response. The `vpb` property contains the bid response.
 
-![](../img/vpb/vpb-network-bid-response.png)
+<img src="../img/vpb/vpb-network-bid-response.png" style="width:500px" >
 
 !!!tip
 Alternatively, on the **Console** tab at the console prompt, enter the following to enable listeners that capture the details of the bid request and bid response: `jwplayer().on('adBidRequest adBidResponse', (e) => { console.log(e)})`
