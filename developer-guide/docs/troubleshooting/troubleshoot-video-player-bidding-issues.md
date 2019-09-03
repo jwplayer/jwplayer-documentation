@@ -6,7 +6,7 @@ It is possible that you may still have issues with Video Player Bidding after [s
 
 Before continuing to the following sections, we provide this diagram to help you visualize the VPB workflow.
 
-![]()
+![](../img/vpb/vpb-workflow.png)
 
 !!!important
 If you need additional assistance after following the steps in any of these sections, please <a href="https://support.jwplayer.com/articles/how-to-create-a-reproduction-page" target="_blank">create a test page</a> with your player and VPB settings.
