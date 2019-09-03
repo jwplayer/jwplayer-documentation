@@ -29,6 +29,8 @@ nav:
     - Define ad rules: advertising/define-ad-rules.md
     - Enable FreeWheel Ad Manager: advertising/enable-freewheel-ad-manager.md
     - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
+    - Set up Video Player Bidding: advertising/set-up-video-player-bidding.md
+    - Validate your VPB implementation: advertising/validate-your-video-player-bidding-implementation.md
   - Analytics:
     - Track video metrics: analytics/track-video-metrics.md
     - Analytics Integrations: analytics/integrations.md
@@ -36,6 +38,7 @@ nav:
   - Troubleshooting:
     - JW Lens overview: troubleshooting/jw-lens-overview.md
     - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
+    - Troubleshoot Video Player Bidding issues: troubleshooting/troubleshott-video-player-bidding-issues.md
   - Reference:
     - Configuration Reference: customization/configuration-reference.md
     - Ads Errors Reference: advertising/ads_errors_reference.md
