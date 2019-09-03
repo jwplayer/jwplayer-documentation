@@ -2,7 +2,7 @@
 
 Last Updated: September 6, 2019
 
-It is possible that you may still have issues with Video Player Bidding after [setting up](../set-up-video-player-bidding) and [validating](../validate-your-video-player-bidding-implementation) your implementation. The following sections address common issues that can arise.
+It is possible that you may still have issues with Video Player Bidding after [setting up](../../advertising/set-up-video-player-bidding) and [validating](../../advertising/validate-your-video-player-bidding-implementation) your implementation. The following sections address common issues that can arise.
 
 Before continuing to the following sections, we provide this diagram to help you visualize the VPB workflow.
 
@@ -20,6 +20,8 @@ If you need additional assistance after following the steps in any of these sect
 
 This issue may not be directly related to your Video Player Bidding setup. Either <a href="https://support.jwplayer.com/submit-support-case" target="_blank">submit a support ticket</a> or contact your JW Player representative. We will gladly work with you to identify the source of this issue.
 
+<br />
+
 ### Ad plugin did not load
 
 **1**. Confirm you are seeing video content, but not seeing ads.
@@ -27,6 +29,8 @@ This issue may not be directly related to your Video Player Bidding setup. Eithe
 **2**. On the **Network** tab of your browser's developer tools panel, enter *imasdk.googleapis* into the filter field.
 
 **3**. Either <a href="https://support.jwplayer.com/submit-support-case" target="_blank">submit a support ticket</a> or contact your JW Player representative.
+
+<br />
 
 ### SpotX bidder script didn’t load
 

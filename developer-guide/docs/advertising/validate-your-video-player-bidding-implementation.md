@@ -27,7 +27,7 @@ You are now prepared to begin the validation process explained in the following 
 * `settings.buckets`
 * `settings.mediationLayerAdServer`
 
-If you need to change any values, refer to steps 5 and 7 in [Set up Video Player Bidding]((../set-up-video-player-bidding)) 
+If you need to change any values, refer to steps 5 and 7 in [Set up Video Player Bidding](../set-up-video-player-bidding)
 
 <br />
 <br />
