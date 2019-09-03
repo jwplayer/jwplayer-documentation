@@ -38,7 +38,7 @@ nav:
   - Troubleshooting:
     - JW Lens overview: troubleshooting/jw-lens-overview.md
     - Troubleshoot analytics discrepancies: analytics/troubleshoot-analytics-discrepancies.md
-    - Troubleshoot Video Player Bidding issues: troubleshooting/troubleshott-video-player-bidding-issues.md
+    - Troubleshoot Video Player Bidding issues: troubleshooting/troubleshoot-video-player-bidding-issues.md
   - Reference:
     - Configuration Reference: customization/configuration-reference.md
     - Ads Errors Reference: advertising/ads_errors_reference.md
