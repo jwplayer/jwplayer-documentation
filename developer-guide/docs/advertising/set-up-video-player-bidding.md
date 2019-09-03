@@ -1,3 +1,5 @@
+# Set up Video Player Bidding
+
 Last Updated: September 6, 2019
 
 Video Player Bidding (VPB) connects your digital video inventory directly to advertising demand sources, increasing competition for your inventory to boost your ad yield. By making an addition to the `advertising` object of the player, you can access the benefits of player bidding. You can use either a cloud-hosted or self-hosted player.
