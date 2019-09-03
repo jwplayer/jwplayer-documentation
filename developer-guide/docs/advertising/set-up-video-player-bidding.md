@@ -123,7 +123,7 @@ bids: {
 }
 ```
 
-**6**. Add the configured `bids` object to the `advertising` object. If you use DFP for mediation, be sure to set up line items within your <a href="https://support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup" target="_blank">Google Ad Manager account</a>.
+**6**. Add the configured `bids` object to the `advertising` object. If you use DFP for mediation, be sure to set up line items within your <a href="https://support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup" target="_blank">Google Ad Manager account</a> **[<== links to the new support VPB article]**.
 
 ```javascript
 jwplayer("myElement").setup({
@@ -149,7 +149,7 @@ jwplayer("myElement").setup({
 });
 ```
 
-**7**. Add a `bidders` array to the `bids` object that defines the applicable `name`, `id`, `pubid`, and `type` for one or more ad partners. Use the [advertising.bids.bidders](doc:jw8-player-configuration-reference#section-advertising-bids-bidders-) to configure this object.
+**7**. Add a `bidders` array to the `bids` object that defines the applicable `name`, `id`, `pubid`, and `type` for one or more ad partners. Use the [advertising.bids.bidders](../../customization/configuration-reference/#advertising-bids-bidders) to configure this object.
 
 ```javascript
 jwplayer("myElement").setup({
@@ -202,7 +202,10 @@ jwplayer("myElement").setup({
 });
 ```
 
-9. (Optional) Use the [Player configuration reference](doc:jw8-player-configuration-reference) to add additional Video Player Bidding options.
+**9**. (Optional) Use the [Player configuration reference](../../customization/configuration-reference) to add additional Video Player Bidding options.
+
+<br />
+<br />
 
 ## Full code sample
 
@@ -261,6 +264,6 @@ Advertisers want to know that viewers have a great experience seeing their ads. 
 
 * Configure your player to have a width greater than 640px.
 * Make sure that the player is the main element on the page.
-* If you embed the player in an article, consider using the [floating](doc:jw8-player-configuration-reference#section-float-on-scroll-sup-8-8-0-sup-) property.
+* If you embed the player in an article, consider using the [floating](../../customization/configuration-reference#float-on-scroll-880) property.
 * Embed only one player on a page.
 * If you embed more than one player on a page, do not embed an outstream and an instream implementation on the same page.

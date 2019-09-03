@@ -2,7 +2,7 @@
 
 Last Updated: September 6, 2019
 
-After following the steps to [Set up Video Player Bidding](doc:jw8-set-up-video-player-bidding-ga-draft), you should validate your implementation. 
+After following the steps to [Set up Video Player Bidding](../advertising/set-up-video-player-bidding), you should validate your implementation. 
 
 **1**. On a page that has a player with VPB implemented, open your browser's developer tools panel. 
 **2**. On the **Console** tab, type `jwplayer().getConfig()` at the prompt. The console returns the configuration of the player similar to the following screenshot.
@@ -11,6 +11,7 @@ After following the steps to [Set up Video Player Bidding](doc:jw8-set-up-video-
 
 You are now prepared to begin the validation process explained in the following sections.
 
+<br />
 <br />
 
 ## Verify player configuration settings
@@ -25,8 +26,9 @@ You are now prepared to begin the validation process explained in the following 
 * `settings.buckets`
 * `settings.mediationLayerAdServer`
 
-If you need to change any values, refer to steps 5 and 7 in [Set up Video Player Bidding](doc:jw8-set-up-video-player-bidding-ga-draft) 
+If you need to change any values, refer to steps 5 and 7 in [Set up Video Player Bidding]((../advertising/set-up-video-player-bidding)) 
 
+<br />
 <br />
 
 ## Verify the SpotX bidder script has loaded
@@ -41,6 +43,7 @@ If SpotX is not set as a bidding partner `bids.bidders[].name: "SpotX"`, you can
 
 If **both** values are present in the network traffic, the SpotX bidder script is loaded.
 
+<br />
 <br />
 
 ## Confirm bid requests are sent and processed correctly
@@ -59,6 +62,7 @@ Successful bid requests return a `200` code response. Unsuccessful bid requests 
 Repeat this step for each bid partner you are using.
 
 <br />
+<br />
 
 ## Confirm bidder key-values are present in the ad tag
 
@@ -67,8 +71,11 @@ If your mediation layer is not `dfp` or `jwpdfp`, you can skip this section.
 !!!
 
 **1**. On the **Network** tab of the browser developer tools panel, locate your ad tag. You can filter the network traffic by using the identifier from the ad tag.
+
 **2**. Click on the ad tag to reveal the headers for the ad tag in the **Headers** tab.
+
 **3**. In the **Query String Parameters** section, locate `cust_params.`
+
 **4**. Verify that bidder key-values appear in the `cust_params` parameter. The following table lists the possible bidder partner key-value pairs.
 
 | Bid partner | Bid price key | Ad key |
@@ -80,6 +87,7 @@ If your mediation layer is not `dfp` or `jwpdfp`, you can skip this section.
 
 ![]()
 
+<br />
 <br />
 
 ## Confirm bid requests are sent and bid responses are received
