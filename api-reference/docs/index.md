@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 JavaScr
 
 
 # Introduction
-<sup>Last Updated: August 19, 2019</sup>
+<sup>Last Updated: August 30, 2019</sup>
 
 This article provides a reference to all available JW Player JavaScript API calls. For an introduction to JW8's API, see our [Introduction to the JavaScript API](//developer.jwplayer.com/jw-player/docs/developer-guide/api/javascript_api_introduction/). For more in-depth instructions on implementation, see our [JW Player Developer Guide](//developer.jwplayer.com/jw-player/docs/developer-guide/). To see example code for each API call, visit our [JW Player Demos](//developer.jwplayer.com/jw-player/demos/) and search by call.
 
@@ -1164,6 +1164,18 @@ Used to determine whether or not the player is detecting the presence of an ad b
 |Returns|Type|
 |---|---|
 |If the player detects an ad blocker|Boolean|
+
+### jwplayer().skipAd()
+**Player versions**: 8.10.0+
+
+Used to skip the currently playing ad. This allows developers to create their own controls for skipping ads. Works with IMA, VAST, and FreeWheel ad clients.
+
+!!!
+If an `advertising.skipoffset` is configured for the currently playing ad, calling `skipAd()` will have no effect unless the `advertising.skipoffset` is reached.
+
+For VPAID ads, the ability to skip the ad via `skipAd()` is dependent on whether the VPAID creative allows the ad to be skippable.
+
+!!!
 
 ### jwplayer().on('adBlock')
 
