@@ -107,7 +107,7 @@ YouTube and RTMP media formats are no longer supported.<sup>8.0+</sup>
 
 #### Stretching Examples
 
-![](//support-static.jwplayer.com/images/stretch-options.png)
+![](../../img/config-reference/stretch-options.png)
 
 <br/>
 
