@@ -21,7 +21,7 @@ Video Player Bidding (VPB) connects your digital video inventory directly to adv
 ## Implementation
 
 !!!important
-&bull; If you plan to use DoubleClick for Publishers (DFP) as your mediation layer, be sure to set up line items within your Google Ad Manager account **[<===LINK BACK TO SUPPORT SITE]**.
+&bull; If you plan to use DoubleClick for Publishers (DFP) as your mediation layer, be sure to [set up line items](https://dev-support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup) within your Google Ad Manager account.
 
 &bull; Due to the potential impact on performance and user experience, while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
 !!!
@@ -123,7 +123,7 @@ bids: {
 }
 ```
 
-**6**. Add the configured `bids` object to the `advertising` object. If you use DFP for mediation, be sure to set up line items within your <a href="https://support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup" target="_blank">Google Ad Manager account</a> **[<== links to the new support VPB article]**.
+**6**. Add the configured `bids` object to the `advertising` object.
 
 ```javascript
 jwplayer("myElement").setup({
@@ -148,6 +148,10 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+!!!important
+If you use DFP for mediation, be sure to set up line items within your <a href="https://support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup" target="_blank">Google Ad Manager account</a>.
+!!!
 
 **7**. Add a `bidders` array to the `bids` object that defines the applicable `name`, `id`, `pubid`, and `type` for one or more ad partners. Use the [advertising.bids.bidders](../../customization/configuration-reference/#advertising-bids-bidders) to configure this object.
 
@@ -255,15 +259,3 @@ jwplayer("myElement").setup({
   }
 });
 ```
-
-<br />
-
-## Best practices
-
-Advertisers want to know that viewers have a great experience seeing their ads. In addition to video ad best practices, follow these best practices to improve the performance of your players that use Video Player Bidding.
-
-* Configure your player to have a width greater than 640px.
-* Make sure that the player is the main element on the page.
-* If you embed the player in an article, consider using the [floating](../../customization/configuration-reference#float-on-scroll-880) property.
-* Embed only one player on a page.
-* If you embed more than one player on a page, do not embed an outstream and an instream implementation on the same page.
