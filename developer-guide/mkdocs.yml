@@ -28,7 +28,6 @@ nav:
     - Monetize your content: advertising/monetize-your-content.md
     - Define ad rules: advertising/define-ad-rules.md
     - Enable FreeWheel Ad Manager: advertising/enable-freewheel-ad-manager.md
-    - Video Player Bidding: advertising/video_player_bidding_advanced_guide.md
     - Set up Video Player Bidding: advertising/set-up-video-player-bidding.md
     - Validate your VPB implementation: advertising/validate-your-video-player-bidding-implementation.md
   - Analytics:
