@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-<sup>Last Updated: August 29, 2019</sup>
+<sup>Last Updated: September 6, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -865,7 +865,7 @@ jwplayer("myElement").setup({
 |`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`EMX`<br/><br/>`Facebook`<br/><br/>`PubMatic`<br/><br/>`SpotX`<br/><br/>`Telaria`|
 |`optionalParams`| Object | Additional parameters that can be appended to the ad tag when SpotX is the the ad partner<br/><br/> See: <a href="#advertising-bids-bidders-optionalparams">advertising.bids.bidders[].optionalParams</a> |
 | `pubid` | String | Identifier issued by an ad partner that represents the publisher |
-| `type` | String | Indicates that the oRTB standard is used by the bidder<br /><br />**NOTE**: Required only when `name` is `EMX`, `Pubmatic`, or `Telaria`.  **Must be set to** `OpenRTB`.
+| `type` | String | Indicates that the oRTB standard is used by the bidder<br /><br />**NOTE**: Required only when `name` is `EMX`, `Pubmatic`, or `Telaria`.  **Must be set to** `OpenRTB`. |
 
 <a name="advertising-bids-bidders-optionalparams"></a>
 
