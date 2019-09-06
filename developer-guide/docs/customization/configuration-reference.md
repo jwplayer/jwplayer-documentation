@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-<sup>Last Updated: September 5, 2019</sup>
+<sup>Last Updated: September 6, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -781,7 +781,7 @@ This object configures the video advertising capabilities of JW Player and overr
 
 |Property|Type|Description|Client|Default|
 |---|---|---|---|---|
-|`client`|String|**(Required)** Chooses the ad client that will be used to display advertisements<br/><br/>Possible values include:<br/>`vast`: Use the JW Player VAST client <br/><br/>`googima`: Use the Google IMA SDK - Required for certain ad tags <br/><br/> `freewheel`: Use the Freewheel client|All|-|
+|`client`|String|**(Required)** Chooses the ad client that will be used to display advertisements<br/><br/>Possible values include:<br/><br />`vast`: Use the JW Player VAST client <br/><br/>`googima`: Use the Google IMA SDK - Required for certain ad tags <br/><br/> `freewheel`: Use the Freewheel client|All|-|
 |`adscheduleid`|String|**(Recommended)** Unique identifier for an ad (break) schedule<br/><br/> This ID also enables comprehensive analytics to be generated.<br/><br/> This ID is located on the ADVANCED tab of the Ad Schedule Detail page. If you do not have ad schedules created via the dashboard, a randomly-generated, eight character, alpha-numeric value can be set.|All|-|
 |`admessage` <sup>< 8.6.0</sup>|String|Text that displays during ad playback<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intladmessage) to set this property.|All|"The ad will end in xx seconds"|
 |`autoplayadsmuted`|Boolean|For inline players that start muted when viewed on mobile devices, allows ads to play muted|All|-|
@@ -802,11 +802,11 @@ This object configures the video advertising capabilities of JW Player and overr
 |`preloadAds`|Boolean|Enable pre-loading of prerolls, midrolls and postrolls in click-to-play and `autostart: 'viewable'` <br><br> **NOTE:** The preroll of subsequent playlist items is also pre-loaded, but only for VAST.|IMA,<br/> VAST|"false"|
 |`requestTimeout`|Number|For VAST, the maximum amount of time, in milliseconds, between the [start of the ad break](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart) and a returned VAST file before timing out. <br/><br/> For IMA and Freewheel, the maximum amount of time, in milliseconds, between the [start of the ad break](https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayeronadbreakstart) and the ad impression being fired.|All|5000 (VAST), 10000 (IMA), 15000 (FW)|
 |`rules`|Object|Enable ad rules with the given settings and bidders.<br/><br/>See: [advertising.rules](#advertising-rules)|IMA,<br/> VAST|-|
-|`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string)|All|-|
+|`schedule`|Array or String|Load an ad schedule from an external JSON block (array) or VAMP XML (string)<br /><br />See: [advertising.schedule](advertising-schedule)|All|-|
 |`skipmessage` <sup>< 8.6.0</sup>|String|This is used to provide a customized countdown message<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskipmessage) to set this property.|FreeWheel, VAST|"Skip ad in xx"|
 |`skipoffset`|Number|If not present in the VAST file, adds a skip offset to static VAST ads|FreeWheel,<br/> VAST|-|
 |`skiptext` <sup>< 8.6.0</sup>|String|This sets the text of the Skip button after the countdown is over<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlskiptext) to set this property.|FreeWheel,<br/> VAST|"Skip"|
-|`tag`|String or Array|When a string, URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>(VAST plugin only) When an array, URLs of the VAST ad tags to be used as fallbacks in the event that one or multiple ad tags fail to render<br/><br/>When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `advertising.vastxml` within the same ad break.<br/><br/>`advertising.schedule` is ignored if this option is set.|All|-|
+|`tag`|String or Array|When a string, URL of the ad tag for VAST and IMA plugins, or a string place holder for FreeWheel<br/><br/>(VAST plugin only) When an array, URLs of the VAST ad tags to be used as fallbacks in the event that one or multiple ad tags fail to render<br/><br/>(VPB only - **Required**) This is used as a fallback tag when using Video Player Bidding.<br /><br />When a VAST tag is used, <a href="https://support.jwplayer.com/articles/ad-tag-targeting-macro-reference" target="_blank">ad tag targeting macros</a> can be added to define features such as GDPR consent.<br/><br/>Do not use this property and `advertising.vastxml` within the same ad break.<br/><br/>`advertising.schedule` is ignored if this option is set.|All|-|
 |`vastLoadTimeout`|Number|In milliseconds, the maximum amount of time between the ad request and a returned VAST file before timing out|IMA|10000|
 |`vastxml`|String|VAST XML ad tag that is requested during the configured ad break<br/><br/>Do not use this property and `advertising.tag` within the same ad break.<br/><br/>`advertising.schedule` is ignored if this option is set|IMA, VAST|-|
 |`vpaidcontrols`|Boolean|For forcing controls to show for VPAID ads <br/><br/>If the VPAID creative has built-in controls, showing the controls may be redundant|IMA,<br/> VAST|-|
@@ -863,8 +863,10 @@ jwplayer("myElement").setup({
 |Property|Type|Description|
 |---|---|---|
 |`id`| String | **(Required)** Identifier issued by the bidding partner that represents a segment of a publisher's inventory|
-|`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`Facebook`<br/><br/>`SpotX`|
+|`name`| String | **(Required)** Ad partner from which the bid is received<br/><br/>Possible values include:<br/><br/>`EMX`<br/><br/>`Facebook`<br/><br/>`PubMatic`<br/><br/>`SpotX`<br/><br/>`Telaria`|
 |`optionalParams`| Object | Additional parameters that can be appended to the ad tag when SpotX is the the ad partner<br/><br/> See: <a href="#advertising-bids-bidders-optionalparams">advertising.bids.bidders[].optionalParams</a> |
+| `pubid` | String | Identifier issued by an ad partner that represents the publisher |
+| `type` | String | Indicates that the oRTB standard is used by the bidder<br /><br />**NOTE**: Required only when `name` is `EMX`, `Pubmatic`, or `Telaria`.  **Must be set to** `OpenRTB`. |
 
 <a name="advertising-bids-bidders-optionalparams"></a>
 
@@ -926,10 +928,21 @@ jwplayer("myElement").setup({
 
 |Property|Type|Description|
 |---|---|---|
-|`mediationLayerAdServer` | String | **(Required)** Mediation layer that decides which ad runs<br/><br/> `jwp`: (VAST/IMA) An auction is conducted by the player. You must specify a floor price. If a winner is selected, the winner's ad is called. If no winner is selected, the fallback tag is called.<br/><br/> `jwpspotx`: (VAST) No auction is conducted by the player. The player asks SpotX for a bid and calls the returned ad response regardless of price. This option is equivalent to using JW Player mediation with a $.01 floor price. You must <a href="https://developer.spotxchange.com/content/local/docs/HeaderBidding/lisa.md" target="_blank">set up SpotX line items</a>.<br/><br/>`dfp`: (IMA) No auction is conducted by the player. All bids are sent to Google Ad Manager (GAM) and rendered as line items that compete against other line items. GAM serves the winning line item.<br/><br/>`jwpdfp`: (IMA) An initial auction is conducted by the player. You must specify a floor price. If a winner is selected, that winner's ad will is called. If no winner is selected, the fallback tag is called serve. If no winner is selected for any reason, all valid bids are sent to DFP where the bid values are rendered as line items to compete against other line items. The winning line item is served by DFP.<br/><br/>Default value: `jwp`|
+|`mediationLayerAdServer` | String | **(Required)** Mediation layer that decides which ad runs<br/><br/> `jwp`: (VAST/IMA) An auction is conducted by the player.  If a winner is selected, the winner's ad is called. If no winner is selected, the fallback tag is called. **You must specify a floor price.**<br/><br/> `jwpspotx`: (VAST) No auction is conducted by the player. The player asks SpotX for a bid and calls the returned ad response regardless of price. This option is equivalent to using JW Player mediation with a $.01 floor price. **You must** <a href="https://developer.spotxchange.com/content/local/docs/HeaderBidding/lisa.md" target="_blank">**set up SpotX line items**</a>.<br/><br/>`dfp`: (IMA) No auction is conducted by the player. All bids are sent to Google Ad Manager (GAM, formerly known as DFP) and rendered as line items that compete against other line items. GAM serves the winning line item. **We recommend setting** `buckets` **to minimize the number of line items that you must set up in GAM.**<br/><br/>`jwpdfp`: (IMA) An initial auction is conducted by the player. If a winner is selected, the winner's ad will is called. If no winner is selected, the fallback tag is called to serve. If no winner is selected for any reason, all valid bids are sent to Google Ad Manager (GAM, formerly known as DFP) where the bid values are rendered as line items to compete against other line items. The winning line item is served by GAM. **You must set** `floorPriceCents`**. We recommend setting** `buckets` **to minimize the number of line items that you must set up in GAM**.<br/><br/>Default value: `jwp`|
+| `buckets` | Array | **(Recommended)** Ranges of bid prices<br /><br />When using `buckets`, bid prices sent to GAM are rounded down to the closest specified increment. Price buckets are helpful to reduce the number of line items in GAM. Without price buckets, one line item per one-cent increment is required. <br /><br />**This property only applies when** `dfp` **or** `jwpdfp` **(only for the GAM portion of the mediation) is selected as the** `mediationLayerAdServer`.| 
 |`bidTimeout` | String | Timeout for bid response after the user clicks to play, in milliseconds<br/><br/>If you use SpotX as an ad partner, be sure to make a time allowance for the SpotX SDK to load.<br/><br/>Default value: `2000`|
-|`floorPriceCents` | Number | Price in cents (CPM) that a bid has to beat in order to win<br/><br/>This property does not need to be set when `mediationLayerAdServer` is set to `dfp` or `jwpspotx`.|
-|`floorPriceCurrency`| String | Currency of the `floorPriceCents` <br/><br/>Currently only usd is supported with `jwp` as the mediation layer.|
+|`floorPriceCents` | Number | Price in cents (CPM) that a bid has to beat in order to win<br/><br/>**This property must be set when** `mediationLayerAdServer` **is set to** `jwp` or `jwpdfp`.<br /><br />**NOTE**: Determining the best floor price depends upon various factors. If you need assistance determining the best floor price, please consult with your JW Player representative or SSP partner.|
+|`floorPriceCurrency`| String | Currency of the `floorPriceCents` <br/><br/>This property must be set to `usd` when `mediationLayerAdServer` is set to `jwp`.|
+
+<a name="advertising-bids-settings-buckets"></a>
+
+### advertising.bids.settings.buckets[]
+
+| Property | Type | Description | Default |
+| --- | --- | --- | --- |
+| **increment** | Number | Nearest increment to which a bid is rounded down, in bidding currency | 0.01 |
+| **max** | Number | Maximum value of a price bucket, in bidding currency | - |
+| **min** | Number | Minimum value of a price bucket, in bidding currency | 0 |
 
 <a name="advertising-companiondiv"></a>
 
