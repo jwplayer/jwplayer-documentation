@@ -94,11 +94,11 @@ If you’re not seeing ad tag request with the appropriate partner’s key-value
 
 **2**. Check that the ad tag URL is correctly added to the `advertising.schedule[].tag` property. For example, make sure the ad tag URL does not contain a space.
 
-**3**. Consider increasing the video player bidding timeout ([advertising.bid.settings](../../customization/configuration-reference/#advertising-bids-settings) from the default 1 second. The default is 2000 ms.
+**3**. Consider increasing the video player bidding timeout ([advertising.bid.settings](../../customization/configuration-reference/#advertising-bids-settings)) from the default 1 second. The default is 2000 ms.
 
 If you continue to have issues, either <a href="https://support.jwplayer.com/submit-support-case" target="_blank">submit a support ticket</a> or contact your JW Player representative.
 
-<br >
+<br />
 
 ### Ad impression did not happen
 If your player and Video Player Bidding setups appear to be properly implemented and you do not see ads, you may need to examine your ad server setup:

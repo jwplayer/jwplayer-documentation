@@ -8,7 +8,7 @@ After following the steps to [Set up Video Player Bidding](../set-up-video-playe
 
 **2**. On the **Console** tab, type `jwplayer().getConfig()` at the prompt. The console returns the configuration of the player similar to the following screenshot.
 
-![](../img/vpb/vpb-getConfig-sm.png)
+&nbsp;&nbsp;&nbsp; ![](../img/vpb/vpb-getConfig-sm.png)
 
 You are now prepared to begin the validation process explained in the following sections.
 
