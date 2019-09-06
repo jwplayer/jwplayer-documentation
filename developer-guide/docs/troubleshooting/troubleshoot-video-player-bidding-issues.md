@@ -118,4 +118,6 @@ If your player and Video Player Bidding setups appear to be properly implemented
 
 **4**. Listen for the `adError` event from your player and capture the details. There may be an issue with the creative.
 
+<br />
+
 If you continue to have issues, either <a href="https://support.jwplayer.com/submit-support-case" target="_blank">submit a support ticket</a> or contact your JW Player representative.

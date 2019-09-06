@@ -21,10 +21,13 @@ Video Player Bidding (VPB) connects your digital video inventory directly to adv
 ## Implementation
 
 !!!important
+
 &bull; If you plan to use DoubleClick for Publishers (DFP) as your mediation layer, be sure to [set up line items](https://dev-support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup) within your Google Ad Manager account.
 
 &bull; Due to the potential impact on performance and user experience, while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
 !!!
+
+<br />
 
 Use the following steps and code example to enable Video Player Bidding:
 
@@ -39,6 +42,8 @@ jwplayer("myElement").setup({
 });
 ```
 
+<br />
+
 **2**. Define the `client` property within the `advertising` object.
 
 ```javascript
@@ -49,6 +54,8 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+<br />
 
 **3**. Define the `adscheduleid` property within the `advertising` object. Assign a randomly-generated, eight-character, alpha-numeric value to this property.
 
@@ -61,6 +68,8 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+<br />
 
 **4**. Define a `schedule` array within the `advertising` object. At the minimum, you must assign an ad tag to the `tag` property and assign `pre` to the `offset` property. <br /><br />Alternatively, you can assign the URL of a VMAP tag to the `schedule` property.
 
@@ -79,6 +88,8 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+<br />
 
 **5**. Choose one of the following `bids.settings` objects. Use the [advertising.bids.settings](../../customization/configuration-reference/#advertising-bids-settings) to configure this object.
 
@@ -123,6 +134,8 @@ bids: {
 }
 ```
 
+<br />
+
 **6**. Add the configured `bids` object to the `advertising` object.
 
 ```javascript
@@ -153,6 +166,8 @@ jwplayer("myElement").setup({
 If you use DFP for mediation, be sure to set up line items within your <a href="https://support.jwplayer.com/articles/set-up-video-player-bidding#google-ad-manager-required-setup" target="_blank">Google Ad Manager account</a>.
 !!!
 
+<br />
+
 **7**. Add a `bidders` array to the `bids` object that defines the applicable `name`, `id`, `pubid`, and `type` for one or more ad partners. Use the [advertising.bids.bidders](../../customization/configuration-reference/#advertising-bids-bidders) to configure this object.
 
 ```javascript
@@ -176,6 +191,8 @@ jwplayer("myElement").setup({
   }
 });
 ```
+
+<br />
 
 **8**. (Optional) If you use SpotX as an ad partner, you can add an `optionalParams` object to append custom parameters to the ad tag.
 
