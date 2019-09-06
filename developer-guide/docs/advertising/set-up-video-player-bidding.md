@@ -115,6 +115,13 @@ bids: {
 bids: {
    settings: {
       mediationLayerAdServer: "dfp"
+      buckets: [
+        {
+          min: 0,
+          max: 25,
+          increment: 0.50
+        }
+     ]
    },
 }
 
