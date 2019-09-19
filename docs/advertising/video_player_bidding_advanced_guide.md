@@ -1,6 +1,6 @@
 # Video Player Bidding Advanced Guide
 
-Video Player Bidding is a market-changing solution from JW Player, built to reduce latency and boost monetization by gaining access to additional advertising demand. By making an addition to the `advertising` object of the player, you can access the benefits of header bidding.
+Video Player Bidding is a market-changing solution from JW Player, built to reduce latency and boost monetization by gaining access to additional advertising demand. By making an addition to the `advertising` object of the player, you can access the benefits of header bidding. 
 
 !!!important
 Due to the potential impact on performance and user experience while the player is waiting for the bidding process to complete, the `playAd()` method is not supported when using Video Player Bidding.
