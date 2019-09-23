@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-<sup>Last Updated: September 6, 2019</sup>
+<sup>Last Updated: September 25, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -1271,6 +1271,7 @@ jwplayer("myElement").setup({
 |`rewind`|String|Tooltip text for and `aria-label` HTML attribute of the rewind button in the control bar|Rewind 10 Seconds|
 |`settings`|String|Tooltip text for and `aria-label` HTML attribute of the **Settings** menu icon|Settings|
 |`sharing`|Object|See: [sharing object](#intlsharing).|-|
+|`shortcuts`|Object|See [shortcuts object](#intlshortcuts). |-|
 |`slider`|String|`aria-label` HTML attribute of the video scrub bar|Seek Slider|
 |`stop`|String|`aria-label` HTML attribute of the stop button in the control bar for live streams.|Stop|
 |`unmute` <sup>8.7.0 +</sup>|String|When the player is muted, tooltip text for and aria-label HTML attribute of the volume icon in the control bar|Unmute|
@@ -1320,6 +1321,26 @@ This object localizes the player text and ARIA labels of the [related object](#r
 |---|---|---|---|
 |<a name="intlautoplaymessage"></a>`autoplaymessage`|String|Countdown message text that displays the remaining duration before the next video begins to play|Next up in xx|
 |<a name="intlrelatedheading"></a>`heading`|String|Button text for, overlay heading for, and `aria-label` HTML attribute of recommended video interfaces|More Videos|
+
+<a name="intlshortcuts"></a>
+
+### shortcuts object<sup>8.11.0+</sup>
+
+This object localizes the keyboard shortcut menu items.
+
+|Property|Type|Description|Default|
+|---|---|---|---|
+| captionsToggle | String | Label for the keyboard shortcut to toggle captions in the video | Captions On/Off |
+| decreaseVolume | String | Label for the keyboard shortcut to decrease the volume of the video | Decrease Volume |
+| fullscreenToggle | String | Label for the keyboard shortcut to toggle fullscreen | Fullscreen/Exit Fullscreen |
+| increaseVolume | String | Label for the keyboard shortcut to increase the volume of the video | Increase Volume |
+| keyboardShortcuts | String | Heading for a list of all of the available keyboard shortcuts in the video player |
+| playPause | String | Label for the keyboard shortcut to toggle playback | Play/Pause |
+| seekBackward | String | Label for the keyboard shortcut to seek backward by 5 seconds in the video | Seek Backward |
+| seekForward | String | Label for the keyboard shortcut to seek forward 5 seconds of the video | Seek Forward |
+| seekPercent | String | Label of numeric keyboard shortcuts you can press to fast foward to a certain point in a video in a multiple of ten<br /><br /> For example, you can press the 5 key to go to the 50% mark of the video. 2 key for 20% of the video. | Seek %|
+| spacebar | String | Name of the spacebar key on a keyboard | |
+| volumeToggle | String | Label for the keyboard shortcut to toggle volume. | |
 
 <a name="intlsharing"></a>
 
