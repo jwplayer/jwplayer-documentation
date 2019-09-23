@@ -1324,23 +1324,23 @@ This object localizes the player text and ARIA labels of the [related object](#r
 
 <a name="intlshortcuts"></a>
 
-### shortcuts object<sup>8.11.0+</sup>
+### shortcuts object <sup>8.11.0+</sup>
 
 This object localizes the keyboard shortcut menu items.
 
 |Property|Type|Description|Default|
 |---|---|---|---|
-| captionsToggle | String | Label for the keyboard shortcut to toggle captions in the video | Captions On/Off |
-| decreaseVolume | String | Label for the keyboard shortcut to decrease the volume of the video | Decrease Volume |
-| fullscreenToggle | String | Label for the keyboard shortcut to toggle fullscreen | Fullscreen/Exit Fullscreen |
-| increaseVolume | String | Label for the keyboard shortcut to increase the volume of the video | Increase Volume |
-| keyboardShortcuts | String | Heading for a list of all of the available keyboard shortcuts in the video player |
-| playPause | String | Label for the keyboard shortcut to toggle playback | Play/Pause |
-| seekBackward | String | Label for the keyboard shortcut to seek backward by 5 seconds in the video | Seek Backward |
-| seekForward | String | Label for the keyboard shortcut to seek forward 5 seconds of the video | Seek Forward |
-| seekPercent | String | Label of numeric keyboard shortcuts you can press to fast foward to a certain point in a video in a multiple of ten<br /><br /> For example, you can press the 5 key to go to the 50% mark of the video. 2 key for 20% of the video. | Seek %|
-| spacebar | String | Name of the spacebar key on a keyboard | |
-| volumeToggle | String | Label for the keyboard shortcut to toggle volume. | |
+| `captionsToggle` | String | Label for the keyboard shortcut to toggle captions in the video | Captions On/Off |
+| `decreaseVolume` | String | Label for the keyboard shortcut to decrease the volume of the video | Decrease Volume |
+| `fullscreenToggle` | String | Label for the keyboard shortcut to toggle fullscreen | Fullscreen/Exit Fullscreen |
+| `increaseVolume` | String | Label for the keyboard shortcut to increase the volume of the video | Increase Volume |
+| `keyboardShortcuts` | String | Heading for a list of all of the available keyboard shortcuts in the video player |
+| `playPause` | String | Label for the keyboard shortcut to toggle playback | Play/Pause |
+| `seekBackward` | String | Label for the keyboard shortcut to seek backward by 5 seconds in the video | Seek Backward |
+| `seekForward` | String | Label for the keyboard shortcut to seek forward 5 seconds of the video | Seek Forward |
+| `seekPercent` | String | Label of numeric keyboard shortcuts you can press to fast foward to a certain point in a video in a multiple of ten<br /><br /> For example, you can press the 5 key to go to the 50% mark of the video. 2 key for 20% of the video. | Seek %|
+| `spacebar` | String | Name of the spacebar key on a keyboard | |
+| `volumeToggle` | String | Label for the keyboard shortcut to toggle volume. | |
 
 <a name="intlsharing"></a>
 
