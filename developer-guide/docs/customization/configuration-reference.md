@@ -4,7 +4,7 @@ This page has been updated for JW Player 8. Click here to go to the [JW7 Configu
 
 # JW Player Configuration Reference
 
-<sup>Last Updated: September 6, 2019</sup>
+<sup>Last Updated: October 3, 2019</sup>
 
 This article contains all configuration options JW Player supports.
 
@@ -718,7 +718,7 @@ Setting an empty **"sharing":{}** options block will enable the social sharing m
 
 |Config|Type|Description|Default|
 |---|---|---|---|
-|**sharing.link** <sup>< 8.6.0</sup>|String|URL to display in the video link field<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intllink) to set this property.|URL of the current page|
+|**sharing.link** |String|URL to display in the video link field|URL of the current page|
 |**sharing.code**|String|Embed code to display in the embed code field. If no code is set, the field is not shown|-|
 |**sharing.heading** <sup>< 8.6.0</sup>|String|Short, instructive text to display at the top of the sharing screen<br/><br/><font color="red">**WARNING**</font>: Starting with JW Player 8.6.0, use the [intl object](#intlheading) to set this property.|"Share Video"|
 |**sharing.sites**|Array|Allows for the customization of social icons|["facebook","twitter","email"]|
