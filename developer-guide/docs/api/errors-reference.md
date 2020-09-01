@@ -308,13 +308,15 @@ When a warning occurs, video player functionality is not interrupted, but may be
 |<a name='305004'></a> 305004 | The freewheel.js file failed to load. | - | - |
 |<a name='305005'></a> 305005 | The dai.js file failed to load. | - | - |
 |<a name='305006'></a> 305006 | The gapro.js file failed to load. | - | - |
+|<a name='305007'></a> 305007 | The bidding.js file failed to load. | - | - |
 |<a name='305100'></a> 305100 | An unknown plugin file loaded, but was not registered. | - | - |
-|<a name='305001'></a> 305101 | The jwpsrv.js file loaded, but was not registered. | - | - |
-|<a name='305002'></a> 305102 | The googima.js file loaded, but was not registered. | - | - |
-|<a name='305003'></a> 305103 | The vast.js file loaded, but was not registered. | - | - |
-|<a name='305004'></a> 305104 | The freewheel.js file loaded, but was not registered. | - | - |
-|<a name='305005'></a> 305105 | The dai.js file loaded, but was not registered. | - | - |
-|<a name='305006'></a> 305106 | The gapro.js file loaded, but was not registered. | - | - |
+|<a name='305101'></a> 305101 | The jwpsrv.js file loaded, but was not registered. | - | - |
+|<a name='305102'></a> 305102 | The googima.js file loaded, but was not registered. | - | - |
+|<a name='305103'></a> 305103 | The vast.js file loaded, but was not registered. | - | - |
+|<a name='305104'></a> 305104 | The freewheel.js file loaded, but was not registered. | - | - |
+|<a name='305105'></a> 305105 | The dai.js file loaded, but was not registered. | - | - |
+|<a name='305106'></a> 305106 | The gapro.js file loaded, but was not registered. | - | - |
+|<a name='305107'></a> 305107 | The bidding.js file loaded, but was not registered. | - | - |
 
 <a name="related-warnings"></a>
 
